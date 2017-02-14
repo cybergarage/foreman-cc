@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C3041E52F51E006C4425 /* MemStoreTests.cpp */; };
+		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
+		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2175C3181E52F53D006C4425 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211B343E1E52F1B8008D5228;
+			remoteInfo = "libforeman++";
+		};
+		2175C31E1E52F653006C4425 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 211B343D1E52F1B8008D5228;
+			remoteInfo = "libforeman++";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		218DFCD41E52F28000224C70 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2175C3041E52F51E006C4425 /* MemStoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStoreTests.cpp; path = ../../MemStoreTests.cpp; sourceTree = "<group>"; };
+		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
+		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
+		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
+		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		218DFCD31E52F28000224C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2175C3021E52F4ED006C4425 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2175C3041E52F51E006C4425 /* MemStoreTests.cpp */,
+				2175C30E1E52F51E006C4425 /* ForemanTest.h */,
+				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		2175C3031E52F4FB006C4425 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		2175C3151E52F53D006C4425 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2175C3191E52F53D006C4425 /* libforeman++.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		218DFCCD1E52F28000224C70 = {
+			isa = PBXGroup;
+			children = (
+				2175C3021E52F4ED006C4425 /* Sources */,
+				2175C3031E52F4FB006C4425 /* Libraries */,
+				218DFCD71E52F28000224C70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		218DFCD71E52F28000224C70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				218DFCD61E52F28000224C70 /* foremantest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		218DFCD51E52F28000224C70 /* foremantest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 218DFCDD1E52F28000224C70 /* Build configuration list for PBXNativeTarget "foremantest" */;
+			buildPhases = (
+				218DFCD21E52F28000224C70 /* Sources */,
+				218DFCD31E52F28000224C70 /* Frameworks */,
+				218DFCD41E52F28000224C70 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2175C31F1E52F653006C4425 /* PBXTargetDependency */,
+			);
+			name = foremantest;
+			productName = foremantest;
+			productReference = 218DFCD61E52F28000224C70 /* foremantest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		218DFCCE1E52F28000224C70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Satoshi Konno";
+				TargetAttributes = {
+					218DFCD51E52F28000224C70 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 218DFCD11E52F28000224C70 /* Build configuration list for PBXProject "foremantest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 218DFCCD1E52F28000224C70;
+			productRefGroup = 218DFCD71E52F28000224C70 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2175C3151E52F53D006C4425 /* Products */;
+					ProjectRef = 2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				218DFCD51E52F28000224C70 /* foremantest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2175C3191E52F53D006C4425 /* libforeman++.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libforeman++.a";
+			remoteRef = 2175C3181E52F53D006C4425 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		218DFCD21E52F28000224C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
+				2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2175C31F1E52F653006C4425 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libforeman++";
+			targetProxy = 2175C31E1E52F653006C4425 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		218DFCDB1E52F28000224C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lboost_unit_test_framework",
+					"-lboost_system",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		218DFCDC1E52F28000224C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-lboost_unit_test_framework",
+					"-lboost_system",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		218DFCDE1E52F28000224C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		218DFCDF1E52F28000224C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		218DFCD11E52F28000224C70 /* Build configuration list for PBXProject "foremantest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218DFCDB1E52F28000224C70 /* Debug */,
+				218DFCDC1E52F28000224C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		218DFCDD1E52F28000224C70 /* Build configuration list for PBXNativeTarget "foremantest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218DFCDE1E52F28000224C70 /* Debug */,
+				218DFCDF1E52F28000224C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 218DFCCE1E52F28000224C70 /* Project object */;
+}

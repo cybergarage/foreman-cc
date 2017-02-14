@@ -10,6 +10,8 @@
 
 #include <cstdlib>
 
+#include <foreman/MemStore.h>
+
 int main(int argc, char* argv[])
 {
   return EXIT_SUCCESS;
