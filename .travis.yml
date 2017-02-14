@@ -21,11 +21,8 @@ before_install:
   - sudo apt-get install libboost-all-dev
   - sudo apt-get install libsqlite3-dev
 
-install:
-  - git clone https://github.com/cybergarage/foreman-cc.git foreman-cc
-
 script:
-  - cd foreman-cc && ./bootstrap && ./configure --enable-tests && make && make check
+  - ./bootstrap && ./configure --enable-tests && make && make check
 
 notifications:
   email: false
