@@ -73,6 +73,22 @@ public:
   bool close();
 };
 
+
+////////////////////////////////////////////////
+// RingMapStore
+////////////////////////////////////////////////
+  
+class RingMapStore : public MemStore {
+    
+public:
+  RingMapStore();
+  ~RingMapStore();
+    
+  bool open();
+  bool isOpened();
+  bool close();
+};
+
 }
 
 #endif

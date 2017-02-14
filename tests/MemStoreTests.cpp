@@ -39,3 +39,16 @@ BOOST_AUTO_TEST_CASE(WideTableStoreTest)
   testController.run(store);
   delete store;
 }
+
+////////////////////////////////////////////////
+// RingMapStore
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(RingMapStoreTest)
+{
+  MemStoreTestContoller testController;
+  
+  MemStore *store = new RingMapStore();
+  testController.run(store);
+  delete store;
+}
