@@ -12,7 +12,7 @@ AC_CONFIG_AUX_DIR(config)
 AM_CONFIG_HEADER(config.h)
 
 AC_INIT([Foreman], [0.1])
-AC_CONFIG_SRCDIR([include/foreman/memstore.h])
+AC_CONFIG_SRCDIR([include/foreman/Platform.h])
 AM_INIT_AUTOMAKE([subdir-objects])
 
 ##############################
