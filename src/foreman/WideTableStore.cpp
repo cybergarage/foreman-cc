@@ -8,34 +8,29 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
+#include <stdio.h>
+#include <sqlite3.h>
 
-#include "MemStoreTestController.h"
+#include <foreman/MemStore.h>
 
 using namespace Foreman;
-
-////////////////////////////////////////////////
-// TSmapStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(TSmapStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new TSmapStore();
-  testController.run(store);
-  delete store;
-}
 
 ////////////////////////////////////////////////
 // WideTableStore
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(WideTableStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new WideTableStore();
-  testController.run(store);
-  delete store;
+WideTableStore::WideTableStore() {
+}
+
+WideTableStore::~WideTableStore() {
+}
+
+////////////////////////////////////////////////
+// open
+////////////////////////////////////////////////
+
+bool WideTableStore::open() {
+  if (!SQLiteStore::open())
+    return false;
+  return true;
 }

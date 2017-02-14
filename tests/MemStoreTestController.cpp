@@ -12,30 +12,23 @@
 
 #include "MemStoreTestController.h"
 
-using namespace Foreman;
+//using namespace Foreman::Test;
 
 ////////////////////////////////////////////////
-// TSmapStore
+// MemStoreTestContoller
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(TSmapStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new TSmapStore();
-  testController.run(store);
-  delete store;
+MemStoreTestContoller::MemStoreTestContoller() {
+}
+
+MemStoreTestContoller::~MemStoreTestContoller() {
 }
 
 ////////////////////////////////////////////////
-// WideTableStore
+// run
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(WideTableStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new WideTableStore();
-  testController.run(store);
-  delete store;
+void MemStoreTestContoller::run(Foreman::MemStore *store) {
+  BOOST_CHECK(store->open());
+  BOOST_CHECK(store->close());
 }

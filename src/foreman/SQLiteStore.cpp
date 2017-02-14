@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <sqlite3.h>
 
-#include <foreman/SQLiteStore.h>
+#include <foreman/MemStore.h>
 
 using namespace Foreman;
 
@@ -31,8 +31,9 @@ SQLiteStore::~SQLiteStore() {
 ////////////////////////////////////////////////
 
 bool SQLiteStore::open() {
-  if (sqlite3_open("", &db) != SQLITE_OK)
+  if (sqlite3_open(":memory:", &db) != SQLITE_OK)
     return false;
+
   return true;
 }
 
@@ -43,6 +44,7 @@ bool SQLiteStore::open() {
 bool SQLiteStore::isOpened() {
   if (!db)
     return false;
+
   return true;
 }
 
@@ -53,6 +55,9 @@ bool SQLiteStore::isOpened() {
 bool SQLiteStore::close() {
   if (!db)
     return false;
-  sqlite3_close(db);
+  
+  if (sqlite3_close(db) != SQLITE_OK)
+    return false;
+
   return true;
 }

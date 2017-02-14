@@ -8,13 +8,15 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANTEST_TEST_H_
-#define _FOREMANTEST_TEST_H_
+#ifndef _FOREMANCC_TEST_TEST_H_
+#define _FOREMANCC_TEST_TEST_H_
 
 namespace Foreman {  
-  namespace Test {    
-    void Setup();
-  }
+namespace Test {
+  
+void Setup();
+
+}
 }
 
 #endif

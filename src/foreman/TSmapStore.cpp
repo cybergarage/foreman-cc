@@ -8,9 +8,10 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
+#include <stdio.h>
+#include <sqlite3.h>
 
-#include "MemStoreTestController.h"
+#include <foreman/MemStore.h>
 
 using namespace Foreman;
 
@@ -18,24 +19,32 @@ using namespace Foreman;
 // TSmapStore
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(TSmapStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new TSmapStore();
-  testController.run(store);
-  delete store;
+TSmapStore::TSmapStore() {
+}
+
+TSmapStore::~TSmapStore() {
 }
 
 ////////////////////////////////////////////////
-// WideTableStore
+// open
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(WideTableStoreTest)
-{
-  MemStoreTestContoller testController;
-  
-  MemStore *store = new WideTableStore();
-  testController.run(store);
-  delete store;
+bool TSmapStore::open() {
+  return true;
+}
+
+////////////////////////////////////////////////
+// open
+////////////////////////////////////////////////
+
+bool TSmapStore::isOpened() {
+  return true;
+}
+
+////////////////////////////////////////////////
+// close
+////////////////////////////////////////////////
+
+bool TSmapStore::close() {
+  return true;
 }

@@ -10,8 +10,7 @@
 
 foremancc_header = \
 	./foreman/MemStore.h \
-	./foreman/Platform.h \
-	./foreman/SQLiteStore.h
+	./foreman/Platform.h
 
 nobase_include_HEADERS = \
 	$(foremancc_header)
