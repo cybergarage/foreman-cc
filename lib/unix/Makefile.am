@@ -13,7 +13,8 @@ lib_LIBRARIES = libforeman++.a
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
 foremancc_sources = \
-	../../src/foreman/MemStore.cpp
+	../../src/foreman/MemStore.cpp \
+	../../src/foreman/SQLiteStore.cpp
 
 libforeman___a_SOURCES = \
         $(foremancc_sources)

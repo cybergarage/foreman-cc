@@ -8,22 +8,27 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_MEMSTORE_H_
-#define _FOREMANCC_MEMSTORE_H_
+#ifndef _FOREMANCC_SQLITESTORE_H_
+#define _FOREMANCC_SQLITESTORE_H_
 
-#include <foreman/Platform.h>
+#include <stdio.h>
+#include <sqlite3.h>
+
+#include <foreman/MemStore.h>
 
 namespace Foreman {
 
-class MemStore {
+class SQLiteStore : public MemStore {
 
-public:
-  MemStore();
-  virtual ~MemStore();
+  sqlite3 *db;
   
-  virtual bool open() = 0;
-  virtual bool isOpened() = 0;
-  virtual bool close() = 0;
+public:
+  SQLiteStore();
+  ~SQLiteStore();
+
+  bool open();
+  bool isOpened();
+  bool close();
 };
 
 }

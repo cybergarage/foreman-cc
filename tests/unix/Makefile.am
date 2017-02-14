@@ -15,6 +15,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
 	..//ForemanTest.cpp \
-	..//MemStoreTests.cpp
+	..//MemStoreTests.cpp \
+	..//SQLIteStoreTests.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
