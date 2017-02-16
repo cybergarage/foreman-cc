@@ -15,16 +15,16 @@ AC_INIT([Foreman], [0.1])
 AC_CONFIG_SRCDIR([include/foreman/Platform.h])
 AM_INIT_AUTOMAKE([subdir-objects])
 
-##############################
+##################################################################
 # Constants
-##############################
+##################################################################
 
 SQLITE3_VERSION=3.14.0
 BENCHMARK_VERSION=1.1.0
 
-##############################
+##################################################################
 # Checks compiler
-##############################
+##################################################################
 
 AC_PROG_CC
 AC_PROG_CXX
@@ -32,31 +32,48 @@ AC_PROG_INSTALL
 AC_PROG_AWK
 AC_PROG_RANLIB
 
-##############################
+##################################################################
 # Check standard header files
-##############################
+##################################################################
 
 AC_CHECK_HEADERS([stdbool.h])
 
-##############################
+##################################################################
 # Check standard libraries
-##############################
+##################################################################
 
 AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)])
 
-##############################
+##################################################################
 # Check libraries
-##############################
+##################################################################
 
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
 
-AC_CHECK_HEADERS([benchmark/benchmark.h])
-AC_CHECK_LIB([benchmark],[main],,[AC_MSG_ERROR(Foreman needs Google Benchmark $BENCHMARK_VERSION later)])
 
-##############################
+##################################################################
+# Benchmark
+##################################################################
+
+AC_ARG_ENABLE(
+ 	[benchmark],
+	AC_HELP_STRING([--enable-benchmark], [ build benchmark (default = no) ]),
+	[case "${enableval}" in
+    	yes | no ) build_benchmark="${enableval}" ;;
+	esac],
+	[]
+)
+
+AM_CONDITIONAL(FOREMAN_ENABLE_BENCHMARK,test "$build_benchmark" = yes)
+if [ test "$build_benchmark" = yes ]; then
+	AC_CHECK_HEADERS([benchmark/benchmark.h])
+	AC_CHECK_LIB([benchmark],[main],,[AC_MSG_ERROR(Foreman needs Google Benchmark $BENCHMARK_VERSION later)])
+fi
+
+##################################################################
 # Testing
-##############################
+##################################################################
 
 AC_ARG_ENABLE(
  	[tests],
@@ -83,9 +100,9 @@ if [ test "$build_tests" = yes ]; then
 st_unit_test_framework)])])
 fi
 
-##############################
+##################################################################
 # Makefiles
-##############################
+##################################################################
 
 AC_OUTPUT([
 Makefile

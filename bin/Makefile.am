@@ -8,4 +8,8 @@
 #
 ##################################################################
 
-SUBDIRS = foremanbench
+SUBDIRS =
+
+if FOREMAN_ENABLE_BENCHMARK
+SUBDIRS += foremanbench
+endif
