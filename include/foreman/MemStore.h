@@ -15,6 +15,7 @@
 
 #include <sqlite3.h>
 
+#include <foreman/Metric.h>
 #include <foreman/Platform.h>
 
 namespace Foreman {
@@ -32,10 +33,36 @@ class MemStore {
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
 
+  virtual bool realloc() {
+    return true;
+  }
+  
+  virtual size_t getMemoryUsage()
+  {
+    return 0;
+  }
+  
+  virtual bool addMetric(const Metric &metric);
+  
+  Metrics &getMetrics()
+  {
+    return metrics_;
+  }
+  
+  virtual bool addValue(const Metric &metric)
+  {
+    return true;
+  }
+  
   virtual bool setRetentionInterval(time_t sec)
   {
     retentionInterval_ = sec;
     return true;
+  };
+
+  time_t getRetentionInterval()
+  {
+    return retentionInterval_;
   };
 
   virtual bool setRetentionPeriod(time_t sec)
@@ -44,9 +71,15 @@ class MemStore {
     return true;
   };
 
+  time_t getRetentionPeriod()
+  {
+    return retentionPeriod_;
+  };
+
   private:
   time_t retentionInterval_;
   time_t retentionPeriod_;
+  Metrics metrics_;
 };
 
 ////////////////////////////////////////////////
@@ -62,8 +95,8 @@ class SQLiteStore : public MemStore {
   bool isOpened();
   bool close();
 
-private:
-  sqlite3* db;  
+  private:
+  sqlite3* db;
 };
 
 class WideTableStore : public SQLiteStore {
