@@ -20,6 +20,7 @@ AM_INIT_AUTOMAKE([subdir-objects])
 ##############################
 
 SQLITE3_VERSION=3.14.0
+BENCHMARK_VERSION=1.1.0
 
 ##############################
 # Checks compiler
@@ -49,6 +50,9 @@ AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)
 
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
+
+AC_CHECK_HEADERS([benchmark/benchmark.h])
+AC_CHECK_LIB([benchmark],[main],,[AC_MSG_ERROR(Foreman needs Google Benchmark $BENCHMARK_VERSION later)])
 
 ##############################
 # Testing
@@ -94,3 +98,4 @@ bin/foremanbench/unix/Makefile
 tests/Makefile
 tests/unix/Makefile
 ])
+

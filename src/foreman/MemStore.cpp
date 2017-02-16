@@ -28,7 +28,7 @@ MemStore::~MemStore() {}
 // addMetric
 ////////////////////////////////////////////////
 
-bool MemStore::addMetric(const Metric &metric)
+bool MemStore::addMetric(const Metric& metric)
 {
   metrics_.push_back(std::unique_ptr<Metric>(new Metric(metric)));
   return true;

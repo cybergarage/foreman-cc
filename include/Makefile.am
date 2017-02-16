@@ -10,6 +10,7 @@
 
 foremancc_header = \
 	./foreman/MemStore.h \
+	./foreman/Metric.h \
 	./foreman/Platform.h
 
 nobase_include_HEADERS = \

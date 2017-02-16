@@ -33,27 +33,28 @@ class MemStore {
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
 
-  virtual bool realloc() {
+  virtual bool realloc()
+  {
     return true;
   }
-  
+
   virtual size_t getMemoryUsage()
   {
     return 0;
   }
-  
-  virtual bool addMetric(const Metric &metric);
-  
-  Metrics &getMetrics()
+
+  virtual bool addMetric(const Metric& metric);
+
+  Metrics& getMetrics()
   {
     return metrics_;
   }
-  
-  virtual bool addValue(const Metric &metric)
+
+  virtual bool addValue(const Metric& metric)
   {
     return true;
   }
-  
+
   virtual bool setRetentionInterval(time_t sec)
   {
     retentionInterval_ = sec;

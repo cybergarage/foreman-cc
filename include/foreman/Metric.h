@@ -11,9 +11,9 @@
 #ifndef _FOREMANCC_METRIC_H_
 #define _FOREMANCC_METRIC_H_
 
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 
 #include <time.h>
 
@@ -39,7 +39,7 @@ class Metric {
 // Metrics
 ////////////////////////////////////////////////
 
-  typedef std::vector<std::unique_ptr<Metric>> Metrics;
+typedef std::vector<std::unique_ptr<Metric>> Metrics;
 }
 
 #endif
