@@ -5,6 +5,8 @@ pushd lib/unix && ./Makefile.am.build > Makefile.am && popd
 pushd bin/foremanbench/unix && ./Makefile.am.build > Makefile.am && popd
 pushd tests/unix && ./Makefile.am.build > Makefile.am && popd
 
+./format
+
 if [ ! -d config ]; then
     mkdir config
 fi
