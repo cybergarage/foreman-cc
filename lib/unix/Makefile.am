@@ -14,6 +14,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 
 foremancc_sources = \
 	../../src/foreman/MemStore.cpp \
+	../../src/foreman/RingMapStore.cpp \
 	../../src/foreman/SQLiteStore.cpp \
 	../../src/foreman/TSmapStore.cpp \
 	../../src/foreman/WideTableStore.cpp
