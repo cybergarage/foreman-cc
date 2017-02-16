@@ -32,7 +32,9 @@ AC_PROG_INSTALL
 AC_PROG_AWK
 AC_PROG_RANLIB
 
-AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+# FIXME : Could not use AX_CXX_COMPILE_STDCXX_11 ...
+# AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+# AX_CHECK_COMPILE_FLAG([-std=c11],[CFLAGS+=" -std=c11"],[AC_MSG_ERROR(Foreman needs C++11 compiler)])
 
 ##################################################################
 # Check standard header files
@@ -52,7 +54,6 @@ AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)
 
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
-
 
 ##################################################################
 # Benchmark
