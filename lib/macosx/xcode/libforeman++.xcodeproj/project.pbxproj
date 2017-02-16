@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E7FDB1E56078F00E41441 /* TimeSeries.h */; };
+		213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDD1E56080900E41441 /* TimeSeries.cpp */; };
 		2175C2F61E52F444006C4425 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F41E52F444006C4425 /* MemStore.h */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
 		2175C3001E52F470006C4425 /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C2FE1E52F470006C4425 /* MemStore.cpp */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		213E7FDB1E56078F00E41441 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
+		213E7FDD1E56080900E41441 /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
 		2175C2F41E52F444006C4425 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		2175C2FE1E52F470006C4425 /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemStore.cpp; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				213E7FDB1E56078F00E41441 /* TimeSeries.h */,
 				219F41C71E55B1EF003EAD97 /* Metric.h */,
 				2175C2F41E52F444006C4425 /* MemStore.h */,
 				2175C2F51E52F444006C4425 /* Platform.h */,
@@ -91,6 +96,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				213E7FDD1E56080900E41441 /* TimeSeries.cpp */,
 				219F41C51E55B1E7003EAD97 /* Metric.cpp */,
 				219F41C31E55980D003EAD97 /* MatrixStore.cpp */,
 				21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */,
@@ -110,6 +116,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
 				2175C2F61E52F444006C4425 /* MemStore.h in Headers */,
 				219F41C81E55B1EF003EAD97 /* Metric.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
@@ -174,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2175C3001E52F470006C4425 /* MemStore.cpp in Sources */,
+				213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */,
 				21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */,
 				219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */,
 				21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */,
