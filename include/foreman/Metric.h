@@ -8,28 +8,38 @@
  *
  ******************************************************************/
 
-#include <foreman/MemStore.h>
+#ifndef _FOREMANCC_METRIC_H_
+#define _FOREMANCC_METRIC_H_
 
-using namespace Foreman;
+#include <string>
+#include <vector>
+#include <memory>
+
+#include <time.h>
+
+#include <foreman/Platform.h>
+
+namespace Foreman {
 
 ////////////////////////////////////////////////
-// MemStore
+// Metric
 ////////////////////////////////////////////////
 
-MemStore::MemStore()
-{
-  retentionInterval_ = 0;
-  retentionPeriod_ = 0;
+class Metric {
+  public:
+  Metric();
+  virtual ~Metric();
+
+  std::string name;
+  double value;
+  time_t timestamp;
+};
+
+////////////////////////////////////////////////
+// Metrics
+////////////////////////////////////////////////
+
+  typedef std::vector<std::unique_ptr<Metric>> Metrics;
 }
 
-MemStore::~MemStore() {}
-
-////////////////////////////////////////////////
-// addMetric
-////////////////////////////////////////////////
-
-bool MemStore::addMetric(const Metric &metric)
-{
-  metrics_.push_back(std::unique_ptr<Metric>(new Metric(metric)));
-  return true;
-}
+#endif

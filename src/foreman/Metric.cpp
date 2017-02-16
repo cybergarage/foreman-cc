@@ -8,28 +8,16 @@
  *
  ******************************************************************/
 
-#include <foreman/MemStore.h>
+#include <foreman/Metric.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// MemStore
+// Metric
 ////////////////////////////////////////////////
 
-MemStore::MemStore()
+Metric::Metric()
 {
-  retentionInterval_ = 0;
-  retentionPeriod_ = 0;
 }
 
-MemStore::~MemStore() {}
-
-////////////////////////////////////////////////
-// addMetric
-////////////////////////////////////////////////
-
-bool MemStore::addMetric(const Metric &metric)
-{
-  metrics_.push_back(std::unique_ptr<Metric>(new Metric(metric)));
-  return true;
-}
+Metric::~Metric() {}
