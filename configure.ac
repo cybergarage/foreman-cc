@@ -32,6 +32,8 @@ AC_PROG_INSTALL
 AC_PROG_AWK
 AC_PROG_RANLIB
 
+AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+
 ##################################################################
 # Check standard header files
 ##################################################################
