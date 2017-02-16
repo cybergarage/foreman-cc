@@ -21,8 +21,8 @@ using namespace Foreman;
 BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 {
   MemStoreTestContoller testController;
-  
-  MemStore *store = new TSmapStore();
+
+  MemStore* store = new TSmapStore();
   testController.run(store);
   delete store;
 }
@@ -34,8 +34,8 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 BOOST_AUTO_TEST_CASE(WideTableStoreTest)
 {
   MemStoreTestContoller testController;
-  
-  MemStore *store = new WideTableStore();
+
+  MemStore* store = new WideTableStore();
   testController.run(store);
   delete store;
 }
@@ -47,8 +47,8 @@ BOOST_AUTO_TEST_CASE(WideTableStoreTest)
 BOOST_AUTO_TEST_CASE(MatrixStoreTest)
 {
   MemStoreTestContoller testController;
-  
-  MemStore *store = new MatrixStore();
+
+  MemStore* store = new MatrixStore();
   testController.run(store);
   delete store;
 }
@@ -60,8 +60,8 @@ BOOST_AUTO_TEST_CASE(MatrixStoreTest)
 BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
   MemStoreTestContoller testController;
-  
-  MemStore *store = new RingMapStore();
+
+  MemStore* store = new RingMapStore();
   testController.run(store);
   delete store;
 }

@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <stdio.h>
 #include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/MemStore.h>
 
@@ -19,32 +19,24 @@ using namespace Foreman;
 // MatrixStore
 ////////////////////////////////////////////////
 
-MatrixStore::MatrixStore() {
-}
+MatrixStore::MatrixStore() {}
 
-MatrixStore::~MatrixStore() {
-}
+MatrixStore::~MatrixStore() {}
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool MatrixStore::open() {
-  return true;
-}
+bool MatrixStore::open() { return true; }
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool MatrixStore::isOpened() {
-  return true;
-}
+bool MatrixStore::isOpened() { return true; }
 
 ////////////////////////////////////////////////
 // close
 ////////////////////////////////////////////////
 
-bool MatrixStore::close() {
-  return true;
-}
+bool MatrixStore::close() { return true; }

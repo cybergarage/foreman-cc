@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <stdio.h>
 #include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/MemStore.h>
 
@@ -19,32 +19,24 @@ using namespace Foreman;
 // TSmapStore
 ////////////////////////////////////////////////
 
-TSmapStore::TSmapStore() {
-}
+TSmapStore::TSmapStore() {}
 
-TSmapStore::~TSmapStore() {
-}
+TSmapStore::~TSmapStore() {}
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool TSmapStore::open() {
-  return true;
-}
+bool TSmapStore::open() { return true; }
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool TSmapStore::isOpened() {
-  return true;
-}
+bool TSmapStore::isOpened() { return true; }
 
 ////////////////////////////////////////////////
 // close
 ////////////////////////////////////////////////
 
-bool TSmapStore::close() {
-  return true;
-}
+bool TSmapStore::close() { return true; }
