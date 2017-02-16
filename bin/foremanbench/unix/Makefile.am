@@ -14,6 +14,6 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
 
 
 foremanbench_SOURCES = \
-	..//foremanbench.cpp
+	../foremanbench.cpp
 
 foremanbench_LDADD = ../../../lib/unix/libforeman++.a
