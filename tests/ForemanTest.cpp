@@ -12,8 +12,8 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MAIN
 
-#include <boost/test/unit_test.hpp>
 #include <boost/random.hpp>
+#include <boost/test/unit_test.hpp>
 #include <boost/thread.hpp>
 
 #include "ForemanTest.h"
@@ -23,14 +23,9 @@
  ****************************************/
 
 struct ForemanFixture {
-  ForemanFixture()
-  {
-    Foreman::Test::Setup();
-  }
+  ForemanFixture() { Foreman::Test::Setup(); }
 
-  ~ForemanFixture()
-  {
-  }
+  ~ForemanFixture() {}
 };
 
 BOOST_GLOBAL_FIXTURE(ForemanFixture);
@@ -39,6 +34,4 @@ BOOST_GLOBAL_FIXTURE(ForemanFixture);
  * Setup
  ****************************************/
 
-void Foreman::Test::Setup()
-{
-}
+void Foreman::Test::Setup() {}

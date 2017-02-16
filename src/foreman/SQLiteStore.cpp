@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <stdio.h>
 #include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/MemStore.h>
 
@@ -19,18 +19,16 @@ using namespace Foreman;
 // SQLiteStore
 ////////////////////////////////////////////////
 
-SQLiteStore::SQLiteStore() {
-  db = NULL;
-}
+SQLiteStore::SQLiteStore() { db = NULL; }
 
-SQLiteStore::~SQLiteStore() {
-}
+SQLiteStore::~SQLiteStore() {}
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool SQLiteStore::open() {
+bool SQLiteStore::open()
+{
   if (sqlite3_open(":memory:", &db) != SQLITE_OK)
     return false;
 
@@ -41,7 +39,8 @@ bool SQLiteStore::open() {
 // open
 ////////////////////////////////////////////////
 
-bool SQLiteStore::isOpened() {
+bool SQLiteStore::isOpened()
+{
   if (!db)
     return false;
 
@@ -52,10 +51,11 @@ bool SQLiteStore::isOpened() {
 // close
 ////////////////////////////////////////////////
 
-bool SQLiteStore::close() {
+bool SQLiteStore::close()
+{
   if (!db)
     return false;
-  
+
   if (sqlite3_close(db) != SQLITE_OK)
     return false;
 

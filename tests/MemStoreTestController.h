@@ -16,14 +16,13 @@
 ////////////////////////////////////////////////
 // MemStoreTestContoller
 ////////////////////////////////////////////////
-  
+
 class MemStoreTestContoller {
-    
-public:
+  public:
   MemStoreTestContoller();
   virtual ~MemStoreTestContoller();
-    
-  void run(Foreman::MemStore *store);
+
+  void run(Foreman::MemStore* store);
 };
 
 #endif

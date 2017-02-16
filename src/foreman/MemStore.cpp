@@ -16,8 +16,6 @@ using namespace Foreman;
 // MemStore
 ////////////////////////////////////////////////
 
-MemStore::MemStore() {
-}
+MemStore::MemStore() {}
 
-MemStore::~MemStore() {
-}
+MemStore::~MemStore() {}

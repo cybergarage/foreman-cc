@@ -12,23 +12,22 @@
 
 #include "MemStoreTestController.h"
 
-//using namespace Foreman::Test;
+// using namespace Foreman::Test;
 
 ////////////////////////////////////////////////
 // MemStoreTestContoller
 ////////////////////////////////////////////////
 
-MemStoreTestContoller::MemStoreTestContoller() {
-}
+MemStoreTestContoller::MemStoreTestContoller() {}
 
-MemStoreTestContoller::~MemStoreTestContoller() {
-}
+MemStoreTestContoller::~MemStoreTestContoller() {}
 
 ////////////////////////////////////////////////
 // run
 ////////////////////////////////////////////////
 
-void MemStoreTestContoller::run(Foreman::MemStore *store) {
+void MemStoreTestContoller::run(Foreman::MemStore* store)
+{
   BOOST_CHECK(store->open());
   BOOST_CHECK(store->close());
 }

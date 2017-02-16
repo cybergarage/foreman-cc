@@ -11,11 +11,10 @@
 #ifndef _FOREMANCC_TEST_TEST_H_
 #define _FOREMANCC_TEST_TEST_H_
 
-namespace Foreman {  
+namespace Foreman {
 namespace Test {
-  
-void Setup();
 
+  void Setup();
 }
 }
 
