@@ -72,7 +72,21 @@ public:
   bool isOpened();
   bool close();
 };
+  
+////////////////////////////////////////////////
+// MatrixStore
+////////////////////////////////////////////////
 
+class MatrixStore : public MemStore {
+  
+public:
+  MatrixStore();
+  ~MatrixStore();
+  
+  bool open();
+  bool isOpened();
+  bool close();
+};
 
 ////////////////////////////////////////////////
 // RingMapStore
