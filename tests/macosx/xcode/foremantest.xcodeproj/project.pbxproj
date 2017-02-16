@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213E7FE01E56084400E41441 /* TimeSeriesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */; };
 		2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C3041E52F51E006C4425 /* MemStoreTests.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
 		219F41CA1E55B37A003EAD97 /* MetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C91E55B37A003EAD97 /* MetricsTests.cpp */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTests.cpp; path = ../../TimeSeriesTests.cpp; sourceTree = "<group>"; };
 		2175C3041E52F51E006C4425 /* MemStoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStoreTests.cpp; path = ../../MemStoreTests.cpp; sourceTree = "<group>"; };
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */,
 				219F41C91E55B37A003EAD97 /* MetricsTests.cpp */,
 				21F9AA3C1E532ADD00135A90 /* MemStoreTestController.h */,
 				21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */,
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213E7FE01E56084400E41441 /* TimeSeriesTests.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
 				2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */,
 				21F9AA3E1E532ADD00135A90 /* MemStoreTestController.cpp in Sources */,
