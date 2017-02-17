@@ -16,7 +16,7 @@
 #include <sqlite3.h>
 
 #include <foreman/Metric.h>
-#include <foreman/Platform.h>
+#include <foreman/TimeSeries.h>
 
 namespace Foreman {
 
@@ -77,10 +77,30 @@ class MemStore {
     return retentionPeriod_;
   };
 
+  size_t getColumnCount();
+  size_t getRowCount();
+
+  protected:
+  std::shared_ptr<TimeSeriesMap> tsMap_;
+  Metrics metrics_;
+
   private:
   time_t retentionInterval_;
   time_t retentionPeriod_;
-  Metrics metrics_;
+};
+
+////////////////////////////////////////////////
+// MemStoreTemplate
+////////////////////////////////////////////////
+
+template <typename T>
+class MemStoreTemplate : public MemStore {
+  public:
+  MemStoreTemplate(){};
+  virtual ~MemStoreTemplate(){};
+
+  protected:
+  std::shared_ptr<T> tsMap_;
 };
 
 ////////////////////////////////////////////////
@@ -126,7 +146,24 @@ class TSmapStore : public MemStore {
 // MatrixStore
 ////////////////////////////////////////////////
 
-class MatrixStore : public MemStore {
+class MatrixTimeSeriesMap : public TimeSeriesMap {
+  public:
+  MatrixTimeSeriesMap() {}
+  ~MatrixTimeSeriesMap() {}
+  std::shared_ptr<MetricData> data;
+};
+
+class MatrixTimeSeries : public TimeSeries {
+  public:
+  MatrixTimeSeries();
+  ~MatrixTimeSeries();
+  bool getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data);
+  size_t getDataSize();
+  MetricData* row;
+  size_t rowSize;
+};
+
+class MatrixStore : public MemStoreTemplate<MatrixTimeSeriesMap> {
   public:
   MatrixStore();
   ~MatrixStore();
@@ -134,6 +171,8 @@ class MatrixStore : public MemStore {
   bool open();
   bool isOpened();
   bool close();
+
+  bool realloc();
 };
 
 ////////////////////////////////////////////////
