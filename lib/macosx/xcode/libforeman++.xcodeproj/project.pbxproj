@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */; };
+		210067FA1E57279400A8DA0A /* MatrixTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210067F91E57279400A8DA0A /* MatrixTimeSeries.cpp */; };
 		213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E7FDB1E56078F00E41441 /* TimeSeries.h */; };
 		213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDD1E56080900E41441 /* TimeSeries.cpp */; };
 		2175C2F61E52F444006C4425 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F41E52F444006C4425 /* MemStore.h */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMap.cpp; sourceTree = "<group>"; };
+		210067F91E57279400A8DA0A /* MatrixTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixTimeSeries.cpp; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		213E7FDB1E56078F00E41441 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
 		213E7FDD1E56080900E41441 /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				210067F91E57279400A8DA0A /* MatrixTimeSeries.cpp */,
+				210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */,
 				213E7FDD1E56080900E41441 /* TimeSeries.cpp */,
 				219F41C51E55B1E7003EAD97 /* Metric.cpp */,
 				219F41C31E55980D003EAD97 /* MatrixStore.cpp */,
@@ -185,6 +191,8 @@
 				21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */,
 				219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */,
 				21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */,
+				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
+				210067FA1E57279400A8DA0A /* MatrixTimeSeries.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
 				21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */,

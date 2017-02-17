@@ -8,19 +8,18 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
-
 #include <foreman/TimeSeries.h>
 
 using namespace Foreman;
 
-BOOST_AUTO_TEST_CASE(NewTimeSeriesTest)
+////////////////////////////////////////////////
+// TimeSeriesMap
+////////////////////////////////////////////////
+
+TimeSeriesMap::TimeSeriesMap()
 {
 }
 
-BOOST_AUTO_TEST_CASE(NewTimeSeriesMap)
+TimeSeriesMap::~TimeSeriesMap()
 {
-  TimeSeriesMap tsMap;
-
-  BOOST_CHECK_EQUAL(tsMap.size(), 0);
 }
