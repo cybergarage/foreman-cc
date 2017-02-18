@@ -31,6 +31,9 @@ class TimeSeries {
   virtual size_t getDataSize() = 0;
 
   std::string name;
+  
+  time_t firstTimestamp;
+  time_t lastTimestamp;
 };
 
 ////////////////////////////////////////////////
@@ -44,6 +47,32 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
 };
+
+////////////////////////////////////////////////
+// ArrayTimeSeries
+////////////////////////////////////////////////
+
+class ArrayTimeSeries : public TimeSeries {
+public:
+  ArrayTimeSeries();
+  ~ArrayTimeSeries();
+  bool getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data);
+  size_t getDataSize();
+  MetricData* row;
+  size_t rowSize;
+};
+
+////////////////////////////////////////////////
+// ArrayTimeSeriesMap
+////////////////////////////////////////////////
+
+class ArrayTimeSeriesMap : public TimeSeriesMap {
+public:
+  ArrayTimeSeriesMap() {}
+  ~ArrayTimeSeriesMap() {}
+  std::shared_ptr<MetricData> data;
+};
+
 }
 
 #endif

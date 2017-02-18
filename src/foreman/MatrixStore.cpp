@@ -70,6 +70,7 @@ bool MatrixStore::realloc()
   for (std::shared_ptr<Metric> m : metrics_) {
     std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
     ts->row = rowData;
+    ts->rowSize = columnCount;
     tsMap_->insert(TimeSeriesPair{ m->name, ts });
     rowData += columnCount;
   }

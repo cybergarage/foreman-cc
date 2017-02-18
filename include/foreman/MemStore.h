@@ -81,7 +81,6 @@ class MemStore {
   size_t getRowCount();
 
   protected:
-  std::shared_ptr<TimeSeriesMap> tsMap_;
   Metrics metrics_;
 
   private:
@@ -153,16 +152,13 @@ class MatrixTimeSeriesMap : public TimeSeriesMap {
   std::shared_ptr<MetricData> data;
 };
 
-class MatrixTimeSeries : public TimeSeries {
+class MatrixTimeSeries : public ArrayTimeSeries {
   public:
-  MatrixTimeSeries();
-  ~MatrixTimeSeries();
-  bool getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data);
-  size_t getDataSize();
-  MetricData* row;
-  size_t rowSize;
+  MatrixTimeSeries() {};
+  ~MatrixTimeSeries() {};
 };
 
+  
 class MatrixStore : public MemStoreTemplate<MatrixTimeSeriesMap> {
   public:
   MatrixStore();
@@ -179,7 +175,19 @@ class MatrixStore : public MemStoreTemplate<MatrixTimeSeriesMap> {
 // RingMapStore
 ////////////////////////////////////////////////
 
-class RingMapStore : public MemStore {
+class RingMapTimeSeriesMap : public TimeSeriesMap {
+public:
+  RingMapTimeSeriesMap() {}
+  ~RingMapTimeSeriesMap() {}
+};
+
+class RingMapTimeSeries : public ArrayTimeSeries {
+public:
+  RingMapTimeSeries() {};
+  ~RingMapTimeSeries() {};
+};
+
+class RingMapStore : public MemStoreTemplate<RingMapTimeSeriesMap> {
   public:
   RingMapStore();
   ~RingMapStore();
@@ -187,6 +195,7 @@ class RingMapStore : public MemStore {
   bool open();
   bool isOpened();
   bool close();
+  bool realloc();
 };
 }
 

@@ -18,16 +18,16 @@
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// MatrixTimeSeries
+// ArrayTimeSeries
 ////////////////////////////////////////////////
 
-MatrixTimeSeries::MatrixTimeSeries()
+ArrayTimeSeries::ArrayTimeSeries()
 {
   row = nullptr;
   rowSize = 0;
 }
 
-MatrixTimeSeries::~MatrixTimeSeries()
+ArrayTimeSeries::~ArrayTimeSeries()
 {
 }
 
@@ -35,7 +35,7 @@ MatrixTimeSeries::~MatrixTimeSeries()
 // getData
 ////////////////////////////////////////////////
 
-bool MatrixTimeSeries::getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data)
+bool ArrayTimeSeries::getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data)
 {
   MetricData* copyData = new MetricData[length];
   data = std::shared_ptr<MetricData>(copyData);
@@ -46,7 +46,7 @@ bool MatrixTimeSeries::getData(size_t offset, size_t length, std::shared_ptr<Met
 // getDataSize
 ////////////////////////////////////////////////
 
-size_t MatrixTimeSeries::getDataSize()
+size_t ArrayTimeSeries::getDataSize()
 {
   return rowSize;
 }
