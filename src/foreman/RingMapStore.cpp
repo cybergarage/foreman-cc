@@ -53,21 +53,21 @@ bool RingMapStore::close() { return true; }
 bool RingMapStore::realloc()
 {
   size_t columnCount = getColumnCount();
-  
+
   if (columnCount <= 0)
     return false;
-  
+
   tsMap_->clear();
-  
+
   for (std::shared_ptr<Metric> m : metrics_) {
-    MetricData* rowData = new MetricData[columnCount];
+    MetricValue* rowData = new MetricValue[columnCount];
     if (rowData == nullptr)
       return false;
-    std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
-    ts->row = rowData;
-    ts->rowSize = columnCount;
+    std::shared_ptr<RingMapTimeSeries> ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
+    if (!ts->reallocValueArray(columnCount))
+      return false;
     tsMap_->insert(TimeSeriesPair{ m->name, ts });
   }
-  
+
   return true;
 }

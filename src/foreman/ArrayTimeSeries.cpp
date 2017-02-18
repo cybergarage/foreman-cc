@@ -23,30 +23,81 @@ using namespace Foreman;
 
 ArrayTimeSeries::ArrayTimeSeries()
 {
-  row = nullptr;
-  rowSize = 0;
+  clear();
 }
 
 ArrayTimeSeries::~ArrayTimeSeries()
 {
+  clear();
 }
 
 ////////////////////////////////////////////////
-// getData
+// addMetric
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data)
+bool ArrayTimeSeries::addMetric(Metric& data)
 {
-  MetricData* copyData = new MetricData[length];
-  data = std::shared_ptr<MetricData>(copyData);
   return true;
 }
 
 ////////////////////////////////////////////////
-// getDataSize
+// getMetricsValues
 ////////////////////////////////////////////////
 
-size_t ArrayTimeSeries::getDataSize()
+bool ArrayTimeSeries::getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data)
 {
-  return rowSize;
+  ssize_t valueCnt = (endTs - beginTs) / interval;
+  if (valueCnt <= 0)
+    return false;
+
+  MetricValue* copyData = new MetricValue[valueCnt];
+  data = std::shared_ptr<MetricValue>(copyData);
+  return true;
+}
+
+////////////////////////////////////////////////
+// reallocValueArray
+////////////////////////////////////////////////
+
+bool ArrayTimeSeries::reallocValueArray(size_t size)
+{
+  if (!clear())
+    return false;
+
+  rawValues_ = new MetricValue[size];
+  if (!rawValues_)
+    return false;
+
+  values_ = std::shared_ptr<MetricValue>(rawValues_);
+  arraySize_ = size;
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// setValueArray
+////////////////////////////////////////////////
+
+bool ArrayTimeSeries::setValueArray(MetricValue* values, size_t size)
+{
+  if (!clear())
+    return false;
+
+  rawValues_ = values;
+  arraySize_ = size;
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// clear
+////////////////////////////////////////////////
+
+bool ArrayTimeSeries::clear()
+{
+  values_ = nullptr;
+  rawValues_ = nullptr;
+  arraySize_ = 0;
+
+  return true;
 }

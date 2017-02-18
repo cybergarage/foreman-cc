@@ -25,7 +25,7 @@ namespace Foreman {
 // Metric
 ////////////////////////////////////////////////
 
-typedef double MetricData;
+typedef double MetricValue;
 
 class Metric {
   public:
@@ -33,7 +33,7 @@ class Metric {
   virtual ~Metric();
 
   std::string name;
-  MetricData value;
+  MetricValue value;
   time_t timestamp;
 };
 
