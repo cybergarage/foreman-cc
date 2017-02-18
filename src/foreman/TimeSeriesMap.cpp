@@ -8,11 +8,18 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_PLATFORM_H_
-#define _FOREMANCC_PLATFORM_H_
+#include <foreman/TimeSeries.h>
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+using namespace Foreman;
 
-#endif
+////////////////////////////////////////////////
+// TimeSeriesMap
+////////////////////////////////////////////////
+
+TimeSeriesMap::TimeSeriesMap()
+{
+}
+
+TimeSeriesMap::~TimeSeriesMap()
+{
+}

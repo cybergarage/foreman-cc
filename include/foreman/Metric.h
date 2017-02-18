@@ -25,13 +25,15 @@ namespace Foreman {
 // Metric
 ////////////////////////////////////////////////
 
+typedef double MetricData;
+
 class Metric {
   public:
   Metric();
   virtual ~Metric();
 
   std::string name;
-  double value;
+  MetricData value;
   time_t timestamp;
 };
 
@@ -39,7 +41,7 @@ class Metric {
 // Metrics
 ////////////////////////////////////////////////
 
-typedef std::vector<std::unique_ptr<Metric>> Metrics;
+typedef std::vector<std::shared_ptr<Metric>> Metrics;
 }
 
 #endif

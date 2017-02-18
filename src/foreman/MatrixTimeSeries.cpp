@@ -8,52 +8,45 @@
  *
  ******************************************************************/
 
-#include <math.h>
+#include <iostream>
+
+#include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/MemStore.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// MemStore
+// MatrixTimeSeries
 ////////////////////////////////////////////////
 
-MemStore::MemStore()
+MatrixTimeSeries::MatrixTimeSeries()
 {
-  retentionInterval_ = 0;
-  retentionPeriod_ = 0;
+  row = nullptr;
+  rowSize = 0;
 }
 
-MemStore::~MemStore()
+MatrixTimeSeries::~MatrixTimeSeries()
 {
 }
 
 ////////////////////////////////////////////////
-// addMetric
+// getData
 ////////////////////////////////////////////////
 
-bool MemStore::addMetric(const Metric& metric)
+bool MatrixTimeSeries::getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data)
 {
-  metrics_.push_back(std::unique_ptr<Metric>(new Metric(metric)));
+  MetricData* copyData = new MetricData[length];
+  data = std::shared_ptr<MetricData>(copyData);
   return true;
 }
 
 ////////////////////////////////////////////////
-// getColumnCount
+// getDataSize
 ////////////////////////////////////////////////
 
-size_t MemStore::getColumnCount()
+size_t MatrixTimeSeries::getDataSize()
 {
-  if (retentionInterval_ == 0)
-    return 0;
-  return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
-}
-
-////////////////////////////////////////////////
-// getRowCount
-////////////////////////////////////////////////
-
-size_t MemStore::getRowCount()
-{
-  return metrics_.size();
+  return rowSize;
 }

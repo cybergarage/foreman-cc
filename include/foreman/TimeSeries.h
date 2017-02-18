@@ -12,8 +12,9 @@
 #define _FOREMANCC_TIMESERIES_H_
 
 #include <string>
+#include <unordered_map>
 
-#include <foreman/Platform.h>
+#include <foreman/Metric.h>
 
 namespace Foreman {
 
@@ -26,9 +27,23 @@ class TimeSeries {
   TimeSeries();
   virtual ~TimeSeries();
 
+  virtual bool getData(size_t offset, size_t length, std::shared_ptr<MetricData>& data) = 0;
+  virtual size_t getDataSize() = 0;
+
   std::string name;
 };
 
+////////////////////////////////////////////////
+// TimeSeriesMap
+////////////////////////////////////////////////
+
+typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
+
+class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
+  public:
+  TimeSeriesMap();
+  virtual ~TimeSeriesMap();
+};
 }
 
 #endif
