@@ -16,7 +16,11 @@ using namespace Foreman;
 
 BOOST_AUTO_TEST_CASE(NewTimeSeriesTest)
 {
-  TimeSeries ts;
+}
 
-  BOOST_CHECK_EQUAL(ts.name.size(), 0);
+BOOST_AUTO_TEST_CASE(NewTimeSeriesMap)
+{
+  TimeSeriesMap tsMap;
+
+  BOOST_CHECK_EQUAL(tsMap.size(), 0);
 }

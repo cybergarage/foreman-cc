@@ -14,11 +14,13 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 
 foremancc_sources = \
 	../../src/foreman/MatrixStore.cpp \
+	../../src/foreman/MatrixTimeSeries.cpp \
 	../../src/foreman/MemStore.cpp \
 	../../src/foreman/Metric.cpp \
 	../../src/foreman/RingMapStore.cpp \
 	../../src/foreman/SQLiteStore.cpp \
 	../../src/foreman/TimeSeries.cpp \
+	../../src/foreman/TimeSeriesMap.cpp \
 	../../src/foreman/TSmapStore.cpp \
 	../../src/foreman/WideTableStore.cpp
 
