@@ -149,7 +149,7 @@ class MatrixTimeSeriesMap : public TimeSeriesMap {
   public:
   MatrixTimeSeriesMap() {}
   ~MatrixTimeSeriesMap() {}
-  std::shared_ptr<MetricData> data;
+  std::shared_ptr<MetricValue> data;
 };
 
 class MatrixTimeSeries : public ArrayTimeSeries {
