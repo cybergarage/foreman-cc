@@ -35,7 +35,7 @@ ArrayTimeSeries::~ArrayTimeSeries()
 // addMetric
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::addMetric(Metric& m)
+bool ArrayTimeSeries::addValue(const Metric& m)
 {
   rawValues_[arrayInsertIndex_] = m.value;
 
@@ -56,7 +56,7 @@ bool ArrayTimeSeries::addMetric(Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values)
+bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values)
 {
   ssize_t copyCnt = (endTs - beginTs) / interval;
   if (copyCnt <= 0)

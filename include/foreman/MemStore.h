@@ -50,11 +50,6 @@ class MemStore {
     return metrics_;
   }
 
-  virtual bool addValue(const Metric& metric)
-  {
-    return true;
-  }
-
   virtual bool setRetentionInterval(time_t sec)
   {
     retentionInterval_ = sec;
@@ -98,6 +93,9 @@ class MemStoreTemplate : public MemStore {
   MemStoreTemplate(){};
   virtual ~MemStoreTemplate(){};
 
+  bool addValue(const Metric &m) {return tsMap_->addValue(m);}
+  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) {return tsMap_->getValues(beginTs, endTs, interval, data);}
+  
   protected:
   std::shared_ptr<T> tsMap_;
 };
