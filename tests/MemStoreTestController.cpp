@@ -56,6 +56,12 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   BOOST_CHECK(store->realloc());
 
   // Insert metrics
+  
+  for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
+    for (std::shared_ptr<Foreman::Metric> m : metrics) {
+      store->addMetric(*m);
+    }
+  }
 
   BOOST_CHECK(store->close());
 }
