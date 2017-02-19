@@ -23,3 +23,15 @@ TimeSeriesMap::TimeSeriesMap()
 TimeSeriesMap::~TimeSeriesMap()
 {
 }
+
+////////////////////////////////////////////////
+// addMetrics
+////////////////////////////////////////////////
+
+bool TimeSeriesMap::addMetrics(std::vector<std::shared_ptr<Metric>> metrics)
+{
+  for (std::shared_ptr<Metric> m : metrics) {
+  }
+  
+  return true;
+}

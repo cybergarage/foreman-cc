@@ -31,6 +31,8 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   BOOST_CHECK_EQUAL(store->getRowCount(), 0);
   BOOST_CHECK_EQUAL(store->getColumnCount(), 0);
 
+  // Initialize memstore
+  
   BOOST_CHECK(store->setRetentionInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL));
   BOOST_CHECK(store->setRetentionPeriod(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC));
   BOOST_CHECK_EQUAL(store->getColumnCount(), (FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC / FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL));
@@ -43,8 +45,9 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
     store->addMetric(m);
   }
   BOOST_CHECK_EQUAL(store->getRowCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
-
   BOOST_CHECK(store->realloc());
+
+  // Insert metrics
 
   BOOST_CHECK(store->close());
 }
