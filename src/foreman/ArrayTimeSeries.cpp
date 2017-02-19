@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <iostream>
+#include <algorithm>
 
 #include <sqlite3.h>
 #include <stdio.h>
@@ -35,8 +35,20 @@ ArrayTimeSeries::~ArrayTimeSeries()
 // addMetric
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::addMetric(Metric& data)
+bool ArrayTimeSeries::addMetric(Metric& m)
 {
+  rawValues_[arrayInsertIndex_] = m.value;
+
+  lastTs_ = m.timestamp;
+  firstTs_ = lastTs_ - arraySize_;
+  
+  arrayInsertIndex_++;
+  if (arraySize_ <= arrayInsertIndex_)
+      arrayInsertIndex_ = 0;
+
+  if (arrayCount_ < arraySize_)
+    arrayCount_++;
+
   return true;
 }
 
@@ -44,14 +56,26 @@ bool ArrayTimeSeries::addMetric(Metric& data)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data)
+bool ArrayTimeSeries::getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values)
 {
-  ssize_t valueCnt = (endTs - beginTs) / interval;
-  if (valueCnt <= 0)
+  ssize_t copyCnt = (endTs - beginTs) / interval;
+  if (copyCnt <= 0)
     return false;
 
-  MetricValue* copyData = new MetricValue[valueCnt];
-  data = std::shared_ptr<MetricValue>(copyData);
+  MetricValue* copyValues = new MetricValue[copyCnt];
+  
+  size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
+  if (0 < arrayRightCnt) {
+    memcpy(copyValues, (rawValues_ + arrayInsertIndex_), (sizeof(MetricValue) * arrayRightCnt));
+  }
+  
+  size_t arrayLeftCnt = arrayInsertIndex_;
+  if (0 < arrayLeftCnt) {
+    memcpy((copyValues + arrayRightCnt), rawValues_, (sizeof(MetricValue) * arrayLeftCnt));
+  }
+  
+  values = std::shared_ptr<MetricValue>(copyValues);
+  
   return true;
 }
 
@@ -97,7 +121,13 @@ bool ArrayTimeSeries::clear()
 {
   values_ = nullptr;
   rawValues_ = nullptr;
+
   arraySize_ = 0;
+  arrayInsertIndex_ = 0;
+  arrayCount_ = 0;
+  
+  firstTs_ = 0;
+  lastTs_ = 0;
 
   return true;
 }

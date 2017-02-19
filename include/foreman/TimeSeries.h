@@ -27,7 +27,7 @@ public:
   TimeSeries();
   virtual ~TimeSeries();
 
-  virtual bool addMetric(Metric &data) = 0;
+  virtual bool addMetric(Metric &m) = 0;
   virtual bool getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) = 0;
 };
 
@@ -41,6 +41,8 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
 public:
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
+
+  bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
 };
 
 ////////////////////////////////////////////////
@@ -52,7 +54,7 @@ public:
   ArrayTimeSeries();
   ~ArrayTimeSeries();
   
-  bool addMetric(Metric &data);
+  bool addMetric(Metric &metric);
   bool getMetricsValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data);
 
   bool reallocValueArray(size_t size);
@@ -62,7 +64,11 @@ public:
 private:
   MetricValue* rawValues_;
   std::shared_ptr<MetricValue> values_;
+
   size_t arraySize_;
+  size_t arrayInsertIndex_;
+  size_t arrayCount_;
+  
   time_t firstTs_;
   time_t lastTs_;
 };
