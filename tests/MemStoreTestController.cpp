@@ -75,8 +75,8 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   // Get metrics
   
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
-    std::shared_ptr<Foreman::MetricValue> values;
-    size_t valueCnt;
+    std::shared_ptr<Foreman::MetricValue> values = nullptr;
+    size_t valueCnt = 0;
     BOOST_CHECK(store->getValues(*m, beginTs, endTs, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL, values, valueCnt));
     BOOST_CHECK_EQUAL(valueCnt, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
   }
