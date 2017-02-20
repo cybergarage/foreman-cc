@@ -25,21 +25,33 @@ TimeSeriesMap::~TimeSeriesMap()
 }
 
 ////////////////////////////////////////////////
-// addMetric
+// find
 ////////////////////////////////////////////////
 
-bool TimeSeriesMap::addValue(const Metric &m)
+std::shared_ptr<TimeSeries> TimeSeriesMap::find(const Metric& m)
 {
-  TimeSeriesMap::const_iterator tsIt = find(m.name);
+  TimeSeriesMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<TimeSeries>>::find(m.name);
   if (tsIt == TimeSeriesMap::end())
+    return nullptr;
+
+  return tsIt->second;
+}
+
+////////////////////////////////////////////////
+// addValue
+////////////////////////////////////////////////
+
+bool TimeSeriesMap::addValue(const Metric& m)
+{
+  std::shared_ptr<TimeSeries> ts = find(m);
+  if (ts == nullptr)
     return false;
-  
-  std::shared_ptr<TimeSeries> ts = tsIt->second;
+
   return ts->addValue(m);
 }
 
 ////////////////////////////////////////////////
-// addMetrics
+// addValues
 ////////////////////////////////////////////////
 
 bool TimeSeriesMap::addValues(std::vector<std::shared_ptr<Metric>> metrics)
@@ -48,6 +60,15 @@ bool TimeSeriesMap::addValues(std::vector<std::shared_ptr<Metric>> metrics)
     if (!addValue(*m))
       return false;
   }
-  
+
   return true;
+}
+
+////////////////////////////////////////////////
+// addValues
+////////////////////////////////////////////////
+
+bool TimeSeriesMap::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data)
+{
+  return false;
 }

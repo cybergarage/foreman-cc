@@ -23,11 +23,11 @@ namespace Foreman {
 ////////////////////////////////////////////////
 
 class TimeSeries {
-public:
+  public:
   TimeSeries();
   virtual ~TimeSeries();
 
-  virtual bool addValue(const Metric &m) = 0;
+  virtual bool addValue(const Metric& m) = 0;
   virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) = 0;
 };
 
@@ -38,12 +38,15 @@ public:
 typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
 
 class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
-public:
+  public:
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
 
-  bool addValue(const Metric &metric);
+  std::shared_ptr<TimeSeries> find(const Metric& metric);
+
+  bool addValue(const Metric& metric);
   bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
+  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data);
 };
 
 ////////////////////////////////////////////////
@@ -51,25 +54,25 @@ public:
 ////////////////////////////////////////////////
 
 class ArrayTimeSeries : public TimeSeries {
-public:
+  public:
   ArrayTimeSeries();
   ~ArrayTimeSeries();
-  
-  bool addValue(const Metric &m);
+
+  bool addValue(const Metric& m);
   bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data);
 
   bool reallocValueArray(size_t size);
   bool setValueArray(MetricValue* values, size_t size);
   bool clear();
-  
-private:
+
+  private:
   MetricValue* rawValues_;
   std::shared_ptr<MetricValue> values_;
 
   size_t arraySize_;
   size_t arrayInsertIndex_;
   size_t arrayCount_;
-  
+
   time_t firstTs_;
   time_t lastTs_;
 };
@@ -79,12 +82,11 @@ private:
 ////////////////////////////////////////////////
 
 class ArrayTimeSeriesMap : public TimeSeriesMap {
-public:
+  public:
   ArrayTimeSeriesMap() {}
   ~ArrayTimeSeriesMap() {}
   std::shared_ptr<MetricValue> data;
 };
-
 }
 
 #endif

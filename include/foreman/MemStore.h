@@ -50,6 +50,16 @@ class MemStore {
     return metrics_;
   }
 
+  virtual bool addValue(const Metric& m)
+  {
+    return true;
+  }
+
+  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data)
+  {
+    return true;
+  }
+
   virtual bool setRetentionInterval(time_t sec)
   {
     retentionInterval_ = sec;
@@ -84,20 +94,26 @@ class MemStore {
 };
 
 ////////////////////////////////////////////////
-// MemStoreTemplate
+// TimeSeriesMapStore
 ////////////////////////////////////////////////
 
-template <typename T>
-class MemStoreTemplate : public MemStore {
+template <typename TimeSeriesMapType>
+class TimeSeriesMapStoreTemplate : public MemStore {
   public:
-  MemStoreTemplate(){};
-  virtual ~MemStoreTemplate(){};
+  TimeSeriesMapStoreTemplate(){};
+  virtual ~TimeSeriesMapStoreTemplate(){};
 
-  bool addValue(const Metric &m) {return tsMap_->addValue(m);}
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) {return tsMap_->getValues(beginTs, endTs, interval, data);}
-  
+  bool addValue(const Metric& m) { return tsMap_->addValue(m); }
+  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) { return tsMap_->getValues(beginTs, endTs, interval, data); }
+
   protected:
-  std::shared_ptr<T> tsMap_;
+  std::shared_ptr<TimeSeriesMapType> tsMap_;
+};
+
+class TimeSeriesMapStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
+  public:
+  TimeSeriesMapStore(){};
+  virtual ~TimeSeriesMapStore(){};
 };
 
 ////////////////////////////////////////////////
@@ -152,12 +168,11 @@ class MatrixTimeSeriesMap : public TimeSeriesMap {
 
 class MatrixTimeSeries : public ArrayTimeSeries {
   public:
-  MatrixTimeSeries() {};
-  ~MatrixTimeSeries() {};
+  MatrixTimeSeries(){};
+  ~MatrixTimeSeries(){};
 };
 
-  
-class MatrixStore : public MemStoreTemplate<MatrixTimeSeriesMap> {
+class MatrixStore : public TimeSeriesMapStoreTemplate<MatrixTimeSeriesMap> {
   public:
   MatrixStore();
   ~MatrixStore();
@@ -174,18 +189,18 @@ class MatrixStore : public MemStoreTemplate<MatrixTimeSeriesMap> {
 ////////////////////////////////////////////////
 
 class RingMapTimeSeriesMap : public TimeSeriesMap {
-public:
+  public:
   RingMapTimeSeriesMap() {}
   ~RingMapTimeSeriesMap() {}
 };
 
 class RingMapTimeSeries : public ArrayTimeSeries {
-public:
-  RingMapTimeSeries() {};
-  ~RingMapTimeSeries() {};
+  public:
+  RingMapTimeSeries(){};
+  ~RingMapTimeSeries(){};
 };
 
-class RingMapStore : public MemStoreTemplate<RingMapTimeSeriesMap> {
+class RingMapStore : public TimeSeriesMapStore {
   public:
   RingMapStore();
   ~RingMapStore();
