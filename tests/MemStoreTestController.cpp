@@ -32,7 +32,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   BOOST_CHECK_EQUAL(store->getColumnCount(), 0);
 
   // Initialize metrics
-  
+
   Foreman::Metrics metrics;
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT; n++) {
     std::ostringstream s;
@@ -43,7 +43,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   }
 
   // Initialize memstore
-  
+
   BOOST_CHECK(store->setRetentionInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL));
   BOOST_CHECK(store->setRetentionPeriod(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC));
   BOOST_CHECK_EQUAL(store->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
@@ -56,7 +56,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   BOOST_CHECK(store->realloc());
 
   // Insert metrics
-  
+
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
     for (std::shared_ptr<Foreman::Metric> m : metrics) {
       store->addMetric(*m);

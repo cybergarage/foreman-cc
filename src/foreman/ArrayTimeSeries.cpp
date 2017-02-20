@@ -41,10 +41,10 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 
   lastTs_ = m.timestamp;
   firstTs_ = lastTs_ - arraySize_;
-  
+
   arrayInsertIndex_++;
   if (arraySize_ <= arrayInsertIndex_)
-      arrayInsertIndex_ = 0;
+    arrayInsertIndex_ = 0;
 
   if (arrayCount_ < arraySize_)
     arrayCount_++;
@@ -63,19 +63,19 @@ bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, s
     return false;
 
   MetricValue* copyValues = new MetricValue[copyCnt];
-  
+
   size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
   if (0 < arrayRightCnt) {
     memcpy(copyValues, (rawValues_ + arrayInsertIndex_), (sizeof(MetricValue) * arrayRightCnt));
   }
-  
+
   size_t arrayLeftCnt = arrayInsertIndex_;
   if (0 < arrayLeftCnt) {
     memcpy((copyValues + arrayRightCnt), rawValues_, (sizeof(MetricValue) * arrayLeftCnt));
   }
-  
+
   values = std::shared_ptr<MetricValue>(copyValues);
-  
+
   return true;
 }
 
@@ -125,7 +125,7 @@ bool ArrayTimeSeries::clear()
   arraySize_ = 0;
   arrayInsertIndex_ = 0;
   arrayCount_ = 0;
-  
+
   firstTs_ = 0;
   lastTs_ = 0;
 
