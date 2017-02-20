@@ -45,17 +45,19 @@ class MemStore {
 
   virtual bool addMetric(const Metric& metric);
 
-  Metrics& getMetrics()
+  virtual Metrics& getMetrics()
   {
     return metrics_;
   }
 
-  virtual bool addValue(const Metric& m)
+  virtual bool addValue(const Metric& value)
   {
     return true;
   }
 
-  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data)
+  virtual bool addValues(const Metrics &values);
+
+  virtual bool getValues(const Metric& metric, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &count)
   {
     return true;
   }
