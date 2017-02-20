@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new TSmapStore();
-  testController.run(store);
+  //testController.run(store);
   delete store;
 }
 
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(WideTableStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new WideTableStore();
-  testController.run(store);
+  //testController.run(store);
   delete store;
 }
 
@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(MatrixStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new MatrixStore();
-  testController.run(store);
+  //testController.run(store);
   delete store;
 }
 

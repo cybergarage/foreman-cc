@@ -42,11 +42,11 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
 
-  std::shared_ptr<TimeSeries> find(const Metric& metric);
+  std::shared_ptr<TimeSeries> find(const Metric& m);
 
-  bool addValue(const Metric& metric);
+  bool addValue(const Metric& m);
   bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &valueCnt);
 };
 
 ////////////////////////////////////////////////

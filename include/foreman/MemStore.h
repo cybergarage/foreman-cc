@@ -43,7 +43,7 @@ class MemStore {
     return 0;
   }
 
-  virtual bool addMetric(const Metric& metric);
+  virtual bool addMetric(const Metric& m);
 
   virtual Metrics& getMetrics()
   {
@@ -57,7 +57,7 @@ class MemStore {
 
   virtual bool addValues(const Metrics &values);
 
-  virtual bool getValues(const Metric& metric, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &count)
+  virtual bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &valueCnt)
   {
     return true;
   }
@@ -106,7 +106,7 @@ class TimeSeriesMapStoreTemplate : public MemStore {
   virtual ~TimeSeriesMapStoreTemplate(){};
 
   bool addValue(const Metric& m) { return tsMap_->addValue(m); }
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data) { return tsMap_->getValues(beginTs, endTs, interval, data); }
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &valueCnt) { return tsMap_->getValues(m, beginTs, endTs, interval, values, valueCnt); }
 
   protected:
   std::shared_ptr<TimeSeriesMapType> tsMap_;
