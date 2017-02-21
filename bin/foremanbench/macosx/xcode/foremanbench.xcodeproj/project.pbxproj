@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2127BE921E52F72A00EE80BB /* foremanbench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2127BE911E52F72A00EE80BB /* foremanbench.cpp */; };
+		21A5B9591E5C2A2C007339D0 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2127BE8F1E52F71100EE80BB /* libforeman++.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -16,6 +17,13 @@
 			containerPortal = 2127BE8A1E52F71100EE80BB /* libforeman++.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 211B343E1E52F1B8008D5228;
+			remoteInfo = "libforeman++";
+		};
+		21A5B9561E5C2A26007339D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2127BE8A1E52F71100EE80BB /* libforeman++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 211B343D1E52F1B8008D5228;
 			remoteInfo = "libforeman++";
 		};
 /* End PBXContainerItemProxy section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A5B9591E5C2A2C007339D0 /* libforeman++.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +113,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21A5B9571E5C2A26007339D0 /* PBXTargetDependency */,
 			);
 			name = foremanbench;
 			productName = foremanbench;
@@ -168,6 +178,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21A5B9571E5C2A26007339D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libforeman++";
+			targetProxy = 21A5B9561E5C2A26007339D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		21C70D2B1E52F39200022B0E /* Debug */ = {
