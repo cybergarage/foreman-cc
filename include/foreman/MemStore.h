@@ -165,7 +165,7 @@ class MatrixTimeSeriesMap : public TimeSeriesMap {
   public:
   MatrixTimeSeriesMap() {}
   ~MatrixTimeSeriesMap() {}
-  std::shared_ptr<MetricValue> data;
+  std::shared_ptr<MetricValue> mxValues;
 };
 
 class MatrixTimeSeries : public ArrayTimeSeries {
