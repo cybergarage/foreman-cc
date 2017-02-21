@@ -17,10 +17,10 @@
 #include <foreman/MemStore.h>
 
 #define FORMANCC_BENCHMARK_RETENSION_INTERVAL 60
-#define FORMANCC_BENCHMARK_METRICS_COUNT 100
+#define FORMANCC_BENCHMARK_METRICS_COUNT 10000
 #define FORMANCC_BENCHMARK_METRICS_NAME_PREFIX "name"
 
-void ForemanInitializeMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR) {
+bool ForemanInitializeMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR) {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
   
   memStore->open();
@@ -43,10 +43,13 @@ void ForemanInitializeMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENC
     memStore->addMetric(*m);
   }
   
-  memStore->realloc();
+  if (!memStore->realloc())
+    return false;
+  
+  return true;
 }
 
-void ForemanInsertMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t &beginTs, time_t &endTs) {
+bool ForemanInsertMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t &beginTs, time_t &endTs) {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / FORMANCC_BENCHMARK_RETENSION_INTERVAL);
   
@@ -60,23 +63,28 @@ void ForemanInsertMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMAR
       value->value = n;
       values.push_back(value);
     }
-    memStore->addValues(values);
+    if (!memStore->addValues(values))
+      return false;
     metricTs += FORMANCC_BENCHMARK_RETENSION_INTERVAL;
   }
   endTs = metricTs;
+  return true;
 }
 
-void ForemanReadMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs) {
+bool ForemanReadMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs) {
   for (std::shared_ptr<Foreman::Metric> m : memStore->getMetrics()) {
     std::shared_ptr<Foreman::MetricValue> values = nullptr;
     size_t valueCnt = 0;
-    memStore->getValues(*m, beginTs, endTs, FORMANCC_BENCHMARK_RETENSION_INTERVAL, values, valueCnt);
+    if (!memStore->getValues(*m, beginTs, endTs, FORMANCC_BENCHMARK_RETENSION_INTERVAL, values, valueCnt))
+      return false;
   }
+  return true;
 }
 
-void ForemanFinalizeMemStore(Foreman::MemStore *memStore) {
+bool ForemanFinalizeMemStore(Foreman::MemStore *memStore) {
   memStore->close();
   delete memStore;
+  return true;
 }
 
 template <class MemStoreClass> void ForemanMemStoreWrite(benchmark::State& state) {
@@ -86,27 +94,41 @@ template <class MemStoreClass> void ForemanMemStoreWrite(benchmark::State& state
   while (state.KeepRunning()) {
     state.PauseTiming();
     Foreman::MemStore *memStore = new MemStoreClass();
-    ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
+    if (!ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
+      state.SkipWithError("Couldn't initialize MemStore !!");
+    }
     state.ResumeTiming();
-    ForemanInsertMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs);
+    if (!ForemanInsertMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs)) {
+      state.SkipWithError("Couldn't insert records to MemStore !!");
+    }
     state.PauseTiming();
-    ForemanFinalizeMemStore(memStore);
+    if (!ForemanFinalizeMemStore(memStore)) {
+      state.SkipWithError("Couldn't finalize MemStore !!");
+    }
   }
 }
 
 template <class MemStoreClass> void ForemanMemStoreRead(benchmark::State& state) {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
-  time_t beginTs, endTs;
+  time_t beginTs = 0, endTs = 0;
   
   while (state.KeepRunning()) {
     state.PauseTiming();
     Foreman::MemStore *memStore = new MemStoreClass();
-    ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
-    ForemanInsertMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs);
+    if (!ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
+      state.SkipWithError("Couldn't initialize MemStore !!");
+    }
+    if (!ForemanInsertMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs)) {
+      state.SkipWithError("Couldn't insert records to MemStore !!");
+    }
     state.ResumeTiming();
-    ForemanReadMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs);
+    if (!ForemanReadMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs)) {
+      state.SkipWithError("Couldn't read records from MemStore !!");
+    }
     state.PauseTiming();
-    ForemanFinalizeMemStore(memStore);
+    if (!ForemanFinalizeMemStore(memStore)) {
+      state.SkipWithError("Couldn't finalize MemStore !!");
+    }
   }
 }
 
