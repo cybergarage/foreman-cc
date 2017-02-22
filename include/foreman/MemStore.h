@@ -32,6 +32,10 @@ class MemStore {
   virtual bool open() = 0;
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
+  virtual bool clear()
+  {
+    return true;
+  }
 
   virtual bool realloc()
   {
@@ -119,7 +123,7 @@ class TimeSeriesMapStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
 };
 
 ////////////////////////////////////////////////
-// WideTableStore
+// SQLiteStore
 ////////////////////////////////////////////////
 
 class SQLiteStore : public MemStore {
@@ -127,13 +131,19 @@ class SQLiteStore : public MemStore {
   SQLiteStore();
   ~SQLiteStore();
 
-  bool open();
+  virtual bool open();
+
   bool isOpened();
   bool close();
+  bool query(const std::string& query);
 
-  private:
-  sqlite3* db;
+  protected:
+  sqlite3* db_;
 };
+
+////////////////////////////////////////////////
+// WideTableStore
+////////////////////////////////////////////////
 
 class WideTableStore : public SQLiteStore {
   public:
@@ -141,6 +151,20 @@ class WideTableStore : public SQLiteStore {
   ~WideTableStore();
 
   bool open();
+};
+
+////////////////////////////////////////////////
+// NarrowTableStore
+////////////////////////////////////////////////
+
+class NarrowTableStore : public SQLiteStore {
+  public:
+  NarrowTableStore();
+  ~NarrowTableStore();
+
+  bool open();
+  bool clear();
+  bool addMetric(const Metric& m);
 };
 
 ////////////////////////////////////////////////

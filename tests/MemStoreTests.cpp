@@ -31,6 +31,19 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 // WideTableStore
 ////////////////////////////////////////////////
 
+BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
+{
+  MemStoreTestContoller testController;
+
+  MemStore* store = new WideTableStore();
+  testController.run(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
+// WideTableStore
+////////////////////////////////////////////////
+
 BOOST_AUTO_TEST_CASE(WideTableStoreTest)
 {
   MemStoreTestContoller testController;
