@@ -20,7 +20,7 @@ HEADER
 foreach $const_line (@const_lines) {
   @const = split(/,/, $const_line);
   $const[0] =~ s/([a-z])/\u$1/g;
-  print "#define FORMANCC_" . $const[0] . " " . $const[1];
+  print "#define FOREMANCC_" . $const[0] . " " . join(",", @const[1..$#const]);
 }
 
 print<<FOTTER;
