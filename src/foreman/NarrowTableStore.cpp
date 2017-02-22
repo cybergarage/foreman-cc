@@ -11,69 +11,59 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
+#include <foreman/Const.h>
 #include <foreman/MemStore.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// SQLiteStore
+// NarrowTableStore
 ////////////////////////////////////////////////
 
-SQLiteStore::SQLiteStore() { db_ = NULL; }
+NarrowTableStore::NarrowTableStore() {}
 
-SQLiteStore::~SQLiteStore() {}
+NarrowTableStore::~NarrowTableStore() {}
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool SQLiteStore::open()
+bool NarrowTableStore::open()
 {
-  if (sqlite3_open(":memory:", &db_) != SQLITE_OK)
+  if (!SQLiteStore::open())
+    return false;
+
+  if (!query(FOREMANCC_SQLITESOTORE_FACTOR_TABLE_DDL))
+    return false;
+  if (!query(FOREMANCC_SQLITESOTORE_FACTOR_INDEX_NAME_DDL))
+    return false;
+  if (!query(FOREMANCC_SQLITESOTORE_RECORD_TABLE_DDL))
+    return false;
+  if (!query(FOREMANCC_SQLITESOTORE_RECORD_INDEX_ID_DDL))
+    return false;
+  if (!query(FOREMANCC_SQLITESOTORE_RECORD_INDEX_TS_DDL))
     return false;
 
   return true;
 }
 
 ////////////////////////////////////////////////
-// isOpened
+// clear
 ////////////////////////////////////////////////
 
-bool SQLiteStore::isOpened()
+bool NarrowTableStore::clear()
 {
-  if (!db_)
+  if (!query(FOREMANCC_SQLITESOTORE_RECORD_TRUNCATE))
     return false;
 
   return true;
 }
 
 ////////////////////////////////////////////////
-// close
+// addMetric
 ////////////////////////////////////////////////
 
-bool SQLiteStore::close()
+bool NarrowTableStore::addMetric(const Metric& m)
 {
-  if (!db_)
-    return false;
-
-  if (sqlite3_close(db_) != SQLITE_OK)
-    return false;
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// close
-////////////////////////////////////////////////
-
-bool SQLiteStore::query(const std::string& query)
-{
-  if (!db_)
-    return false;
-
-  char* errMsg = NULL;
-  if (sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg) != SQLITE_OK)
-    return false;
-
-  return true;
+  return false;
 }

@@ -17,6 +17,7 @@ foremancc_sources = \
 	../../src/foreman/MatrixStore.cpp \
 	../../src/foreman/MemStore.cpp \
 	../../src/foreman/Metric.cpp \
+	../../src/foreman/NarrowTableStore.cpp \
 	../../src/foreman/RingMapStore.cpp \
 	../../src/foreman/SQLiteStore.cpp \
 	../../src/foreman/TimeSeries.cpp \
