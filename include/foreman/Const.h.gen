@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+print<<HEADER;
+/******************************************************************
+ *
+ * Foreman for C++
+ *
+ * Copyright (C) Satoshi Konno 2017
+ *
+ * This is licensed under BSD-style license, see file COPYING.
+ *
+ ******************************************************************/
+
+#ifndef _FOREMANCC_CONST_H_
+#define _FOREMANCC_CONST_H_
+
+namespace Round {
+
+HEADER
+@const_lines = `curl -s https://raw.githubusercontent.com/cybergarage/foreman-py/master/foreman/constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+foreach $const_line (@const_lines) {
+  @const = split(/,/, $const_line);
+  $const[0] =~ s/([a-z])/\u$1/g;
+  print "#define FORMANCC_" . $const[0] . " " . $const[1];
+}
+
+print<<FOTTER;
+
+}
+
+#endif
+FOTTER

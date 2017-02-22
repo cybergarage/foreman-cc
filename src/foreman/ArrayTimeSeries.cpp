@@ -56,11 +56,11 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t &valueCnt)
+bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
   if (endTs <= beginTs)
     return false;
-  
+
   valueCnt = (endTs - beginTs) / interval;
   if (valueCnt <= 0)
     return false;

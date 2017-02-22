@@ -73,7 +73,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   time_t endTs = metricTs;
 
   // Get metrics
-  
+
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
     std::shared_ptr<Foreman::MetricValue> values = nullptr;
     size_t valueCnt = 0;
