@@ -9,6 +9,7 @@
 ##################################################################
 
 foremancc_header = \
+	./foreman/Const.h \
 	./foreman/MemStore.h \
 	./foreman/Metric.h \
 	./foreman/Platform.h \

@@ -10,8 +10,8 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 #include <benchmark/benchmark.h>
 #include <foreman/MemStore.h>
@@ -20,13 +20,14 @@
 #define FORMANCC_BENCHMARK_METRICS_COUNT 10000
 #define FORMANCC_BENCHMARK_METRICS_NAME_PREFIX "name"
 
-bool ForemanInitializeMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR) {
+bool ForemanInitializeMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)
+{
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
-  
+
   memStore->open();
-  
+
   // Initialize metrics
-  
+
   Foreman::Metrics metrics;
   std::ostringstream s;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_METRICS_COUNT; n++) {
@@ -35,24 +36,25 @@ bool ForemanInitializeMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENC
     m->name = s.str();
     metrics.push_back(m);
   }
-  
+
   memStore->setRetentionInterval(FORMANCC_BENCHMARK_RETENSION_INTERVAL);
   memStore->setRetentionPeriod(FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC);
-  
+
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
     memStore->addMetric(*m);
   }
-  
+
   if (!memStore->realloc())
     return false;
-  
+
   return true;
 }
 
-bool ForemanInsertMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t &beginTs, time_t &endTs) {
+bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t& beginTs, time_t& endTs)
+{
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / FORMANCC_BENCHMARK_RETENSION_INTERVAL);
-  
+
   beginTs = time(NULL);
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
@@ -71,7 +73,8 @@ bool ForemanInsertMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMAR
   return true;
 }
 
-bool ForemanReadMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs) {
+bool ForemanReadMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs)
+{
   for (std::shared_ptr<Foreman::Metric> m : memStore->getMetrics()) {
     std::shared_ptr<Foreman::MetricValue> values = nullptr;
     size_t valueCnt = 0;
@@ -81,19 +84,22 @@ bool ForemanReadMemStore(Foreman::MemStore *memStore, size_t FORMANCC_BENCHMARK_
   return true;
 }
 
-bool ForemanFinalizeMemStore(Foreman::MemStore *memStore) {
+bool ForemanFinalizeMemStore(Foreman::MemStore* memStore)
+{
   memStore->close();
   delete memStore;
   return true;
 }
 
-template <class MemStoreClass> void ForemanMemStoreWrite(benchmark::State& state) {
+template <class MemStoreClass>
+void ForemanMemStoreWrite(benchmark::State& state)
+{
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
   time_t beginTs = 0, endTs = 0;
-  
+
   while (state.KeepRunning()) {
     state.PauseTiming();
-    Foreman::MemStore *memStore = new MemStoreClass();
+    Foreman::MemStore* memStore = new MemStoreClass();
     if (!ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
       state.SkipWithError("Couldn't initialize MemStore !!");
     }
@@ -108,13 +114,15 @@ template <class MemStoreClass> void ForemanMemStoreWrite(benchmark::State& state
   }
 }
 
-template <class MemStoreClass> void ForemanMemStoreRead(benchmark::State& state) {
+template <class MemStoreClass>
+void ForemanMemStoreRead(benchmark::State& state)
+{
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
   time_t beginTs = 0, endTs = 0;
-  
+
   while (state.KeepRunning()) {
     state.PauseTiming();
-    Foreman::MemStore *memStore = new MemStoreClass();
+    Foreman::MemStore* memStore = new MemStoreClass();
     if (!ForemanInitializeMemStore(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
       state.SkipWithError("Couldn't initialize MemStore !!");
     }

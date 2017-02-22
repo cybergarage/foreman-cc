@@ -42,13 +42,13 @@ bool MemStore::addMetric(const Metric& m)
 // addValues
 ////////////////////////////////////////////////
 
-bool MemStore::addValues(const Metrics &values)
+bool MemStore::addValues(const Metrics& values)
 {
   for (std::shared_ptr<Foreman::Metric> value : values) {
     if (!addValue(*value))
       return false;
   }
-  
+
   return true;
 }
 

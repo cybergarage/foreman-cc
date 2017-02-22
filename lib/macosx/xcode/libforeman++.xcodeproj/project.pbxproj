@@ -18,6 +18,7 @@
 		219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C31E55980D003EAD97 /* MatrixStore.cpp */; };
 		219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C51E55B1E7003EAD97 /* Metric.cpp */; };
 		219F41C81E55B1EF003EAD97 /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 219F41C71E55B1EF003EAD97 /* Metric.h */; };
+		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
@@ -36,6 +37,7 @@
 		219F41C31E55980D003EAD97 /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixStore.cpp; sourceTree = "<group>"; };
 		219F41C51E55B1E7003EAD97 /* Metric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metric.cpp; sourceTree = "<group>"; };
 		219F41C71E55B1EF003EAD97 /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
+		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WideTableStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21B60DBC1E5D47D3009D663B /* Const.h */,
 				213E7FDB1E56078F00E41441 /* TimeSeries.h */,
 				219F41C71E55B1EF003EAD97 /* Metric.h */,
 				2175C2F41E52F444006C4425 /* MemStore.h */,
@@ -122,6 +125,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
 				2175C2F61E52F444006C4425 /* MemStore.h in Headers */,
 				219F41C81E55B1EF003EAD97 /* Metric.h in Headers */,

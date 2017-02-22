@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd include/foraman && ./Const.h.build && popd
+
 pushd include && ./Makefile.am.build > Makefile.am && popd
 pushd lib/unix && ./Makefile.am.build > Makefile.am && popd
 pushd bin/foremanbench/unix && ./Makefile.am.build > Makefile.am && popd
