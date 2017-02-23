@@ -66,7 +66,7 @@ bool RingMapStore::realloc()
     std::shared_ptr<RingMapTimeSeries> ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
     if (!ts->reallocValueArray(columnCount))
       return false;
-    tsMap_->insert(TimeSeriesPair{ m.second->name, ts });
+    tsMap_->insert(std::make_pair(m.second->name, ts));
   }
 
   return true;

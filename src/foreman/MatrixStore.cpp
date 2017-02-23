@@ -71,7 +71,7 @@ bool MatrixStore::realloc()
     std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
     if (!ts->setValueArray(rawValues, columnCount))
       return false;
-    tsMap_->insert(TimeSeriesPair{ m.second->name, ts });
+    tsMap_->insert(std::make_pair(m.second->name, ts));
     rawValues += columnCount;
   }
 
