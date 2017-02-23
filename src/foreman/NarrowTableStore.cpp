@@ -66,17 +66,41 @@ bool NarrowTableStore::clear()
 bool NarrowTableStore::addMetric(const Metric& m)
 {
   sqlite3_stmt *stmt=NULL;
+
+  // Insert a metric
+  
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
     return false;
 
-  bool isAdded = false;
-  if (sqlite3_step(stmt) == SQLITE_DONE)
-    isAdded = true;
+  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  if (sqlite3_step(stmt) != SQLITE_DONE) {
+    sqlite3_finalize(stmt);
+    return false;
+  }
 
   sqlite3_finalize(stmt);
+
+  // Get ROWID of the inserted metric
   
-  if (!isAdded)
+  if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
     return false;
   
-  return MemStore::addMetric(m);
+  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  if (sqlite3_step(stmt) != SQLITE_ROW) {
+    sqlite3_finalize(stmt);
+    return false;
+  }
+  
+  int rowId = sqlite3_column_int(stmt, 0);
+  sqlite3_finalize(stmt);
+  
+  // Insert a metric
+  
+  std::shared_ptr<SQLiteMetric> sm = std::shared_ptr<SQLiteMetric>(new SQLiteMetric());
+  sm->name = m.name;
+  sm->rowId = rowId;
+  
+  metrics_.push_back(sm);
+  
+  return true;
 }
