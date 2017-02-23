@@ -63,7 +63,7 @@ bool SQLiteStore::close()
 }
 
 ////////////////////////////////////////////////
-// close
+// query
 ////////////////////////////////////////////////
 
 bool SQLiteStore::query(const std::string& query)
@@ -78,12 +78,11 @@ bool SQLiteStore::query(const std::string& query)
   return true;
 }
 
-
 ////////////////////////////////////////////////
-// close
+// prepare
 ////////////////////////////////////////////////
 
-bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt **ppStmt)
+bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt** ppStmt)
 {
   if (!isOpened())
     return false;
