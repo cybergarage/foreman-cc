@@ -30,7 +30,7 @@ MetricMap::~MetricMap()
 
 bool MetricMap::addMetric(std::shared_ptr<Metric> m)
 {
-  insert(MetricsPair{ m->name, m });
+  insert(std::make_pair(m->name, m));
   return true;
 }
 
@@ -51,7 +51,7 @@ std::shared_ptr<Metric> MetricMap::findMetric(const std::string& name)
 // findMetric
 ////////////////////////////////////////////////
 
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
+std::shared_ptr<std::vector<std::shared_ptr<Metric> > > MetricMap::getMetrics()
 {
   std::shared_ptr<Metrics> mm = std::shared_ptr<Metrics>(new Metrics());
   for (auto it = begin(); it != end(); ++it ) {
@@ -64,7 +64,7 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
 // addMetrics
 ////////////////////////////////////////////////
 
-bool MetricMap::addMetrics(std::vector<std::shared_ptr<Metric>> metrics)
+bool MetricMap::addMetrics(std::vector<std::shared_ptr<Metric> > metrics)
 {
   for (std::shared_ptr<Metric> m : metrics) {
     if (!addMetric(m))

@@ -49,7 +49,7 @@ class MemStore {
 
   virtual bool addMetric(std::shared_ptr<Metric> m);
   std::shared_ptr<Metric> findMetric(const std::string& name);
-  std::shared_ptr<Metrics> getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Metric> > > getMetrics();
 
   virtual bool addValue(const Metric& value)
   {
