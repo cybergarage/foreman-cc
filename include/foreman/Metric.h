@@ -42,11 +42,10 @@ class Metric {
 ////////////////////////////////////////////////
 
 class Metrics : public std::vector<std::shared_ptr<Metric>> {
-public:
+  public:
   Metrics(){};
   virtual ~Metrics(){};
 };
-  
 }
 
 #endif

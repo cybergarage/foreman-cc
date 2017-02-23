@@ -67,7 +67,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
       value->value = n;
       values.push_back(value);
     }
-    store->addValues(values);
+    BOOST_CHECK(store->addValues(values));
     metricTs += FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL;
   }
   time_t endTs = metricTs;

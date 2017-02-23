@@ -48,6 +48,7 @@ class MemStore {
   }
 
   virtual bool addMetric(const Metric& m);
+  std::shared_ptr<Metric> findMetric(const std::string &name);
 
   virtual Metrics& getMetrics()
   {
@@ -127,8 +128,8 @@ class TimeSeriesMapStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
 ////////////////////////////////////////////////
 
 class SQLiteMetric : public Metric {
-public:
-  SQLiteMetric() {};
+  public:
+  SQLiteMetric(){};
   int rowId;
 };
 
@@ -143,7 +144,7 @@ class SQLiteStore : public MemStore {
   bool close();
 
   bool query(const std::string& query);
-  bool prepare(const std::string& query, sqlite3_stmt **ppStmt);
+  bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
 
   protected:
   sqlite3* db_;
@@ -173,6 +174,8 @@ class NarrowTableStore : public SQLiteStore {
   bool open();
   bool clear();
   bool addMetric(const Metric& m);
+  bool addValue(const Metric& m);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };
 
 ////////////////////////////////////////////////
