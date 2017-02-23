@@ -112,23 +112,23 @@ bool NarrowTableStore::addValue(const Metric& m)
   std::shared_ptr<Metric> mm = findMetric(m.name);
   if (!mm)
     return false;
-  
-  SQLiteMetric *sm = dynamic_cast<SQLiteMetric*>(mm.get());
+
+  SQLiteMetric* sm = dynamic_cast<SQLiteMetric*>(mm.get());
   if (!sm)
     return false;
-  
+
   int rowId = sm->rowId;
-  
+
   // Insert a value
 
   sqlite3_stmt* stmt = NULL;
-  
+
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_INSERT, &stmt))
     return false;
   sqlite3_bind_int(stmt, 1, rowId);
   sqlite3_bind_double(stmt, 2, m.value);
   sqlite3_bind_int(stmt, 3, (int)m.timestamp);
-  
+
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
 
@@ -165,9 +165,9 @@ bool NarrowTableStore::getValues(const Metric& m, time_t beginTs, time_t endTs, 
   MetricValue* copyValues = new MetricValue[valueCnt];
 
   // Select values
-  
+
   sqlite3_stmt* stmt = NULL;
-  
+
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
   sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
@@ -182,7 +182,7 @@ bool NarrowTableStore::getValues(const Metric& m, time_t beginTs, time_t endTs, 
     copyValues[valueIdx] = value;
   }
   sqlite3_finalize(stmt);
-  
+
   values = std::shared_ptr<MetricValue>(copyValues);
 
   return true;
