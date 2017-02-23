@@ -24,14 +24,10 @@ namespace Foreman {
 // MemStore
 ////////////////////////////////////////////////
 
-template <typename MetricType, typename MetricsType>
-class MemStoreTemplate {
+class MemStore {
   public:
-  MemStoreTemplate() {
-    retentionInterval_ = 0;
-    retentionPeriod_ = 0;
-  }
-  virtual ~MemStoreTemplate() {};
+  MemStore();
+  virtual ~MemStore();
 
   virtual bool open() = 0;
   virtual bool isOpened() = 0;
@@ -51,12 +47,9 @@ class MemStoreTemplate {
     return 0;
   }
 
-  virtual bool addMetric(const MetricType& m) {
-    metrics_.push_back(std::unique_ptr<MetricType>(new MetricType(m)));
-    return true;
-  }
+  virtual bool addMetric(const Metric& m);
 
-  virtual MetricsType& getMetrics()
+  virtual Metrics& getMetrics()
   {
     return metrics_;
   }
@@ -66,13 +59,7 @@ class MemStoreTemplate {
     return true;
   }
 
-  virtual bool addValues(const Metrics& values) {
-    for (std::shared_ptr<Foreman::Metric> value : values) {
-      if (!addValue(*value))
-        return false;
-    }
-    return true;
-  }
+  virtual bool addValues(const Metrics& values);
 
   virtual bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
   {
@@ -101,28 +88,15 @@ class MemStoreTemplate {
     return retentionPeriod_;
   };
 
-  size_t getColumnCount() {
-    if (retentionInterval_ == 0)
-      return 0;
-    return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
-  }
-  
-  size_t getRowCount() {
-    return metrics_.size();
-  }
+  size_t getColumnCount();
+  size_t getRowCount();
 
   protected:
-  MetricsType metrics_;
+  Metrics metrics_;
 
   private:
   time_t retentionInterval_;
   time_t retentionPeriod_;
-};
-
-class MemStore : public MemStoreTemplate<Metric, Metrics> {
-public:
-  MemStore(){};
-  virtual ~MemStore(){};
 };
 
 ////////////////////////////////////////////////
@@ -156,11 +130,6 @@ class SQLiteMetric : public Metric {
 public:
   SQLiteMetric() {};
   int rowId;
-};
-  
-class SQLiteMetrics : public MetricsTemplate<SQLiteMetric> {
-public:
-  SQLiteMetrics(){};
 };
 
 class SQLiteStore : public MemStore {
