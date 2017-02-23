@@ -47,13 +47,8 @@ class MemStore {
     return 0;
   }
 
-  virtual bool addMetric(const Metric& m);
+  virtual bool addMetric(std::shared_ptr<Metric> m);
   std::shared_ptr<Metric> findMetric(const std::string &name);
-
-  virtual Metrics& getMetrics()
-  {
-    return metrics_;
-  }
 
   virtual bool addValue(const Metric& value)
   {
@@ -93,7 +88,7 @@ class MemStore {
   size_t getRowCount();
 
   protected:
-  Metrics metrics_;
+  MetricMap metricMap_;
 
   private:
   time_t retentionInterval_;
@@ -173,7 +168,7 @@ class NarrowTableStore : public SQLiteStore {
 
   bool open();
   bool clear();
-  bool addMetric(const Metric& m);
+  bool addMetric(std::shared_ptr<Metric> m);
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };

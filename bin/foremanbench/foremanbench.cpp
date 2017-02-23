@@ -140,7 +140,19 @@ void ForemanMemStoreRead(benchmark::State& state)
   }
 }
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::RingMapStore)->Arg(1)->Arg(2)->Arg(4)->Arg(8)->Arg(12)->Arg(24);
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)->Arg(1)->Arg(2)->Arg(4)->Arg(8)->Arg(12)->Arg(24);
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::RingMapStore)
+    ->Arg(1)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)
+    ->Arg(1)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
 
 BENCHMARK_MAIN();

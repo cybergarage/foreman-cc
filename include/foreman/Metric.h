@@ -14,6 +14,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #include <time.h>
 
@@ -41,11 +42,24 @@ class Metric {
 // Metrics
 ////////////////////////////////////////////////
 
+typedef std::pair<std::string, std::shared_ptr<Metric>> MetricsPair;
+  
+class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>> {
+public:
+  MetricMap();
+  virtual ~MetricMap();
+  
+  bool addMetric(std::shared_ptr<Metric> m);
+  bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
+  std::shared_ptr<Metric> findMetric(const std::string &name);
+};
+
 class Metrics : public std::vector<std::shared_ptr<Metric>> {
   public:
   Metrics(){};
   virtual ~Metrics(){};
 };
+
 }
 
 #endif

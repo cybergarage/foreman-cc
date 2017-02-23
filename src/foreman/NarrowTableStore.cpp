@@ -63,7 +63,7 @@ bool NarrowTableStore::clear()
 // addMetric
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::addMetric(const Metric& m)
+bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 {
   sqlite3_stmt* stmt = NULL;
 
@@ -72,7 +72,7 @@ bool NarrowTableStore::addMetric(const Metric& m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
     return false;
@@ -85,7 +85,7 @@ bool NarrowTableStore::addMetric(const Metric& m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_ROW) {
     sqlite3_finalize(stmt);
     return false;
@@ -97,12 +97,10 @@ bool NarrowTableStore::addMetric(const Metric& m)
   // Insert a metric
 
   std::shared_ptr<SQLiteMetric> sm = std::shared_ptr<SQLiteMetric>(new SQLiteMetric());
-  sm->name = m.name;
+  sm->name = m->name;
   sm->rowId = rowId;
 
-  metrics_.push_back(sm);
-
-  return true;
+  return addMetric(sm);
 }
 
 ////////////////////////////////////////////////
@@ -112,9 +110,9 @@ bool NarrowTableStore::addMetric(const Metric& m)
 bool NarrowTableStore::addValue(const Metric& m)
 {
   sqlite3_stmt* stmt = NULL;
-  
+
   int rowId = 0;
-  
+
   // Insert a value
 
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_INSERT, &stmt))
@@ -124,7 +122,7 @@ bool NarrowTableStore::addValue(const Metric& m)
   sqlite3_bind_int(stmt, 3, (int)m.timestamp);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
-    
+
     // Update a value
     if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_UPDATE, &stmt))
       return false;
@@ -138,7 +136,7 @@ bool NarrowTableStore::addValue(const Metric& m)
   }
 
   sqlite3_finalize(stmt);
-  
+
   return true;
 }
 

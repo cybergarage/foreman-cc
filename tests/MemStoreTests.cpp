@@ -75,6 +75,6 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new RingMapStore();
-  //testController.run(store);
+  testController.run(store);
   delete store;
 }

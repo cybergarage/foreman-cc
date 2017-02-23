@@ -32,27 +32,18 @@ MemStore::~MemStore()
 // addMetric
 ////////////////////////////////////////////////
 
-bool MemStore::addMetric(const Metric& m)
+bool MemStore::addMetric(std::shared_ptr<Metric> m)
 {
-  metrics_.push_back(std::shared_ptr<Metric>(new Metric(m)));
-  return true;
+  return metricMap_.addMetric(m);
 }
 
 ////////////////////////////////////////////////
 // findMetric
 ////////////////////////////////////////////////
 
-std::shared_ptr<Metric> MemStore::findMetric(const std::string &name)
+std::shared_ptr<Metric> MemStore::findMetric(const std::string& name)
 {
-  /*
-  metrics_.f
-  TimeSeriesMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<TimeSeries>>::find(m.name);
-  if (tsIt == TimeSeriesMap::end())
-    return nullptr;
-  
-  return tsIt->second;
-  */
-  return nullptr;
+  return metricMap_.findMetric(name);
 }
 
 ////////////////////////////////////////////////
@@ -86,5 +77,5 @@ size_t MemStore::getColumnCount()
 
 size_t MemStore::getRowCount()
 {
-  return metrics_.size();
+  return metricMap_.size();
 }
