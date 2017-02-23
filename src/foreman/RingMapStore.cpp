@@ -59,14 +59,14 @@ bool RingMapStore::realloc()
 
   tsMap_->clear();
 
-  for (std::shared_ptr<Metric> m : metrics_) {
+  for (MetricsPair m : metricMap_) {
     MetricValue* rowData = new MetricValue[columnCount];
     if (rowData == nullptr)
       return false;
     std::shared_ptr<RingMapTimeSeries> ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
     if (!ts->reallocValueArray(columnCount))
       return false;
-    tsMap_->insert(TimeSeriesPair{ m->name, ts });
+    tsMap_->insert(TimeSeriesPair{ m.second->name, ts });
   }
 
   return true;
