@@ -41,7 +41,19 @@ class Metric {
 // Metrics
 ////////////////////////////////////////////////
 
-typedef std::vector<std::shared_ptr<Metric>> Metrics;
+template <typename MetricsType>
+class MetricsTemplate : public std::vector<std::shared_ptr<MetricsType>> {
+public:
+  MetricsTemplate(){};
+  virtual ~MetricsTemplate(){};
+};
+
+class Metrics : public MetricsTemplate<Metric> {
+public:
+  Metrics(){};
+  virtual ~Metrics(){};
+};
+
 }
 
 #endif
