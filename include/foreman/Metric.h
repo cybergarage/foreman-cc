@@ -59,7 +59,11 @@ class Metrics : public std::vector<std::shared_ptr<Metric> > {
   public:
   Metrics(){};
   virtual ~Metrics(){};
-  bool addMetric(std::shared_ptr<Metric> m) {push_back(m); return true;}
+  bool addMetric(std::shared_ptr<Metric> m)
+  {
+    push_back(m);
+    return true;
+  }
 };
 }
 
