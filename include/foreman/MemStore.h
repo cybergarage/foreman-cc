@@ -135,7 +135,9 @@ class SQLiteStore : public MemStore {
 
   bool isOpened();
   bool close();
+
   bool query(const std::string& query);
+  bool prepare(const std::string& query, sqlite3_stmt **ppStmt);
 
   protected:
   sqlite3* db_;

@@ -65,5 +65,18 @@ bool NarrowTableStore::clear()
 
 bool NarrowTableStore::addMetric(const Metric& m)
 {
-  return false;
+  sqlite3_stmt *stmt=NULL;
+  if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
+    return false;
+
+  bool isAdded = false;
+  if (sqlite3_step(stmt) == SQLITE_DONE)
+    isAdded = true;
+
+  sqlite3_finalize(stmt);
+  
+  if (!isAdded)
+    return false;
+  
+  return MemStore::addMetric(m);
 }

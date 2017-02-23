@@ -68,11 +68,27 @@ bool SQLiteStore::close()
 
 bool SQLiteStore::query(const std::string& query)
 {
-  if (!db_)
+  if (!isOpened())
     return false;
 
   char* errMsg = NULL;
   if (sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg) != SQLITE_OK)
+    return false;
+
+  return true;
+}
+
+
+////////////////////////////////////////////////
+// close
+////////////////////////////////////////////////
+
+bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt **ppStmt)
+{
+  if (!isOpened())
+    return false;
+
+  if (sqlite3_prepare(db_, query.c_str(), (int)query.length(), ppStmt, NULL) != SQLITE_OK)
     return false;
 
   return true;
