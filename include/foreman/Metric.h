@@ -52,12 +52,14 @@ class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>
   bool addMetric(std::shared_ptr<Metric> m);
   bool addMetrics(std::vector<std::shared_ptr<Metric> > metrics);
   std::shared_ptr<Metric> findMetric(const std::string& name);
+  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
 };
 
-class Metrics : public std::vector<std::shared_ptr<Metric> > {
+class Metrics : public std::vector<std::shared_ptr<Metric>> {
   public:
   Metrics(){};
   virtual ~Metrics(){};
+  bool addMetric(std::shared_ptr<Metric> m) {push_back(m); return true;}
 };
 }
 
