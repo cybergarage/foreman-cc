@@ -41,7 +41,7 @@ bool ForemanInitializeMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENC
   memStore->setRetentionPeriod(FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC);
 
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
-    memStore->addMetric(*m);
+    memStore->addMetric(m);
   }
 
   if (!memStore->realloc())
@@ -59,7 +59,7 @@ bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMAR
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
     Foreman::Metrics values;
-    for (std::shared_ptr<Foreman::Metric> m : memStore->getMetrics()) {
+    for (std::shared_ptr<Foreman::Metric> m : *memStore->getMetrics()) {
       std::shared_ptr<Foreman::Metric> value = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(*m));
       value->timestamp = metricTs;
       value->value = n;
@@ -75,7 +75,7 @@ bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMAR
 
 bool ForemanReadMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs)
 {
-  for (std::shared_ptr<Foreman::Metric> m : memStore->getMetrics()) {
+  for (std::shared_ptr<Foreman::Metric> m : *memStore->getMetrics()) {
     std::shared_ptr<Foreman::MetricValue> values = nullptr;
     size_t valueCnt = 0;
     if (!memStore->getValues(*m, beginTs, endTs, FORMANCC_BENCHMARK_RETENSION_INTERVAL, values, valueCnt))
@@ -148,6 +148,21 @@ BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::RingMapStore)
     ->Arg(12)
     ->Arg(24);
 BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)
+    ->Arg(1)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
+
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::NarrowTableStore)
+    ->Arg(1)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::NarrowTableStore)
     ->Arg(1)
     ->Arg(2)
     ->Arg(4)
