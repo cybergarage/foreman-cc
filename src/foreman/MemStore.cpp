@@ -39,6 +39,23 @@ bool MemStore::addMetric(const Metric& m)
 }
 
 ////////////////////////////////////////////////
+// findMetric
+////////////////////////////////////////////////
+
+std::shared_ptr<Metric> MemStore::findMetric(const std::string &name)
+{
+  /*
+  metrics_.f
+  TimeSeriesMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<TimeSeries>>::find(m.name);
+  if (tsIt == TimeSeriesMap::end())
+    return nullptr;
+  
+  return tsIt->second;
+  */
+  return nullptr;
+}
+
+////////////////////////////////////////////////
 // addValues
 ////////////////////////////////////////////////
 
