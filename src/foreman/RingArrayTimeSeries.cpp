@@ -37,18 +37,12 @@ RingArrayTimeSeries::~RingArrayTimeSeries()
 bool RingArrayTimeSeries::addValue(const Metric& m)
 {
   values_[arrayInsertIndex_] = m.value;
-
-  lastTs_ = m.timestamp;
-  firstTs_ = lastTs_ - arraySize_;
-
+  
   arrayInsertIndex_++;
   if (arraySize_ <= arrayInsertIndex_)
     arrayInsertIndex_ = 0;
 
-  if (arrayCount_ < arraySize_)
-    arrayCount_++;
-
-  return true;
+  return ArrayTimeSeries::addValue(m);
 }
 
 ////////////////////////////////////////////////
@@ -57,11 +51,7 @@ bool RingArrayTimeSeries::addValue(const Metric& m)
 
 bool RingArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
-  if (endTs <= beginTs)
-    return false;
-
-  valueCnt = (endTs - beginTs) / interval;
-  if (valueCnt <= 0)
+  if (!getValueCount(beginTs, endTs, interval, valueCnt))
     return false;
 
   MetricValue* copyValues = new MetricValue[valueCnt];
@@ -80,3 +70,14 @@ bool RingArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interva
 
   return true;
 }
+
+////////////////////////////////////////////////
+// clear
+////////////////////////////////////////////////
+
+bool RingArrayTimeSeries::clear()
+{
+  arrayInsertIndex_ = 0;
+  return ArrayTimeSeries::clear();
+}
+

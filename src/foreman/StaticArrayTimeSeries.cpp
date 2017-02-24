@@ -36,17 +36,18 @@ StaticArrayTimeSeries::~StaticArrayTimeSeries()
 
 bool StaticArrayTimeSeries::addValue(const Metric& m)
 {
-  values_[arrayInsertIndex_] = m.value;
+  MetricValue *newValues = new MetricValue[arraySize_];
+  if (!newValues)
+    return false;
 
-  lastTs_ = m.timestamp;
-  firstTs_ = lastTs_ - arraySize_;
+  if (!ArrayTimeSeries::addValue(m))
+    return false;
 
-  arrayInsertIndex_++;
-  if (arraySize_ <= arrayInsertIndex_)
-    arrayInsertIndex_ = 0;
-
-  if (arrayCount_ < arraySize_)
-    arrayCount_++;
+  memcpy(newValues, (values_+1), (sizeof(MetricValue) * (arraySize_ - 1)));
+  delete values_;
+  
+  values_ = newValues;
+  values_[(arraySize_ - 1)] = m.value;
 
   return true;
 }
@@ -57,25 +58,11 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
 
 bool StaticArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
-  if (endTs <= beginTs)
-    return false;
-
-  valueCnt = (endTs - beginTs) / interval;
-  if (valueCnt <= 0)
+  if (!getValueCount(beginTs, endTs, interval, valueCnt))
     return false;
 
   MetricValue* copyValues = new MetricValue[valueCnt];
-
-  size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
-  if (0 < arrayRightCnt) {
-    memcpy(copyValues, (values_ + arrayInsertIndex_), (sizeof(MetricValue) * arrayRightCnt));
-  }
-
-  size_t arrayLeftCnt = arrayInsertIndex_;
-  if (0 < arrayLeftCnt) {
-    memcpy((copyValues + arrayRightCnt), values_, (sizeof(MetricValue) * arrayLeftCnt));
-  }
-
+  memcpy(copyValues, values_, (sizeof(MetricValue) * valueCnt));
   values = std::shared_ptr<MetricValue>(copyValues);
 
   return true;
