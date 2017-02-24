@@ -9,8 +9,8 @@
 ##################################################################
 
 foremancc_header = \
-	./foreman/MemStore.h \
 	./foreman/Const.h \
+	./foreman/MemStore.h \
 	./foreman/Metric.h \
 	./foreman/Platform.h \
 	./foreman/TimeSeries.h
