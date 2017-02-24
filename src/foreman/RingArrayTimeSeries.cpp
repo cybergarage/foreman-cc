@@ -37,7 +37,7 @@ RingArrayTimeSeries::~RingArrayTimeSeries()
 bool RingArrayTimeSeries::addValue(const Metric& m)
 {
   values_[arrayInsertIndex_] = m.value;
-  
+
   arrayInsertIndex_++;
   if (arraySize_ <= arrayInsertIndex_)
     arrayInsertIndex_ = 0;
@@ -80,4 +80,3 @@ bool RingArrayTimeSeries::clear()
   arrayInsertIndex_ = 0;
   return ArrayTimeSeries::clear();
 }
-

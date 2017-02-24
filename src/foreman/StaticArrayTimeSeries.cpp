@@ -36,16 +36,16 @@ StaticArrayTimeSeries::~StaticArrayTimeSeries()
 
 bool StaticArrayTimeSeries::addValue(const Metric& m)
 {
-  MetricValue *newValues = new MetricValue[arraySize_];
+  MetricValue* newValues = new MetricValue[arraySize_];
   if (!newValues)
     return false;
 
   if (!ArrayTimeSeries::addValue(m))
     return false;
 
-  memcpy(newValues, (values_+1), (sizeof(MetricValue) * (arraySize_ - 1)));
+  memcpy(newValues, (values_ + 1), (sizeof(MetricValue) * (arraySize_ - 1)));
   delete values_;
-  
+
   values_ = newValues;
   values_[(arraySize_ - 1)] = m.value;
 

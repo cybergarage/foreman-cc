@@ -41,10 +41,10 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 {
   lastTs_ = m.timestamp;
   firstTs_ = lastTs_ - arraySize_;
-  
+
   if (arrayCount_ < arraySize_)
     arrayCount_++;
-  
+
   return true;
 }
 
@@ -56,14 +56,14 @@ bool ArrayTimeSeries::getValueCount(time_t beginTs, time_t endTs, time_t interva
 {
   if (endTs <= beginTs)
     return false;
-  
+
   valueCnt = (endTs - beginTs) / interval;
   if (valueCnt <= 0)
     return false;
 
   if (arrayCount_ < valueCnt)
     valueCnt = arrayCount_;
-  
+
   return true;
 }
 
@@ -107,10 +107,10 @@ bool ArrayTimeSeries::setValueArray(MetricValue* values, size_t size)
 bool ArrayTimeSeries::clear()
 {
   if (values_) {
-    delete []values_;
+    delete[] values_;
     values_ = nullptr;
   }
-  
+
   arraySize_ = 0;
   arrayCount_ = 0;
 

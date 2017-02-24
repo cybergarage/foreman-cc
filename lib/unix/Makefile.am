@@ -13,9 +13,11 @@ lib_LIBRARIES = libforeman++.a
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
 foremancc_sources = \
+	../../src/foreman/StaticArrayTimeSeries.cpp \
 	../../src/foreman/TimeSeries.cpp \
 	../../src/foreman/WideTableStore.cpp \
 	../../src/foreman/TimeSeriesMap.cpp \
+	../../src/foreman/RingArrayTimeSeries.cpp \
 	../../src/foreman/Metric.cpp \
 	../../src/foreman/MatrixStore.cpp \
 	../../src/foreman/RingMapStore.cpp \
