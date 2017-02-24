@@ -15,15 +15,28 @@
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// TSmapStore
+// MatrixStore
 ////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_CASE(TSmapStoreTest)
+BOOST_AUTO_TEST_CASE(MatrixStoreTest)
 {
   MemStoreTestContoller testController;
 
-  MemStore* store = new TSmapStore();
-  //testController.run(store);
+  MemStore* store = new MatrixStore();
+  testController.run(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
+// RingMapStore
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(RingMapStoreTest)
+{
+  MemStoreTestContoller testController;
+
+  MemStore* store = new RingMapStore();
+  testController.run(store);
   delete store;
 }
 
@@ -41,6 +54,19 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 }
 
 ////////////////////////////////////////////////
+// TSmapStore
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(TSmapStoreTest)
+{
+  MemStoreTestContoller testController;
+
+  MemStore* store = new TSmapStore();
+  //testController.run(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
 // WideTableStore
 ////////////////////////////////////////////////
 
@@ -50,31 +76,5 @@ BOOST_AUTO_TEST_CASE(WideTableStoreTest)
 
   MemStore* store = new WideTableStore();
   //testController.run(store);
-  delete store;
-}
-
-////////////////////////////////////////////////
-// MatrixStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(MatrixStoreTest)
-{
-  MemStoreTestContoller testController;
-
-  MemStore* store = new MatrixStore();
-  //testController.run(store);
-  delete store;
-}
-
-////////////////////////////////////////////////
-// RingMapStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(RingMapStoreTest)
-{
-  MemStoreTestContoller testController;
-
-  MemStore* store = new RingMapStore();
-  testController.run(store);
   delete store;
 }

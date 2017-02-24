@@ -35,9 +35,9 @@ class TimeSeries {
 // TimeSeriesMap
 ////////////////////////////////////////////////
 
-typedef std::pair<std::string, std::shared_ptr<TimeSeries> > TimeSeriesPair;
+typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
 
-class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries> > {
+class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
   public:
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
@@ -45,7 +45,7 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
   std::shared_ptr<TimeSeries> find(const Metric& m);
 
   bool addValue(const Metric& m);
-  bool addValues(std::vector<std::shared_ptr<Metric> > metrics);
+  bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };
 
@@ -58,16 +58,15 @@ class ArrayTimeSeries : public TimeSeries {
   ArrayTimeSeries();
   ~ArrayTimeSeries();
 
-  bool addValue(const Metric& m);
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+  virtual bool addValue(const Metric& m);
+  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
 
-  bool reallocValueArray(size_t size);
-  bool setValueArray(MetricValue* values, size_t size);
-  bool clear();
+  virtual bool reallocValueArray(size_t size);
+  virtual bool setValueArray(MetricValue* values, size_t size);
+  virtual bool clear();
 
-  private:
-  MetricValue* rawValues_;
-  std::shared_ptr<MetricValue> values_;
+  protected:
+  MetricValue *values_;
 
   size_t arraySize_;
   size_t arrayInsertIndex_;
@@ -75,6 +74,24 @@ class ArrayTimeSeries : public TimeSeries {
 
   time_t firstTs_;
   time_t lastTs_;
+};
+
+class RingArrayTimeSeries : public ArrayTimeSeries {
+  public:
+  RingArrayTimeSeries();
+  ~RingArrayTimeSeries();
+
+  bool addValue(const Metric& m);
+  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+};
+
+class StaticArrayTimeSeries : public ArrayTimeSeries {
+  public:
+  StaticArrayTimeSeries();
+  ~StaticArrayTimeSeries();
+
+  bool addValue(const Metric& m);
+  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
 };
 
 ////////////////////////////////////////////////

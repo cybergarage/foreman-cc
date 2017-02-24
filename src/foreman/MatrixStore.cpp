@@ -62,17 +62,11 @@ bool MatrixStore::realloc()
 
   tsMap_->clear();
 
-  MetricValue* rawValues = new MetricValue[rowCount * columnCount];
-  if (rawValues == nullptr)
-    return false;
-  tsMap_->mxValues = std::shared_ptr<MetricValue>(rawValues);
-
   for (MetricsPair m : metricMap_) {
     std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
-    if (!ts->setValueArray(rawValues, columnCount))
+    if (!ts->reallocValueArray(columnCount))
       return false;
     tsMap_->insert(std::make_pair(m.second->name, ts));
-    rawValues += columnCount;
   }
 
   return true;
