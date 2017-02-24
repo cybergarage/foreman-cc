@@ -19,25 +19,22 @@
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// ArrayTimeSeries
+// RingArrayTimeSeries
 ////////////////////////////////////////////////
 
-ArrayTimeSeries::ArrayTimeSeries()
+RingArrayTimeSeries::RingArrayTimeSeries()
 {
-  values_ = nullptr;
-  clear();
 }
 
-ArrayTimeSeries::~ArrayTimeSeries()
+RingArrayTimeSeries::~RingArrayTimeSeries()
 {
-  clear();
 }
 
 ////////////////////////////////////////////////
 // addMetric
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::addValue(const Metric& m)
+bool RingArrayTimeSeries::addValue(const Metric& m)
 {
   values_[arrayInsertIndex_] = m.value;
 
@@ -58,7 +55,7 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool RingArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
   if (endTs <= beginTs)
     return false;
@@ -80,60 +77,6 @@ bool ArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, s
   }
 
   values = std::shared_ptr<MetricValue>(copyValues);
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// reallocValueArray
-////////////////////////////////////////////////
-
-bool ArrayTimeSeries::reallocValueArray(size_t size)
-{
-  if (!clear())
-    return false;
-
-  values_ = new MetricValue[size];
-  if (!values_)
-    return false;
-
-  arraySize_ = size;
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// setValueArray
-////////////////////////////////////////////////
-
-bool ArrayTimeSeries::setValueArray(MetricValue* values, size_t size)
-{
-  if (!clear())
-    return false;
-
-  values_ = values;
-  arraySize_ = size;
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// clear
-////////////////////////////////////////////////
-
-bool ArrayTimeSeries::clear()
-{
-  if (values_) {
-    delete []values_;
-    values_ = nullptr;
-  }
-  
-  arraySize_ = 0;
-  arrayInsertIndex_ = 0;
-  arrayCount_ = 0;
-
-  firstTs_ = 0;
-  lastTs_ = 0;
 
   return true;
 }
