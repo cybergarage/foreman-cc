@@ -17,7 +17,8 @@
 #include <foreman/MemStore.h>
 
 #define FORMANCC_BENCHMARK_RETENSION_INTERVAL 60
-#define FORMANCC_BENCHMARK_METRICS_COUNT 10000
+#define FORMANCC_BENCHMARK_METRICS_COUNT 1000
+#define FORMANCC_BENCHMARK_METRICS_READ_COUNT 100
 #define FORMANCC_BENCHMARK_METRICS_NAME_PREFIX "name"
 
 bool ForemanInitializeMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)
@@ -78,12 +79,14 @@ bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMAR
 bool ForemanReadMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs)
 {
   std::shared_ptr<std::vector<std::shared_ptr<Foreman::Metric> > > metrics = memStore->getMetrics();
-  for(auto it = metrics->begin(); it != metrics->end(); ++it) {
-    std::shared_ptr<Foreman::Metric> m = *it;
-    std::shared_ptr<Foreman::MetricValue> values = nullptr;
-    size_t valueCnt = 0;
-    if (!memStore->getValues(*m, beginTs, endTs, FORMANCC_BENCHMARK_RETENSION_INTERVAL, values, valueCnt))
-      return false;
+  for (size_t n=0; n<FORMANCC_BENCHMARK_METRICS_READ_COUNT; n++) {
+    for(auto it = metrics->begin(); it != metrics->end(); ++it) {
+      std::shared_ptr<Foreman::Metric> m = *it;
+      std::shared_ptr<Foreman::MetricValue> values = nullptr;
+      size_t valueCnt = 0;
+      if (!memStore->getValues(*m, beginTs, endTs, FORMANCC_BENCHMARK_RETENSION_INTERVAL, values, valueCnt))
+        return false;
+    }
   }
   return true;
 }
