@@ -198,7 +198,7 @@ class MatrixTimeSeriesMap : public TimeSeriesMap {
   ~MatrixTimeSeriesMap() {}
 };
 
-class MatrixTimeSeries : public ArrayTimeSeries {
+class MatrixTimeSeries : public StaticArrayTimeSeries {
   public:
   MatrixTimeSeries(){};
   ~MatrixTimeSeries(){};
@@ -226,7 +226,7 @@ class RingMapTimeSeriesMap : public TimeSeriesMap {
   ~RingMapTimeSeriesMap() {}
 };
 
-class RingMapTimeSeries : public ArrayTimeSeries {
+class RingMapTimeSeries : public RingArrayTimeSeries {
   public:
   RingMapTimeSeries(){};
   ~RingMapTimeSeries(){};

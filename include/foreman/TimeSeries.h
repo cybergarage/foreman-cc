@@ -59,17 +59,19 @@ class ArrayTimeSeries : public TimeSeries {
   ~ArrayTimeSeries();
 
   virtual bool addValue(const Metric& m);
-  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt) = 0;
 
   virtual bool reallocValueArray(size_t size);
   virtual bool setValueArray(MetricValue* values, size_t size);
   virtual bool clear();
-
+  
   protected:
+  
+  bool getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt);
+  
   MetricValue *values_;
 
   size_t arraySize_;
-  size_t arrayInsertIndex_;
   size_t arrayCount_;
 
   time_t firstTs_;
@@ -83,6 +85,10 @@ class RingArrayTimeSeries : public ArrayTimeSeries {
 
   bool addValue(const Metric& m);
   bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+  bool clear();
+
+protected:
+  size_t arrayInsertIndex_;
 };
 
 class StaticArrayTimeSeries : public ArrayTimeSeries {
