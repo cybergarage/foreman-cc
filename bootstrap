@@ -4,8 +4,9 @@ pushd include/foreman && ./Const.h.build && popd
 
 pushd include && ./Makefile.am.build > Makefile.am && popd
 pushd lib/unix && ./Makefile.am.build > Makefile.am && popd
-pushd bin/foremanbench/unix && ./Makefile.am.build > Makefile.am && popd
 pushd tests/unix && ./Makefile.am.build > Makefile.am && popd
+pushd bin/foremanbench/unix && ./Makefile.am.build > Makefile.am && popd
+pushd bin/foremanusage/unix && ./Makefile.am.build > Makefile.am && popd
 
 ./format
 

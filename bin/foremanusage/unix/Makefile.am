@@ -8,8 +8,11 @@
 #
 ##################################################################
 
-SUBDIRS =
+bin_PROGRAMS = foremanusage
 
-if FOREMAN_ENABLE_BENCHMARK
-SUBDIRS += foremanbench foremanusage
-endif
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
+
+foremanusage_SOURCES = \
+	..//foremanusage.cpp
+
+foremanusage_LDADD = ../../../lib/unix/libforeman++.a

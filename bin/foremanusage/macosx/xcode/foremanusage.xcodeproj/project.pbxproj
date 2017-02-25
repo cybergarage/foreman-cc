@@ -6,6 +6,28 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		21E6DAC71E619D3F00DFA1FD /* foremanusage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */; };
+		21E6DAD21E619E8100DFA1FD /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E6DACF1E619E6200DFA1FD /* libforeman++.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21E6DACE1E619E6200DFA1FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211B343E1E52F1B8008D5228;
+			remoteInfo = "libforeman++";
+		};
+		21E6DAD01E619E7A00DFA1FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 211B343D1E52F1B8008D5228;
+			remoteInfo = "libforeman++";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		2118089A1E619A0000E9C4CD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		2118089C1E619A0000E9C4CD /* foremanusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremanusage; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = foremanusage.cpp; path = ../../foremanusage.cpp; sourceTree = "<group>"; };
+		21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E6DAD21E619E8100DFA1FD /* libforeman++.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +61,8 @@
 		211808931E619A0000E9C4CD = {
 			isa = PBXGroup;
 			children = (
+				21E6DAC51E619D2C00DFA1FD /* Sources */,
+				21E6DAC91E619E3D00DFA1FD /* Libraries */,
 				2118089D1E619A0000E9C4CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +71,30 @@
 			isa = PBXGroup;
 			children = (
 				2118089C1E619A0000E9C4CD /* foremanusage */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21E6DAC51E619D2C00DFA1FD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		21E6DAC91E619E3D00DFA1FD /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		21E6DACB1E619E6200DFA1FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21E6DACF1E619E6200DFA1FD /* libforeman++.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +113,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21E6DAD11E619E7A00DFA1FD /* PBXTargetDependency */,
 			);
 			name = foremanusage;
 			productName = foremanusage;
@@ -93,6 +145,12 @@
 			mainGroup = 211808931E619A0000E9C4CD;
 			productRefGroup = 2118089D1E619A0000E9C4CD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21E6DACB1E619E6200DFA1FD /* Products */;
+					ProjectRef = 21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2118089B1E619A0000E9C4CD /* foremanusage */,
@@ -100,15 +158,34 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		21E6DACF1E619E6200DFA1FD /* libforeman++.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libforeman++.a";
+			remoteRef = 21E6DACE1E619E6200DFA1FD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
 		211808981E619A0000E9C4CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E6DAC71E619D3F00DFA1FD /* foremanusage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21E6DAD11E619E7A00DFA1FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libforeman++";
+			targetProxy = 21E6DAD01E619E7A00DFA1FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		211808A11E619A0000E9C4CD /* Debug */ = {
@@ -151,9 +228,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../../include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-lbenchmark",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -192,8 +278,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../../include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-lbenchmark",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -231,6 +326,7 @@
 				211808A51E619A0000E9C4CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

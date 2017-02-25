@@ -60,7 +60,7 @@ bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMAR
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
     Foreman::Metrics values;
-    std::shared_ptr<std::vector<std::shared_ptr<Foreman::Metric> > > metrics = memStore->getMetrics();
+    std::shared_ptr<std::vector<std::shared_ptr<Foreman::Metric>>> metrics = memStore->getMetrics();
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
       std::shared_ptr<Foreman::Metric> m = *it;
       std::shared_ptr<Foreman::Metric> value = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(*m));
@@ -78,7 +78,7 @@ bool ForemanInsertMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMAR
 
 bool ForemanReadMemStore(Foreman::MemStore* memStore, size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, time_t beginTs, time_t endTs)
 {
-  std::shared_ptr<std::vector<std::shared_ptr<Foreman::Metric> > > metrics = memStore->getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Foreman::Metric>>> metrics = memStore->getMetrics();
   for (size_t n = 0; n < FORMANCC_BENCHMARK_METRICS_READ_COUNT; n++) {
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
       std::shared_ptr<Foreman::Metric> m = *it;

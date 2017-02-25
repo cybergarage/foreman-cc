@@ -8,8 +8,4 @@
 #
 ##################################################################
 
-SUBDIRS =
-
-if FOREMAN_ENABLE_BENCHMARK
-SUBDIRS += foremanbench foremanusage
-endif
+SUBDIRS = unix
