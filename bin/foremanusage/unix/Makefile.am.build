@@ -12,7 +12,7 @@ print<<HEADER;
 
 bin_PROGRAMS = foremanusage
 
-AM_CPPFLAGS = -I\$(top_srcdir)/include -I\$(top_srcdir)/src -I../
+AM_CPPFLAGS = -I\$(top_srcdir)/include -I\$(top_srcdir)/src -I../ ../../foramanbench
 HEADER
 my @find_files = `find ../ -name *.h`;
 my @include_files;
@@ -34,6 +34,7 @@ foreach $file (@find_files) {
 	$file = "\t" . $file;
 	push @source_files, $file;
 }
+push @source_files, "\t../../foramanbench/BenchmarkController.cpp";
 print join(" \\\n", @source_files) . "\n";
 
 print<<FOTTER;
