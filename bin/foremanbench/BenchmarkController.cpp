@@ -122,6 +122,5 @@ bool BenchmarkController::readRecords(MemStore* memStore, size_t retensionPeriod
 bool BenchmarkController::finalize(MemStore* memStore)
 {
   memStore->close();
-  delete memStore;
   return true;
 }
