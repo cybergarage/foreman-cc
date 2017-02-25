@@ -34,7 +34,7 @@ long get_memory_usages()
   return rusage.ru_maxrss;
 }
 
-void print_memory_usages(const std::string &header, long lastUsage)
+void print_memory_usages(const std::string& header, long lastUsage)
 {
   long usage = get_memory_usages();
   printf("%s : %ld\n", header.c_str(), (usage - lastUsage));
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     usage();
     return EXIT_FAILURE;
   }
-  
+
   Foreman::MemStore* memStore = nullptr;
   std::string memStoreType = argv[1];
   if (memStoreType.compare("matrix") == 0)
@@ -57,13 +57,13 @@ int main(int argc, char* argv[])
     memStore = new Foreman::NarrowTableStore();
   else if (memStoreType.compare("tsmap") == 0)
     memStore = new Foreman::TSmapStore();
-  
+
   if (!memStore) {
     usage();
     std::cout << "Unknown MemStore Type : " << memStoreType << std::endl;
     return EXIT_FAILURE;
   }
- 
+
   long retentionPeriodHour = atol(argv[2]);
   if (retentionPeriodHour <= 0) {
     usage();
@@ -73,20 +73,20 @@ int main(int argc, char* argv[])
 
   time_t beginTs = 0, endTs = 0;
   long lastUsage = 0;
-  
+
   Foreman::BenchmarkController benchmark;
   benchmark.setRetentionIntervel(FORMANCC_BENCHMARK_RETENSION_INTERVAL);
   benchmark.setMetricsCount(FORMANCC_BENCHMARK_METRICS_COUNT);
-  
+
   benchmark.initialize(memStore, retentionPeriodHour);
-  
+
   lastUsage = get_memory_usages();
   benchmark.insertRecords(memStore, retentionPeriodHour, beginTs, endTs);
   long memUsage = get_memory_usages() - lastUsage;
-  
+
   std::cout << memStoreType << "/" << retentionPeriodHour << " : " << memUsage << std::endl;
-  
+
   delete memStore;
-  
+
   return EXIT_SUCCESS;
 }

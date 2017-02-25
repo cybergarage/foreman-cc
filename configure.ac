@@ -115,6 +115,8 @@ lib/unix/Makefile
 bin/Makefile
 bin/foremanbench/Makefile
 bin/foremanbench/unix/Makefile
+bin/foremanusage/Makefile
+bin/foremanusage/unix/Makefile
 tests/Makefile
 tests/unix/Makefile
 ])
