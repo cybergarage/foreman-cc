@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2127BE921E52F72A00EE80BB /* foremanbench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2127BE911E52F72A00EE80BB /* foremanbench.cpp */; };
 		21A5B9591E5C2A2C007339D0 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2127BE8F1E52F71100EE80BB /* libforeman++.a */; };
+		21ED982E1E61B2BB00CDEAD5 /* BenchmarkController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ED982D1E61B2BB00CDEAD5 /* BenchmarkController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		2127BE8A1E52F71100EE80BB /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
 		2127BE911E52F72A00EE80BB /* foremanbench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = foremanbench.cpp; path = ../../foremanbench.cpp; sourceTree = "<group>"; };
 		21C70D261E52F39200022B0E /* foremanbench */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremanbench; sourceTree = BUILT_PRODUCTS_DIR; };
+		21ED982D1E61B2BB00CDEAD5 /* BenchmarkController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BenchmarkController.cpp; path = ../../BenchmarkController.cpp; sourceTree = "<group>"; };
+		21ED982F1E61B2EE00CDEAD5 /* BenchmarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BenchmarkController.h; path = ../../BenchmarkController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		2127BE901E52F71600EE80BB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				21ED982F1E61B2EE00CDEAD5 /* BenchmarkController.h */,
+				21ED982D1E61B2BB00CDEAD5 /* BenchmarkController.cpp */,
 				2127BE911E52F72A00EE80BB /* foremanbench.cpp */,
 			);
 			name = Sources;
@@ -174,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2127BE921E52F72A00EE80BB /* foremanbench.cpp in Sources */,
+				21ED982E1E61B2BB00CDEAD5 /* BenchmarkController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
