@@ -13,6 +13,6 @@ bin_PROGRAMS = foremanusage
 AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
 
 foremanusage_SOURCES = \
-	..//foremanusage.cpp
+	../foremanusage.cpp
 
 foremanusage_LDADD = ../../../lib/unix/libforeman++.a
