@@ -10,10 +10,10 @@
 
 bin_PROGRAMS = foremanusage
 
-AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../ ../../foramanbench
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../ -I../../foremanbench
 
 foremanusage_SOURCES = \
 	../foremanusage.cpp \
-	../../foramanbench/BenchmarkController.cpp
+	../../foremanbench/BenchmarkController.cpp
 
 foremanusage_LDADD = ../../../lib/unix/libforeman++.a
