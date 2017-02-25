@@ -46,6 +46,8 @@ void ForemanMemStoreWrite(benchmark::State& state)
     if (benchmark.finalize(memStore)) {
       state.SkipWithError("Couldn't finalize MemStore !!");
     }
+    
+    delete memStore;
   }
 }
 
@@ -82,6 +84,8 @@ void ForemanMemStoreRead(benchmark::State& state)
     if (benchmark.finalize(memStore)) {
       state.SkipWithError("Couldn't finalize MemStore !!");
     }
+    
+    delete memStore;
   }
 }
 
