@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21E6DAC71E619D3F00DFA1FD /* foremanusage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */; };
 		21E6DAD21E619E8100DFA1FD /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E6DACF1E619E6200DFA1FD /* libforeman++.a */; };
+		21ED98361E61DA6900CDEAD5 /* BenchmarkController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ED98341E61DA6900CDEAD5 /* BenchmarkController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		2118089C1E619A0000E9C4CD /* foremanusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremanusage; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = foremanusage.cpp; path = ../../foremanusage.cpp; sourceTree = "<group>"; };
 		21E6DACA1E619E6200DFA1FD /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
+		21ED98341E61DA6900CDEAD5 /* BenchmarkController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BenchmarkController.cpp; path = ../../../foremanbench/BenchmarkController.cpp; sourceTree = "<group>"; };
+		21ED98351E61DA6900CDEAD5 /* BenchmarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BenchmarkController.h; path = ../../../foremanbench/BenchmarkController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 		21E6DAC51E619D2C00DFA1FD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				21ED98341E61DA6900CDEAD5 /* BenchmarkController.cpp */,
+				21ED98351E61DA6900CDEAD5 /* BenchmarkController.h */,
 				21E6DAC61E619D3F00DFA1FD /* foremanusage.cpp */,
 			);
 			name = Sources;
@@ -174,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21E6DAC71E619D3F00DFA1FD /* foremanusage.cpp in Sources */,
+				21ED98361E61DA6900CDEAD5 /* BenchmarkController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

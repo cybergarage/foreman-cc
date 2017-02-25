@@ -13,7 +13,8 @@ foremancc_header = \
 	./foreman/Const.h \
 	./foreman/Metric.h \
 	./foreman/Platform.h \
-	./foreman/TimeSeries.h
+	./foreman/TimeSeries.h \
+	./foreman/Foreman.h
 
 nobase_include_HEADERS = \
 	$(foremancc_header)
