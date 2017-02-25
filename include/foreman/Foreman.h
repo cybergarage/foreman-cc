@@ -11,10 +11,10 @@
 #ifndef _FOREMANCC_FOREMAN_H_
 #define _FOREMANCC_FOREMAN_H_
 
-#include <foreman/Platform.h>
 #include <foreman/Const.h>
-#include <foreman/Metric.h>
-#include <foreman/TimeSeries.h>
 #include <foreman/MemStore.h>
+#include <foreman/Metric.h>
+#include <foreman/Platform.h>
+#include <foreman/TimeSeries.h>
 
 #endif
