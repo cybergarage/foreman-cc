@@ -11,6 +11,10 @@
 		210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210067F91E57279400A8DA0A /* ArrayTimeSeries.cpp */; };
 		213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E7FDB1E56078F00E41441 /* TimeSeries.h */; };
 		213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDD1E56080900E41441 /* TimeSeries.cpp */; };
+		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
+		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
+		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
+		217109F41E867D2A004B2CF6 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109F21E867D2A004B2CF6 /* BitUtil.h */; };
 		2175C2F61E52F444006C4425 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F41E52F444006C4425 /* MemStore.h */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
 		2175C3001E52F470006C4425 /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C2FE1E52F470006C4425 /* MemStore.cpp */; };
@@ -22,6 +26,7 @@
 		21AC32451E60456F0011D929 /* RingArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21B60DC01E5D9866009D663B /* NarrowTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B60DBF1E5D9866009D663B /* NarrowTableStore.cpp */; };
+		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */; };
@@ -35,6 +40,10 @@
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		213E7FDB1E56078F00E41441 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
 		213E7FDD1E56080900E41441 /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
+		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
+		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
+		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
+		217109F21E867D2A004B2CF6 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
 		2175C2F41E52F444006C4425 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		2175C2FE1E52F470006C4425 /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemStore.cpp; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingArrayTimeSeries.cpp; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21B60DBF1E5D9866009D663B /* NarrowTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NarrowTableStore.cpp; sourceTree = "<group>"; };
+		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WideTableStore.cpp; sourceTree = "<group>"; };
@@ -81,9 +91,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		217109EB1E867B1D004B2CF6 /* beringei */ = {
+			isa = PBXGroup;
+			children = (
+				217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */,
+				21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */,
+			);
+			name = beringei;
+			path = ../../../include/beringei;
+			sourceTree = "<group>";
+		};
+		217109EE1E867B2A004B2CF6 /* beringei */ = {
+			isa = PBXGroup;
+			children = (
+				217109F11E867D2A004B2CF6 /* BitUtil.cpp */,
+				217109F21E867D2A004B2CF6 /* BitUtil.h */,
+				217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */,
+			);
+			name = beringei;
+			path = ../../../src/beringei;
+			sourceTree = "<group>";
+		};
 		2175C2F21E52F423006C4425 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				217109EB1E867B1D004B2CF6 /* beringei */,
 				2175C2F31E52F444006C4425 /* foreman */,
 			);
 			name = Headers;
@@ -106,6 +138,7 @@
 		2175C2F81E52F44D006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				217109EE1E867B2A004B2CF6 /* beringei */,
 				2175C2F91E52F470006C4425 /* foreman */,
 			);
 			name = Sources;
@@ -141,8 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
+				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
+				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
+				217109F41E867D2A004B2CF6 /* BitUtil.h in Headers */,
 				2175C2F61E52F444006C4425 /* MemStore.h in Headers */,
 				219F41C81E55B1EF003EAD97 /* Metric.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
@@ -215,9 +251,11 @@
 				219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */,
 				21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */,
 				21AC32431E6045680011D929 /* StaticArrayTimeSeries.cpp in Sources */,
+				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
 				210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
+				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
 				21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */,
 			);
@@ -266,7 +304,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../../../include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -308,7 +349,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../../../include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					../../../include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
