@@ -1,0 +1,4 @@
+10c10
+< #include "TimeSeriesStream.h"
+---
+> #include <beringei/TimeSeriesStream.h>
