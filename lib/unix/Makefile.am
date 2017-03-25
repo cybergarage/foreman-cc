@@ -26,7 +26,9 @@ foremancc_sources = \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/NarrowTableStore.cpp \
 	../../src/foreman/TSmapStore.cpp \
-	../../src/foreman/MemStore.cpp
+	../../src/foreman/MemStore.cpp \
+	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/beringei/BitUtil.cpp
 
 libforeman___a_SOURCES = \
         $(foremancc_sources)
