@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BERINGEI_GITHUB_URL="https://raw.githubusercontent.com/facebookincubator/beringei/master/beringei"
+BERINGEI_INC_DIR="include/beringei"
+BERINGEI_SRC_DIR="src/beringei"
+
+mkdir -p ${BERINGEI_INC_DIR}
+pushd ${BERINGEI_INC_DIR}
+rm -rf *.h
+wget ${BERINGEI_GITHUB_URL}/lib/TimeSeriesStream.h
+patch TimeSeriesStream.h TimeSeriesStream.h.patch
+wget ${BERINGEI_GITHUB_URL}/lib/TimeSeriesStream-inl.h
+popd
+
+mkdir -p ${BERINGEI_SRC_DIR}
+pushd ${BERINGEI_SRC_DIR}
+rm -rf *.h *.cpp
+wget ${BERINGEI_GITHUB_URL}/lib/BitUtil.h
+wget ${BERINGEI_GITHUB_URL}/lib/BitUtil.cpp
+wget ${BERINGEI_GITHUB_URL}/lib/TimeSeriesStream.cpp
+popd

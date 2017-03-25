@@ -1,0 +1,7 @@
+19c19,22
+< #include "beringei/if/gen-cpp2/beringei_data_types.h"
+---
+> typedef struct _TimeValuePair {
+>   time_t unixTime;
+>   double value;
+> } TimeValuePair;
