@@ -2,3 +2,7 @@
 < #include "TimeSeriesStream.h"
 ---
 > #include <beringei/TimeSeriesStream.h>
+14c14
+< #include "BitUtil.h"
+---
+> #include <beringei/BitUtil.h>

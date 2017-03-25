@@ -14,11 +14,11 @@
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
-		217109F41E867D2A004B2CF6 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109F21E867D2A004B2CF6 /* BitUtil.h */; };
 		2175C2F61E52F444006C4425 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F41E52F444006C4425 /* MemStore.h */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
 		2175C3001E52F470006C4425 /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C2FE1E52F470006C4425 /* MemStore.cpp */; };
 		21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */; };
+		21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 21893D8B1E86AD4C001ED8D5 /* BitUtil.h */; };
 		219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C31E55980D003EAD97 /* MatrixStore.cpp */; };
 		219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C51E55B1E7003EAD97 /* Metric.cpp */; };
 		219F41C81E55B1EF003EAD97 /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 219F41C71E55B1EF003EAD97 /* Metric.h */; };
@@ -43,11 +43,11 @@
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
-		217109F21E867D2A004B2CF6 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
 		2175C2F41E52F444006C4425 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		2175C2FE1E52F470006C4425 /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemStore.cpp; sourceTree = "<group>"; };
 		21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingMapStore.cpp; sourceTree = "<group>"; };
+		21893D8B1E86AD4C001ED8D5 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
 		219F41C31E55980D003EAD97 /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixStore.cpp; sourceTree = "<group>"; };
 		219F41C51E55B1E7003EAD97 /* Metric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metric.cpp; sourceTree = "<group>"; };
 		219F41C71E55B1EF003EAD97 /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -94,6 +94,7 @@
 		217109EB1E867B1D004B2CF6 /* beringei */ = {
 			isa = PBXGroup;
 			children = (
+				21893D8B1E86AD4C001ED8D5 /* BitUtil.h */,
 				217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */,
 				21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */,
 			);
@@ -105,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				217109F11E867D2A004B2CF6 /* BitUtil.cpp */,
-				217109F21E867D2A004B2CF6 /* BitUtil.h */,
 				217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */,
 			);
 			name = beringei;
@@ -178,9 +178,9 @@
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
-				217109F41E867D2A004B2CF6 /* BitUtil.h in Headers */,
 				2175C2F61E52F444006C4425 /* MemStore.h in Headers */,
 				219F41C81E55B1EF003EAD97 /* Metric.h in Headers */,
+				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

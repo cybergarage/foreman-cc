@@ -15,6 +15,7 @@
 #include <unordered_map>
 
 #include <foreman/Metric.h>
+#include <beringei/TimeSeriesStream.h>
 
 namespace Foreman {
 
@@ -121,9 +122,9 @@ public:
   
   virtual bool addValue(const Metric& m);
   virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+private:
+  facebook::gorilla::TimeSeriesStream stream;
 };
-
-
 
 }
 

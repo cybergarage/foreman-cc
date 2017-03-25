@@ -1,0 +1,4 @@
+10c10
+< #include "BitUtil.h"
+---
+> #include <beringei/BitUtil.h>
