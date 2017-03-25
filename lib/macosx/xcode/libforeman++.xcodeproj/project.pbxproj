@@ -19,6 +19,7 @@
 		2175C3001E52F470006C4425 /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C2FE1E52F470006C4425 /* MemStore.cpp */; };
 		21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */; };
 		21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 21893D8B1E86AD4C001ED8D5 /* BitUtil.h */; };
+		21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */; };
 		219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C31E55980D003EAD97 /* MatrixStore.cpp */; };
 		219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C51E55B1E7003EAD97 /* Metric.cpp */; };
 		219F41C81E55B1EF003EAD97 /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 219F41C71E55B1EF003EAD97 /* Metric.h */; };
@@ -48,6 +49,7 @@
 		2175C2FE1E52F470006C4425 /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemStore.cpp; sourceTree = "<group>"; };
 		21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingMapStore.cpp; sourceTree = "<group>"; };
 		21893D8B1E86AD4C001ED8D5 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
+		21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeringeiTimeSeries.cpp; sourceTree = "<group>"; };
 		219F41C31E55980D003EAD97 /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixStore.cpp; sourceTree = "<group>"; };
 		219F41C51E55B1E7003EAD97 /* Metric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metric.cpp; sourceTree = "<group>"; };
 		219F41C71E55B1EF003EAD97 /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */,
 				21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */,
 				21AC32421E6045680011D929 /* StaticArrayTimeSeries.cpp */,
 				210067F91E57279400A8DA0A /* ArrayTimeSeries.cpp */,
@@ -254,6 +257,7 @@
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
 				210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */,
+				21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
