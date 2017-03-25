@@ -109,6 +109,22 @@ class ArrayTimeSeriesMap : public TimeSeriesMap {
   ~ArrayTimeSeriesMap() {}
   std::shared_ptr<MetricValue> data;
 };
+
+////////////////////////////////////////////////
+// BeringeiTimeSeries
+////////////////////////////////////////////////
+
+class BeringeiTimeSeries : public TimeSeries {
+public:
+  BeringeiTimeSeries();
+  virtual ~BeringeiTimeSeries();
+  
+  virtual bool addValue(const Metric& m);
+  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+};
+
+
+
 }
 
 #endif
