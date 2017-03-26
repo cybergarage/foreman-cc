@@ -54,11 +54,7 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 
 bool ArrayTimeSeries::getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt)
 {
-  if (endTs <= beginTs)
-    return false;
-
-  valueCnt = (endTs - beginTs) / interval;
-  if (valueCnt <= 0)
+  if (!TimeSeries::getValueCount(beginTs, endTs, interval, valueCnt))
     return false;
 
   if (arrayCount_ < valueCnt)
