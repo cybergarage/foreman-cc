@@ -66,9 +66,12 @@ std::shared_ptr<TimeSeries> TimeSeriesMap::addTimeSeries(const Metric& m)
 bool TimeSeriesMap::addValue(const Metric& m)
 {
   std::shared_ptr<TimeSeries> ts = findTimeSeries(m);
-  if (ts == nullptr)
-    return false;
-
+  if (ts == nullptr) {
+    ts = createTimeSeries(m);
+    if (ts == nullptr)
+      return false;
+  }
+  
   return ts->addValue(m);
 }
 
