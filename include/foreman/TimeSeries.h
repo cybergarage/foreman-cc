@@ -27,6 +27,9 @@ class TimeSeries {
 
   virtual bool addValue(const Metric& m) = 0;
   virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) = 0;
+
+  protected:
+  bool getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt);
 };
 
 ////////////////////////////////////////////////
