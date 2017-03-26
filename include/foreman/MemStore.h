@@ -166,19 +166,13 @@ class NarrowTableStore : public SQLiteStore {
 // MatrixStore
 ////////////////////////////////////////////////
 
-class MatrixTimeSeriesMap : public TimeSeriesMap {
-  public:
-  MatrixTimeSeriesMap() {}
-  ~MatrixTimeSeriesMap() {}
-};
-
 class MatrixTimeSeries : public StaticArrayTimeSeries {
   public:
   MatrixTimeSeries(){};
   ~MatrixTimeSeries(){};
 };
 
-class MatrixStore : public TimeSeriesMapStoreTemplate<MatrixTimeSeriesMap> {
+class MatrixStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
   public:
   MatrixStore();
   ~MatrixStore();
