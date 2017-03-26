@@ -30,7 +30,6 @@
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
-		21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
 		21FBBC491E5F0AE500582F10 /* MetricMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21FBBC481E5F0AE500582F10 /* MetricMap.cpp */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
-		21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WideTableStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
 		21FBBC481E5F0AE500582F10 /* MetricMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricMap.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,7 +161,6 @@
 				213E7FDD1E56080900E41441 /* TimeSeries.cpp */,
 				210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */,
 				21F9AA401E532AFA00135A90 /* TSmapStore.cpp */,
-				21F9AA3F1E532AFA00135A90 /* WideTableStore.cpp */,
 			);
 			name = foreman;
 			path = ../../../src/foreman;
@@ -252,7 +249,6 @@
 				21B60DC01E5D9866009D663B /* NarrowTableStore.cpp in Sources */,
 				21FBBC491E5F0AE500582F10 /* MetricMap.cpp in Sources */,
 				219F41C61E55B1E7003EAD97 /* Metric.cpp in Sources */,
-				21F9AA411E532AFA00135A90 /* WideTableStore.cpp in Sources */,
 				21AC32431E6045680011D929 /* StaticArrayTimeSeries.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,

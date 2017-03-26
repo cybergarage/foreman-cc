@@ -65,16 +65,3 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
   //testController.run(store);
   delete store;
 }
-
-////////////////////////////////////////////////
-// WideTableStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(WideTableStoreTest)
-{
-  MemStoreTestContoller testController;
-
-  MemStore* store = new WideTableStore();
-  //testController.run(store);
-  delete store;
-}
