@@ -30,8 +30,7 @@ bool BeringeiTimeSeries::addValue(const Metric& m)
 {
   if (!stream_.append(m.timestamp, m.value, 0))
     return false;
-  
-  return TimeSeries::addValue(m);
+  return true;
 }
 
 ////////////////////////////////////////////////

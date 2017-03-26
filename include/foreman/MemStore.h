@@ -144,17 +144,17 @@ class NarrowTableStore : public SQLiteStore {
 ////////////////////////////////////////////////
 
 class TimeSeriesMapStore : public MemStore {
-public:
+  public:
   TimeSeriesMapStore();
   virtual ~TimeSeriesMapStore();
-  
+
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
-  
-protected:
+
+  protected:
   std::shared_ptr<TimeSeriesMap> tsMap_;
 };
-  
+
 ////////////////////////////////////////////////
 // MatrixStore
 ////////////////////////////////////////////////
@@ -203,15 +203,14 @@ class RingMapStore : public TimeSeriesMapStore {
 ////////////////////////////////////////////////
 
 class TSmapStore : public TimeSeriesMapStore {
-public:
+  public:
   TSmapStore();
   ~TSmapStore();
-  
+
   bool open();
   bool isOpened();
   bool close();
 };
-  
 }
 
 #endif

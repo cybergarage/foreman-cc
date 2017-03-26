@@ -13,6 +13,7 @@ foremancc_header = \
 	./foreman/Const.h \
 	./foreman/Metric.h \
 	./foreman/Platform.h \
+	./foreman/TimeSeriesMap.h \
 	./foreman/TimeSeries.h \
 	./foreman/Foreman.h
 
