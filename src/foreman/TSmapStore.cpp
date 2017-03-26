@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include <foreman/MemStore.h>
+#include <foreman/TimeSeriesMap.h>
 
 using namespace Foreman;
 
@@ -21,6 +22,7 @@ using namespace Foreman;
 
 TSmapStore::TSmapStore()
 {
+  tsMap_ = std::shared_ptr<BeringeiTimeSeriesMap>(new BeringeiTimeSeriesMap());
 }
 
 TSmapStore::~TSmapStore() {}
