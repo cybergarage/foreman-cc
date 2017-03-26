@@ -100,23 +100,16 @@ class MemStore {
 // TimeSeriesMapStore
 ////////////////////////////////////////////////
 
-template <typename TimeSeriesMapType>
-class TimeSeriesMapStoreTemplate : public MemStore {
+class TimeSeriesMapStore : public MemStore {
   public:
-  TimeSeriesMapStoreTemplate(){};
-  virtual ~TimeSeriesMapStoreTemplate(){};
+  TimeSeriesMapStore(){};
+  virtual ~TimeSeriesMapStore(){};
 
   bool addValue(const Metric& m) { return tsMap_->addValue(m); }
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) { return tsMap_->getValues(m, beginTs, endTs, interval, values, valueCnt); }
 
   protected:
-  std::shared_ptr<TimeSeriesMapType> tsMap_;
-};
-
-class TimeSeriesMapStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
-  public:
-  TimeSeriesMapStore(){};
-  virtual ~TimeSeriesMapStore(){};
+  std::shared_ptr<TimeSeriesMap> tsMap_;
 };
 
 ////////////////////////////////////////////////
@@ -172,7 +165,7 @@ class MatrixTimeSeries : public StaticArrayTimeSeries {
   ~MatrixTimeSeries(){};
 };
 
-class MatrixStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
+class MatrixStore : public TimeSeriesMapStore {
   public:
   MatrixStore();
   ~MatrixStore();
