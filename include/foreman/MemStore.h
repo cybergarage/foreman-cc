@@ -202,12 +202,6 @@ class RingMapStore : public TimeSeriesMapStore {
 // TSmapStore
 ////////////////////////////////////////////////
 
-class TSmapTimeSeriesMap : public TimeSeriesMap {
-public:
-  TSmapTimeSeriesMap() {}
-  ~TSmapTimeSeriesMap() {}
-};
-
 class TSmapTimeSeries : public BeringeiTimeSeries {
 public:
   TSmapTimeSeries(){};

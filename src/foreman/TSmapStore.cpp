@@ -21,7 +21,7 @@ using namespace Foreman;
 
 TSmapStore::TSmapStore()
 {
-  tsMap_ = std::shared_ptr<TSmapTimeSeriesMap>(new TSmapTimeSeriesMap());
+  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
 }
 
 TSmapStore::~TSmapStore() {}
