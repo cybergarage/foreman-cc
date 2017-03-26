@@ -141,4 +141,22 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::MatrixStore)
     ->Arg(12)
     ->Arg(24);
 
+////////////////////////////////////////////////
+// TSmapStore
+////////////////////////////////////////////////
+
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::TSmapStore)
+    ->Arg(1)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
+
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::TSmapStore)
+    ->Arg(1)
+    ->Arg(4)
+    ->Arg(8)
+    ->Arg(12)
+    ->Arg(24);
+
 BENCHMARK_MAIN();
