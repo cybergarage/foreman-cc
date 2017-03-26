@@ -188,12 +188,6 @@ class MatrixStore : public TimeSeriesMapStoreTemplate<TimeSeriesMap> {
 // RingMapStore
 ////////////////////////////////////////////////
 
-class RingMapTimeSeriesMap : public TimeSeriesMap {
-  public:
-  RingMapTimeSeriesMap() {}
-  ~RingMapTimeSeriesMap() {}
-};
-
 class RingMapTimeSeries : public RingArrayTimeSeries {
   public:
   RingMapTimeSeries(){};
