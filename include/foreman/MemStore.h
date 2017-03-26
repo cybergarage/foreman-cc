@@ -16,7 +16,7 @@
 #include <sqlite3.h>
 
 #include <foreman/Metric.h>
-#include <foreman/TimeSeries.h>
+#include <foreman/TimeSeriesMap.h>
 
 namespace Foreman {
 
@@ -97,22 +97,6 @@ class MemStore {
 };
 
 ////////////////////////////////////////////////
-// TimeSeriesMapStore
-////////////////////////////////////////////////
-
-class TimeSeriesMapStore : public MemStore {
-  public:
-  TimeSeriesMapStore();
-  virtual ~TimeSeriesMapStore();
-
-  bool addValue(const Metric& m);
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
-
-  protected:
-  std::shared_ptr<TimeSeriesMap> tsMap_;
-};
-
-////////////////////////////////////////////////
 // SQLiteStore
 ////////////////////////////////////////////////
 
@@ -155,6 +139,22 @@ class NarrowTableStore : public SQLiteStore {
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };
 
+////////////////////////////////////////////////
+// TimeSeriesMapStore
+////////////////////////////////////////////////
+
+class TimeSeriesMapStore : public MemStore {
+public:
+  TimeSeriesMapStore();
+  virtual ~TimeSeriesMapStore();
+  
+  bool addValue(const Metric& m);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+  
+protected:
+  std::shared_ptr<TimeSeriesMap> tsMap_;
+};
+  
 ////////////////////////////////////////////////
 // MatrixStore
 ////////////////////////////////////////////////

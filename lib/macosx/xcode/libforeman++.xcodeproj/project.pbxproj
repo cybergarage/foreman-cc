@@ -29,6 +29,7 @@
 		21B60DC01E5D9866009D663B /* NarrowTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B60DBF1E5D9866009D663B /* NarrowTableStore.cpp */; };
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21C33CB01E8766EB0011C873 /* TimeSeriesMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */; };
+		21C33CB21E876FD50011C873 /* TimeSeriesMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CB11E876FD50011C873 /* TimeSeriesMap.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
@@ -59,6 +60,7 @@
 		21B60DBF1E5D9866009D663B /* NarrowTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NarrowTableStore.cpp; sourceTree = "<group>"; };
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMapStore.cpp; sourceTree = "<group>"; };
+		21C33CB11E876FD50011C873 /* TimeSeriesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesMap.h; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
@@ -126,12 +128,13 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
-				213E7FDB1E56078F00E41441 /* TimeSeries.h */,
-				219F41C71E55B1EF003EAD97 /* Metric.h */,
+				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
 				2175C2F41E52F444006C4425 /* MemStore.h */,
+				219F41C71E55B1EF003EAD97 /* Metric.h */,
 				2175C2F51E52F444006C4425 /* Platform.h */,
+				213E7FDB1E56078F00E41441 /* TimeSeries.h */,
+				21C33CB11E876FD50011C873 /* TimeSeriesMap.h */,
 			);
 			name = foreman;
 			path = ../../../include/foreman;
@@ -179,6 +182,7 @@
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
+				21C33CB21E876FD50011C873 /* TimeSeriesMap.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
 				2175C2F61E52F444006C4425 /* MemStore.h in Headers */,

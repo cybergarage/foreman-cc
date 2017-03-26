@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/TimeSeries.h>
+#include <foreman/TimeSeriesMap.h>
 
 using namespace Foreman;
 
