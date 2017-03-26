@@ -175,20 +175,6 @@ class NarrowTableStore : public SQLiteStore {
 };
 
 ////////////////////////////////////////////////
-// TSmapStore
-////////////////////////////////////////////////
-
-class TSmapStore : public MemStore {
-  public:
-  TSmapStore();
-  ~TSmapStore();
-
-  bool open();
-  bool isOpened();
-  bool close();
-};
-
-////////////////////////////////////////////////
 // MatrixStore
 ////////////////////////////////////////////////
 
@@ -242,6 +228,33 @@ class RingMapStore : public TimeSeriesMapStore {
   bool close();
   bool realloc();
 };
+
+////////////////////////////////////////////////
+// TSmapStore
+////////////////////////////////////////////////
+
+class TSmapTimeSeriesMap : public TimeSeriesMap {
+public:
+  TSmapTimeSeriesMap() {}
+  ~TSmapTimeSeriesMap() {}
+};
+
+class TSmapTimeSeries : public BeringeiTimeSeries {
+public:
+  TSmapTimeSeries(){};
+  ~TSmapTimeSeries(){};
+};
+
+class TSmapStore : public TimeSeriesMapStore {
+public:
+  TSmapStore();
+  ~TSmapStore();
+  
+  bool open();
+  bool isOpened();
+  bool close();
+};
+  
 }
 
 #endif
