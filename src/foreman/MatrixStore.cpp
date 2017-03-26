@@ -23,7 +23,6 @@ using namespace Foreman;
 
 MatrixStore::MatrixStore()
 {
-  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
 }
 
 MatrixStore::~MatrixStore()
