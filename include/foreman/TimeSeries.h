@@ -33,26 +33,6 @@ class TimeSeries {
 };
 
 ////////////////////////////////////////////////
-// TimeSeriesMap
-////////////////////////////////////////////////
-
-typedef std::pair<std::string, std::shared_ptr<TimeSeries> > TimeSeriesPair;
-
-class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries> > {
-  public:
-  TimeSeriesMap();
-  virtual ~TimeSeriesMap();
-
-  std::shared_ptr<TimeSeries> findTimeSeries(const Metric& m);
-  std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m);
-  std::shared_ptr<TimeSeries> addTimeSeries(const Metric& m);
-
-  bool addValue(const Metric& m);
-  bool addValues(std::vector<std::shared_ptr<Metric> > metrics);
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
-};
-
-////////////////////////////////////////////////
 // ArrayTimeSeries
 ////////////////////////////////////////////////
 
@@ -103,17 +83,6 @@ class StaticArrayTimeSeries : public ArrayTimeSeries {
 };
 
 ////////////////////////////////////////////////
-// ArrayTimeSeriesMap
-////////////////////////////////////////////////
-
-class ArrayTimeSeriesMap : public TimeSeriesMap {
-  public:
-  ArrayTimeSeriesMap() {}
-  ~ArrayTimeSeriesMap() {}
-  std::shared_ptr<MetricValue> data;
-};
-
-////////////////////////////////////////////////
 // BeringeiTimeSeries
 ////////////////////////////////////////////////
 
@@ -126,6 +95,26 @@ public:
   virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 private:
   facebook::gorilla::TimeSeriesStream stream_;
+};
+
+////////////////////////////////////////////////
+// TimeSeriesMap
+////////////////////////////////////////////////
+
+typedef std::pair<std::string, std::shared_ptr<TimeSeries> > TimeSeriesPair;
+
+class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries> > {
+public:
+  TimeSeriesMap();
+  virtual ~TimeSeriesMap();
+  
+  std::shared_ptr<TimeSeries> findTimeSeries(const Metric& m);
+  std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m);
+  std::shared_ptr<TimeSeries> addTimeSeries(const Metric& m);
+  
+  bool addValue(const Metric& m);
+  bool addValues(std::vector<std::shared_ptr<Metric> > metrics);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };
 
 }
