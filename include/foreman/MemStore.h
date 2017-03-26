@@ -102,11 +102,11 @@ class MemStore {
 
 class TimeSeriesMapStore : public MemStore {
   public:
-  TimeSeriesMapStore(){};
-  virtual ~TimeSeriesMapStore(){};
+  TimeSeriesMapStore();
+  virtual ~TimeSeriesMapStore();
 
-  bool addValue(const Metric& m) { return tsMap_->addValue(m); }
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) { return tsMap_->getValues(m, beginTs, endTs, interval, values, valueCnt); }
+  bool addValue(const Metric& m);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 
   protected:
   std::shared_ptr<TimeSeriesMap> tsMap_;

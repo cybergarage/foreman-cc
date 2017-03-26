@@ -8,37 +8,37 @@
  *
  ******************************************************************/
 
-#include <sqlite3.h>
-#include <stdio.h>
-
 #include <foreman/MemStore.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// TSmapStore
+// TimeSeriesMapStore
 ////////////////////////////////////////////////
 
-TSmapStore::TSmapStore()
+TimeSeriesMapStore::TimeSeriesMapStore()
+{
+  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
+}
+
+TimeSeriesMapStore::~TimeSeriesMapStore()
 {
 }
 
-TSmapStore::~TSmapStore() {}
-
 ////////////////////////////////////////////////
-// open
+// addValue
 ////////////////////////////////////////////////
 
-bool TSmapStore::open() { return true; }
+bool TimeSeriesMapStore::addValue(const Metric& m)
+{
+  return tsMap_->addValue(m);
+}
 
 ////////////////////////////////////////////////
-// open
+// getValues
 ////////////////////////////////////////////////
 
-bool TSmapStore::isOpened() { return true; }
-
-////////////////////////////////////////////////
-// close
-////////////////////////////////////////////////
-
-bool TSmapStore::close() { return true; }
+bool TimeSeriesMapStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+{
+  return tsMap_->getValues(m, beginTs, endTs, interval, values, valueCnt);
+}

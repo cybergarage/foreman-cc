@@ -21,7 +21,6 @@ using namespace Foreman;
 
 RingMapStore::RingMapStore()
 {
-  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
 }
 
 RingMapStore::~RingMapStore()
