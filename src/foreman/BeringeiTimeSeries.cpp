@@ -26,16 +26,19 @@ BeringeiTimeSeries::~BeringeiTimeSeries() {}
 // addValue
 ////////////////////////////////////////////////
 
-bool RingArrayTimeSeries::addValue(const Metric& m)
+bool BeringeiTimeSeries::addValue(const Metric& m)
 {
-  return ArrayTimeSeries::addValue(m);
+  if (!stream_.append(m.timestamp, m.value, 0))
+    return false;
+  
+  return TimeSeries::addValue(m);
 }
 
 ////////////////////////////////////////////////
 // getValues
 ////////////////////////////////////////////////
 
-bool RingArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool BeringeiTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
   return true;
 }
