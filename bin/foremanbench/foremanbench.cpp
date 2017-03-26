@@ -66,7 +66,7 @@ void ForemanMemStoreRead(benchmark::State& state)
 
     Foreman::MemStore* memStore = new MemStoreClass();
 
-    if (benchmark.initialize(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
+    if (!benchmark.initialize(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
       state.SkipWithError("Couldn't initialize MemStore !!");
     }
 
@@ -81,7 +81,7 @@ void ForemanMemStoreRead(benchmark::State& state)
     }
     state.PauseTiming();
 
-    if (benchmark.finalize(memStore)) {
+    if (!benchmark.finalize(memStore)) {
       state.SkipWithError("Couldn't finalize MemStore !!");
     }
 
