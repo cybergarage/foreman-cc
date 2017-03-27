@@ -22,9 +22,9 @@ namespace Foreman {
 // TimeSeriesMap
 ////////////////////////////////////////////////
 
-typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
+typedef std::pair<std::string, std::shared_ptr<TimeSeries> > TimeSeriesPair;
 
-class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
+class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries> > {
   public:
   TimeSeriesMap();
   virtual ~TimeSeriesMap();
@@ -34,7 +34,7 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
   virtual std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m);
 
   bool addValue(const Metric& m);
-  bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
+  bool addValues(std::vector<std::shared_ptr<Metric> > metrics);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };
 

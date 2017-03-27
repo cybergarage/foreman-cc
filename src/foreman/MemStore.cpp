@@ -50,7 +50,7 @@ std::shared_ptr<Metric> MemStore::findMetric(const std::string& name)
 // findMetric
 ////////////////////////////////////////////////
 
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MemStore::getMetrics()
+std::shared_ptr<std::vector<std::shared_ptr<Metric> > > MemStore::getMetrics()
 {
   return metricMap_.getMetrics();
 }

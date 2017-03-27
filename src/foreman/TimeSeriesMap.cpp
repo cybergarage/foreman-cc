@@ -30,7 +30,7 @@ TimeSeriesMap::~TimeSeriesMap()
 
 std::shared_ptr<TimeSeries> TimeSeriesMap::findTimeSeries(const Metric& m)
 {
-  TimeSeriesMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<TimeSeries>>::find(m.name);
+  TimeSeriesMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<TimeSeries> >::find(m.name);
   if (tsIt == TimeSeriesMap::end())
     return nullptr;
 
@@ -72,7 +72,7 @@ bool TimeSeriesMap::addValue(const Metric& m)
       return false;
     insert(std::make_pair(m.name, ts));
   }
-  
+
   return ts->addValue(m);
 }
 
@@ -80,7 +80,7 @@ bool TimeSeriesMap::addValue(const Metric& m)
 // addValues
 ////////////////////////////////////////////////
 
-bool TimeSeriesMap::addValues(std::vector<std::shared_ptr<Metric>> metrics)
+bool TimeSeriesMap::addValues(std::vector<std::shared_ptr<Metric> > metrics)
 {
   for (std::shared_ptr<Metric> m : metrics) {
     if (!addValue(*m))
