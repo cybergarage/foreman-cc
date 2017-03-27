@@ -70,6 +70,7 @@ bool TimeSeriesMap::addValue(const Metric& m)
     ts = createTimeSeries(m);
     if (ts == nullptr)
       return false;
+    insert(std::make_pair(m.name, ts));
   }
   
   return ts->addValue(m);
