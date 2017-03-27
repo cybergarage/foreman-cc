@@ -47,13 +47,13 @@ bool BeringeiTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval
 
   std::vector<TimeValuePair> out;
   facebook::gorilla::TimeSeriesStream::readValues(out, data, (int)valueCnt, beginTs, endTs);
-  
+
   MetricValue* copyValues = new MetricValue[valueCnt];
-  for(auto v : out) {
+  for (auto v : out) {
     if ((v.unixTime < beginTs) || (endTs < v.unixTime))
       continue;
     int idx = (int)((v.unixTime - beginTs) / interval);
-    if ((idx < 0) || ((valueCnt-1) < idx))
+    if ((idx < 0) || ((valueCnt - 1) < idx))
       continue;
     copyValues[idx] = v.value;
   }
