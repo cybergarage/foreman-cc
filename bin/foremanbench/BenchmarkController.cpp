@@ -10,6 +10,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <random>
 #include <sstream>
 #include <string>
 
@@ -74,17 +75,21 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / retentionIntervel_);
 
+  std::random_device rndDev;
+  std::mt19937 mt(rndDev());
+  std::uniform_int_distribution<> randDist(0, FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT);
+
   beginTs = time(NULL);
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
     Metrics values;
     for (size_t n = 0; n < repeatCnt; n++) {
-      std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
+      std::shared_ptr<std::vector<std::shared_ptr<Metric> > > metrics = memStore->getMetrics();
       for (auto it = metrics->begin(); it != metrics->end(); ++it) {
         std::shared_ptr<Metric> m = *it;
         std::shared_ptr<Metric> value = std::shared_ptr<Metric>(new Metric(*m));
         value->timestamp = metricTs;
-        value->value = n;
+        value->value = randDist(mt);
         values.push_back(value);
       }
       if (!memStore->addValues(values))
@@ -102,7 +107,7 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
 
 bool BenchmarkController::readRecords(MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
 {
-  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Metric> > > metrics = memStore->getMetrics();
   for (size_t n = 0; n < repeatCnt; n++) {
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
       std::shared_ptr<Metric> m = *it;
