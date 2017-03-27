@@ -31,7 +31,7 @@ bool TimeSeries::getValueCount(time_t beginTs, time_t endTs, time_t interval, si
   if (endTs <= beginTs)
     return false;
   
-  valueCnt = ((endTs - beginTs) / interval) + 1;
+  valueCnt = ((endTs - beginTs) / interval);
   if (valueCnt <= 0)
     return false;
   
