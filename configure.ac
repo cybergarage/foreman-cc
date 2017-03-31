@@ -123,7 +123,7 @@ bin/foremanbench/Makefile
 bin/foremanbench/unix/Makefile
 bin/foremanusage/Makefile
 bin/foremanusage/unix/Makefile
-tests/Makefile
-tests/unix/Makefile
+test/Makefile
+test/unix/Makefile
 ])
 

@@ -11,5 +11,5 @@
 SUBDIRS = include lib bin
 
 if FOREMAN_ENABLE_TESTS
-SUBDIRS += tests
+SUBDIRS += test
 endif
