@@ -84,7 +84,7 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
     Metrics values;
     for (size_t n = 0; n < repeatCnt; n++) {
-      std::shared_ptr<std::vector<std::shared_ptr<Metric> > > metrics = memStore->getMetrics();
+      std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
       for (auto it = metrics->begin(); it != metrics->end(); ++it) {
         std::shared_ptr<Metric> m = *it;
         std::shared_ptr<Metric> value = std::shared_ptr<Metric>(new Metric(*m));
@@ -107,7 +107,7 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
 
 bool BenchmarkController::readRecords(MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
 {
-  std::shared_ptr<std::vector<std::shared_ptr<Metric> > > metrics = memStore->getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
   for (size_t n = 0; n < repeatCnt; n++) {
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
       std::shared_ptr<Metric> m = *it;
