@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_CONST_H_
 #define _FOREMANCC_CONST_H_
 
-namespace Round {
+namespace Foreman {
 
 #define FOREMANCC_PRODUCT_NAME "foreman"
 #define FOREMANCC_CSV_EXPORT_LINE_TERMINATOR "\n"
@@ -21,8 +21,8 @@ namespace Round {
 #define FOREMANCC_DATASTORE_SQLITE "sqlite"
 #define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_SECOND 1
 #define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_MINUTE 60
-#define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_HOUR 60 * 60
-#define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_DAY 60 * 60 * 24
+#define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_HOUR 60*60
+#define FOREMANCC_DATASTORE_TIMESTAMP_RESOLUTION_DAY 60*60*24
 #define FOREMANCC_DATASTORE_PARAM_PROTOCOL "protocol"
 #define FOREMANCC_DATASTORE_PARAM_HOST "host"
 #define FOREMANCC_FQL_UPDATE "update"
@@ -53,8 +53,9 @@ namespace Round {
 #define FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_TIMESTAMP "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
 #define FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
 #define FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
-#define FOREMANCC_SQLITESOTORE_RECORD_SELECT_ALL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id"
+#define FOREMANCC_SQLITESOTORE_RECORD_SELECT_ALL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id" 
 #define FOREMANCC_SQLITESOTORE_RECORD_TRUNCATE "delete from record"
+
 }
 
 #endif
