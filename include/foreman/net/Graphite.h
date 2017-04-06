@@ -8,18 +8,19 @@
  *
  ******************************************************************/
 
-#include <foreman/net/Graphite.h>
+#ifndef _FOREMAN_NET_GRAPHITE_H_
+#define _FOREMAN_NET_GRAPHITE_H_
 
-using namespace Foreman;
+#include <foreman/net/Socket.h>
 
-////////////////////////////////////////////////
-//  Graphite
-////////////////////////////////////////////////
+namespace Foreman {
 
-Graphite::Graphite()
-{
+class Graphite {
+
+  public:
+  Graphite();
+  ~Graphite();
+};
 }
 
-Graphite::~Graphite()
-{
-}
+#endif

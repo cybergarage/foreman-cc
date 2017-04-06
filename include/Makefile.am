@@ -13,6 +13,7 @@ foremancc_header = \
 	./foreman/Foreman.h \
 	./foreman/MemStore.h \
 	./foreman/Metric.h \
+	./foreman/net/Graphite.h \
 	./foreman/net/Socket.h \
 	./foreman/Platform.h \
 	./foreman/TimeSeries.h \

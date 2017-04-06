@@ -22,6 +22,7 @@ foremancc_sources = \
 	../../src/foreman/Metric.cpp \
 	../../src/foreman/MetricMap.cpp \
 	../../src/foreman/NarrowTableStore.cpp \
+	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/Socket.cpp \
 	../../src/foreman/RingArrayTimeSeries.cpp \
 	../../src/foreman/RingMapStore.cpp \
