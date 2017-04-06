@@ -20,4 +20,5 @@ rm -rf *.h *.cpp
 wget ${BERINGEI_GITHUB_URL}/lib/BitUtil.cpp
 wget ${BERINGEI_GITHUB_URL}/lib/TimeSeriesStream.cpp
 patch TimeSeriesStream.cpp TimeSeriesStream.cpp.patch
+patch BitUtil.cpp BitUtil.cpp.patch
 popd
