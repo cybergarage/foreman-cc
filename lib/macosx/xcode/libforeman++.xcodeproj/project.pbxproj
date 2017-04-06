@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */; };
 		210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210067F91E57279400A8DA0A /* ArrayTimeSeries.cpp */; };
+		2129D19C1E9693E700FCA490 /* Socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D19B1E9693E700FCA490 /* Socket.h */; };
+		2129D1A11E96940500FCA490 /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A01E96940500FCA490 /* Socket.cpp */; };
 		213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E7FDB1E56078F00E41441 /* TimeSeries.h */; };
 		213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDD1E56080900E41441 /* TimeSeries.cpp */; };
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
@@ -40,6 +42,8 @@
 		210067F71E570FD800A8DA0A /* TimeSeriesMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMap.cpp; sourceTree = "<group>"; };
 		210067F91E57279400A8DA0A /* ArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayTimeSeries.cpp; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2129D19B1E9693E700FCA490 /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
+		2129D1A01E96940500FCA490 /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
 		213E7FDB1E56078F00E41441 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
 		213E7FDD1E56080900E41441 /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
@@ -95,6 +99,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2129D19A1E9693E700FCA490 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				2129D19B1E9693E700FCA490 /* Socket.h */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		2129D19F1E96940500FCA490 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				2129D1A01E96940500FCA490 /* Socket.cpp */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
 		217109EB1E867B1D004B2CF6 /* beringei */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +148,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				2129D19A1E9693E700FCA490 /* net */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
 				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
 				2175C2F41E52F444006C4425 /* MemStore.h */,
@@ -152,6 +173,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				2129D19F1E96940500FCA490 /* net */,
 				21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */,
 				21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */,
 				21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */,
@@ -182,6 +204,7 @@
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
+				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
 				21C33CB21E876FD50011C873 /* TimeSeriesMap.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */,
@@ -265,6 +288,7 @@
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
+				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
 				21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
