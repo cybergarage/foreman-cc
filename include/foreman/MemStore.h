@@ -17,6 +17,7 @@
 
 #include <foreman/Metric.h>
 #include <foreman/TimeSeriesMap.h>
+#include <foreman/net/Graphite.h>
 
 namespace Foreman {
 
@@ -222,11 +223,18 @@ public:
   GraphiteStore();
   ~GraphiteStore();
   
+  void setHost(const std::string &host);
+  void setCarbonPort(int port);
+  void setHttpPort(int port);
+  
   bool open();
   bool clear();
   bool addMetric(std::shared_ptr<Metric> m);
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+
+private:
+  Graphite graphite;
 };
 
 }

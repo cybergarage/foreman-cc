@@ -8,18 +8,18 @@
  *
  ******************************************************************/
 
-#include <foreman/net/Graphite.h>
+#include <foreman/net/Socket.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-//  Graphite
+//  Socket
 ////////////////////////////////////////////////
 
-Graphite::Graphite()
+Socket::Socket()
 {
 }
 
-Graphite::~Graphite()
+Socket::~Socket()
 {
 }
