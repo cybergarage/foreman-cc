@@ -25,6 +25,33 @@ GraphiteStore::GraphiteStore() {}
 GraphiteStore::~GraphiteStore() {}
 
 ////////////////////////////////////////////////
+// setHost
+////////////////////////////////////////////////
+
+void GraphiteStore::setHost(const std::string &host)
+{
+  graphite.setHost(host);
+}
+
+////////////////////////////////////////////////
+// setCarbonPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setCarbonPort(int port)
+{
+  graphite.setCarbonPort(port);
+}
+
+////////////////////////////////////////////////
+// setHttpPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setHttpPort(int port)
+{
+  graphite.setHttpPort(port);
+}
+
+////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
@@ -48,7 +75,7 @@ bool GraphiteStore::clear()
 
 bool GraphiteStore::addValue(const Metric& m)
 {
-  return true;
+  return graphite.addValue(m.name, m.timestamp, m.value);
 }
 
 ////////////////////////////////////////////////
@@ -57,5 +84,5 @@ bool GraphiteStore::addValue(const Metric& m)
 
 bool GraphiteStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
-  return true;
+  return graphite.getValues(m.name, beginTs, endTs, interval, values, valueCnt);
 }
