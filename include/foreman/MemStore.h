@@ -17,6 +17,7 @@
 
 #include <foreman/Metric.h>
 #include <foreman/TimeSeriesMap.h>
+#include <foreman/net/Graphite.h>
 
 namespace Foreman {
 
@@ -49,7 +50,7 @@ class MemStore {
 
   virtual bool addMetric(std::shared_ptr<Metric> m);
   std::shared_ptr<Metric> findMetric(const std::string& name);
-  std::shared_ptr<std::vector<std::shared_ptr<Metric> > > getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
 
   virtual bool addValue(const Metric& value)
   {
@@ -218,20 +219,22 @@ class TSmapStore : public TimeSeriesMapStore {
 
 class GraphiteStore : public MemStore {
 public:
-  GraphiteStore(const char *host, int carbonPort, int httpPort);
+  GraphiteStore();
   ~GraphiteStore();
   
   bool open();
   bool isOpened();
   bool close();
 
+  void setHost(const std::string &host);
+  void setCarbonPort(int port);
+  void setHttpPort(int port);
+  
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 
 private:
-  std::string host_;
-  int carbonPort_;
-  int httpPort_;
+  Graphite graphite;
 };
 
 }

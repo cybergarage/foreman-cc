@@ -13,7 +13,7 @@ print<<HEADER;
 #ifndef _FOREMANCC_CONST_H_
 #define _FOREMANCC_CONST_H_
 
-namespace Round {
+namespace Foreman {
 
 HEADER
 @const_lines = `curl -s https://raw.githubusercontent.com/cybergarage/foreman-py/master/foreman/constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
