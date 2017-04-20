@@ -9,13 +9,15 @@
 ##################################################################
 
 foremancc_header = \
-	./foreman/MemStore.h \
 	./foreman/Const.h \
+	./foreman/Foreman.h \
+	./foreman/MemStore.h \
 	./foreman/Metric.h \
+	./foreman/net/Graphite.h \
+	./foreman/net/Socket.h \
 	./foreman/Platform.h \
-	./foreman/TimeSeriesMap.h \
 	./foreman/TimeSeries.h \
-	./foreman/Foreman.h
+	./foreman/TimeSeriesMap.h
 
 nobase_include_HEADERS = \
 	$(foremancc_header)

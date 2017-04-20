@@ -8,13 +8,11 @@
  *
  ******************************************************************/
 
-#include <iostream>
-
 #include <sqlite3.h>
 #include <stdio.h>
 
+#include <foreman/Const.h>
 #include <foreman/MemStore.h>
-#include <uhttp/net/Socket.h>
 
 using namespace Foreman;
 
@@ -22,11 +20,8 @@ using namespace Foreman;
 // GraphiteStore
 ////////////////////////////////////////////////
 
-GraphiteStore::GraphiteStore(const char *host, int carbonPort, int httpPort)
+GraphiteStore::GraphiteStore()
 {
-  host_ = host;
-  carbonPort_ = carbonPort;
-  httpPort_ = httpPort;
 }
 
 GraphiteStore::~GraphiteStore()
@@ -34,22 +29,58 @@ GraphiteStore::~GraphiteStore()
 }
 
 ////////////////////////////////////////////////
+// setHost
+////////////////////////////////////////////////
+
+void GraphiteStore::setHost(const std::string &host)
+{
+  graphite.setHost(host);
+}
+
+////////////////////////////////////////////////
+// setCarbonPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setCarbonPort(int port)
+{
+  graphite.setCarbonPort(port);
+}
+
+////////////////////////////////////////////////
+// setHttpPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setHttpPort(int port)
+{
+  graphite.setHttpPort(port);
+}
+
+////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool GraphiteStore::open() { return true; }
+bool GraphiteStore::open()
+{
+  return true;
+}
 
 ////////////////////////////////////////////////
-// open
+// isOpened
 ////////////////////////////////////////////////
 
-bool GraphiteStore::isOpened() { return true; }
+bool GraphiteStore::isOpened()
+{
+  return true;
+}
 
 ////////////////////////////////////////////////
 // close
 ////////////////////////////////////////////////
 
-bool GraphiteStore::close() { return true; }
+bool GraphiteStore::close()
+{
+  return true;
+}
 
 ////////////////////////////////////////////////
 // addValue
@@ -57,7 +88,7 @@ bool GraphiteStore::close() { return true; }
 
 bool GraphiteStore::addValue(const Metric& m)
 {
-  return true;
+  return graphite.addValue(m.name, m.timestamp, m.value);
 }
 
 ////////////////////////////////////////////////
@@ -66,5 +97,5 @@ bool GraphiteStore::addValue(const Metric& m)
 
 bool GraphiteStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
 {
-  return true;
+  return graphite.getValues(m.name, beginTs, endTs, interval, values, valueCnt);
 }
