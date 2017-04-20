@@ -31,6 +31,7 @@
 		21C33CB01E8766EB0011C873 /* TimeSeriesMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */; };
 		21C33CB21E876FD50011C873 /* TimeSeriesMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CB11E876FD50011C873 /* TimeSeriesMap.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
+		21F5EE4A1E8E12CF00EEE96B /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F5EE491E8E12CF00EEE96B /* GraphiteStore.cpp */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
 		21FBBC491E5F0AE500582F10 /* MetricMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21FBBC481E5F0AE500582F10 /* MetricMap.cpp */; };
@@ -62,6 +63,7 @@
 		21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMapStore.cpp; sourceTree = "<group>"; };
 		21C33CB11E876FD50011C873 /* TimeSeriesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesMap.h; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
+		21F5EE491E8E12CF00EEE96B /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
 		21FBBC481E5F0AE500582F10 /* MetricMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricMap.cpp; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21F5EE491E8E12CF00EEE96B /* GraphiteStore.cpp */,
 				21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */,
 				21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */,
 				21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */,
@@ -262,6 +265,7 @@
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
 				210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */,
 				21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */,
+				21F5EE4A1E8E12CF00EEE96B /* GraphiteStore.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,

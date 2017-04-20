@@ -211,6 +211,29 @@ class TSmapStore : public TimeSeriesMapStore {
   bool isOpened();
   bool close();
 };
+
+////////////////////////////////////////////////
+// GraphiteStore
+////////////////////////////////////////////////
+
+class GraphiteStore : public MemStore {
+public:
+  GraphiteStore(const char *host, int carbonPort, int httpPort);
+  ~GraphiteStore();
+  
+  bool open();
+  bool isOpened();
+  bool close();
+
+  bool addValue(const Metric& m);
+  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+
+private:
+  std::string host_;
+  int carbonPort_;
+  int httpPort_;
+};
+
 }
 
 #endif
