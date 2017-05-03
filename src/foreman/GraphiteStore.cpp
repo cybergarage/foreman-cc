@@ -1,0 +1,101 @@
+/******************************************************************
+ *
+ * Foreman for C++
+ *
+ * Copyright (C) Satoshi Konno 2017
+ *
+ * This is licensed under BSD-style license, see file COPYING.
+ *
+ ******************************************************************/
+
+#include <sqlite3.h>
+#include <stdio.h>
+
+#include <foreman/Const.h>
+#include <foreman/MemStore.h>
+
+using namespace Foreman;
+
+////////////////////////////////////////////////
+// GraphiteStore
+////////////////////////////////////////////////
+
+GraphiteStore::GraphiteStore()
+{
+}
+
+GraphiteStore::~GraphiteStore()
+{
+}
+
+////////////////////////////////////////////////
+// setHost
+////////////////////////////////////////////////
+
+void GraphiteStore::setHost(const std::string &host)
+{
+  graphite.setHost(host);
+}
+
+////////////////////////////////////////////////
+// setCarbonPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setCarbonPort(int port)
+{
+  graphite.setCarbonPort(port);
+}
+
+////////////////////////////////////////////////
+// setHttpPort
+////////////////////////////////////////////////
+
+void GraphiteStore::setHttpPort(int port)
+{
+  graphite.setHttpPort(port);
+}
+
+////////////////////////////////////////////////
+// open
+////////////////////////////////////////////////
+
+bool GraphiteStore::open()
+{
+  return true;
+}
+
+////////////////////////////////////////////////
+// isOpened
+////////////////////////////////////////////////
+
+bool GraphiteStore::isOpened()
+{
+  return true;
+}
+
+////////////////////////////////////////////////
+// close
+////////////////////////////////////////////////
+
+bool GraphiteStore::close()
+{
+  return true;
+}
+
+////////////////////////////////////////////////
+// addValue
+////////////////////////////////////////////////
+
+bool GraphiteStore::addValue(const Metric& m)
+{
+  return graphite.addValue(m.name, m.timestamp, m.value);
+}
+
+////////////////////////////////////////////////
+// getValues
+////////////////////////////////////////////////
+
+bool GraphiteStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+{
+  return graphite.getValues(m.name, beginTs, endTs, interval, values, valueCnt);
+}
