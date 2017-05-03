@@ -97,14 +97,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 ////////////////////////////////////////////////
 // NarrowTableStore
@@ -114,14 +114,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 ////////////////////////////////////////////////
 // MatrixStore
@@ -131,15 +131,15 @@ BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 ////////////////////////////////////////////////
 // TSmapStore
@@ -149,14 +149,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::TSmapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::TSmapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
-    ->Arg(12)
-    ->Arg(24);
+    ->Arg(16)
+    ->Arg(32);
 
 BENCHMARK_MAIN();
