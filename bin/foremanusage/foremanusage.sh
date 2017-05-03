@@ -1,26 +1,20 @@
 #!/bin/bash
 foremanusage=unix/foremanusage
 
-${foremanusage} matrix 1
-${foremanusage} matrix 4
-${foremanusage} matrix 8
-${foremanusage} matrix 16
-${foremanusage} matrix 32
+memStores=(matrix ringmap narrowtable tsmap)
+retentionPeriods=(1 4 8 16 32)
+repetationCnt=1
 
-${foremanusage} ringmap 1
-${foremanusage} ringmap 4
-${foremanusage} ringmap 8
-${foremanusage} ringmap 12
-${foremanusage} ringmap 24
+if [ $# -ge 1 ]; then
+  repetationCnt=$1
+fi
 
-${foremanusage} narrowtable 1
-${foremanusage} narrowtable 4
-${foremanusage} narrowtable 8
-${foremanusage} narrowtable 12
-${foremanusage} narrowtable 24
-
-${foremanusage} tsmap 1
-${foremanusage} tsmap 4
-${foremanusage} tsmap 8
-${foremanusage} tsmap 12
-${foremanusage} tsmap 24
+for m in ${memStores[@]}; do
+  for p in ${retentionPeriods[@]}; do
+    n=$repetationCnt
+    while [ $n -gt 0 ]; do
+      ${foremanusage} $m $p
+      n=$((n-1))
+    done
+  done
+done
