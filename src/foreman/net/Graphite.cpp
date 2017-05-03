@@ -10,6 +10,7 @@
 
 #include <foreman/net/Graphite.h>
 #include <foreman/net/Socket.h>
+#include <foreman/net/HttpClient.h>
 
 using namespace Foreman;
 
@@ -97,13 +98,13 @@ bool Graphite::getValues(const std::string &path, time_t beginTs, time_t endTs, 
     return false;
 
   char urlPath[256];
-  if (snprintf(urlPath, sizeof(urlPath), "/render?target=%s&from=%s&until=%s&format=csv", path.c_str(), sinceStr, endStr) < 0)
+  if (snprintf(urlPath, sizeof(urlPath), "http://%s/render?target=%s&from=%s&until=%s&format=csv", host.c_str(), path.c_str(), sinceStr, endStr) < 0)
     return false;
 
-  
-  /*
-   entries,2011-07-28 01:53:28,1.0
-  */
+  HttpClient cli;
+  std::string content;
+  if (cli.get(urlPath, content))
+    return false;
   
   return true;
 }

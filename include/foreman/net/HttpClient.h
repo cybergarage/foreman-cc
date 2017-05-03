@@ -8,20 +8,22 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMAN_NET_SOCKET_H_
-#define _FOREMAN_NET_SOCKET_H_
+#ifndef _FOREMAN_NET_HTTPCLIENT_H_
+#define _FOREMAN_NET_HTTPCLIENT_H_
 
-#include <uhttp/net/Socket.h>
+#include <string>
 
 namespace Foreman {
-  
-class Socket : public uHTTP::Socket {
-    
-  public:
-    Socket();
-    ~Socket();
-  };
-}
 
+class HttpClient {
+
+  public:
+  HttpClient();
+  ~HttpClient();
+
+  bool get(const std::string &uri, std::string &content);
+};
+
+}
 
 #endif

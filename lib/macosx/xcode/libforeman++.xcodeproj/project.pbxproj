@@ -16,6 +16,8 @@
 		213E7FDC1E56078F00E41441 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E7FDB1E56078F00E41441 /* TimeSeries.h */; };
 		213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDD1E56080900E41441 /* TimeSeries.cpp */; };
 		215573C01E9FC26A0083A51C /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573BF1E9FC26A0083A51C /* GraphiteStore.cpp */; };
+		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
+		215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573C31EA1DC0A0083A51C /* HttpClient.cpp */; };
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
@@ -52,6 +54,8 @@
 		213E7FDB1E56078F00E41441 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
 		213E7FDD1E56080900E41441 /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
 		215573BF1E9FC26A0083A51C /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphiteStore.cpp; sourceTree = "<group>"; };
+		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		215573C31EA1DC0A0083A51C /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		2129D19A1E9693E700FCA490 /* net */ = {
 			isa = PBXGroup;
 			children = (
+				215573C11EA1DBE90083A51C /* HttpClient.h */,
 				2129D1A21E96A64600FCA490 /* Graphite.h */,
 				2129D19B1E9693E700FCA490 /* Socket.h */,
 			);
@@ -117,6 +122,7 @@
 		2129D19F1E96940500FCA490 /* net */ = {
 			isa = PBXGroup;
 			children = (
+				215573C31EA1DC0A0083A51C /* HttpClient.cpp */,
 				2129D1A41E96A64E00FCA490 /* Graphite.cpp */,
 				2129D1A01E96940500FCA490 /* Socket.cpp */,
 			);
@@ -211,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
+				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
@@ -299,6 +306,7 @@
 				21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
+				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
 				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
 				21797E201E5357AB00C7C599 /* RingMapStore.cpp in Sources */,
