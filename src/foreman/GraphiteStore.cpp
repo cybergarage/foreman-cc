@@ -20,9 +20,13 @@ using namespace Foreman;
 // GraphiteStore
 ////////////////////////////////////////////////
 
-GraphiteStore::GraphiteStore() {}
+GraphiteStore::GraphiteStore()
+{
+}
 
-GraphiteStore::~GraphiteStore() {}
+GraphiteStore::~GraphiteStore()
+{
+}
 
 ////////////////////////////////////////////////
 // setHost
@@ -61,10 +65,19 @@ bool GraphiteStore::open()
 }
 
 ////////////////////////////////////////////////
-// clear
+// isOpened
 ////////////////////////////////////////////////
 
-bool GraphiteStore::clear()
+bool GraphiteStore::isOpened()
+{
+  return true;
+}
+
+////////////////////////////////////////////////
+// close
+////////////////////////////////////////////////
+
+bool GraphiteStore::close()
 {
   return true;
 }
