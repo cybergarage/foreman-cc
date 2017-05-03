@@ -77,7 +77,7 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
 
   std::random_device rndDev;
   std::mt19937 mt(rndDev());
-  std::uniform_int_distribution<> randDist(0, FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT);
+  std::uniform_int_distribution<> randDist(0, (int)FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT);
 
   beginTs = time(NULL);
   time_t metricTs = beginTs;
