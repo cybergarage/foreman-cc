@@ -20,6 +20,7 @@ template <class MemStoreClass>
 void ForemanMemStoreWrite(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
+  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecord;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
@@ -37,7 +38,7 @@ void ForemanMemStoreWrite(benchmark::State& state)
 
     state.ResumeTiming();
 
-    if (!benchmark.insertRecords(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs)) {
+    if (!benchmark.insertRecords(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs, recordType)) {
       state.SkipWithError("Couldn't insert records to MemStore !!");
     }
 
@@ -55,6 +56,7 @@ template <class MemStoreClass>
 void ForemanMemStoreRead(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
+  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerRandomRecord;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
@@ -70,7 +72,7 @@ void ForemanMemStoreRead(benchmark::State& state)
       state.SkipWithError("Couldn't initialize MemStore !!");
     }
 
-    if (!benchmark.insertRecords(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs)) {
+    if (!benchmark.insertRecords(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR, beginTs, endTs, recordType)) {
       state.SkipWithError("Couldn't insert records to MemStore !!");
     }
 

@@ -70,15 +70,39 @@ bool BenchmarkController::initialize(MemStore* memStore, size_t retensionPeriodH
 // insertRecords
 ////////////////////////////////////////////////
 
-bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, size_t repeatCnt)
+bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / retentionIntervel_);
+
+  double FORMANCC_BENCHMARK_RECORD_MIN = 1.0;
+  double FORMANCC_BENCHMARK_RECORD_MAX = (double)FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT / 10.0;
+
+  double FORMANCC_BENCHMARK_RECORD_CONSTANT_VAL = FORMANCC_BENCHMARK_RECORD_MIN;
+  
+  double FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN = FORMANCC_BENCHMARK_RECORD_MIN;
+  double FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX = FORMANCC_BENCHMARK_RECORD_MAX;
+  double FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP = 1.0;
+
+  double FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL = FORMANCC_BENCHMARK_RECORD_MIN;
+  double FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD = FORMANCC_BENCHMARK_RECORD_MAX * 0.9;
 
   std::random_device rndDev;
   std::mt19937 mt(rndDev());
   std::uniform_int_distribution<> randDist(0, (int)FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT);
 
+  double recordValue = 0.0;
+  switch (recordType) {
+    case BenchmarkControllerPeriodicRecord:
+      recordValue = FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN;
+      break;
+    case BenchmarkControllerConstantRecord:
+      recordValue = FORMANCC_BENCHMARK_RECORD_CONSTANT_VAL;
+      break;
+    default:
+      break;
+  }
+  
   beginTs = time(NULL);
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
@@ -89,7 +113,24 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
         std::shared_ptr<Metric> m = *it;
         std::shared_ptr<Metric> value = std::shared_ptr<Metric>(new Metric(*m));
         value->timestamp = metricTs;
-        value->value = randDist(mt);
+        
+        switch (recordType) {
+          case BenchmarkControllerRandomRecord:
+            recordValue = randDist(mt);
+            break;
+          case BenchmarkControllerPeriodicRecord:
+            recordValue += FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP;
+            if (recordValue < FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN || FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX < recordValue)
+              FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP *= -1.0;
+            break;
+          case BenchmarkControllerSporadicRecord:
+            recordValue = (FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD < randDist(mt)) ? randDist(mt) : FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL;
+            break;
+          default:
+            break;
+        }
+        value->value = recordValue;
+        
         values.push_back(value);
       }
       if (!memStore->addValues(values))
