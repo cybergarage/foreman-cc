@@ -23,6 +23,13 @@ namespace Foreman {
 // BenchmarkController
 ////////////////////////////////////////////////
 
+typedef enum _BenchmarkControllerRecordType : int {
+  BenchmarkControllerRandomRecord,
+  BenchmarkControllerPeriodicRecord,
+  BenchmarkControllerSporadicRecord,
+  BenchmarkControllerConstantRecord,
+} BenchmarkControllerRecordType;
+  
 class BenchmarkController {
   public:
   BenchmarkController();
@@ -32,7 +39,7 @@ class BenchmarkController {
   void setMetricsCount(size_t value) { metricsCount_ = value; }
 
   bool initialize(MemStore* memStore, size_t retensionPeriodHour);
-  bool insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, size_t repeatCnt = 1);
+  bool insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt = 1);
   bool readRecords(MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt = 1);
   bool finalize(MemStore* memStore);
 
