@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
   benchmark.insertRecords(memStore, retentionPeriodHour, beginTs, endTs, recordType);
   long memUsage = get_memory_usages() - lastUsage;
 
-  std::cout << memStoreType << "/" << retentionPeriodHour << "," << memUsage << std::endl;
+  std::cout << memStoreType << "/" << recordTypeStr << "/" << retentionPeriodHour << "," << memUsage << std::endl;
 
   delete memStore;
 
