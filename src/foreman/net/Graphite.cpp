@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#include <string.h>
+
 #include <foreman/net/Graphite.h>
 #include <foreman/net/Socket.h>
 
