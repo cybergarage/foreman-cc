@@ -4,8 +4,8 @@ foremanusage=unix/foremanusage
 ${foremanusage} matrix 1
 ${foremanusage} matrix 4
 ${foremanusage} matrix 8
-${foremanusage} matrix 12
-${foremanusage} matrix 24
+${foremanusage} matrix 16
+${foremanusage} matrix 32
 
 ${foremanusage} ringmap 1
 ${foremanusage} ringmap 4
