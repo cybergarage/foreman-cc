@@ -13,6 +13,7 @@
 
 #include <time.h>
 #include <string>
+#include <memory>
 
 namespace Foreman {
 
