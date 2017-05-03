@@ -119,12 +119,17 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
             recordValue = randDist(mt);
             break;
           case BenchmarkControllerPeriodicRecordType:
-            recordValue += FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP;
-            if (recordValue < FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN || FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX < recordValue)
-              FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP *= -1.0;
+            {
+              recordValue += FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP;
+              if (recordValue < FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN || FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX < recordValue)
+                FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP *= -1.0;
+            }
             break;
           case BenchmarkControllerSporadicRecordType:
-            recordValue = (FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD < randDist(mt)) ? randDist(mt) : FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL;
+            {
+              double spValue = randDist(mt);
+              recordValue = (FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD < spValue) ? spValue : FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL;
+            }
             break;
           default:
             break;
