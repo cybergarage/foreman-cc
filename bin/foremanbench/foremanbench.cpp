@@ -20,7 +20,7 @@ template <class MemStoreClass>
 void ForemanMemStoreWrite(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
-  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecord;
+  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecordType;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
@@ -56,7 +56,7 @@ template <class MemStoreClass>
 void ForemanMemStoreRead(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
-  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerRandomRecord;
+  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecordType;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
