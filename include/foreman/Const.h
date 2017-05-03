@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_CONST_H_
 #define _FOREMANCC_CONST_H_
 
-namespace Round {
+namespace Foreman {
 
 #define FOREMANCC_PRODUCT_NAME "foreman"
 #define FOREMANCC_CSV_EXPORT_LINE_TERMINATOR "\n"
