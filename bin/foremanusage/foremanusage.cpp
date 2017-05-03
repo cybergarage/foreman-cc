@@ -24,7 +24,7 @@
 
 void usage()
 {
-  std::cout << "Usage : " << PROGRAM_NAME << " <memstore> <hour>" << std::endl;
+  std::cout << "Usage : " << PROGRAM_NAME << " <memstore> <type> <hour>" << std::endl;
 }
 
 long get_memory_usages()
@@ -57,14 +57,29 @@ int main(int argc, char* argv[])
     memStore = new Foreman::NarrowTableStore();
   else if (memStoreType.compare("tsmap") == 0)
     memStore = new Foreman::TSmapStore();
-
   if (!memStore) {
     usage();
     std::cout << "Unknown MemStore Type : " << memStoreType << std::endl;
     return EXIT_FAILURE;
   }
 
-  long retentionPeriodHour = atol(argv[2]);
+  std::string recordTypeStr = argv[2];
+  Foreman::BenchmarkControllerRecordType recordType;
+  if (recordTypeStr.compare("random") == 0)
+    recordType = Foreman::BenchmarkControllerRandomRecordType;
+  else if (recordTypeStr.compare("periodic") == 0)
+    recordType = Foreman::BenchmarkControllerPeriodicRecordType;
+  else if (recordTypeStr.compare("sporadic") == 0)
+    recordType = Foreman::BenchmarkControllerSporadicRecordType;
+  else if (recordTypeStr.compare("constant") == 0)
+    recordType = Foreman::BenchmarkControllerConstantRecordType;
+  else {
+    usage();
+    std::cout << "Unknown Record Type : " << recordTypeStr << std::endl;
+    return EXIT_FAILURE;
+  }
+  
+  long retentionPeriodHour = atol(argv[3]);
   if (retentionPeriodHour <= 0) {
     usage();
     std::cout << "Invalid Retention Period Hour : " << retentionPeriodHour << std::endl;
@@ -81,7 +96,7 @@ int main(int argc, char* argv[])
   benchmark.initialize(memStore, retentionPeriodHour);
 
   lastUsage = get_memory_usages();
-  benchmark.insertRecords(memStore, retentionPeriodHour, beginTs, endTs);
+  benchmark.insertRecords(memStore, retentionPeriodHour, beginTs, endTs, recordType);
   long memUsage = get_memory_usages() - lastUsage;
 
   std::cout << memStoreType << "/" << retentionPeriodHour << "," << memUsage << std::endl;
