@@ -24,10 +24,10 @@ namespace Foreman {
 ////////////////////////////////////////////////
 
 typedef enum _BenchmarkControllerRecordType : int {
-  BenchmarkControllerRandomRecord,
-  BenchmarkControllerPeriodicRecord,
-  BenchmarkControllerSporadicRecord,
-  BenchmarkControllerConstantRecord,
+  BenchmarkControllerRandomRecordType,
+  BenchmarkControllerPeriodicRecordType,
+  BenchmarkControllerSporadicRecordType,
+  BenchmarkControllerConstantRecordType,
 } BenchmarkControllerRecordType;
   
 class BenchmarkController {
