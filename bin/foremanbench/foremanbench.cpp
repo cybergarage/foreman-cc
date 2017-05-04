@@ -15,12 +15,13 @@
 #define FORMANCC_BENCHMARK_RETENSION_INTERVAL 60
 #define FORMANCC_BENCHMARK_METRICS_COUNT 1000
 #define FORMANCC_BENCHMARK_METRICS_READ_COUNT 100
+#define FORMANCC_BENCHMARK_RECORD_TYPE Foreman::BenchmarkControllerSporadicRecordType
 
 template <class MemStoreClass>
 void ForemanMemStoreWrite(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
-  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecordType;
+  Foreman::BenchmarkControllerRecordType recordType = FORMANCC_BENCHMARK_RECORD_TYPE;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
@@ -56,7 +57,7 @@ template <class MemStoreClass>
 void ForemanMemStoreRead(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
-  Foreman::BenchmarkControllerRecordType recordType = Foreman::BenchmarkControllerPeriodicRecordType;
+  Foreman::BenchmarkControllerRecordType recordType = FORMANCC_BENCHMARK_RECORD_TYPE;
   time_t beginTs = 0, endTs = 0;
 
   while (state.KeepRunning()) {
