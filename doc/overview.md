@@ -15,8 +15,7 @@ Foreman's main features are:
 
 ### Distributed monitoring
 
-Gorilla was designed to focus on writing performance and memory e ciency in order to manage the single cluster centrally.
-Borgmon is an internal monitoring tool based on an in-memory time series database at Google. Borgmon is a distributed monitoring system; users typically build a single Borgmon unit per cluster.
+Foreman was designed as a distributed monitoring system,
 
 ### Root Cause Analysis
 
