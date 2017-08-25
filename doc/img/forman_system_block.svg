@@ -11,7 +11,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="938.53668"
+   width="944.33667"
    height="316.67426"
    id="svg2"
    version="1.1"
@@ -210,8 +210,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.0000001"
-     inkscape:cx="620.59261"
-     inkscape:cy="194.86963"
+     inkscape:cx="102.11761"
+     inkscape:cy="194.86964"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="true"
@@ -223,7 +223,7 @@
      inkscape:window-maximized="0"
      inkscape:snap-global="true"
      fit-margin-top="0"
-     fit-margin-left="-5.8"
+     fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:guide-bbox="true">
@@ -234,7 +234,7 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-40.698413"
+       originx="-34.898417"
        originy="-697.70523" />
   </sodipodi:namedview>
   <metadata
@@ -253,7 +253,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Box"
-     transform="translate(145.30158,160.37946)">
+     transform="translate(151.10158,160.37946)">
     <rect
        transform="scale(1,-1)"
        y="-154.2948"
@@ -544,6 +544,6 @@
      inkscape:label="Text"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-40.698413,-37.982702)"
+     transform="translate(-34.898417,-37.98271)"
      style="display:inline" />
 </svg>
