@@ -15,7 +15,7 @@
 
 #include <sqlite3.h>
 
-#include <foreman/Metric.h>
+#include <foreman/Store.h>
 #include <foreman/TimeSeriesMap.h>
 #include <foreman/net/Graphite.h>
 
@@ -25,14 +25,11 @@ namespace Foreman {
 // MemStore
 ////////////////////////////////////////////////
 
-class MemStore {
+class MemStore : public Store {
   public:
   MemStore();
   virtual ~MemStore();
 
-  virtual bool open() = 0;
-  virtual bool isOpened() = 0;
-  virtual bool close() = 0;
   virtual bool clear()
   {
     return true;
@@ -51,18 +48,6 @@ class MemStore {
   virtual bool addMetric(std::shared_ptr<Metric> m);
   std::shared_ptr<Metric> findMetric(const std::string& name);
   std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
-
-  virtual bool addValue(const Metric& value)
-  {
-    return true;
-  }
-
-  virtual bool addValues(const Metrics& values);
-
-  virtual bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
-  {
-    return true;
-  }
 
   virtual bool setRetentionInterval(time_t sec)
   {
@@ -218,25 +203,24 @@ class TSmapStore : public TimeSeriesMapStore {
 ////////////////////////////////////////////////
 
 class GraphiteStore : public MemStore {
-public:
+  public:
   GraphiteStore();
   ~GraphiteStore();
-  
+
   bool open();
   bool isOpened();
   bool close();
 
-  void setHost(const std::string &host);
+  void setHost(const std::string& host);
   void setCarbonPort(int port);
   void setHttpPort(int port);
-  
+
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 
-private:
+  private:
   Graphite graphite;
 };
-
 }
 
 #endif

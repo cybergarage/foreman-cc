@@ -11,8 +11,8 @@
 #include <string.h>
 
 #include <foreman/net/Graphite.h>
-#include <foreman/net/Socket.h>
 #include <foreman/net/HttpClient.h>
+#include <foreman/net/Socket.h>
 
 using namespace Foreman;
 
@@ -32,7 +32,7 @@ Graphite::~Graphite()
 // setHost
 ////////////////////////////////////////////////
 
-void Graphite::setHost(const std::string &value)
+void Graphite::setHost(const std::string& value)
 {
   host = value;
 }
@@ -59,15 +59,15 @@ void Graphite::setHttpPort(int port)
 // addValue
 ////////////////////////////////////////////////
 
-bool Graphite::addValue(const std::string &path, time_t ts, double value)
+bool Graphite::addValue(const std::string& path, time_t ts, double value)
 {
   char pickleMsg[128];
-  
+
   if (snprintf(pickleMsg, sizeof(pickleMsg), "%s %ld %lf", path.c_str(), ts, value) < 0)
     return false;
 
   Socket sock;
-  
+
   if (!sock.connect(host, carbonPort))
     return false;
 
@@ -75,7 +75,7 @@ bool Graphite::addValue(const std::string &path, time_t ts, double value)
     return false;
 
   sock.close();
-  
+
   return true;
 }
 
@@ -83,17 +83,17 @@ bool Graphite::addValue(const std::string &path, time_t ts, double value)
 // getValues
 ////////////////////////////////////////////////
 
-bool Graphite::getValues(const std::string &path, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<double>& values, size_t& valueCnt)
+bool Graphite::getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<double>& values, size_t& valueCnt)
 {
-  struct tm *tm;
-  
+  struct tm* tm;
+
   // Graphite : ABSOLUTE_TIME is in the format HH:MM_YYMMDD, YYYYMMDD, MM/DD/YY
-  
+
   char sinceStr[32];
   tm = localtime(&beginTs);
   if (strftime(sinceStr, sizeof(sinceStr), "%H:%M_%Y%m%d", tm) == 0)
     return false;
-  
+
   char endStr[32];
   tm = localtime(&endTs);
   if (strftime(endStr, sizeof(endStr), "%H:%M_%Y%m%d", tm) == 0)
@@ -107,6 +107,6 @@ bool Graphite::getValues(const std::string &path, time_t beginTs, time_t endTs, 
   std::string content;
   if (cli.get(urlPath, content))
     return false;
-  
+
   return true;
 }

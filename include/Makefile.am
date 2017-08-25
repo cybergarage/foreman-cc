@@ -14,8 +14,10 @@ foremancc_header = \
 	./foreman/MemStore.h \
 	./foreman/Metric.h \
 	./foreman/net/Graphite.h \
+	./foreman/net/HttpClient.h \
 	./foreman/net/Socket.h \
 	./foreman/Platform.h \
+	./foreman/Store.h \
 	./foreman/TimeSeries.h \
 	./foreman/TimeSeriesMap.h
 

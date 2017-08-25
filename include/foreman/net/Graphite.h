@@ -11,9 +11,9 @@
 #ifndef _FOREMAN_NET_GRAPHITE_H_
 #define _FOREMAN_NET_GRAPHITE_H_
 
-#include <time.h>
-#include <string>
 #include <memory>
+#include <string>
+#include <time.h>
 
 namespace Foreman {
 
@@ -23,13 +23,13 @@ class Graphite {
   Graphite();
   ~Graphite();
 
-  void setHost(const std::string &host);
+  void setHost(const std::string& host);
   void setCarbonPort(int port);
   void setHttpPort(int port);
 
-  bool addValue(const std::string &path, time_t ts, double value);
-  bool getValues(const std::string &path, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<double>& values, size_t& valueCnt);
-  
+  bool addValue(const std::string& path, time_t ts, double value);
+  bool getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<double>& values, size_t& valueCnt);
+
   private:
   std::string host;
   int carbonPort;
