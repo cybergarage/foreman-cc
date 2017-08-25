@@ -32,7 +32,7 @@ GraphiteStore::~GraphiteStore()
 // setHost
 ////////////////////////////////////////////////
 
-void GraphiteStore::setHost(const std::string &host)
+void GraphiteStore::setHost(const std::string& host)
 {
   graphite.setHost(host);
 }
