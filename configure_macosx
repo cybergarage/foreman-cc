@@ -1,6 +1,6 @@
 #!/bin/bash
 export CFLAGS="-I/usr/local/include"
-export CPPFLAGS="$CFLAGS"
+export CXXFLAGS="-std=c++11 $CFLAGS"
 export LDFLAGS="-L/usr/local/lib"
 export MKDIR_P='mkdir -p'
 ./configure $@

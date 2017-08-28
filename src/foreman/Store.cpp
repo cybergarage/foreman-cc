@@ -8,38 +8,34 @@
  *
  ******************************************************************/
 
-#include <foreman/net/HttpClient.h>
-#include <uhttp/HTTP.h>
+#include <math.h>
+
+#include <foreman/Store.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-//  HttpClient
+// Store
 ////////////////////////////////////////////////
 
-HttpClient::HttpClient()
+Store::Store()
 {
 }
 
-HttpClient::~HttpClient()
+Store::~Store()
 {
 }
 
 ////////////////////////////////////////////////
-//  HttpClient
+// addValues
 ////////////////////////////////////////////////
 
-bool HttpClient::get(const std::string& uri, std::string& content)
+bool Store::addValues(const Metrics& values)
 {
-  uHTTP::HTTPRequest httpReq;
-  httpReq.setMethod(uHTTP::HTTP::GET);
-  httpReq.setURL(uri);
+  for (std::shared_ptr<Foreman::Metric> value : values) {
+    if (!addValue(*value))
+      return false;
+  }
 
-  uHTTP::HTTPResponse* httpRes = httpReq.post();
-  if (!httpRes->isSuccessful())
-    return false;
-
-  content = httpRes->getContent();
-
-  return false;
+  return true;
 }

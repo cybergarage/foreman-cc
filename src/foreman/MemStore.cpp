@@ -56,20 +56,6 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MemStore::getMetrics()
 }
 
 ////////////////////////////////////////////////
-// addValues
-////////////////////////////////////////////////
-
-bool MemStore::addValues(const Metrics& values)
-{
-  for (std::shared_ptr<Foreman::Metric> value : values) {
-    if (!addValue(*value))
-      return false;
-  }
-
-  return true;
-}
-
-////////////////////////////////////////////////
 // getColumnCount
 ////////////////////////////////////////////////
 
