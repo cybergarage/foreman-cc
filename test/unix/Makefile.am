@@ -14,6 +14,7 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
+	..//clang/MetricsClangTests.cpp \
 	..//ForemanTest.cpp \
 	..//MemStoreTestController.cpp \
 	..//MemStoreTests.cpp \

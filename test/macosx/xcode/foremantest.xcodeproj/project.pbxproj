@@ -12,6 +12,7 @@
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
 		219F41CA1E55B37A003EAD97 /* MetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C91E55B37A003EAD97 /* MetricsTests.cpp */; };
 		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
+		21CBC7851F54022500B87994 /* MetricsClangTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7841F54022500B87994 /* MetricsClangTests.cpp */; };
 		21F9AA3E1E532ADD00135A90 /* MemStoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F41C91E55B37A003EAD97 /* MetricsTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTests.cpp; path = ../../MetricsTests.cpp; sourceTree = "<group>"; };
+		21CBC7841F54022500B87994 /* MetricsClangTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsClangTests.cpp; path = ../../clang/MetricsClangTests.cpp; sourceTree = "<group>"; };
 		21F9AA3C1E532ADD00135A90 /* MemStoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStoreTestController.h; path = ../../MemStoreTestController.h; sourceTree = "<group>"; };
 		21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStoreTestController.cpp; path = ../../MemStoreTestController.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				21CBC7831F54016100B87994 /* clang */,
 				213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */,
 				219F41C91E55B37A003EAD97 /* MetricsTests.cpp */,
 				21F9AA3C1E532ADD00135A90 /* MemStoreTestController.h */,
@@ -113,6 +116,14 @@
 				218DFCD61E52F28000224C70 /* foremantest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		21CBC7831F54016100B87994 /* clang */ = {
+			isa = PBXGroup;
+			children = (
+				21CBC7841F54022500B87994 /* MetricsClangTests.cpp */,
+			);
+			name = clang;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				213E7FE01E56084400E41441 /* TimeSeriesTests.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
 				2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */,
+				21CBC7851F54022500B87994 /* MetricsClangTests.cpp in Sources */,
 				21F9AA3E1E532ADD00135A90 /* MemStoreTestController.cpp in Sources */,
 				219F41CA1E55B37A003EAD97 /* MetricsTests.cpp in Sources */,
 			);
