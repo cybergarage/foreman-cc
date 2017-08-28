@@ -18,6 +18,8 @@ foremancc_header = \
 	./foreman/net/HttpClient.h \
 	./foreman/net/Socket.h \
 	./foreman/Platform.h \
+	./foreman/Query.h \
+	./foreman/ResultSet.h \
 	./foreman/Store.h \
 	./foreman/TimeSeries.h \
 	./foreman/TimeSeriesMap.h

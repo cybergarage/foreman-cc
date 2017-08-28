@@ -39,22 +39,35 @@ bool foreman_metric_delete(ForemanMetric* m);
 ////////////////////////////////////////////////
 // Query
 ////////////////////////////////////////////////
-  
+
 typedef void ForemanQuery;
-  
+
 ForemanQuery* foreman_query_new();
-  
+
 bool foreman_query_settarget(ForemanQuery* q, const char* name);
 bool foreman_query_setfrom(ForemanQuery* q, time_t ts);
 bool foreman_query_setuntil(ForemanQuery* q, time_t ts);
 bool foreman_query_setinterval(ForemanQuery* q, time_t ts);
-  
+
 bool foreman_query_gettarget(ForemanQuery* q, const char** name);
-bool foreman_query_getfrom(ForemanQuery* q, time_t *ts);
-bool foreman_query_getuntil(ForemanQuery* q, time_t *ts);
-bool foreman_query_getinterval(ForemanQuery* q, time_t *ts);
-  
+bool foreman_query_getfrom(ForemanQuery* q, time_t* ts);
+bool foreman_query_getuntil(ForemanQuery* q, time_t* ts);
+bool foreman_query_getinterval(ForemanQuery* q, time_t* ts);
+
 bool foreman_query_delete(ForemanQuery* q);
+
+////////////////////////////////////////////////
+// ResultSet
+////////////////////////////////////////////////
+
+typedef void ForemanResultSet;
+
+ForemanResultSet* foreman_resultset_new();
+
+size_t foreman_resultset_getnvalues(ForemanResultSet* q);
+double* foreman_resultset_getvalues(ForemanResultSet* q);
+
+bool foreman_resultset_delete(ForemanResultSet* q);
 
 ////////////////////////////////////////////////
 // Store
@@ -63,6 +76,7 @@ bool foreman_query_delete(ForemanQuery* q);
 typedef void ForemanStore;
 
 bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
+bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs);
 
 #ifdef __cplusplus
 }
