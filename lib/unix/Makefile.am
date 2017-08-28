@@ -18,6 +18,8 @@ foremancc_sources = \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/BeringeiTimeSeries.cpp \
 	../../src/foreman/clang/metric_c.cpp \
+	../../src/foreman/clang/query_c.cpp \
+	../../src/foreman/clang/resultset_c.cpp \
 	../../src/foreman/clang/store_c.cpp \
 	../../src/foreman/GraphiteStore.cpp \
 	../../src/foreman/MatrixStore.cpp \
@@ -28,6 +30,8 @@ foremancc_sources = \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
+	../../src/foreman/Query.cpp \
+	../../src/foreman/ResultSet.cpp \
 	../../src/foreman/RingArrayTimeSeries.cpp \
 	../../src/foreman/RingMapStore.cpp \
 	../../src/foreman/SQLiteStore.cpp \

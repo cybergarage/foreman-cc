@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) Satoshi Konno 2017
  *
@@ -8,29 +8,38 @@
  *
  ******************************************************************/
 
-#include <Foreman.h>
-#include <foreman/foreman-c.h>
+#include <foreman/ResultSet.h>
+#include <stdlib.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// foreman_store_addmetric
+// ResultSet
 ////////////////////////////////////////////////
 
-bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
+ResultSet::ResultSet()
 {
-  if (!store || !m)
-    return false;
-  return ((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m)));
+  valueCount = 0;
+  values = NULL;
+}
+
+ResultSet::~ResultSet()
+{
+  clear();
 }
 
 ////////////////////////////////////////////////
-// foreman_store_addmetric
+// clear
 ////////////////////////////////////////////////
 
-bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs)
+bool ResultSet::clear()
 {
-  if (!store || !q || !rs)
-    return false;
+  if (values) {
+    free(values);
+    values = NULL;
+  }
+
+  valueCount = 0;
+
   return true;
 }

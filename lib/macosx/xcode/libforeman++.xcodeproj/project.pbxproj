@@ -45,6 +45,9 @@
 		21CBC7871F540B2E00B87994 /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7861F540B2E00B87994 /* query_c.cpp */; };
 		21CBC7891F540B3800B87994 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7881F540B3800B87994 /* Query.cpp */; };
 		21CBC78D1F540B9D00B87994 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CBC78C1F540B9D00B87994 /* Query.h */; };
+		21CBC7931F54285300B87994 /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CBC7921F54285300B87994 /* ResultSet.h */; };
+		21CBC7951F5428A400B87994 /* ResultSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7941F5428A400B87994 /* ResultSet.cpp */; };
+		21CBC7971F542B6C00B87994 /* resultset_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7961F542B6C00B87994 /* resultset_c.cpp */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
@@ -91,6 +94,9 @@
 		21CBC7861F540B2E00B87994 /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query_c.cpp; path = clang/query_c.cpp; sourceTree = "<group>"; };
 		21CBC7881F540B3800B87994 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
 		21CBC78C1F540B9D00B87994 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		21CBC7921F54285300B87994 /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
+		21CBC7941F5428A400B87994 /* ResultSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultSet.cpp; sourceTree = "<group>"; };
+		21CBC7961F542B6C00B87994 /* resultset_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resultset_c.cpp; path = clang/resultset_c.cpp; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21CBC7921F54285300B87994 /* ResultSet.h */,
 				21CBC78C1F540B9D00B87994 /* Query.h */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
 				218D47C81F503251002A3FA2 /* foreman-c.h */,
@@ -215,6 +222,7 @@
 				21FBBC481E5F0AE500582F10 /* MetricMap.cpp */,
 				21B60DBF1E5D9866009D663B /* NarrowTableStore.cpp */,
 				21CBC7881F540B3800B87994 /* Query.cpp */,
+				21CBC7941F5428A400B87994 /* ResultSet.cpp */,
 				21AC32441E60456F0011D929 /* RingArrayTimeSeries.cpp */,
 				21797E1F1E5357AB00C7C599 /* RingMapStore.cpp */,
 				21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */,
@@ -234,6 +242,7 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				21CBC7961F542B6C00B87994 /* resultset_c.cpp */,
 				21CBC7861F540B2E00B87994 /* query_c.cpp */,
 				218D47CB1F503799002A3FA2 /* metric_c.cpp */,
 				218D47CC1F503799002A3FA2 /* store_c.cpp */,
@@ -264,6 +273,7 @@
 				219F41C81E55B1EF003EAD97 /* Metric.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
+				21CBC7931F54285300B87994 /* ResultSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +339,7 @@
 				21AC32451E60456F0011D929 /* RingArrayTimeSeries.cpp in Sources */,
 				217EBE3B1EA876D5006C770D /* GraphiteStore.cpp in Sources */,
 				213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */,
+				21CBC7971F542B6C00B87994 /* resultset_c.cpp in Sources */,
 				21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */,
 				21B60DC01E5D9866009D663B /* NarrowTableStore.cpp in Sources */,
 				21FBBC491E5F0AE500582F10 /* MetricMap.cpp in Sources */,
@@ -339,6 +350,7 @@
 				21CBC7891F540B3800B87994 /* Query.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
+				21CBC7951F5428A400B87994 /* ResultSet.cpp in Sources */,
 				210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */,
 				218D47CE1F503799002A3FA2 /* store_c.cpp in Sources */,
 				21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */,

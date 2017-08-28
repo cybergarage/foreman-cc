@@ -38,14 +38,14 @@ BOOST_AUTO_TEST_CASE(ClangQuery)
     BOOST_CHECK(foreman_query_getfrom(q, &ts));
     BOOST_CHECK_EQUAL((time_t)n, ts);
 
-    BOOST_CHECK(foreman_query_setuntil(q, (time_t)(n+1000)));
+    BOOST_CHECK(foreman_query_setuntil(q, (time_t)(n + 1000)));
     BOOST_CHECK(foreman_query_getuntil(q, &ts));
-    BOOST_CHECK_EQUAL((time_t)(n+1000), ts);
+    BOOST_CHECK_EQUAL((time_t)(n + 1000), ts);
 
-    BOOST_CHECK(foreman_query_setinterval(q, (time_t)(n+2000)));
+    BOOST_CHECK(foreman_query_setinterval(q, (time_t)(n + 2000)));
     BOOST_CHECK(foreman_query_getinterval(q, &ts));
-    BOOST_CHECK_EQUAL((time_t)(n+2000), ts);
-    
+    BOOST_CHECK_EQUAL((time_t)(n + 2000), ts);
+
     BOOST_CHECK(foreman_query_delete(q));
   }
 }

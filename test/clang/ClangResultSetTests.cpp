@@ -8,23 +8,18 @@
  *
  ******************************************************************/
 
-#include <math.h>
+#include <boost/test/unit_test.hpp>
 
-#include <foreman/Query.h>
+#include <foreman/foreman-c.h>
+
+#include "../ForemanTest.h"
 
 using namespace Foreman;
 
-////////////////////////////////////////////////
-// Query
-////////////////////////////////////////////////
+BOOST_AUTO_TEST_SUITE(clang)
 
-Query::Query()
-{
-  from = 0;
-  until = 0;
-  interval = 0;
-}
-
-Query::~Query()
+BOOST_AUTO_TEST_CASE(ClangResultSet)
 {
 }
+
+BOOST_AUTO_TEST_SUITE_END()
