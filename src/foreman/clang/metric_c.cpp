@@ -47,7 +47,7 @@ bool foreman_metric_setname(ForemanMetric* m, const char* name)
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_delete
+// foreman_metric_setvalue
 ////////////////////////////////////////////////
 
 bool foreman_metric_setvalue(ForemanMetric* m, double value)
