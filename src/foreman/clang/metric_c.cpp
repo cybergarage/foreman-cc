@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <Foreman.h>
+#include <foreman/Metric.h>
 #include <foreman/foreman-c.h>
 
 using namespace Foreman;
