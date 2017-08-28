@@ -16,7 +16,8 @@ print<<HEADER;
 namespace Foreman {
 
 HEADER
-@const_lines = `curl -s https://raw.githubusercontent.com/cybergarage/foreman-py/master/foreman/constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+#@const_lines = `curl -s https://raw.githubusercontent.com/cybergarage/foreman-py/master/foreman/constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+@const_lines = `cat constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
 foreach $const_line (@const_lines) {
   @const = split(/,/, $const_line);
   $const[0] =~ s/([a-z])/\u$1/g;

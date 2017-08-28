@@ -17,8 +17,7 @@ using namespace Foreman;
 // foreman_store_addmetric
 ////////////////////////////////////////////////
 
-bool foreman_store_addmetric(ForemanStore *store, ForemanMetric *m)
+bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
 {
   return false;
 }
-

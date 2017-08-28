@@ -17,15 +17,15 @@ extern "C" {
 
 #include <stdbool.h>
 #include <time.h>
-  
+
 ////////////////////////////////////////////////
 // Memtric
 ////////////////////////////////////////////////
 
 typedef void ForemanMetric;
-  
-ForemanMetric *foreman_metric_new();
-bool foreman_metric_delete(ForemanMetric *m);
+
+ForemanMetric* foreman_metric_new();
+bool foreman_metric_delete(ForemanMetric* m);
 
 ////////////////////////////////////////////////
 // Store
@@ -33,7 +33,7 @@ bool foreman_metric_delete(ForemanMetric *m);
 
 typedef void ForemanStore;
 
-bool foreman_store_addmetric(ForemanStore *store, ForemanMetric *m);
+bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
 
 #ifdef __cplusplus
 }

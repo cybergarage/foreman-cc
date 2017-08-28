@@ -17,6 +17,8 @@ foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/BeringeiTimeSeries.cpp \
+	../../src/foreman/clang/metric_c.cpp \
+	../../src/foreman/clang/store_c.cpp \
 	../../src/foreman/GraphiteStore.cpp \
 	../../src/foreman/MatrixStore.cpp \
 	../../src/foreman/MemStore.cpp \

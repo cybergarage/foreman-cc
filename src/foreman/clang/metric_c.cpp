@@ -17,7 +17,7 @@ using namespace Foreman;
 // foreman_metric_new
 ////////////////////////////////////////////////
 
-ForemanMetric *foreman_metric_new()
+ForemanMetric* foreman_metric_new()
 {
   return new Metric();
 }
@@ -26,7 +26,7 @@ ForemanMetric *foreman_metric_new()
 // foreman_metric_delete
 ////////////////////////////////////////////////
 
-bool foreman_metric_delete(ForemanMetric *m)
+bool foreman_metric_delete(ForemanMetric* m)
 {
   delete m;
   return true;

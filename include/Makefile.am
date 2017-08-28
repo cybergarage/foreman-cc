@@ -10,6 +10,7 @@
 
 foremancc_header = \
 	./foreman/Const.h \
+	./foreman/foreman-c.h \
 	./foreman/Foreman.h \
 	./foreman/MemStore.h \
 	./foreman/Metric.h \
