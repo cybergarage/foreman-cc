@@ -1,0 +1,64 @@
+# Copyright 2017 Satoshi Konno. All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+product_name,"foreman"
+
+# Serialize
+csv_export_line_terminator,"\n"
+
+# Data Source
+datasource_Graphite,"graphite"
+datasource_RRDtool,"rrdtool"
+
+# Data Store
+datastore_memory,"memory"
+datastore_sqlite,"sqlite"
+
+# Timestamp Resolution for Data Store
+datastore_timestamp_resolution_second,1
+datastore_timestamp_resolution_minute,60
+datastore_timestamp_resolution_hour,60*60
+datastore_timestamp_resolution_day,60*60*24
+
+# Data Store Parameter
+datastore_param_protocol,"protocol"
+datastore_param_host,"host"
+
+# FQL Command
+fql_update,"update"
+fql_select,"select"
+fql_analyze,"analyze"
+
+# FQL Operator
+fql_operator_equal,"="
+fql_operator_like,"LIKE"
+fql_operator_gt,">"
+fql_operator_ge,">="
+fql_operator_lt,"<"
+fql_operator_le,"<="
+
+# HTTP Server
+http_default_port,8080
+
+# SQLite Store
+sqlitesotore_factor_table,"factor"
+sqlitesotore_factor_name,"name"
+sqlitesotore_factor_table_ddl,"create table if not exists factor (name text, primary key(name))"
+sqlitesotore_factor_index_name_ddl,"create index if not exists factor_name_idx on factor(name)"
+sqlitesotore_factor_insert,"insert into factor (name) values (?)"
+sqlitesotore_factor_select_by_name,"select rowid from factor where name = ?"
+sqlitesotore_record_table,"record"
+sqlitesotore_record_id,"id"
+sqlitesotore_record_val,"val"
+sqlitesotore_record_ts,"ts"
+sqlitesotore_record_table_ddl,"create table if not exists record (id integer, val real, ts integer, primary key(id,ts))"
+sqlitesotore_record_index_id_ddl,"create index if not exists record_id_idx on record(id)"
+sqlitesotore_record_index_ts_ddl,"create index if not exists record_ts_idx on record(ts)"
+sqlitesotore_record_insert,"insert into record (id, val, ts) values (?, ?, ?)"
+sqlitesotore_record_update,"update record set val = ? where id = ? and ts = ?"
+sqlitesotore_record_select_by_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
+sqlitesotore_record_select_by_factor,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
+sqlitesotore_record_select_by_factor_between_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
+sqlitesotore_record_select_all,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id" 
+sqlitesotore_record_truncate,"delete from record"
