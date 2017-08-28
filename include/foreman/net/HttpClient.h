@@ -21,9 +21,8 @@ class HttpClient {
   HttpClient();
   ~HttpClient();
 
-  bool get(const std::string &uri, std::string &content);
+  bool get(const std::string& uri, std::string& content);
 };
-
 }
 
 #endif

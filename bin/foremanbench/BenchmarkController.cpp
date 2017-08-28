@@ -79,7 +79,7 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
   double FORMANCC_BENCHMARK_RECORD_MAX = (double)FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT / 10.0;
 
   double FORMANCC_BENCHMARK_RECORD_CONSTANT_VAL = FORMANCC_BENCHMARK_RECORD_MIN;
-  
+
   double FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN = FORMANCC_BENCHMARK_RECORD_MIN;
   double FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX = FORMANCC_BENCHMARK_RECORD_MAX;
   double FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP = 1.0;
@@ -93,16 +93,16 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
 
   double recordValue = 0.0;
   switch (recordType) {
-    case BenchmarkControllerPeriodicRecordType:
-      recordValue = FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN;
-      break;
-    case BenchmarkControllerConstantRecordType:
-      recordValue = FORMANCC_BENCHMARK_RECORD_CONSTANT_VAL;
-      break;
-    default:
-      break;
+  case BenchmarkControllerPeriodicRecordType:
+    recordValue = FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN;
+    break;
+  case BenchmarkControllerConstantRecordType:
+    recordValue = FORMANCC_BENCHMARK_RECORD_CONSTANT_VAL;
+    break;
+  default:
+    break;
   }
-  
+
   beginTs = time(NULL);
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
@@ -113,29 +113,25 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
         std::shared_ptr<Metric> m = *it;
         std::shared_ptr<Metric> value = std::shared_ptr<Metric>(new Metric(*m));
         value->timestamp = metricTs;
-        
+
         switch (recordType) {
-          case BenchmarkControllerRandomRecordType:
-            recordValue = randDist(mt);
-            break;
-          case BenchmarkControllerPeriodicRecordType:
-            {
-              recordValue += FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP;
-              if (recordValue < FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN || FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX < recordValue)
-                FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP *= -1.0;
-            }
-            break;
-          case BenchmarkControllerSporadicRecordType:
-            {
-              double spValue = randDist(mt);
-              recordValue = (FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD < spValue) ? spValue : FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL;
-            }
-            break;
-          default:
-            break;
+        case BenchmarkControllerRandomRecordType:
+          recordValue = randDist(mt);
+          break;
+        case BenchmarkControllerPeriodicRecordType: {
+          recordValue += FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP;
+          if (recordValue < FORMANCC_BENCHMARK_RECORD_PERIODIC_MIN || FORMANCC_BENCHMARK_RECORD_PERIODIC_MAX < recordValue)
+            FORMANCC_BENCHMARK_RECORD_PERIODIC_STEP *= -1.0;
+        } break;
+        case BenchmarkControllerSporadicRecordType: {
+          double spValue = randDist(mt);
+          recordValue = (FORMANCC_BENCHMARK_RECORD_SPORADIC_THRESHOLD < spValue) ? spValue : FORMANCC_BENCHMARK_RECORD_SPORADIC_NORMAL;
+        } break;
+        default:
+          break;
         }
         value->value = recordValue;
-        
+
         values.push_back(value);
       }
       if (!memStore->addValues(values))

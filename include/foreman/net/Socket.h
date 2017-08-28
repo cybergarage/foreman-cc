@@ -14,14 +14,13 @@
 #include <uhttp/net/Socket.h>
 
 namespace Foreman {
-  
-class Socket : public uHTTP::Socket {
-    
-  public:
-    Socket();
-    ~Socket();
-  };
-}
 
+class Socket : public uHTTP::Socket {
+
+  public:
+  Socket();
+  ~Socket();
+};
+}
 
 #endif

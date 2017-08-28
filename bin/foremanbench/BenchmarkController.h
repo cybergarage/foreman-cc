@@ -29,7 +29,7 @@ typedef enum _BenchmarkControllerRecordType : int {
   BenchmarkControllerSporadicRecordType,
   BenchmarkControllerConstantRecordType,
 } BenchmarkControllerRecordType;
-  
+
 class BenchmarkController {
   public:
   BenchmarkController();

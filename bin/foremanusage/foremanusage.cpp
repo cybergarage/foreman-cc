@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     std::cout << "Unknown Record Type : " << recordTypeStr << std::endl;
     return EXIT_FAILURE;
   }
-  
+
   long retentionPeriodHour = atol(argv[3]);
   if (retentionPeriodHour <= 0) {
     usage();
