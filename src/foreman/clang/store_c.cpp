@@ -19,5 +19,7 @@ using namespace Foreman;
 
 bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
 {
-  return false;
+  if (!store || !m)
+    return false;
+  return ((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m)));
 }

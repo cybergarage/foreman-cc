@@ -11,6 +11,8 @@
 #ifndef _FOREMANCC_TEST_TEST_H_
 #define _FOREMANCC_TEST_TEST_H_
 
+#define FORMANCC_TEST_LOOP_DEFAULT 10
+
 namespace Foreman {
 namespace Test {
 

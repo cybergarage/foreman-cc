@@ -25,6 +25,15 @@ extern "C" {
 typedef void ForemanMetric;
 
 ForemanMetric* foreman_metric_new();
+
+bool foreman_metric_setname(ForemanMetric* m, const char* name);
+bool foreman_metric_setvalue(ForemanMetric* m, double value);
+bool foreman_metric_settimestamp(ForemanMetric* m, time_t ts);
+
+bool foreman_metric_getname(ForemanMetric* m, const char** name);
+bool foreman_metric_getvalue(ForemanMetric* m, double* value);
+bool foreman_metric_gettimestamp(ForemanMetric* m, time_t* ts);
+
 bool foreman_metric_delete(ForemanMetric* m);
 
 ////////////////////////////////////////////////
