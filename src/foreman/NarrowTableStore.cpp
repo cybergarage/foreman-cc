@@ -63,7 +63,7 @@ bool NarrowTableStore::clear()
 // addMetric
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
+bool NarrowTableStore::addMetric(const Metric &m)
 {
   sqlite3_stmt* stmt = NULL;
 
@@ -72,7 +72,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
     return false;
@@ -85,7 +85,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_ROW) {
     sqlite3_finalize(stmt);
     return false;
@@ -96,9 +96,9 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 
   // Insert a metric
 
-  std::shared_ptr<SQLiteMetric> sm = std::shared_ptr<SQLiteMetric>(new SQLiteMetric());
-  sm->name = m->name;
-  sm->rowId = rowId;
+  SQLiteMetric sm;
+  sm.name = m.name;
+  sm.rowId = rowId;
 
   return MemStore::addMetric(sm);
 }
