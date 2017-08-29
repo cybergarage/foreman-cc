@@ -48,6 +48,7 @@
 		21CBC7931F54285300B87994 /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CBC7921F54285300B87994 /* ResultSet.h */; };
 		21CBC7951F5428A400B87994 /* ResultSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7941F5428A400B87994 /* ResultSet.cpp */; };
 		21CBC7971F542B6C00B87994 /* resultset_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7961F542B6C00B87994 /* resultset_c.cpp */; };
+		21CBC79B1F55376200B87994 /* store_c_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC79A1F55376200B87994 /* store_c_factory.cpp */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 		21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */; };
 		21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA401E532AFA00135A90 /* TSmapStore.cpp */; };
@@ -97,6 +98,7 @@
 		21CBC7921F54285300B87994 /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
 		21CBC7941F5428A400B87994 /* ResultSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultSet.cpp; sourceTree = "<group>"; };
 		21CBC7961F542B6C00B87994 /* resultset_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resultset_c.cpp; path = clang/resultset_c.cpp; sourceTree = "<group>"; };
+		21CBC79A1F55376200B87994 /* store_c_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c_factory.cpp; path = clang/store_c_factory.cpp; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 		21F9AA3A1E5311CA00135A90 /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
 		21F9AA401E532AFA00135A90 /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
@@ -242,10 +244,11 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
-				21CBC7961F542B6C00B87994 /* resultset_c.cpp */,
-				21CBC7861F540B2E00B87994 /* query_c.cpp */,
 				218D47CB1F503799002A3FA2 /* metric_c.cpp */,
+				21CBC7861F540B2E00B87994 /* query_c.cpp */,
+				21CBC7961F542B6C00B87994 /* resultset_c.cpp */,
 				218D47CC1F503799002A3FA2 /* store_c.cpp */,
+				21CBC79A1F55376200B87994 /* store_c_factory.cpp */,
 			);
 			name = clang;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
+				21CBC79B1F55376200B87994 /* store_c_factory.cpp in Sources */,
 				219F41C41E55980D003EAD97 /* MatrixStore.cpp in Sources */,
 				213454591F5071E6001D79F8 /* Store.cpp in Sources */,
 				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
