@@ -113,7 +113,7 @@ class NarrowTableStore : public SQLiteStore {
 
   bool open();
   bool clear();
-  bool addMetric(std::shared_ptr<Metric> m);
+  bool addMetric(const Metric &m);
   bool addValue(const Metric& m);
   bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
 };

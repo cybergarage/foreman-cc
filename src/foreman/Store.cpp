@@ -30,7 +30,7 @@ Store::~Store()
 // addMetric
 ////////////////////////////////////////////////
 
-bool Store::addMetric(std::shared_ptr<Metric> m)
+bool Store::addMetric(const Metric &m)
 {
   return metricMap_.addMetric(m);
 }

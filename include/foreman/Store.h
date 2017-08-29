@@ -29,7 +29,7 @@ class Store {
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
 
-  virtual bool addMetric(std::shared_ptr<Metric> m);
+  virtual bool addMetric(const Metric& m);
   virtual std::shared_ptr<Metric> findMetric(const std::string& name);
   virtual std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
   

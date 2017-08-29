@@ -49,7 +49,7 @@ class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>
   MetricMap();
   virtual ~MetricMap();
 
-  bool addMetric(std::shared_ptr<Metric> m);
+  bool addMetric(const Metric &m);
   bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
   std::shared_ptr<Metric> findMetric(const std::string& name);
   std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
@@ -59,9 +59,10 @@ class Metrics : public std::vector<std::shared_ptr<Metric>> {
   public:
   Metrics(){};
   virtual ~Metrics(){};
-  bool addMetric(std::shared_ptr<Metric> m)
+  bool addMetric(const Metric &m)
   {
-    push_back(m);
+    std::shared_ptr<Foreman::Metric> cm = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(m));
+    push_back(cm);
     return true;
   }
 };
