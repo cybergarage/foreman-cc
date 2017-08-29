@@ -29,10 +29,17 @@ class Store {
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
 
+  virtual bool addMetric(std::shared_ptr<Metric> m);
+  virtual std::shared_ptr<Metric> findMetric(const std::string& name);
+  virtual std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
+  
   virtual bool addValue(const Metric& value) = 0;
   virtual bool addValues(const Metrics& values);
 
   virtual bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) = 0;
+
+protected:
+  MetricMap metricMap_;
 };
 }
 
