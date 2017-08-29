@@ -21,6 +21,7 @@ foremancc_sources = \
 	../../src/foreman/clang/query_c.cpp \
 	../../src/foreman/clang/resultset_c.cpp \
 	../../src/foreman/clang/store_c.cpp \
+	../../src/foreman/clang/store_c_factory.cpp \
 	../../src/foreman/GraphiteStore.cpp \
 	../../src/foreman/MatrixStore.cpp \
 	../../src/foreman/MemStore.cpp \

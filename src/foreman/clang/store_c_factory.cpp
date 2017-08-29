@@ -17,7 +17,7 @@ using namespace Foreman;
 // foreman_store_matrix_create
 ////////////////////////////////////////////////
 
-ForemanStore *foreman_store_matrix_create()
+ForemanStore* foreman_store_matrix_create()
 {
   return new MatrixStore();
 }
@@ -26,7 +26,7 @@ ForemanStore *foreman_store_matrix_create()
 // foreman_store_ringmap_create
 ////////////////////////////////////////////////
 
-ForemanStore *foreman_store_ringmap_create()
+ForemanStore* foreman_store_ringmap_create()
 {
   return new RingMapStore();
 }
@@ -35,7 +35,7 @@ ForemanStore *foreman_store_ringmap_create()
 // foreman_store_sqlite_create
 ////////////////////////////////////////////////
 
-ForemanStore *foreman_store_sqlite_create()
+ForemanStore* foreman_store_sqlite_create()
 {
   return new NarrowTableStore();
 }
@@ -44,7 +44,7 @@ ForemanStore *foreman_store_sqlite_create()
 // foreman_store_tsmap_create
 ////////////////////////////////////////////////
 
-ForemanStore *foreman_store_tsmap_create()
+ForemanStore* foreman_store_tsmap_create()
 {
   return new TSmapStore();
 }

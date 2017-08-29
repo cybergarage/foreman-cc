@@ -75,10 +75,10 @@ bool foreman_resultset_delete(ForemanResultSet* q);
 
 typedef void ForemanStore;
 
-ForemanStore *foreman_store_matrix_create();
-ForemanStore *foreman_store_ringmap_create();
-ForemanStore *foreman_store_sqlite_create();
-ForemanStore *foreman_store_tsmap_create();
+ForemanStore* foreman_store_matrix_create();
+ForemanStore* foreman_store_ringmap_create();
+ForemanStore* foreman_store_sqlite_create();
+ForemanStore* foreman_store_tsmap_create();
 
 bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
 bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs);
