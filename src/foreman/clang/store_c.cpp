@@ -45,7 +45,7 @@ bool foreman_store_close(ForemanStore* store)
 {
   if (!store)
     return false;
-  return ((Foreman::Store*)(store))->open();
+  return ((Foreman::Store*)(store))->close();
 }
 
 ////////////////////////////////////////////////
