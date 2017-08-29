@@ -80,10 +80,13 @@ ForemanStore* foreman_store_ringmap_create();
 ForemanStore* foreman_store_sqlite_create();
 ForemanStore* foreman_store_tsmap_create();
 
+bool foreman_store_delete(ForemanStore* store);
+
+bool foreman_store_open(ForemanStore* store);
+bool foreman_store_close(ForemanStore* store);
+
 bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
 bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs);
-
-bool foreman_store_delete(ForemanStore* store);
 
 #ifdef __cplusplus
 }
