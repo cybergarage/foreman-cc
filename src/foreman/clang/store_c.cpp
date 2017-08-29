@@ -56,6 +56,13 @@ bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
 {
   if (!store || !m)
     return false;
+
+  if (((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m))))
+    return true;
+
+  if (!((Foreman::Store*)(store))->addMetric(*((const Foreman::Metric*)(m))))
+    return false;
+
   return ((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m)));
 }
 

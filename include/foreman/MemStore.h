@@ -45,10 +45,6 @@ class MemStore : public Store {
     return 0;
   }
 
-  virtual bool addMetric(std::shared_ptr<Metric> m);
-  std::shared_ptr<Metric> findMetric(const std::string& name);
-  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
-
   virtual bool setRetentionInterval(time_t sec)
   {
     retentionInterval_ = sec;
@@ -73,9 +69,6 @@ class MemStore : public Store {
 
   size_t getColumnCount();
   size_t getRowCount();
-
-  protected:
-  MetricMap metricMap_;
 
   private:
   time_t retentionInterval_;
