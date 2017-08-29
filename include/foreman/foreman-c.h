@@ -83,6 +83,8 @@ ForemanStore* foreman_store_tsmap_create();
 bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
 bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs);
 
+bool foreman_store_delete(ForemanStore* store);
+
 #ifdef __cplusplus
 }
 #endif
