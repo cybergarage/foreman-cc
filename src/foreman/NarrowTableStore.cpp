@@ -63,7 +63,7 @@ bool NarrowTableStore::clear()
 // addMetric
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::addMetric(const Metric &m)
+bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 {
   sqlite3_stmt* stmt = NULL;
 
@@ -72,7 +72,7 @@ bool NarrowTableStore::addMetric(const Metric &m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
     return false;
@@ -85,7 +85,7 @@ bool NarrowTableStore::addMetric(const Metric &m)
   if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
     return false;
 
-  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_ROW) {
     sqlite3_finalize(stmt);
     return false;
@@ -96,11 +96,12 @@ bool NarrowTableStore::addMetric(const Metric &m)
 
   // Insert a metric
 
-  SQLiteMetric sm;
-  sm.name = m.name;
-  sm.rowId = rowId;
-
-  return MemStore::addMetric(sm);
+  SQLiteMetric* sm = new SQLiteMetric();
+  if (!sm)
+    return false;
+  sm->name = m->name;
+  sm->rowId = rowId;
+  return MemStore::addMetric(std::shared_ptr<Foreman::Metric>(sm));
 }
 
 ////////////////////////////////////////////////
@@ -153,11 +154,11 @@ bool NarrowTableStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::getValues(Query *q, ResultSet *rs)
+bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;
-  
+
   if (q->until <= q->from)
     return false;
 

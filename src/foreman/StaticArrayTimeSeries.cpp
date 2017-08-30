@@ -56,7 +56,7 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool StaticArrayTimeSeries::getValues(Query *q, ResultSet *rs)
+bool StaticArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 {
   if (!getValueCount(q, &rs->valueCount))
     return false;

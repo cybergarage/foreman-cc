@@ -28,10 +28,9 @@ MetricMap::~MetricMap()
 // addMetric
 ////////////////////////////////////////////////
 
-bool MetricMap::addMetric(const Metric &m)
+bool MetricMap::addMetric(std::shared_ptr<Metric> m)
 {
-  std::shared_ptr<Foreman::Metric> cm = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(m));
-  insert(std::make_pair(m.name, cm));
+  insert(std::make_pair(m->name, m));
   return true;
 }
 
@@ -68,7 +67,7 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
 bool MetricMap::addMetrics(std::vector<std::shared_ptr<Metric>> metrics)
 {
   for (std::shared_ptr<Metric> m : metrics) {
-    if (!addMetric(*m))
+    if (!addMetric(m))
       return false;
   }
 

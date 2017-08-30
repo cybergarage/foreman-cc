@@ -14,9 +14,9 @@
 #include <string>
 #include <unordered_map>
 
-#include <foreman/TimeSeries.h>
 #include <foreman/Query.h>
 #include <foreman/ResultSet.h>
+#include <foreman/TimeSeries.h>
 
 namespace Foreman {
 
@@ -37,7 +37,7 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
 
   bool addValue(const Metric& m);
   bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
-  bool getValues(Query *q, ResultSet *rs);
+  bool getValues(Query* q, ResultSet* rs);
 };
 
 ////////////////////////////////////////////////

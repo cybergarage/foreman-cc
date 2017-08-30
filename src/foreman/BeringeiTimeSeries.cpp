@@ -37,7 +37,7 @@ bool BeringeiTimeSeries::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool BeringeiTimeSeries::getValues(Query *q, ResultSet *rs)
+bool BeringeiTimeSeries::getValues(Query* q, ResultSet* rs)
 {
   if (!getValueCount(q, &rs->valueCount))
     return false;

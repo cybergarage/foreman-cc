@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new NarrowTableStore();
-  //testController.run(store);
+  testController.run(store);
   delete store;
 }
 
@@ -62,6 +62,6 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
   MemStoreTestContoller testController;
 
   MemStore* store = new TSmapStore();
-  //testController.run(store);
+  testController.run(store);
   delete store;
 }

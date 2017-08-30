@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		213E7FE01E56084400E41441 /* TimeSeriesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */; };
-		2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C3041E52F51E006C4425 /* MemStoreTests.cpp */; };
+		2175C3101E52F51E006C4425 /* StoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C3041E52F51E006C4425 /* StoreTests.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
 		219F41CA1E55B37A003EAD97 /* MetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F41C91E55B37A003EAD97 /* MetricsTests.cpp */; };
 		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
@@ -17,7 +17,7 @@
 		21CBC78F1F540DE200B87994 /* ClangQueryTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC78E1F540DE200B87994 /* ClangQueryTests.cpp */; };
 		21CBC7911F5427CD00B87994 /* ClangResultSetTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7901F5427CD00B87994 /* ClangResultSetTests.cpp */; };
 		21CBC7991F5434B600B87994 /* ClangStoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7981F5434B600B87994 /* ClangStoreTest.cpp */; };
-		21F9AA3E1E532ADD00135A90 /* MemStoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */; };
+		21F9AA3E1E532ADD00135A90 /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F9AA3D1E532ADD00135A90 /* StoreTestController.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTests.cpp; path = ../../TimeSeriesTests.cpp; sourceTree = "<group>"; };
-		2175C3041E52F51E006C4425 /* MemStoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStoreTests.cpp; path = ../../MemStoreTests.cpp; sourceTree = "<group>"; };
+		2175C3041E52F51E006C4425 /* StoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTests.cpp; path = ../../StoreTests.cpp; sourceTree = "<group>"; };
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		21CBC7901F5427CD00B87994 /* ClangResultSetTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangResultSetTests.cpp; path = ../../clang/ClangResultSetTests.cpp; sourceTree = "<group>"; };
 		21CBC7981F5434B600B87994 /* ClangStoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangStoreTest.cpp; path = ../../clang/ClangStoreTest.cpp; sourceTree = "<group>"; };
 		21F9AA3C1E532ADD00135A90 /* MemStoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStoreTestController.h; path = ../../MemStoreTestController.h; sourceTree = "<group>"; };
-		21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStoreTestController.cpp; path = ../../MemStoreTestController.cpp; sourceTree = "<group>"; };
+		21F9AA3D1E532ADD00135A90 /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../StoreTestController.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
-				21F9AA3D1E532ADD00135A90 /* MemStoreTestController.cpp */,
-				2175C3041E52F51E006C4425 /* MemStoreTests.cpp */,
+				21F9AA3D1E532ADD00135A90 /* StoreTestController.cpp */,
+				2175C3041E52F51E006C4425 /* StoreTests.cpp */,
 				219F41C91E55B37A003EAD97 /* MetricsTests.cpp */,
 				21CBC78A1F540B7200B87994 /* QueryTest.cpp */,
 				213E7FDF1E56084400E41441 /* TimeSeriesTests.cpp */,
@@ -215,11 +215,11 @@
 				21CBC78F1F540DE200B87994 /* ClangQueryTests.cpp in Sources */,
 				213E7FE01E56084400E41441 /* TimeSeriesTests.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
-				2175C3101E52F51E006C4425 /* MemStoreTests.cpp in Sources */,
+				2175C3101E52F51E006C4425 /* StoreTests.cpp in Sources */,
 				21CBC7851F54022500B87994 /* ClangMetricsTests.cpp in Sources */,
 				21CBC7991F5434B600B87994 /* ClangStoreTest.cpp in Sources */,
 				21CBC7911F5427CD00B87994 /* ClangResultSetTests.cpp in Sources */,
-				21F9AA3E1E532ADD00135A90 /* MemStoreTestController.cpp in Sources */,
+				21F9AA3E1E532ADD00135A90 /* StoreTestController.cpp in Sources */,
 				21CBC78B1F540B7200B87994 /* QueryTest.cpp in Sources */,
 				219F41CA1E55B37A003EAD97 /* MetricsTests.cpp in Sources */,
 			);

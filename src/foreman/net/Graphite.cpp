@@ -83,7 +83,6 @@ bool Graphite::addValue(const std::string& path, time_t ts, double value)
 // getValues
 ////////////////////////////////////////////////
 
-
 bool Graphite::getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, double** values, size_t* valueCnt)
 {
   struct tm* tm;

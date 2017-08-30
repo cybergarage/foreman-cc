@@ -95,16 +95,16 @@ bool GraphiteStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool GraphiteStore::getValues(Query *q, ResultSet *rs)
+bool GraphiteStore::getValues(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;
 
   return graphite.getValues(
-                            q->target,
-                            q->from,
-                            q->until,
-                            q->interval,
-                            &rs->values,
-                            &rs->valueCount);
+      q->target,
+      q->from,
+      q->until,
+      q->interval,
+      &rs->values,
+      &rs->valueCount);
 }

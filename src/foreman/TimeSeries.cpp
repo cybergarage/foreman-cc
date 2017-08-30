@@ -26,7 +26,7 @@ TimeSeries::~TimeSeries() {}
 // getValueCount
 ////////////////////////////////////////////////
 
-bool TimeSeries::getValueCount(Query *q, size_t *valueCnt)
+bool TimeSeries::getValueCount(Query* q, size_t* valueCnt)
 {
   if (q->until <= q->from)
     return false;

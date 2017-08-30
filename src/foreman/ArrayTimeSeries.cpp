@@ -52,7 +52,7 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 // getValueCount
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getValueCount(Query *q, size_t *valueCnt)
+bool ArrayTimeSeries::getValueCount(Query* q, size_t* valueCnt)
 {
   if (!TimeSeries::getValueCount(q, valueCnt))
     return false;
