@@ -64,10 +64,12 @@ typedef void ForemanResultSet;
 
 ForemanResultSet* foreman_resultset_new();
 
-size_t foreman_resultset_getnvalues(ForemanResultSet* q);
-double* foreman_resultset_getvalues(ForemanResultSet* q);
+size_t foreman_resultset_getnvalues(ForemanResultSet* rs);
 
-bool foreman_resultset_delete(ForemanResultSet* q);
+bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value);
+double* foreman_resultset_getvalues(ForemanResultSet* rs);
+
+bool foreman_resultset_delete(ForemanResultSet* rs);
 
 ////////////////////////////////////////////////
 // Store

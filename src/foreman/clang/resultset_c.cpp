@@ -46,6 +46,23 @@ size_t foreman_resultset_getnvalues(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
+// foreman_resultset_getvalue
+////////////////////////////////////////////////
+
+bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value)
+{
+  if (!rs)
+    return false;
+  
+  if (foreman_resultset_getnvalues(rs) <= n)
+    return false;
+  
+  *value = ((ResultSet*)rs)->values[n];
+  
+  return true;
+}
+
+////////////////////////////////////////////////
 // foreman_resultset_getvalues
 ////////////////////////////////////////////////
 
