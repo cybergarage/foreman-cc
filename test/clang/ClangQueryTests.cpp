@@ -22,7 +22,6 @@ BOOST_AUTO_TEST_CASE(ClangQuery)
 {
   char nameBuf[32];
   const char* name;
-  double value;
   time_t ts;
 
   for (size_t n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
