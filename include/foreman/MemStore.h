@@ -115,7 +115,7 @@ class NarrowTableStore : public SQLiteStore {
   bool clear();
   bool addMetric(const Metric &m);
   bool addValue(const Metric& m);
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
 };
 
 ////////////////////////////////////////////////
@@ -128,7 +128,7 @@ class TimeSeriesMapStore : public MemStore {
   virtual ~TimeSeriesMapStore();
 
   bool addValue(const Metric& m);
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
 
   protected:
   std::shared_ptr<TimeSeriesMap> tsMap_;
@@ -209,7 +209,7 @@ class GraphiteStore : public MemStore {
   void setHttpPort(int port);
 
   bool addValue(const Metric& m);
-  bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
 
   private:
   Graphite graphite;

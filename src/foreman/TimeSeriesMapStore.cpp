@@ -38,7 +38,7 @@ bool TimeSeriesMapStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool TimeSeriesMapStore::getValues(Query *q, ResultSet *rs)
 {
-  return tsMap_->getValues(m, beginTs, endTs, interval, values, valueCnt);
+  return tsMap_->getValues(q, rs);
 }

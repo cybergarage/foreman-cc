@@ -13,6 +13,8 @@
 
 #include <beringei/TimeSeriesStream.h>
 #include <foreman/Metric.h>
+#include <foreman/Query.h>
+#include <foreman/ResultSet.h>
 
 namespace Foreman {
 
@@ -26,10 +28,10 @@ class TimeSeries {
   virtual ~TimeSeries();
 
   virtual bool addValue(const Metric& m) = 0;
-  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) = 0;
+  virtual bool getValues(Query *q, ResultSet *rs) = 0;
 
   protected:
-  bool getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt);
+  bool getValueCount(Query *q, size_t *valueCnt);
 };
 
 ////////////////////////////////////////////////
@@ -42,16 +44,16 @@ class ArrayTimeSeries : public TimeSeries {
   ~ArrayTimeSeries();
 
   virtual bool addValue(const Metric& m);
-  virtual bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt) = 0;
+  virtual bool getValues(Query *q, ResultSet *rs) = 0;
 
   virtual bool reallocValueArray(size_t size);
-  virtual bool setValueArray(MetricValue* values, size_t size);
+  virtual bool setValueArray(double* values, size_t size);
   virtual bool clear();
 
   protected:
-  bool getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt);
+  bool getValueCount(Query *q, size_t *valueCnt);
 
-  MetricValue* values_;
+  double* values_;
 
   size_t arraySize_;
   size_t arrayCount_;
@@ -66,7 +68,7 @@ class RingArrayTimeSeries : public ArrayTimeSeries {
   ~RingArrayTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
   bool clear();
 
   protected:
@@ -79,7 +81,7 @@ class StaticArrayTimeSeries : public ArrayTimeSeries {
   ~StaticArrayTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& data, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
 };
 
 ////////////////////////////////////////////////
@@ -92,7 +94,7 @@ class BeringeiTimeSeries : public TimeSeries {
   ~BeringeiTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt);
+  bool getValues(Query *q, ResultSet *rs);
 
   private:
   facebook::gorilla::TimeSeriesStream stream_;

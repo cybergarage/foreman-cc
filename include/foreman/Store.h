@@ -12,7 +12,8 @@
 #define _FOREMANCC_STORE_H_
 
 #include <foreman/Metric.h>
-#include <time.h>
+#include <foreman/Query.h>
+#include <foreman/ResultSet.h>
 
 namespace Foreman {
 
@@ -36,7 +37,7 @@ class Store {
   virtual bool addValue(const Metric& value) = 0;
   virtual bool addValues(const Metrics& values);
 
-  virtual bool getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt) = 0;
+  virtual bool getValues(Query *q, ResultSet *rs) = 0;
 
 protected:
   MetricMap metricMap_;

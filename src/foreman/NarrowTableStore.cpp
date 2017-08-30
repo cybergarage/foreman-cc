@@ -153,16 +153,19 @@ bool NarrowTableStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool NarrowTableStore::getValues(Query *q, ResultSet *rs)
 {
-  if (endTs <= beginTs)
+  if (!q || !rs)
+    return false;
+  
+  if (q->until <= q->from)
     return false;
 
-  valueCnt = (endTs - beginTs) / interval;
-  if (valueCnt <= 0)
+  rs->valueCount = (q->until - q->from) / q->interval;
+  if (rs->valueCount <= 0)
     return false;
 
-  MetricValue* copyValues = new MetricValue[valueCnt];
+  rs->values = new double[rs->valueCount];
 
   // Select values
 
@@ -170,20 +173,18 @@ bool NarrowTableStore::getValues(const Metric& m, time_t beginTs, time_t endTs, 
 
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
-  sqlite3_bind_text(stmt, 1, m.name.c_str(), (int)m.name.length(), SQLITE_TRANSIENT);
-  sqlite3_bind_int(stmt, 2, (int)beginTs);
-  sqlite3_bind_int(stmt, 3, (int)endTs);
+  sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
+  sqlite3_bind_int(stmt, 2, (int)q->from);
+  sqlite3_bind_int(stmt, 3, (int)q->until);
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     double value = sqlite3_column_double(stmt, 1);
     time_t valueTs = sqlite3_column_int(stmt, 2);
-    ssize_t valueIdx = (valueTs - beginTs) / interval;
-    if (valueIdx < 0 || valueCnt <= valueIdx)
+    ssize_t valueIdx = (valueTs - q->from) / q->interval;
+    if (valueIdx < 0 || rs->valueCount <= valueIdx)
       continue;
-    copyValues[valueIdx] = value;
+    rs->values[valueIdx] = value;
   }
   sqlite3_finalize(stmt);
-
-  values = std::shared_ptr<MetricValue>(copyValues);
 
   return true;
 }

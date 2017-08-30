@@ -95,7 +95,16 @@ bool GraphiteStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool GraphiteStore::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool GraphiteStore::getValues(Query *q, ResultSet *rs)
 {
-  return graphite.getValues(m.name, beginTs, endTs, interval, values, valueCnt);
+  if (!q || !rs)
+    return false;
+
+  return graphite.getValues(
+                            q->target,
+                            q->from,
+                            q->until,
+                            q->interval,
+                            &rs->values,
+                            &rs->valueCount);
 }

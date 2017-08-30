@@ -94,11 +94,14 @@ bool TimeSeriesMap::addValues(std::vector<std::shared_ptr<Metric>> metrics)
 // getValues
 ////////////////////////////////////////////////
 
-bool TimeSeriesMap::getValues(const Metric& m, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool TimeSeriesMap::getValues(Query *q, ResultSet *rs)
 {
+  Metric m;
+  m.name = q->target;
+  
   std::shared_ptr<TimeSeries> ts = findTimeSeries(m);
   if (ts == nullptr)
     return false;
-
-  return ts->getValues(beginTs, endTs, interval, values, valueCnt);
+  
+  return ts->getValues(q, rs);
 }

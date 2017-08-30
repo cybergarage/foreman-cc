@@ -26,15 +26,13 @@ namespace Foreman {
 // Metric
 ////////////////////////////////////////////////
 
-typedef double MetricValue;
-
 class Metric {
   public:
   Metric();
   virtual ~Metric();
 
   std::string name;
-  MetricValue value;
+  double value;
   time_t timestamp;
 };
 

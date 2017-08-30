@@ -28,7 +28,7 @@ class Graphite {
   void setHttpPort(int port);
 
   bool addValue(const std::string& path, time_t ts, double value);
-  bool getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<double>& values, size_t& valueCnt);
+  bool getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, double **values, size_t* valueCnt);
 
   private:
   std::string host;
