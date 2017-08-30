@@ -19,7 +19,7 @@ using namespace Foreman;
 
 ResultSet::ResultSet()
 {
-  valueCount = 0;
+  count = 0;
   values = NULL;
 }
 
@@ -39,7 +39,7 @@ bool ResultSet::clear()
     values = NULL;
   }
 
-  valueCount = 0;
+  count = 0;
 
   return true;
 }

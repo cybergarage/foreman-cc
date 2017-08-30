@@ -51,10 +51,10 @@ bool RingArrayTimeSeries::addValue(const Metric& m)
 
 bool RingArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 {
-  if (!getValueCount(q, &rs->valueCount))
+  if (!getValueCount(q, &rs->count))
     return false;
 
-  rs->values = new double[rs->valueCount];
+  rs->values = new double[rs->count];
 
   size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
   if (0 < arrayRightCnt) {

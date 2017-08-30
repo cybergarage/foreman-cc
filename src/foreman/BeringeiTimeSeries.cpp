@@ -39,21 +39,21 @@ bool BeringeiTimeSeries::addValue(const Metric& m)
 
 bool BeringeiTimeSeries::getValues(Query* q, ResultSet* rs)
 {
-  if (!getValueCount(q, &rs->valueCount))
+  if (!getValueCount(q, &rs->count))
     return false;
 
   std::string data;
   stream_.readData(data);
 
   std::vector<TimeValuePair> out;
-  facebook::gorilla::TimeSeriesStream::readValues(out, data, (int)rs->valueCount, q->from, q->until);
+  facebook::gorilla::TimeSeriesStream::readValues(out, data, (int)rs->count, q->from, q->until);
 
-  rs->values = new double[rs->valueCount];
+  rs->values = new double[rs->count];
   for (auto v : out) {
     if ((v.unixTime < q->from) || (q->until < v.unixTime))
       continue;
     int idx = (int)((v.unixTime - q->from) / q->interval);
-    if ((idx < 0) || ((rs->valueCount - 1) < idx))
+    if ((idx < 0) || ((rs->count - 1) < idx))
       continue;
     rs->values[idx] = v.value;
   }

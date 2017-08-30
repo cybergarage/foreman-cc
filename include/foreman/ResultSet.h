@@ -27,7 +27,7 @@ class ResultSet {
 
   bool clear();
 
-  size_t valueCount;
+  size_t count;
   double* values;
 };
 }

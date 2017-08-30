@@ -58,11 +58,11 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
 
 bool StaticArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 {
-  if (!getValueCount(q, &rs->valueCount))
+  if (!getValueCount(q, &rs->count))
     return false;
 
-  rs->values = new double[rs->valueCount];
-  memcpy(rs->values, values_, (sizeof(double) * rs->valueCount));
+  rs->values = new double[rs->count];
+  memcpy(rs->values, values_, (sizeof(double) * rs->count));
 
   return true;
 }
