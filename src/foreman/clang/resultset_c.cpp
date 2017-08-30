@@ -35,14 +35,14 @@ bool foreman_resultset_delete(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_getnvalues
+// foreman_resultset_getcount
 ////////////////////////////////////////////////
 
-size_t foreman_resultset_getnvalues(ForemanResultSet* rs)
+size_t foreman_resultset_getcount(ForemanResultSet* rs)
 {
   if (!rs)
     return 0;
-  return ((ResultSet*)rs)->valueCount;
+  return ((ResultSet*)rs)->count;
 }
 
 ////////////////////////////////////////////////
@@ -54,7 +54,7 @@ bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value)
   if (!rs)
     return false;
   
-  if (foreman_resultset_getnvalues(rs) <= n)
+  if (foreman_resultset_getcount(rs) <= n)
     return false;
   
   *value = ((ResultSet*)rs)->values[n];

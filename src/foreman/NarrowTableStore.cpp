@@ -162,11 +162,11 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
   if (q->until <= q->from)
     return false;
 
-  rs->valueCount = (q->until - q->from) / q->interval;
-  if (rs->valueCount <= 0)
+  rs->count = (q->until - q->from) / q->interval;
+  if (rs->count <= 0)
     return false;
 
-  rs->values = new double[rs->valueCount];
+  rs->values = new double[rs->count];
 
   // Select values
 
@@ -181,7 +181,7 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
     double value = sqlite3_column_double(stmt, 1);
     time_t valueTs = sqlite3_column_int(stmt, 2);
     ssize_t valueIdx = (valueTs - q->from) / q->interval;
-    if (valueIdx < 0 || rs->valueCount <= valueIdx)
+    if (valueIdx < 0 || rs->count <= valueIdx)
       continue;
     rs->values[valueIdx] = value;
   }

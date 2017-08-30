@@ -58,7 +58,7 @@ static void TestClangStore(ForemanStore *store) {
     ForemanResultSet *rs = foreman_resultset_new();
     BOOST_CHECK(foreman_store_query(store, q, rs));
     
-    BOOST_CHECK_EQUAL(foreman_resultset_getnvalues(rs), 1);
+    BOOST_CHECK_EQUAL(foreman_resultset_getcount(rs), 1);
     double rsValue;
     BOOST_CHECK(foreman_resultset_getvalue(rs, 0, &rsValue));
     BOOST_CHECK_EQUAL((int)rsValue, n);
@@ -117,7 +117,7 @@ typedef void ForemanResultSet;
 
 ForemanResultSet* foreman_resultset_new();
 
-size_t foreman_resultset_getnvalues(ForemanResultSet* q);
+size_t foreman_resultset_getcount(ForemanResultSet* q);
 double* foreman_resultset_getvalues(ForemanResultSet* q);
 
 bool foreman_resultset_delete(ForemanResultSet* q);

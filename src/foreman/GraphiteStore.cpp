@@ -106,5 +106,5 @@ bool GraphiteStore::getValues(Query* q, ResultSet* rs)
       q->until,
       q->interval,
       &rs->values,
-      &rs->valueCount);
+      &rs->count);
 }

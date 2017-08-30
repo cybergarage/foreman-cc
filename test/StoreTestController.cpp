@@ -85,8 +85,8 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
     Foreman::ResultSet rs;
 
     BOOST_CHECK(store->getValues(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.valueCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
-    for (size_t n = 0; n < rs.valueCount; n++) {
+    BOOST_CHECK_EQUAL(rs.count, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+    for (size_t n = 0; n < rs.count; n++) {
       BOOST_CHECK_EQUAL(rs.values[n], n);
     }
   }
