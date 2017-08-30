@@ -67,12 +67,16 @@ bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_addmetric
+// foreman_store_query
 ////////////////////////////////////////////////
 
 bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs)
 {
   if (!store || !q || !rs)
     return false;
+
+  if (!((Foreman::Store*)(store))->getValues(((Foreman::Query*)(q)), ((Foreman::ResultSet*)(rs))))
+    return false;
+  
   return true;
 }
