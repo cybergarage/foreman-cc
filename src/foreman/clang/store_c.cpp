@@ -19,11 +19,10 @@ using namespace Foreman;
 
 bool foreman_store_delete(ForemanStore* store)
 {
-  if (!store )
+  if (!store)
     return false;
   delete (Foreman::Store*)(store);
   return true;
-  
 }
 
 ////////////////////////////////////////////////
@@ -60,7 +59,8 @@ bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
   if (((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m))))
     return true;
 
-  if (!((Foreman::Store*)(store))->addMetric(*((const Foreman::Metric*)(m))))
+  std::shared_ptr<Foreman::Metric> cm = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(*((const Foreman::Metric*)(m))));
+  if (!((Foreman::Store*)(store))->addMetric(cm))
     return false;
 
   return ((Foreman::Store*)(store))->addValue(*((const Foreman::Metric*)(m)));

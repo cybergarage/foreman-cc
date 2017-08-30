@@ -30,16 +30,16 @@ class Store {
   virtual bool isOpened() = 0;
   virtual bool close() = 0;
 
-  virtual bool addMetric(const Metric& m);
+  virtual bool addMetric(std::shared_ptr<Metric> m);
   virtual std::shared_ptr<Metric> findMetric(const std::string& name);
   virtual std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
-  
+
   virtual bool addValue(const Metric& value) = 0;
   virtual bool addValues(const Metrics& values);
 
-  virtual bool getValues(Query *q, ResultSet *rs) = 0;
+  virtual bool getValues(Query* q, ResultSet* rs) = 0;
 
-protected:
+  protected:
   MetricMap metricMap_;
 };
 }

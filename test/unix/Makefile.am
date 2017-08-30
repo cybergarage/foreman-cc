@@ -19,10 +19,10 @@ foremantest_SOURCES = \
 	..//clang/ClangResultSetTests.cpp \
 	..//clang/ClangStoreTest.cpp \
 	..//ForemanTest.cpp \
-	..//MemStoreTestController.cpp \
-	..//MemStoreTests.cpp \
 	..//MetricsTests.cpp \
 	..//QueryTest.cpp \
+	..//StoreTestController.cpp \
+	..//StoreTests.cpp \
 	..//TimeSeriesTests.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a

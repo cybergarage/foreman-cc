@@ -28,10 +28,10 @@ class TimeSeries {
   virtual ~TimeSeries();
 
   virtual bool addValue(const Metric& m) = 0;
-  virtual bool getValues(Query *q, ResultSet *rs) = 0;
+  virtual bool getValues(Query* q, ResultSet* rs) = 0;
 
   protected:
-  bool getValueCount(Query *q, size_t *valueCnt);
+  bool getValueCount(Query* q, size_t* valueCnt);
 };
 
 ////////////////////////////////////////////////
@@ -44,14 +44,14 @@ class ArrayTimeSeries : public TimeSeries {
   ~ArrayTimeSeries();
 
   virtual bool addValue(const Metric& m);
-  virtual bool getValues(Query *q, ResultSet *rs) = 0;
+  virtual bool getValues(Query* q, ResultSet* rs) = 0;
 
   virtual bool reallocValueArray(size_t size);
   virtual bool setValueArray(double* values, size_t size);
   virtual bool clear();
 
   protected:
-  bool getValueCount(Query *q, size_t *valueCnt);
+  bool getValueCount(Query* q, size_t* valueCnt);
 
   double* values_;
 
@@ -68,7 +68,7 @@ class RingArrayTimeSeries : public ArrayTimeSeries {
   ~RingArrayTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(Query *q, ResultSet *rs);
+  bool getValues(Query* q, ResultSet* rs);
   bool clear();
 
   protected:
@@ -81,7 +81,7 @@ class StaticArrayTimeSeries : public ArrayTimeSeries {
   ~StaticArrayTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(Query *q, ResultSet *rs);
+  bool getValues(Query* q, ResultSet* rs);
 };
 
 ////////////////////////////////////////////////
@@ -94,7 +94,7 @@ class BeringeiTimeSeries : public TimeSeries {
   ~BeringeiTimeSeries();
 
   bool addValue(const Metric& m);
-  bool getValues(Query *q, ResultSet *rs);
+  bool getValues(Query* q, ResultSet* rs);
 
   private:
   facebook::gorilla::TimeSeriesStream stream_;

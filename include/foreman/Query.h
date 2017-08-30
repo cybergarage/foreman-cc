@@ -18,8 +18,8 @@
 
 #include <time.h>
 
-#include <foreman/Platform.h>
 #include <foreman/Metric.h>
+#include <foreman/Platform.h>
 
 namespace Foreman {
 
@@ -36,28 +36,33 @@ class Query {
   time_t from;
   time_t until;
   time_t interval;
-  
-  bool setTarget(const std::string &value) {
+
+  bool setTarget(const std::string& value)
+  {
     target = value;
     return true;
   }
-  
-  bool setTarget(const Metric& m) {
+
+  bool setTarget(const Metric& m)
+  {
     target = m.name.c_str();
     return true;
   }
 
-  bool setFrom(time_t value) {
+  bool setFrom(time_t value)
+  {
     from = value;
     return true;
   }
 
-  bool setUntil(time_t value) {
+  bool setUntil(time_t value)
+  {
     until = value;
     return true;
   }
 
-  bool setInterval(time_t value) {
+  bool setInterval(time_t value)
+  {
     interval = value;
     return true;
   }

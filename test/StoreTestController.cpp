@@ -49,7 +49,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   BOOST_CHECK_EQUAL(store->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
 
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
-    store->addMetric(*m);
+    store->addMetric(m);
   }
 
   BOOST_CHECK_EQUAL(store->getRowCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
@@ -83,7 +83,7 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
     q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
 
     Foreman::ResultSet rs;
-    
+
     BOOST_CHECK(store->getValues(&q, &rs));
     BOOST_CHECK_EQUAL(rs.valueCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
     for (size_t n = 0; n < rs.valueCount; n++) {

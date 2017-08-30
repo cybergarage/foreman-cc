@@ -30,7 +30,7 @@ Store::~Store()
 // addMetric
 ////////////////////////////////////////////////
 
-bool Store::addMetric(const Metric &m)
+bool Store::addMetric(std::shared_ptr<Foreman::Metric> m)
 {
   return metricMap_.addMetric(m);
 }
@@ -52,7 +52,6 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
 {
   return metricMap_.getMetrics();
 }
-
 
 ////////////////////////////////////////////////
 // addValues
