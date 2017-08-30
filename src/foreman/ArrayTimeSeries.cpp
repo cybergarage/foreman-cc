@@ -52,13 +52,13 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 // getValueCount
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt)
+bool ArrayTimeSeries::getValueCount(Query *q, size_t *valueCnt)
 {
-  if (!TimeSeries::getValueCount(beginTs, endTs, interval, valueCnt))
+  if (!TimeSeries::getValueCount(q, valueCnt))
     return false;
 
-  if (arrayCount_ < valueCnt)
-    valueCnt = arrayCount_;
+  if (arrayCount_ < *valueCnt)
+    *valueCnt = arrayCount_;
 
   return true;
 }
@@ -72,7 +72,7 @@ bool ArrayTimeSeries::reallocValueArray(size_t size)
   if (!clear())
     return false;
 
-  values_ = new MetricValue[size];
+  values_ = new double[size];
   if (!values_)
     return false;
 
@@ -85,7 +85,7 @@ bool ArrayTimeSeries::reallocValueArray(size_t size)
 // setValueArray
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::setValueArray(MetricValue* values, size_t size)
+bool ArrayTimeSeries::setValueArray(double* values, size_t size)
 {
   if (!clear())
     return false;

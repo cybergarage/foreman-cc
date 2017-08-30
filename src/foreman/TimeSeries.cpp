@@ -26,13 +26,13 @@ TimeSeries::~TimeSeries() {}
 // getValueCount
 ////////////////////////////////////////////////
 
-bool TimeSeries::getValueCount(time_t beginTs, time_t endTs, time_t interval, size_t& valueCnt)
+bool TimeSeries::getValueCount(Query *q, size_t *valueCnt)
 {
-  if (endTs <= beginTs)
+  if (q->until <= q->from)
     return false;
 
-  valueCnt = ((endTs - beginTs) / interval);
-  if (valueCnt <= 0)
+  *valueCnt = ((q->until - q->from) / q->interval);
+  if (*valueCnt <= 0)
     return false;
 
   return true;

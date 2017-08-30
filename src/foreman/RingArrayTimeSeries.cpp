@@ -49,24 +49,22 @@ bool RingArrayTimeSeries::addValue(const Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool RingArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool RingArrayTimeSeries::getValues(Query *q, ResultSet *rs)
 {
-  if (!getValueCount(beginTs, endTs, interval, valueCnt))
+  if (!getValueCount(q, &rs->valueCount))
     return false;
 
-  MetricValue* copyValues = new MetricValue[valueCnt];
+  rs->values = new double[rs->valueCount];
 
   size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
   if (0 < arrayRightCnt) {
-    memcpy(copyValues, (values_ + arrayInsertIndex_), (sizeof(MetricValue) * arrayRightCnt));
+    memcpy(rs->values , (values_ + arrayInsertIndex_), (sizeof(double) * arrayRightCnt));
   }
 
   size_t arrayLeftCnt = arrayInsertIndex_;
   if (0 < arrayLeftCnt) {
-    memcpy((copyValues + arrayRightCnt), values_, (sizeof(MetricValue) * arrayLeftCnt));
+    memcpy((rs->values  + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
   }
-
-  values = std::shared_ptr<MetricValue>(copyValues);
 
   return true;
 }

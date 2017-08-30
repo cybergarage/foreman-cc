@@ -37,27 +37,26 @@ bool BeringeiTimeSeries::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool BeringeiTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool BeringeiTimeSeries::getValues(Query *q, ResultSet *rs)
 {
-  if (!getValueCount(beginTs, endTs, interval, valueCnt))
+  if (!getValueCount(q, &rs->valueCount))
     return false;
 
   std::string data;
   stream_.readData(data);
 
   std::vector<TimeValuePair> out;
-  facebook::gorilla::TimeSeriesStream::readValues(out, data, (int)valueCnt, beginTs, endTs);
+  facebook::gorilla::TimeSeriesStream::readValues(out, data, (int)rs->valueCount, q->from, q->until);
 
-  MetricValue* copyValues = new MetricValue[valueCnt];
+  rs->values = new double[rs->valueCount];
   for (auto v : out) {
-    if ((v.unixTime < beginTs) || (endTs < v.unixTime))
+    if ((v.unixTime < q->from) || (q->until < v.unixTime))
       continue;
-    int idx = (int)((v.unixTime - beginTs) / interval);
-    if ((idx < 0) || ((valueCnt - 1) < idx))
+    int idx = (int)((v.unixTime - q->from) / q->interval);
+    if ((idx < 0) || ((rs->valueCount - 1) < idx))
       continue;
-    copyValues[idx] = v.value;
+    rs->values[idx] = v.value;
   }
-  values = std::shared_ptr<MetricValue>(copyValues);
 
   return true;
 }

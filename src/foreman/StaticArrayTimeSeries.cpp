@@ -36,14 +36,14 @@ StaticArrayTimeSeries::~StaticArrayTimeSeries()
 
 bool StaticArrayTimeSeries::addValue(const Metric& m)
 {
-  MetricValue* newValues = new MetricValue[arraySize_];
+  double* newValues = new double[arraySize_];
   if (!newValues)
     return false;
 
   if (!ArrayTimeSeries::addValue(m))
     return false;
 
-  memcpy(newValues, (values_ + 1), (sizeof(MetricValue) * (arraySize_ - 1)));
+  memcpy(newValues, (values_ + 1), (sizeof(double) * (arraySize_ - 1)));
   delete values_;
 
   values_ = newValues;
@@ -56,14 +56,13 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
 // getMetricsValues
 ////////////////////////////////////////////////
 
-bool StaticArrayTimeSeries::getValues(time_t beginTs, time_t endTs, time_t interval, std::shared_ptr<MetricValue>& values, size_t& valueCnt)
+bool StaticArrayTimeSeries::getValues(Query *q, ResultSet *rs)
 {
-  if (!getValueCount(beginTs, endTs, interval, valueCnt))
+  if (!getValueCount(q, &rs->valueCount))
     return false;
 
-  MetricValue* copyValues = new MetricValue[valueCnt];
-  memcpy(copyValues, values_, (sizeof(MetricValue) * valueCnt));
-  values = std::shared_ptr<MetricValue>(copyValues);
+  rs->values = new double[rs->valueCount];
+  memcpy(rs->values, values_, (sizeof(double) * rs->valueCount));
 
   return true;
 }
