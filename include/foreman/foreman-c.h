@@ -84,6 +84,9 @@ ForemanStore* foreman_store_tsmap_create();
 
 bool foreman_store_delete(ForemanStore* store);
 
+bool foreman_store_setretentioninterval(ForemanStore* store, time_t value);
+time_t foreman_store_getretentioninterval(ForemanStore* store);
+
 bool foreman_store_open(ForemanStore* store);
 bool foreman_store_close(ForemanStore* store);
 

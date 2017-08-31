@@ -11,6 +11,7 @@
 #include <math.h>
 
 #include <foreman/Store.h>
+#include <foreman/Const.h>
 
 using namespace Foreman;
 
@@ -20,10 +21,30 @@ using namespace Foreman;
 
 Store::Store()
 {
+  setRetentionInterval(FOREMANCC_STORE_DEFAULT_RETENTIONI_INTERVAL);
 }
 
 Store::~Store()
 {
+}
+
+////////////////////////////////////////////////
+// Store
+////////////////////////////////////////////////
+
+bool Store::setRetentionInterval(time_t value)
+{
+  retentionInterval_ = value;
+  return true;
+}
+
+////////////////////////////////////////////////
+// Store
+////////////////////////////////////////////////
+
+time_t Store::getRetentionInterval()
+{
+  return retentionInterval_;
 }
 
 ////////////////////////////////////////////////
