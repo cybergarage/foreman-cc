@@ -41,6 +41,9 @@ fql_operator_le,"<="
 # HTTP Server
 http_default_port,8080
 
+# Store
+store_default_retentioni_interval,300
+
 # SQLite Store
 sqlitesotore_factor_table,"factor"
 sqlitesotore_factor_name,"name"
