@@ -26,6 +26,28 @@ bool foreman_store_delete(ForemanStore* store)
 }
 
 ////////////////////////////////////////////////
+// foreman_store_setretentioninterval
+////////////////////////////////////////////////
+
+bool foreman_store_setretentioninterval(ForemanStore* store, time_t value)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Store*)(store))->setRetentionInterval(value);
+}
+
+////////////////////////////////////////////////
+// foreman_store_getretentioninterval
+////////////////////////////////////////////////
+
+time_t foreman_store_getretentioninterval(ForemanStore* store)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Store*)(store))->getRetentionInterval();
+}
+
+////////////////////////////////////////////////
 // foreman_store_open
 ////////////////////////////////////////////////
 
@@ -77,6 +99,6 @@ bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet*
 
   if (!((Foreman::Store*)(store))->getValues(((Foreman::Query*)(q)), ((Foreman::ResultSet*)(rs))))
     return false;
-  
+
   return true;
 }

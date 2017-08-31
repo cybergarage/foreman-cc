@@ -53,12 +53,12 @@ bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value)
 {
   if (!rs)
     return false;
-  
+
   if (foreman_resultset_getcount(rs) <= n)
     return false;
-  
+
   *value = ((ResultSet*)rs)->values[n];
-  
+
   return true;
 }
 
