@@ -43,7 +43,7 @@ bool foreman_store_setretentioninterval(ForemanStore* store, time_t value)
 time_t foreman_store_getretentioninterval(ForemanStore* store)
 {
   if (!store)
-    return false;
+    return 0;
   return ((Foreman::Store*)(store))->getRetentionInterval();
 }
 
