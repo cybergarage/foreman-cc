@@ -42,6 +42,11 @@
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21C33CB01E8766EB0011C873 /* TimeSeriesMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */; };
 		21C33CB21E876FD50011C873 /* TimeSeriesMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CB11E876FD50011C873 /* TimeSeriesMap.h */; };
+		21C69B461F5AA43C009B51DE /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C69B451F5AA43C009B51DE /* DataPoint.h */; };
+		21C69B491F5AA4AA009B51DE /* DataPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C69B471F5AA4AA009B51DE /* DataPoint.cpp */; };
+		21C69B501F5AA7D0009B51DE /* DataPointsMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C69B4F1F5AA7D0009B51DE /* DataPointsMap.cpp */; };
+		21C69B531F5AAEDE009B51DE /* datapoint_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C69B511F5AAEDE009B51DE /* datapoint_c.cpp */; };
+		21C69B541F5AAEDE009B51DE /* datapoints_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C69B521F5AAEDE009B51DE /* datapoints_c.cpp */; };
 		21CBC7871F540B2E00B87994 /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7861F540B2E00B87994 /* query_c.cpp */; };
 		21CBC7891F540B3800B87994 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7881F540B3800B87994 /* Query.cpp */; };
 		21CBC78D1F540B9D00B87994 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CBC78C1F540B9D00B87994 /* Query.h */; };
@@ -92,6 +97,11 @@
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21C33CAF1E8766EB0011C873 /* TimeSeriesMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMapStore.cpp; sourceTree = "<group>"; };
 		21C33CB11E876FD50011C873 /* TimeSeriesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesMap.h; sourceTree = "<group>"; };
+		21C69B451F5AA43C009B51DE /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
+		21C69B471F5AA4AA009B51DE /* DataPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPoint.cpp; sourceTree = "<group>"; };
+		21C69B4F1F5AA7D0009B51DE /* DataPointsMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPointsMap.cpp; sourceTree = "<group>"; };
+		21C69B511F5AAEDE009B51DE /* datapoint_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datapoint_c.cpp; path = clang/datapoint_c.cpp; sourceTree = "<group>"; };
+		21C69B521F5AAEDE009B51DE /* datapoints_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datapoints_c.cpp; path = clang/datapoints_c.cpp; sourceTree = "<group>"; };
 		21CBC7861F540B2E00B87994 /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query_c.cpp; path = clang/query_c.cpp; sourceTree = "<group>"; };
 		21CBC7881F540B3800B87994 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
 		21CBC78C1F540B9D00B87994 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
@@ -186,14 +196,15 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				21CBC7921F54285300B87994 /* ResultSet.h */,
-				21CBC78C1F540B9D00B87994 /* Query.h */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
+				21C69B451F5AA43C009B51DE /* DataPoint.h */,
 				218D47C81F503251002A3FA2 /* foreman-c.h */,
 				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
 				2175C2F41E52F444006C4425 /* MemStore.h */,
 				219F41C71E55B1EF003EAD97 /* Metric.h */,
 				2175C2F51E52F444006C4425 /* Platform.h */,
+				21CBC78C1F540B9D00B87994 /* Query.h */,
+				21CBC7921F54285300B87994 /* ResultSet.h */,
 				213454561F5071CB001D79F8 /* Store.h */,
 				213E7FDB1E56078F00E41441 /* TimeSeries.h */,
 				21C33CB11E876FD50011C873 /* TimeSeriesMap.h */,
@@ -217,6 +228,8 @@
 			children = (
 				210067F91E57279400A8DA0A /* ArrayTimeSeries.cpp */,
 				21893D8D1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp */,
+				21C69B471F5AA4AA009B51DE /* DataPoint.cpp */,
+				21C69B4F1F5AA7D0009B51DE /* DataPointsMap.cpp */,
 				217EBE3A1EA876D5006C770D /* GraphiteStore.cpp */,
 				219F41C31E55980D003EAD97 /* MatrixStore.cpp */,
 				2175C2FE1E52F470006C4425 /* MemStore.cpp */,
@@ -244,6 +257,8 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				21C69B511F5AAEDE009B51DE /* datapoint_c.cpp */,
+				21C69B521F5AAEDE009B51DE /* datapoints_c.cpp */,
 				218D47CB1F503799002A3FA2 /* metric_c.cpp */,
 				21CBC7861F540B2E00B87994 /* query_c.cpp */,
 				21CBC7961F542B6C00B87994 /* resultset_c.cpp */,
@@ -265,6 +280,7 @@
 				213454571F5071CB001D79F8 /* Store.h in Headers */,
 				21CBC78D1F540B9D00B87994 /* Query.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
+				21C69B461F5AA43C009B51DE /* DataPoint.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
@@ -343,6 +359,8 @@
 				217EBE3B1EA876D5006C770D /* GraphiteStore.cpp in Sources */,
 				213E7FDE1E56080900E41441 /* TimeSeries.cpp in Sources */,
 				21CBC7971F542B6C00B87994 /* resultset_c.cpp in Sources */,
+				21C69B541F5AAEDE009B51DE /* datapoints_c.cpp in Sources */,
+				21C69B531F5AAEDE009B51DE /* datapoint_c.cpp in Sources */,
 				21F9AA421E532AFA00135A90 /* TSmapStore.cpp in Sources */,
 				21B60DC01E5D9866009D663B /* NarrowTableStore.cpp in Sources */,
 				21FBBC491E5F0AE500582F10 /* MetricMap.cpp in Sources */,
@@ -353,11 +371,13 @@
 				21CBC7891F540B3800B87994 /* Query.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				210067F81E570FD800A8DA0A /* TimeSeriesMap.cpp in Sources */,
+				21C69B491F5AA4AA009B51DE /* DataPoint.cpp in Sources */,
 				21CBC7951F5428A400B87994 /* ResultSet.cpp in Sources */,
 				210067FA1E57279400A8DA0A /* ArrayTimeSeries.cpp in Sources */,
 				218D47CE1F503799002A3FA2 /* store_c.cpp in Sources */,
 				21893D8E1E86ADFF001ED8D5 /* BeringeiTimeSeries.cpp in Sources */,
 				218D47CD1F503799002A3FA2 /* metric_c.cpp in Sources */,
+				21C69B501F5AA7D0009B51DE /* DataPointsMap.cpp in Sources */,
 				21F9AA3B1E5311CA00135A90 /* SQLiteStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,

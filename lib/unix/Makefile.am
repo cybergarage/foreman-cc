@@ -17,11 +17,15 @@ foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/BeringeiTimeSeries.cpp \
+	../../src/foreman/clang/datapoint_c.cpp \
+	../../src/foreman/clang/datapoints_c.cpp \
 	../../src/foreman/clang/metric_c.cpp \
 	../../src/foreman/clang/query_c.cpp \
 	../../src/foreman/clang/resultset_c.cpp \
 	../../src/foreman/clang/store_c.cpp \
 	../../src/foreman/clang/store_c_factory.cpp \
+	../../src/foreman/DataPoint.cpp \
+	../../src/foreman/DataPointsMap.cpp \
 	../../src/foreman/GraphiteStore.cpp \
 	../../src/foreman/MatrixStore.cpp \
 	../../src/foreman/MemStore.cpp \

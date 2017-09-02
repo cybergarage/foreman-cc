@@ -10,8 +10,8 @@
 
 #include <math.h>
 
-#include <foreman/Store.h>
 #include <foreman/Const.h>
+#include <foreman/Store.h>
 
 using namespace Foreman;
 

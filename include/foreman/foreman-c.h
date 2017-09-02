@@ -57,6 +57,19 @@ bool foreman_query_getinterval(ForemanQuery* q, time_t* ts);
 bool foreman_query_delete(ForemanQuery* q);
 
 ////////////////////////////////////////////////
+// DataPoint
+////////////////////////////////////////////////
+
+typedef void ForemanDataPoint;
+typedef void ForemanDataPoints;
+
+size_t foreman_datapoints_size(ForemanDataPoints* dps);
+ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
+
+time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp);
+float foreman_datapoint_getvalue(ForemanDataPoint* dp);
+
+////////////////////////////////////////////////
 // ResultSet
 ////////////////////////////////////////////////
 
