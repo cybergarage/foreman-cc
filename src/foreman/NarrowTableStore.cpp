@@ -121,13 +121,13 @@ bool NarrowTableStore::addValue(const Metric& m)
   int rowId = sm->rowId;
 
   // Revise Timestamp
-  
+
   time_t metricTs = m.timestamp;
   time_t retentionInterval = getRetentionPeriod();
   if ((0 < retentionInterval) && (retentionInterval < metricTs)) {
     metricTs -= (metricTs / retentionInterval);
   }
-  
+
   // Insert a value
 
   sqlite3_stmt* stmt = NULL;

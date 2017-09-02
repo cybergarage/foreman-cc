@@ -18,6 +18,7 @@ foremantest_SOURCES = \
 	..//clang/ClangQueryTests.cpp \
 	..//clang/ClangResultSetTests.cpp \
 	..//clang/ClangStoreTest.cpp \
+	..//DataPointTests.cpp \
 	..//ForemanTest.cpp \
 	..//MetricsTests.cpp \
 	..//QueryTest.cpp \
