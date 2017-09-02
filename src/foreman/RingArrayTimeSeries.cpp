@@ -15,6 +15,7 @@
 #include <string.h>
 
 #include <foreman/MemStore.h>
+#include <foreman/Util.h>
 
 using namespace Foreman;
 
@@ -51,22 +52,29 @@ bool RingArrayTimeSeries::addValue(const Metric& m)
 
 bool RingArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 {
-  if (!getValueCount(q, &rs->count))
+  size_t valueCount;
+  if (!getQueryDataCount(q, &valueCount))
     return false;
 
-  rs->values = new double[rs->count];
+  double* values = CreateNanDataPointValueArray(valueCount);
+  if (!values)
+    return false;
 
   size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
   if (0 < arrayRightCnt) {
-    memcpy(rs->values, (values_ + arrayInsertIndex_), (sizeof(double) * arrayRightCnt));
+    memcpy(values, (values_ + arrayInsertIndex_), (sizeof(double) * arrayRightCnt));
   }
 
   size_t arrayLeftCnt = arrayInsertIndex_;
   if (0 < arrayLeftCnt) {
-    memcpy((rs->values + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
+    memcpy((values + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
   }
 
-  return true;
+  bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
+
+  delete[] values;
+
+  return isSuccess;
 }
 
 ////////////////////////////////////////////////

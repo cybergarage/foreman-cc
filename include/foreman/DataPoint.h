@@ -31,8 +31,29 @@ class DataPoint {
   DataPoint();
   virtual ~DataPoint();
 
-  double value;
-  time_t timestamp;
+  void setValue(double value)
+  {
+    value_ = value;
+  }
+
+  double getValue()
+  {
+    return value_;
+  }
+
+  void setTimestamp(double value)
+  {
+    timestamp_ = value;
+  }
+
+  double getTimestamp()
+  {
+    return timestamp_;
+  }
+
+  private:
+  double value_;
+  time_t timestamp_;
 };
 
 ////////////////////////////////////////////////
@@ -41,17 +62,31 @@ class DataPoint {
 
 class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
   public:
-  DataPoints(){};
-  virtual ~DataPoints(){};
+  DataPoints();
+  virtual ~DataPoints();
 
-  bool addDataPoint(const DataPoint& m)
+  void setName(const std::string& name)
   {
-    std::shared_ptr<Foreman::DataPoint> cm = std::shared_ptr<Foreman::DataPoint>(new Foreman::DataPoint(m));
-    push_back(cm);
-    return true;
+    name_ = name;
   }
 
-  std::string name;
+  const char* getName()
+  {
+    return name_.c_str();
+  }
+
+  bool addDataPoint(DataPoint* dp);
+  bool addDataPoint(const DataPoint& dp);
+  bool addDataPoint(std::shared_ptr<Foreman::DataPoint> dp);
+  bool addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt);
+
+  DataPoint* getDataPoint(size_t n)
+  {
+    return at(n).get();
+  }
+
+  protected:
+  std::string name_;
 };
 
 ////////////////////////////////////////////////
@@ -59,14 +94,18 @@ class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
 ////////////////////////////////////////////////
 
 typedef std::pair<std::string, std::shared_ptr<DataPoints>> DataPointsPair;
+typedef std::unordered_map<std::string, std::shared_ptr<DataPoints>>::iterator DataPointsMapIt;
 
 class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<DataPoints>> {
   public:
   DataPointsMap();
   virtual ~DataPointsMap();
 
+  bool addDataPoints(DataPoints* dps);
   bool addDataPoints(std::shared_ptr<DataPoints> dps);
-  std::shared_ptr<DataPoints> findDataPoints(const std::string& name);
+  bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt);
+
+  DataPoints* findDataPoints(const std::string& name);
 };
 }
 

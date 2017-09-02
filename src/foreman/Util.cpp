@@ -8,16 +8,21 @@
  *
  ******************************************************************/
 
-#include <foreman/TimeSeries.h>
-
-using namespace Foreman;
+#include <foreman/Util.h>
 
 ////////////////////////////////////////////////
-// TimeSeries
+// CreateNanDataPointValueArray
 ////////////////////////////////////////////////
 
-TimeSeries::TimeSeries()
+double* Foreman::CreateNanDataPointValueArray(size_t size)
 {
-}
+  double* values = new double[size];
+  if (!values)
+    return NULL;
 
-TimeSeries::~TimeSeries() {}
+  for (size_t n = 0; n < size; n++) {
+    values[n] = NAN;
+  }
+
+  return values;
+}

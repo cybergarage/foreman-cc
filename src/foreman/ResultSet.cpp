@@ -32,7 +32,8 @@ ResultSet::~ResultSet()
 bool ResultSet::clear()
 {
   dataPointsMap_.clear();
-  currIt_ = DataPointsMap::end();
+  currIt_ = dataPointsMap_.end();
+
   return true;
 }
 
@@ -40,28 +41,28 @@ bool ResultSet::clear()
 // gets
 ////////////////////////////////////////////////
 
-std::shared_ptr<DataPoints> ResultSet::gets()
+DataPoints* ResultSet::firstDataPoint()
 {
   currIt_ = dataPointsMap_.begin();
-  //if (currIt_ == DataPointsMap::end())
-  //  return NULL;
-  return currIt_->second;
+
+  if (currIt_ == dataPointsMap_.end())
+    return NULL;
+
+  return currIt_->second.get();
 }
 
 ////////////////////////////////////////////////
 // next
 ////////////////////////////////////////////////
 
-std::shared_ptr<DataPoints> ResultSet::next()
+DataPoints* ResultSet::nextDataPoint()
 {
-  if (currIt_ == DataPointsMap::end())
+  if (currIt_ == dataPointsMap_.end())
     return NULL;
 
   currIt_++;
-  if (!currIt_)
+  if (currIt_ == dataPointsMap_.end())
     return NULL;
 
-  if (currIt_ == DataPointsMap::end())
-    return NULL;
-  return currIt_->second;
+  return currIt_->second.get();
 }

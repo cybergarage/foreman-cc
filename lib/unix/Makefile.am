@@ -25,6 +25,7 @@ foremancc_sources = \
 	../../src/foreman/clang/store_c.cpp \
 	../../src/foreman/clang/store_c_factory.cpp \
 	../../src/foreman/DataPoint.cpp \
+	../../src/foreman/DataPoints.cpp \
 	../../src/foreman/DataPointsMap.cpp \
 	../../src/foreman/GraphiteStore.cpp \
 	../../src/foreman/MatrixStore.cpp \
@@ -45,7 +46,8 @@ foremancc_sources = \
 	../../src/foreman/TimeSeries.cpp \
 	../../src/foreman/TimeSeriesMap.cpp \
 	../../src/foreman/TimeSeriesMapStore.cpp \
-	../../src/foreman/TSmapStore.cpp
+	../../src/foreman/TSmapStore.cpp \
+	../../src/foreman/Util.cpp
 
 libforeman___a_SOURCES = \
         $(foremancc_sources)

@@ -27,22 +27,37 @@ class ResultSet {
 
   bool clear();
 
+  bool addDataPoints(DataPoints* dps)
+  {
+    return dataPointsMap_.addDataPoints(dps);
+  }
+
   bool addDataPoints(std::shared_ptr<DataPoints> dps)
   {
     return dataPointsMap_.addDataPoints(dps);
   }
 
-  std::shared_ptr<DataPoints> findDataPoints(const std::string& name)
+  bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
+  {
+    return dataPointsMap_.addDataPoints(name, from, interval, values, valueCnt);
+  }
+
+  DataPoints* findDataPoints(const std::string& name)
   {
     return dataPointsMap_.findDataPoints(name);
   }
 
-  std::shared_ptr<DataPoints> gets();
-  std::shared_ptr<DataPoints> next();
+  DataPoints* firstDataPoint();
+  DataPoints* nextDataPoint();
+
+  size_t getDataPointCount()
+  {
+    return dataPointsMap_.size();
+  }
 
   private:
   DataPointsMap dataPointsMap_;
-  DataPointsMap::const_iterator currIt_;
+  DataPointsMapIt currIt_;
 };
 }
 

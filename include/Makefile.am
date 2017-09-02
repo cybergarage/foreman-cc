@@ -23,7 +23,8 @@ foremancc_header = \
 	./foreman/ResultSet.h \
 	./foreman/Store.h \
 	./foreman/TimeSeries.h \
-	./foreman/TimeSeriesMap.h
+	./foreman/TimeSeriesMap.h \
+	./foreman/Util.h
 
 nobase_include_HEADERS = \
 	$(foremancc_header)

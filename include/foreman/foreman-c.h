@@ -67,7 +67,7 @@ size_t foreman_datapoints_size(ForemanDataPoints* dps);
 ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
 
 time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp);
-float foreman_datapoint_getvalue(ForemanDataPoint* dp);
+double foreman_datapoint_getvalue(ForemanDataPoint* dp);
 
 ////////////////////////////////////////////////
 // ResultSet
@@ -77,10 +77,11 @@ typedef void ForemanResultSet;
 
 ForemanResultSet* foreman_resultset_new();
 
-size_t foreman_resultset_getcount(ForemanResultSet* rs);
+size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs);
 
-bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value);
-double* foreman_resultset_getvalues(ForemanResultSet* rs);
+ForemanDataPoint* foreman_resultset_firstdatapoint(ForemanResultSet* rs);
+ForemanDataPoint* foreman_resultset_nextdatapoint(ForemanResultSet* rs);
+ForemanDataPoint* foreman_resultset_finddatapoint(ForemanResultSet* rs, const char* name);
 
 bool foreman_resultset_delete(ForemanResultSet* rs);
 

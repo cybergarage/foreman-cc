@@ -15,6 +15,7 @@
 #include <string.h>
 
 #include <foreman/MemStore.h>
+#include <foreman/Util.h>
 
 using namespace Foreman;
 
@@ -49,12 +50,12 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 }
 
 ////////////////////////////////////////////////
-// getValueCount
+// getQueryDataCount
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getValueCount(Query* q, size_t* valueCnt)
+bool ArrayTimeSeries::getQueryDataCount(Query* q, size_t* valueCnt)
 {
-  if (!TimeSeries::getValueCount(q, valueCnt))
+  if (!q->getDataPointCount(valueCnt))
     return false;
 
   if (arrayCount_ < *valueCnt)
@@ -72,7 +73,7 @@ bool ArrayTimeSeries::reallocValueArray(size_t size)
   if (!clear())
     return false;
 
-  values_ = new double[size];
+  values_ = CreateNanDataPointValueArray(size);
   if (!values_)
     return false;
 

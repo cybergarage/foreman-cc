@@ -13,6 +13,7 @@
 
 #include <foreman/Const.h>
 #include <foreman/MemStore.h>
+#include <foreman/Util.h>
 
 using namespace Foreman;
 
@@ -170,11 +171,13 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
   if (q->until <= q->from)
     return false;
 
-  rs->count = (q->until - q->from) / q->interval;
-  if (rs->count <= 0)
+  size_t valueCount = (q->until - q->from) / q->interval;
+  if (valueCount <= 0)
     return false;
 
-  rs->values = new double[rs->count];
+  double* values = CreateNanDataPointValueArray(valueCount);
+  if (!values)
+    return false;
 
   // Select values
 
@@ -189,11 +192,15 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
     double value = sqlite3_column_double(stmt, 1);
     time_t valueTs = sqlite3_column_int(stmt, 2);
     ssize_t valueIdx = (valueTs - q->from) / q->interval;
-    if (valueIdx < 0 || rs->count <= valueIdx)
+    if (valueIdx < 0 || valueCount <= valueIdx)
       continue;
-    rs->values[valueIdx] = value;
+    values[valueIdx] = value;
   }
   sqlite3_finalize(stmt);
 
-  return true;
+  bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
+
+  delete[] values;
+
+  return isSuccess;
 }
