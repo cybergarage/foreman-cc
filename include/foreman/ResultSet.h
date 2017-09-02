@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_RESULTSET_H_
 #define _FOREMANCC_RESULTSET_H_
 
-#include <foreman/Metric.h>
+#include <foreman/DataPoint.h>
 #include <foreman/Platform.h>
 
 namespace Foreman {
@@ -27,8 +27,22 @@ class ResultSet {
 
   bool clear();
 
-  size_t count;
-  double* values;
+  bool addDataPoints(std::shared_ptr<DataPoints> dps)
+  {
+    return dataPointsMap_.addDataPoints(dps);
+  }
+
+  std::shared_ptr<DataPoints> findDataPoints(const std::string& name)
+  {
+    return dataPointsMap_.findDataPoints(name);
+  }
+
+  std::shared_ptr<DataPoints> gets();
+  std::shared_ptr<DataPoints> next();
+
+  private:
+  DataPointsMap dataPointsMap_;
+  DataPointsMap::const_iterator currIt_;
 };
 }
 

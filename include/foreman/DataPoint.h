@@ -50,6 +50,8 @@ class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
     push_back(cm);
     return true;
   }
+
+  std::string name;
 };
 
 ////////////////////////////////////////////////
@@ -63,7 +65,7 @@ class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<Dat
   DataPointsMap();
   virtual ~DataPointsMap();
 
-  bool addDataPoints(const std::string& name, std::shared_ptr<DataPoints> dps);
+  bool addDataPoints(std::shared_ptr<DataPoints> dps);
   std::shared_ptr<DataPoints> findDataPoints(const std::string& name);
 };
 }
