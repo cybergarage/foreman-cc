@@ -21,16 +21,16 @@ time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp)
 {
   if (!dp)
     return 0;
-  return ((DataPoint*)dp)->timestamp;
+  return ((DataPoint*)dp)->getTimestamp();
 }
 
 ////////////////////////////////////////////////
 // foreman_datapoint_getvalue
 ////////////////////////////////////////////////
 
-float foreman_datapoint_getvalue(ForemanDataPoint* dp)
+double foreman_datapoint_getvalue(ForemanDataPoint* dp)
 {
   if (!dp)
     return 0.0;
-  return ((DataPoint*)dp)->timestamp;
+  return ((DataPoint*)dp)->getValue();
 }

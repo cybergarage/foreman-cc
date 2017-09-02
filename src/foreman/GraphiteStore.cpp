@@ -100,11 +100,17 @@ bool GraphiteStore::getValues(Query* q, ResultSet* rs)
   if (!q || !rs)
     return false;
 
-  return graphite.getValues(
-      q->target,
-      q->from,
-      q->until,
-      q->interval,
-      &rs->values,
-      &rs->count);
+  double* values = NULL;
+  size_t valueCout = 0;
+
+  if (!graphite.getValues(q->target, q->from, q->until, q->interval, &values, &valueCout))
+    return false;
+
+  bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCout);
+
+  if (values) {
+    delete[] values;
+  }
+
+  return isSuccess;
 }

@@ -29,9 +29,6 @@ class TimeSeries {
 
   virtual bool addValue(const Metric& m) = 0;
   virtual bool getValues(Query* q, ResultSet* rs) = 0;
-
-  protected:
-  bool getValueCount(Query* q, size_t* valueCnt);
 };
 
 ////////////////////////////////////////////////
@@ -51,7 +48,7 @@ class ArrayTimeSeries : public TimeSeries {
   virtual bool clear();
 
   protected:
-  bool getValueCount(Query* q, size_t* valueCnt);
+  bool getQueryDataCount(Query* q, size_t* valueCnt);
 
   double* values_;
 

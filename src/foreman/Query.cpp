@@ -28,3 +28,19 @@ Query::Query()
 Query::~Query()
 {
 }
+
+////////////////////////////////////////////////
+// getDataPointCount
+////////////////////////////////////////////////
+
+bool Query::getDataPointCount(size_t* count)
+{
+  if (until <= from)
+    return false;
+
+  *count = ((until - from) / interval);
+  if (*count <= 0)
+    return false;
+
+  return true;
+}

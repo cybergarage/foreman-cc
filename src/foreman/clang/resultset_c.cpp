@@ -35,40 +35,48 @@ bool foreman_resultset_delete(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_getcount
+// foreman_resultset_getdatapointcount
 ////////////////////////////////////////////////
 
-size_t foreman_resultset_getcount(ForemanResultSet* rs)
+size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs)
 {
   if (!rs)
     return 0;
-  return ((ResultSet*)rs)->count;
+  return ((ResultSet*)rs)->getDataPointCount();
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_getvalue
+// foreman_resultset_firstdatapoint
 ////////////////////////////////////////////////
 
-bool foreman_resultset_getvalue(ForemanResultSet* rs, size_t n, double* value)
+ForemanDataPoint* foreman_resultset_firstdatapoint(ForemanResultSet* rs)
 {
   if (!rs)
-    return false;
+    return NULL;
 
-  if (foreman_resultset_getcount(rs) <= n)
-    return false;
-
-  *value = ((ResultSet*)rs)->values[n];
-
-  return true;
+  return ((ResultSet*)rs)->firstDataPoint();
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_getvalues
+// foreman_resultset_nextdatapoint
 ////////////////////////////////////////////////
 
-double* foreman_resultset_getnvalue(ForemanResultSet* rs)
+ForemanDataPoint* foreman_resultset_nextdatapoint(ForemanResultSet* rs)
 {
   if (!rs)
-    return 0;
-  return ((ResultSet*)rs)->values;
+    return NULL;
+
+  return ((ResultSet*)rs)->nextDataPoint();
+}
+
+////////////////////////////////////////////////
+// foreman_resultset_finddatapoint
+////////////////////////////////////////////////
+
+ForemanDataPoint* foreman_resultset_finddatapoint(ForemanResultSet* rs, const char* name)
+{
+  if (!rs)
+    return NULL;
+
+  return ((ResultSet*)rs)->findDataPoints(name);
 }

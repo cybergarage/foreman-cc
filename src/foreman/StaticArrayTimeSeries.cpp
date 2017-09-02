@@ -15,6 +15,7 @@
 #include <string.h>
 
 #include <foreman/MemStore.h>
+#include <foreman/Util.h>
 
 using namespace Foreman;
 
@@ -36,7 +37,7 @@ StaticArrayTimeSeries::~StaticArrayTimeSeries()
 
 bool StaticArrayTimeSeries::addValue(const Metric& m)
 {
-  double* newValues = new double[arraySize_];
+  double* newValues = CreateNanDataPointValueArray(arraySize_);
   if (!newValues)
     return false;
 
@@ -58,11 +59,9 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
 
 bool StaticArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 {
-  if (!getValueCount(q, &rs->count))
+  size_t valueCount;
+  if (!getQueryDataCount(q, &valueCount))
     return false;
 
-  rs->values = new double[rs->count];
-  memcpy(rs->values, values_, (sizeof(double) * rs->count));
-
-  return true;
+  return rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values_, valueCount);
 }

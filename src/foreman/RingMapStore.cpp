@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include <foreman/MemStore.h>
+#include <foreman/Util.h>
 
 using namespace Foreman;
 
@@ -59,7 +60,7 @@ bool RingMapStore::realloc()
   tsMap_->clear();
 
   for (MetricsPair m : metricMap_) {
-    double* rowData = new double[columnCount];
+    double* rowData = CreateNanDataPointValueArray(columnCount);
     if (rowData == nullptr)
       return false;
     std::shared_ptr<RingMapTimeSeries> ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
