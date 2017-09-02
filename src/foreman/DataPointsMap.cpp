@@ -28,9 +28,9 @@ DataPointsMap::~DataPointsMap()
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPointsMap::addDataPoints(const std::string& name, std::shared_ptr<DataPoints> dps)
+bool DataPointsMap::addDataPoints(std::shared_ptr<DataPoints> dps)
 {
-  insert(std::make_pair(name, dps));
+  insert(std::make_pair(dps->name, dps));
   return true;
 }
 
@@ -40,9 +40,9 @@ bool DataPointsMap::addDataPoints(const std::string& name, std::shared_ptr<DataP
 
 std::shared_ptr<DataPoints> DataPointsMap::findDataPoints(const std::string& name)
 {
-  DataPointsMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<DataPoints>>::find(name);
-  if (tsIt == DataPointsMap::end())
+  DataPointsMap::const_iterator dpIt = std::unordered_map<std::string, std::shared_ptr<DataPoints>>::find(name);
+  if (dpIt == DataPointsMap::end())
     return nullptr;
 
-  return tsIt->second;
+  return dpIt->second;
 }

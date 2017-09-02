@@ -9,7 +9,6 @@
  ******************************************************************/
 
 #include <foreman/ResultSet.h>
-#include <stdlib.h>
 
 using namespace Foreman;
 
@@ -19,8 +18,6 @@ using namespace Foreman;
 
 ResultSet::ResultSet()
 {
-  count = 0;
-  values = NULL;
 }
 
 ResultSet::~ResultSet()
@@ -34,12 +31,37 @@ ResultSet::~ResultSet()
 
 bool ResultSet::clear()
 {
-  if (values) {
-    free(values);
-    values = NULL;
-  }
-
-  count = 0;
-
+  dataPointsMap_.clear();
+  currIt_ = DataPointsMap::end();
   return true;
+}
+
+////////////////////////////////////////////////
+// gets
+////////////////////////////////////////////////
+
+std::shared_ptr<DataPoints> ResultSet::gets()
+{
+  currIt_ = dataPointsMap_.begin();
+  //if (currIt_ == DataPointsMap::end())
+  //  return NULL;
+  return currIt_->second;
+}
+
+////////////////////////////////////////////////
+// next
+////////////////////////////////////////////////
+
+std::shared_ptr<DataPoints> ResultSet::next()
+{
+  if (currIt_ == DataPointsMap::end())
+    return NULL;
+
+  currIt_++;
+  if (!currIt_)
+    return NULL;
+
+  if (currIt_ == DataPointsMap::end())
+    return NULL;
+  return currIt_->second;
 }
