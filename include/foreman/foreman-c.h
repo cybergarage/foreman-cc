@@ -66,7 +66,7 @@ time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp);
 double foreman_datapoint_getvalue(ForemanDataPoint* dp);
 
 ////////////////////////////////////////////////
-// DataPoint
+// DataPoints
 ////////////////////////////////////////////////
 
 typedef void ForemanDataPoints;
