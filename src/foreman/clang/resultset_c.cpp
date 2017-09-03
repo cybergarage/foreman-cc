@@ -46,10 +46,10 @@ size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_firstdatapoint
+// foreman_resultset_firstdatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_resultset_firstdatapoint(ForemanResultSet* rs)
+ForemanDataPoints* foreman_resultset_firstdatapoints(ForemanResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -58,10 +58,10 @@ ForemanDataPoint* foreman_resultset_firstdatapoint(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_nextdatapoint
+// foreman_resultset_nextdatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_resultset_nextdatapoint(ForemanResultSet* rs)
+ForemanDataPoints* foreman_resultset_nextdatapoints(ForemanResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -70,10 +70,10 @@ ForemanDataPoint* foreman_resultset_nextdatapoint(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_finddatapoint
+// foreman_resultset_finddatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_resultset_finddatapoint(ForemanResultSet* rs, const char* name)
+ForemanDataPoints* foreman_resultset_finddatapoints(ForemanResultSet* rs, const char* name)
 {
   if (!rs)
     return NULL;

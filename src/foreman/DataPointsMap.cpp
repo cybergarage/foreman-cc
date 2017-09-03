@@ -55,6 +55,8 @@ bool DataPointsMap::addDataPoints(const std::string& name, time_t from, time_t i
     if (!dps)
       return false;
     dps->setName(name);
+    if (!addDataPoints(dps))
+      return false;
   }
 
   return dps->addDataPoints(from, interval, values, valueCnt);
