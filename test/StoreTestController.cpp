@@ -75,7 +75,6 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
   // Get metrics
 
   for (std::shared_ptr<Foreman::Metric> m : metrics) {
-    std::shared_ptr<double> values = nullptr;
     Foreman::Query q;
     q.setTarget(*m);
     q.setFrom(beginTs);
@@ -85,14 +84,15 @@ void MemStoreTestContoller::run(Foreman::MemStore* store)
     Foreman::ResultSet rs;
 
     BOOST_CHECK(store->getValues(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getDataPointCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+    BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
 
     for (Foreman::DataPoints* dps = rs.firstDataPoint(); dps; dps = rs.nextDataPoint()) {
       size_t dpsCount = dps->size();
       BOOST_CHECK_EQUAL(dpsCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
       for (size_t n = 0; n < dpsCount; n++) {
         Foreman::DataPoint* dp = dps->getDataPoint(n);
-        BOOST_CHECK_EQUAL(dp->getValue(), n);
+        if (dp->getValue() != n)
+          BOOST_CHECK_EQUAL(dp->getValue(), n);
       }
     }
   }

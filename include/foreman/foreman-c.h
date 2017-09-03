@@ -79,9 +79,9 @@ ForemanResultSet* foreman_resultset_new();
 
 size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs);
 
-ForemanDataPoint* foreman_resultset_firstdatapoint(ForemanResultSet* rs);
-ForemanDataPoint* foreman_resultset_nextdatapoint(ForemanResultSet* rs);
-ForemanDataPoint* foreman_resultset_finddatapoint(ForemanResultSet* rs, const char* name);
+ForemanDataPoints* foreman_resultset_firstdatapoints(ForemanResultSet* rs);
+ForemanDataPoints* foreman_resultset_nextdatapoints(ForemanResultSet* rs);
+ForemanDataPoints* foreman_resultset_finddatapoints(ForemanResultSet* rs, const char* name);
 
 bool foreman_resultset_delete(ForemanResultSet* rs);
 

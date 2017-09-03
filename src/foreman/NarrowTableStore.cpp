@@ -135,23 +135,30 @@ bool NarrowTableStore::addValue(const Metric& m)
 
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_INSERT, &stmt))
     return false;
+
   sqlite3_bind_int(stmt, 1, rowId);
   sqlite3_bind_double(stmt, 2, m.value);
   sqlite3_bind_int(stmt, 3, (int)metricTs);
 
+  if (sqlite3_step(stmt) == SQLITE_DONE) {
+    sqlite3_finalize(stmt);
+    return true;
+  }
+
+  sqlite3_finalize(stmt);
+
+  // Update a value
+
+  if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_UPDATE, &stmt))
+    return false;
+
+  sqlite3_bind_double(stmt, 1, m.value);
+  sqlite3_bind_int(stmt, 2, rowId);
+  sqlite3_bind_int(stmt, 3, (int)m.timestamp);
+
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
-
-    // Update a value
-    if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_UPDATE, &stmt))
-      return false;
-    sqlite3_bind_double(stmt, 1, m.value);
-    sqlite3_bind_int(stmt, 2, rowId);
-    sqlite3_bind_int(stmt, 3, (int)m.timestamp);
-    if (sqlite3_step(stmt) != SQLITE_DONE) {
-      sqlite3_finalize(stmt);
-      return false;
-    }
+    return false;
   }
 
   sqlite3_finalize(stmt);
@@ -185,9 +192,11 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
 
   if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
+
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
   sqlite3_bind_int(stmt, 2, (int)q->from);
   sqlite3_bind_int(stmt, 3, (int)q->until);
+
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     double value = sqlite3_column_double(stmt, 1);
     time_t valueTs = sqlite3_column_int(stmt, 2);
