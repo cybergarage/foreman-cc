@@ -61,13 +61,20 @@ bool foreman_query_delete(ForemanQuery* q);
 ////////////////////////////////////////////////
 
 typedef void ForemanDataPoint;
-typedef void ForemanDataPoints;
-
-size_t foreman_datapoints_size(ForemanDataPoints* dps);
-ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
 
 time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp);
 double foreman_datapoint_getvalue(ForemanDataPoint* dp);
+
+////////////////////////////////////////////////
+// DataPoint
+////////////////////////////////////////////////
+
+typedef void ForemanDataPoints;
+
+const char *foreman_datapoints_getname(ForemanDataPoints* dps);
+size_t foreman_datapoints_size(ForemanDataPoints* dps);
+ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
+
 
 ////////////////////////////////////////////////
 // ResultSet
