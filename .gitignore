@@ -49,6 +49,6 @@ project.xcworkspace/
 xcuserdata/
 
 # Beringei
-include/beringei/*.h
-src/beringei/*.h
-src/beringei/*.cpp
+#include/beringei/*.h
+#src/beringei/*.h
+#src/beringei/*.cpp
