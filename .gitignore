@@ -5,7 +5,6 @@
 /autoscan-*.log
 /aclocal.m4
 /compile
-/config.h.in
 /configure.scan
 /depcomp
 /install-sh
