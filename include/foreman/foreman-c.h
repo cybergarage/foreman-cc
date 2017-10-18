@@ -71,10 +71,9 @@ double foreman_datapoint_getvalue(ForemanDataPoint* dp);
 
 typedef void ForemanDataPoints;
 
-const char *foreman_datapoints_getname(ForemanDataPoints* dps);
+const char* foreman_datapoints_getname(ForemanDataPoints* dps);
 size_t foreman_datapoints_size(ForemanDataPoints* dps);
 ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
-
 
 ////////////////////////////////////////////////
 // ResultSet
