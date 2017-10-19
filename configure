@@ -627,6 +627,8 @@ FOREMAN_ENABLE_TESTS_FALSE
 FOREMAN_ENABLE_TESTS_TRUE
 FOREMAN_ENABLE_BENCHMARK_FALSE
 FOREMAN_ENABLE_BENCHMARK_TRUE
+FOREMAN_ENABLE_BERINGEI_FALSE
+FOREMAN_ENABLE_BERINGEI_TRUE
 EGREP
 GREP
 CPP
@@ -724,6 +726,7 @@ ac_user_opts='
 enable_option_checking
 enable_silent_rules
 enable_dependency_tracking
+enable_beringei
 enable_benchmark
 enable_tests
 '
@@ -1359,6 +1362,7 @@ Optional Features:
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
+  --enable-beringei       enable beringei (default = no)
   --enable-benchmark      build benchmark (default = no)
   --enable-tests          build tests (default = no)
 
@@ -4800,10 +4804,30 @@ fi
 
 
 ##################################################################
-# Check libraries (Folly)
+# Check option libraries
 ##################################################################
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lgflags" >&5
+# Check whether --enable-beringei was given.
+if test "${enable_beringei+set}" = set; then :
+  enableval=$enable_beringei; case "${enableval}" in
+    	yes | no ) eneble_beringei="${enableval}" ;;
+	esac
+fi
+
+
+ if test "$eneble_beringei" = yes; then
+  FOREMAN_ENABLE_BERINGEI_TRUE=
+  FOREMAN_ENABLE_BERINGEI_FALSE='#'
+else
+  FOREMAN_ENABLE_BERINGEI_TRUE='#'
+  FOREMAN_ENABLE_BERINGEI_FALSE=
+fi
+
+if  test $eneble_beringei = yes ; then
+
+$as_echo "#define FOREMAN_ENABLE_BERINGEI 1" >>confdefs.h
+
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lgflags" >&5
 $as_echo_n "checking for main in -lgflags... " >&6; }
 if ${ac_cv_lib_gflags_main+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -4845,6 +4869,49 @@ else
 fi
 ac_cv_lib_gflags=ac_cv_lib_gflags_main
 
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lfolly" >&5
+$as_echo_n "checking for main in -lfolly... " >&6; }
+if ${ac_cv_lib_folly_main+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lfolly  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_folly_main=yes
+else
+  ac_cv_lib_folly_main=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_folly_main" >&5
+$as_echo "$ac_cv_lib_folly_main" >&6; }
+if test "x$ac_cv_lib_folly_main" = xyes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBFOLLY 1
+_ACEOF
+
+  LIBS="-lfolly $LIBS"
+
+else
+  as_fn_error $? "Please install facebook-folly library" "$LINENO" 5
+fi
+ac_cv_lib_folly=ac_cv_lib_folly_main
+
+fi
 
 ##################################################################
 # Benchmark
@@ -5413,6 +5480,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCXX_TRUE}" && test -z "${am__fastdepCXX_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCXX\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${FOREMAN_ENABLE_BERINGEI_TRUE}" && test -z "${FOREMAN_ENABLE_BERINGEI_FALSE}"; then
+  as_fn_error $? "conditional \"FOREMAN_ENABLE_BERINGEI\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${FOREMAN_ENABLE_BENCHMARK_TRUE}" && test -z "${FOREMAN_ENABLE_BENCHMARK_FALSE}"; then
