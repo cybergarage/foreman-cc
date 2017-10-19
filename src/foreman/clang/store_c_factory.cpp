@@ -44,7 +44,11 @@ ForemanStore* foreman_store_sqlite_create()
 // foreman_store_tsmap_create
 ////////////////////////////////////////////////
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 ForemanStore* foreman_store_tsmap_create()
 {
   return new TSmapStore();
 }
+
+#endif

@@ -56,10 +56,29 @@ AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
 
 ##################################################################
+# Check option libraries
+##################################################################
+
+AC_ARG_ENABLE(
+ 	[beringei],
+	AC_HELP_STRING([--enable-beringei], [ enable beringei (default = no) ]),
+	[case "${enableval}" in
+    	yes | no ) eneble_beringei="${enableval}" ;;
+	esac],
+	[]
+)
+
+AM_CONDITIONAL(FOREMAN_ENABLE_BERINGEI,test "$eneble_beringei" = yes)
+if [ test $eneble_beringei = yes ]; then
+	AC_DEFINE([FOREMAN_ENABLE_BERINGEI],1,[--enable-beringei])
+	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
+	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
+fi
+
+##################################################################
 # Check libraries (Folly)
 ##################################################################
 
-AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
 
 ##################################################################
 # Benchmark
