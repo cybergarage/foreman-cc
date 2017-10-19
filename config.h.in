@@ -1,5 +1,8 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* --enable-beringei */
+#undef FOREMAN_ENABLE_BERINGEI
+
 /* Define to 1 if you have the <benchmark/benchmark.h> header file. */
 #undef HAVE_BENCHMARK_BENCHMARK_H
 
@@ -38,6 +41,9 @@
 /* Define to 1 if you have the `boost_unit_test_framework-mt' library
    (-lboost_unit_test_framework-mt). */
 #undef HAVE_LIBBOOST_UNIT_TEST_FRAMEWORK_MT
+
+/* Define to 1 if you have the `folly' library (-lfolly). */
+#undef HAVE_LIBFOLLY
 
 /* Define to 1 if you have the `gflags' library (-lgflags). */
 #undef HAVE_LIBGFLAGS

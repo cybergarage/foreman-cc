@@ -144,7 +144,9 @@ am__v_AR_1 =
 libforeman___a_AR = $(AR) $(ARFLAGS)
 libforeman___a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 = ../../src/foreman/ArrayTimeSeries.$(OBJEXT) \
+am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
+	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
+	../../src/foreman/ArrayTimeSeries.$(OBJEXT) \
 	../../src/foreman/BeringeiTimeSeries.$(OBJEXT) \
 	../../src/foreman/clang/datapoint_c.$(OBJEXT) \
 	../../src/foreman/clang/datapoints_c.$(OBJEXT) \
@@ -331,6 +333,8 @@ top_srcdir = @top_srcdir@
 lib_LIBRARIES = libforeman++.a
 AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
+	../../src/beringei/BitUtil.cpp \
+	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/BeringeiTimeSeries.cpp \
 	../../src/foreman/clang/datapoint_c.cpp \
@@ -432,6 +436,18 @@ uninstall-libLIBRARIES:
 
 clean-libLIBRARIES:
 	-test -z "$(lib_LIBRARIES)" || rm -f $(lib_LIBRARIES)
+../../src/beringei/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/beringei
+	@: > ../../src/beringei/$(am__dirstamp)
+../../src/beringei/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/beringei/$(DEPDIR)
+	@: > ../../src/beringei/$(DEPDIR)/$(am__dirstamp)
+../../src/beringei/BitUtil.$(OBJEXT):  \
+	../../src/beringei/$(am__dirstamp) \
+	../../src/beringei/$(DEPDIR)/$(am__dirstamp)
+../../src/beringei/TimeSeriesStream.$(OBJEXT):  \
+	../../src/beringei/$(am__dirstamp) \
+	../../src/beringei/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman
 	@: > ../../src/foreman/$(am__dirstamp)
@@ -553,6 +569,7 @@ libforeman++.a: $(libforeman___a_OBJECTS) $(libforeman___a_DEPENDENCIES) $(EXTRA
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f ../../src/beringei/*.$(OBJEXT)
 	-rm -f ../../src/foreman/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/*.$(OBJEXT)
 	-rm -f ../../src/foreman/net/*.$(OBJEXT)
@@ -560,6 +577,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/BitUtil.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/$(DEPDIR)/ArrayTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/$(DEPDIR)/BeringeiTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/$(DEPDIR)/DataPoint.Po@am__quote@
@@ -725,6 +744,8 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f ../../src/beringei/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/beringei/$(am__dirstamp)
 	-rm -f ../../src/foreman/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
@@ -740,7 +761,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/foreman/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/net/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/net/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -786,7 +807,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/foreman/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/net/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/net/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
