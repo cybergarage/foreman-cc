@@ -13,8 +13,6 @@ lib_LIBRARIES = libforeman++.a
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
 foremancc_sources = \
-	../../src/beringei/BitUtil.cpp \
-	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/ArrayTimeSeries.cpp \
 	../../src/foreman/BeringeiTimeSeries.cpp \
 	../../src/foreman/clang/datapoint_c.cpp \
