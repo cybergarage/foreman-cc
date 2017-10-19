@@ -17,7 +17,7 @@ using namespace Foreman;
 // foreman_datapoints_getname
 ////////////////////////////////////////////////
 
-const char *foreman_datapoints_getname(ForemanDataPoints* dps)
+const char* foreman_datapoints_getname(ForemanDataPoints* dps)
 {
   if (!dps)
     return "";

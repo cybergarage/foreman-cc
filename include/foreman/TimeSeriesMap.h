@@ -11,6 +11,10 @@
 #ifndef _FOREMANCC_TIMESERIESMAP_H_
 #define _FOREMANCC_TIMESERIESMAP_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <string>
 #include <unordered_map>
 
@@ -44,6 +48,8 @@ class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<Tim
 // BeringeiTimeSeriesMap
 ////////////////////////////////////////////////
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 class BeringeiTimeSeriesMap : public TimeSeriesMap {
   public:
   BeringeiTimeSeriesMap(){};
@@ -54,6 +60,8 @@ class BeringeiTimeSeriesMap : public TimeSeriesMap {
     return std::shared_ptr<BeringeiTimeSeries>(new BeringeiTimeSeries());
   }
 };
+
+#endif
 }
 
 #endif

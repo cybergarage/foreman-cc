@@ -11,6 +11,10 @@
 #ifndef _FOREMANCC_FOREMANC_H_
 #define _FOREMANCC_FOREMANC_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -71,10 +75,9 @@ double foreman_datapoint_getvalue(ForemanDataPoint* dp);
 
 typedef void ForemanDataPoints;
 
-const char *foreman_datapoints_getname(ForemanDataPoints* dps);
+const char* foreman_datapoints_getname(ForemanDataPoints* dps);
 size_t foreman_datapoints_size(ForemanDataPoints* dps);
 ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
-
 
 ////////////////////////////////////////////////
 // ResultSet
@@ -101,7 +104,10 @@ typedef void ForemanStore;
 ForemanStore* foreman_store_matrix_create();
 ForemanStore* foreman_store_ringmap_create();
 ForemanStore* foreman_store_sqlite_create();
+
+#if defined(FOREMAN_ENABLE_BERINGEI)
 ForemanStore* foreman_store_tsmap_create();
+#endif
 
 bool foreman_store_delete(ForemanStore* store);
 
