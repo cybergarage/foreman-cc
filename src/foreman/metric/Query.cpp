@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) 2017 Satoshi Konno
  *
@@ -8,29 +8,39 @@
  *
  ******************************************************************/
 
-#include <foreman/foreman-c.h>
-#include <foreman/metric/DataPoint.h>
+#include <math.h>
+
+#include <foreman/metric/Query.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// foreman_datapoint_gettimestamp
+// Query
 ////////////////////////////////////////////////
 
-time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp)
+Query::Query()
 {
-  if (!dp)
-    return 0;
-  return ((DataPoint*)dp)->getTimestamp();
+  from = 0;
+  until = 0;
+  interval = 0;
+}
+
+Query::~Query()
+{
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoint_getvalue
+// getDataPointCount
 ////////////////////////////////////////////////
 
-double foreman_datapoint_getvalue(ForemanDataPoint* dp)
+bool Query::getDataPointCount(size_t* count)
 {
-  if (!dp)
-    return 0.0;
-  return ((DataPoint*)dp)->getValue();
+  if (until <= from)
+    return false;
+
+  *count = ((until - from) / interval);
+  if (*count <= 0)
+    return false;
+
+  return true;
 }

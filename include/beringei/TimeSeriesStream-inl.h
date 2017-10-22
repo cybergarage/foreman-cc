@@ -43,8 +43,7 @@ namespace gorilla {
 
     // Call reserve() only if it exists.
     template <typename T>
-    inline typename std::enable_if<
-        std::is_member_function_pointer<decltype(&T::reserve)>::value>::type
+    inline typename std::enable_if<std::is_member_function_pointer<decltype(&T::reserve)>::value>::type
     reserve(T* out, size_t n)
     {
       out->reserve(n);

@@ -8,13 +8,19 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMAN_H_
-#define _FOREMANCC_FOREMAN_H_
+#include <boost/test/unit_test.hpp>
 
-#include <foreman/Const.h>
-#include <foreman/Platform.h>
-#include <foreman/metric/MemStore.h>
-#include <foreman/metric/Metric.h>
-#include <foreman/metric/TimeSeries.h>
+#include <foreman/metric/TimeSeriesMap.h>
 
-#endif
+using namespace Foreman;
+
+BOOST_AUTO_TEST_CASE(NewTimeSeriesTest)
+{
+}
+
+BOOST_AUTO_TEST_CASE(NewTimeSeriesMap)
+{
+  TimeSeriesMap tsMap;
+
+  BOOST_CHECK_EQUAL(tsMap.size(), 0);
+}

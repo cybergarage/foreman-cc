@@ -8,13 +8,22 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMAN_H_
-#define _FOREMANCC_FOREMAN_H_
+#include <boost/test/unit_test.hpp>
 
-#include <foreman/Const.h>
-#include <foreman/Platform.h>
-#include <foreman/metric/MemStore.h>
 #include <foreman/metric/Metric.h>
-#include <foreman/metric/TimeSeries.h>
 
-#endif
+using namespace Foreman;
+
+BOOST_AUTO_TEST_CASE(NewMetricTest)
+{
+  Metric metric;
+
+  BOOST_CHECK_EQUAL(metric.name.size(), 0);
+}
+
+BOOST_AUTO_TEST_CASE(NewMetricsTest)
+{
+  Metrics metrics;
+
+  BOOST_CHECK_EQUAL(metrics.size(), 0);
+}
