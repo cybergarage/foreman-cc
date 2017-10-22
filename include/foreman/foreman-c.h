@@ -44,81 +44,81 @@ bool foreman_metric_delete(ForemanMetric* m);
 // Query
 ////////////////////////////////////////////////
 
-typedef void ForemanQuery;
+typedef void ForemanMetricQuery;
 
-ForemanQuery* foreman_query_new();
+ForemanMetricQuery* foreman_metric_query_new();
 
-bool foreman_query_settarget(ForemanQuery* q, const char* name);
-bool foreman_query_setfrom(ForemanQuery* q, time_t ts);
-bool foreman_query_setuntil(ForemanQuery* q, time_t ts);
-bool foreman_query_setinterval(ForemanQuery* q, time_t ts);
+bool foreman_metric_query_settarget(ForemanMetricQuery* q, const char* name);
+bool foreman_metric_query_setfrom(ForemanMetricQuery* q, time_t ts);
+bool foreman_metric_query_setuntil(ForemanMetricQuery* q, time_t ts);
+bool foreman_metric_query_setinterval(ForemanMetricQuery* q, time_t ts);
 
-bool foreman_query_gettarget(ForemanQuery* q, const char** name);
-bool foreman_query_getfrom(ForemanQuery* q, time_t* ts);
-bool foreman_query_getuntil(ForemanQuery* q, time_t* ts);
-bool foreman_query_getinterval(ForemanQuery* q, time_t* ts);
+bool foreman_metric_query_gettarget(ForemanMetricQuery* q, const char** name);
+bool foreman_metric_query_getfrom(ForemanMetricQuery* q, time_t* ts);
+bool foreman_metric_query_getuntil(ForemanMetricQuery* q, time_t* ts);
+bool foreman_metric_query_getinterval(ForemanMetricQuery* q, time_t* ts);
 
-bool foreman_query_delete(ForemanQuery* q);
+bool foreman_metric_query_delete(ForemanMetricQuery* q);
 
 ////////////////////////////////////////////////
 // DataPoint
 ////////////////////////////////////////////////
 
-typedef void ForemanDataPoint;
+typedef void ForemanMetricDataPoint;
 
-time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp);
-double foreman_datapoint_getvalue(ForemanDataPoint* dp);
+time_t foreman_metric_datapoint_gettimestamp(ForemanMetricDataPoint* dp);
+double foreman_metric_datapoint_getvalue(ForemanMetricDataPoint* dp);
 
 ////////////////////////////////////////////////
 // DataPoints
 ////////////////////////////////////////////////
 
-typedef void ForemanDataPoints;
+typedef void ForemanMetricDataPoints;
 
-const char* foreman_datapoints_getname(ForemanDataPoints* dps);
-size_t foreman_datapoints_size(ForemanDataPoints* dps);
-ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n);
+const char* foreman_metric_datapoints_getname(ForemanMetricDataPoints* dps);
+size_t foreman_metric_datapoints_size(ForemanMetricDataPoints* dps);
+ForemanMetricDataPoints* foreman_metric_datapoints_get(ForemanMetricDataPoints* dps, size_t n);
 
 ////////////////////////////////////////////////
 // ResultSet
 ////////////////////////////////////////////////
 
-typedef void ForemanResultSet;
+typedef void ForemanMetricResultSet;
 
-ForemanResultSet* foreman_resultset_new();
+ForemanMetricResultSet* foreman_metric_resultset_new();
 
-size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs);
+size_t foreman_metric_resultset_getdatapointcount(ForemanMetricResultSet* rs);
 
-ForemanDataPoints* foreman_resultset_firstdatapoints(ForemanResultSet* rs);
-ForemanDataPoints* foreman_resultset_nextdatapoints(ForemanResultSet* rs);
-ForemanDataPoints* foreman_resultset_finddatapoints(ForemanResultSet* rs, const char* name);
+ForemanMetricDataPoints* foreman_metric_resultset_firstdatapoints(ForemanMetricResultSet* rs);
+ForemanMetricDataPoints* foreman_metric_resultset_nextdatapoints(ForemanMetricResultSet* rs);
+ForemanMetricDataPoints* foreman_metric_resultset_finddatapoints(ForemanMetricResultSet* rs, const char* name);
 
-bool foreman_resultset_delete(ForemanResultSet* rs);
+bool foreman_metric_resultset_delete(ForemanMetricResultSet* rs);
 
 ////////////////////////////////////////////////
 // Store
 ////////////////////////////////////////////////
 
-typedef void ForemanStore;
+typedef void ForemanMetricStore;
 
-ForemanStore* foreman_store_matrix_create();
-ForemanStore* foreman_store_ringmap_create();
-ForemanStore* foreman_store_sqlite_create();
+ForemanMetricStore* foreman_metric_store_matrix_create();
+ForemanMetricStore* foreman_metric_store_ringmap_create();
+ForemanMetricStore* foreman_metric_store_sqlite_create();
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
-ForemanStore* foreman_store_tsmap_create();
+ForemanMetricStore* foreman_metric_store_tsmap_create();
 #endif
 
-bool foreman_store_delete(ForemanStore* store);
+bool foreman_metric_store_delete(ForemanMetricStore* store);
 
-bool foreman_store_setretentioninterval(ForemanStore* store, time_t value);
-time_t foreman_store_getretentioninterval(ForemanStore* store);
+bool foreman_metric_store_setretentioninterval(ForemanMetricStore* store, time_t value);
+time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store);
 
-bool foreman_store_open(ForemanStore* store);
-bool foreman_store_close(ForemanStore* store);
+bool foreman_metric_store_open(ForemanMetricStore* store);
+bool foreman_metric_store_close(ForemanMetricStore* store);
 
-bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m);
-bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs);
+bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m);
+bool foreman_metric_store_query(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 
 #ifdef __cplusplus
 }

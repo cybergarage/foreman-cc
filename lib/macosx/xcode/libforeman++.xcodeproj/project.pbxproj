@@ -13,6 +13,66 @@
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
 		215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573C31EA1DC0A0083A51C /* HttpClient.cpp */; };
+		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
+		216A5AE41F9C597B0092272A /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADC1F9C597B0092272A /* MemStore.h */; };
+		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
+		216A5AE61F9C597B0092272A /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADE1F9C597B0092272A /* Query.h */; };
+		216A5AE71F9C597B0092272A /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADF1F9C597B0092272A /* ResultSet.h */; };
+		216A5AE81F9C597B0092272A /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AE01F9C597B0092272A /* Store.h */; };
+		216A5AE91F9C597B0092272A /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AE11F9C597B0092272A /* TimeSeries.h */; };
+		216A5AEA1F9C597B0092272A /* TimeSeriesMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AE21F9C597B0092272A /* TimeSeriesMap.h */; };
+		216A5AED1F9C59830092272A /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AEC1F9C59830092272A /* Util.h */; };
+		216A5B341F9C59990092272A /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B081F9C59990092272A /* ArrayTimeSeries.cpp */; };
+		216A5B351F9C59990092272A /* ArrayTimeSeries.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B091F9C59990092272A /* ArrayTimeSeries.o */; };
+		216A5B361F9C59990092272A /* BeringeiTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0A1F9C59990092272A /* BeringeiTimeSeries.cpp */; };
+		216A5B371F9C59990092272A /* BeringeiTimeSeries.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B0B1F9C59990092272A /* BeringeiTimeSeries.o */; };
+		216A5B381F9C59990092272A /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0C1F9C59990092272A /* Data.cpp */; };
+		216A5B391F9C59990092272A /* Data.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B0D1F9C59990092272A /* Data.o */; };
+		216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0E1F9C59990092272A /* DataMap.cpp */; };
+		216A5B3B1F9C59990092272A /* DataMap.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B0F1F9C59990092272A /* DataMap.o */; };
+		216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B101F9C59990092272A /* DataPoint.cpp */; };
+		216A5B3D1F9C59990092272A /* DataPoint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B111F9C59990092272A /* DataPoint.o */; };
+		216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B121F9C59990092272A /* DataPoints.cpp */; };
+		216A5B3F1F9C59990092272A /* DataPoints.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B131F9C59990092272A /* DataPoints.o */; };
+		216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B141F9C59990092272A /* DataPointsMap.cpp */; };
+		216A5B411F9C59990092272A /* DataPointsMap.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B151F9C59990092272A /* DataPointsMap.o */; };
+		216A5B421F9C59990092272A /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B161F9C59990092272A /* GraphiteStore.cpp */; };
+		216A5B431F9C59990092272A /* GraphiteStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B171F9C59990092272A /* GraphiteStore.o */; };
+		216A5B441F9C59990092272A /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B181F9C59990092272A /* MatrixStore.cpp */; };
+		216A5B451F9C59990092272A /* MatrixStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B191F9C59990092272A /* MatrixStore.o */; };
+		216A5B461F9C59990092272A /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B1A1F9C59990092272A /* MemStore.cpp */; };
+		216A5B471F9C59990092272A /* MemStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B1B1F9C59990092272A /* MemStore.o */; };
+		216A5B481F9C59990092272A /* NarrowTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B1C1F9C59990092272A /* NarrowTableStore.cpp */; };
+		216A5B491F9C59990092272A /* NarrowTableStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B1D1F9C59990092272A /* NarrowTableStore.o */; };
+		216A5B4A1F9C59990092272A /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B1E1F9C59990092272A /* Query.cpp */; };
+		216A5B4B1F9C59990092272A /* Query.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B1F1F9C59990092272A /* Query.o */; };
+		216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B201F9C59990092272A /* ResultSet.cpp */; };
+		216A5B4D1F9C59990092272A /* ResultSet.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B211F9C59990092272A /* ResultSet.o */; };
+		216A5B4E1F9C59990092272A /* RingArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B221F9C59990092272A /* RingArrayTimeSeries.cpp */; };
+		216A5B4F1F9C59990092272A /* RingArrayTimeSeries.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B231F9C59990092272A /* RingArrayTimeSeries.o */; };
+		216A5B501F9C59990092272A /* RingMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B241F9C59990092272A /* RingMapStore.cpp */; };
+		216A5B511F9C59990092272A /* RingMapStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B251F9C59990092272A /* RingMapStore.o */; };
+		216A5B521F9C59990092272A /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B261F9C59990092272A /* SQLiteStore.cpp */; };
+		216A5B531F9C59990092272A /* SQLiteStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B271F9C59990092272A /* SQLiteStore.o */; };
+		216A5B541F9C59990092272A /* StaticArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B281F9C59990092272A /* StaticArrayTimeSeries.cpp */; };
+		216A5B551F9C59990092272A /* StaticArrayTimeSeries.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B291F9C59990092272A /* StaticArrayTimeSeries.o */; };
+		216A5B561F9C59990092272A /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B2A1F9C59990092272A /* Store.cpp */; };
+		216A5B571F9C59990092272A /* Store.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B2B1F9C59990092272A /* Store.o */; };
+		216A5B581F9C59990092272A /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B2C1F9C59990092272A /* TimeSeries.cpp */; };
+		216A5B591F9C59990092272A /* TimeSeries.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B2D1F9C59990092272A /* TimeSeries.o */; };
+		216A5B5A1F9C59990092272A /* TimeSeriesMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B2E1F9C59990092272A /* TimeSeriesMap.cpp */; };
+		216A5B5B1F9C59990092272A /* TimeSeriesMap.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B2F1F9C59990092272A /* TimeSeriesMap.o */; };
+		216A5B5C1F9C59990092272A /* TimeSeriesMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B301F9C59990092272A /* TimeSeriesMapStore.cpp */; };
+		216A5B5D1F9C59990092272A /* TimeSeriesMapStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B311F9C59990092272A /* TimeSeriesMapStore.o */; };
+		216A5B5E1F9C59990092272A /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B321F9C59990092272A /* TSmapStore.cpp */; };
+		216A5B5F1F9C59990092272A /* TSmapStore.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 216A5B331F9C59990092272A /* TSmapStore.o */; };
+		216A5B791F9C5B8E0092272A /* datapoint_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B6B1F9C5B8E0092272A /* datapoint_c.cpp */; };
+		216A5B7B1F9C5B8E0092272A /* datapoints_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B6D1F9C5B8E0092272A /* datapoints_c.cpp */; };
+		216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B6F1F9C5B8E0092272A /* metric_c.cpp */; };
+		216A5B7F1F9C5B8E0092272A /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B711F9C5B8E0092272A /* query_c.cpp */; };
+		216A5B811F9C5B8E0092272A /* resultset_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B731F9C5B8E0092272A /* resultset_c.cpp */; };
+		216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B751F9C5B8E0092272A /* store_c.cpp */; };
+		216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B771F9C5B8E0092272A /* store_c_factory.cpp */; };
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
@@ -21,45 +81,7 @@
 		218D47C91F503251002A3FA2 /* foreman-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 218D47C81F503251002A3FA2 /* foreman-c.h */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
-		21C85EDC1F9C45CF00D59EAE /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED41F9C45CE00D59EAE /* ResultSet.h */; };
-		21C85EDD1F9C45CF00D59EAE /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED51F9C45CE00D59EAE /* Query.h */; };
-		21C85EDE1F9C45CF00D59EAE /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED61F9C45CE00D59EAE /* DataPoint.h */; };
-		21C85EDF1F9C45CF00D59EAE /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED71F9C45CE00D59EAE /* TimeSeries.h */; };
-		21C85EE01F9C45CF00D59EAE /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED81F9C45CE00D59EAE /* MemStore.h */; };
-		21C85EE11F9C45CF00D59EAE /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85ED91F9C45CF00D59EAE /* Metric.h */; };
-		21C85EE21F9C45CF00D59EAE /* TimeSeriesMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85EDA1F9C45CF00D59EAE /* TimeSeriesMap.h */; };
-		21C85EE31F9C45CF00D59EAE /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85EDB1F9C45CF00D59EAE /* Store.h */; };
-		21C85EE51F9C45DD00D59EAE /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C85EE41F9C45DD00D59EAE /* Util.h */; };
-		21C85EFD1F9C4A8100D59EAE /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EE71F9C4A7F00D59EAE /* MemStore.cpp */; };
-		21C85EFE1F9C4A8100D59EAE /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EE81F9C4A7F00D59EAE /* TimeSeries.cpp */; };
-		21C85EFF1F9C4A8100D59EAE /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EE91F9C4A7F00D59EAE /* SQLiteStore.cpp */; };
-		21C85F001F9C4A8100D59EAE /* TimeSeriesMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EEA1F9C4A7F00D59EAE /* TimeSeriesMap.cpp */; };
-		21C85F011F9C4A8100D59EAE /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EEB1F9C4A7F00D59EAE /* GraphiteStore.cpp */; };
-		21C85F021F9C4A8100D59EAE /* ResultSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EEC1F9C4A7F00D59EAE /* ResultSet.cpp */; };
-		21C85F031F9C4A8100D59EAE /* NarrowTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EED1F9C4A7F00D59EAE /* NarrowTableStore.cpp */; };
-		21C85F041F9C4A8100D59EAE /* TimeSeriesMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EEE1F9C4A8000D59EAE /* TimeSeriesMapStore.cpp */; };
-		21C85F051F9C4A8100D59EAE /* DataMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EEF1F9C4A8000D59EAE /* DataMap.cpp */; };
-		21C85F061F9C4A8100D59EAE /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF01F9C4A8000D59EAE /* Query.cpp */; };
-		21C85F071F9C4A8100D59EAE /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF11F9C4A8000D59EAE /* Store.cpp */; };
-		21C85F081F9C4A8100D59EAE /* DataPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF21F9C4A8000D59EAE /* DataPoint.cpp */; };
-		21C85F091F9C4A8100D59EAE /* BeringeiTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF31F9C4A8000D59EAE /* BeringeiTimeSeries.cpp */; };
-		21C85F0A1F9C4A8100D59EAE /* DataPoints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF41F9C4A8000D59EAE /* DataPoints.cpp */; };
-		21C85F0B1F9C4A8100D59EAE /* DataPointsMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF51F9C4A8000D59EAE /* DataPointsMap.cpp */; };
-		21C85F0C1F9C4A8100D59EAE /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF61F9C4A8000D59EAE /* MatrixStore.cpp */; };
-		21C85F0D1F9C4A8100D59EAE /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF71F9C4A8000D59EAE /* Data.cpp */; };
-		21C85F0E1F9C4A8100D59EAE /* RingMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF81F9C4A8000D59EAE /* RingMapStore.cpp */; };
-		21C85F0F1F9C4A8100D59EAE /* StaticArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EF91F9C4A8000D59EAE /* StaticArrayTimeSeries.cpp */; };
-		21C85F101F9C4A8100D59EAE /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EFA1F9C4A8000D59EAE /* ArrayTimeSeries.cpp */; };
-		21C85F111F9C4A8100D59EAE /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EFB1F9C4A8100D59EAE /* TSmapStore.cpp */; };
-		21C85F121F9C4A8100D59EAE /* RingArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85EFC1F9C4A8100D59EAE /* RingArrayTimeSeries.cpp */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
-		21C85F2C1F9C538E00D59EAE /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F251F9C538D00D59EAE /* query_c.cpp */; };
-		21C85F2D1F9C538E00D59EAE /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F261F9C538E00D59EAE /* store_c.cpp */; };
-		21C85F2E1F9C538E00D59EAE /* metric_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F271F9C538E00D59EAE /* metric_c.cpp */; };
-		21C85F2F1F9C538E00D59EAE /* store_c_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F281F9C538E00D59EAE /* store_c_factory.cpp */; };
-		21C85F301F9C538E00D59EAE /* datapoints_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F291F9C538E00D59EAE /* datapoints_c.cpp */; };
-		21C85F311F9C538E00D59EAE /* resultset_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F2A1F9C538E00D59EAE /* resultset_c.cpp */; };
-		21C85F321F9C538E00D59EAE /* datapoint_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F2B1F9C538E00D59EAE /* datapoint_c.cpp */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +93,90 @@
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		215573C31EA1DC0A0083A51C /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
+		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
+		216A5ADC1F9C597B0092272A /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
+		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
+		216A5ADE1F9C597B0092272A /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		216A5ADF1F9C597B0092272A /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
+		216A5AE01F9C597B0092272A /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		216A5AE11F9C597B0092272A /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeries.h; sourceTree = "<group>"; };
+		216A5AE21F9C597B0092272A /* TimeSeriesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesMap.h; sourceTree = "<group>"; };
+		216A5AEC1F9C59830092272A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		216A5AF01F9C59990092272A /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
+		216A5AF11F9C59990092272A /* ArrayTimeSeries.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArrayTimeSeries.Po; sourceTree = "<group>"; };
+		216A5AF21F9C59990092272A /* BeringeiTimeSeries.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BeringeiTimeSeries.Po; sourceTree = "<group>"; };
+		216A5AF31F9C59990092272A /* Data.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Data.Po; sourceTree = "<group>"; };
+		216A5AF41F9C59990092272A /* DataMap.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataMap.Po; sourceTree = "<group>"; };
+		216A5AF51F9C59990092272A /* DataPoint.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataPoint.Po; sourceTree = "<group>"; };
+		216A5AF61F9C59990092272A /* DataPoints.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataPoints.Po; sourceTree = "<group>"; };
+		216A5AF71F9C59990092272A /* DataPointsMap.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataPointsMap.Po; sourceTree = "<group>"; };
+		216A5AF81F9C59990092272A /* GraphiteStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GraphiteStore.Po; sourceTree = "<group>"; };
+		216A5AF91F9C59990092272A /* MatrixStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MatrixStore.Po; sourceTree = "<group>"; };
+		216A5AFA1F9C59990092272A /* MemStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MemStore.Po; sourceTree = "<group>"; };
+		216A5AFB1F9C59990092272A /* NarrowTableStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NarrowTableStore.Po; sourceTree = "<group>"; };
+		216A5AFC1F9C59990092272A /* Query.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Query.Po; sourceTree = "<group>"; };
+		216A5AFD1F9C59990092272A /* ResultSet.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ResultSet.Po; sourceTree = "<group>"; };
+		216A5AFE1F9C59990092272A /* RingArrayTimeSeries.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RingArrayTimeSeries.Po; sourceTree = "<group>"; };
+		216A5AFF1F9C59990092272A /* RingMapStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RingMapStore.Po; sourceTree = "<group>"; };
+		216A5B001F9C59990092272A /* SQLiteStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQLiteStore.Po; sourceTree = "<group>"; };
+		216A5B011F9C59990092272A /* StaticArrayTimeSeries.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StaticArrayTimeSeries.Po; sourceTree = "<group>"; };
+		216A5B021F9C59990092272A /* Store.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Store.Po; sourceTree = "<group>"; };
+		216A5B031F9C59990092272A /* TimeSeries.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TimeSeries.Po; sourceTree = "<group>"; };
+		216A5B041F9C59990092272A /* TimeSeriesMap.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TimeSeriesMap.Po; sourceTree = "<group>"; };
+		216A5B051F9C59990092272A /* TimeSeriesMapStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TimeSeriesMapStore.Po; sourceTree = "<group>"; };
+		216A5B061F9C59990092272A /* TSmapStore.Po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TSmapStore.Po; sourceTree = "<group>"; };
+		216A5B071F9C59990092272A /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
+		216A5B081F9C59990092272A /* ArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayTimeSeries.cpp; sourceTree = "<group>"; };
+		216A5B091F9C59990092272A /* ArrayTimeSeries.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ArrayTimeSeries.o; sourceTree = "<group>"; };
+		216A5B0A1F9C59990092272A /* BeringeiTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeringeiTimeSeries.cpp; sourceTree = "<group>"; };
+		216A5B0B1F9C59990092272A /* BeringeiTimeSeries.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = BeringeiTimeSeries.o; sourceTree = "<group>"; };
+		216A5B0C1F9C59990092272A /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
+		216A5B0D1F9C59990092272A /* Data.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Data.o; sourceTree = "<group>"; };
+		216A5B0E1F9C59990092272A /* DataMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataMap.cpp; sourceTree = "<group>"; };
+		216A5B0F1F9C59990092272A /* DataMap.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = DataMap.o; sourceTree = "<group>"; };
+		216A5B101F9C59990092272A /* DataPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPoint.cpp; sourceTree = "<group>"; };
+		216A5B111F9C59990092272A /* DataPoint.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = DataPoint.o; sourceTree = "<group>"; };
+		216A5B121F9C59990092272A /* DataPoints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPoints.cpp; sourceTree = "<group>"; };
+		216A5B131F9C59990092272A /* DataPoints.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = DataPoints.o; sourceTree = "<group>"; };
+		216A5B141F9C59990092272A /* DataPointsMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPointsMap.cpp; sourceTree = "<group>"; };
+		216A5B151F9C59990092272A /* DataPointsMap.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = DataPointsMap.o; sourceTree = "<group>"; };
+		216A5B161F9C59990092272A /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphiteStore.cpp; sourceTree = "<group>"; };
+		216A5B171F9C59990092272A /* GraphiteStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = GraphiteStore.o; sourceTree = "<group>"; };
+		216A5B181F9C59990092272A /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixStore.cpp; sourceTree = "<group>"; };
+		216A5B191F9C59990092272A /* MatrixStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = MatrixStore.o; sourceTree = "<group>"; };
+		216A5B1A1F9C59990092272A /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemStore.cpp; sourceTree = "<group>"; };
+		216A5B1B1F9C59990092272A /* MemStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = MemStore.o; sourceTree = "<group>"; };
+		216A5B1C1F9C59990092272A /* NarrowTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NarrowTableStore.cpp; sourceTree = "<group>"; };
+		216A5B1D1F9C59990092272A /* NarrowTableStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = NarrowTableStore.o; sourceTree = "<group>"; };
+		216A5B1E1F9C59990092272A /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
+		216A5B1F1F9C59990092272A /* Query.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Query.o; sourceTree = "<group>"; };
+		216A5B201F9C59990092272A /* ResultSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultSet.cpp; sourceTree = "<group>"; };
+		216A5B211F9C59990092272A /* ResultSet.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ResultSet.o; sourceTree = "<group>"; };
+		216A5B221F9C59990092272A /* RingArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingArrayTimeSeries.cpp; sourceTree = "<group>"; };
+		216A5B231F9C59990092272A /* RingArrayTimeSeries.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = RingArrayTimeSeries.o; sourceTree = "<group>"; };
+		216A5B241F9C59990092272A /* RingMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingMapStore.cpp; sourceTree = "<group>"; };
+		216A5B251F9C59990092272A /* RingMapStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = RingMapStore.o; sourceTree = "<group>"; };
+		216A5B261F9C59990092272A /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SQLiteStore.cpp; sourceTree = "<group>"; };
+		216A5B271F9C59990092272A /* SQLiteStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = SQLiteStore.o; sourceTree = "<group>"; };
+		216A5B281F9C59990092272A /* StaticArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticArrayTimeSeries.cpp; sourceTree = "<group>"; };
+		216A5B291F9C59990092272A /* StaticArrayTimeSeries.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = StaticArrayTimeSeries.o; sourceTree = "<group>"; };
+		216A5B2A1F9C59990092272A /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Store.cpp; sourceTree = "<group>"; };
+		216A5B2B1F9C59990092272A /* Store.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Store.o; sourceTree = "<group>"; };
+		216A5B2C1F9C59990092272A /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeries.cpp; sourceTree = "<group>"; };
+		216A5B2D1F9C59990092272A /* TimeSeries.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TimeSeries.o; sourceTree = "<group>"; };
+		216A5B2E1F9C59990092272A /* TimeSeriesMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMap.cpp; sourceTree = "<group>"; };
+		216A5B2F1F9C59990092272A /* TimeSeriesMap.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TimeSeriesMap.o; sourceTree = "<group>"; };
+		216A5B301F9C59990092272A /* TimeSeriesMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesMapStore.cpp; sourceTree = "<group>"; };
+		216A5B311F9C59990092272A /* TimeSeriesMapStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TimeSeriesMapStore.o; sourceTree = "<group>"; };
+		216A5B321F9C59990092272A /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSmapStore.cpp; sourceTree = "<group>"; };
+		216A5B331F9C59990092272A /* TSmapStore.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = TSmapStore.o; sourceTree = "<group>"; };
+		216A5B6B1F9C5B8E0092272A /* datapoint_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = datapoint_c.cpp; sourceTree = "<group>"; };
+		216A5B6D1F9C5B8E0092272A /* datapoints_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = datapoints_c.cpp; sourceTree = "<group>"; };
+		216A5B6F1F9C5B8E0092272A /* metric_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = metric_c.cpp; sourceTree = "<group>"; };
+		216A5B711F9C5B8E0092272A /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = query_c.cpp; sourceTree = "<group>"; };
+		216A5B731F9C5B8E0092272A /* resultset_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resultset_c.cpp; sourceTree = "<group>"; };
+		216A5B751F9C5B8E0092272A /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c.cpp; sourceTree = "<group>"; };
+		216A5B771F9C5B8E0092272A /* store_c_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c_factory.cpp; sourceTree = "<group>"; };
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
@@ -79,45 +185,7 @@
 		218D47C81F503251002A3FA2 /* foreman-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foreman-c.h"; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
-		21C85ED41F9C45CE00D59EAE /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultSet.h; path = ../metric/ResultSet.h; sourceTree = "<group>"; };
-		21C85ED51F9C45CE00D59EAE /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = ../metric/Query.h; sourceTree = "<group>"; };
-		21C85ED61F9C45CE00D59EAE /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataPoint.h; path = ../metric/DataPoint.h; sourceTree = "<group>"; };
-		21C85ED71F9C45CE00D59EAE /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeries.h; path = ../metric/TimeSeries.h; sourceTree = "<group>"; };
-		21C85ED81F9C45CE00D59EAE /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = ../metric/MemStore.h; sourceTree = "<group>"; };
-		21C85ED91F9C45CF00D59EAE /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metric.h; path = ../metric/Metric.h; sourceTree = "<group>"; };
-		21C85EDA1F9C45CF00D59EAE /* TimeSeriesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeriesMap.h; path = ../metric/TimeSeriesMap.h; sourceTree = "<group>"; };
-		21C85EDB1F9C45CF00D59EAE /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = ../metric/Store.h; sourceTree = "<group>"; };
-		21C85EE41F9C45DD00D59EAE /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = ../util/Util.h; sourceTree = "<group>"; };
-		21C85EE71F9C4A7F00D59EAE /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStore.cpp; path = ../metric/MemStore.cpp; sourceTree = "<group>"; };
-		21C85EE81F9C4A7F00D59EAE /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeries.cpp; path = ../metric/TimeSeries.cpp; sourceTree = "<group>"; };
-		21C85EE91F9C4A7F00D59EAE /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLiteStore.cpp; path = ../metric/SQLiteStore.cpp; sourceTree = "<group>"; };
-		21C85EEA1F9C4A7F00D59EAE /* TimeSeriesMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesMap.cpp; path = ../metric/TimeSeriesMap.cpp; sourceTree = "<group>"; };
-		21C85EEB1F9C4A7F00D59EAE /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphiteStore.cpp; path = ../metric/GraphiteStore.cpp; sourceTree = "<group>"; };
-		21C85EEC1F9C4A7F00D59EAE /* ResultSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResultSet.cpp; path = ../metric/ResultSet.cpp; sourceTree = "<group>"; };
-		21C85EED1F9C4A7F00D59EAE /* NarrowTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NarrowTableStore.cpp; path = ../metric/NarrowTableStore.cpp; sourceTree = "<group>"; };
-		21C85EEE1F9C4A8000D59EAE /* TimeSeriesMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesMapStore.cpp; path = ../metric/TimeSeriesMapStore.cpp; sourceTree = "<group>"; };
-		21C85EEF1F9C4A8000D59EAE /* DataMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataMap.cpp; path = ../metric/DataMap.cpp; sourceTree = "<group>"; };
-		21C85EF01F9C4A8000D59EAE /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Query.cpp; path = ../metric/Query.cpp; sourceTree = "<group>"; };
-		21C85EF11F9C4A8000D59EAE /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Store.cpp; path = ../metric/Store.cpp; sourceTree = "<group>"; };
-		21C85EF21F9C4A8000D59EAE /* DataPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPoint.cpp; path = ../metric/DataPoint.cpp; sourceTree = "<group>"; };
-		21C85EF31F9C4A8000D59EAE /* BeringeiTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeringeiTimeSeries.cpp; path = ../metric/BeringeiTimeSeries.cpp; sourceTree = "<group>"; };
-		21C85EF41F9C4A8000D59EAE /* DataPoints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPoints.cpp; path = ../metric/DataPoints.cpp; sourceTree = "<group>"; };
-		21C85EF51F9C4A8000D59EAE /* DataPointsMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPointsMap.cpp; path = ../metric/DataPointsMap.cpp; sourceTree = "<group>"; };
-		21C85EF61F9C4A8000D59EAE /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MatrixStore.cpp; path = ../metric/MatrixStore.cpp; sourceTree = "<group>"; };
-		21C85EF71F9C4A8000D59EAE /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Data.cpp; path = ../metric/Data.cpp; sourceTree = "<group>"; };
-		21C85EF81F9C4A8000D59EAE /* RingMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RingMapStore.cpp; path = ../metric/RingMapStore.cpp; sourceTree = "<group>"; };
-		21C85EF91F9C4A8000D59EAE /* StaticArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StaticArrayTimeSeries.cpp; path = ../metric/StaticArrayTimeSeries.cpp; sourceTree = "<group>"; };
-		21C85EFA1F9C4A8000D59EAE /* ArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayTimeSeries.cpp; path = ../metric/ArrayTimeSeries.cpp; sourceTree = "<group>"; };
-		21C85EFB1F9C4A8100D59EAE /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSmapStore.cpp; path = ../metric/TSmapStore.cpp; sourceTree = "<group>"; };
-		21C85EFC1F9C4A8100D59EAE /* RingArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RingArrayTimeSeries.cpp; path = ../metric/RingArrayTimeSeries.cpp; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
-		21C85F251F9C538D00D59EAE /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query_c.cpp; path = ../clang/metric/query_c.cpp; sourceTree = "<group>"; };
-		21C85F261F9C538E00D59EAE /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = ../clang/metric/store_c.cpp; sourceTree = "<group>"; };
-		21C85F271F9C538E00D59EAE /* metric_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = metric_c.cpp; path = ../clang/metric/metric_c.cpp; sourceTree = "<group>"; };
-		21C85F281F9C538E00D59EAE /* store_c_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c_factory.cpp; path = ../clang/metric/store_c_factory.cpp; sourceTree = "<group>"; };
-		21C85F291F9C538E00D59EAE /* datapoints_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datapoints_c.cpp; path = ../clang/metric/datapoints_c.cpp; sourceTree = "<group>"; };
-		21C85F2A1F9C538E00D59EAE /* resultset_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resultset_c.cpp; path = ../clang/metric/resultset_c.cpp; sourceTree = "<group>"; };
-		21C85F2B1F9C538E00D59EAE /* datapoint_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datapoint_c.cpp; path = ../clang/metric/datapoint_c.cpp; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +194,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216A5B411F9C59990092272A /* DataPointsMap.o in Frameworks */,
+				216A5B511F9C59990092272A /* RingMapStore.o in Frameworks */,
+				216A5B4D1F9C59990092272A /* ResultSet.o in Frameworks */,
+				216A5B571F9C59990092272A /* Store.o in Frameworks */,
+				216A5B391F9C59990092272A /* Data.o in Frameworks */,
+				216A5B371F9C59990092272A /* BeringeiTimeSeries.o in Frameworks */,
+				216A5B591F9C59990092272A /* TimeSeries.o in Frameworks */,
+				216A5B3B1F9C59990092272A /* DataMap.o in Frameworks */,
+				216A5B4F1F9C59990092272A /* RingArrayTimeSeries.o in Frameworks */,
+				216A5B5F1F9C59990092272A /* TSmapStore.o in Frameworks */,
+				216A5B3D1F9C59990092272A /* DataPoint.o in Frameworks */,
+				216A5B431F9C59990092272A /* GraphiteStore.o in Frameworks */,
+				216A5B551F9C59990092272A /* StaticArrayTimeSeries.o in Frameworks */,
+				216A5B531F9C59990092272A /* SQLiteStore.o in Frameworks */,
+				216A5B4B1F9C59990092272A /* Query.o in Frameworks */,
+				216A5B3F1F9C59990092272A /* DataPoints.o in Frameworks */,
+				216A5B351F9C59990092272A /* ArrayTimeSeries.o in Frameworks */,
+				216A5B5D1F9C59990092272A /* TimeSeriesMapStore.o in Frameworks */,
+				216A5B5B1F9C59990092272A /* TimeSeriesMap.o in Frameworks */,
+				216A5B491F9C59990092272A /* NarrowTableStore.o in Frameworks */,
+				216A5B451F9C59990092272A /* MatrixStore.o in Frameworks */,
+				216A5B471F9C59990092272A /* MemStore.o in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +259,127 @@
 			path = net;
 			sourceTree = "<group>";
 		};
+		216A5ADA1F9C597B0092272A /* metric */ = {
+			isa = PBXGroup;
+			children = (
+				216A5ADB1F9C597B0092272A /* DataPoint.h */,
+				216A5ADC1F9C597B0092272A /* MemStore.h */,
+				216A5ADD1F9C597B0092272A /* Metric.h */,
+				216A5ADE1F9C597B0092272A /* Query.h */,
+				216A5ADF1F9C597B0092272A /* ResultSet.h */,
+				216A5AE01F9C597B0092272A /* Store.h */,
+				216A5AE11F9C597B0092272A /* TimeSeries.h */,
+				216A5AE21F9C597B0092272A /* TimeSeriesMap.h */,
+			);
+			path = metric;
+			sourceTree = "<group>";
+		};
+		216A5AEB1F9C59830092272A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				216A5AEC1F9C59830092272A /* Util.h */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		216A5AEE1F9C59990092272A /* metric */ = {
+			isa = PBXGroup;
+			children = (
+				216A5AEF1F9C59990092272A /* .deps */,
+				216A5B071F9C59990092272A /* .dirstamp */,
+				216A5B081F9C59990092272A /* ArrayTimeSeries.cpp */,
+				216A5B091F9C59990092272A /* ArrayTimeSeries.o */,
+				216A5B0A1F9C59990092272A /* BeringeiTimeSeries.cpp */,
+				216A5B0B1F9C59990092272A /* BeringeiTimeSeries.o */,
+				216A5B0C1F9C59990092272A /* Data.cpp */,
+				216A5B0D1F9C59990092272A /* Data.o */,
+				216A5B0E1F9C59990092272A /* DataMap.cpp */,
+				216A5B0F1F9C59990092272A /* DataMap.o */,
+				216A5B101F9C59990092272A /* DataPoint.cpp */,
+				216A5B111F9C59990092272A /* DataPoint.o */,
+				216A5B121F9C59990092272A /* DataPoints.cpp */,
+				216A5B131F9C59990092272A /* DataPoints.o */,
+				216A5B141F9C59990092272A /* DataPointsMap.cpp */,
+				216A5B151F9C59990092272A /* DataPointsMap.o */,
+				216A5B161F9C59990092272A /* GraphiteStore.cpp */,
+				216A5B171F9C59990092272A /* GraphiteStore.o */,
+				216A5B181F9C59990092272A /* MatrixStore.cpp */,
+				216A5B191F9C59990092272A /* MatrixStore.o */,
+				216A5B1A1F9C59990092272A /* MemStore.cpp */,
+				216A5B1B1F9C59990092272A /* MemStore.o */,
+				216A5B1C1F9C59990092272A /* NarrowTableStore.cpp */,
+				216A5B1D1F9C59990092272A /* NarrowTableStore.o */,
+				216A5B1E1F9C59990092272A /* Query.cpp */,
+				216A5B1F1F9C59990092272A /* Query.o */,
+				216A5B201F9C59990092272A /* ResultSet.cpp */,
+				216A5B211F9C59990092272A /* ResultSet.o */,
+				216A5B221F9C59990092272A /* RingArrayTimeSeries.cpp */,
+				216A5B231F9C59990092272A /* RingArrayTimeSeries.o */,
+				216A5B241F9C59990092272A /* RingMapStore.cpp */,
+				216A5B251F9C59990092272A /* RingMapStore.o */,
+				216A5B261F9C59990092272A /* SQLiteStore.cpp */,
+				216A5B271F9C59990092272A /* SQLiteStore.o */,
+				216A5B281F9C59990092272A /* StaticArrayTimeSeries.cpp */,
+				216A5B291F9C59990092272A /* StaticArrayTimeSeries.o */,
+				216A5B2A1F9C59990092272A /* Store.cpp */,
+				216A5B2B1F9C59990092272A /* Store.o */,
+				216A5B2C1F9C59990092272A /* TimeSeries.cpp */,
+				216A5B2D1F9C59990092272A /* TimeSeries.o */,
+				216A5B2E1F9C59990092272A /* TimeSeriesMap.cpp */,
+				216A5B2F1F9C59990092272A /* TimeSeriesMap.o */,
+				216A5B301F9C59990092272A /* TimeSeriesMapStore.cpp */,
+				216A5B311F9C59990092272A /* TimeSeriesMapStore.o */,
+				216A5B321F9C59990092272A /* TSmapStore.cpp */,
+				216A5B331F9C59990092272A /* TSmapStore.o */,
+			);
+			path = metric;
+			sourceTree = "<group>";
+		};
+		216A5AEF1F9C59990092272A /* .deps */ = {
+			isa = PBXGroup;
+			children = (
+				216A5AF01F9C59990092272A /* .dirstamp */,
+				216A5AF11F9C59990092272A /* ArrayTimeSeries.Po */,
+				216A5AF21F9C59990092272A /* BeringeiTimeSeries.Po */,
+				216A5AF31F9C59990092272A /* Data.Po */,
+				216A5AF41F9C59990092272A /* DataMap.Po */,
+				216A5AF51F9C59990092272A /* DataPoint.Po */,
+				216A5AF61F9C59990092272A /* DataPoints.Po */,
+				216A5AF71F9C59990092272A /* DataPointsMap.Po */,
+				216A5AF81F9C59990092272A /* GraphiteStore.Po */,
+				216A5AF91F9C59990092272A /* MatrixStore.Po */,
+				216A5AFA1F9C59990092272A /* MemStore.Po */,
+				216A5AFB1F9C59990092272A /* NarrowTableStore.Po */,
+				216A5AFC1F9C59990092272A /* Query.Po */,
+				216A5AFD1F9C59990092272A /* ResultSet.Po */,
+				216A5AFE1F9C59990092272A /* RingArrayTimeSeries.Po */,
+				216A5AFF1F9C59990092272A /* RingMapStore.Po */,
+				216A5B001F9C59990092272A /* SQLiteStore.Po */,
+				216A5B011F9C59990092272A /* StaticArrayTimeSeries.Po */,
+				216A5B021F9C59990092272A /* Store.Po */,
+				216A5B031F9C59990092272A /* TimeSeries.Po */,
+				216A5B041F9C59990092272A /* TimeSeriesMap.Po */,
+				216A5B051F9C59990092272A /* TimeSeriesMapStore.Po */,
+				216A5B061F9C59990092272A /* TSmapStore.Po */,
+			);
+			path = .deps;
+			sourceTree = "<group>";
+		};
+		216A5B601F9C5B8E0092272A /* metric */ = {
+			isa = PBXGroup;
+			children = (
+				216A5B6B1F9C5B8E0092272A /* datapoint_c.cpp */,
+				216A5B6D1F9C5B8E0092272A /* datapoints_c.cpp */,
+				216A5B6F1F9C5B8E0092272A /* metric_c.cpp */,
+				216A5B711F9C5B8E0092272A /* query_c.cpp */,
+				216A5B731F9C5B8E0092272A /* resultset_c.cpp */,
+				216A5B751F9C5B8E0092272A /* store_c.cpp */,
+				216A5B771F9C5B8E0092272A /* store_c_factory.cpp */,
+			);
+			name = metric;
+			path = clang/metric;
+			sourceTree = "<group>";
+		};
 		217109EB1E867B1D004B2CF6 /* beringei */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +413,8 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				21C85ED31F9C459900D59EAE /* metric */,
-				21C85ED21F9C458900D59EAE /* util */,
+				216A5AEB1F9C59830092272A /* util */,
+				216A5ADA1F9C597B0092272A /* metric */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
 				218D47C81F503251002A3FA2 /* foreman-c.h */,
 				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
@@ -226,8 +437,8 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				216A5AEE1F9C59990092272A /* metric */,
 				21C85F131F9C4BB000D59EAE /* util */,
-				21C85EE61F9C4A5600D59EAE /* metric */,
 				218D47CA1F503778002A3FA2 /* clang */,
 				2129D19F1E96940500FCA490 /* net */,
 			);
@@ -238,64 +449,9 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
-				21C85F241F9C536F00D59EAE /* metric */,
+				216A5B601F9C5B8E0092272A /* metric */,
 			);
 			name = clang;
-			sourceTree = "<group>";
-		};
-		21C85ED21F9C458900D59EAE /* util */ = {
-			isa = PBXGroup;
-			children = (
-				21C85EE41F9C45DD00D59EAE /* Util.h */,
-			);
-			name = util;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		21C85ED31F9C459900D59EAE /* metric */ = {
-			isa = PBXGroup;
-			children = (
-				21C85ED61F9C45CE00D59EAE /* DataPoint.h */,
-				21C85ED81F9C45CE00D59EAE /* MemStore.h */,
-				21C85ED91F9C45CF00D59EAE /* Metric.h */,
-				21C85ED51F9C45CE00D59EAE /* Query.h */,
-				21C85ED41F9C45CE00D59EAE /* ResultSet.h */,
-				21C85EDB1F9C45CF00D59EAE /* Store.h */,
-				21C85ED71F9C45CE00D59EAE /* TimeSeries.h */,
-				21C85EDA1F9C45CF00D59EAE /* TimeSeriesMap.h */,
-			);
-			name = metric;
-			path = "New Group1";
-			sourceTree = "<group>";
-		};
-		21C85EE61F9C4A5600D59EAE /* metric */ = {
-			isa = PBXGroup;
-			children = (
-				21C85EFA1F9C4A8000D59EAE /* ArrayTimeSeries.cpp */,
-				21C85EF31F9C4A8000D59EAE /* BeringeiTimeSeries.cpp */,
-				21C85EF71F9C4A8000D59EAE /* Data.cpp */,
-				21C85EEF1F9C4A8000D59EAE /* DataMap.cpp */,
-				21C85EF21F9C4A8000D59EAE /* DataPoint.cpp */,
-				21C85EF41F9C4A8000D59EAE /* DataPoints.cpp */,
-				21C85EF51F9C4A8000D59EAE /* DataPointsMap.cpp */,
-				21C85EEB1F9C4A7F00D59EAE /* GraphiteStore.cpp */,
-				21C85EF61F9C4A8000D59EAE /* MatrixStore.cpp */,
-				21C85EE71F9C4A7F00D59EAE /* MemStore.cpp */,
-				21C85EED1F9C4A7F00D59EAE /* NarrowTableStore.cpp */,
-				21C85EF01F9C4A8000D59EAE /* Query.cpp */,
-				21C85EEC1F9C4A7F00D59EAE /* ResultSet.cpp */,
-				21C85EFC1F9C4A8100D59EAE /* RingArrayTimeSeries.cpp */,
-				21C85EF81F9C4A8000D59EAE /* RingMapStore.cpp */,
-				21C85EE91F9C4A7F00D59EAE /* SQLiteStore.cpp */,
-				21C85EF91F9C4A8000D59EAE /* StaticArrayTimeSeries.cpp */,
-				21C85EF11F9C4A8000D59EAE /* Store.cpp */,
-				21C85EE81F9C4A7F00D59EAE /* TimeSeries.cpp */,
-				21C85EEA1F9C4A7F00D59EAE /* TimeSeriesMap.cpp */,
-				21C85EEE1F9C4A8000D59EAE /* TimeSeriesMapStore.cpp */,
-				21C85EFB1F9C4A8100D59EAE /* TSmapStore.cpp */,
-			);
-			name = metric;
-			path = metirc;
 			sourceTree = "<group>";
 		};
 		21C85F131F9C4BB000D59EAE /* util */ = {
@@ -306,21 +462,6 @@
 			name = util;
 			sourceTree = "<group>";
 		};
-		21C85F241F9C536F00D59EAE /* metric */ = {
-			isa = PBXGroup;
-			children = (
-				21C85F2B1F9C538E00D59EAE /* datapoint_c.cpp */,
-				21C85F291F9C538E00D59EAE /* datapoints_c.cpp */,
-				21C85F271F9C538E00D59EAE /* metric_c.cpp */,
-				21C85F251F9C538D00D59EAE /* query_c.cpp */,
-				21C85F2A1F9C538E00D59EAE /* resultset_c.cpp */,
-				21C85F281F9C538E00D59EAE /* store_c_factory.cpp */,
-				21C85F261F9C538E00D59EAE /* store_c.cpp */,
-			);
-			name = metric;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -328,25 +469,25 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C85EE31F9C45CF00D59EAE /* Store.h in Headers */,
+				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
-				21C85EE11F9C45CF00D59EAE /* Metric.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
-				21C85EDD1F9C45CF00D59EAE /* Query.h in Headers */,
-				21C85EE21F9C45CF00D59EAE /* TimeSeriesMap.h in Headers */,
-				21C85EDF1F9C45CF00D59EAE /* TimeSeries.h in Headers */,
+				216A5AE61F9C597B0092272A /* Query.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
+				216A5AE91F9C597B0092272A /* TimeSeries.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
-				21C85EDC1F9C45CF00D59EAE /* ResultSet.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
-				21C85EDE1F9C45CF00D59EAE /* DataPoint.h in Headers */,
-				21C85EE51F9C45DD00D59EAE /* Util.h in Headers */,
+				216A5AEA1F9C597B0092272A /* TimeSeriesMap.h in Headers */,
+				216A5AE81F9C597B0092272A /* Store.h in Headers */,
+				216A5AE41F9C597B0092272A /* MemStore.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
+				216A5AED1F9C59830092272A /* Util.h in Headers */,
+				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
+				216A5AE31F9C597B0092272A /* DataPoint.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
-				21C85EE01F9C45CF00D59EAE /* MemStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,41 +548,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216A5B7B1F9C5B8E0092272A /* datapoints_c.cpp in Sources */,
 				2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */,
-				21C85F121F9C4A8100D59EAE /* RingArrayTimeSeries.cpp in Sources */,
-				21C85EFF1F9C4A8100D59EAE /* SQLiteStore.cpp in Sources */,
-				21C85F011F9C4A8100D59EAE /* GraphiteStore.cpp in Sources */,
-				21C85F0D1F9C4A8100D59EAE /* Data.cpp in Sources */,
-				21C85F0F1F9C4A8100D59EAE /* StaticArrayTimeSeries.cpp in Sources */,
-				21C85F301F9C538E00D59EAE /* datapoints_c.cpp in Sources */,
-				21C85EFD1F9C4A8100D59EAE /* MemStore.cpp in Sources */,
-				21C85F111F9C4A8100D59EAE /* TSmapStore.cpp in Sources */,
-				21C85F0C1F9C4A8100D59EAE /* MatrixStore.cpp in Sources */,
-				21C85F2D1F9C538E00D59EAE /* store_c.cpp in Sources */,
-				21C85F2F1F9C538E00D59EAE /* store_c_factory.cpp in Sources */,
-				21C85F051F9C4A8100D59EAE /* DataMap.cpp in Sources */,
+				216A5B381F9C59990092272A /* Data.cpp in Sources */,
+				216A5B421F9C59990092272A /* GraphiteStore.cpp in Sources */,
+				216A5B341F9C59990092272A /* ArrayTimeSeries.cpp in Sources */,
+				216A5B5C1F9C59990092272A /* TimeSeriesMapStore.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
-				21C85F081F9C4A8100D59EAE /* DataPoint.cpp in Sources */,
-				21C85F321F9C538E00D59EAE /* datapoint_c.cpp in Sources */,
-				21C85F071F9C4A8100D59EAE /* Store.cpp in Sources */,
-				21C85F0A1F9C4A8100D59EAE /* DataPoints.cpp in Sources */,
-				21C85F061F9C4A8100D59EAE /* Query.cpp in Sources */,
-				21C85F001F9C4A8100D59EAE /* TimeSeriesMap.cpp in Sources */,
-				21C85F2C1F9C538E00D59EAE /* query_c.cpp in Sources */,
-				21C85F041F9C4A8100D59EAE /* TimeSeriesMapStore.cpp in Sources */,
-				21C85EFE1F9C4A8100D59EAE /* TimeSeries.cpp in Sources */,
+				216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */,
+				216A5B481F9C59990092272A /* NarrowTableStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
-				21C85F311F9C538E00D59EAE /* resultset_c.cpp in Sources */,
-				21C85F0B1F9C4A8100D59EAE /* DataPointsMap.cpp in Sources */,
+				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
+				216A5B5A1F9C59990092272A /* TimeSeriesMap.cpp in Sources */,
+				216A5B461F9C59990092272A /* MemStore.cpp in Sources */,
+				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
+				216A5B501F9C59990092272A /* RingMapStore.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
-				21C85F0E1F9C4A8100D59EAE /* RingMapStore.cpp in Sources */,
-				21C85F031F9C4A8100D59EAE /* NarrowTableStore.cpp in Sources */,
-				21C85F021F9C4A8100D59EAE /* ResultSet.cpp in Sources */,
-				21C85F101F9C4A8100D59EAE /* ArrayTimeSeries.cpp in Sources */,
-				21C85F091F9C4A8100D59EAE /* BeringeiTimeSeries.cpp in Sources */,
+				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
 				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
-				21C85F2E1F9C538E00D59EAE /* metric_c.cpp in Sources */,
+				216A5B441F9C59990092272A /* MatrixStore.cpp in Sources */,
+				216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */,
+				216A5B4E1F9C59990092272A /* RingArrayTimeSeries.cpp in Sources */,
+				216A5B7F1F9C5B8E0092272A /* query_c.cpp in Sources */,
+				216A5B811F9C5B8E0092272A /* resultset_c.cpp in Sources */,
+				216A5B521F9C59990092272A /* SQLiteStore.cpp in Sources */,
+				216A5B5E1F9C59990092272A /* TSmapStore.cpp in Sources */,
+				216A5B581F9C59990092272A /* TimeSeries.cpp in Sources */,
+				216A5B361F9C59990092272A /* BeringeiTimeSeries.cpp in Sources */,
+				216A5B561F9C59990092272A /* Store.cpp in Sources */,
+				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
+				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
+				216A5B541F9C59990092272A /* StaticArrayTimeSeries.cpp in Sources */,
+				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
+				216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */,
+				216A5B791F9C5B8E0092272A /* datapoint_c.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,8 +636,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
 					../../../include,
+					/usr/local/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -546,8 +687,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
 					../../../include,
+					/usr/local/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
