@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ./beringei_setup
 pushd include/foreman && ./Const.h.build && popd
 
 pushd include && ./Makefile.am.build > Makefile.am && popd

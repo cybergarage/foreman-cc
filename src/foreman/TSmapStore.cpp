@@ -16,6 +16,8 @@
 
 using namespace Foreman;
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 ////////////////////////////////////////////////
 // TSmapStore
 ////////////////////////////////////////////////
@@ -44,3 +46,5 @@ bool TSmapStore::isOpened() { return true; }
 ////////////////////////////////////////////////
 
 bool TSmapStore::close() { return true; }
+
+#endif
