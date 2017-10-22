@@ -12,7 +12,7 @@
 
 #include <foreman/metric/MemStore.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // MemStore

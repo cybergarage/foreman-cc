@@ -8,10 +8,10 @@
  *
  ******************************************************************/
 
-#include <foreman/Foreman.h>
 #include <foreman/foreman-c.h>
+#include <foreman/metric/MemStore.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // foreman_store_matrix_create

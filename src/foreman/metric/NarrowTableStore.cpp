@@ -15,7 +15,7 @@
 #include <foreman/metric/MemStore.h>
 #include <foreman/util/Util.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // NarrowTableStore
@@ -102,7 +102,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
     return false;
   sm->name = m->name;
   sm->rowId = rowId;
-  return MemStore::addMetric(std::shared_ptr<Foreman::Metric>(sm));
+  return MemStore::addMetric(std::shared_ptr<Foreman::Metric::Metric>(sm));
 }
 
 ////////////////////////////////////////////////

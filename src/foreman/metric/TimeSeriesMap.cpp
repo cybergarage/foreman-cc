@@ -10,7 +10,7 @@
 
 #include <foreman/metric/TimeSeriesMap.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // TimeSeriesMap

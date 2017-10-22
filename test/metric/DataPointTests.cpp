@@ -12,7 +12,7 @@
 
 #include <foreman/metric/DataPoint.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 BOOST_AUTO_TEST_CASE(NewDataPointTest)
 {

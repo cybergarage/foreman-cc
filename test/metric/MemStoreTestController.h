@@ -30,7 +30,7 @@ class MemStoreTestContoller {
   MemStoreTestContoller();
   virtual ~MemStoreTestContoller();
 
-  void run(Foreman::MemStore* store);
+  void run(Foreman::Metric::MemStore* store);
 };
 
 #endif

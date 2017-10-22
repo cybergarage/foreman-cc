@@ -11,7 +11,7 @@
 #include <foreman/metric/TimeSeries.h>
 #include <foreman/util/Util.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 
