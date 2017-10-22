@@ -12,6 +12,9 @@
 /stamp-h1
 /stamp-h2
 Makefile
+.deps
+.dirstamp
+
 
 # Compiled Object files
 *.slo
