@@ -20,200 +20,202 @@
 #include <foreman/net/Graphite.h>
 
 namespace Foreman {
+namespace Metric {
 
-////////////////////////////////////////////////
-// MemStore
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // MemStore
+  ////////////////////////////////////////////////
 
-class MemStore : public Store {
-  public:
-  MemStore();
-  virtual ~MemStore();
+  class MemStore : public Store {
+public:
+    MemStore();
+    virtual ~MemStore();
 
-  virtual bool clear()
-  {
-    return true;
-  }
+    virtual bool clear()
+    {
+      return true;
+    }
 
-  virtual bool realloc()
-  {
-    return true;
-  }
+    virtual bool realloc()
+    {
+      return true;
+    }
 
-  virtual size_t getMemoryUsage()
-  {
-    return 0;
-  }
+    virtual size_t getMemoryUsage()
+    {
+      return 0;
+    }
 
-  virtual bool setRetentionInterval(time_t sec)
-  {
-    retentionInterval_ = sec;
-    return true;
+    virtual bool setRetentionInterval(time_t sec)
+    {
+      retentionInterval_ = sec;
+      return true;
+    };
+
+    time_t getRetentionInterval()
+    {
+      return retentionInterval_;
+    };
+
+    virtual bool setRetentionPeriod(time_t sec)
+    {
+      retentionPeriod_ = sec;
+      return true;
+    };
+
+    time_t getRetentionPeriod()
+    {
+      return retentionPeriod_;
+    };
+
+    size_t getColumnCount();
+    size_t getRowCount();
+
+private:
+    time_t retentionInterval_;
+    time_t retentionPeriod_;
   };
 
-  time_t getRetentionInterval()
-  {
-    return retentionInterval_;
+  ////////////////////////////////////////////////
+  // SQLiteStore
+  ////////////////////////////////////////////////
+
+  class SQLiteMetric : public Metric {
+public:
+    SQLiteMetric(){};
+    int rowId;
   };
 
-  virtual bool setRetentionPeriod(time_t sec)
-  {
-    retentionPeriod_ = sec;
-    return true;
+  class SQLiteStore : public MemStore {
+public:
+    SQLiteStore();
+    ~SQLiteStore();
+
+    virtual bool open();
+
+    bool isOpened();
+    bool close();
+
+    bool query(const std::string& query);
+    bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
+
+protected:
+    sqlite3* db_;
   };
 
-  time_t getRetentionPeriod()
-  {
-    return retentionPeriod_;
+  ////////////////////////////////////////////////
+  // NarrowTableStore
+  ////////////////////////////////////////////////
+
+  class NarrowTableStore : public SQLiteStore {
+public:
+    NarrowTableStore();
+    ~NarrowTableStore();
+
+    bool open();
+    bool clear();
+    bool addMetric(std::shared_ptr<Metric> m);
+    bool addValue(const Metric& m);
+    bool getValues(Query* q, ResultSet* rs);
   };
 
-  size_t getColumnCount();
-  size_t getRowCount();
+  ////////////////////////////////////////////////
+  // TimeSeriesMapStore
+  ////////////////////////////////////////////////
 
-  private:
-  time_t retentionInterval_;
-  time_t retentionPeriod_;
-};
+  class TimeSeriesMapStore : public MemStore {
+public:
+    TimeSeriesMapStore();
+    virtual ~TimeSeriesMapStore();
 
-////////////////////////////////////////////////
-// SQLiteStore
-////////////////////////////////////////////////
+    bool addValue(const Metric& m);
+    bool getValues(Query* q, ResultSet* rs);
 
-class SQLiteMetric : public Metric {
-  public:
-  SQLiteMetric(){};
-  int rowId;
-};
+protected:
+    std::shared_ptr<TimeSeriesMap> tsMap_;
+  };
 
-class SQLiteStore : public MemStore {
-  public:
-  SQLiteStore();
-  ~SQLiteStore();
+  ////////////////////////////////////////////////
+  // MatrixStore
+  ////////////////////////////////////////////////
 
-  virtual bool open();
+  class MatrixTimeSeries : public StaticArrayTimeSeries {
+public:
+    MatrixTimeSeries(){};
+    ~MatrixTimeSeries(){};
+  };
 
-  bool isOpened();
-  bool close();
+  class MatrixStore : public TimeSeriesMapStore {
+public:
+    MatrixStore();
+    ~MatrixStore();
 
-  bool query(const std::string& query);
-  bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
+    bool open();
+    bool isOpened();
+    bool close();
 
-  protected:
-  sqlite3* db_;
-};
+    bool realloc();
+  };
 
-////////////////////////////////////////////////
-// NarrowTableStore
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // RingMapStore
+  ////////////////////////////////////////////////
 
-class NarrowTableStore : public SQLiteStore {
-  public:
-  NarrowTableStore();
-  ~NarrowTableStore();
+  class RingMapTimeSeries : public RingArrayTimeSeries {
+public:
+    RingMapTimeSeries(){};
+    ~RingMapTimeSeries(){};
+  };
 
-  bool open();
-  bool clear();
-  bool addMetric(std::shared_ptr<Metric> m);
-  bool addValue(const Metric& m);
-  bool getValues(Query* q, ResultSet* rs);
-};
+  class RingMapStore : public TimeSeriesMapStore {
+public:
+    RingMapStore();
+    ~RingMapStore();
 
-////////////////////////////////////////////////
-// TimeSeriesMapStore
-////////////////////////////////////////////////
+    bool open();
+    bool isOpened();
+    bool close();
+    bool realloc();
+  };
 
-class TimeSeriesMapStore : public MemStore {
-  public:
-  TimeSeriesMapStore();
-  virtual ~TimeSeriesMapStore();
+  ////////////////////////////////////////////////
+  // TSmapStore
+  ////////////////////////////////////////////////
 
-  bool addValue(const Metric& m);
-  bool getValues(Query* q, ResultSet* rs);
+  class TSmapStore : public TimeSeriesMapStore {
+public:
+    TSmapStore();
+    ~TSmapStore();
 
-  protected:
-  std::shared_ptr<TimeSeriesMap> tsMap_;
-};
+    bool open();
+    bool isOpened();
+    bool close();
+  };
 
-////////////////////////////////////////////////
-// MatrixStore
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // GraphiteStore
+  ////////////////////////////////////////////////
 
-class MatrixTimeSeries : public StaticArrayTimeSeries {
-  public:
-  MatrixTimeSeries(){};
-  ~MatrixTimeSeries(){};
-};
+  class GraphiteStore : public MemStore {
+public:
+    GraphiteStore();
+    ~GraphiteStore();
 
-class MatrixStore : public TimeSeriesMapStore {
-  public:
-  MatrixStore();
-  ~MatrixStore();
+    bool open();
+    bool isOpened();
+    bool close();
 
-  bool open();
-  bool isOpened();
-  bool close();
+    void setHost(const std::string& host);
+    void setCarbonPort(int port);
+    void setHttpPort(int port);
 
-  bool realloc();
-};
+    bool addValue(const Metric& m);
+    bool getValues(Query* q, ResultSet* rs);
 
-////////////////////////////////////////////////
-// RingMapStore
-////////////////////////////////////////////////
-
-class RingMapTimeSeries : public RingArrayTimeSeries {
-  public:
-  RingMapTimeSeries(){};
-  ~RingMapTimeSeries(){};
-};
-
-class RingMapStore : public TimeSeriesMapStore {
-  public:
-  RingMapStore();
-  ~RingMapStore();
-
-  bool open();
-  bool isOpened();
-  bool close();
-  bool realloc();
-};
-
-////////////////////////////////////////////////
-// TSmapStore
-////////////////////////////////////////////////
-
-class TSmapStore : public TimeSeriesMapStore {
-  public:
-  TSmapStore();
-  ~TSmapStore();
-
-  bool open();
-  bool isOpened();
-  bool close();
-};
-
-////////////////////////////////////////////////
-// GraphiteStore
-////////////////////////////////////////////////
-
-class GraphiteStore : public MemStore {
-  public:
-  GraphiteStore();
-  ~GraphiteStore();
-
-  bool open();
-  bool isOpened();
-  bool close();
-
-  void setHost(const std::string& host);
-  void setCarbonPort(int port);
-  void setHttpPort(int port);
-
-  bool addValue(const Metric& m);
-  bool getValues(Query* q, ResultSet* rs);
-
-  private:
-  Graphite graphite;
-};
+private:
+    Graphite graphite;
+  };
+}
 }
 
 #endif

@@ -11,7 +11,7 @@
 #include <foreman/foreman-c.h>
 #include <foreman/metric/Query.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // foreman_query_new

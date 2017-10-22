@@ -22,74 +22,76 @@
 #include <foreman/metric/Metric.h>
 
 namespace Foreman {
+namespace Metric {
 
-////////////////////////////////////////////////
-// Query
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // Query
+  ////////////////////////////////////////////////
 
-class Query {
-  public:
-  Query();
-  virtual ~Query();
+  class Query {
+public:
+    Query();
+    virtual ~Query();
 
-  bool setTarget(const std::string& value)
-  {
-    target = value;
-    return true;
-  }
+    bool setTarget(const std::string& value)
+    {
+      target = value;
+      return true;
+    }
 
-  bool setTarget(const Metric& m)
-  {
-    target = m.name.c_str();
-    return true;
-  }
+    bool setTarget(const Metric& m)
+    {
+      target = m.name.c_str();
+      return true;
+    }
 
-  const char* getTarget()
-  {
-    return target.c_str();
-  }
+    const char* getTarget()
+    {
+      return target.c_str();
+    }
 
-  bool setFrom(time_t value)
-  {
-    from = value;
-    return true;
-  }
+    bool setFrom(time_t value)
+    {
+      from = value;
+      return true;
+    }
 
-  time_t getFrom()
-  {
-    return from;
-  }
+    time_t getFrom()
+    {
+      return from;
+    }
 
-  bool setUntil(time_t value)
-  {
-    until = value;
-    return true;
-  }
+    bool setUntil(time_t value)
+    {
+      until = value;
+      return true;
+    }
 
-  time_t getUntil()
-  {
-    return until;
-  }
+    time_t getUntil()
+    {
+      return until;
+    }
 
-  bool setInterval(time_t value)
-  {
-    interval = value;
-    return true;
-  }
+    bool setInterval(time_t value)
+    {
+      interval = value;
+      return true;
+    }
 
-  time_t getInterval()
-  {
-    return interval;
-  }
+    time_t getInterval()
+    {
+      return interval;
+    }
 
-  bool getDataPointCount(size_t* count);
+    bool getDataPointCount(size_t* count);
 
-  public:
-  std::string target;
-  time_t from;
-  time_t until;
-  time_t interval;
-};
+public:
+    std::string target;
+    time_t from;
+    time_t until;
+    time_t interval;
+  };
+}
 }
 
 #endif

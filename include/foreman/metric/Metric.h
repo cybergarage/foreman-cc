@@ -21,49 +21,51 @@
 #include <foreman/Platform.h>
 
 namespace Foreman {
+namespace Metric {
 
-////////////////////////////////////////////////
-// Metric
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // Metric
+  ////////////////////////////////////////////////
 
-class Metric {
-  public:
-  Metric();
-  virtual ~Metric();
+  class Metric {
+public:
+    Metric();
+    virtual ~Metric();
 
-  std::string name;
-  double value;
-  time_t timestamp;
-};
+    std::string name;
+    double value;
+    time_t timestamp;
+  };
 
-////////////////////////////////////////////////
-// Metrics
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // Metrics
+  ////////////////////////////////////////////////
 
-typedef std::pair<std::string, std::shared_ptr<Metric>> MetricsPair;
+  typedef std::pair<std::string, std::shared_ptr<Metric>> MetricsPair;
 
-class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>> {
-  public:
-  MetricMap();
-  virtual ~MetricMap();
+  class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>> {
+public:
+    MetricMap();
+    virtual ~MetricMap();
 
-  bool addMetric(std::shared_ptr<Metric> m);
-  bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
-  std::shared_ptr<Metric> findMetric(const std::string& name);
-  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
-};
+    bool addMetric(std::shared_ptr<Metric> m);
+    bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
+    std::shared_ptr<Metric> findMetric(const std::string& name);
+    std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
+  };
 
-class Metrics : public std::vector<std::shared_ptr<Metric>> {
-  public:
-  Metrics(){};
-  virtual ~Metrics(){};
-  bool addMetric(const Metric& m)
-  {
-    std::shared_ptr<Foreman::Metric> cm = std::shared_ptr<Foreman::Metric>(new Foreman::Metric(m));
-    push_back(cm);
-    return true;
-  }
-};
+  class Metrics : public std::vector<std::shared_ptr<Metric>> {
+public:
+    Metrics(){};
+    virtual ~Metrics(){};
+    bool addMetric(const Metric& m)
+    {
+      std::shared_ptr<Foreman::Metric::Metric> cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
+      push_back(cm);
+      return true;
+    }
+  };
+}
 }
 
 #endif

@@ -16,7 +16,7 @@
 
 #include "MemStoreTestController.h"
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // MatrixStore

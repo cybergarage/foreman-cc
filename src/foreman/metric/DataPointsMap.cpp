@@ -10,7 +10,7 @@
 
 #include <foreman/metric/DataPoint.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // DataPointsMap
@@ -51,7 +51,7 @@ bool DataPointsMap::addDataPoints(const std::string& name, time_t from, time_t i
 {
   DataPoints* dps = findDataPoints(name);
   if (!dps) {
-    dps = new Foreman::DataPoints();
+    dps = new Foreman::Metric::DataPoints();
     if (!dps)
       return false;
     dps->setName(name);

@@ -10,7 +10,7 @@
 
 #include <foreman/metric/Metric.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // MetricMap

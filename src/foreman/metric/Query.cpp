@@ -12,7 +12,7 @@
 
 #include <foreman/metric/Query.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // Query

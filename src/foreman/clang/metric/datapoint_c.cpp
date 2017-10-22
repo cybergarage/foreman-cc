@@ -11,7 +11,7 @@
 #include <foreman/foreman-c.h>
 #include <foreman/metric/DataPoint.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // foreman_datapoint_gettimestamp

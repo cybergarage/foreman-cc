@@ -146,13 +146,13 @@ libforeman___a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
-	../../src/foreman/clang/datapoint_c.$(OBJEXT) \
-	../../src/foreman/clang/datapoints_c.$(OBJEXT) \
-	../../src/foreman/clang/metric_c.$(OBJEXT) \
-	../../src/foreman/clang/query_c.$(OBJEXT) \
-	../../src/foreman/clang/resultset_c.$(OBJEXT) \
-	../../src/foreman/clang/store_c.$(OBJEXT) \
-	../../src/foreman/clang/store_c_factory.$(OBJEXT) \
+	../../src/foreman/clang/metric/datapoint_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/datapoints_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/metric_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/query_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/resultset_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/store_c.$(OBJEXT) \
+	../../src/foreman/clang/metric/store_c_factory.$(OBJEXT) \
 	../../src/foreman/metric/ArrayTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/BeringeiTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/Data.$(OBJEXT) \
@@ -335,13 +335,13 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
-	../../src/foreman/clang/datapoint_c.cpp \
-	../../src/foreman/clang/datapoints_c.cpp \
-	../../src/foreman/clang/metric_c.cpp \
-	../../src/foreman/clang/query_c.cpp \
-	../../src/foreman/clang/resultset_c.cpp \
-	../../src/foreman/clang/store_c.cpp \
-	../../src/foreman/clang/store_c_factory.cpp \
+	../../src/foreman/clang/metric/datapoint_c.cpp \
+	../../src/foreman/clang/metric/datapoints_c.cpp \
+	../../src/foreman/clang/metric/metric_c.cpp \
+	../../src/foreman/clang/metric/query_c.cpp \
+	../../src/foreman/clang/metric/resultset_c.cpp \
+	../../src/foreman/clang/metric/store_c.cpp \
+	../../src/foreman/clang/metric/store_c_factory.cpp \
 	../../src/foreman/metric/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/Data.cpp \
@@ -448,33 +448,33 @@ clean-libLIBRARIES:
 ../../src/beringei/TimeSeriesStream.$(OBJEXT):  \
 	../../src/beringei/$(am__dirstamp) \
 	../../src/beringei/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/$(am__dirstamp):
-	@$(MKDIR_P) ../../src/foreman/clang
-	@: > ../../src/foreman/clang/$(am__dirstamp)
-../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../../src/foreman/clang/$(DEPDIR)
-	@: > ../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/datapoint_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/datapoints_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/metric_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/query_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/resultset_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/store_c.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/clang/store_c_factory.$(OBJEXT):  \
-	../../src/foreman/clang/$(am__dirstamp) \
-	../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/clang/metric
+	@: > ../../src/foreman/clang/metric/$(am__dirstamp)
+../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/clang/metric/$(DEPDIR)
+	@: > ../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/datapoint_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/datapoints_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/metric_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/query_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/resultset_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/store_c.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/metric/store_c_factory.$(OBJEXT):  \
+	../../src/foreman/clang/metric/$(am__dirstamp) \
+	../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/metric
 	@: > ../../src/foreman/metric/$(am__dirstamp)
@@ -580,7 +580,7 @@ libforeman++.a: $(libforeman___a_OBJECTS) $(libforeman___a_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ../../src/beringei/*.$(OBJEXT)
-	-rm -f ../../src/foreman/clang/*.$(OBJEXT)
+	-rm -f ../../src/foreman/clang/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/net/*.$(OBJEXT)
 	-rm -f ../../src/foreman/util/*.$(OBJEXT)
@@ -590,13 +590,13 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/BitUtil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/datapoint_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/datapoints_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/metric_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/query_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/resultset_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/store_c.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/$(DEPDIR)/store_c_factory.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/datapoint_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/datapoints_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/metric_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/query_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/resultset_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/store_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/store_c_factory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/ArrayTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/BeringeiTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Data.Po@am__quote@
@@ -757,8 +757,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f ../../src/beringei/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/beringei/$(am__dirstamp)
-	-rm -f ../../src/foreman/clang/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../../src/foreman/clang/$(am__dirstamp)
+	-rm -f ../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/clang/metric/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(am__dirstamp)
 	-rm -f ../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
@@ -774,7 +774,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -820,7 +820,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
