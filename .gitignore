@@ -10,6 +10,8 @@
 /install-sh
 /missing
 /stamp-h1
+/stamp-h2
+Makefile
 
 # Compiled Object files
 *.slo
