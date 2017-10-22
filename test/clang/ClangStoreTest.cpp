@@ -18,9 +18,9 @@ using namespace Foreman;
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-static void TestClangStore(ForemanStore* store)
+static void TestClangStore(ForemanMetricStore* store)
 {
-  BOOST_CHECK(foreman_store_open(store));
+  BOOST_CHECK(foreman_metric_store_open(store));
 
   ForemanMetric* m[FORMANCC_TEST_LOOP_DEFAULT];
   char name[32];
@@ -42,45 +42,45 @@ static void TestClangStore(ForemanStore* store)
   for (n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
     BOOST_CHECK(foreman_metric_settimestamp(m[n], from));
     BOOST_CHECK(foreman_metric_setvalue(m[n], (double)n));
-    BOOST_CHECK(foreman_store_addmetric(store, m[n]));
+    BOOST_CHECK(foreman_metric_store_addmetric(store, m[n]));
   }
 
   // Query metric values
 
-  ForemanQuery* q = foreman_query_new();
-  BOOST_CHECK(foreman_query_setfrom(q, from));
-  BOOST_CHECK(foreman_query_setuntil(q, until));
-  BOOST_CHECK(foreman_query_setinterval(q, interval));
+  ForemanMetricQuery* q = foreman_metric_query_new();
+  BOOST_CHECK(foreman_metric_query_setfrom(q, from));
+  BOOST_CHECK(foreman_metric_query_setuntil(q, until));
+  BOOST_CHECK(foreman_metric_query_setinterval(q, interval));
   for (n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
     const char* mname;
     BOOST_CHECK(foreman_metric_getname(m[n], &mname));
-    BOOST_CHECK(foreman_query_settarget(q, mname));
+    BOOST_CHECK(foreman_metric_query_settarget(q, mname));
 
-    ForemanResultSet* rs = foreman_resultset_new();
-    BOOST_CHECK(foreman_store_query(store, q, rs));
+    ForemanMetricResultSet* rs = foreman_metric_resultset_new();
+    BOOST_CHECK(foreman_metric_store_query(store, q, rs));
 
-    BOOST_CHECK_EQUAL(foreman_resultset_getdatapointcount(rs), 1);
-    ForemanDataPoints* dps = foreman_resultset_finddatapoints(rs, mname);
+    BOOST_CHECK_EQUAL(foreman_metric_resultset_getdatapointcount(rs), 1);
+    ForemanMetricDataPoints* dps = foreman_metric_resultset_finddatapoints(rs, mname);
     BOOST_CHECK(dps);
 
-    BOOST_CHECK_EQUAL(foreman_datapoints_size(dps), 1);
-    ForemanDataPoint* dp = foreman_datapoints_get(dps, 0);
-    double rsValue = foreman_datapoint_getvalue(dp);
+    BOOST_CHECK_EQUAL(foreman_metric_datapoints_size(dps), 1);
+    ForemanMetricDataPoints* dp = foreman_metric_datapoints_get(dps, 0);
+    double rsValue = foreman_metric_datapoint_getvalue(dp);
     BOOST_CHECK_EQUAL((int)rsValue, n);
 
-    BOOST_CHECK(foreman_resultset_delete(rs));
+    BOOST_CHECK(foreman_metric_resultset_delete(rs));
   }
 
   for (n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
     BOOST_CHECK(foreman_metric_delete(m[n]));
   }
 
-  BOOST_CHECK(foreman_store_close(store));
+  BOOST_CHECK(foreman_metric_store_close(store));
 }
 
 BOOST_AUTO_TEST_CASE(ClangStore)
 {
-  TestClangStore(foreman_store_sqlite_create());
+  TestClangStore(foreman_metric_store_sqlite_create());
 }
 
 BOOST_AUTO_TEST_SUITE_END()

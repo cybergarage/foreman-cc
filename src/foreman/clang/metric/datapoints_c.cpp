@@ -14,10 +14,10 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// foreman_datapoints_getname
+// foreman_metric_datapoints_getname
 ////////////////////////////////////////////////
 
-const char* foreman_datapoints_getname(ForemanDataPoints* dps)
+const char* foreman_metric_datapoints_getname(ForemanMetricDataPoints* dps)
 {
   if (!dps)
     return "";
@@ -25,10 +25,10 @@ const char* foreman_datapoints_getname(ForemanDataPoints* dps)
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_size
+// foreman_metric_datapoints_size
 ////////////////////////////////////////////////
 
-size_t foreman_datapoints_size(ForemanDataPoints* dps)
+size_t foreman_metric_datapoints_size(ForemanMetricDataPoints* dps)
 {
   if (!dps)
     return 0;
@@ -36,10 +36,10 @@ size_t foreman_datapoints_size(ForemanDataPoints* dps)
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_get
+// foreman_metric_datapoints_get
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n)
+ForemanMetricDataPoint* foreman_metric_datapoints_get(ForemanMetricDataPoints* dps, size_t n)
 {
   if (!dps)
     return NULL;

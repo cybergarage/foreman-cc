@@ -14,10 +14,10 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// foreman_datapoint_gettimestamp
+// foreman_metric_datapoint_gettimestamp
 ////////////////////////////////////////////////
 
-time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp)
+time_t foreman_metric_datapoint_gettimestamp(ForemanMetricDataPoint* dp)
 {
   if (!dp)
     return 0;
@@ -25,10 +25,10 @@ time_t foreman_datapoint_gettimestamp(ForemanDataPoint* dp)
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoint_getvalue
+// foreman_metric_datapoint_getvalue
 ////////////////////////////////////////////////
 
-double foreman_datapoint_getvalue(ForemanDataPoint* dp)
+double foreman_metric_datapoint_getvalue(ForemanMetricDataPoint* dp)
 {
   if (!dp)
     return 0.0;

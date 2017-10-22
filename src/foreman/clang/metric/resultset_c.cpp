@@ -14,19 +14,19 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// foreman_resultset_new
+// foreman_metric_resultset_new
 ////////////////////////////////////////////////
 
-ForemanResultSet* foreman_resultset_new()
+ForemanMetricResultSet* foreman_metric_resultset_new()
 {
   return new ResultSet();
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_delete
+// foreman_metric_resultset_delete
 ////////////////////////////////////////////////
 
-bool foreman_resultset_delete(ForemanResultSet* rs)
+bool foreman_metric_resultset_delete(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return false;
@@ -35,10 +35,10 @@ bool foreman_resultset_delete(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_getdatapointcount
+// foreman_metric_resultset_getdatapointcount
 ////////////////////////////////////////////////
 
-size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs)
+size_t foreman_metric_resultset_getdatapointcount(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return 0;
@@ -46,10 +46,10 @@ size_t foreman_resultset_getdatapointcount(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_firstdatapoints
+// foreman_metric_resultset_firstdatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoints* foreman_resultset_firstdatapoints(ForemanResultSet* rs)
+ForemanMetricDataPoints* foreman_metric_resultset_firstdatapoints(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -58,10 +58,10 @@ ForemanDataPoints* foreman_resultset_firstdatapoints(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_nextdatapoints
+// foreman_metric_resultset_nextdatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoints* foreman_resultset_nextdatapoints(ForemanResultSet* rs)
+ForemanMetricDataPoints* foreman_metric_resultset_nextdatapoints(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -70,10 +70,10 @@ ForemanDataPoints* foreman_resultset_nextdatapoints(ForemanResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_resultset_finddatapoints
+// foreman_metric_resultset_finddatapoints
 ////////////////////////////////////////////////
 
-ForemanDataPoints* foreman_resultset_finddatapoints(ForemanResultSet* rs, const char* name)
+ForemanMetricDataPoints* foreman_metric_resultset_finddatapoints(ForemanMetricResultSet* rs, const char* name)
 {
   if (!rs)
     return NULL;

@@ -14,10 +14,10 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// foreman_store_delete
+// foreman_metric_store_delete
 ////////////////////////////////////////////////
 
-bool foreman_store_delete(ForemanStore* store)
+bool foreman_metric_store_delete(ForemanMetricStore* store)
 {
   if (!store)
     return false;
@@ -26,10 +26,10 @@ bool foreman_store_delete(ForemanStore* store)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_setretentioninterval
+// foreman_metric_store_setretentioninterval
 ////////////////////////////////////////////////
 
-bool foreman_store_setretentioninterval(ForemanStore* store, time_t value)
+bool foreman_metric_store_setretentioninterval(ForemanMetricStore* store, time_t value)
 {
   if (!store)
     return false;
@@ -37,10 +37,10 @@ bool foreman_store_setretentioninterval(ForemanStore* store, time_t value)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_getretentioninterval
+// foreman_metric_store_getretentioninterval
 ////////////////////////////////////////////////
 
-time_t foreman_store_getretentioninterval(ForemanStore* store)
+time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store)
 {
   if (!store)
     return 0;
@@ -48,10 +48,10 @@ time_t foreman_store_getretentioninterval(ForemanStore* store)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_open
+// foreman_metric_store_open
 ////////////////////////////////////////////////
 
-bool foreman_store_open(ForemanStore* store)
+bool foreman_metric_store_open(ForemanMetricStore* store)
 {
   if (!store)
     return false;
@@ -59,10 +59,10 @@ bool foreman_store_open(ForemanStore* store)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_close
+// foreman_metric_store_close
 ////////////////////////////////////////////////
 
-bool foreman_store_close(ForemanStore* store)
+bool foreman_metric_store_close(ForemanMetricStore* store)
 {
   if (!store)
     return false;
@@ -70,10 +70,10 @@ bool foreman_store_close(ForemanStore* store)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_addmetric
+// foreman_metric_store_addmetric
 ////////////////////////////////////////////////
 
-bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
+bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m)
 {
   if (!store || !m)
     return false;
@@ -89,10 +89,10 @@ bool foreman_store_addmetric(ForemanStore* store, ForemanMetric* m)
 }
 
 ////////////////////////////////////////////////
-// foreman_store_query
+// foreman_metric_store_query
 ////////////////////////////////////////////////
 
-bool foreman_store_query(ForemanStore* store, ForemanQuery* q, ForemanResultSet* rs)
+bool foreman_metric_store_query(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
 {
   if (!store || !q || !rs)
     return false;
