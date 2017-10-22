@@ -14,39 +14,39 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// foreman_store_matrix_create
+// foreman_metric_store_matrix_create
 ////////////////////////////////////////////////
 
-ForemanStore* foreman_store_matrix_create()
+ForemanMetricStore* foreman_metric_store_matrix_create()
 {
   return new MatrixStore();
 }
 
 ////////////////////////////////////////////////
-// foreman_store_ringmap_create
+// foreman_metric_store_ringmap_create
 ////////////////////////////////////////////////
 
-ForemanStore* foreman_store_ringmap_create()
+ForemanMetricStore* foreman_metric_store_ringmap_create()
 {
   return new RingMapStore();
 }
 
 ////////////////////////////////////////////////
-// foreman_store_sqlite_create
+// foreman_metric_store_sqlite_create
 ////////////////////////////////////////////////
 
-ForemanStore* foreman_store_sqlite_create()
+ForemanMetricStore* foreman_metric_store_sqlite_create()
 {
   return new NarrowTableStore();
 }
 
 ////////////////////////////////////////////////
-// foreman_store_tsmap_create
+// foreman_metric_store_tsmap_create
 ////////////////////////////////////////////////
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 
-ForemanStore* foreman_store_tsmap_create()
+ForemanMetricStore* foreman_metric_store_tsmap_create()
 {
   return new TSmapStore();
 }
