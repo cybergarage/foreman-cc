@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) 2017 Satoshi Konno
  *
@@ -8,40 +8,42 @@
  *
  ******************************************************************/
 
-#include <foreman/foreman-c.h>
-#include <foreman/metric/DataPoint.h>
+#include <math.h>
+
+#include <foreman/metric/MemStore.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// foreman_datapoints_getname
+// MemStore
 ////////////////////////////////////////////////
 
-const char* foreman_datapoints_getname(ForemanDataPoints* dps)
+MemStore::MemStore()
 {
-  if (!dps)
-    return "";
-  return ((DataPoints*)dps)->getName();
+  retentionInterval_ = 0;
+  retentionPeriod_ = 0;
+}
+
+MemStore::~MemStore()
+{
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_size
+// getColumnCount
 ////////////////////////////////////////////////
 
-size_t foreman_datapoints_size(ForemanDataPoints* dps)
+size_t MemStore::getColumnCount()
 {
-  if (!dps)
+  if (retentionInterval_ == 0)
     return 0;
-  return ((DataPoints*)dps)->size();
+  return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_get
+// getRowCount
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n)
+size_t MemStore::getRowCount()
 {
-  if (!dps)
-    return NULL;
-  return ((DataPoints*)dps)->at(n).get();
+  return metricMap_.size();
 }

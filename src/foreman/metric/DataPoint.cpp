@@ -8,13 +8,16 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMAN_H_
-#define _FOREMANCC_FOREMAN_H_
+#include <foreman/metric/DataPoint.h>
 
-#include <foreman/Const.h>
-#include <foreman/Platform.h>
-#include <foreman/metric/MemStore.h>
-#include <foreman/metric/Metric.h>
-#include <foreman/metric/TimeSeries.h>
+using namespace Foreman;
 
-#endif
+////////////////////////////////////////////////
+// DataPoint
+////////////////////////////////////////////////
+
+DataPoint::DataPoint()
+{
+}
+
+DataPoint::~DataPoint() {}

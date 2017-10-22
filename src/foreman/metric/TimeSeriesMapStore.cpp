@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) 2017 Satoshi Konno
  *
@@ -8,40 +8,37 @@
  *
  ******************************************************************/
 
-#include <foreman/foreman-c.h>
-#include <foreman/metric/DataPoint.h>
+#include <foreman/metric/MemStore.h>
 
 using namespace Foreman;
 
 ////////////////////////////////////////////////
-// foreman_datapoints_getname
+// TimeSeriesMapStore
 ////////////////////////////////////////////////
 
-const char* foreman_datapoints_getname(ForemanDataPoints* dps)
+TimeSeriesMapStore::TimeSeriesMapStore()
 {
-  if (!dps)
-    return "";
-  return ((DataPoints*)dps)->getName();
+  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
+}
+
+TimeSeriesMapStore::~TimeSeriesMapStore()
+{
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_size
+// addValue
 ////////////////////////////////////////////////
 
-size_t foreman_datapoints_size(ForemanDataPoints* dps)
+bool TimeSeriesMapStore::addValue(const Metric& m)
 {
-  if (!dps)
-    return 0;
-  return ((DataPoints*)dps)->size();
+  return tsMap_->addValue(m);
 }
 
 ////////////////////////////////////////////////
-// foreman_datapoints_get
+// getValues
 ////////////////////////////////////////////////
 
-ForemanDataPoint* foreman_datapoints_get(ForemanDataPoints* dps, size_t n)
+bool TimeSeriesMapStore::getValues(Query* q, ResultSet* rs)
 {
-  if (!dps)
-    return NULL;
-  return ((DataPoints*)dps)->at(n).get();
+  return tsMap_->getValues(q, rs);
 }

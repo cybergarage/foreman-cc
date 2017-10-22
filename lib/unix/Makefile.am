@@ -15,8 +15,6 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
-	../../src/foreman/ArrayTimeSeries.cpp \
-	../../src/foreman/BeringeiTimeSeries.cpp \
 	../../src/foreman/clang/datapoint_c.cpp \
 	../../src/foreman/clang/datapoints_c.cpp \
 	../../src/foreman/clang/metric_c.cpp \
@@ -24,30 +22,32 @@ foremancc_sources = \
 	../../src/foreman/clang/resultset_c.cpp \
 	../../src/foreman/clang/store_c.cpp \
 	../../src/foreman/clang/store_c_factory.cpp \
-	../../src/foreman/DataPoint.cpp \
-	../../src/foreman/DataPoints.cpp \
-	../../src/foreman/DataPointsMap.cpp \
-	../../src/foreman/GraphiteStore.cpp \
-	../../src/foreman/MatrixStore.cpp \
-	../../src/foreman/MemStore.cpp \
-	../../src/foreman/Metric.cpp \
-	../../src/foreman/MetricMap.cpp \
-	../../src/foreman/NarrowTableStore.cpp \
+	../../src/foreman/metric/ArrayTimeSeries.cpp \
+	../../src/foreman/metric/BeringeiTimeSeries.cpp \
+	../../src/foreman/metric/Data.cpp \
+	../../src/foreman/metric/DataMap.cpp \
+	../../src/foreman/metric/DataPoint.cpp \
+	../../src/foreman/metric/DataPoints.cpp \
+	../../src/foreman/metric/DataPointsMap.cpp \
+	../../src/foreman/metric/GraphiteStore.cpp \
+	../../src/foreman/metric/MatrixStore.cpp \
+	../../src/foreman/metric/MemStore.cpp \
+	../../src/foreman/metric/NarrowTableStore.cpp \
+	../../src/foreman/metric/Query.cpp \
+	../../src/foreman/metric/ResultSet.cpp \
+	../../src/foreman/metric/RingArrayTimeSeries.cpp \
+	../../src/foreman/metric/RingMapStore.cpp \
+	../../src/foreman/metric/SQLiteStore.cpp \
+	../../src/foreman/metric/StaticArrayTimeSeries.cpp \
+	../../src/foreman/metric/Store.cpp \
+	../../src/foreman/metric/TimeSeries.cpp \
+	../../src/foreman/metric/TimeSeriesMap.cpp \
+	../../src/foreman/metric/TimeSeriesMapStore.cpp \
+	../../src/foreman/metric/TSmapStore.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
-	../../src/foreman/Query.cpp \
-	../../src/foreman/ResultSet.cpp \
-	../../src/foreman/RingArrayTimeSeries.cpp \
-	../../src/foreman/RingMapStore.cpp \
-	../../src/foreman/SQLiteStore.cpp \
-	../../src/foreman/StaticArrayTimeSeries.cpp \
-	../../src/foreman/Store.cpp \
-	../../src/foreman/TimeSeries.cpp \
-	../../src/foreman/TimeSeriesMap.cpp \
-	../../src/foreman/TimeSeriesMapStore.cpp \
-	../../src/foreman/TSmapStore.cpp \
-	../../src/foreman/Util.cpp
+	../../src/foreman/util/Util.cpp
 
 libforeman___a_SOURCES = \
         $(foremancc_sources)

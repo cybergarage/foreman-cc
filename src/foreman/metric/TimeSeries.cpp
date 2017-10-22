@@ -8,13 +8,16 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMAN_H_
-#define _FOREMANCC_FOREMAN_H_
-
-#include <foreman/Const.h>
-#include <foreman/Platform.h>
-#include <foreman/metric/MemStore.h>
-#include <foreman/metric/Metric.h>
 #include <foreman/metric/TimeSeries.h>
 
-#endif
+using namespace Foreman;
+
+////////////////////////////////////////////////
+// TimeSeries
+////////////////////////////////////////////////
+
+TimeSeries::TimeSeries()
+{
+}
+
+TimeSeries::~TimeSeries() {}
