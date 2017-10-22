@@ -17,7 +17,7 @@
 #include <foreman/metric/MemStore.h>
 #include <foreman/util/Util.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // StaticArrayTimeSeries

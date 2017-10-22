@@ -14,7 +14,7 @@
 #include <foreman/metric/MemStore.h>
 #include <foreman/metric/TimeSeriesMap.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 

@@ -10,7 +10,7 @@
 
 #include <foreman/metric/ResultSet.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // ResultSet

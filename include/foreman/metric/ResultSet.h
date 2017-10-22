@@ -15,50 +15,52 @@
 #include <foreman/metric/DataPoint.h>
 
 namespace Foreman {
+namespace Metric {
 
-////////////////////////////////////////////////
-// ResultSet
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // ResultSet
+  ////////////////////////////////////////////////
 
-class ResultSet {
-  public:
-  ResultSet();
-  virtual ~ResultSet();
+  class ResultSet {
+public:
+    ResultSet();
+    virtual ~ResultSet();
 
-  bool clear();
+    bool clear();
 
-  bool addDataPoints(DataPoints* dps)
-  {
-    return dataPointsMap_.addDataPoints(dps);
-  }
+    bool addDataPoints(DataPoints* dps)
+    {
+      return dataPointsMap_.addDataPoints(dps);
+    }
 
-  bool addDataPoints(std::shared_ptr<DataPoints> dps)
-  {
-    return dataPointsMap_.addDataPoints(dps);
-  }
+    bool addDataPoints(std::shared_ptr<DataPoints> dps)
+    {
+      return dataPointsMap_.addDataPoints(dps);
+    }
 
-  bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
-  {
-    return dataPointsMap_.addDataPoints(name, from, interval, values, valueCnt);
-  }
+    bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
+    {
+      return dataPointsMap_.addDataPoints(name, from, interval, values, valueCnt);
+    }
 
-  DataPoints* findDataPoints(const std::string& name)
-  {
-    return dataPointsMap_.findDataPoints(name);
-  }
+    DataPoints* findDataPoints(const std::string& name)
+    {
+      return dataPointsMap_.findDataPoints(name);
+    }
 
-  DataPoints* firstDataPoint();
-  DataPoints* nextDataPoint();
+    DataPoints* firstDataPoint();
+    DataPoints* nextDataPoint();
 
-  size_t getDataPointCount()
-  {
-    return dataPointsMap_.size();
-  }
+    size_t getDataPointCount()
+    {
+      return dataPointsMap_.size();
+    }
 
-  private:
-  DataPointsMap dataPointsMap_;
-  DataPointsMapIt currIt_;
-};
+private:
+    DataPointsMap dataPointsMap_;
+    DataPointsMapIt currIt_;
+  };
+}
 }
 
 #endif

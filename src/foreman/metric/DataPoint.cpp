@@ -10,7 +10,7 @@
 
 #include <foreman/metric/DataPoint.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // DataPoint

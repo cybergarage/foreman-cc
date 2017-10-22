@@ -14,7 +14,7 @@
 #include <foreman/Const.h>
 #include <foreman/metric/MemStore.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // GraphiteStore

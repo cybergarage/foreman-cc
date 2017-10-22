@@ -21,92 +21,94 @@
 #include <foreman/Platform.h>
 
 namespace Foreman {
+namespace Metric {
 
-////////////////////////////////////////////////
-// DataPoint
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // DataPoint
+  ////////////////////////////////////////////////
 
-class DataPoint {
-  public:
-  DataPoint();
-  virtual ~DataPoint();
+  class DataPoint {
+public:
+    DataPoint();
+    virtual ~DataPoint();
 
-  void setValue(double value)
-  {
-    value_ = value;
-  }
+    void setValue(double value)
+    {
+      value_ = value;
+    }
 
-  double getValue()
-  {
-    return value_;
-  }
+    double getValue()
+    {
+      return value_;
+    }
 
-  void setTimestamp(double value)
-  {
-    timestamp_ = value;
-  }
+    void setTimestamp(double value)
+    {
+      timestamp_ = value;
+    }
 
-  double getTimestamp()
-  {
-    return timestamp_;
-  }
+    double getTimestamp()
+    {
+      return timestamp_;
+    }
 
-  private:
-  double value_;
-  time_t timestamp_;
-};
+private:
+    double value_;
+    time_t timestamp_;
+  };
 
-////////////////////////////////////////////////
-// DataPoints
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // DataPoints
+  ////////////////////////////////////////////////
 
-class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
-  public:
-  DataPoints();
-  virtual ~DataPoints();
+  class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
+public:
+    DataPoints();
+    virtual ~DataPoints();
 
-  void setName(const std::string& name)
-  {
-    name_ = name;
-  }
+    void setName(const std::string& name)
+    {
+      name_ = name;
+    }
 
-  const char* getName()
-  {
-    return name_.c_str();
-  }
+    const char* getName()
+    {
+      return name_.c_str();
+    }
 
-  bool addDataPoint(DataPoint* dp);
-  bool addDataPoint(const DataPoint& dp);
-  bool addDataPoint(std::shared_ptr<Foreman::DataPoint> dp);
-  bool addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt);
+    bool addDataPoint(DataPoint* dp);
+    bool addDataPoint(const DataPoint& dp);
+    bool addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp);
+    bool addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt);
 
-  DataPoint* getDataPoint(size_t n)
-  {
-    return at(n).get();
-  }
+    DataPoint* getDataPoint(size_t n)
+    {
+      return at(n).get();
+    }
 
-  protected:
-  std::string name_;
-};
+protected:
+    std::string name_;
+  };
 
-////////////////////////////////////////////////
-// DataPointMap
-////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+  // DataPointMap
+  ////////////////////////////////////////////////
 
-typedef std::pair<std::string, std::shared_ptr<DataPoints>> DataPointsPair;
-typedef std::unordered_map<std::string, std::shared_ptr<DataPoints>>::iterator DataPointsMapIt;
+  typedef std::pair<std::string, std::shared_ptr<DataPoints>> DataPointsPair;
+  typedef std::unordered_map<std::string, std::shared_ptr<DataPoints>>::iterator DataPointsMapIt;
 
-class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<DataPoints>> {
-  public:
-  DataPointsMap();
-  virtual ~DataPointsMap();
+  class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<DataPoints>> {
+public:
+    DataPointsMap();
+    virtual ~DataPointsMap();
 
-  bool addDataPoints(DataPoints* dps);
-  bool addDataPoints(std::shared_ptr<DataPoints> dps);
-  bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt);
+    bool addDataPoints(DataPoints* dps);
+    bool addDataPoints(std::shared_ptr<DataPoints> dps);
+    bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt);
 
-  DataPoints* findDataPoints(const std::string& name);
-};
+    DataPoints* findDataPoints(const std::string& name);
+  };
+}
 }
 
 #endif

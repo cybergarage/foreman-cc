@@ -13,7 +13,7 @@
 #include <foreman/Const.h>
 #include <foreman/metric/Store.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // Store
@@ -51,7 +51,7 @@ time_t Store::getRetentionInterval()
 // addMetric
 ////////////////////////////////////////////////
 
-bool Store::addMetric(std::shared_ptr<Foreman::Metric> m)
+bool Store::addMetric(std::shared_ptr<Foreman::Metric::Metric> m)
 {
   return metricMap_.addMetric(m);
 }
@@ -80,7 +80,7 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
 
 bool Store::addValues(const Metrics& values)
 {
-  for (std::shared_ptr<Foreman::Metric> value : values) {
+  for (std::shared_ptr<Foreman::Metric::Metric> value : values) {
     if (!addValue(*value))
       return false;
   }

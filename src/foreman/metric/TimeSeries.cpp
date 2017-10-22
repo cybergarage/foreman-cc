@@ -10,7 +10,7 @@
 
 #include <foreman/metric/TimeSeries.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // TimeSeries

@@ -11,7 +11,7 @@
 #include <foreman/metric/DataPoint.h>
 #include <foreman/util/Util.h>
 
-using namespace Foreman;
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // DataPoints
@@ -29,7 +29,7 @@ DataPoints::~DataPoints() {}
 
 bool DataPoints::addDataPoint(DataPoint* dp)
 {
-  return addDataPoint(std::shared_ptr<Foreman::DataPoint>(dp));
+  return addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint>(dp));
 }
 
 ////////////////////////////////////////////////
@@ -38,14 +38,14 @@ bool DataPoints::addDataPoint(DataPoint* dp)
 
 bool DataPoints::addDataPoint(const DataPoint& dp)
 {
-  return addDataPoint(new Foreman::DataPoint(dp));
+  return addDataPoint(new Foreman::Metric::DataPoint(dp));
 }
 
 ////////////////////////////////////////////////
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPoints::addDataPoint(std::shared_ptr<Foreman::DataPoint> dp)
+bool DataPoints::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
 {
   push_back(dp);
   return true;
@@ -71,7 +71,7 @@ bool DataPoints::addDataPoints(time_t from, time_t interval, double* values, siz
     dp->setTimestamp(ts);
     dp->setValue(values[n]);
 
-    if (!addDataPoint(std::shared_ptr<Foreman::DataPoint>(dp)))
+    if (!addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint>(dp)))
       return false;
 
     ts += interval;
