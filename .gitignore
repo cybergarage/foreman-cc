@@ -14,7 +14,10 @@
 Makefile
 .deps
 .dirstamp
-
+config.h
+config.h.in~
+config.log
+config.status
 
 # Compiled Object files
 *.slo
