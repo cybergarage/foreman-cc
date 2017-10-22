@@ -18,12 +18,12 @@ foremantest_SOURCES = \
 	..//clang/ClangQueryTests.cpp \
 	..//clang/ClangResultSetTests.cpp \
 	..//clang/ClangStoreTest.cpp \
-	..//DataPointTests.cpp \
 	..//ForemanTest.cpp \
-	..//MetricsTests.cpp \
-	..//QueryTest.cpp \
-	..//StoreTestController.cpp \
-	..//StoreTests.cpp \
-	..//TimeSeriesTests.cpp
+	..//metric/DataPointTests.cpp \
+	..//metric/MetricsTests.cpp \
+	..//metric/QueryTest.cpp \
+	..//metric/StoreTestController.cpp \
+	..//metric/StoreTests.cpp \
+	..//metric/TimeSeriesTests.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
