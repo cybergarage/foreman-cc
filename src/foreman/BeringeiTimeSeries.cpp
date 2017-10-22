@@ -13,6 +13,8 @@
 
 using namespace Foreman;
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 ////////////////////////////////////////////////
 // BeringeiTimeSeries
 ////////////////////////////////////////////////
@@ -69,3 +71,5 @@ bool BeringeiTimeSeries::getValues(Query* q, ResultSet* rs)
 
   return isSuccess;
 }
+
+#endif
