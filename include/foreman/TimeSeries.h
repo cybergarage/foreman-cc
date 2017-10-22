@@ -11,6 +11,10 @@
 #ifndef _FOREMANCC_TIMESERIES_H_
 #define _FOREMANCC_TIMESERIES_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <beringei/TimeSeriesStream.h>
 #include <foreman/Metric.h>
 #include <foreman/Query.h>
@@ -85,6 +89,8 @@ class StaticArrayTimeSeries : public ArrayTimeSeries {
 // BeringeiTimeSeries
 ////////////////////////////////////////////////
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 class BeringeiTimeSeries : public TimeSeries {
   public:
   BeringeiTimeSeries();
@@ -96,6 +102,8 @@ class BeringeiTimeSeries : public TimeSeries {
   private:
   facebook::gorilla::TimeSeriesStream stream_;
 };
+
+#endif
 }
 
 #endif

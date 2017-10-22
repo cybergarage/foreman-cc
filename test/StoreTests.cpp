@@ -8,6 +8,10 @@
  *
  ******************************************************************/
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <boost/test/unit_test.hpp>
 
 #include "MemStoreTestController.h"
@@ -57,6 +61,8 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 // TSmapStore
 ////////////////////////////////////////////////
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 {
   MemStoreTestContoller testController;
@@ -65,3 +71,5 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
   //testController.run(store);
   delete store;
 }
+
+#endif
