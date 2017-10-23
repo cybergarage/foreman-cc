@@ -1,0 +1,4 @@
+#!/bin/bash
+export CFLAGS="-std=c++11"
+export CPPFLAGS="$CFLAGS"
+./configure $@
