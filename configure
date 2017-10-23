@@ -728,7 +728,7 @@ enable_silent_rules
 enable_dependency_tracking
 enable_beringei
 enable_benchmark
-enable_tests
+enable_test
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1364,7 +1364,7 @@ Optional Features:
                           speeds up one-time build
   --enable-beringei       enable beringei (default = no)
   --enable-benchmark      build benchmark (default = no)
-  --enable-tests          build tests (default = no)
+  --enable-test           build tests (default = no)
 
 Some influential environment variables:
   CC          C compiler command
@@ -4993,15 +4993,15 @@ fi
 # Testing
 ##################################################################
 
-# Check whether --enable-tests was given.
-if test "${enable_tests+set}" = set; then :
-  enableval=$enable_tests; case "${enableval}" in
-    	yes | no ) build_tests="${enableval}" ;;
+# Check whether --enable-test was given.
+if test "${enable_test+set}" = set; then :
+  enableval=$enable_test; case "${enableval}" in
+    	yes | no ) build_test="${enableval}" ;;
 	esac
 fi
 
 
- if test "$build_tests" = yes; then
+ if test "$build_test" = yes; then
   FOREMAN_ENABLE_TESTS_TRUE=
   FOREMAN_ENABLE_TESTS_FALSE='#'
 else
@@ -5009,7 +5009,7 @@ else
   FOREMAN_ENABLE_TESTS_FALSE=
 fi
 
-if  test "$build_tests" = yes ; then
+if  test "$build_test" = yes ; then
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lboost_system-mt" >&5
 $as_echo_n "checking for main in -lboost_system-mt... " >&6; }
 if ${ac_cv_lib_boost_system_mt_main+:} false; then :

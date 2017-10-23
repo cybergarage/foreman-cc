@@ -99,16 +99,16 @@ fi
 ##################################################################
 
 AC_ARG_ENABLE(
- 	[tests],
-	AC_HELP_STRING([--enable-tests], [ build tests (default = no) ]),
+ 	[test],
+	AC_HELP_STRING([--enable-test], [ build tests (default = no) ]),
 	[case "${enableval}" in
-    	yes | no ) build_tests="${enableval}" ;;
+    	yes | no ) build_test="${enableval}" ;;
 	esac],
 	[]
 )
 
-AM_CONDITIONAL(FOREMAN_ENABLE_TESTS,test "$build_tests" = yes)
-if [ test "$build_tests" = yes ]; then
+AM_CONDITIONAL(FOREMAN_ENABLE_TESTS,test "$build_test" = yes)
+if [ test "$build_test" = yes ]; then
 	AC_CHECK_LIB([boost_system-mt],[main],,
 		[AC_CHECK_LIB([boost_system],[main],,[AC_MSG_ERROR(Foreman needs boost::system-mt)])])
 
