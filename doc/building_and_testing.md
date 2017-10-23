@@ -4,7 +4,7 @@
 
 `foreman-cc` is a core package of Foreman which is written by C++. To build Foreman, you have to install the library, `libforeman++`, at first.
 
-## Directory Structure
+## Directory Structure
 
 The `foreman-cc` package has the header files, the source files and the project files to build the library, `libforeman++`. The files are included in the following directories separatedly.
 
