@@ -4,17 +4,14 @@
 
 `foreman-cc` is a core package of Foreman which is written by C++. To build Foreman, you have to install the library, `libforeman++`, at first.
 
-## Directory Structure
+## Supported Compilers and Platforms
 
-The `foreman-cc` package has the header files, the source files and the project files to build the library, `libforeman++`. The files are included in the following directories separatedly.
+The `foreman-cc` supports the following compilers and platforms now.
 
-| Type | Directory  | Description |
-|---|---|---|
-| Header  | include  | Public include header files  |
-| Source  | src  | Source code and internal header files  |
-| Project  | lib  | Project files for major platforms such as Unix and MacOSX |
-| Unit Test  | test  |  Unit tests using [Boost](http://www.boost.org) test library |
-| Benchmark Test  | bin  |  Benchmark tests using [google-benchmark](https://github.com/google/benchmark) |
+| Platform | Compiler |
+|---|---|
+| Ubuntu 16.04 | GCC 5.4.0 |
+| MacOSX 10.12 | LLVM 9.0.0 (XCode 9.0) | 
 
 ## System Requirement
 
@@ -27,6 +24,17 @@ The `foreman-cc` uses the following package. Please install the packages in your
 | [Boost](http://www.boost.org/)  | >= 1.65.0  | X (--enable-test) |
 | [google-benchmark](https://github.com/google/benchmark)  | >= 1.2.0  | X ( --enable-benchmark) |
 
+## Directory Structure
+
+The `foreman-cc` package has the header files, the source files and the project files to build the library, `libforeman++`. The files are included in the following directories separatedly.
+
+| Type | Directory  | Description |
+|---|---|---|
+| Header  | include  | Public include header files  |
+| Source  | src  | Source code and internal header files  |
+| Project  | lib  | Project files for major platforms such as Unix and MacOSX |
+| Unit Test  | test  |  Unit tests using [Boost](http://www.boost.org) test library |
+| Benchmark Test  | bin  |  Benchmark tests using [google-benchmark](https://github.com/google/benchmark) |
 
 ## Building from Source
 
@@ -37,7 +45,7 @@ To build on Linux platform, use `configure` as the following.
 ```
 git clone https://github.com/cybergarage/foreman-cc.git
 cd foreman-cc/
-./configure
+./configure_linux
 make -j 10
 make install
 ```
