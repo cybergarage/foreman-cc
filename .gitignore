@@ -60,3 +60,4 @@ xcuserdata/
 #include/beringei/*.h
 #src/beringei/*.h
 #src/beringei/*.cpp
+debian/foreman-cc*

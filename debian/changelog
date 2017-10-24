@@ -1,0 +1,5 @@
+foreman-cc (0.9-1) xenial; urgency=medium
+
+  * Initial release
+
+ -- Satoshi Konno <skonno@cybergarage.org>  Tue, 24 Oct 2017 20:11:56 +0900
