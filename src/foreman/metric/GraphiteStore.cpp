@@ -16,6 +16,8 @@
 
 using namespace Foreman::Metric;
 
+#if defined(FOREMAN_ENABLE_GRAPHITE)
+
 ////////////////////////////////////////////////
 // GraphiteStore
 ////////////////////////////////////////////////
@@ -114,3 +116,5 @@ bool GraphiteStore::getValues(Query* q, ResultSet* rs)
 
   return isSuccess;
 }
+
+#endif

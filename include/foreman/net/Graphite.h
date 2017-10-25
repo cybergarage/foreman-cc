@@ -11,11 +11,17 @@
 #ifndef _FOREMAN_NET_GRAPHITE_H_
 #define _FOREMAN_NET_GRAPHITE_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <memory>
 #include <string>
 #include <time.h>
 
 namespace Foreman {
+
+#if defined(FOREMAN_ENABLE_GRAPHITE)
 
 class Graphite {
 
@@ -35,6 +41,8 @@ class Graphite {
   int carbonPort;
   int httpPort;
 };
+
+#endif
 }
 
 #endif

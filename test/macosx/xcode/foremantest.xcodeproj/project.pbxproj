@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
+		21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */; };
+		21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E91FA0A58100DB18AB /* QueryTest.cpp */; };
+		21AF27F91FA0A58200DB18AB /* StoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27EC1FA0A58100DB18AB /* StoreTests.cpp */; };
+		21AF27FC1FA0A58200DB18AB /* DataPointTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27EF1FA0A58100DB18AB /* DataPointTests.cpp */; };
+		21AF27FD1FA0A58200DB18AB /* TimeSeriesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27F01FA0A58100DB18AB /* TimeSeriesTests.cpp */; };
+		21AF28001FA0A58200DB18AB /* MetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27F41FA0A58100DB18AB /* MetricsTests.cpp */; };
 		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
-		21C85F1E1F9C4E4F00D59EAE /* StoreTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F171F9C4E4F00D59EAE /* StoreTests.cpp */; };
-		21C85F1F1F9C4E4F00D59EAE /* DataPointTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F181F9C4E4F00D59EAE /* DataPointTests.cpp */; };
-		21C85F201F9C4E4F00D59EAE /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F191F9C4E4F00D59EAE /* StoreTestController.cpp */; };
-		21C85F211F9C4E4F00D59EAE /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F1A1F9C4E4F00D59EAE /* QueryTest.cpp */; };
-		21C85F221F9C4E4F00D59EAE /* TimeSeriesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F1C1F9C4E4F00D59EAE /* TimeSeriesTests.cpp */; };
-		21C85F231F9C4E4F00D59EAE /* MetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F1D1F9C4E4F00D59EAE /* MetricsTests.cpp */; };
 		21CBC7851F54022500B87994 /* ClangMetricsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7841F54022500B87994 /* ClangMetricsTests.cpp */; };
 		21CBC78F1F540DE200B87994 /* ClangQueryTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC78E1F540DE200B87994 /* ClangQueryTests.cpp */; };
 		21CBC7911F5427CD00B87994 /* ClangResultSetTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CBC7901F5427CD00B87994 /* ClangResultSetTests.cpp */; };
@@ -55,13 +55,13 @@
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21C85F171F9C4E4F00D59EAE /* StoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTests.cpp; path = ../../../metric/StoreTests.cpp; sourceTree = "<group>"; };
-		21C85F181F9C4E4F00D59EAE /* DataPointTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPointTests.cpp; path = ../../../metric/DataPointTests.cpp; sourceTree = "<group>"; };
-		21C85F191F9C4E4F00D59EAE /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../../metric/StoreTestController.cpp; sourceTree = "<group>"; };
-		21C85F1A1F9C4E4F00D59EAE /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QueryTest.cpp; path = ../../../metric/QueryTest.cpp; sourceTree = "<group>"; };
-		21C85F1B1F9C4E4F00D59EAE /* MemStoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStoreTestController.h; path = ../../../metric/MemStoreTestController.h; sourceTree = "<group>"; };
-		21C85F1C1F9C4E4F00D59EAE /* TimeSeriesTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTests.cpp; path = ../../../metric/TimeSeriesTests.cpp; sourceTree = "<group>"; };
-		21C85F1D1F9C4E4F00D59EAE /* MetricsTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTests.cpp; path = ../../../metric/MetricsTests.cpp; sourceTree = "<group>"; };
+		21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../../metric/StoreTestController.cpp; sourceTree = "<group>"; };
+		21AF27E91FA0A58100DB18AB /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QueryTest.cpp; path = ../../../metric/QueryTest.cpp; sourceTree = "<group>"; };
+		21AF27EC1FA0A58100DB18AB /* StoreTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTests.cpp; path = ../../../metric/StoreTests.cpp; sourceTree = "<group>"; };
+		21AF27EF1FA0A58100DB18AB /* DataPointTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DataPointTests.cpp; path = ../../../metric/DataPointTests.cpp; sourceTree = "<group>"; };
+		21AF27F01FA0A58100DB18AB /* TimeSeriesTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTests.cpp; path = ../../../metric/TimeSeriesTests.cpp; sourceTree = "<group>"; };
+		21AF27F21FA0A58100DB18AB /* MemStoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStoreTestController.h; path = ../../../metric/MemStoreTestController.h; sourceTree = "<group>"; };
+		21AF27F41FA0A58100DB18AB /* MetricsTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTests.cpp; path = ../../../metric/MetricsTests.cpp; sourceTree = "<group>"; };
 		21CBC7841F54022500B87994 /* ClangMetricsTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangMetricsTests.cpp; path = ../../clang/ClangMetricsTests.cpp; sourceTree = "<group>"; };
 		21CBC78E1F540DE200B87994 /* ClangQueryTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangQueryTests.cpp; path = ../../clang/ClangQueryTests.cpp; sourceTree = "<group>"; };
 		21CBC7901F5427CD00B87994 /* ClangResultSetTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangResultSetTests.cpp; path = ../../clang/ClangResultSetTests.cpp; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				21C85F161F9C4E3A00D59EAE /* metric */,
+				21AF27E71FA0A56B00DB18AB /* metric */,
 				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
 				2175C30E1E52F51E006C4425 /* ForemanTest.h */,
 				21CBC7831F54016100B87994 /* clang */,
@@ -124,16 +124,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21C85F161F9C4E3A00D59EAE /* metric */ = {
+		21AF27E71FA0A56B00DB18AB /* metric */ = {
 			isa = PBXGroup;
 			children = (
-				21C85F181F9C4E4F00D59EAE /* DataPointTests.cpp */,
-				21C85F1B1F9C4E4F00D59EAE /* MemStoreTestController.h */,
-				21C85F1D1F9C4E4F00D59EAE /* MetricsTests.cpp */,
-				21C85F1A1F9C4E4F00D59EAE /* QueryTest.cpp */,
-				21C85F191F9C4E4F00D59EAE /* StoreTestController.cpp */,
-				21C85F171F9C4E4F00D59EAE /* StoreTests.cpp */,
-				21C85F1C1F9C4E4F00D59EAE /* TimeSeriesTests.cpp */,
+				21AF27EF1FA0A58100DB18AB /* DataPointTests.cpp */,
+				21AF27F21FA0A58100DB18AB /* MemStoreTestController.h */,
+				21AF27F41FA0A58100DB18AB /* MetricsTests.cpp */,
+				21AF27E91FA0A58100DB18AB /* QueryTest.cpp */,
+				21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */,
+				21AF27EC1FA0A58100DB18AB /* StoreTests.cpp */,
+				21AF27F01FA0A58100DB18AB /* TimeSeriesTests.cpp */,
 			);
 			path = metric;
 			sourceTree = "<group>";
@@ -223,17 +223,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C85F211F9C4E4F00D59EAE /* QueryTest.cpp in Sources */,
 				21CBC78F1F540DE200B87994 /* ClangQueryTests.cpp in Sources */,
-				21C85F201F9C4E4F00D59EAE /* StoreTestController.cpp in Sources */,
-				21C85F1E1F9C4E4F00D59EAE /* StoreTests.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
-				21C85F221F9C4E4F00D59EAE /* TimeSeriesTests.cpp in Sources */,
 				21CBC7851F54022500B87994 /* ClangMetricsTests.cpp in Sources */,
 				21CBC7991F5434B600B87994 /* ClangStoreTest.cpp in Sources */,
-				21C85F1F1F9C4E4F00D59EAE /* DataPointTests.cpp in Sources */,
 				21CBC7911F5427CD00B87994 /* ClangResultSetTests.cpp in Sources */,
-				21C85F231F9C4E4F00D59EAE /* MetricsTests.cpp in Sources */,
+				21AF27FD1FA0A58200DB18AB /* TimeSeriesTests.cpp in Sources */,
+				21AF27FC1FA0A58200DB18AB /* DataPointTests.cpp in Sources */,
+				21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */,
+				21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */,
+				21AF27F91FA0A58200DB18AB /* StoreTests.cpp in Sources */,
+				21AF28001FA0A58200DB18AB /* MetricsTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
