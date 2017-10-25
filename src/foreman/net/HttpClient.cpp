@@ -9,7 +9,10 @@
  ******************************************************************/
 
 #include <foreman/net/HttpClient.h>
+
+#if defined(FOREMAN_ENABLE_UHTTPCC)
 #include <uhttp/HTTP.h>
+#endif
 
 using namespace Foreman;
 
@@ -31,6 +34,7 @@ HttpClient::~HttpClient()
 
 bool HttpClient::get(const std::string& uri, std::string& content)
 {
+#if defined(FOREMAN_ENABLE_UHTTPCC)
   uHTTP::HTTPRequest httpReq;
   httpReq.setMethod(uHTTP::HTTP::GET);
   httpReq.setURL(uri);
@@ -40,6 +44,7 @@ bool HttpClient::get(const std::string& uri, std::string& content)
     return false;
 
   content = httpRes->getContent();
+#endif
 
   return false;
 }

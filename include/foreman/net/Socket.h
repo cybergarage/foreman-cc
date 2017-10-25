@@ -11,9 +11,17 @@
 #ifndef _FOREMAN_NET_SOCKET_H_
 #define _FOREMAN_NET_SOCKET_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#if defined(FOREMAN_ENABLE_UHTTPCC)
 #include <uhttp/net/Socket.h>
+#endif
 
 namespace Foreman {
+
+#if defined(FOREMAN_ENABLE_UHTTPCC)
 
 class Socket : public uHTTP::Socket {
 
@@ -21,6 +29,8 @@ class Socket : public uHTTP::Socket {
   Socket();
   ~Socket();
 };
+
+#endif
 }
 
 #endif

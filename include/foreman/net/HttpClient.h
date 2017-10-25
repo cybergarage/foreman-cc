@@ -11,6 +11,10 @@
 #ifndef _FOREMAN_NET_HTTPCLIENT_H_
 #define _FOREMAN_NET_HTTPCLIENT_H_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <string>
 
 namespace Foreman {

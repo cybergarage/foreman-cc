@@ -3,6 +3,12 @@
 /* --enable-beringei */
 #undef FOREMAN_ENABLE_BERINGEI
 
+/* --enable-graphite */
+#undef FOREMAN_ENABLE_GRAPHITE
+
+/* --enable-graphite */
+#undef FOREMAN_ENABLE_UHTTPCC
+
 /* Define to 1 if you have the <benchmark/benchmark.h> header file. */
 #undef HAVE_BENCHMARK_BENCHMARK_H
 
@@ -53,6 +59,9 @@
 
 /* Define to 1 if you have the `sqlite3' library (-lsqlite3). */
 #undef HAVE_LIBSQLITE3
+
+/* Define to 1 if you have the `uhttp++' library (-luhttp++). */
+#undef HAVE_LIBUHTTP__
 
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H

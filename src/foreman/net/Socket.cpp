@@ -12,6 +12,8 @@
 
 using namespace Foreman;
 
+#if defined(FOREMAN_ENABLE_UHTTPCC)
+
 ////////////////////////////////////////////////
 //  Socket
 ////////////////////////////////////////////////
@@ -23,3 +25,5 @@ Socket::Socket()
 Socket::~Socket()
 {
 }
+
+#endif
