@@ -56,8 +56,16 @@ config.status
 project.xcworkspace/
 xcuserdata/
 
+# Vim
+.*.sw?
+
 # Beringei
 #include/beringei/*.h
 #src/beringei/*.h
 #src/beringei/*.cpp
+
+# Debian package
 debian/foreman-cc*
+debian/*debhelper*
+debian/files
+debian/*substvars
