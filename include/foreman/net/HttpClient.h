@@ -20,6 +20,7 @@
 namespace Foreman {
 
 class HttpClient {
+  static size_t curl_response_reader(void* ptr, size_t size, size_t nmemb, std::string* s);
 
   public:
   HttpClient();
@@ -30,3 +31,4 @@ class HttpClient {
 }
 
 #endif
+// vim: ts=2 sw=2 tw=80
