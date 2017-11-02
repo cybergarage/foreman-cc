@@ -17,11 +17,13 @@ foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/clang/metric/datapoint_c.cpp \
 	../../src/foreman/clang/metric/datapoints_c.cpp \
+	../../src/foreman/clang/metric/error_c.cpp \
 	../../src/foreman/clang/metric/metric_c.cpp \
 	../../src/foreman/clang/metric/query_c.cpp \
 	../../src/foreman/clang/metric/resultset_c.cpp \
 	../../src/foreman/clang/metric/store_c.cpp \
 	../../src/foreman/clang/metric/store_c_factory.cpp \
+	../../src/foreman/common/Error.cpp \
 	../../src/foreman/metric/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/Data.cpp \

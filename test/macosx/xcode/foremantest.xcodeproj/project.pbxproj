@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215DB2801FAAD7000089A36B /* ErrorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB27F1FAAD7000089A36B /* ErrorTest.cpp */; };
+		215DB2841FAAD9B10089A36B /* ClangErrorTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2831FAAD9B10089A36B /* ClangErrorTests.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
 		21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */; };
 		21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E91FA0A58100DB18AB /* QueryTest.cpp */; };
@@ -51,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		215DB27F1FAAD7000089A36B /* ErrorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ErrorTest.cpp; path = ../../common/ErrorTest.cpp; sourceTree = "<group>"; };
+		215DB2831FAAD9B10089A36B /* ClangErrorTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangErrorTests.cpp; path = ../../clang/ClangErrorTests.cpp; sourceTree = "<group>"; };
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
@@ -80,9 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		215DB27E1FAAD6E70089A36B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				215DB27F1FAAD7000089A36B /* ErrorTest.cpp */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				215DB27E1FAAD6E70089A36B /* common */,
 				21AF27E71FA0A56B00DB18AB /* metric */,
 				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
 				2175C30E1E52F51E006C4425 /* ForemanTest.h */,
@@ -141,6 +154,7 @@
 		21CBC7831F54016100B87994 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2831FAAD9B10089A36B /* ClangErrorTests.cpp */,
 				21CBC7981F5434B600B87994 /* ClangStoreTest.cpp */,
 				21CBC7901F5427CD00B87994 /* ClangResultSetTests.cpp */,
 				21CBC78E1F540DE200B87994 /* ClangQueryTests.cpp */,
@@ -231,7 +245,9 @@
 				21AF27FD1FA0A58200DB18AB /* TimeSeriesTests.cpp in Sources */,
 				21AF27FC1FA0A58200DB18AB /* DataPointTests.cpp in Sources */,
 				21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */,
+				215DB2801FAAD7000089A36B /* ErrorTest.cpp in Sources */,
 				21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */,
+				215DB2841FAAD9B10089A36B /* ClangErrorTests.cpp in Sources */,
 				21AF27F91FA0A58200DB18AB /* StoreTests.cpp in Sources */,
 				21AF28001FA0A58200DB18AB /* MetricsTests.cpp in Sources */,
 			);
