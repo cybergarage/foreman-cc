@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _ForemanCC_ERROR_H_
-#define _ForemanCC_ERROR_H_
+#ifndef _FOREMANCC_ERROR_H_
+#define _FOREMANCC_ERROR_H_
 
 #include <string>
 
