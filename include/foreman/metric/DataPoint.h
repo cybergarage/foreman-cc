@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_DATAPOINT_H_
-#define _FOREMANCC_DATAPOINT_H_
+#ifndef _FOREMANCC_METRIC_DATAPOINT_H_
+#define _FOREMANCC_METRIC_DATAPOINT_H_
 
 #include <memory>
 #include <string>

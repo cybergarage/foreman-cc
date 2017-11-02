@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_TIMESERIESMAP_H_
-#define _FOREMANCC_TIMESERIESMAP_H_
+#ifndef _FOREMANCC_METRIC_TIMESERIESMAP_H_
+#define _FOREMANCC_METRIC_TIMESERIESMAP_H_
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"

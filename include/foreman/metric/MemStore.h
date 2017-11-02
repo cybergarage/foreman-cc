@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_MEMSTORE_H_
-#define _FOREMANCC_MEMSTORE_H_
+#ifndef _FOREMANCC_METRIC_MEMSTORE_H_
+#define _FOREMANCC_METRIC_MEMSTORE_H_
 
 #include <time.h>
 
