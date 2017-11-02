@@ -110,10 +110,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ..//clang/ClangMetricsTests.$(OBJEXT) \
+am_foremantest_OBJECTS = ..//clang/ClangErrorTests.$(OBJEXT) \
+	..//clang/ClangMetricsTests.$(OBJEXT) \
 	..//clang/ClangQueryTests.$(OBJEXT) \
 	..//clang/ClangResultSetTests.$(OBJEXT) \
-	..//clang/ClangStoreTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
+	..//clang/ClangStoreTest.$(OBJEXT) \
+	..//common/ErrorTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
 	..//metric/DataPointTests.$(OBJEXT) \
 	..//metric/MetricsTests.$(OBJEXT) \
 	..//metric/QueryTest.$(OBJEXT) \
@@ -478,10 +480,12 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
+	..//clang/ClangErrorTests.cpp \
 	..//clang/ClangMetricsTests.cpp \
 	..//clang/ClangQueryTests.cpp \
 	..//clang/ClangResultSetTests.cpp \
 	..//clang/ClangStoreTest.cpp \
+	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
 	..//metric/DataPointTests.cpp \
 	..//metric/MetricsTests.cpp \
@@ -533,6 +537,8 @@ clean-noinstPROGRAMS:
 ../clang/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/$(DEPDIR)
 	@: > ../clang/$(DEPDIR)/$(am__dirstamp)
+..//clang/ClangErrorTests.$(OBJEXT): ../clang/$(am__dirstamp) \
+	../clang/$(DEPDIR)/$(am__dirstamp)
 ..//clang/ClangMetricsTests.$(OBJEXT): ../clang/$(am__dirstamp) \
 	../clang/$(DEPDIR)/$(am__dirstamp)
 ..//clang/ClangQueryTests.$(OBJEXT): ../clang/$(am__dirstamp) \
@@ -541,6 +547,14 @@ clean-noinstPROGRAMS:
 	../clang/$(DEPDIR)/$(am__dirstamp)
 ..//clang/ClangStoreTest.$(OBJEXT): ../clang/$(am__dirstamp) \
 	../clang/$(DEPDIR)/$(am__dirstamp)
+../common/$(am__dirstamp):
+	@$(MKDIR_P) ..//common
+	@: > ../common/$(am__dirstamp)
+../common/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//common/$(DEPDIR)
+	@: > ../common/$(DEPDIR)/$(am__dirstamp)
+..//common/ErrorTest.$(OBJEXT): ../common/$(am__dirstamp) \
+	../common/$(DEPDIR)/$(am__dirstamp)
 ../$(am__dirstamp):
 	@$(MKDIR_P) ../
 	@: > ../$(am__dirstamp)
@@ -576,16 +590,19 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ..//*.$(OBJEXT)
 	-rm -f ..//clang/*.$(OBJEXT)
+	-rm -f ..//common/*.$(OBJEXT)
 	-rm -f ..//metric/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/$(DEPDIR)/ClangErrorTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/$(DEPDIR)/ClangMetricsTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/$(DEPDIR)/ClangQueryTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/$(DEPDIR)/ClangResultSetTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/$(DEPDIR)/ClangStoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/QueryTest.Po@am__quote@
@@ -892,6 +909,8 @@ distclean-generic:
 	-rm -f ../$(am__dirstamp)
 	-rm -f ../clang/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../clang/$(am__dirstamp)
+	-rm -f ../common/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../common/$(am__dirstamp)
 	-rm -f ../metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../metric/$(am__dirstamp)
 
@@ -903,7 +922,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../clang/$(DEPDIR) ../metric/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../clang/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -949,7 +968,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../clang/$(DEPDIR) ../metric/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../clang/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
