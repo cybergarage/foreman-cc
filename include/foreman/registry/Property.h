@@ -12,6 +12,7 @@
 #define _FOREMANCC_REGISTRY_PROPERTY_H_
 
 #include <string>
+#include <vector>
 
 namespace Foreman {
 namespace Registry {
@@ -52,6 +53,25 @@ private:
 
     std::string name;
     std::string value;
+  };
+
+  ////////////////////////////////////////////////
+  // Properties
+  ////////////////////////////////////////////////
+
+  class Properties : public std::vector<std::shared_ptr<Property>> {
+public:
+    Properties();
+    virtual ~Properties();
+
+    bool addProperty(Property* prop);
+    bool addProperty(const Property& prop);
+    bool addProperty(std::shared_ptr<Foreman::Registry::Property> prop);
+
+    Property* getProperty(size_t n)
+    {
+      return at(n).get();
+    }
   };
 }
 }

@@ -28,6 +28,7 @@
 		215DB2B01FAB3AAB0089A36B /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AC1FAB3AAB0089A36B /* Property.h */; };
 		215DB2B11FAB3AAB0089A36B /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AD1FAB3AAB0089A36B /* Store.h */; };
 		215DB2B21FAB3AAB0089A36B /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AE1FAB3AAB0089A36B /* Object.h */; };
+		215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2C51FAB565F0089A36B /* Properties.cpp */; };
 		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
 		216A5AE41F9C597B0092272A /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADC1F9C597B0092272A /* MemStore.h */; };
 		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
@@ -101,6 +102,7 @@
 		215DB2AC1FAB3AAB0089A36B /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = ../registry/Property.h; sourceTree = "<group>"; };
 		215DB2AD1FAB3AAB0089A36B /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = ../registry/Store.h; sourceTree = "<group>"; };
 		215DB2AE1FAB3AAB0089A36B /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = ../registry/Object.h; sourceTree = "<group>"; };
+		215DB2C51FAB565F0089A36B /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Properties.cpp; path = registry/Properties.cpp; sourceTree = "<group>"; };
 		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
 		216A5ADC1F9C597B0092272A /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		215DB2A11FAB3A730089A36B /* registry */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2C51FAB565F0089A36B /* Properties.cpp */,
 				215DB2A51FAB3A8C0089A36B /* Object.cpp */,
 				215DB2A21FAB3A8B0089A36B /* Property.cpp */,
 				215DB2A31FAB3A8B0089A36B /* Query.cpp */,
@@ -522,6 +525,7 @@
 				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
 				216A5B501F9C59990092272A /* RingMapStore.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
+				215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */,
 				215DB2951FAB30DB0089A36B /* error_c.cpp in Sources */,
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
 				215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */,

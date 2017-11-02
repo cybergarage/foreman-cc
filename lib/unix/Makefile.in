@@ -185,6 +185,7 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/net/HttpClient.$(OBJEXT) \
 	../../src/foreman/net/Socket.$(OBJEXT) \
 	../../src/foreman/registry/Object.$(OBJEXT) \
+	../../src/foreman/registry/Properties.$(OBJEXT) \
 	../../src/foreman/registry/Property.$(OBJEXT) \
 	../../src/foreman/registry/Query.$(OBJEXT) \
 	../../src/foreman/registry/Store.$(OBJEXT) \
@@ -384,6 +385,7 @@ foremancc_sources = \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
 	../../src/foreman/registry/Object.cpp \
+	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \
 	../../src/foreman/registry/Store.cpp \
@@ -627,6 +629,9 @@ clean-libLIBRARIES:
 ../../src/foreman/registry/Object.$(OBJEXT):  \
 	../../src/foreman/registry/$(am__dirstamp) \
 	../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/registry/Properties.$(OBJEXT):  \
+	../../src/foreman/registry/$(am__dirstamp) \
+	../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/registry/Property.$(OBJEXT):  \
 	../../src/foreman/registry/$(am__dirstamp) \
 	../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
@@ -707,6 +712,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/HttpClient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/Socket.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Object.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Properties.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Property.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Query.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Store.Po@am__quote@
