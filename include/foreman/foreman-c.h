@@ -43,7 +43,43 @@ bool foreman_error_getdetailcode(ForemanError* e, int* code);
 bool foreman_error_delete(ForemanError* e);
 
 ////////////////////////////////////////////////
-// Metric
+// Registry::Store
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryStore;
+
+ForemanRegistryStore* foreman_registry_store_new();
+bool foreman_registry_store_delete(ForemanRegistryStore* store);
+
+////////////////////////////////////////////////
+// Registry::Object
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryObject;
+
+ForemanRegistryObject* foreman_registry_object_new();
+bool foreman_registry_object_delete(ForemanRegistryObject* obj);
+
+////////////////////////////////////////////////
+// Registry::Object
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryProperty;
+
+ForemanRegistryProperty* foreman_registry_property_new();
+bool foreman_registry_property_delete(ForemanRegistryProperty* prop);
+
+////////////////////////////////////////////////
+// Registry::Query
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryQuery;
+
+ForemanRegistryQuery* foreman_registry_query_new();
+bool foreman_registry_query_delete(ForemanRegistryQuery* q);
+
+////////////////////////////////////////////////
+// Metric::Metric
 ////////////////////////////////////////////////
 
 typedef void ForemanMetric;
@@ -61,7 +97,7 @@ bool foreman_metric_gettimestamp(ForemanMetric* m, time_t* ts);
 bool foreman_metric_delete(ForemanMetric* m);
 
 ////////////////////////////////////////////////
-// Query
+// Metric::Query
 ////////////////////////////////////////////////
 
 typedef void ForemanMetricQuery;
@@ -81,7 +117,7 @@ bool foreman_metric_query_getinterval(ForemanMetricQuery* q, time_t* ts);
 bool foreman_metric_query_delete(ForemanMetricQuery* q);
 
 ////////////////////////////////////////////////
-// DataPoint
+// Metric::DataPoint
 ////////////////////////////////////////////////
 
 typedef void ForemanMetricDataPoint;
@@ -90,7 +126,7 @@ time_t foreman_metric_datapoint_gettimestamp(ForemanMetricDataPoint* dp);
 double foreman_metric_datapoint_getvalue(ForemanMetricDataPoint* dp);
 
 ////////////////////////////////////////////////
-// DataPoints
+// Metric::DataPoints
 ////////////////////////////////////////////////
 
 typedef void ForemanMetricDataPoints;
@@ -100,7 +136,7 @@ size_t foreman_metric_datapoints_size(ForemanMetricDataPoints* dps);
 ForemanMetricDataPoints* foreman_metric_datapoints_get(ForemanMetricDataPoints* dps, size_t n);
 
 ////////////////////////////////////////////////
-// ResultSet
+// Metric::ResultSet
 ////////////////////////////////////////////////
 
 typedef void ForemanMetricResultSet;
@@ -116,7 +152,7 @@ ForemanMetricDataPoints* foreman_metric_resultset_finddatapoints(ForemanMetricRe
 bool foreman_metric_resultset_delete(ForemanMetricResultSet* rs);
 
 ////////////////////////////////////////////////
-// Store
+// Metric::Store
 ////////////////////////////////////////////////
 
 typedef void ForemanMetricStore;

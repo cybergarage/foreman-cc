@@ -23,6 +23,10 @@ foremancc_sources = \
 	../../src/foreman/clang/metric/resultset_c.cpp \
 	../../src/foreman/clang/metric/store_c.cpp \
 	../../src/foreman/clang/metric/store_c_factory.cpp \
+	../../src/foreman/clang/registry/object_c.cpp \
+	../../src/foreman/clang/registry/property_c.cpp \
+	../../src/foreman/clang/registry/query_c.cpp \
+	../../src/foreman/clang/registry/store_c.cpp \
 	../../src/foreman/common/Error.cpp \
 	../../src/foreman/metric/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/BeringeiTimeSeries.cpp \
@@ -49,6 +53,10 @@ foremancc_sources = \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
+	../../src/foreman/registry/Object.cpp \
+	../../src/foreman/registry/Property.cpp \
+	../../src/foreman/registry/Query.cpp \
+	../../src/foreman/registry/Store.cpp \
 	../../src/foreman/util/Util.cpp
 
 libforeman___a_SOURCES = \

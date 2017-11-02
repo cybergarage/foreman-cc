@@ -8,18 +8,18 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
+#include <foreman/registry/Object.h>
 
-#include <foreman/foreman-c.h>
+using namespace Foreman::Registry;
 
-#include <foreman/metric/ResultSet.h>
+////////////////////////////////////////////////
+// Object
+////////////////////////////////////////////////
 
-using namespace Foreman;
-
-BOOST_AUTO_TEST_SUITE(clang)
-
-BOOST_AUTO_TEST_CASE(ClangMetricResultSet)
+Object::Object()
 {
 }
 
-BOOST_AUTO_TEST_SUITE_END()
+Object::~Object()
+{
+}

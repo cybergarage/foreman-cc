@@ -16,6 +16,18 @@
 		215DB2791FAAD6B20089A36B /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2781FAAD6B20089A36B /* Error.h */; };
 		215DB2951FAB30DB0089A36B /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2941FAB30DB0089A36B /* error_c.cpp */; };
 		215DB2971FAB31000089A36B /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2961FAB31000089A36B /* Error.cpp */; };
+		215DB29D1FAB3A650089A36B /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2991FAB3A650089A36B /* query_c.cpp */; };
+		215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB29A1FAB3A650089A36B /* property_c.cpp */; };
+		215DB29F1FAB3A650089A36B /* object_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB29B1FAB3A650089A36B /* object_c.cpp */; };
+		215DB2A01FAB3A650089A36B /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB29C1FAB3A650089A36B /* store_c.cpp */; };
+		215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A21FAB3A8B0089A36B /* Property.cpp */; };
+		215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A31FAB3A8B0089A36B /* Query.cpp */; };
+		215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A41FAB3A8C0089A36B /* Store.cpp */; };
+		215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A51FAB3A8C0089A36B /* Object.cpp */; };
+		215DB2AF1FAB3AAB0089A36B /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AB1FAB3AAB0089A36B /* Query.h */; };
+		215DB2B01FAB3AAB0089A36B /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AC1FAB3AAB0089A36B /* Property.h */; };
+		215DB2B11FAB3AAB0089A36B /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AD1FAB3AAB0089A36B /* Store.h */; };
+		215DB2B21FAB3AAB0089A36B /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AE1FAB3AAB0089A36B /* Object.h */; };
 		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
 		216A5AE41F9C597B0092272A /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADC1F9C597B0092272A /* MemStore.h */; };
 		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
@@ -77,6 +89,18 @@
 		215DB2781FAAD6B20089A36B /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Error.h; path = common/Error.h; sourceTree = "<group>"; };
 		215DB2941FAB30DB0089A36B /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = ../clang/common/error_c.cpp; sourceTree = "<group>"; };
 		215DB2961FAB31000089A36B /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Error.cpp; path = common/Error.cpp; sourceTree = "<group>"; };
+		215DB2991FAB3A650089A36B /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query_c.cpp; path = clang/registry/query_c.cpp; sourceTree = "<group>"; };
+		215DB29A1FAB3A650089A36B /* property_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = property_c.cpp; path = clang/registry/property_c.cpp; sourceTree = "<group>"; };
+		215DB29B1FAB3A650089A36B /* object_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = object_c.cpp; path = clang/registry/object_c.cpp; sourceTree = "<group>"; };
+		215DB29C1FAB3A650089A36B /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = clang/registry/store_c.cpp; sourceTree = "<group>"; };
+		215DB2A21FAB3A8B0089A36B /* Property.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Property.cpp; path = registry/Property.cpp; sourceTree = "<group>"; };
+		215DB2A31FAB3A8B0089A36B /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Query.cpp; path = registry/Query.cpp; sourceTree = "<group>"; };
+		215DB2A41FAB3A8C0089A36B /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Store.cpp; path = registry/Store.cpp; sourceTree = "<group>"; };
+		215DB2A51FAB3A8C0089A36B /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = registry/Object.cpp; sourceTree = "<group>"; };
+		215DB2AB1FAB3AAB0089A36B /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = ../registry/Query.h; sourceTree = "<group>"; };
+		215DB2AC1FAB3AAB0089A36B /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = ../registry/Property.h; sourceTree = "<group>"; };
+		215DB2AD1FAB3AAB0089A36B /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = ../registry/Store.h; sourceTree = "<group>"; };
+		215DB2AE1FAB3AAB0089A36B /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = ../registry/Object.h; sourceTree = "<group>"; };
 		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
 		216A5ADC1F9C597B0092272A /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -200,6 +224,40 @@
 			path = "New Group1";
 			sourceTree = "<group>";
 		};
+		215DB2981FAB3A410089A36B /* registry */ = {
+			isa = PBXGroup;
+			children = (
+				215DB29B1FAB3A650089A36B /* object_c.cpp */,
+				215DB29A1FAB3A650089A36B /* property_c.cpp */,
+				215DB2991FAB3A650089A36B /* query_c.cpp */,
+				215DB29C1FAB3A650089A36B /* store_c.cpp */,
+			);
+			name = registry;
+			sourceTree = "<group>";
+		};
+		215DB2A11FAB3A730089A36B /* registry */ = {
+			isa = PBXGroup;
+			children = (
+				215DB2A51FAB3A8C0089A36B /* Object.cpp */,
+				215DB2A21FAB3A8B0089A36B /* Property.cpp */,
+				215DB2A31FAB3A8B0089A36B /* Query.cpp */,
+				215DB2A41FAB3A8C0089A36B /* Store.cpp */,
+			);
+			name = registry;
+			sourceTree = "<group>";
+		};
+		215DB2AA1FAB3A950089A36B /* registry */ = {
+			isa = PBXGroup;
+			children = (
+				215DB2AE1FAB3AAB0089A36B /* Object.h */,
+				215DB2AC1FAB3AAB0089A36B /* Property.h */,
+				215DB2AB1FAB3AAB0089A36B /* Query.h */,
+				215DB2AD1FAB3AAB0089A36B /* Store.h */,
+			);
+			name = registry;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		216A5ADA1F9C597B0092272A /* metric */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +358,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2AA1FAB3A950089A36B /* registry */,
 				215DB2771FAAD69B0089A36B /* common */,
 				216A5AEB1F9C59830092272A /* util */,
 				216A5ADA1F9C597B0092272A /* metric */,
@@ -325,6 +384,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2A11FAB3A730089A36B /* registry */,
 				215DB27B1FAAD6CE0089A36B /* common */,
 				216A5AEE1F9C59990092272A /* metric */,
 				21C85F131F9C4BB000D59EAE /* util */,
@@ -338,6 +398,7 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2981FAB3A410089A36B /* registry */,
 				215DB2931FAB2EF00089A36B /* common */,
 				216A5B601F9C5B8E0092272A /* metric */,
 			);
@@ -362,7 +423,9 @@
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
+				215DB2AF1FAB3AAB0089A36B /* Query.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
+				215DB2B21FAB3AAB0089A36B /* Object.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
@@ -375,6 +438,8 @@
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				216A5AE41F9C597B0092272A /* MemStore.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
+				215DB2B01FAB3AAB0089A36B /* Property.h in Headers */,
+				215DB2B11FAB3AAB0089A36B /* Store.h in Headers */,
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
 				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
 				216A5AE31F9C597B0092272A /* DataPoint.h in Headers */,
@@ -445,7 +510,9 @@
 				216A5B421F9C59990092272A /* GraphiteStore.cpp in Sources */,
 				216A5B341F9C59990092272A /* ArrayTimeSeries.cpp in Sources */,
 				216A5B5C1F9C59990092272A /* TimeSeriesMapStore.cpp in Sources */,
+				215DB2A01FAB3A650089A36B /* store_c.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
+				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
 				216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */,
 				216A5B481F9C59990092272A /* NarrowTableStore.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
@@ -457,9 +524,13 @@
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
 				215DB2951FAB30DB0089A36B /* error_c.cpp in Sources */,
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
+				215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */,
 				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
 				216A5B441F9C59990092272A /* MatrixStore.cpp in Sources */,
+				215DB29D1FAB3A650089A36B /* query_c.cpp in Sources */,
+				215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */,
 				215DB2971FAB31000089A36B /* Error.cpp in Sources */,
+				215DB29F1FAB3A650089A36B /* object_c.cpp in Sources */,
 				216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */,
 				216A5B4E1F9C59990092272A /* RingArrayTimeSeries.cpp in Sources */,
 				216A5B7F1F9C5B8E0092272A /* query_c.cpp in Sources */,
@@ -468,11 +539,13 @@
 				216A5B5E1F9C59990092272A /* TSmapStore.cpp in Sources */,
 				216A5B581F9C59990092272A /* TimeSeries.cpp in Sources */,
 				216A5B361F9C59990092272A /* BeringeiTimeSeries.cpp in Sources */,
+				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				216A5B541F9C59990092272A /* StaticArrayTimeSeries.cpp in Sources */,
+				215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
 				216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */,
 				216A5B791F9C5B8E0092272A /* datapoint_c.cpp in Sources */,

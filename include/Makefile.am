@@ -25,6 +25,10 @@ foremancc_header = \
 	./foreman/net/HttpClient.h \
 	./foreman/net/Socket.h \
 	./foreman/Platform.h \
+	./foreman/registry/Object.h \
+	./foreman/registry/Property.h \
+	./foreman/registry/Query.h \
+	./foreman/registry/Store.h \
 	./foreman/util/Util.h
 
 nobase_include_HEADERS = \
