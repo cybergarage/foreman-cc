@@ -14,8 +14,8 @@
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
 		215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573C31EA1DC0A0083A51C /* HttpClient.cpp */; };
 		215DB2791FAAD6B20089A36B /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2781FAAD6B20089A36B /* Error.h */; };
-		215DB27D1FAAD6DB0089A36B /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB27C1FAAD6DB0089A36B /* Error.cpp */; };
-		215DB2821FAAD9760089A36B /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2811FAAD9750089A36B /* error_c.cpp */; };
+		215DB2951FAB30DB0089A36B /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2941FAB30DB0089A36B /* error_c.cpp */; };
+		215DB2971FAB31000089A36B /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2961FAB31000089A36B /* Error.cpp */; };
 		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
 		216A5AE41F9C597B0092272A /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADC1F9C597B0092272A /* MemStore.h */; };
 		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
@@ -75,8 +75,8 @@
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		215573C31EA1DC0A0083A51C /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
 		215DB2781FAAD6B20089A36B /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Error.h; path = common/Error.h; sourceTree = "<group>"; };
-		215DB27C1FAAD6DB0089A36B /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Error.cpp; path = common/Error.cpp; sourceTree = "<group>"; };
-		215DB2811FAAD9750089A36B /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error_c.cpp; sourceTree = "<group>"; };
+		215DB2941FAB30DB0089A36B /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = ../clang/common/error_c.cpp; sourceTree = "<group>"; };
+		215DB2961FAB31000089A36B /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Error.cpp; path = common/Error.cpp; sourceTree = "<group>"; };
 		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
 		216A5ADC1F9C597B0092272A /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -186,9 +186,18 @@
 		215DB27B1FAAD6CE0089A36B /* common */ = {
 			isa = PBXGroup;
 			children = (
-				215DB27C1FAAD6DB0089A36B /* Error.cpp */,
+				215DB2961FAB31000089A36B /* Error.cpp */,
 			);
 			name = common;
+			sourceTree = "<group>";
+		};
+		215DB2931FAB2EF00089A36B /* common */ = {
+			isa = PBXGroup;
+			children = (
+				215DB2941FAB30DB0089A36B /* error_c.cpp */,
+			);
+			name = common;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		216A5ADA1F9C597B0092272A /* metric */ = {
@@ -246,7 +255,6 @@
 		216A5B601F9C5B8E0092272A /* metric */ = {
 			isa = PBXGroup;
 			children = (
-				215DB2811FAAD9750089A36B /* error_c.cpp */,
 				216A5B6B1F9C5B8E0092272A /* datapoint_c.cpp */,
 				216A5B6D1F9C5B8E0092272A /* datapoints_c.cpp */,
 				216A5B6F1F9C5B8E0092272A /* metric_c.cpp */,
@@ -330,6 +338,7 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				215DB2931FAB2EF00089A36B /* common */,
 				216A5B601F9C5B8E0092272A /* metric */,
 			);
 			name = clang;
@@ -442,14 +451,15 @@
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
 				216A5B5A1F9C59990092272A /* TimeSeriesMap.cpp in Sources */,
-				215DB27D1FAAD6DB0089A36B /* Error.cpp in Sources */,
 				216A5B461F9C59990092272A /* MemStore.cpp in Sources */,
 				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
 				216A5B501F9C59990092272A /* RingMapStore.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
+				215DB2951FAB30DB0089A36B /* error_c.cpp in Sources */,
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
 				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
 				216A5B441F9C59990092272A /* MatrixStore.cpp in Sources */,
+				215DB2971FAB31000089A36B /* Error.cpp in Sources */,
 				216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */,
 				216A5B4E1F9C59990092272A /* RingArrayTimeSeries.cpp in Sources */,
 				216A5B7F1F9C5B8E0092272A /* query_c.cpp in Sources */,
@@ -465,7 +475,6 @@
 				216A5B541F9C59990092272A /* StaticArrayTimeSeries.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
 				216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */,
-				215DB2821FAAD9760089A36B /* error_c.cpp in Sources */,
 				216A5B791F9C5B8E0092272A /* datapoint_c.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
