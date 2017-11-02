@@ -15,9 +15,9 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/clang/common/error_c.cpp \
 	../../src/foreman/clang/metric/datapoint_c.cpp \
 	../../src/foreman/clang/metric/datapoints_c.cpp \
-	../../src/foreman/clang/metric/error_c.cpp \
 	../../src/foreman/clang/metric/metric_c.cpp \
 	../../src/foreman/clang/metric/query_c.cpp \
 	../../src/foreman/clang/metric/resultset_c.cpp \

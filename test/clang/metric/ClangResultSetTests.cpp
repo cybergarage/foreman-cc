@@ -12,7 +12,7 @@
 
 #include <foreman/foreman-c.h>
 
-#include "../ForemanTest.h"
+#include "../../ForemanTest.h"
 
 using namespace Foreman;
 

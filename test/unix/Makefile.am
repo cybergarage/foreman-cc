@@ -14,11 +14,11 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
-	..//clang/ClangErrorTests.cpp \
-	..//clang/ClangMetricsTests.cpp \
-	..//clang/ClangQueryTests.cpp \
-	..//clang/ClangResultSetTests.cpp \
-	..//clang/ClangStoreTest.cpp \
+	..//clang/common/ClangErrorTests.cpp \
+	..//clang/metric/ClangMetricsTests.cpp \
+	..//clang/metric/ClangQueryTests.cpp \
+	..//clang/metric/ClangResultSetTests.cpp \
+	..//clang/metric/ClangStoreTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
 	..//metric/DataPointTests.cpp \
