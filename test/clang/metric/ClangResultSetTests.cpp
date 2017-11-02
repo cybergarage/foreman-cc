@@ -12,13 +12,11 @@
 
 #include <foreman/foreman-c.h>
 
-#include "../../ForemanTest.h"
-
 using namespace Foreman;
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(ClangResultSet)
+BOOST_AUTO_TEST_CASE(ClangMetricResultSet)
 {
 }
 

@@ -18,7 +18,7 @@ using namespace Foreman;
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(ClangQuery)
+BOOST_AUTO_TEST_CASE(ClangMetricQuery)
 {
   char nameBuf[32];
   const char* name;
