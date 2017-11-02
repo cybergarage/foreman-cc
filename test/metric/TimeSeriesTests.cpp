@@ -14,6 +14,8 @@
 
 using namespace Foreman::Metric;
 
+BOOST_AUTO_TEST_SUITE(metric)
+
 BOOST_AUTO_TEST_CASE(NewTimeSeriesTest)
 {
 }
@@ -24,3 +26,5 @@ BOOST_AUTO_TEST_CASE(NewTimeSeriesMap)
 
   BOOST_CHECK_EQUAL(tsMap.size(), 0);
 }
+
+BOOST_AUTO_TEST_SUITE_END()
