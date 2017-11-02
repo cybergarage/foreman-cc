@@ -19,6 +19,10 @@ foremantest_SOURCES = \
 	..//clang/metric/ClangQueryTests.cpp \
 	..//clang/metric/ClangResultSetTests.cpp \
 	..//clang/metric/ClangStoreTest.cpp \
+	..//clang/registry/ClangObjectTest.cpp \
+	..//clang/registry/ClangPropertyTest.cpp \
+	..//clang/registry/ClangQueryTests.cpp \
+	..//clang/registry/ClangStoreTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
 	..//metric/DataPointTests.cpp \
@@ -26,6 +30,10 @@ foremantest_SOURCES = \
 	..//metric/QueryTest.cpp \
 	..//metric/StoreTestController.cpp \
 	..//metric/StoreTests.cpp \
-	..//metric/TimeSeriesTests.cpp
+	..//metric/TimeSeriesTests.cpp \
+	..//registry/ObjectTest.cpp \
+	..//registry/PropertyTest.cpp \
+	..//registry/QueryTest.cpp \
+	..//registry/StoreTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a

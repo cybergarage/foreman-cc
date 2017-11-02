@@ -10,16 +10,10 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <foreman/foreman-c.h>
+#include <foreman/registry/Object.h>
 
-#include <foreman/metric/ResultSet.h>
+using namespace Foreman::Registry;
 
-using namespace Foreman;
-
-BOOST_AUTO_TEST_SUITE(clang)
-
-BOOST_AUTO_TEST_CASE(ClangMetricResultSet)
-{
-}
+BOOST_AUTO_TEST_SUITE(registry)
 
 BOOST_AUTO_TEST_SUITE_END()

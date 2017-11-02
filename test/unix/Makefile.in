@@ -115,13 +115,21 @@ am_foremantest_OBJECTS = ..//clang/common/ClangErrorTests.$(OBJEXT) \
 	..//clang/metric/ClangQueryTests.$(OBJEXT) \
 	..//clang/metric/ClangResultSetTests.$(OBJEXT) \
 	..//clang/metric/ClangStoreTest.$(OBJEXT) \
+	..//clang/registry/ClangObjectTest.$(OBJEXT) \
+	..//clang/registry/ClangPropertyTest.$(OBJEXT) \
+	..//clang/registry/ClangQueryTests.$(OBJEXT) \
+	..//clang/registry/ClangStoreTest.$(OBJEXT) \
 	..//common/ErrorTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
 	..//metric/DataPointTests.$(OBJEXT) \
 	..//metric/MetricsTests.$(OBJEXT) \
 	..//metric/QueryTest.$(OBJEXT) \
 	..//metric/StoreTestController.$(OBJEXT) \
 	..//metric/StoreTests.$(OBJEXT) \
-	..//metric/TimeSeriesTests.$(OBJEXT)
+	..//metric/TimeSeriesTests.$(OBJEXT) \
+	..//registry/ObjectTest.$(OBJEXT) \
+	..//registry/PropertyTest.$(OBJEXT) \
+	..//registry/QueryTest.$(OBJEXT) \
+	..//registry/StoreTest.$(OBJEXT)
 foremantest_OBJECTS = $(am_foremantest_OBJECTS)
 foremantest_DEPENDENCIES = ../../lib/unix/libforeman++.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -485,6 +493,10 @@ foremantest_SOURCES = \
 	..//clang/metric/ClangQueryTests.cpp \
 	..//clang/metric/ClangResultSetTests.cpp \
 	..//clang/metric/ClangStoreTest.cpp \
+	..//clang/registry/ClangObjectTest.cpp \
+	..//clang/registry/ClangPropertyTest.cpp \
+	..//clang/registry/ClangQueryTests.cpp \
+	..//clang/registry/ClangStoreTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
 	..//metric/DataPointTests.cpp \
@@ -492,7 +504,11 @@ foremantest_SOURCES = \
 	..//metric/QueryTest.cpp \
 	..//metric/StoreTestController.cpp \
 	..//metric/StoreTests.cpp \
-	..//metric/TimeSeriesTests.cpp
+	..//metric/TimeSeriesTests.cpp \
+	..//registry/ObjectTest.cpp \
+	..//registry/PropertyTest.cpp \
+	..//registry/QueryTest.cpp \
+	..//registry/StoreTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
 all: all-am
@@ -558,6 +574,24 @@ clean-noinstPROGRAMS:
 ..//clang/metric/ClangStoreTest.$(OBJEXT):  \
 	../clang/metric/$(am__dirstamp) \
 	../clang/metric/$(DEPDIR)/$(am__dirstamp)
+../clang/registry/$(am__dirstamp):
+	@$(MKDIR_P) ..//clang/registry
+	@: > ../clang/registry/$(am__dirstamp)
+../clang/registry/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//clang/registry/$(DEPDIR)
+	@: > ../clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//clang/registry/ClangObjectTest.$(OBJEXT):  \
+	../clang/registry/$(am__dirstamp) \
+	../clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//clang/registry/ClangPropertyTest.$(OBJEXT):  \
+	../clang/registry/$(am__dirstamp) \
+	../clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//clang/registry/ClangQueryTests.$(OBJEXT):  \
+	../clang/registry/$(am__dirstamp) \
+	../clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//clang/registry/ClangStoreTest.$(OBJEXT):  \
+	../clang/registry/$(am__dirstamp) \
+	../clang/registry/$(DEPDIR)/$(am__dirstamp)
 ../common/$(am__dirstamp):
 	@$(MKDIR_P) ..//common
 	@: > ../common/$(am__dirstamp)
@@ -592,6 +626,20 @@ clean-noinstPROGRAMS:
 	../metric/$(DEPDIR)/$(am__dirstamp)
 ..//metric/TimeSeriesTests.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
+../registry/$(am__dirstamp):
+	@$(MKDIR_P) ..//registry
+	@: > ../registry/$(am__dirstamp)
+../registry/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//registry/$(DEPDIR)
+	@: > ../registry/$(DEPDIR)/$(am__dirstamp)
+..//registry/ObjectTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+..//registry/PropertyTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+..//registry/QueryTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+..//registry/StoreTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
 
 foremantest$(EXEEXT): $(foremantest_OBJECTS) $(foremantest_DEPENDENCIES) $(EXTRA_foremantest_DEPENDENCIES) 
 	@rm -f foremantest$(EXEEXT)
@@ -602,8 +650,10 @@ mostlyclean-compile:
 	-rm -f ..//*.$(OBJEXT)
 	-rm -f ..//clang/common/*.$(OBJEXT)
 	-rm -f ..//clang/metric/*.$(OBJEXT)
+	-rm -f ..//clang/registry/*.$(OBJEXT)
 	-rm -f ..//common/*.$(OBJEXT)
 	-rm -f ..//metric/*.$(OBJEXT)
+	-rm -f ..//registry/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -614,6 +664,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangResultSetTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangStoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangObjectTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangPropertyTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangQueryTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTests.Po@am__quote@
@@ -621,6 +675,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/TimeSeriesTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/ObjectTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/PropertyTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/QueryTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/StoreTest.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -923,10 +981,14 @@ distclean-generic:
 	-rm -f ../clang/common/$(am__dirstamp)
 	-rm -f ../clang/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../clang/metric/$(am__dirstamp)
+	-rm -f ../clang/registry/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../clang/registry/$(am__dirstamp)
 	-rm -f ../common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../common/$(am__dirstamp)
 	-rm -f ../metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../metric/$(am__dirstamp)
+	-rm -f ../registry/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../registry/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -936,7 +998,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -982,7 +1044,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

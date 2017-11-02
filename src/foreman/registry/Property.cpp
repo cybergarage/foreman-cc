@@ -8,18 +8,18 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
+#include <foreman/registry/Property.h>
 
-#include <foreman/foreman-c.h>
+using namespace Foreman::Registry;
 
-#include <foreman/metric/ResultSet.h>
+////////////////////////////////////////////////
+// Property
+////////////////////////////////////////////////
 
-using namespace Foreman;
-
-BOOST_AUTO_TEST_SUITE(clang)
-
-BOOST_AUTO_TEST_CASE(ClangMetricResultSet)
+Property::Property()
 {
 }
 
-BOOST_AUTO_TEST_SUITE_END()
+Property::~Property()
+{
+}
