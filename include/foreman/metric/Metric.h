@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_METRIC_H_
-#define _FOREMANCC_METRIC_H_
+#ifndef _FOREMANCC_METRIC_METRIC_H_
+#define _FOREMANCC_METRIC_METRIC_H_
 
 #include <memory>
 #include <string>

@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_RESULTSET_H_
-#define _FOREMANCC_RESULTSET_H_
+#ifndef _FOREMANCC_METRIC_RESULTSET_H_
+#define _FOREMANCC_METRIC_RESULTSET_H_
 
 #include <foreman/Platform.h>
 #include <foreman/metric/DataPoint.h>

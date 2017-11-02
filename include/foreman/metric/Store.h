@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_STORE_H_
-#define _FOREMANCC_STORE_H_
+#ifndef _FOREMANCC_METRIC_STORE_H_
+#define _FOREMANCC_METRIC_STORE_H_
 
 #include <foreman/metric/Metric.h>
 #include <foreman/metric/Query.h>

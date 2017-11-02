@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_QUERY_H_
-#define _FOREMANCC_QUERY_H_
+#ifndef _FOREMANCC_METRIC_QUERY_H_
+#define _FOREMANCC_METRIC_QUERY_H_
 
 #include <memory>
 #include <string>
