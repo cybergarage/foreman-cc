@@ -54,6 +54,7 @@ foremancc_sources = \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
 	../../src/foreman/registry/Object.cpp \
+	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \
 	../../src/foreman/registry/Store.cpp \
