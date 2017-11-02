@@ -18,6 +18,8 @@
 
 using namespace Foreman::Metric;
 
+BOOST_AUTO_TEST_SUITE(metric)
+
 ////////////////////////////////////////////////
 // MatrixStore
 ////////////////////////////////////////////////
@@ -73,3 +75,5 @@ BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 }
 
 #endif
+
+BOOST_AUTO_TEST_SUITE_END()
