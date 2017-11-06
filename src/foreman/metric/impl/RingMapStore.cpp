@@ -11,7 +11,7 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
-#include <foreman/metric/impl/MemStore.h>
+#include <foreman/metric/impl/TimeSeriesMapStore.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;

@@ -11,40 +11,39 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
-#include <foreman/metric/impl/BeringeiTimeSeries.h>
-#include <foreman/metric/impl/MemStore.h>
+#include <foreman/metric/impl/BeringeiStore.h>
 
 using namespace Foreman::Metric;
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 
 ////////////////////////////////////////////////
-// TSmapStore
+// BeringeiStore
 ////////////////////////////////////////////////
 
-TSmapStore::TSmapStore()
+BeringeiStore::BeringeiStore()
 {
   tsMap_ = std::shared_ptr<BeringeiTimeSeriesMap>(new BeringeiTimeSeriesMap());
 }
 
-TSmapStore::~TSmapStore() {}
+BeringeiStore::~BeringeiStore() {}
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool TSmapStore::open() { return true; }
+bool BeringeiStore::open() { return true; }
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool TSmapStore::isOpened() { return true; }
+bool BeringeiStore::isOpened() { return true; }
 
 ////////////////////////////////////////////////
 // close
 ////////////////////////////////////////////////
 
-bool TSmapStore::close() { return true; }
+bool BeringeiStore::close() { return true; }
 
 #endif

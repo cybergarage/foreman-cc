@@ -11,16 +11,17 @@
 #ifndef _FOREMANCC_METRIC_GRAPHITE_STORE_H_
 #define _FOREMANCC_METRIC_GRAPHITE_STORE_H_
 
+#if defined(FOREMAN_ENABLE_GRAPHITE)
+
 #include <foreman/metric/impl/MemStore.h>
+#include <foreman/net/Graphite.h>
 
 namespace Foreman {
 namespace Metric {
 
-////////////////////////////////////////////////
-// GraphiteStore
-////////////////////////////////////////////////
-
-#if defined(FOREMAN_ENABLE_GRAPHITE)
+  ////////////////////////////////////////////////
+  // GraphiteStore
+  ////////////////////////////////////////////////
 
   class GraphiteStore : public MemStore {
 public:
@@ -41,9 +42,9 @@ public:
 private:
     Graphite graphite;
   };
+}
+}
 
 #endif
-}
-}
 
 #endif

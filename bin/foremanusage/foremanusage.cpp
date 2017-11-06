@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
   else if (memStoreType.compare("narrowtable") == 0)
     memStore = new Foreman::Metric::NarrowTableStore();
   else if (memStoreType.compare("tsmap") == 0)
-    memStore = new Foreman::Metric::TSmapStore();
+    memStore = new Foreman::Metric::BeringeiStore();
   if (!memStore) {
     usage();
     std::cout << "Unknown MemStore Type : " << memStoreType << std::endl;
