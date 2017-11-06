@@ -12,57 +12,65 @@ csv_export_line_terminator,"\n"
 datasource_Graphite,"graphite"
 datasource_RRDtool,"rrdtool"
 
-# Data Store
-datastore_memory,"memory"
-datastore_sqlite,"sqlite"
+# HTTP Server
+http_default_port,8080
 
-# Timestamp Resolution for Data Store
-datastore_timestamp_resolution_second,1
-datastore_timestamp_resolution_minute,60
-datastore_timestamp_resolution_hour,60*60
-datastore_timestamp_resolution_day,60*60*24
+# ================================================================================
+# Metric
+# ================================================================================
+
+# Data Store
+metric_datastore_memory,"memory"
+metric_datastore_sqlite,"sqlite"
+
+# Timestamp Resolution
+metric_datastore_timestamp_resolution_second,1
+metric_datastore_timestamp_resolution_minute,60
+metric_datastore_timestamp_resolution_hour,60*60
+metric_datastore_timestamp_resolution_day,60*60*24
 
 # Data Store Parameter
-datastore_param_protocol,"protocol"
-datastore_param_host,"host"
+metric_datastore_param_protocol,"protocol"
+metric_datastore_param_host,"host"
 
-# FQL Command
+# Defaults
+metric_store_default_retentioni_interval,300
+
+# SQLite Store
+metric_sqlitesotore_factor_table,"factor"
+metric_sqlitesotore_factor_name,"name"
+metric_sqlitesotore_factor_table_ddl,"create table if not exists factor (name text, primary key(name))"
+metric_sqlitesotore_factor_index_name_ddl,"create index if not exists factor_name_idx on factor(name)"
+metric_sqlitesotore_factor_insert,"insert into factor (name) values (?)"
+metric_sqlitesotore_factor_select_by_name,"select rowid from factor where name = ?"
+metric_sqlitesotore_record_table,"record"
+metric_sqlitesotore_record_id,"id"
+metric_sqlitesotore_record_val,"val"
+metric_sqlitesotore_record_ts,"ts"
+metric_sqlitesotore_record_table_ddl,"create table if not exists record (id integer, val real, ts integer, primary key(id,ts))"
+metric_sqlitesotore_record_index_id_ddl,"create index if not exists record_id_idx on record(id)"
+metric_sqlitesotore_record_index_ts_ddl,"create index if not exists record_ts_idx on record(ts)"
+metric_sqlitesotore_record_insert,"insert into record (id, val, ts) values (?, ?, ?)"
+metric_sqlitesotore_record_update,"update record set val = ? where id = ? and ts = ?"
+metric_sqlitesotore_record_select_by_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
+metric_sqlitesotore_record_select_by_factor,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
+metric_sqlitesotore_record_select_by_factor_between_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
+metric_sqlitesotore_record_select_all,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id" 
+metric_sqlitesotore_record_truncate,"delete from record"
+
+# ================================================================================
+# FQL
+# ================================================================================
+
+# Command
 fql_update,"update"
 fql_select,"select"
 fql_analyze,"analyze"
 
-# FQL Operator
+# Operator
 fql_operator_equal,"="
 fql_operator_like,"LIKE"
 fql_operator_gt,">"
 fql_operator_ge,">="
 fql_operator_lt,"<"
 fql_operator_le,"<="
-
-# HTTP Server
-http_default_port,8080
-
-# Store
-store_default_retentioni_interval,300
-
-# SQLite Store
-sqlitesotore_factor_table,"factor"
-sqlitesotore_factor_name,"name"
-sqlitesotore_factor_table_ddl,"create table if not exists factor (name text, primary key(name))"
-sqlitesotore_factor_index_name_ddl,"create index if not exists factor_name_idx on factor(name)"
-sqlitesotore_factor_insert,"insert into factor (name) values (?)"
-sqlitesotore_factor_select_by_name,"select rowid from factor where name = ?"
-sqlitesotore_record_table,"record"
-sqlitesotore_record_id,"id"
-sqlitesotore_record_val,"val"
-sqlitesotore_record_ts,"ts"
-sqlitesotore_record_table_ddl,"create table if not exists record (id integer, val real, ts integer, primary key(id,ts))"
-sqlitesotore_record_index_id_ddl,"create index if not exists record_id_idx on record(id)"
-sqlitesotore_record_index_ts_ddl,"create index if not exists record_ts_idx on record(ts)"
-sqlitesotore_record_insert,"insert into record (id, val, ts) values (?, ?, ?)"
-sqlitesotore_record_update,"update record set val = ? where id = ? and ts = ?"
-sqlitesotore_record_select_by_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
-sqlitesotore_record_select_by_factor,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
-sqlitesotore_record_select_by_factor_between_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
-sqlitesotore_record_select_all,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id" 
-sqlitesotore_record_truncate,"delete from record"
