@@ -3,6 +3,7 @@
 # license that can be found in the LICENSE file.
 
 product_name,"foreman"
+product_version,"0.1"
 
 # Serialize
 csv_export_line_terminator,"\n"
