@@ -110,22 +110,21 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ..//clang/common/ClangErrorTests.$(OBJEXT) \
-	..//clang/metric/ClangMetricsTests.$(OBJEXT) \
-	..//clang/metric/ClangQueryTests.$(OBJEXT) \
-	..//clang/metric/ClangResultSetTests.$(OBJEXT) \
+am_foremantest_OBJECTS = ..//clang/common/ClangErrorTest.$(OBJEXT) \
+	..//clang/metric/ClangMetricsTest.$(OBJEXT) \
+	..//clang/metric/ClangQueryTest.$(OBJEXT) \
+	..//clang/metric/ClangResultSetTest.$(OBJEXT) \
 	..//clang/metric/ClangStoreTest.$(OBJEXT) \
 	..//clang/registry/ClangObjectTest.$(OBJEXT) \
 	..//clang/registry/ClangPropertyTest.$(OBJEXT) \
-	..//clang/registry/ClangQueryTests.$(OBJEXT) \
+	..//clang/registry/ClangQueryTest.$(OBJEXT) \
 	..//clang/registry/ClangStoreTest.$(OBJEXT) \
 	..//common/ErrorTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
-	..//metric/DataPointTests.$(OBJEXT) \
-	..//metric/MetricsTests.$(OBJEXT) \
-	..//metric/QueryTest.$(OBJEXT) \
+	..//metric/DataPointTest.$(OBJEXT) \
+	..//metric/MetricsTest.$(OBJEXT) \
+	..//metric/QueryTest.$(OBJEXT) ..//metric/StoreTest.$(OBJEXT) \
 	..//metric/StoreTestController.$(OBJEXT) \
-	..//metric/StoreTests.$(OBJEXT) \
-	..//metric/TimeSeriesTests.$(OBJEXT) \
+	..//metric/TimeSeriesTest.$(OBJEXT) \
 	..//registry/ObjectTest.$(OBJEXT) \
 	..//registry/PropertyTest.$(OBJEXT) \
 	..//registry/QueryTest.$(OBJEXT) \
@@ -488,23 +487,23 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
-	..//clang/common/ClangErrorTests.cpp \
-	..//clang/metric/ClangMetricsTests.cpp \
-	..//clang/metric/ClangQueryTests.cpp \
-	..//clang/metric/ClangResultSetTests.cpp \
+	..//clang/common/ClangErrorTest.cpp \
+	..//clang/metric/ClangMetricsTest.cpp \
+	..//clang/metric/ClangQueryTest.cpp \
+	..//clang/metric/ClangResultSetTest.cpp \
 	..//clang/metric/ClangStoreTest.cpp \
 	..//clang/registry/ClangObjectTest.cpp \
 	..//clang/registry/ClangPropertyTest.cpp \
-	..//clang/registry/ClangQueryTests.cpp \
+	..//clang/registry/ClangQueryTest.cpp \
 	..//clang/registry/ClangStoreTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
-	..//metric/DataPointTests.cpp \
-	..//metric/MetricsTests.cpp \
+	..//metric/DataPointTest.cpp \
+	..//metric/MetricsTest.cpp \
 	..//metric/QueryTest.cpp \
+	..//metric/StoreTest.cpp \
 	..//metric/StoreTestController.cpp \
-	..//metric/StoreTests.cpp \
-	..//metric/TimeSeriesTests.cpp \
+	..//metric/TimeSeriesTest.cpp \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
 	..//registry/QueryTest.cpp \
@@ -553,7 +552,7 @@ clean-noinstPROGRAMS:
 ../clang/common/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/common/$(DEPDIR)
 	@: > ../clang/common/$(DEPDIR)/$(am__dirstamp)
-..//clang/common/ClangErrorTests.$(OBJEXT):  \
+..//clang/common/ClangErrorTest.$(OBJEXT):  \
 	../clang/common/$(am__dirstamp) \
 	../clang/common/$(DEPDIR)/$(am__dirstamp)
 ../clang/metric/$(am__dirstamp):
@@ -562,13 +561,13 @@ clean-noinstPROGRAMS:
 ../clang/metric/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/metric/$(DEPDIR)
 	@: > ../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangMetricsTests.$(OBJEXT):  \
+..//clang/metric/ClangMetricsTest.$(OBJEXT):  \
 	../clang/metric/$(am__dirstamp) \
 	../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangQueryTests.$(OBJEXT):  \
+..//clang/metric/ClangQueryTest.$(OBJEXT):  \
 	../clang/metric/$(am__dirstamp) \
 	../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangResultSetTests.$(OBJEXT):  \
+..//clang/metric/ClangResultSetTest.$(OBJEXT):  \
 	../clang/metric/$(am__dirstamp) \
 	../clang/metric/$(DEPDIR)/$(am__dirstamp)
 ..//clang/metric/ClangStoreTest.$(OBJEXT):  \
@@ -586,7 +585,7 @@ clean-noinstPROGRAMS:
 ..//clang/registry/ClangPropertyTest.$(OBJEXT):  \
 	../clang/registry/$(am__dirstamp) \
 	../clang/registry/$(DEPDIR)/$(am__dirstamp)
-..//clang/registry/ClangQueryTests.$(OBJEXT):  \
+..//clang/registry/ClangQueryTest.$(OBJEXT):  \
 	../clang/registry/$(am__dirstamp) \
 	../clang/registry/$(DEPDIR)/$(am__dirstamp)
 ..//clang/registry/ClangStoreTest.$(OBJEXT):  \
@@ -614,17 +613,17 @@ clean-noinstPROGRAMS:
 ../metric/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//metric/$(DEPDIR)
 	@: > ../metric/$(DEPDIR)/$(am__dirstamp)
-..//metric/DataPointTests.$(OBJEXT): ../metric/$(am__dirstamp) \
+..//metric/DataPointTest.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
-..//metric/MetricsTests.$(OBJEXT): ../metric/$(am__dirstamp) \
+..//metric/MetricsTest.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
 ..//metric/QueryTest.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
+..//metric/StoreTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
 ..//metric/StoreTestController.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
-..//metric/StoreTests.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-..//metric/TimeSeriesTests.$(OBJEXT): ../metric/$(am__dirstamp) \
+..//metric/TimeSeriesTest.$(OBJEXT): ../metric/$(am__dirstamp) \
 	../metric/$(DEPDIR)/$(am__dirstamp)
 ../registry/$(am__dirstamp):
 	@$(MKDIR_P) ..//registry
@@ -659,22 +658,22 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTests.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangMetricsTests.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTests.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangResultSetTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangResultSetTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangStoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangObjectTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangPropertyTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangQueryTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangQueryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTests.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/QueryTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTestController.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTests.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/TimeSeriesTests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/TimeSeriesTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/ObjectTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/PropertyTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/QueryTest.Po@am__quote@

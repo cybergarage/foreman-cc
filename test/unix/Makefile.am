@@ -14,23 +14,23 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
-	..//clang/common/ClangErrorTests.cpp \
-	..//clang/metric/ClangMetricsTests.cpp \
-	..//clang/metric/ClangQueryTests.cpp \
-	..//clang/metric/ClangResultSetTests.cpp \
+	..//clang/common/ClangErrorTest.cpp \
+	..//clang/metric/ClangMetricsTest.cpp \
+	..//clang/metric/ClangQueryTest.cpp \
+	..//clang/metric/ClangResultSetTest.cpp \
 	..//clang/metric/ClangStoreTest.cpp \
 	..//clang/registry/ClangObjectTest.cpp \
 	..//clang/registry/ClangPropertyTest.cpp \
-	..//clang/registry/ClangQueryTests.cpp \
+	..//clang/registry/ClangQueryTest.cpp \
 	..//clang/registry/ClangStoreTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//ForemanTest.cpp \
-	..//metric/DataPointTests.cpp \
-	..//metric/MetricsTests.cpp \
+	..//metric/DataPointTest.cpp \
+	..//metric/MetricsTest.cpp \
 	..//metric/QueryTest.cpp \
+	..//metric/StoreTest.cpp \
 	..//metric/StoreTestController.cpp \
-	..//metric/StoreTests.cpp \
-	..//metric/TimeSeriesTests.cpp \
+	..//metric/TimeSeriesTest.cpp \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
 	..//registry/QueryTest.cpp \

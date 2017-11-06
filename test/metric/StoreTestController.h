@@ -25,12 +25,17 @@
 // StoreTestContoller
 ////////////////////////////////////////////////
 
-class StoreTestContoller {
-  public:
-  StoreTestContoller();
-  virtual ~StoreTestContoller();
+namespace Foreman {
+namespace Metric {
 
-  void run(Foreman::Metric::MemStore* store);
-};
+  class StoreTestContoller {
+public:
+    StoreTestContoller();
+    virtual ~StoreTestContoller();
+
+    void run(Foreman::Metric::MemStore* store);
+  };
+}
+}
 
 #endif
