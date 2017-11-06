@@ -34,15 +34,15 @@ bool NarrowTableStore::open()
   if (!SQLiteStore::open())
     return false;
 
-  if (!query(FOREMANCC_SQLITESOTORE_FACTOR_TABLE_DDL))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_TABLE_DDL))
     return false;
-  if (!query(FOREMANCC_SQLITESOTORE_FACTOR_INDEX_NAME_DDL))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INDEX_NAME_DDL))
     return false;
-  if (!query(FOREMANCC_SQLITESOTORE_RECORD_TABLE_DDL))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TABLE_DDL))
     return false;
-  if (!query(FOREMANCC_SQLITESOTORE_RECORD_INDEX_ID_DDL))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_INDEX_ID_DDL))
     return false;
-  if (!query(FOREMANCC_SQLITESOTORE_RECORD_INDEX_TS_DDL))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_INDEX_TS_DDL))
     return false;
 
   return true;
@@ -54,7 +54,7 @@ bool NarrowTableStore::open()
 
 bool NarrowTableStore::clear()
 {
-  if (!query(FOREMANCC_SQLITESOTORE_RECORD_TRUNCATE))
+  if (!query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE))
     return false;
 
   return true;
@@ -70,7 +70,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 
   // Insert a metric
 
-  if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_INSERT, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INSERT, &stmt))
     return false;
 
   sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
@@ -83,7 +83,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 
   // Get ROWID of the inserted metric
 
-  if (!prepare(FOREMANCC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_BY_NAME, &stmt))
     return false;
 
   sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
@@ -133,7 +133,7 @@ bool NarrowTableStore::addValue(const Metric& m)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_INSERT, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_INSERT, &stmt))
     return false;
 
   sqlite3_bind_int(stmt, 1, rowId);
@@ -149,7 +149,7 @@ bool NarrowTableStore::addValue(const Metric& m)
 
   // Update a value
 
-  if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_UPDATE, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_UPDATE, &stmt))
     return false;
 
   sqlite3_bind_double(stmt, 1, m.value);
@@ -190,7 +190,7 @@ bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
 
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);

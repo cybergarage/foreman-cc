@@ -21,7 +21,7 @@ using namespace Foreman::Metric;
 
 Store::Store()
 {
-  setRetentionInterval(FOREMANCC_STORE_DEFAULT_RETENTIONI_INTERVAL);
+  setRetentionInterval(FOREMANCC_METRIC_STORE_DEFAULT_RETENTIONI_INTERVAL);
 }
 
 Store::~Store()
