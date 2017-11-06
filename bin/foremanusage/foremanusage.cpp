@@ -16,6 +16,10 @@
 #include <sys/resource.h>
 #include <sys/time.h>
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #define PROGRAM_NAME "foramanusage"
 #define FORMANCC_BENCHMARK_RETENSION_INTERVAL 60
 #define FORMANCC_BENCHMARK_METRICS_COUNT 1000
@@ -55,8 +59,11 @@ int main(int argc, char* argv[])
     store = new Foreman::Metric::RingMapStore();
   else if (storeType.compare("narrowtable") == 0)
     store = new Foreman::Metric::NarrowTableStore();
+#if defined(FOREMAN_ENABLE_BERINGEI)
   else if (storeType.compare("tsmap") == 0)
     store = new Foreman::Metric::BeringeiStore();
+#endif
+
   if (!store) {
     usage();
     std::cout << "Unknown Store Type : " << storeType << std::endl;
