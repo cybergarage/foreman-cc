@@ -12,6 +12,10 @@
 
 #include "BenchmarkController.h"
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #define FORMANCC_BENCHMARK_RETENSION_INTERVAL 60
 #define FORMANCC_BENCHMARK_METRICS_COUNT 1000
 #define FORMANCC_BENCHMARK_METRICS_READ_COUNT 100
@@ -148,6 +152,8 @@ BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::MatrixStore)
 // TSmapStore
 ////////////////////////////////////////////////
 
+#if defined(FOREMAN_ENABLE_BERINGEI)
+
 BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::BeringeiStore)
     ->Arg(1)
     ->Arg(4)
@@ -161,5 +167,7 @@ BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::BeringeiStore)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
+
+#endif
 
 BENCHMARK_MAIN();
