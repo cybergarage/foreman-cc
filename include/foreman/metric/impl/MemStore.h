@@ -41,17 +41,6 @@ public:
       return 0;
     }
 
-    virtual bool setRetentionInterval(time_t sec)
-    {
-      retentionInterval_ = sec;
-      return true;
-    };
-
-    time_t getRetentionInterval()
-    {
-      return retentionInterval_;
-    };
-
     virtual bool setRetentionPeriod(time_t sec)
     {
       retentionPeriod_ = sec;
@@ -67,7 +56,6 @@ public:
     size_t getRowCount();
 
 private:
-    time_t retentionInterval_;
     time_t retentionPeriod_;
   };
 }
