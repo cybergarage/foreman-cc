@@ -16,7 +16,7 @@
 #include <sqlite3.h>
 
 #include <foreman/metric/Store.h>
-#include <foreman/metric/TimeSeriesMap.h>
+#include <foreman/metric/impl/TimeSeriesImpl.h>
 #include <foreman/net/Graphite.h>
 
 namespace Foreman {
@@ -74,49 +74,6 @@ public:
 private:
     time_t retentionInterval_;
     time_t retentionPeriod_;
-  };
-
-  ////////////////////////////////////////////////
-  // SQLiteStore
-  ////////////////////////////////////////////////
-
-  class SQLiteMetric : public Metric {
-public:
-    SQLiteMetric(){};
-    int rowId;
-  };
-
-  class SQLiteStore : public MemStore {
-public:
-    SQLiteStore();
-    ~SQLiteStore();
-
-    virtual bool open();
-
-    bool isOpened();
-    bool close();
-
-    bool query(const std::string& query);
-    bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
-
-protected:
-    sqlite3* db_;
-  };
-
-  ////////////////////////////////////////////////
-  // NarrowTableStore
-  ////////////////////////////////////////////////
-
-  class NarrowTableStore : public SQLiteStore {
-public:
-    NarrowTableStore();
-    ~NarrowTableStore();
-
-    bool open();
-    bool clear();
-    bool addMetric(std::shared_ptr<Metric> m);
-    bool addValue(const Metric& m);
-    bool getValues(Query* q, ResultSet* rs);
   };
 
   ////////////////////////////////////////////////
@@ -191,34 +148,6 @@ public:
     bool isOpened();
     bool close();
   };
-
-////////////////////////////////////////////////
-// GraphiteStore
-////////////////////////////////////////////////
-
-#if defined(FOREMAN_ENABLE_GRAPHITE)
-
-  class GraphiteStore : public MemStore {
-public:
-    GraphiteStore();
-    ~GraphiteStore();
-
-    bool open();
-    bool isOpened();
-    bool close();
-
-    void setHost(const std::string& host);
-    void setCarbonPort(int port);
-    void setHttpPort(int port);
-
-    bool addValue(const Metric& m);
-    bool getValues(Query* q, ResultSet* rs);
-
-private:
-    Graphite graphite;
-  };
-
-#endif
 }
 }
 

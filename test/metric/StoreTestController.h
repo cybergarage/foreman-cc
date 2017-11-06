@@ -8,10 +8,10 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_MEMSTORETESTCONTROLLER_H_
-#define _FOREMANCC_MEMSTORETESTCONTROLLER_H_
+#ifndef _FOREMANCC_STORETESTCONTROLLER_H_
+#define _FOREMANCC_STORETESTCONTROLLER_H_
 
-#include <foreman/metric/MemStore.h>
+#include <foreman/metric/impl/StoreImpl.h>
 
 #define FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL 60
 #define FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_HOUR 6
@@ -22,13 +22,13 @@
 #define FORMANCC_MEMSTORETESTCONTROLLER_METRICS_NAME_PREFIX "name"
 
 ////////////////////////////////////////////////
-// MemStoreTestContoller
+// StoreTestContoller
 ////////////////////////////////////////////////
 
-class MemStoreTestContoller {
+class StoreTestContoller {
   public:
-  MemStoreTestContoller();
-  virtual ~MemStoreTestContoller();
+  StoreTestContoller();
+  virtual ~StoreTestContoller();
 
   void run(Foreman::Metric::MemStore* store);
 };

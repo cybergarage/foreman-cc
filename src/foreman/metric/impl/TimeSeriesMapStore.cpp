@@ -8,43 +8,37 @@
  *
  ******************************************************************/
 
-#include <sqlite3.h>
-#include <stdio.h>
-
-#include <foreman/metric/MemStore.h>
-#include <foreman/metric/TimeSeriesMap.h>
+#include <foreman/metric/impl/MemStore.h>
 
 using namespace Foreman::Metric;
 
-#if defined(FOREMAN_ENABLE_BERINGEI)
-
 ////////////////////////////////////////////////
-// TSmapStore
+// TimeSeriesMapStore
 ////////////////////////////////////////////////
 
-TSmapStore::TSmapStore()
+TimeSeriesMapStore::TimeSeriesMapStore()
 {
-  tsMap_ = std::shared_ptr<BeringeiTimeSeriesMap>(new BeringeiTimeSeriesMap());
+  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
 }
 
-TSmapStore::~TSmapStore() {}
+TimeSeriesMapStore::~TimeSeriesMapStore()
+{
+}
 
 ////////////////////////////////////////////////
-// open
+// addValue
 ////////////////////////////////////////////////
 
-bool TSmapStore::open() { return true; }
+bool TimeSeriesMapStore::addValue(const Metric& m)
+{
+  return tsMap_->addValue(m);
+}
 
 ////////////////////////////////////////////////
-// open
+// getValues
 ////////////////////////////////////////////////
 
-bool TSmapStore::isOpened() { return true; }
-
-////////////////////////////////////////////////
-// close
-////////////////////////////////////////////////
-
-bool TSmapStore::close() { return true; }
-
-#endif
+bool TimeSeriesMapStore::getValues(Query* q, ResultSet* rs)
+{
+  return tsMap_->getValues(q, rs);
+}

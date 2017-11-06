@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/TimeSeries.h>
+#include <foreman/metric/impl/BeringeiTimeSeries.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;

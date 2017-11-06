@@ -8,41 +8,38 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_METRIC_TIMESERIESMAP_H_
-#define _FOREMANCC_METRIC_TIMESERIESMAP_H_
+#ifndef _FOREMANCC_METRIC_BERINGEI_TIMESERIES_H_
+#define _FOREMANCC_METRIC_BERINGEI_TIMESERIES_H_
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
-#include <string>
-#include <unordered_map>
+#include <foreman/metric/impl/TimeSeries.h>
 
-#include <foreman/metric/Query.h>
-#include <foreman/metric/ResultSet.h>
-#include <foreman/metric/TimeSeries.h>
+#if defined(FOREMAN_ENABLE_BERINGEI)
+#include <beringei/TimeSeriesStream.h>
+#endif
 
 namespace Foreman {
 namespace Metric {
 
-  ////////////////////////////////////////////////
-  // TimeSeriesMap
-  ////////////////////////////////////////////////
+////////////////////////////////////////////////
+// BeringeiTimeSeries
+////////////////////////////////////////////////
 
-  typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
+#if defined(FOREMAN_ENABLE_BERINGEI)
 
-  class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
+  class BeringeiTimeSeries : public TimeSeries {
 public:
-    TimeSeriesMap();
-    virtual ~TimeSeriesMap();
-
-    std::shared_ptr<TimeSeries> findTimeSeries(const Metric& m);
-    std::shared_ptr<TimeSeries> addTimeSeries(const Metric& m);
-    virtual std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m);
+    BeringeiTimeSeries();
+    ~BeringeiTimeSeries();
 
     bool addValue(const Metric& m);
-    bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
     bool getValues(Query* q, ResultSet* rs);
+
+private:
+    facebook::gorilla::TimeSeriesStream stream_;
   };
 
 ////////////////////////////////////////////////
@@ -61,6 +58,8 @@ public:
       return std::shared_ptr<BeringeiTimeSeries>(new BeringeiTimeSeries());
     }
   };
+
+#endif
 
 #endif
 }

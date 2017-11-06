@@ -9,7 +9,7 @@
  ******************************************************************/
 
 #include <foreman/foreman-c.h>
-#include <foreman/metric/MemStore.h>
+#include <foreman/metric/impl/StoreImpl.h>
 
 using namespace Foreman::Metric;
 

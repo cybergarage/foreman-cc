@@ -8,33 +8,17 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_METRIC_TIMESERIES_H_
-#define _FOREMANCC_METRIC_TIMESERIES_H_
+#ifndef _FOREMANCC_METRIC_ARRAY_TIMESERIES_H_
+#define _FOREMANCC_METRIC_ARRAY_TIMESERIES_H_
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
-#include <beringei/TimeSeriesStream.h>
-#include <foreman/metric/Metric.h>
-#include <foreman/metric/Query.h>
-#include <foreman/metric/ResultSet.h>
+#include <foreman/metric/impl/TimeSeries.h>
 
 namespace Foreman {
 namespace Metric {
-
-  ////////////////////////////////////////////////
-  // TimeSeries
-  ////////////////////////////////////////////////
-
-  class TimeSeries {
-public:
-    TimeSeries();
-    virtual ~TimeSeries();
-
-    virtual bool addValue(const Metric& m) = 0;
-    virtual bool getValues(Query* q, ResultSet* rs) = 0;
-  };
 
   ////////////////////////////////////////////////
   // ArrayTimeSeries
@@ -85,26 +69,6 @@ public:
     bool addValue(const Metric& m);
     bool getValues(Query* q, ResultSet* rs);
   };
-
-////////////////////////////////////////////////
-// BeringeiTimeSeries
-////////////////////////////////////////////////
-
-#if defined(FOREMAN_ENABLE_BERINGEI)
-
-  class BeringeiTimeSeries : public TimeSeries {
-public:
-    BeringeiTimeSeries();
-    ~BeringeiTimeSeries();
-
-    bool addValue(const Metric& m);
-    bool getValues(Query* q, ResultSet* rs);
-
-private:
-    facebook::gorilla::TimeSeriesStream stream_;
-  };
-
-#endif
 }
 }
 

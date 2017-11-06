@@ -28,32 +28,32 @@ foremancc_sources = \
 	../../src/foreman/clang/registry/query_c.cpp \
 	../../src/foreman/clang/registry/store_c.cpp \
 	../../src/foreman/common/Error.cpp \
-	../../src/foreman/metric/ArrayTimeSeries.cpp \
-	../../src/foreman/metric/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/Data.cpp \
 	../../src/foreman/metric/DataMap.cpp \
 	../../src/foreman/metric/DataPoint.cpp \
 	../../src/foreman/metric/DataPoints.cpp \
 	../../src/foreman/metric/DataPointsMap.cpp \
-	../../src/foreman/metric/GraphiteStore.cpp \
-	../../src/foreman/metric/MatrixStore.cpp \
-	../../src/foreman/metric/MemStore.cpp \
-	../../src/foreman/metric/NarrowTableStore.cpp \
+	../../src/foreman/metric/impl/ArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/BeringeiTimeSeries.cpp \
+	../../src/foreman/metric/impl/GraphiteStore.cpp \
+	../../src/foreman/metric/impl/MatrixStore.cpp \
+	../../src/foreman/metric/impl/MemStore.cpp \
+	../../src/foreman/metric/impl/NarrowTableStore.cpp \
+	../../src/foreman/metric/impl/RingArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/RingMapStore.cpp \
+	../../src/foreman/metric/impl/SQLiteStore.cpp \
+	../../src/foreman/metric/impl/StaticArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/TimeSeries.cpp \
+	../../src/foreman/metric/impl/TimeSeriesMap.cpp \
+	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \
+	../../src/foreman/metric/impl/TSmapStore.cpp \
 	../../src/foreman/metric/Query.cpp \
 	../../src/foreman/metric/ResultSet.cpp \
-	../../src/foreman/metric/RingArrayTimeSeries.cpp \
-	../../src/foreman/metric/RingMapStore.cpp \
-	../../src/foreman/metric/SQLiteStore.cpp \
-	../../src/foreman/metric/StaticArrayTimeSeries.cpp \
 	../../src/foreman/metric/Store.cpp \
-	../../src/foreman/metric/TimeSeries.cpp \
-	../../src/foreman/metric/TimeSeriesMap.cpp \
-	../../src/foreman/metric/TimeSeriesMapStore.cpp \
-	../../src/foreman/metric/TSmapStore.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
-	../../src/foreman/registry/impl/SQLLiteStore.cpp \
+	../../src/foreman/registry/impl/SQLiteStore.cpp \
 	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \

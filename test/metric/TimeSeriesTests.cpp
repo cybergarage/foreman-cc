@@ -10,7 +10,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <foreman/metric/TimeSeriesMap.h>
+#include <foreman/metric/impl/TimeSeries.h>
 
 using namespace Foreman::Metric;
 

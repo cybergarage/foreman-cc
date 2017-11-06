@@ -8,37 +8,42 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/MemStore.h>
+#include <math.h>
+
+#include <foreman/metric/impl/MemStore.h>
 
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// TimeSeriesMapStore
+// MemStore
 ////////////////////////////////////////////////
 
-TimeSeriesMapStore::TimeSeriesMapStore()
+MemStore::MemStore()
 {
-  tsMap_ = std::shared_ptr<TimeSeriesMap>(new TimeSeriesMap());
+  retentionInterval_ = 0;
+  retentionPeriod_ = 0;
 }
 
-TimeSeriesMapStore::~TimeSeriesMapStore()
+MemStore::~MemStore()
 {
-}
-
-////////////////////////////////////////////////
-// addValue
-////////////////////////////////////////////////
-
-bool TimeSeriesMapStore::addValue(const Metric& m)
-{
-  return tsMap_->addValue(m);
 }
 
 ////////////////////////////////////////////////
-// getValues
+// getColumnCount
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::getValues(Query* q, ResultSet* rs)
+size_t MemStore::getColumnCount()
 {
-  return tsMap_->getValues(q, rs);
+  if (retentionInterval_ == 0)
+    return 0;
+  return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
+}
+
+////////////////////////////////////////////////
+// getRowCount
+////////////////////////////////////////////////
+
+size_t MemStore::getRowCount()
+{
+  return metricMap_.size();
 }

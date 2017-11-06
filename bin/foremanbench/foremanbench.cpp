@@ -31,7 +31,7 @@ void ForemanMemStoreWrite(benchmark::State& state)
     benchmark.setRetentionIntervel(FORMANCC_BENCHMARK_RETENSION_INTERVAL);
     benchmark.setMetricsCount(FORMANCC_BENCHMARK_METRICS_COUNT);
 
-    Foreman::MemStore* memStore = new MemStoreClass();
+    Foreman::Metric::MemStore* memStore = new MemStoreClass();
 
     if (!benchmark.initialize(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
       state.SkipWithError("Couldn't initialize MemStore !!");
@@ -67,7 +67,7 @@ void ForemanMemStoreRead(benchmark::State& state)
     benchmark.setRetentionIntervel(FORMANCC_BENCHMARK_RETENSION_INTERVAL);
     benchmark.setMetricsCount(FORMANCC_BENCHMARK_METRICS_COUNT);
 
-    Foreman::MemStore* memStore = new MemStoreClass();
+    Foreman::Metric::MemStore* memStore = new MemStoreClass();
 
     if (!benchmark.initialize(memStore, FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR)) {
       state.SkipWithError("Couldn't initialize MemStore !!");
@@ -96,13 +96,13 @@ void ForemanMemStoreRead(benchmark::State& state)
 // RingMapStor
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::RingMapStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -113,13 +113,13 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::RingMapStore)
 // NarrowTableStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::NarrowTableStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::NarrowTableStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -130,14 +130,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::NarrowTableStore)
 // MatrixStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::MatrixStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
 
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::MatrixStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -148,14 +148,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::MatrixStore)
 // TSmapStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::TSmapStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::TSmapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
 
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::TSmapStore)
+BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::TSmapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)

@@ -8,11 +8,11 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_REGISTRY_STOREIMPL_H_
-#define _FOREMANCC_REGISTRY_STOREIMPL_H_
+#ifndef _FOREMANCC_METRIC_STOREIMPL_H_
+#define _FOREMANCC_METRIC_STOREIMPL_H_
 
-#include <foreman/registry/Store.h>
-
-#include <foreman/registry/impl/SQLStore.h>
+#include <foreman/metric/Store.h>
+#include <foreman/metric/impl/MemStore.h>
+#include <foreman/metric/impl/SQLiteStore.h>
 
 #endif

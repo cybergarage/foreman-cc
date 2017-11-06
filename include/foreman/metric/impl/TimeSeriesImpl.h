@@ -8,16 +8,14 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/TimeSeries.h>
+#ifndef _FOREMANCC_METRIC_TIMESERIESIMPL_H_
+#define _FOREMANCC_METRIC_TIMESERIESIMPL_H_
 
-using namespace Foreman::Metric;
+#include <foreman/metric/impl/TimeSeries.h>
 
-////////////////////////////////////////////////
-// TimeSeries
-////////////////////////////////////////////////
+#include <foreman/metric/impl/ArrayTimeSeries.h>
+#if defined(FOREMAN_ENABLE_BERINGEI)
+#include <beringei/TimeSeriesStream.h>
+#endif
 
-TimeSeries::TimeSeries()
-{
-}
-
-TimeSeries::~TimeSeries() {}
+#endif

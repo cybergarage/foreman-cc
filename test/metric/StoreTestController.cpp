@@ -10,21 +10,21 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "MemStoreTestController.h"
+#include "StoreTestController.h"
 
 ////////////////////////////////////////////////
-// MemStoreTestContoller
+// StoreTestContoller
 ////////////////////////////////////////////////
 
-MemStoreTestContoller::MemStoreTestContoller() {}
+StoreTestContoller::StoreTestContoller() {}
 
-MemStoreTestContoller::~MemStoreTestContoller() {}
+StoreTestContoller::~StoreTestContoller() {}
 
 ////////////////////////////////////////////////
 // run
 ////////////////////////////////////////////////
 
-void MemStoreTestContoller::run(Foreman::Metric::MemStore* store)
+void StoreTestContoller::run(Foreman::Metric::MemStore* store)
 {
   BOOST_CHECK(store->open());
 
