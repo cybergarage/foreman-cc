@@ -8,28 +8,26 @@
  *
  ******************************************************************/
 
-#include <foreman/Const.h>
-#include <foreman/registry/impl/SQLStore.h>
+#ifndef _FOREMANCC_REGISTRY_STORETESTCONTROLLER_H_
+#define _FOREMANCC_REGISTRY_STORETESTCONTROLLER_H_
 
-using namespace Foreman::Registry;
+#include <foreman/registry/Store.h>
 
 ////////////////////////////////////////////////
-// SQLStore
+// StoreTestContoller
 ////////////////////////////////////////////////
 
-SQLStore::SQLStore()
-{
+namespace Foreman {
+namespace Registry {
+
+  class StoreTestContoller {
+public:
+    StoreTestContoller();
+    virtual ~StoreTestContoller();
+
+    void run(Store* store);
+  };
+}
 }
 
-SQLStore::~SQLStore()
-{
-}
-
-////////////////////////////////////////////////
-// getVersion
-////////////////////////////////////////////////
-
-const char* SQLStore::getVersion()
-{
-  return FOREMANCC_PRODUCT_VERSION;
-}
+#endif

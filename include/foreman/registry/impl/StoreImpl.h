@@ -11,8 +11,6 @@
 #ifndef _FOREMANCC_REGISTRY_STOREIMPL_H_
 #define _FOREMANCC_REGISTRY_STOREIMPL_H_
 
-#include <foreman/registry/Store.h>
-
 #include <foreman/registry/impl/SQLStore.h>
 
 #endif
