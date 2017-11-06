@@ -34,6 +34,7 @@ foremantest_SOURCES = \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
 	..//registry/QueryTest.cpp \
-	..//registry/StoreTest.cpp
+	..//registry/StoreTest.cpp \
+	..//registry/StoreTestController.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a

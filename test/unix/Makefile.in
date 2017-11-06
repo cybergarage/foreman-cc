@@ -128,7 +128,8 @@ am_foremantest_OBJECTS = ..//clang/common/ClangErrorTest.$(OBJEXT) \
 	..//registry/ObjectTest.$(OBJEXT) \
 	..//registry/PropertyTest.$(OBJEXT) \
 	..//registry/QueryTest.$(OBJEXT) \
-	..//registry/StoreTest.$(OBJEXT)
+	..//registry/StoreTest.$(OBJEXT) \
+	..//registry/StoreTestController.$(OBJEXT)
 foremantest_OBJECTS = $(am_foremantest_OBJECTS)
 foremantest_DEPENDENCIES = ../../lib/unix/libforeman++.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -507,7 +508,8 @@ foremantest_SOURCES = \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
 	..//registry/QueryTest.cpp \
-	..//registry/StoreTest.cpp
+	..//registry/StoreTest.cpp \
+	..//registry/StoreTestController.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
 all: all-am
@@ -639,6 +641,9 @@ clean-noinstPROGRAMS:
 	../registry/$(DEPDIR)/$(am__dirstamp)
 ..//registry/StoreTest.$(OBJEXT): ../registry/$(am__dirstamp) \
 	../registry/$(DEPDIR)/$(am__dirstamp)
+..//registry/StoreTestController.$(OBJEXT):  \
+	../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
 
 foremantest$(EXEEXT): $(foremantest_OBJECTS) $(foremantest_DEPENDENCIES) $(EXTRA_foremantest_DEPENDENCIES) 
 	@rm -f foremantest$(EXEEXT)
@@ -678,6 +683,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/PropertyTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/QueryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/StoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/StoreTestController.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\

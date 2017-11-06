@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_STORETESTCONTROLLER_H_
-#define _FOREMANCC_STORETESTCONTROLLER_H_
+#ifndef _FOREMANCC_METRIC_STORETESTCONTROLLER_H_
+#define _FOREMANCC_METRIC_STORETESTCONTROLLER_H_
 
 #include <foreman/metric/impl/StoreImpl.h>
 
