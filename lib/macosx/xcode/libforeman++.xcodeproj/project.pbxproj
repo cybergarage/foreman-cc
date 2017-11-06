@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2129D19C1E9693E700FCA490 /* Socket.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D19B1E9693E700FCA490 /* Socket.h */; };
-		2129D1A11E96940500FCA490 /* Socket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A01E96940500FCA490 /* Socket.cpp */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
@@ -90,8 +88,6 @@
 
 /* Begin PBXFileReference section */
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2129D19B1E9693E700FCA490 /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
-		2129D1A01E96940500FCA490 /* Socket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Socket.cpp; sourceTree = "<group>"; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
@@ -204,7 +200,6 @@
 			children = (
 				215573C11EA1DBE90083A51C /* HttpClient.h */,
 				2129D1A21E96A64600FCA490 /* Graphite.h */,
-				2129D19B1E9693E700FCA490 /* Socket.h */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -214,7 +209,6 @@
 			children = (
 				215573C31EA1DC0A0083A51C /* HttpClient.cpp */,
 				2129D1A41E96A64E00FCA490 /* Graphite.cpp */,
-				2129D1A01E96940500FCA490 /* Socket.cpp */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -494,7 +488,6 @@
 				21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
-				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
@@ -594,7 +587,6 @@
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
 				215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */,
 				215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */,
-				2129D1A11E96940500FCA490 /* Socket.cpp in Sources */,
 				215DB29D1FAB3A650089A36B /* query_c.cpp in Sources */,
 				215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */,
 				215DB2971FAB31000089A36B /* Error.cpp in Sources */,

@@ -288,7 +288,6 @@ foremancc_header = \
 	./foreman/metric/Store.h \
 	./foreman/net/Graphite.h \
 	./foreman/net/HttpClient.h \
-	./foreman/net/Socket.h \
 	./foreman/Platform.h \
 	./foreman/registry/impl/SQLStore.h \
 	./foreman/registry/impl/StoreImpl.h \

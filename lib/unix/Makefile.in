@@ -183,7 +183,6 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/metric/Store.$(OBJEXT) \
 	../../src/foreman/net/Graphite.$(OBJEXT) \
 	../../src/foreman/net/HttpClient.$(OBJEXT) \
-	../../src/foreman/net/Socket.$(OBJEXT) \
 	../../src/foreman/registry/impl/SQLiteStore.$(OBJEXT) \
 	../../src/foreman/registry/impl/SQLStore.$(OBJEXT) \
 	../../src/foreman/registry/Object.$(OBJEXT) \
@@ -385,7 +384,6 @@ foremancc_sources = \
 	../../src/foreman/metric/Store.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
-	../../src/foreman/net/Socket.cpp \
 	../../src/foreman/registry/impl/SQLiteStore.cpp \
 	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
@@ -627,9 +625,6 @@ clean-libLIBRARIES:
 ../../src/foreman/net/HttpClient.$(OBJEXT):  \
 	../../src/foreman/net/$(am__dirstamp) \
 	../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/net/Socket.$(OBJEXT):  \
-	../../src/foreman/net/$(am__dirstamp) \
-	../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/registry/impl/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/registry/impl
 	@: > ../../src/foreman/registry/impl/$(am__dirstamp)
@@ -734,7 +729,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/TimeSeriesMapStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/Graphite.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/HttpClient.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/Socket.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Object.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Properties.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Property.Po@am__quote@

@@ -12,7 +12,6 @@
 
 #include <foreman/net/Graphite.h>
 #include <foreman/net/HttpClient.h>
-#include <foreman/net/Socket.h>
 
 using namespace Foreman;
 
@@ -68,17 +67,7 @@ bool Graphite::addValue(const std::string& path, time_t ts, double value)
   if (snprintf(pickleMsg, sizeof(pickleMsg), "%s %ld %lf", path.c_str(), ts, value) < 0)
     return false;
 
-#if defined(FOREMAN_ENABLE_UHTTPCC)
-  Socket sock;
-
-  if (!sock.connect(host, carbonPort))
-    return false;
-
-  if (sock.send(pickleMsg, strlen(pickleMsg)) <= 0)
-    return false;
-
-  sock.close();
-#endif
+  // TODO : Send the packet to Graphite server.
 
   return true;
 }
@@ -107,12 +96,12 @@ bool Graphite::getValues(const std::string& path, time_t beginTs, time_t endTs, 
   if (snprintf(urlPath, sizeof(urlPath), "http://%s/render?target=%s&from=%s&until=%s&format=csv", host.c_str(), path.c_str(), sinceStr, endStr) < 0)
     return false;
 
-#if defined(FOREMAN_ENABLE_UHTTPCC)
   HttpClient cli;
   std::string content;
   if (cli.get(urlPath, content))
     return false;
-#endif
+
+  // TODO : Parse the response from Graphite server.
 
   return true;
 }
