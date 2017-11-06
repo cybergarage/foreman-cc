@@ -54,8 +54,6 @@ AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)
 
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
-AC_CHECK_HEADERS([curl/curl.h])
-AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
 
 ##################################################################
 # Check option libraries (Beringei)
@@ -94,8 +92,8 @@ AC_ARG_ENABLE(
 AM_CONDITIONAL(FOREMAN_ENABLE_GRAPHITE,test "$eneble_graphite" = yes)
 if [ test "$eneble_graphite" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_GRAPHITE],1,[--enable-graphite])
-	AC_DEFINE([FOREMAN_ENABLE_UHTTPCC],1,[--enable-graphite])
-	AC_CHECK_LIB([uhttp++],[main],,[AC_MSG_ERROR(Please install uHTTP for C++ library)])
+	AC_CHECK_HEADERS([curl/curl.h])
+	AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
 fi
 
 ##################################################################
