@@ -41,22 +41,13 @@ public:
       return 0;
     }
 
-    virtual bool setRetentionPeriod(time_t sec)
+    size_t getStorageUsage()
     {
-      retentionPeriod_ = sec;
-      return true;
-    };
-
-    time_t getRetentionPeriod()
-    {
-      return retentionPeriod_;
-    };
+      return 0;
+    }
 
     size_t getColumnCount();
     size_t getRowCount();
-
-private:
-    time_t retentionPeriod_;
   };
 }
 }

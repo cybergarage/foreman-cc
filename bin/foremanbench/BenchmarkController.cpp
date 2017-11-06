@@ -36,11 +36,11 @@ BenchmarkController::~BenchmarkController()
 // initialize
 ////////////////////////////////////////////////
 
-bool BenchmarkController::initialize(Metric::MemStore* memStore, size_t retensionPeriodHour)
+bool BenchmarkController::initialize(Metric::Store* store, size_t retensionPeriodHour)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
 
-  memStore->open();
+  store->open();
 
   // Initialize metrics
 
@@ -53,15 +53,12 @@ bool BenchmarkController::initialize(Metric::MemStore* memStore, size_t retensio
     metrics.push_back(m);
   }
 
-  memStore->setRetentionInterval(retentionIntervel_);
-  memStore->setRetentionPeriod(FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC);
+  store->setRetentionInterval(retentionIntervel_);
+  store->setRetentionPeriod(FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC);
 
   for (std::shared_ptr<Metric::Metric> m : metrics) {
-    memStore->addMetric(m);
+    store->addMetric(m);
   }
-
-  if (!memStore->realloc())
-    return false;
 
   return true;
 }
@@ -70,7 +67,7 @@ bool BenchmarkController::initialize(Metric::MemStore* memStore, size_t retensio
 // insertRecords
 ////////////////////////////////////////////////
 
-bool BenchmarkController::insertRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt)
+bool BenchmarkController::insertRecords(Metric::Store* store, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / retentionIntervel_);
@@ -108,7 +105,7 @@ bool BenchmarkController::insertRecords(Metric::MemStore* memStore, size_t reten
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
     Metric::Metrics values;
     for (size_t n = 0; n < repeatCnt; n++) {
-      std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = memStore->getMetrics();
+      std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = store->getMetrics();
       for (auto it = metrics->begin(); it != metrics->end(); ++it) {
         std::shared_ptr<Metric::Metric> m = *it;
         std::shared_ptr<Metric::Metric> value = std::shared_ptr<Metric::Metric>(new Metric::Metric(*m));
@@ -134,7 +131,7 @@ bool BenchmarkController::insertRecords(Metric::MemStore* memStore, size_t reten
 
         values.push_back(value);
       }
-      if (!memStore->addValues(values))
+      if (!store->addValues(values))
         return false;
     }
     metricTs += retentionIntervel_;
@@ -147,19 +144,19 @@ bool BenchmarkController::insertRecords(Metric::MemStore* memStore, size_t reten
 // readRecords
 ////////////////////////////////////////////////
 
-bool BenchmarkController::readRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
+bool BenchmarkController::readRecords(Metric::Store* store, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
 {
   Foreman::Metric::Query q;
   q.setFrom(beginTs);
   q.setUntil(endTs);
 
-  std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = memStore->getMetrics();
+  std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = store->getMetrics();
   for (size_t n = 0; n < repeatCnt; n++) {
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
       std::shared_ptr<Metric::Metric> m = *it;
       q.setTarget(*m);
       Foreman::Metric::ResultSet rs;
-      if (!memStore->getValues(&q, &rs))
+      if (!store->getValues(&q, &rs))
         return false;
     }
   }
@@ -170,8 +167,8 @@ bool BenchmarkController::readRecords(Metric::MemStore* memStore, size_t retensi
 // finalize
 ////////////////////////////////////////////////
 
-bool BenchmarkController::finalize(Metric::MemStore* memStore)
+bool BenchmarkController::finalize(Metric::Store* store)
 {
-  memStore->close();
+  store->close();
   return true;
 }

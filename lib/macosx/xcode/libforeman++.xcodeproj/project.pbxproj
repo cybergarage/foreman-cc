@@ -26,10 +26,6 @@
 		215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2C51FAB565F0089A36B /* Properties.cpp */; };
 		215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC411FB0377E006DF3AE /* SQLStore.cpp */; };
 		215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC451FB03924006DF3AE /* StoreImpl.h */; };
-		215EDC4B1FB0441B006DF3AE /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC481FB04419006DF3AE /* StoreImpl.h */; };
-		215EDC4D1FB0441B006DF3AE /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC4A1FB0441B006DF3AE /* MemStore.h */; };
-		215EDC511FB04990006DF3AE /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC4F1FB04990006DF3AE /* TimeSeries.h */; };
-		215EDC541FB049BB006DF3AE /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC531FB049BB006DF3AE /* error_c.cpp */; };
 		215EDC641FB04A22006DF3AE /* StaticArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC561FB04A21006DF3AE /* StaticArrayTimeSeries.cpp */; };
 		215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC571FB04A21006DF3AE /* TimeSeriesMap.cpp */; };
 		215EDC661FB04A22006DF3AE /* RingMapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC581FB04A21006DF3AE /* RingMapStore.cpp */; };
@@ -44,12 +40,7 @@
 		215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC611FB04A22006DF3AE /* TSmapStore.cpp */; };
 		215EDC701FB04A22006DF3AE /* NarrowTableStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC621FB04A22006DF3AE /* NarrowTableStore.cpp */; };
 		215EDC711FB04A22006DF3AE /* RingArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC631FB04A22006DF3AE /* RingArrayTimeSeries.cpp */; };
-		215EDC751FB055DD006DF3AE /* BeringeiStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC731FB055DD006DF3AE /* BeringeiStore.h */; };
-		215EDC771FB05664006DF3AE /* ArrayTimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC761FB05664006DF3AE /* ArrayTimeSeries.h */; };
-		215EDC791FB05919006DF3AE /* SQLiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC781FB05919006DF3AE /* SQLiteStore.h */; };
 		215EDC7B1FB05A16006DF3AE /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC7A1FB05A16006DF3AE /* SQLiteStore.cpp */; };
-		215EDC7D1FB05C97006DF3AE /* GraphiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC7C1FB05C96006DF3AE /* GraphiteStore.h */; };
-		215EDC7F1FB071B7006DF3AE /* TimeSeriesMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC7E1FB071B7006DF3AE /* TimeSeriesMapStore.h */; };
 		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
 		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
 		216A5AE61F9C597B0092272A /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADE1F9C597B0092272A /* Query.h */; };
@@ -82,6 +73,15 @@
 		2188DBEC1FB028C200940208 /* SQLStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBEB1FB028C200940208 /* SQLStore.h */; };
 		21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 21893D8B1E86AD4C001ED8D5 /* BitUtil.h */; };
 		218D47C91F503251002A3FA2 /* foreman-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 218D47C81F503251002A3FA2 /* foreman-c.h */; };
+		21ABA0961FB07A9300982715 /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ABA0951FB07A9300982715 /* error_c.cpp */; };
+		21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0981FB07ABC00982715 /* BeringeiStore.h */; };
+		21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */; };
+		21ABA0A21FB07ABD00982715 /* SQLiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09A1FB07ABD00982715 /* SQLiteStore.h */; };
+		21ABA0A31FB07ABD00982715 /* TimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09B1FB07ABD00982715 /* TimeSeries.h */; };
+		21ABA0A41FB07ABD00982715 /* TimeSeriesMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09C1FB07ABD00982715 /* TimeSeriesMapStore.h */; };
+		21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09D1FB07ABD00982715 /* StoreImpl.h */; };
+		21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09E1FB07ABD00982715 /* GraphiteStore.h */; };
+		21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09F1FB07ABD00982715 /* MemStore.h */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
@@ -109,10 +109,6 @@
 		215DB2C51FAB565F0089A36B /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Properties.cpp; path = registry/Properties.cpp; sourceTree = "<group>"; };
 		215EDC411FB0377E006DF3AE /* SQLStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLStore.cpp; path = registry/impl/SQLStore.cpp; sourceTree = "<group>"; };
 		215EDC451FB03924006DF3AE /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = registry/impl/StoreImpl.h; sourceTree = "<group>"; };
-		215EDC481FB04419006DF3AE /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = ../impl/StoreImpl.h; sourceTree = "<group>"; };
-		215EDC4A1FB0441B006DF3AE /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = ../impl/MemStore.h; sourceTree = "<group>"; };
-		215EDC4F1FB04990006DF3AE /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeries.h; path = ../impl/TimeSeries.h; sourceTree = "<group>"; };
-		215EDC531FB049BB006DF3AE /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = ../clang/common/error_c.cpp; sourceTree = "<group>"; };
 		215EDC561FB04A21006DF3AE /* StaticArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StaticArrayTimeSeries.cpp; path = impl/StaticArrayTimeSeries.cpp; sourceTree = "<group>"; };
 		215EDC571FB04A21006DF3AE /* TimeSeriesMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesMap.cpp; path = impl/TimeSeriesMap.cpp; sourceTree = "<group>"; };
 		215EDC581FB04A21006DF3AE /* RingMapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RingMapStore.cpp; path = impl/RingMapStore.cpp; sourceTree = "<group>"; };
@@ -127,12 +123,7 @@
 		215EDC611FB04A22006DF3AE /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSmapStore.cpp; path = impl/TSmapStore.cpp; sourceTree = "<group>"; };
 		215EDC621FB04A22006DF3AE /* NarrowTableStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NarrowTableStore.cpp; path = impl/NarrowTableStore.cpp; sourceTree = "<group>"; };
 		215EDC631FB04A22006DF3AE /* RingArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RingArrayTimeSeries.cpp; path = impl/RingArrayTimeSeries.cpp; sourceTree = "<group>"; };
-		215EDC731FB055DD006DF3AE /* BeringeiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeringeiStore.h; path = ../impl/BeringeiStore.h; sourceTree = "<group>"; };
-		215EDC761FB05664006DF3AE /* ArrayTimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayTimeSeries.h; path = ../impl/ArrayTimeSeries.h; sourceTree = "<group>"; };
-		215EDC781FB05919006DF3AE /* SQLiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteStore.h; path = ../impl/SQLiteStore.h; sourceTree = "<group>"; };
 		215EDC7A1FB05A16006DF3AE /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLiteStore.cpp; path = registry/impl/SQLiteStore.cpp; sourceTree = "<group>"; };
-		215EDC7C1FB05C96006DF3AE /* GraphiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphiteStore.h; path = ../impl/GraphiteStore.h; sourceTree = "<group>"; };
-		215EDC7E1FB071B7006DF3AE /* TimeSeriesMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeriesMapStore.h; path = ../impl/TimeSeriesMapStore.h; sourceTree = "<group>"; };
 		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
 		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
 		216A5ADE1F9C597B0092272A /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
@@ -165,6 +156,15 @@
 		2188DBEB1FB028C200940208 /* SQLStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLStore.h; path = registry/impl/SQLStore.h; sourceTree = "<group>"; };
 		21893D8B1E86AD4C001ED8D5 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
 		218D47C81F503251002A3FA2 /* foreman-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foreman-c.h"; sourceTree = "<group>"; };
+		21ABA0951FB07A9300982715 /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = ../clang/common/error_c.cpp; sourceTree = "<group>"; };
+		21ABA0981FB07ABC00982715 /* BeringeiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeringeiStore.h; path = impl/BeringeiStore.h; sourceTree = "<group>"; };
+		21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayTimeSeries.h; path = impl/ArrayTimeSeries.h; sourceTree = "<group>"; };
+		21ABA09A1FB07ABD00982715 /* SQLiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLiteStore.h; path = impl/SQLiteStore.h; sourceTree = "<group>"; };
+		21ABA09B1FB07ABD00982715 /* TimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeries.h; path = impl/TimeSeries.h; sourceTree = "<group>"; };
+		21ABA09C1FB07ABD00982715 /* TimeSeriesMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeriesMapStore.h; path = impl/TimeSeriesMapStore.h; sourceTree = "<group>"; };
+		21ABA09D1FB07ABD00982715 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = impl/StoreImpl.h; sourceTree = "<group>"; };
+		21ABA09E1FB07ABD00982715 /* GraphiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphiteStore.h; path = impl/GraphiteStore.h; sourceTree = "<group>"; };
+		21ABA09F1FB07ABD00982715 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = impl/MemStore.h; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
@@ -268,31 +268,6 @@
 			name = impl;
 			sourceTree = "<group>";
 		};
-		215EDC471FB043C7006DF3AE /* impl */ = {
-			isa = PBXGroup;
-			children = (
-				215EDC7E1FB071B7006DF3AE /* TimeSeriesMapStore.h */,
-				215EDC7C1FB05C96006DF3AE /* GraphiteStore.h */,
-				215EDC781FB05919006DF3AE /* SQLiteStore.h */,
-				215EDC761FB05664006DF3AE /* ArrayTimeSeries.h */,
-				215EDC731FB055DD006DF3AE /* BeringeiStore.h */,
-				215EDC4F1FB04990006DF3AE /* TimeSeries.h */,
-				215EDC4A1FB0441B006DF3AE /* MemStore.h */,
-				215EDC481FB04419006DF3AE /* StoreImpl.h */,
-			);
-			name = impl;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		215EDC521FB0499B006DF3AE /* common */ = {
-			isa = PBXGroup;
-			children = (
-				215EDC531FB049BB006DF3AE /* error_c.cpp */,
-			);
-			name = common;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		215EDC551FB04A16006DF3AE /* impl */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,7 +292,7 @@
 		216A5ADA1F9C597B0092272A /* metric */ = {
 			isa = PBXGroup;
 			children = (
-				215EDC471FB043C7006DF3AE /* impl */,
+				21ABA0971FB07AB200982715 /* impl */,
 				216A5ADB1F9C597B0092272A /* DataPoint.h */,
 				216A5ADD1F9C597B0092272A /* Metric.h */,
 				216A5ADE1F9C597B0092272A /* Query.h */,
@@ -460,11 +435,35 @@
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
-				215EDC521FB0499B006DF3AE /* common */,
+				21ABA0941FB07A1D00982715 /* common */,
 				215DB2981FAB3A410089A36B /* registry */,
 				216A5B601F9C5B8E0092272A /* metric */,
 			);
 			name = clang;
+			sourceTree = "<group>";
+		};
+		21ABA0941FB07A1D00982715 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				21ABA0951FB07A9300982715 /* error_c.cpp */,
+			);
+			name = common;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		21ABA0971FB07AB200982715 /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */,
+				21ABA0981FB07ABC00982715 /* BeringeiStore.h */,
+				21ABA09E1FB07ABD00982715 /* GraphiteStore.h */,
+				21ABA09F1FB07ABD00982715 /* MemStore.h */,
+				21ABA09A1FB07ABD00982715 /* SQLiteStore.h */,
+				21ABA09D1FB07ABD00982715 /* StoreImpl.h */,
+				21ABA09B1FB07ABD00982715 /* TimeSeries.h */,
+				21ABA09C1FB07ABD00982715 /* TimeSeriesMapStore.h */,
+			);
+			name = impl;
 			sourceTree = "<group>";
 		};
 		21C85F131F9C4BB000D59EAE /* util */ = {
@@ -484,35 +483,35 @@
 			files = (
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
-				215EDC791FB05919006DF3AE /* SQLiteStore.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
 				2188DBE41FB00AEE00940208 /* Query.h in Headers */,
-				215EDC511FB04990006DF3AE /* TimeSeries.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
+				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
+				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
 				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
+				21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
+				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
-				215EDC771FB05664006DF3AE /* ArrayTimeSeries.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
-				215EDC4D1FB0441B006DF3AE /* MemStore.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
-				215EDC7D1FB05C97006DF3AE /* GraphiteStore.h in Headers */,
-				215EDC7F1FB071B7006DF3AE /* TimeSeriesMapStore.h in Headers */,
-				215EDC751FB055DD006DF3AE /* BeringeiStore.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
 				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
 				2188DBE61FB00AEE00940208 /* Store.h in Headers */,
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
 				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
+				21ABA0A21FB07ABD00982715 /* SQLiteStore.h in Headers */,
+				21ABA0A41FB07ABD00982715 /* TimeSeriesMapStore.h in Headers */,
 				216A5AE31F9C597B0092272A /* DataPoint.h in Headers */,
+				21ABA0A31FB07ABD00982715 /* TimeSeries.h in Headers */,
 				215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */,
-				215EDC4B1FB0441B006DF3AE /* StoreImpl.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
+				21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,9 +610,9 @@
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
-				215EDC541FB049BB006DF3AE /* error_c.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
+				21ABA0961FB07A9300982715 /* error_c.cpp in Sources */,
 				215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
 				215EDC661FB04A22006DF3AE /* RingMapStore.cpp in Sources */,

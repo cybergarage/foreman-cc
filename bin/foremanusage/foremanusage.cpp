@@ -47,19 +47,19 @@ int main(int argc, char* argv[])
     return EXIT_FAILURE;
   }
 
-  Foreman::Metric::MemStore* memStore = nullptr;
-  std::string memStoreType = argv[1];
-  if (memStoreType.compare("matrix") == 0)
-    memStore = new Foreman::Metric::MatrixStore();
-  else if (memStoreType.compare("ringmap") == 0)
-    memStore = new Foreman::Metric::RingMapStore();
-  else if (memStoreType.compare("narrowtable") == 0)
-    memStore = new Foreman::Metric::NarrowTableStore();
-  else if (memStoreType.compare("tsmap") == 0)
-    memStore = new Foreman::Metric::BeringeiStore();
-  if (!memStore) {
+  Foreman::Metric::Store* store = nullptr;
+  std::string storeType = argv[1];
+  if (storeType.compare("matrix") == 0)
+    store = new Foreman::Metric::MatrixStore();
+  else if (storeType.compare("ringmap") == 0)
+    store = new Foreman::Metric::RingMapStore();
+  else if (storeType.compare("narrowtable") == 0)
+    store = new Foreman::Metric::NarrowTableStore();
+  else if (storeType.compare("tsmap") == 0)
+    store = new Foreman::Metric::BeringeiStore();
+  if (!store) {
     usage();
-    std::cout << "Unknown MemStore Type : " << memStoreType << std::endl;
+    std::cout << "Unknown Store Type : " << storeType << std::endl;
     return EXIT_FAILURE;
   }
 
@@ -93,15 +93,15 @@ int main(int argc, char* argv[])
   benchmark.setRetentionIntervel(FORMANCC_BENCHMARK_RETENSION_INTERVAL);
   benchmark.setMetricsCount(FORMANCC_BENCHMARK_METRICS_COUNT);
 
-  benchmark.initialize(memStore, retentionPeriodHour);
+  benchmark.initialize(store, retentionPeriodHour);
 
   lastUsage = get_memory_usages();
-  benchmark.insertRecords(memStore, retentionPeriodHour, beginTs, endTs, recordType);
+  benchmark.insertRecords(store, retentionPeriodHour, beginTs, endTs, recordType);
   long memUsage = get_memory_usages() - lastUsage;
 
-  std::cout << memStoreType << "/" << recordTypeStr << "/" << retentionPeriodHour << "," << memUsage << std::endl;
+  std::cout << storeType << "/" << recordTypeStr << "/" << retentionPeriodHour << "," << memUsage << std::endl;
 
-  delete memStore;
+  delete store;
 
   return EXIT_SUCCESS;
 }
