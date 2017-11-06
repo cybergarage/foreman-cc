@@ -4884,6 +4884,48 @@ if  test "$eneble_beringei" = yes ; then
 
 $as_echo "#define FOREMAN_ENABLE_BERINGEI 1" >>confdefs.h
 
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lfolly" >&5
+$as_echo_n "checking for main in -lfolly... " >&6; }
+if ${ac_cv_lib_folly_main+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lfolly  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_folly_main=yes
+else
+  ac_cv_lib_folly_main=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_folly_main" >&5
+$as_echo "$ac_cv_lib_folly_main" >&6; }
+if test "x$ac_cv_lib_folly_main" = xyes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBFOLLY 1
+_ACEOF
+
+  LIBS="-lfolly $LIBS"
+
+else
+  as_fn_error $? "Please install facebook-folly library" "$LINENO" 5
+fi
+ac_cv_lib_folly=ac_cv_lib_folly_main
+
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lgflags" >&5
 $as_echo_n "checking for main in -lgflags... " >&6; }
 if ${ac_cv_lib_gflags_main+:} false; then :
@@ -4926,13 +4968,13 @@ else
 fi
 ac_cv_lib_gflags=ac_cv_lib_gflags_main
 
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lfolly" >&5
-$as_echo_n "checking for main in -lfolly... " >&6; }
-if ${ac_cv_lib_folly_main+:} false; then :
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lglog" >&5
+$as_echo_n "checking for main in -lglog... " >&6; }
+if ${ac_cv_lib_glog_main+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-lfolly  $LIBS"
+LIBS="-lglog  $LIBS"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -4946,27 +4988,27 @@ return main ();
 }
 _ACEOF
 if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_folly_main=yes
+  ac_cv_lib_glog_main=yes
 else
-  ac_cv_lib_folly_main=no
+  ac_cv_lib_glog_main=no
 fi
 rm -f core conftest.err conftest.$ac_objext \
     conftest$ac_exeext conftest.$ac_ext
 LIBS=$ac_check_lib_save_LIBS
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_folly_main" >&5
-$as_echo "$ac_cv_lib_folly_main" >&6; }
-if test "x$ac_cv_lib_folly_main" = xyes; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_glog_main" >&5
+$as_echo "$ac_cv_lib_glog_main" >&6; }
+if test "x$ac_cv_lib_glog_main" = xyes; then :
   cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBFOLLY 1
+#define HAVE_LIBGLOG 1
 _ACEOF
 
-  LIBS="-lfolly $LIBS"
+  LIBS="-lglog $LIBS"
 
 else
-  as_fn_error $? "Please install facebook-folly library" "$LINENO" 5
+  as_fn_error $? "Please install google-glog library" "$LINENO" 5
 fi
-ac_cv_lib_folly=ac_cv_lib_folly_main
+ac_cv_lib_glog=ac_cv_lib_glog_main
 
 fi
 

@@ -73,8 +73,9 @@ AC_ARG_ENABLE(
 AM_CONDITIONAL(FOREMAN_ENABLE_BERINGEI,test "$eneble_beringei" = yes)
 if [ test "$eneble_beringei" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_BERINGEI],1,[--enable-beringei])
-	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
 	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
+	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
+	AC_HAVE_LIBRARY([glog],,[AC_MSG_ERROR([Please install google-glog library])])
 fi
 
 ##################################################################
