@@ -53,6 +53,8 @@ foremancc_sources = \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
+	../../src/foreman/registry/impl/SQLLiteStore.cpp \
+	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Property.cpp \

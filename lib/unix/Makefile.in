@@ -184,6 +184,8 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/net/Graphite.$(OBJEXT) \
 	../../src/foreman/net/HttpClient.$(OBJEXT) \
 	../../src/foreman/net/Socket.$(OBJEXT) \
+	../../src/foreman/registry/impl/SQLLiteStore.$(OBJEXT) \
+	../../src/foreman/registry/impl/SQLStore.$(OBJEXT) \
 	../../src/foreman/registry/Object.$(OBJEXT) \
 	../../src/foreman/registry/Properties.$(OBJEXT) \
 	../../src/foreman/registry/Property.$(OBJEXT) \
@@ -384,6 +386,8 @@ foremancc_sources = \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
+	../../src/foreman/registry/impl/SQLLiteStore.cpp \
+	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Property.cpp \
@@ -620,6 +624,18 @@ clean-libLIBRARIES:
 ../../src/foreman/net/Socket.$(OBJEXT):  \
 	../../src/foreman/net/$(am__dirstamp) \
 	../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/registry/impl/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/registry/impl
+	@: > ../../src/foreman/registry/impl/$(am__dirstamp)
+../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/registry/impl/$(DEPDIR)
+	@: > ../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/registry/impl/SQLLiteStore.$(OBJEXT):  \
+	../../src/foreman/registry/impl/$(am__dirstamp) \
+	../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/registry/impl/SQLStore.$(OBJEXT):  \
+	../../src/foreman/registry/impl/$(am__dirstamp) \
+	../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/registry/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/registry
 	@: > ../../src/foreman/registry/$(am__dirstamp)
@@ -666,6 +682,7 @@ mostlyclean-compile:
 	-rm -f ../../src/foreman/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/net/*.$(OBJEXT)
 	-rm -f ../../src/foreman/registry/*.$(OBJEXT)
+	-rm -f ../../src/foreman/registry/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/util/*.$(OBJEXT)
 
 distclean-compile:
@@ -716,6 +733,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Property.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Query.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Store.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLLiteStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/util/$(DEPDIR)/Util.Po@am__quote@
 
 .cpp.o:
@@ -865,6 +884,8 @@ distclean-generic:
 	-rm -f ../../src/foreman/net/$(am__dirstamp)
 	-rm -f ../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/registry/$(am__dirstamp)
+	-rm -f ../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/registry/impl/$(am__dirstamp)
 	-rm -f ../../src/foreman/util/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/util/$(am__dirstamp)
 
@@ -876,7 +897,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -922,7 +943,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
