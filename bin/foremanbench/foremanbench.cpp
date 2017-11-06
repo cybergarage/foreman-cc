@@ -18,7 +18,7 @@
 #define FORMANCC_BENCHMARK_RECORD_TYPE Foreman::BenchmarkControllerSporadicRecordType
 
 template <class MemStoreClass>
-void ForemanMemStoreWrite(benchmark::State& state)
+void ForemanStoreWrite(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
   Foreman::BenchmarkControllerRecordType recordType = FORMANCC_BENCHMARK_RECORD_TYPE;
@@ -54,7 +54,7 @@ void ForemanMemStoreWrite(benchmark::State& state)
 }
 
 template <class MemStoreClass>
-void ForemanMemStoreRead(benchmark::State& state)
+void ForemanStoreRead(benchmark::State& state)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_HOUR = state.range(0);
   Foreman::BenchmarkControllerRecordType recordType = FORMANCC_BENCHMARK_RECORD_TYPE;
@@ -96,13 +96,13 @@ void ForemanMemStoreRead(benchmark::State& state)
 // RingMapStor
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::RingMapStore)
+BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::RingMapStore)
+BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::RingMapStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -113,13 +113,13 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::RingMapStore)
 // NarrowTableStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::NarrowTableStore)
+BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::NarrowTableStore)
+BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::NarrowTableStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -130,14 +130,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::NarrowTableStore)
 // MatrixStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::MatrixStore)
+BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
 
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::MatrixStore)
+BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::MatrixStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
@@ -148,14 +148,14 @@ BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::MatrixStore)
 // TSmapStore
 ////////////////////////////////////////////////
 
-BENCHMARK_TEMPLATE(ForemanMemStoreWrite, Foreman::Metric::BeringeiStore)
+BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::BeringeiStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
     ->Arg(16)
     ->Arg(32);
 
-BENCHMARK_TEMPLATE(ForemanMemStoreRead, Foreman::Metric::BeringeiStore)
+BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::BeringeiStore)
     ->Arg(1)
     ->Arg(4)
     ->Arg(8)
