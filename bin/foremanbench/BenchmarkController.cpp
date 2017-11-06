@@ -36,7 +36,7 @@ BenchmarkController::~BenchmarkController()
 // initialize
 ////////////////////////////////////////////////
 
-bool BenchmarkController::initialize(MemStore* memStore, size_t retensionPeriodHour)
+bool BenchmarkController::initialize(Metric::MemStore* memStore, size_t retensionPeriodHour)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
 
@@ -44,11 +44,11 @@ bool BenchmarkController::initialize(MemStore* memStore, size_t retensionPeriodH
 
   // Initialize metrics
 
-  Metrics metrics;
+  Metric::Metrics metrics;
   std::ostringstream s;
   for (size_t n = 0; n < metricsCount_; n++) {
     s << FORMANCC_BENCHMARK_METRICS_NAME_PREFIX << n;
-    std::shared_ptr<Metric> m = std::shared_ptr<Metric>(new Metric());
+    std::shared_ptr<Metric::Metric> m = std::shared_ptr<Metric::Metric>(new Metric::Metric());
     m->name = s.str();
     metrics.push_back(m);
   }
@@ -56,7 +56,7 @@ bool BenchmarkController::initialize(MemStore* memStore, size_t retensionPeriodH
   memStore->setRetentionInterval(retentionIntervel_);
   memStore->setRetentionPeriod(FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC);
 
-  for (std::shared_ptr<Metric> m : metrics) {
+  for (std::shared_ptr<Metric::Metric> m : metrics) {
     memStore->addMetric(m);
   }
 
@@ -70,7 +70,7 @@ bool BenchmarkController::initialize(MemStore* memStore, size_t retensionPeriodH
 // insertRecords
 ////////////////////////////////////////////////
 
-bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt)
+bool BenchmarkController::insertRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt)
 {
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC = (60 * 60 * retensionPeriodHour);
   size_t FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT = (FORMANCC_BENCHMARK_RETENSION_PERIOD_SEC / retentionIntervel_);
@@ -106,12 +106,12 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
   beginTs = time(NULL);
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_BENCHMARK_RETENSION_PERIOD_COUNT; n++) {
-    Metrics values;
+    Metric::Metrics values;
     for (size_t n = 0; n < repeatCnt; n++) {
-      std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
+      std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = memStore->getMetrics();
       for (auto it = metrics->begin(); it != metrics->end(); ++it) {
-        std::shared_ptr<Metric> m = *it;
-        std::shared_ptr<Metric> value = std::shared_ptr<Metric>(new Metric(*m));
+        std::shared_ptr<Metric::Metric> m = *it;
+        std::shared_ptr<Metric::Metric> value = std::shared_ptr<Metric::Metric>(new Metric::Metric(*m));
         value->timestamp = metricTs;
 
         switch (recordType) {
@@ -147,15 +147,19 @@ bool BenchmarkController::insertRecords(MemStore* memStore, size_t retensionPeri
 // readRecords
 ////////////////////////////////////////////////
 
-bool BenchmarkController::readRecords(MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
+bool BenchmarkController::readRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt)
 {
-  std::shared_ptr<std::vector<std::shared_ptr<Metric>>> metrics = memStore->getMetrics();
+  Foreman::Metric::Query q;
+  q.setFrom(beginTs);
+  q.setUntil(endTs);
+
+  std::shared_ptr<std::vector<std::shared_ptr<Metric::Metric>>> metrics = memStore->getMetrics();
   for (size_t n = 0; n < repeatCnt; n++) {
     for (auto it = metrics->begin(); it != metrics->end(); ++it) {
-      std::shared_ptr<Metric> m = *it;
-      std::shared_ptr<MetricValue> values = nullptr;
-      size_t valueCnt = 0;
-      if (!memStore->getValues(*m, beginTs, endTs, retentionIntervel_, values, valueCnt))
+      std::shared_ptr<Metric::Metric> m = *it;
+      q.setTarget(*m);
+      Foreman::Metric::ResultSet rs;
+      if (!memStore->getValues(&q, &rs))
         return false;
     }
   }
@@ -166,7 +170,7 @@ bool BenchmarkController::readRecords(MemStore* memStore, size_t retensionPeriod
 // finalize
 ////////////////////////////////////////////////
 
-bool BenchmarkController::finalize(MemStore* memStore)
+bool BenchmarkController::finalize(Metric::MemStore* memStore)
 {
   memStore->close();
   return true;

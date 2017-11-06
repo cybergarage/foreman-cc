@@ -11,7 +11,7 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
-#include <foreman/metric/MemStore.h>
+#include <foreman/metric/impl/SQLiteStore.h>
 
 using namespace Foreman::Metric;
 

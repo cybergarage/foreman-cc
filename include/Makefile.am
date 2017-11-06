@@ -14,13 +14,19 @@ foremancc_header = \
 	./foreman/foreman-c.h \
 	./foreman/Foreman.h \
 	./foreman/metric/DataPoint.h \
-	./foreman/metric/MemStore.h \
+	./foreman/metric/impl/ArrayTimeSeries.h \
+	./foreman/metric/impl/BeringeiStore.h \
+	./foreman/metric/impl/BeringeiTimeSeries.h \
+	./foreman/metric/impl/GraphiteStore.h \
+	./foreman/metric/impl/MemStore.h \
+	./foreman/metric/impl/SQLiteStore.h \
+	./foreman/metric/impl/StoreImpl.h \
+	./foreman/metric/impl/TimeSeries.h \
+	./foreman/metric/impl/TimeSeriesImpl.h \
 	./foreman/metric/Metric.h \
 	./foreman/metric/Query.h \
 	./foreman/metric/ResultSet.h \
 	./foreman/metric/Store.h \
-	./foreman/metric/TimeSeries.h \
-	./foreman/metric/TimeSeriesMap.h \
 	./foreman/net/Graphite.h \
 	./foreman/net/HttpClient.h \
 	./foreman/net/Socket.h \

@@ -8,11 +8,16 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_REGISTRY_STOREIMPL_H_
-#define _FOREMANCC_REGISTRY_STOREIMPL_H_
+#include <foreman/metric/impl/TimeSeries.h>
 
-#include <foreman/registry/Store.h>
+using namespace Foreman::Metric;
 
-#include <foreman/registry/impl/SQLStore.h>
+////////////////////////////////////////////////
+// TimeSeries
+////////////////////////////////////////////////
 
-#endif
+TimeSeries::TimeSeries()
+{
+}
+
+TimeSeries::~TimeSeries() {}

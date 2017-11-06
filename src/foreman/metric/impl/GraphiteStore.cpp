@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 #include <foreman/Const.h>
-#include <foreman/metric/MemStore.h>
+#include <foreman/metric/impl/GraphiteStore.h>
 
 using namespace Foreman::Metric;
 

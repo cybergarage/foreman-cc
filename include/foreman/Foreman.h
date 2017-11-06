@@ -13,8 +13,8 @@
 
 #include <foreman/Const.h>
 #include <foreman/Platform.h>
-#include <foreman/metric/MemStore.h>
 #include <foreman/metric/Metric.h>
-#include <foreman/metric/TimeSeries.h>
+#include <foreman/metric/impl/StoreImpl.h>
+#include <foreman/registry/impl/StoreImpl.h>
 
 #endif

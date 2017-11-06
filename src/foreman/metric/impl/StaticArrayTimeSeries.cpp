@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <foreman/metric/MemStore.h>
+#include <foreman/metric/impl/MemStore.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;

@@ -38,10 +38,10 @@ class BenchmarkController {
   void setRetentionIntervel(time_t value) { retentionIntervel_ = value; }
   void setMetricsCount(size_t value) { metricsCount_ = value; }
 
-  bool initialize(MemStore* memStore, size_t retensionPeriodHour);
-  bool insertRecords(MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt = 1);
-  bool readRecords(MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt = 1);
-  bool finalize(MemStore* memStore);
+  bool initialize(Metric::MemStore* memStore, size_t retensionPeriodHour);
+  bool insertRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t& beginTs, time_t& endTs, BenchmarkControllerRecordType recordType, size_t repeatCnt = 1);
+  bool readRecords(Metric::MemStore* memStore, size_t retensionPeriodHour, time_t beginTs, time_t endTs, size_t repeatCnt = 1);
+  bool finalize(Metric::MemStore* memStore);
 
   private:
   time_t retentionIntervel_;

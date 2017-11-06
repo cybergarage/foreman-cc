@@ -159,32 +159,32 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/clang/registry/query_c.$(OBJEXT) \
 	../../src/foreman/clang/registry/store_c.$(OBJEXT) \
 	../../src/foreman/common/Error.$(OBJEXT) \
-	../../src/foreman/metric/ArrayTimeSeries.$(OBJEXT) \
-	../../src/foreman/metric/BeringeiTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/Data.$(OBJEXT) \
 	../../src/foreman/metric/DataMap.$(OBJEXT) \
 	../../src/foreman/metric/DataPoint.$(OBJEXT) \
 	../../src/foreman/metric/DataPoints.$(OBJEXT) \
 	../../src/foreman/metric/DataPointsMap.$(OBJEXT) \
-	../../src/foreman/metric/GraphiteStore.$(OBJEXT) \
-	../../src/foreman/metric/MatrixStore.$(OBJEXT) \
-	../../src/foreman/metric/MemStore.$(OBJEXT) \
-	../../src/foreman/metric/NarrowTableStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/ArrayTimeSeries.$(OBJEXT) \
+	../../src/foreman/metric/impl/BeringeiTimeSeries.$(OBJEXT) \
+	../../src/foreman/metric/impl/GraphiteStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/MatrixStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/MemStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/NarrowTableStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/RingArrayTimeSeries.$(OBJEXT) \
+	../../src/foreman/metric/impl/RingMapStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/SQLiteStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/StaticArrayTimeSeries.$(OBJEXT) \
+	../../src/foreman/metric/impl/TimeSeries.$(OBJEXT) \
+	../../src/foreman/metric/impl/TimeSeriesMap.$(OBJEXT) \
+	../../src/foreman/metric/impl/TimeSeriesMapStore.$(OBJEXT) \
+	../../src/foreman/metric/impl/TSmapStore.$(OBJEXT) \
 	../../src/foreman/metric/Query.$(OBJEXT) \
 	../../src/foreman/metric/ResultSet.$(OBJEXT) \
-	../../src/foreman/metric/RingArrayTimeSeries.$(OBJEXT) \
-	../../src/foreman/metric/RingMapStore.$(OBJEXT) \
-	../../src/foreman/metric/SQLiteStore.$(OBJEXT) \
-	../../src/foreman/metric/StaticArrayTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/Store.$(OBJEXT) \
-	../../src/foreman/metric/TimeSeries.$(OBJEXT) \
-	../../src/foreman/metric/TimeSeriesMap.$(OBJEXT) \
-	../../src/foreman/metric/TimeSeriesMapStore.$(OBJEXT) \
-	../../src/foreman/metric/TSmapStore.$(OBJEXT) \
 	../../src/foreman/net/Graphite.$(OBJEXT) \
 	../../src/foreman/net/HttpClient.$(OBJEXT) \
 	../../src/foreman/net/Socket.$(OBJEXT) \
-	../../src/foreman/registry/impl/SQLLiteStore.$(OBJEXT) \
+	../../src/foreman/registry/impl/SQLiteStore.$(OBJEXT) \
 	../../src/foreman/registry/impl/SQLStore.$(OBJEXT) \
 	../../src/foreman/registry/Object.$(OBJEXT) \
 	../../src/foreman/registry/Properties.$(OBJEXT) \
@@ -361,32 +361,32 @@ foremancc_sources = \
 	../../src/foreman/clang/registry/query_c.cpp \
 	../../src/foreman/clang/registry/store_c.cpp \
 	../../src/foreman/common/Error.cpp \
-	../../src/foreman/metric/ArrayTimeSeries.cpp \
-	../../src/foreman/metric/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/Data.cpp \
 	../../src/foreman/metric/DataMap.cpp \
 	../../src/foreman/metric/DataPoint.cpp \
 	../../src/foreman/metric/DataPoints.cpp \
 	../../src/foreman/metric/DataPointsMap.cpp \
-	../../src/foreman/metric/GraphiteStore.cpp \
-	../../src/foreman/metric/MatrixStore.cpp \
-	../../src/foreman/metric/MemStore.cpp \
-	../../src/foreman/metric/NarrowTableStore.cpp \
+	../../src/foreman/metric/impl/ArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/BeringeiTimeSeries.cpp \
+	../../src/foreman/metric/impl/GraphiteStore.cpp \
+	../../src/foreman/metric/impl/MatrixStore.cpp \
+	../../src/foreman/metric/impl/MemStore.cpp \
+	../../src/foreman/metric/impl/NarrowTableStore.cpp \
+	../../src/foreman/metric/impl/RingArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/RingMapStore.cpp \
+	../../src/foreman/metric/impl/SQLiteStore.cpp \
+	../../src/foreman/metric/impl/StaticArrayTimeSeries.cpp \
+	../../src/foreman/metric/impl/TimeSeries.cpp \
+	../../src/foreman/metric/impl/TimeSeriesMap.cpp \
+	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \
+	../../src/foreman/metric/impl/TSmapStore.cpp \
 	../../src/foreman/metric/Query.cpp \
 	../../src/foreman/metric/ResultSet.cpp \
-	../../src/foreman/metric/RingArrayTimeSeries.cpp \
-	../../src/foreman/metric/RingMapStore.cpp \
-	../../src/foreman/metric/SQLiteStore.cpp \
-	../../src/foreman/metric/StaticArrayTimeSeries.cpp \
 	../../src/foreman/metric/Store.cpp \
-	../../src/foreman/metric/TimeSeries.cpp \
-	../../src/foreman/metric/TimeSeriesMap.cpp \
-	../../src/foreman/metric/TimeSeriesMapStore.cpp \
-	../../src/foreman/metric/TSmapStore.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/net/Socket.cpp \
-	../../src/foreman/registry/impl/SQLLiteStore.cpp \
+	../../src/foreman/registry/impl/SQLiteStore.cpp \
 	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \
@@ -543,12 +543,6 @@ clean-libLIBRARIES:
 ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/metric/$(DEPDIR)
 	@: > ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/ArrayTimeSeries.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/BeringeiTimeSeries.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/Data.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
@@ -564,49 +558,61 @@ clean-libLIBRARIES:
 ../../src/foreman/metric/DataPointsMap.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/GraphiteStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/MatrixStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/MemStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/NarrowTableStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/metric/impl
+	@: > ../../src/foreman/metric/impl/$(am__dirstamp)
+../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/metric/impl/$(DEPDIR)
+	@: > ../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/ArrayTimeSeries.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/BeringeiTimeSeries.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/GraphiteStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/MatrixStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/MemStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/NarrowTableStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/RingArrayTimeSeries.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/RingMapStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/SQLiteStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/StaticArrayTimeSeries.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/TimeSeries.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/TimeSeriesMap.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/TimeSeriesMapStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/impl/TSmapStore.$(OBJEXT):  \
+	../../src/foreman/metric/impl/$(am__dirstamp) \
+	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/Query.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/ResultSet.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/RingArrayTimeSeries.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/RingMapStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/SQLiteStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/StaticArrayTimeSeries.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/Store.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/TimeSeries.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/TimeSeriesMap.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/TimeSeriesMapStore.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/TSmapStore.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/net/$(am__dirstamp):
@@ -630,7 +636,7 @@ clean-libLIBRARIES:
 ../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/registry/impl/$(DEPDIR)
 	@: > ../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/registry/impl/SQLLiteStore.$(OBJEXT):  \
+../../src/foreman/registry/impl/SQLiteStore.$(OBJEXT):  \
 	../../src/foreman/registry/impl/$(am__dirstamp) \
 	../../src/foreman/registry/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/registry/impl/SQLStore.$(OBJEXT):  \
@@ -680,6 +686,7 @@ mostlyclean-compile:
 	-rm -f ../../src/foreman/clang/registry/*.$(OBJEXT)
 	-rm -f ../../src/foreman/common/*.$(OBJEXT)
 	-rm -f ../../src/foreman/metric/*.$(OBJEXT)
+	-rm -f ../../src/foreman/metric/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/net/*.$(OBJEXT)
 	-rm -f ../../src/foreman/registry/*.$(OBJEXT)
 	-rm -f ../../src/foreman/registry/impl/*.$(OBJEXT)
@@ -703,28 +710,28 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/query_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/store_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/common/$(DEPDIR)/Error.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/ArrayTimeSeries.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/BeringeiTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Data.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPoint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPoints.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPointsMap.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/GraphiteStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/MatrixStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/MemStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/NarrowTableStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Query.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/ResultSet.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/RingArrayTimeSeries.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/RingMapStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/SQLiteStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/StaticArrayTimeSeries.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Store.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/TSmapStore.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/TimeSeries.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/TimeSeriesMap.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/TimeSeriesMapStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/ArrayTimeSeries.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/BeringeiTimeSeries.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/GraphiteStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/MatrixStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/MemStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/NarrowTableStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/RingArrayTimeSeries.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/RingMapStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/SQLiteStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/StaticArrayTimeSeries.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/TSmapStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/TimeSeries.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/TimeSeriesMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/impl/$(DEPDIR)/TimeSeriesMapStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/Graphite.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/HttpClient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/net/$(DEPDIR)/Socket.Po@am__quote@
@@ -733,8 +740,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Property.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Query.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Store.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLLiteStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLiteStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/util/$(DEPDIR)/Util.Po@am__quote@
 
 .cpp.o:
@@ -880,6 +887,8 @@ distclean-generic:
 	-rm -f ../../src/foreman/common/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(am__dirstamp)
+	-rm -f ../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/metric/impl/$(am__dirstamp)
 	-rm -f ../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/net/$(am__dirstamp)
 	-rm -f ../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
@@ -897,7 +906,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -943,7 +952,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

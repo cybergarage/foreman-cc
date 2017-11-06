@@ -14,7 +14,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "MemStoreTestController.h"
+#include "StoreTestController.h"
 
 using namespace Foreman::Metric;
 
@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_SUITE(metric)
 
 BOOST_AUTO_TEST_CASE(MatrixStoreTest)
 {
-  MemStoreTestContoller testController;
+  StoreTestContoller testController;
 
   MemStore* store = new MatrixStore();
   testController.run(store);
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(MatrixStoreTest)
 
 BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
-  MemStoreTestContoller testController;
+  StoreTestContoller testController;
 
   MemStore* store = new RingMapStore();
   testController.run(store);
@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 
 BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 {
-  MemStoreTestContoller testController;
+  StoreTestContoller testController;
 
   MemStore* store = new NarrowTableStore();
   testController.run(store);
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 
 BOOST_AUTO_TEST_CASE(TSmapStoreTest)
 {
-  MemStoreTestContoller testController;
+  StoreTestContoller testController;
 
   MemStore* store = new TSmapStore();
   //testController.run(store);

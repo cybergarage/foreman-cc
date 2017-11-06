@@ -8,23 +8,24 @@
  *
  ******************************************************************/
 
+#include <iostream>
+
 #include <sqlite3.h>
 #include <stdio.h>
 
-#include <foreman/metric/MemStore.h>
-#include <foreman/util/Util.h>
+#include <foreman/metric/impl/MemStore.h>
 
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// RingMapStore
+// MatrixStore
 ////////////////////////////////////////////////
 
-RingMapStore::RingMapStore()
+MatrixStore::MatrixStore()
 {
 }
 
-RingMapStore::~RingMapStore()
+MatrixStore::~MatrixStore()
 {
 }
 
@@ -32,38 +33,36 @@ RingMapStore::~RingMapStore()
 // open
 ////////////////////////////////////////////////
 
-bool RingMapStore::open() { return true; }
+bool MatrixStore::open() { return true; }
 
 ////////////////////////////////////////////////
 // open
 ////////////////////////////////////////////////
 
-bool RingMapStore::isOpened() { return true; }
+bool MatrixStore::isOpened() { return true; }
 
 ////////////////////////////////////////////////
 // close
 ////////////////////////////////////////////////
 
-bool RingMapStore::close() { return true; }
+bool MatrixStore::close() { return true; }
 
 ////////////////////////////////////////////////
 // realloc
 ////////////////////////////////////////////////
 
-bool RingMapStore::realloc()
+bool MatrixStore::realloc()
 {
+  size_t rowCount = getRowCount();
   size_t columnCount = getColumnCount();
 
-  if (columnCount <= 0)
+  if (rowCount <= 0 || columnCount <= 0)
     return false;
 
   tsMap_->clear();
 
   for (MetricsPair m : metricMap_) {
-    double* rowData = CreateNanDataPointValueArray(columnCount);
-    if (rowData == nullptr)
-      return false;
-    std::shared_ptr<RingMapTimeSeries> ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
+    std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
     if (!ts->reallocValueArray(columnCount))
       return false;
     tsMap_->insert(std::make_pair(m.second->name, ts));

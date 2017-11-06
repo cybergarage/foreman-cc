@@ -47,16 +47,16 @@ int main(int argc, char* argv[])
     return EXIT_FAILURE;
   }
 
-  Foreman::MemStore* memStore = nullptr;
+  Foreman::Metric::MemStore* memStore = nullptr;
   std::string memStoreType = argv[1];
   if (memStoreType.compare("matrix") == 0)
-    memStore = new Foreman::MatrixStore();
+    memStore = new Foreman::Metric::MatrixStore();
   else if (memStoreType.compare("ringmap") == 0)
-    memStore = new Foreman::RingMapStore();
+    memStore = new Foreman::Metric::RingMapStore();
   else if (memStoreType.compare("narrowtable") == 0)
-    memStore = new Foreman::NarrowTableStore();
+    memStore = new Foreman::Metric::NarrowTableStore();
   else if (memStoreType.compare("tsmap") == 0)
-    memStore = new Foreman::TSmapStore();
+    memStore = new Foreman::Metric::TSmapStore();
   if (!memStore) {
     usage();
     std::cout << "Unknown MemStore Type : " << memStoreType << std::endl;
