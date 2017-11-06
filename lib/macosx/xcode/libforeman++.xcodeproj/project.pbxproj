@@ -24,11 +24,10 @@
 		215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A31FAB3A8B0089A36B /* Query.cpp */; };
 		215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A41FAB3A8C0089A36B /* Store.cpp */; };
 		215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A51FAB3A8C0089A36B /* Object.cpp */; };
-		215DB2AF1FAB3AAB0089A36B /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AB1FAB3AAB0089A36B /* Query.h */; };
-		215DB2B01FAB3AAB0089A36B /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AC1FAB3AAB0089A36B /* Property.h */; };
-		215DB2B11FAB3AAB0089A36B /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AD1FAB3AAB0089A36B /* Store.h */; };
-		215DB2B21FAB3AAB0089A36B /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2AE1FAB3AAB0089A36B /* Object.h */; };
 		215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2C51FAB565F0089A36B /* Properties.cpp */; };
+		215EDC421FB0377E006DF3AE /* SQLLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC401FB0377E006DF3AE /* SQLLiteStore.cpp */; };
+		215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC411FB0377E006DF3AE /* SQLStore.cpp */; };
+		215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 215EDC451FB03924006DF3AE /* StoreImpl.h */; };
 		216A5AE31F9C597B0092272A /* DataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADB1F9C597B0092272A /* DataPoint.h */; };
 		216A5AE41F9C597B0092272A /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADC1F9C597B0092272A /* MemStore.h */; };
 		216A5AE51F9C597B0092272A /* Metric.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADD1F9C597B0092272A /* Metric.h */; };
@@ -71,6 +70,11 @@
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
+		2188DBE41FB00AEE00940208 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE01FB00AEE00940208 /* Query.h */; };
+		2188DBE51FB00AEE00940208 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE11FB00AEE00940208 /* Property.h */; };
+		2188DBE61FB00AEE00940208 /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE21FB00AEE00940208 /* Store.h */; };
+		2188DBE71FB00AEE00940208 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE31FB00AEE00940208 /* Object.h */; };
+		2188DBEC1FB028C200940208 /* SQLStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBEB1FB028C200940208 /* SQLStore.h */; };
 		21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 21893D8B1E86AD4C001ED8D5 /* BitUtil.h */; };
 		218D47C91F503251002A3FA2 /* foreman-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 218D47C81F503251002A3FA2 /* foreman-c.h */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
@@ -98,11 +102,10 @@
 		215DB2A31FAB3A8B0089A36B /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Query.cpp; path = registry/Query.cpp; sourceTree = "<group>"; };
 		215DB2A41FAB3A8C0089A36B /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Store.cpp; path = registry/Store.cpp; sourceTree = "<group>"; };
 		215DB2A51FAB3A8C0089A36B /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = registry/Object.cpp; sourceTree = "<group>"; };
-		215DB2AB1FAB3AAB0089A36B /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = ../registry/Query.h; sourceTree = "<group>"; };
-		215DB2AC1FAB3AAB0089A36B /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = ../registry/Property.h; sourceTree = "<group>"; };
-		215DB2AD1FAB3AAB0089A36B /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = ../registry/Store.h; sourceTree = "<group>"; };
-		215DB2AE1FAB3AAB0089A36B /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = ../registry/Object.h; sourceTree = "<group>"; };
 		215DB2C51FAB565F0089A36B /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Properties.cpp; path = registry/Properties.cpp; sourceTree = "<group>"; };
+		215EDC401FB0377E006DF3AE /* SQLLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLLiteStore.cpp; path = registry/impl/SQLLiteStore.cpp; sourceTree = "<group>"; };
+		215EDC411FB0377E006DF3AE /* SQLStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLStore.cpp; path = registry/impl/SQLStore.cpp; sourceTree = "<group>"; };
+		215EDC451FB03924006DF3AE /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = registry/impl/StoreImpl.h; sourceTree = "<group>"; };
 		216A5ADB1F9C597B0092272A /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
 		216A5ADC1F9C597B0092272A /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemStore.h; sourceTree = "<group>"; };
 		216A5ADD1F9C597B0092272A /* Metric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metric.h; sourceTree = "<group>"; };
@@ -145,6 +148,11 @@
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		2188DBE01FB00AEE00940208 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = registry/Query.h; sourceTree = "<group>"; };
+		2188DBE11FB00AEE00940208 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = registry/Property.h; sourceTree = "<group>"; };
+		2188DBE21FB00AEE00940208 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = registry/Store.h; sourceTree = "<group>"; };
+		2188DBE31FB00AEE00940208 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = registry/Object.h; sourceTree = "<group>"; };
+		2188DBEB1FB028C200940208 /* SQLStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLStore.h; path = registry/impl/SQLStore.h; sourceTree = "<group>"; };
 		21893D8B1E86AD4C001ED8D5 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
 		218D47C81F503251002A3FA2 /* foreman-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foreman-c.h"; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 		215DB2A11FAB3A730089A36B /* registry */ = {
 			isa = PBXGroup;
 			children = (
+				215EDC441FB03784006DF3AE /* impl */,
 				215DB2C51FAB565F0089A36B /* Properties.cpp */,
 				215DB2A51FAB3A8C0089A36B /* Object.cpp */,
 				215DB2A21FAB3A8B0089A36B /* Property.cpp */,
@@ -249,16 +258,13 @@
 			name = registry;
 			sourceTree = "<group>";
 		};
-		215DB2AA1FAB3A950089A36B /* registry */ = {
+		215EDC441FB03784006DF3AE /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				215DB2AE1FAB3AAB0089A36B /* Object.h */,
-				215DB2AC1FAB3AAB0089A36B /* Property.h */,
-				215DB2AB1FAB3AAB0089A36B /* Query.h */,
-				215DB2AD1FAB3AAB0089A36B /* Store.h */,
+				215EDC401FB0377E006DF3AE /* SQLLiteStore.cpp */,
+				215EDC411FB0377E006DF3AE /* SQLStore.cpp */,
 			);
-			name = registry;
-			path = "New Group";
+			name = impl;
 			sourceTree = "<group>";
 		};
 		216A5ADA1F9C597B0092272A /* metric */ = {
@@ -361,7 +367,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				215DB2AA1FAB3A950089A36B /* registry */,
+				2188DBDF1FB00ADF00940208 /* registry */,
 				215DB2771FAAD69B0089A36B /* common */,
 				216A5AEB1F9C59830092272A /* util */,
 				216A5ADA1F9C597B0092272A /* metric */,
@@ -398,6 +404,27 @@
 			path = ../../../src/foreman;
 			sourceTree = "<group>";
 		};
+		2188DBDF1FB00ADF00940208 /* registry */ = {
+			isa = PBXGroup;
+			children = (
+				2188DBEA1FB028A300940208 /* impl */,
+				2188DBE31FB00AEE00940208 /* Object.h */,
+				2188DBE11FB00AEE00940208 /* Property.h */,
+				2188DBE01FB00AEE00940208 /* Query.h */,
+				2188DBE21FB00AEE00940208 /* Store.h */,
+			);
+			name = registry;
+			sourceTree = "<group>";
+		};
+		2188DBEA1FB028A300940208 /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				215EDC451FB03924006DF3AE /* StoreImpl.h */,
+				2188DBEB1FB028C200940208 /* SQLStore.h */,
+			);
+			name = impl;
+			sourceTree = "<group>";
+		};
 		218D47CA1F503778002A3FA2 /* clang */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,10 +453,11 @@
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
-				215DB2AF1FAB3AAB0089A36B /* Query.h in Headers */,
+				2188DBE41FB00AEE00940208 /* Query.h in Headers */,
 				21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */,
-				215DB2B21FAB3AAB0089A36B /* Object.h in Headers */,
+				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
+				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				2129D19C1E9693E700FCA490 /* Socket.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
@@ -441,11 +469,12 @@
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				216A5AE41F9C597B0092272A /* MemStore.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
-				215DB2B01FAB3AAB0089A36B /* Property.h in Headers */,
-				215DB2B11FAB3AAB0089A36B /* Store.h in Headers */,
+				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
+				2188DBE61FB00AEE00940208 /* Store.h in Headers */,
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
 				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
 				216A5AE31F9C597B0092272A /* DataPoint.h in Headers */,
+				215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +570,7 @@
 				216A5B811F9C5B8E0092272A /* resultset_c.cpp in Sources */,
 				216A5B521F9C59990092272A /* SQLiteStore.cpp in Sources */,
 				216A5B5E1F9C59990092272A /* TSmapStore.cpp in Sources */,
+				215EDC421FB0377E006DF3AE /* SQLLiteStore.cpp in Sources */,
 				216A5B581F9C59990092272A /* TimeSeries.cpp in Sources */,
 				216A5B361F9C59990092272A /* BeringeiTimeSeries.cpp in Sources */,
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
@@ -548,6 +578,7 @@
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
+				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
 				216A5B541F9C59990092272A /* StaticArrayTimeSeries.cpp in Sources */,
 				215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,

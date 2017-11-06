@@ -27,8 +27,8 @@ public:
     Store();
     virtual ~Store();
 
-    virtual const char *getType() = 0;
-    virtual const char *getVersion() = 0;
+    virtual const char* getType() = 0;
+    virtual const char* getVersion() = 0;
 
     virtual bool open() = 0;
     virtual bool isOpened() = 0;
@@ -37,9 +37,9 @@ public:
     virtual bool setObject(Object* obj, Error* err) = 0;
     virtual bool getObject(const std::string& objID, Error* err) = 0;
     virtual bool deleteObject(const std::string& objID, Error* err) = 0;
-    
-    virtual bool browse(Query* q, Properties *props, Error* err) = 0;
-    virtual bool search(Query* q, Properties *props, Error* err) = 0;
+
+    virtual bool browse(Query* q, Properties* props, Error* err) = 0;
+    virtual bool search(Query* q, Properties* props, Error* err) = 0;
   };
 }
 }

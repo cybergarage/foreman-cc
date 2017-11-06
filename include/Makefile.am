@@ -25,6 +25,8 @@ foremancc_header = \
 	./foreman/net/HttpClient.h \
 	./foreman/net/Socket.h \
 	./foreman/Platform.h \
+	./foreman/registry/impl/SQLStore.h \
+	./foreman/registry/impl/StoreImpl.h \
 	./foreman/registry/Object.h \
 	./foreman/registry/Property.h \
 	./foreman/registry/Query.h \
