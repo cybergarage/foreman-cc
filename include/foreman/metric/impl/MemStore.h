@@ -11,13 +11,8 @@
 #ifndef _FOREMANCC_METRIC_MEMSTORE_H_
 #define _FOREMANCC_METRIC_MEMSTORE_H_
 
-#include <time.h>
-
-#include <sqlite3.h>
-
 #include <foreman/metric/Store.h>
-#include <foreman/metric/impl/TimeSeriesImpl.h>
-#include <foreman/net/Graphite.h>
+#include <time.h>
 
 namespace Foreman {
 namespace Metric {
@@ -74,79 +69,6 @@ public:
 private:
     time_t retentionInterval_;
     time_t retentionPeriod_;
-  };
-
-  ////////////////////////////////////////////////
-  // TimeSeriesMapStore
-  ////////////////////////////////////////////////
-
-  class TimeSeriesMapStore : public MemStore {
-public:
-    TimeSeriesMapStore();
-    virtual ~TimeSeriesMapStore();
-
-    bool addValue(const Metric& m);
-    bool getValues(Query* q, ResultSet* rs);
-
-protected:
-    std::shared_ptr<TimeSeriesMap> tsMap_;
-  };
-
-  ////////////////////////////////////////////////
-  // MatrixStore
-  ////////////////////////////////////////////////
-
-  class MatrixTimeSeries : public StaticArrayTimeSeries {
-public:
-    MatrixTimeSeries(){};
-    ~MatrixTimeSeries(){};
-  };
-
-  class MatrixStore : public TimeSeriesMapStore {
-public:
-    MatrixStore();
-    ~MatrixStore();
-
-    bool open();
-    bool isOpened();
-    bool close();
-
-    bool realloc();
-  };
-
-  ////////////////////////////////////////////////
-  // RingMapStore
-  ////////////////////////////////////////////////
-
-  class RingMapTimeSeries : public RingArrayTimeSeries {
-public:
-    RingMapTimeSeries(){};
-    ~RingMapTimeSeries(){};
-  };
-
-  class RingMapStore : public TimeSeriesMapStore {
-public:
-    RingMapStore();
-    ~RingMapStore();
-
-    bool open();
-    bool isOpened();
-    bool close();
-    bool realloc();
-  };
-
-  ////////////////////////////////////////////////
-  // TSmapStore
-  ////////////////////////////////////////////////
-
-  class TSmapStore : public TimeSeriesMapStore {
-public:
-    TSmapStore();
-    ~TSmapStore();
-
-    bool open();
-    bool isOpened();
-    bool close();
   };
 }
 }

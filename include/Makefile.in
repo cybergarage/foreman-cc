@@ -276,13 +276,12 @@ foremancc_header = \
 	./foreman/metric/DataPoint.h \
 	./foreman/metric/impl/ArrayTimeSeries.h \
 	./foreman/metric/impl/BeringeiStore.h \
-	./foreman/metric/impl/BeringeiTimeSeries.h \
 	./foreman/metric/impl/GraphiteStore.h \
 	./foreman/metric/impl/MemStore.h \
 	./foreman/metric/impl/SQLiteStore.h \
 	./foreman/metric/impl/StoreImpl.h \
 	./foreman/metric/impl/TimeSeries.h \
-	./foreman/metric/impl/TimeSeriesImpl.h \
+	./foreman/metric/impl/TimeSeriesMapStore.h \
 	./foreman/metric/Metric.h \
 	./foreman/metric/Query.h \
 	./foreman/metric/ResultSet.h \

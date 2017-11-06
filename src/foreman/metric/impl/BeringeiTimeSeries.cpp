@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/impl/BeringeiTimeSeries.h>
+#include <foreman/metric/impl/BeringeiStore.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;

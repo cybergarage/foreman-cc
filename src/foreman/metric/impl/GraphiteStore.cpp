@@ -14,9 +14,9 @@
 #include <foreman/Const.h>
 #include <foreman/metric/impl/GraphiteStore.h>
 
-using namespace Foreman::Metric;
-
 #if defined(FOREMAN_ENABLE_GRAPHITE)
+
+using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
 // GraphiteStore

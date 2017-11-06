@@ -60,16 +60,16 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 }
 
 ////////////////////////////////////////////////
-// TSmapStore
+// BeringeiStore
 ////////////////////////////////////////////////
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 
-BOOST_AUTO_TEST_CASE(TSmapStoreTest)
+BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
 {
   StoreTestContoller testController;
 
-  MemStore* store = new TSmapStore();
+  MemStore* store = new BeringeiStore();
   //testController.run(store);
   delete store;
 }

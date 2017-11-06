@@ -11,8 +11,9 @@
 #ifndef _FOREMANCC_METRIC_STOREIMPL_H_
 #define _FOREMANCC_METRIC_STOREIMPL_H_
 
-#include <foreman/metric/Store.h>
-#include <foreman/metric/impl/MemStore.h>
 #include <foreman/metric/impl/SQLiteStore.h>
+#include <foreman/metric/impl/TimeSeriesMapStore.h>
+#include <foreman/metric/impl/BeringeiStore.h>
+#include <foreman/metric/impl/GraphiteStore.h>
 
 #endif

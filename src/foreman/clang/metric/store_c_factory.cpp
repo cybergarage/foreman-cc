@@ -48,7 +48,7 @@ ForemanMetricStore* foreman_metric_store_sqlite_create()
 
 ForemanMetricStore* foreman_metric_store_tsmap_create()
 {
-  return new TSmapStore();
+  return new BeringeiStore();
 }
 
 #endif
