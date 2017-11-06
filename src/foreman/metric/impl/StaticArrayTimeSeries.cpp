@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <foreman/metric/impl/TimeSeriesMapStore.h>
+#include <foreman/metric/impl/ArrayTimeSeries.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;

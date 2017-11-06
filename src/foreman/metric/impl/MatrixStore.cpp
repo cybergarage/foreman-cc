@@ -13,7 +13,7 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
-#include <foreman/metric/impl/TimeSeriesMapStore.h>
+#include <foreman/metric/impl/MatrixStore.h>
 
 using namespace Foreman::Metric;
 
