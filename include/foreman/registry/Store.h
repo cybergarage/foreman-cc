@@ -33,13 +33,15 @@ public:
     virtual bool open() = 0;
     virtual bool isOpened() = 0;
     virtual bool close() = 0;
+    virtual bool clear() = 0;
 
-    virtual bool setObject(Object* obj, Error* err) = 0;
-    virtual bool getObject(const std::string& objID, Error* err) = 0;
-    virtual bool deleteObject(const std::string& objID, Error* err) = 0;
+    virtual bool createObject(Object* obj, Error* err) = 0;
+    virtual bool updateObject(Object* obj, Error* err) = 0;
+    virtual bool getObject(const std::string& objId, Error* err) = 0;
+    virtual bool deleteObject(const std::string& objId, Error* err) = 0;
 
-    virtual bool browse(Query* q, Properties* props, Error* err) = 0;
-    virtual bool search(Query* q, Properties* props, Error* err) = 0;
+    virtual bool browse(Query* q, Objects* objs, Error* err) = 0;
+    virtual bool search(Query* q, Objects* objs, Error* err) = 0;
   };
 }
 }

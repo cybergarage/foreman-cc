@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		210781011FB1B6A100F9F288 /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210781001FB1B6A100F9F288 /* error_c.cpp */; };
+		210781031FB2005F00F9F288 /* Objects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210781021FB2005F00F9F288 /* Objects.cpp */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		210781001FB1B6A100F9F288 /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = clang/common/error_c.cpp; sourceTree = "<group>"; };
+		210781021FB2005F00F9F288 /* Objects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Objects.cpp; path = registry/Objects.cpp; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				215EDC441FB03784006DF3AE /* impl */,
 				215DB2C51FAB565F0089A36B /* Properties.cpp */,
 				215DB2A51FAB3A8C0089A36B /* Object.cpp */,
+				210781021FB2005F00F9F288 /* Objects.cpp */,
 				215DB2A21FAB3A8B0089A36B /* Property.cpp */,
 				215DB2A31FAB3A8B0089A36B /* Query.cpp */,
 				215DB2A41FAB3A8C0089A36B /* Store.cpp */,
@@ -578,6 +581,7 @@
 				215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */,
 				215EDC681FB04A22006DF3AE /* TimeSeries.cpp in Sources */,
 				2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */,
+				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
 				216A5B381F9C59990092272A /* Data.cpp in Sources */,
 				215DB2A01FAB3A650089A36B /* store_c.cpp in Sources */,

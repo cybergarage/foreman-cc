@@ -2,7 +2,7 @@
  *
  * Foreman for C++
  *
- * Copyright (C) 2017 Satoshi Konno. All rights reserved.
+ * Copyright (C) 2017 Satoshi Konno
  *
  * This is licensed under BSD-style license, see file COPYING.
  *
@@ -19,6 +19,15 @@ namespace Foreman {
 #define FOREMANCC_DATASOURCE_GRAPHITE "graphite"
 #define FOREMANCC_DATASOURCE_RRDTOOL "rrdtool"
 #define FOREMANCC_HTTP_DEFAULT_PORT 8080
+#define FOREMANCC_REGISTRY_ROOT_OBJECT_ID "0"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE "registry"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, primary key(id))"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data) values (?, ?, ?, ?)"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE "update registry set name = ?, data = ? where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE "delete from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID "select id, name, pid, data from factor where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, pid, data from factor where pid = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TRUNCATE "delete from registry"
 #define FOREMANCC_METRIC_DATASTORE_MEMORY "memory"
 #define FOREMANCC_METRIC_DATASTORE_SQLITE "sqlite"
 #define FOREMANCC_METRIC_DATASTORE_TIMESTAMP_RESOLUTION_SECOND 1
