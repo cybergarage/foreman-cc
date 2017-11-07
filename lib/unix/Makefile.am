@@ -55,6 +55,7 @@ foremancc_sources = \
 	../../src/foreman/registry/impl/SQLiteStore.cpp \
 	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/Object.cpp \
+	../../src/foreman/registry/Objects.cpp \
 	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \

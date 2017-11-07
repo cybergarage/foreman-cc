@@ -8,43 +8,43 @@
  *
  ******************************************************************/
 
-#include <foreman/registry/Property.h>
+#include <foreman/registry/Object.h>
 
 using namespace Foreman::Registry;
 
 ////////////////////////////////////////////////
-// Properties
+// Objects
 ////////////////////////////////////////////////
 
-Properties::Properties()
+Objects::Objects()
 {
 }
 
-Properties::~Properties() {}
+Objects::~Objects() {}
 
 ////////////////////////////////////////////////
-// addProperties
+// addObjects
 ////////////////////////////////////////////////
 
-bool Properties::addProperty(Property* prop)
+bool Objects::addObject(Object* prop)
 {
-  return addProperty(std::shared_ptr<Foreman::Registry::Property>(prop));
+  return addObject(std::shared_ptr<Foreman::Registry::Object>(prop));
 }
 
 ////////////////////////////////////////////////
-// addProperties
+// addObjects
 ////////////////////////////////////////////////
 
-bool Properties::addProperty(const Property& prop)
+bool Objects::addObject(const Object& prop)
 {
-  return addProperty(new Foreman::Registry::Property(prop));
+  return addObject(new Foreman::Registry::Object(prop));
 }
 
 ////////////////////////////////////////////////
-// addProperties
+// addObjects
 ////////////////////////////////////////////////
 
-bool Properties::addProperty(std::shared_ptr<Foreman::Registry::Property> prop)
+bool Objects::addObject(std::shared_ptr<Foreman::Registry::Object> prop)
 {
   push_back(prop);
   return true;

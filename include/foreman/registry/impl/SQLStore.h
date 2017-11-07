@@ -42,19 +42,20 @@ public:
     const char* getType();
 
     bool open();
-
     bool isOpened();
     bool close();
+    bool clear();
 
     bool query(const std::string& query);
     bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
 
-    bool setObject(Object* obj, Error* err);
-    bool getObject(const std::string& objID, Error* err);
-    bool deleteObject(const std::string& objID, Error* err);
+    bool createObject(Object* obj, Error* err);
+    bool updateObject(Object* obj, Error* err);
+    bool getObject(const std::string& objId, Error* err);
+    bool deleteObject(const std::string& objId, Error* err);
 
-    bool browse(Query* q, Properties* props, Error* err);
-    bool search(Query* q, Properties* props, Error* err);
+    bool browse(Query* q, Objects* objs, Error* err);
+    bool search(Query* q, Objects* objs, Error* err);
 
 protected:
     sqlite3* db_;
