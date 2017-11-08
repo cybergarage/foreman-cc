@@ -1,0 +1,8 @@
+#!/bin/sh
+errors_url="https://raw.https://raw.github.com/cybergarage/foreman-common/master/error/errors.csv"
+wget -q ${errors_url} -O /dev/null
+if [ "$?" -ne "0" ]; then
+  exit 0
+fi
+wget -q ${errors_url} -O Errors.csv
+./Errors.h.gen > Errors.h
