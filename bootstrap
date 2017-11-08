@@ -2,6 +2,7 @@
 
 # ./beringei_setup
 pushd include/foreman && ./Const.h.build && popd
+pushd include/foreman/common && ./Errors.h.build && popd
 
 pushd include && ./Makefile.am.build > Makefile.am && popd
 pushd lib/unix && ./Makefile.am.build > Makefile.am && popd

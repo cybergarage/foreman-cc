@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+print<<HEADER;
+/******************************************************************
+ *
+ * Foreman for C++
+ *
+ * Copyright (C) 2017 Satoshi Konno
+ *
+ * This is licensed under BSD-style license, see file COPYING.
+ *
+ ******************************************************************/
+
+#ifndef _FOREMANCC_ERROR_NO_H_
+#define _FOREMANCC_ERROR_NO_H_
+
+namespace Foreman {
+HEADER
+
+# Error Message
+
+print "\n";
+@const_lines = `more Errors.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+foreach $const_line (@const_lines) {
+  @const = split(/,/, $const_line);
+  $const[0] =~ s/([a-z])/\u$1/g;
+  print "#define ERROR_" . $const[0] . " " . $const[1] . "\n";
+}
+
+print "\n";
+print "inline const char *ErrorCodeToMessage(int code) {\n";
+print "    switch(code) {\n";
+foreach $const_line (@const_lines) {
+  @const = split(/,/, $const_line);
+  $const[0] =~ s/([a-z])/\u$1/g;
+  chomp($const[2]);
+  if (length($const[2]) <= 2) {
+    next;
+  }
+  print "    case " . $const[1] . ": return " . $const[2] . ";\n";
+}
+print "    }\n";
+print "    return \"\";\n";
+print "}\n";
+
+print<<FOTTER;
+
+}
+
+#endif
+FOTTER
