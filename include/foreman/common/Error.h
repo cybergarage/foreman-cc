@@ -12,6 +12,7 @@
 #define _FOREMANCC_ERROR_H_
 
 #include <string>
+#include <errno.h>
 
 namespace Foreman {
 
@@ -69,7 +70,9 @@ class Error {
 
   bool equals(const Error& err) const;
 
-  private:
+  void setErrorNo(int errno);
+
+private:
   void initialize();
 
   int code;

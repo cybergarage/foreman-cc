@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <string.h>
 #include <foreman/common/Error.h>
 
 Foreman::Error::Error()
@@ -53,6 +54,12 @@ bool Foreman::Error::isError()
   if (0 < this->code)
     return true;
   return false;
+}
+
+void Foreman::Error::setErrorNo(int errno)
+{
+  setCode(errno);
+  setMessage(strerror(errno));
 }
 
 bool Foreman::Error::equals(const Error& other) const
