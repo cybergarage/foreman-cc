@@ -13,8 +13,6 @@
 #include "StoreTestController.h"
 #include <foreman/registry/impl/StoreImpl.h>
 
-using namespace Foreman::Registry;
-
 BOOST_AUTO_TEST_SUITE(registry)
 
 ////////////////////////////////////////////////
@@ -23,10 +21,10 @@ BOOST_AUTO_TEST_SUITE(registry)
 
 BOOST_AUTO_TEST_CASE(SQLiteStore)
 {
-  StoreTestContoller testController;
+  Foreman::Registry::StoreTestContoller testController;
 
-  SQLiteStore* store = new SQLiteStore();
-  //testController.run(store);
+  Foreman::Registry::SQLiteStore* store = new Foreman::Registry::SQLiteStore();
+  testController.run(store);
   delete store;
 }
 

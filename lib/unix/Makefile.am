@@ -60,7 +60,8 @@ foremancc_sources = \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \
 	../../src/foreman/registry/Store.cpp \
-	../../src/foreman/util/Util.cpp
+	../../src/foreman/util/Util.cpp \
+	../../src/foreman/util/UUID.cpp
 
 libforeman___a_SOURCES = \
         $(foremancc_sources)

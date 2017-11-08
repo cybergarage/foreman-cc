@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */; };
 		215DB2801FAAD7000089A36B /* ErrorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB27F1FAAD7000089A36B /* ErrorTest.cpp */; };
 		215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2891FAB2ED80089A36B /* ClangQueryTest.cpp */; };
 		215DB28E1FAB2ED90089A36B /* ClangMetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB28A1FAB2ED90089A36B /* ClangMetricsTest.cpp */; };
@@ -62,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UUIDTest.cpp; path = ../../util/UUIDTest.cpp; sourceTree = "<group>"; };
 		215DB27F1FAAD7000089A36B /* ErrorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ErrorTest.cpp; path = ../../common/ErrorTest.cpp; sourceTree = "<group>"; };
 		215DB2891FAB2ED80089A36B /* ClangQueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangQueryTest.cpp; path = ../../clang/metric/ClangQueryTest.cpp; sourceTree = "<group>"; };
 		215DB28A1FAB2ED90089A36B /* ClangMetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangMetricsTest.cpp; path = ../../clang/metric/ClangMetricsTest.cpp; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2117C4E81FB312C600F7ACF9 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		215DB27E1FAAD6E70089A36B /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2175C3021E52F4ED006C4425 /* Sources */,
+				2117C4E81FB312C600F7ACF9 /* util */,
 				2175C3031E52F4FB006C4425 /* Libraries */,
 				218DFCD71E52F28000224C70 /* Products */,
 			);
@@ -313,6 +324,7 @@
 				215DB2C41FAB3C0E0089A36B /* ClangStoreTest.cpp in Sources */,
 				215DB2C21FAB3C0E0089A36B /* ClangPropertyTest.cpp in Sources */,
 				21AF27F91FA0A58200DB18AB /* StoreTest.cpp in Sources */,
+				2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */,
 				21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */,
 				215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */,
 				215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */,

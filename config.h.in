@@ -66,6 +66,9 @@
 /* Define to 1 if you have the `sqlite3' library (-lsqlite3). */
 #undef HAVE_LIBSQLITE3
 
+/* Define to 1 if you have the `uuid' library (-luuid). */
+#undef HAVE_LIBUUID
+
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
@@ -95,6 +98,9 @@
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the <uuid/uuid.h> header file. */
+#undef HAVE_UUID_UUID_H
 
 /* Name of package */
 #undef PACKAGE
