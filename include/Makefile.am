@@ -37,7 +37,8 @@ foremancc_header = \
 	./foreman/registry/Property.h \
 	./foreman/registry/Query.h \
 	./foreman/registry/Store.h \
-	./foreman/util/Util.h
+	./foreman/util/Util.h \
+	./foreman/util/UUID.h
 
 nobase_include_HEADERS = \
 	$(foremancc_header)

@@ -8,13 +8,14 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_PLATFORM_H_
-#define _FOREMANCC_PLATFORM_H_
+#ifndef _FOREMANCC_UTIL_UUID_H_
+#define _FOREMANCC_UTIL_UUID_H_
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#elif defined(__APPLE__)
-#define HAVE_LIBUUID 1
-#endif
+#include <string>
+
+namespace Foreman {
+
+bool CreateUUID(std::string& buf);
+}
 
 #endif

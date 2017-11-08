@@ -26,8 +26,10 @@ StoreTestContoller::~StoreTestContoller() {}
 // run
 ////////////////////////////////////////////////
 
-void StoreTestContoller::run(Foreman::Registry::Store* store)
+void StoreTestContoller::run(Store* store)
 {
   BOOST_CHECK(store->open());
+  BOOST_CHECK(store->isOpened());
+  BOOST_CHECK(store->clear());
   BOOST_CHECK(store->close());
 }

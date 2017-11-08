@@ -49,11 +49,18 @@ AC_CHECK_HEADERS([stdbool.h])
 AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)])
 
 ##################################################################
-# Check libraries
+# Check required libraries
 ##################################################################
 
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
+
+##################################################################
+# Check option libraries
+##################################################################
+
+AC_CHECK_LIB([uuid],[main])
+AC_CHECK_HEADERS([uuid/uuid.h])
 
 ##################################################################
 # Check option libraries (Beringei)
