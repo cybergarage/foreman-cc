@@ -31,7 +31,6 @@ public:
     virtual const char* getVersion() = 0;
 
     virtual bool open() = 0;
-    virtual bool isOpened() = 0;
     virtual bool close() = 0;
     virtual bool clear() = 0;
 

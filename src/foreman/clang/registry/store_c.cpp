@@ -33,3 +33,25 @@ bool foreman_registry_store_delete(ForemanRegistryStore* store)
   delete (Store*)store;
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_registry_store_open
+////////////////////////////////////////////////
+
+bool foreman_registry_store_open(ForemanRegistryStore* store)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Registry::Store*)(store))->open();
+}
+
+////////////////////////////////////////////////
+// foreman_registry_store_close
+////////////////////////////////////////////////
+
+bool foreman_registry_store_close(ForemanRegistryStore* store)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Registry::Store*)(store))->close();
+}
