@@ -23,7 +23,7 @@ print "\n";
 foreach $const_line (@const_lines) {
   @const = split(/,/, $const_line);
   $const[0] =~ s/([a-z])/\u$1/g;
-  print "#define ERROR_" . $const[0] . " " . $const[1] . "\n";
+  print "const static int ERROR_" . $const[0] . " = " . $const[1] . ";\n";
 }
 
 print "\n";
