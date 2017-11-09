@@ -11,9 +11,11 @@
 #ifndef _FOREMANCC_REGISTRY_OBJECT_H_
 #define _FOREMANCC_REGISTRY_OBJECT_H_
 
-#include <foreman/registry/Object.h>
 #include <string>
 #include <vector>
+
+#include <foreman/Const.h>
+#include <foreman/registry/Object.h>
 
 namespace Foreman {
 namespace Registry {
@@ -43,7 +45,7 @@ public:
     {
       return (0 < this->objId.length()) ? true : false;
     }
-    
+
     void setParentId(const std::string& value)
     {
       this->parentId = value;
@@ -58,7 +60,12 @@ public:
     {
       return (0 < this->parentId.length()) ? true : false;
     }
-    
+
+    bool isRootParentId() const
+    {
+      return (this->parentId.compare(FOREMANCC_REGISTRY_ROOT_OBJECT_ID) == 0) ? true : false;
+    }
+
     void setName(const std::string& value)
     {
       this->name = value;
@@ -73,7 +80,7 @@ public:
     {
       return (0 < this->name.length()) ? true : false;
     }
-    
+
     void setData(const std::string& value)
     {
       this->data = value;
@@ -88,7 +95,9 @@ public:
     {
       return (0 < this->data.length()) ? true : false;
     }
-  
+
+    bool equals(Object* obj) const;
+
 public:
     void initialize();
 

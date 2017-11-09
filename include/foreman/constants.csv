@@ -26,8 +26,8 @@ registry_sqlitesotore_registry_table_ddl,"create table if not exists registry (i
 registry_sqlitesotore_registry_create,"insert into registry (id, pid, name, data) values (?, ?, ?, ?)"
 registry_sqlitesotore_registry_update,"update registry set name = ?, data = ? where id = ?"
 registry_sqlitesotore_registry_delete,"delete from registry where id = ?"
-registry_sqlitesotore_registry_select_by_id,"select id, name, pid, data from factor where id = ?"
-registry_sqlitesotore_registry_select_by_parentid,"select id, name, pid, data from factor where pid = ?"
+registry_sqlitesotore_registry_select_by_id,"select pid, name, data from registry where id = ?"
+registry_sqlitesotore_registry_select_by_parentid,"select id, name, data from registry where pid = ?"
 registry_sqlitesotore_registry_truncate,"delete from registry"
 
 # ================================================================================

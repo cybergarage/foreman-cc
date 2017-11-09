@@ -8,9 +8,9 @@
  *
  ******************************************************************/
 
-#include <string.h>
 #include <foreman/common/Error.h>
 #include <foreman/common/Errors.h>
+#include <string.h>
 
 Foreman::Error::Error()
 {

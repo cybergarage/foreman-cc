@@ -12,6 +12,7 @@
 #define _FOREMANCC_REGISTRY_QUERY_H_
 
 #include <foreman/Platform.h>
+#include <string>
 
 namespace Foreman {
 namespace Registry {
@@ -24,6 +25,24 @@ namespace Registry {
 public:
     Query();
     virtual ~Query();
+
+    void setParentId(const std::string& value)
+    {
+      this->parentId = value;
+    }
+
+    const char* getParentId() const
+    {
+      return this->parentId.c_str();
+    }
+
+    bool hasParentId() const
+    {
+      return (0 < this->parentId.length()) ? true : false;
+    }
+
+public:
+    std::string parentId;
   };
 }
 }

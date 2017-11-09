@@ -37,7 +37,7 @@ public:
 
     virtual bool createObject(Object* obj, Error* err) = 0;
     virtual bool updateObject(Object* obj, Error* err) = 0;
-    virtual bool getObject(const std::string& objId, Error* err) = 0;
+    virtual bool getObject(const std::string& objId, Object* obj, Error* err) = 0;
     virtual bool deleteObject(const std::string& objId, Error* err) = 0;
 
     virtual bool browse(Query* q, Objects* objs, Error* err) = 0;

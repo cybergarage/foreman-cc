@@ -71,7 +71,7 @@ class Error {
 
   void setErrorNo(int errno);
 
-private:
+  private:
   void initialize();
 
   int code;
