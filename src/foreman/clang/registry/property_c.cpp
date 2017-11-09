@@ -38,7 +38,7 @@ bool foreman_registry_property_delete(ForemanRegistryProperty* prop)
 // foreman_registry_query_setname
 ////////////////////////////////////////////////
 
-bool foreman_registry_propect_setname(ForemanRegistryProperty* prop, const char* name)
+bool foreman_registry_property_setname(ForemanRegistryProperty* prop, const char* name)
 {
   if (!prop)
     return false;
@@ -47,10 +47,10 @@ bool foreman_registry_propect_setname(ForemanRegistryProperty* prop, const char*
 }
 
 ////////////////////////////////////////////////
-// foreman_registry_propect_getname
+// foreman_registry_property_getname
 ////////////////////////////////////////////////
 
-bool foreman_registry_propect_getname(ForemanRegistryProperty* prop, const char** name)
+bool foreman_registry_property_getname(ForemanRegistryProperty* prop, const char** name)
 {
   if (!prop || !name)
     return false;
@@ -59,10 +59,10 @@ bool foreman_registry_propect_getname(ForemanRegistryProperty* prop, const char*
 }
 
 ////////////////////////////////////////////////
-// foreman_registry_propect_setdata
+// foreman_registry_property_setdata
 ////////////////////////////////////////////////
 
-bool foreman_registry_propect_setdata(ForemanRegistryProperty* prop, const char* pid)
+bool foreman_registry_property_setdata(ForemanRegistryProperty* prop, const char* pid)
 {
   if (!prop)
     return false;
@@ -71,10 +71,10 @@ bool foreman_registry_propect_setdata(ForemanRegistryProperty* prop, const char*
 }
 
 ////////////////////////////////////////////////
-// foreman_registry_propect_getdata
+// foreman_registry_property_getdata
 ////////////////////////////////////////////////
 
-bool foreman_registry_propect_getdata(ForemanRegistryProperty* prop, const char** data)
+bool foreman_registry_property_getdata(ForemanRegistryProperty* prop, const char** data)
 {
   if (!prop || !data)
     return false;
