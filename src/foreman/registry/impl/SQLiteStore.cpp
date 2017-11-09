@@ -15,6 +15,15 @@
 
 using namespace Foreman::Registry;
 
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE "registry"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, primary key(id))"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data) values (?, ?, ?, ?)"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE "update registry set name = ?, data = ? where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE "delete from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID "select pid, name, data from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, data from registry where pid = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TRUNCATE "delete from registry"
+
 ////////////////////////////////////////////////
 // SQLiteStore
 ////////////////////////////////////////////////
@@ -170,7 +179,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
       return false;
     }
   }
-  
+
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt)) {
