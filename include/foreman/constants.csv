@@ -5,14 +5,12 @@
 product_name,"foreman"
 product_version,"0.1"
 
-# Serialize
-csv_export_line_terminator,"\n"
+# ================================================================================
+# Server
+# ================================================================================
 
-# Data Source
-datasource_Graphite,"graphite"
-datasource_RRDtool,"rrdtool"
+# Defaults
 
-# HTTP Server
 http_default_port,8080
 
 # ================================================================================
@@ -21,57 +19,20 @@ http_default_port,8080
 
 registry_root_object_id,"0"
 
-registry_sqlitesotore_registry_table,"registry"
-registry_sqlitesotore_registry_table_ddl,"create table if not exists registry (id text, name text, pid text, data text, primary key(id))"
-registry_sqlitesotore_registry_create,"insert into registry (id, pid, name, data) values (?, ?, ?, ?)"
-registry_sqlitesotore_registry_update,"update registry set name = ?, data = ? where id = ?"
-registry_sqlitesotore_registry_delete,"delete from registry where id = ?"
-registry_sqlitesotore_registry_select_by_id,"select pid, name, data from registry where id = ?"
-registry_sqlitesotore_registry_select_by_parentid,"select id, name, data from registry where pid = ?"
-registry_sqlitesotore_registry_truncate,"delete from registry"
-
 # ================================================================================
 # Metric
 # ================================================================================
 
-# Data Store
-metric_datastore_memory,"memory"
-metric_datastore_sqlite,"sqlite"
-
 # Timestamp Resolution
+
 metric_datastore_timestamp_resolution_second,1
 metric_datastore_timestamp_resolution_minute,60
 metric_datastore_timestamp_resolution_hour,60*60
 metric_datastore_timestamp_resolution_day,60*60*24
 
-# Data Store Parameter
-metric_datastore_param_protocol,"protocol"
-metric_datastore_param_host,"host"
-
 # Defaults
-metric_store_default_retentioni_interval,300
 
-# SQLite Store
-metric_sqlitesotore_factor_table,"factor"
-metric_sqlitesotore_factor_name,"name"
-metric_sqlitesotore_factor_table_ddl,"create table if not exists factor (name text, primary key(name))"
-metric_sqlitesotore_factor_index_name_ddl,"create index if not exists factor_name_idx on factor(name)"
-metric_sqlitesotore_factor_insert,"insert into factor (name) values (?)"
-metric_sqlitesotore_factor_select_by_name,"select rowid from factor where name = ?"
-metric_sqlitesotore_record_table,"record"
-metric_sqlitesotore_record_id,"id"
-metric_sqlitesotore_record_val,"val"
-metric_sqlitesotore_record_ts,"ts"
-metric_sqlitesotore_record_table_ddl,"create table if not exists record (id integer, val real, ts integer, primary key(id,ts))"
-metric_sqlitesotore_record_index_id_ddl,"create index if not exists record_id_idx on record(id)"
-metric_sqlitesotore_record_index_ts_ddl,"create index if not exists record_ts_idx on record(ts)"
-metric_sqlitesotore_record_insert,"insert into record (id, val, ts) values (?, ?, ?)"
-metric_sqlitesotore_record_update,"update record set val = ? where id = ? and ts = ?"
-metric_sqlitesotore_record_select_by_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
-metric_sqlitesotore_record_select_by_factor,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
-metric_sqlitesotore_record_select_by_factor_between_timestamp,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
-metric_sqlitesotore_record_select_all,"select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id" 
-metric_sqlitesotore_record_truncate,"delete from record"
+metric_store_default_retentioni_interval,300
 
 # ================================================================================
 # FQL

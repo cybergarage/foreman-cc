@@ -17,6 +17,27 @@
 
 using namespace Foreman::Metric;
 
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_TABLE "factor"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_NAME "name"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_TABLE_DDL "create table if not exists factor (name text, primary key(name))"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INDEX_NAME_DDL "create index if not exists factor_name_idx on factor(name)"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INSERT "insert into factor (name) values (?)"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_BY_NAME "select rowid from factor where name = ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TABLE "record"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_ID "id"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_VAL "val"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TS "ts"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TABLE_DDL "create table if not exists record (id integer, val real, ts integer, primary key(id,ts))"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_INDEX_ID_DDL "create index if not exists record_id_idx on record(id)"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_INDEX_TS_DDL "create index if not exists record_ts_idx on record(ts)"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_INSERT "insert into record (id, val, ts) values (?, ?, ?)"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_UPDATE "update record set val = ? where id = ? and ts = ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_TIMESTAMP "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and r.ts = ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_ALL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE "delete from record"
+
 ////////////////////////////////////////////////
 // NarrowTableStore
 ////////////////////////////////////////////////
