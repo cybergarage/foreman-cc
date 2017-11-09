@@ -31,7 +31,6 @@ StoreTestContoller::~StoreTestContoller() {}
 void StoreTestContoller::run(Store* store)
 {
   BOOST_CHECK(store->open());
-  BOOST_CHECK(store->isOpened());
 
   createInvalidObjects(store);
   createRootObjects(store);

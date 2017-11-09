@@ -129,7 +129,6 @@ const char* foreman_registry_store_gettype();
 const char* foreman_registry_store_getVersion();
 
 bool foreman_registry_store_open();
-bool foreman_registry_store_isOpened();
 bool foreman_registry_store_close();
 bool foreman_registry_store_clear();
 

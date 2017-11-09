@@ -28,7 +28,6 @@ public:
     virtual ~Store();
 
     virtual bool open() = 0;
-    virtual bool isOpened() = 0;
     virtual bool close() = 0;
 
     virtual bool setRetentionInterval(time_t value);

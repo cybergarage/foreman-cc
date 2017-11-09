@@ -29,7 +29,6 @@ public:
     ~GraphiteStore();
 
     bool open();
-    bool isOpened();
     bool close();
 
     void setHost(const std::string& host);

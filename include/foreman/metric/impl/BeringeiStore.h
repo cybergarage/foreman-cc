@@ -38,7 +38,6 @@ public:
     ~BeringeiStore();
 
     bool open();
-    bool isOpened();
     bool close();
   };
 

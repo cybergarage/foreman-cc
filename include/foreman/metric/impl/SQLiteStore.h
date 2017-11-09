@@ -36,9 +36,9 @@ public:
     ~SQLiteStore();
 
     virtual bool open();
+    virtual bool close();
 
     bool isOpened();
-    bool close();
 
     bool query(const std::string& query);
     bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
