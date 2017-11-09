@@ -116,9 +116,9 @@ public:
     Objects();
     virtual ~Objects();
 
-    bool addObject(Object* prop);
-    bool addObject(const Object& prop);
-    bool addObject(std::shared_ptr<Foreman::Registry::Object> prop);
+    bool addObject(Object* obj);
+    bool addObject(const Object& obj);
+    bool addObject(std::shared_ptr<Foreman::Registry::Object> obj);
 
     Object* getObject(size_t n)
     {

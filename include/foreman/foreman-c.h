@@ -43,13 +43,33 @@ bool foreman_error_getdetailcode(ForemanError* e, int* code);
 bool foreman_error_delete(ForemanError* e);
 
 ////////////////////////////////////////////////
-// Registry::Store
+// Registry::Property
 ////////////////////////////////////////////////
 
-typedef void ForemanRegistryStore;
+typedef void ForemanRegistryProperty;
 
-ForemanRegistryStore* foreman_registry_store_new();
-bool foreman_registry_store_delete(ForemanRegistryStore* store);
+ForemanRegistryProperty* foreman_registry_property_new();
+bool foreman_registry_property_delete(ForemanRegistryProperty* prop);
+
+bool foreman_registry_property_setname(ForemanRegistryProperty* prop, const char* name);
+bool foreman_registry_property_setdata(ForemanRegistryProperty* prop, const char* data);
+
+bool foreman_registry_property_getname(ForemanRegistryProperty* prop, const char** name);
+bool foreman_registry_property_getdata(ForemanRegistryProperty* prop, const char** data);
+
+////////////////////////////////////////////////
+// Registry::Properties
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryProperties;
+
+ForemanRegistryProperties* foreman_registry_properties_new();
+bool foreman_registry_properties_delete(ForemanRegistryProperties* props);
+
+size_t foreman_registry_properties_size(ForemanRegistryProperties* props);
+
+bool foreman_registry_properties_addproperty(ForemanRegistryProperties* props, ForemanRegistryProperty* prop);
+ForemanRegistryProperty* foreman_registry_properties_getproperty(ForemanRegistryProperties* props, size_t n);
 
 ////////////////////////////////////////////////
 // Registry::Object
@@ -60,14 +80,29 @@ typedef void ForemanRegistryObject;
 ForemanRegistryObject* foreman_registry_object_new();
 bool foreman_registry_object_delete(ForemanRegistryObject* obj);
 
+bool foreman_registry_object_setid(ForemanRegistryObject* obj, const char* id);
+bool foreman_registry_object_setparentid(ForemanRegistryObject* obj, const char* pid);
+bool foreman_registry_object_setname(ForemanRegistryObject* obj, const char* name);
+bool foreman_registry_object_setdata(ForemanRegistryObject* obj, const char* pid);
+
+bool foreman_registry_object_getid(ForemanRegistryObject* obj, const char** id);
+bool foreman_registry_object_getparentid(ForemanRegistryObject* obj, const char** pid);
+bool foreman_registry_object_getname(ForemanRegistryObject* obj, const char** name);
+bool foreman_registry_object_getdata(ForemanRegistryObject* obj, const char** data);
+
 ////////////////////////////////////////////////
-// Registry::Object
+// Registry::Objects
 ////////////////////////////////////////////////
 
-typedef void ForemanRegistryProperty;
+typedef void ForemanRegistryObjects;
 
-ForemanRegistryProperty* foreman_registry_property_new();
-bool foreman_registry_property_delete(ForemanRegistryProperty* prop);
+ForemanRegistryObjects* foreman_registry_objects_new();
+bool foreman_registry_objects_delete(ForemanRegistryObjects* objs);
+
+size_t foreman_registry_objects_size(ForemanRegistryObjects* objs);
+
+bool foreman_registry_objects_addobject(ForemanRegistryObjects* objs, ForemanRegistryObject* obj);
+ForemanRegistryObject* foreman_registry_objects_getobject(ForemanRegistryObjects* objs, size_t n);
 
 ////////////////////////////////////////////////
 // Registry::Query
@@ -77,6 +112,34 @@ typedef void ForemanRegistryQuery;
 
 ForemanRegistryQuery* foreman_registry_query_new();
 bool foreman_registry_query_delete(ForemanRegistryQuery* q);
+
+bool foreman_registry_query_setparentid(ForemanRegistryQuery* q, const char* pid);
+bool foreman_registry_query_getparentid(ForemanRegistryQuery* q, const char** pid);
+
+////////////////////////////////////////////////
+// Registry::Store
+////////////////////////////////////////////////
+
+typedef void ForemanRegistryStore;
+
+ForemanRegistryStore* foreman_registry_sqlite_store_new();
+bool foreman_registry_store_delete(ForemanRegistryStore* store);
+
+const char* foreman_registry_store_gettype();
+const char* foreman_registry_store_getVersion();
+
+bool foreman_registry_store_open();
+bool foreman_registry_store_isOpened();
+bool foreman_registry_store_close();
+bool foreman_registry_store_clear();
+
+bool foreman_registry_store_createObject(ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_updateObject(ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_getObject(const char* objId, ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_deleteObject(const char* objId, ForemanError* err);
+
+bool foreman_registry_store_browse(ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
+bool foreman_registry_store_search(ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
 
 ////////////////////////////////////////////////
 // Metric::Metric

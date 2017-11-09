@@ -33,3 +33,27 @@ bool foreman_registry_query_delete(ForemanRegistryQuery* q)
   delete (Query*)q;
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_registry_query_setparentid
+////////////////////////////////////////////////
+
+bool foreman_registry_query_setparentid(ForemanRegistryQuery* q, const char* pid)
+{
+  if (!q)
+    return false;
+  ((Query*)q)->setParentId(pid);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_query_getparentid
+////////////////////////////////////////////////
+
+bool foreman_registry_query_getparentid(ForemanRegistryQuery* q, const char** pid)
+{
+  if (!q || !pid)
+    return false;
+  *pid = ((Query*)q)->getParentId();
+  return true;
+}

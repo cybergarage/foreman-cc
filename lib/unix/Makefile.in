@@ -155,6 +155,8 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/clang/metric/store_c.$(OBJEXT) \
 	../../src/foreman/clang/metric/store_c_factory.$(OBJEXT) \
 	../../src/foreman/clang/registry/object_c.$(OBJEXT) \
+	../../src/foreman/clang/registry/objects_c.$(OBJEXT) \
+	../../src/foreman/clang/registry/properties_c.$(OBJEXT) \
 	../../src/foreman/clang/registry/property_c.$(OBJEXT) \
 	../../src/foreman/clang/registry/query_c.$(OBJEXT) \
 	../../src/foreman/clang/registry/store_c.$(OBJEXT) \
@@ -358,6 +360,8 @@ foremancc_sources = \
 	../../src/foreman/clang/metric/store_c.cpp \
 	../../src/foreman/clang/metric/store_c_factory.cpp \
 	../../src/foreman/clang/registry/object_c.cpp \
+	../../src/foreman/clang/registry/objects_c.cpp \
+	../../src/foreman/clang/registry/properties_c.cpp \
 	../../src/foreman/clang/registry/property_c.cpp \
 	../../src/foreman/clang/registry/query_c.cpp \
 	../../src/foreman/clang/registry/store_c.cpp \
@@ -519,6 +523,12 @@ clean-libLIBRARIES:
 	@$(MKDIR_P) ../../src/foreman/clang/registry/$(DEPDIR)
 	@: > ../../src/foreman/clang/registry/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/clang/registry/object_c.$(OBJEXT):  \
+	../../src/foreman/clang/registry/$(am__dirstamp) \
+	../../src/foreman/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/registry/objects_c.$(OBJEXT):  \
+	../../src/foreman/clang/registry/$(am__dirstamp) \
+	../../src/foreman/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/registry/properties_c.$(OBJEXT):  \
 	../../src/foreman/clang/registry/$(am__dirstamp) \
 	../../src/foreman/clang/registry/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/clang/registry/property_c.$(OBJEXT):  \
@@ -711,6 +721,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/store_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/store_c_factory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/object_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/objects_c.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/properties_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/property_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/query_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/registry/$(DEPDIR)/store_c.Po@am__quote@

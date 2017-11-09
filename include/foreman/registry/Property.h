@@ -38,21 +38,21 @@ public:
       return this->name.c_str();
     }
 
-    void setValue(const std::string& value)
+    void setData(const std::string& value)
     {
-      this->value = value;
+      this->data = value;
     }
 
-    const char* getValue() const
+    const char* getData() const
     {
-      return this->value.c_str();
+      return this->data.c_str();
     }
 
 private:
     void initialize();
 
     std::string name;
-    std::string value;
+    std::string data;
   };
 
   ////////////////////////////////////////////////
