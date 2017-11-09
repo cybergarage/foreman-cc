@@ -10,6 +10,7 @@
 
 foremancc_header = \
 	./foreman/common/Error.h \
+	./foreman/common/Errors.h \
 	./foreman/Const.h \
 	./foreman/foreman-c.h \
 	./foreman/Foreman.h \

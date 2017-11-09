@@ -23,3 +23,24 @@ Object::Object()
 Object::~Object()
 {
 }
+
+////////////////////////////////////////////////
+// equals
+////////////////////////////////////////////////
+
+bool Object::equals(Object* obj) const
+{
+  if (this->objId.compare(obj->getId()) != 0)
+    return false;
+
+  if (this->parentId.compare(obj->getParentId()) != 0)
+    return false;
+
+  if (this->name.compare(obj->getName()) != 0)
+    return false;
+
+  if (this->data.compare(obj->getData()) != 0)
+    return false;
+
+  return true;
+}

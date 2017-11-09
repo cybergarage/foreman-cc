@@ -26,9 +26,10 @@ public:
     virtual ~StoreTestContoller();
 
     void run(Store* store);
-    
-  private:
+
+private:
     void createInvalidObjects(Store* store);
+    void createRootObjects(Store* store);
   };
 }
 }

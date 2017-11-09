@@ -51,7 +51,7 @@ public:
 
     bool createObject(Object* obj, Error* err);
     bool updateObject(Object* obj, Error* err);
-    bool getObject(const std::string& objId, Error* err);
+    bool getObject(const std::string& objId, Object* obj, Error* err);
     bool deleteObject(const std::string& objId, Error* err);
 
     bool browse(Query* q, Objects* objs, Error* err);
@@ -59,6 +59,8 @@ public:
 
 protected:
     sqlite3* db_;
+
+    bool setLastDetailError(Error* err);
   };
 }
 }
