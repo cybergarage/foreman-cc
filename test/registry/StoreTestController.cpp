@@ -109,5 +109,20 @@ void StoreTestContoller::createRootObjects(Store* store)
     BOOST_CHECK(browseObj->equals(&fetchObj));
   }
 
+  // Delete
+  
+  q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  objs.clear();
+  BOOST_CHECK(store->browse(&q, &objs, &err));
+  BOOST_CHECK_EQUAL(objs.size(), FORMANCC_TEST_LOOP_DEFAULT);
+  
+  for (size_t n = 0; n < objs.size(); n++) {
+    Object* browseObj = objs.getObject(n);
+    BOOST_CHECK(store->deleteObject(browseObj->getId(), &err));
+
+    Object fetchObj;
+    BOOST_CHECK(!store->getObject(browseObj->getId(), &fetchObj, &err));
+  }
+
   BOOST_CHECK(store->clear());
 }
