@@ -11,6 +11,7 @@
 		210781031FB2005F00F9F288 /* Objects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210781021FB2005F00F9F288 /* Objects.cpp */; };
 		2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EB1FB3131A00F7ACF9 /* UUID.h */; };
 		2117C4EE1FB3158400F7ACF9 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2117C4ED1FB3158300F7ACF9 /* UUID.cpp */; };
+		2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EF1FB342C900F7ACF9 /* Errors.h */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
@@ -96,6 +97,7 @@
 		210781021FB2005F00F9F288 /* Objects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Objects.cpp; path = registry/Objects.cpp; sourceTree = "<group>"; };
 		2117C4EB1FB3131A00F7ACF9 /* UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUID.h; sourceTree = "<group>"; };
 		2117C4ED1FB3158300F7ACF9 /* UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UUID.cpp; path = util/UUID.cpp; sourceTree = "<group>"; };
+		2117C4EF1FB342C900F7ACF9 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = common/Errors.h; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		215DB2771FAAD69B0089A36B /* common */ = {
 			isa = PBXGroup;
 			children = (
+				2117C4EF1FB342C900F7ACF9 /* Errors.h */,
 				215DB2781FAAD6B20089A36B /* Error.h */,
 			);
 			name = common;
@@ -510,6 +513,7 @@
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
 				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
+				2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */,
 				21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */,
 				2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */,
 				2188DBE61FB00AEE00940208 /* Store.h in Headers */,

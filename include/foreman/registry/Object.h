@@ -39,6 +39,11 @@ public:
       return this->objId.c_str();
     }
 
+    bool hasId() const
+    {
+      return (0 < this->objId.length()) ? true : false;
+    }
+    
     void setParentId(const std::string& value)
     {
       this->parentId = value;
@@ -49,6 +54,11 @@ public:
       return this->parentId.c_str();
     }
 
+    bool hasParentId() const
+    {
+      return (0 < this->parentId.length()) ? true : false;
+    }
+    
     void setName(const std::string& value)
     {
       this->name = value;
@@ -59,6 +69,11 @@ public:
       return this->name.c_str();
     }
 
+    bool hasName() const
+    {
+      return (0 < this->name.length()) ? true : false;
+    }
+    
     void setData(const std::string& value)
     {
       this->data = value;
@@ -69,6 +84,11 @@ public:
       return this->data.c_str();
     }
 
+    bool hasData() const
+    {
+      return (0 < this->data.length()) ? true : false;
+    }
+  
 public:
     void initialize();
 

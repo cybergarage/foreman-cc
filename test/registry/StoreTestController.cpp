@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <boost/test/unit_test.hpp>
+#include <foreman/Const.h>
 
 #include "StoreTestController.h"
 
@@ -30,6 +31,32 @@ void StoreTestContoller::run(Store* store)
 {
   BOOST_CHECK(store->open());
   BOOST_CHECK(store->isOpened());
-  BOOST_CHECK(store->clear());
+  
+  createInvalidObjects(store);
+  
   BOOST_CHECK(store->close());
+}
+
+////////////////////////////////////////////////
+// run
+////////////////////////////////////////////////
+
+void StoreTestContoller::createInvalidObjects(Store* store)
+{
+  BOOST_CHECK(store->clear());
+
+  Foreman::Error err;
+  
+  Object obj;
+  BOOST_CHECK(!store->createObject(&obj, &err));
+
+  obj.setName("object");
+  BOOST_CHECK(!store->createObject(&obj, &err));
+
+  obj.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  BOOST_CHECK(store->createObject(&obj, &err));
+
+  BOOST_CHECK(store->deleteObject(obj.getId(), &err));
+  
+  BOOST_CHECK(store->clear());
 }
