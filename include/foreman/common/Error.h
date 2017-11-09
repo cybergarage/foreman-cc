@@ -12,7 +12,6 @@
 #define _FOREMANCC_ERROR_H_
 
 #include <string>
-#include <errno.h>
 
 namespace Foreman {
 
