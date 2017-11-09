@@ -233,10 +233,13 @@ bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
   sqlite3_bind_text(stmt, 1, objId.c_str(), (int)objId.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) == SQLITE_ROW) {
-    obj->setId((const char*)sqlite3_column_text(stmt, 0));
+    obj->setId(objId);
+    obj->setParentId((const char*)sqlite3_column_text(stmt, 0));
     obj->setName((const char*)sqlite3_column_text(stmt, 1));
-    obj->setParentId((const char*)sqlite3_column_text(stmt, 2));
-    obj->setData((const char*)sqlite3_column_text(stmt, 3));
+    unsigned const char* data = sqlite3_column_text(stmt, 2);
+    if (data) {
+      obj->setData((const char*)data);
+    }
   }
 
   sqlite3_finalize(stmt);
