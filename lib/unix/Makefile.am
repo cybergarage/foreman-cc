@@ -24,6 +24,8 @@ foremancc_sources = \
 	../../src/foreman/clang/metric/store_c.cpp \
 	../../src/foreman/clang/metric/store_c_factory.cpp \
 	../../src/foreman/clang/registry/object_c.cpp \
+	../../src/foreman/clang/registry/objects_c.cpp \
+	../../src/foreman/clang/registry/properties_c.cpp \
 	../../src/foreman/clang/registry/property_c.cpp \
 	../../src/foreman/clang/registry/query_c.cpp \
 	../../src/foreman/clang/registry/store_c.cpp \

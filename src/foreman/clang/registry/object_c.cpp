@@ -33,3 +33,99 @@ bool foreman_registry_object_delete(ForemanRegistryObject* obj)
   delete (Object*)obj;
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_registry_query_setid
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setid(ForemanRegistryObject* obj, const char* id)
+{
+  if (!obj)
+    return false;
+  ((Object*)obj)->setId(id);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_query_getid
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getid(ForemanRegistryObject* obj, const char** id)
+{
+  if (!obj || !id)
+    return false;
+  *id = ((Object*)obj)->getId();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_query_setparentid
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setparentid(ForemanRegistryObject* obj, const char* pid)
+{
+  if (!obj)
+    return false;
+  ((Object*)obj)->setParentId(pid);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_query_getparentid
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getparentid(ForemanRegistryObject* obj, const char** pid)
+{
+  if (!obj || !pid)
+    return false;
+  *pid = ((Object*)obj)->getParentId();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_query_setname
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setname(ForemanRegistryObject* obj, const char* name)
+{
+  if (!obj)
+    return false;
+  ((Object*)obj)->setName(name);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_getname
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getname(ForemanRegistryObject* obj, const char** name)
+{
+  if (!obj || !name)
+    return false;
+  *name = ((Object*)obj)->getName();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_setdata
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setdata(ForemanRegistryObject* obj, const char* pid)
+{
+  if (!obj)
+    return false;
+  ((Object*)obj)->setData(pid);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_getdata
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getdata(ForemanRegistryObject* obj, const char** data)
+{
+  if (!obj || !data)
+    return false;
+  *data = ((Object*)obj)->getData();
+  return true;
+}

@@ -9,18 +9,17 @@
  ******************************************************************/
 
 #include <foreman/foreman-c.h>
-#include <foreman/registry/Store.h>
+#include <foreman/registry/impl/StoreImpl.h>
 
 using namespace Foreman::Registry;
 
 ////////////////////////////////////////////////
-// foreman_registry_store_new
+// foreman_registry_sqlite_store_new
 ////////////////////////////////////////////////
 
-ForemanRegistryStore* foreman_registry_store_new()
+ForemanRegistryStore* foreman_registry_sqlite_store_new()
 {
-  return NULL;
-  //return new Store();
+  return new SQLiteStore();
 }
 
 ////////////////////////////////////////////////

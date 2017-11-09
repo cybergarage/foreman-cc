@@ -14,9 +14,9 @@
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(ClangRegistryQuery)
+BOOST_AUTO_TEST_CASE(NewRegistryQuery)
 {
-  ForemanMetricQuery* q = foreman_registry_query_new();
+  ForemanRegistryQuery* q = foreman_registry_query_new();
   BOOST_CHECK(q);
   BOOST_CHECK(foreman_registry_query_delete(q));
 }

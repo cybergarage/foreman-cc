@@ -12,6 +12,8 @@
 		2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EB1FB3131A00F7ACF9 /* UUID.h */; };
 		2117C4EE1FB3158400F7ACF9 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2117C4ED1FB3158300F7ACF9 /* UUID.cpp */; };
 		2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EF1FB342C900F7ACF9 /* Errors.h */; };
+		21216A961FB475E600C900D4 /* properties_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21216A951FB475E500C900D4 /* properties_c.cpp */; };
+		21216A981FB475EE00C900D4 /* objects_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21216A971FB475EE00C900D4 /* objects_c.cpp */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
@@ -99,6 +101,8 @@
 		2117C4ED1FB3158300F7ACF9 /* UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UUID.cpp; path = util/UUID.cpp; sourceTree = "<group>"; };
 		2117C4EF1FB342C900F7ACF9 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = common/Errors.h; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21216A951FB475E500C900D4 /* properties_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = properties_c.cpp; path = clang/registry/properties_c.cpp; sourceTree = "<group>"; };
+		21216A971FB475EE00C900D4 /* objects_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objects_c.cpp; path = clang/registry/objects_c.cpp; sourceTree = "<group>"; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				215DB29B1FAB3A650089A36B /* object_c.cpp */,
+				21216A971FB475EE00C900D4 /* objects_c.cpp */,
+				21216A951FB475E500C900D4 /* properties_c.cpp */,
 				215DB29A1FAB3A650089A36B /* property_c.cpp */,
 				215DB2991FAB3A650089A36B /* query_c.cpp */,
 				215DB29C1FAB3A650089A36B /* store_c.cpp */,
@@ -596,6 +602,7 @@
 				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
 				216A5B381F9C59990092272A /* Data.cpp in Sources */,
+				21216A961FB475E600C900D4 /* properties_c.cpp in Sources */,
 				215DB2A01FAB3A650089A36B /* store_c.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
@@ -624,6 +631,7 @@
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
+				21216A981FB475EE00C900D4 /* objects_c.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
