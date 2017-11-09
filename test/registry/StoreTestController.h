@@ -30,6 +30,7 @@ public:
 private:
     void createInvalidObjects(Store* store);
     void createRootObjects(Store* store);
+    void createHierarchicalObjects(Store* store);
   };
 }
 }
