@@ -13,16 +13,16 @@
 
 namespace Foreman {
 
-#define ERROR_UNKNOWN 0
-#define ERROR_BAD_DESTINATION 300
-#define ERROR_INVALID_REQUEST 400
-#define ERROR_METHOD_NOT_FOUND 401
-#define ERROR_INVALID_PARAMS 402
-#define ERROR_INTERNAL_ERROR 600
-#define ERROR_SCRIPT_ENGINE_INTERNAL_ERROR 700
-#define ERROR_SCRIPT_ENGINE_NOT_FOUND 701
-#define ERROR_SCRIPT_COMPILE_ERROR 702
-#define ERROR_SCRIPT_RUNTIME_ERROR 703
+const static int ERROR_UNKNOWN = 0;
+const static int ERROR_BAD_DESTINATION = 300;
+const static int ERROR_INVALID_REQUEST = 400;
+const static int ERROR_METHOD_NOT_FOUND = 401;
+const static int ERROR_INVALID_PARAMS = 402;
+const static int ERROR_INTERNAL_ERROR = 600;
+const static int ERROR_SCRIPT_ENGINE_INTERNAL_ERROR = 700;
+const static int ERROR_SCRIPT_ENGINE_NOT_FOUND = 701;
+const static int ERROR_SCRIPT_COMPILE_ERROR = 702;
+const static int ERROR_SCRIPT_RUNTIME_ERROR = 703;
 
 inline const char *ErrorCodeToMessage(int code) {
     switch(code) {
