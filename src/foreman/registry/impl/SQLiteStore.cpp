@@ -10,6 +10,8 @@
 
 #include <foreman/Const.h>
 #include <foreman/registry/impl/SQLStore.h>
+#include <foreman/util/UUID.h>
+#include <foreman/common/Errors.h>
 
 using namespace Foreman::Registry;
 
@@ -126,10 +128,26 @@ bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt** ppStmt)
 
 bool SQLiteStore::createObject(Object* obj, Error* err)
 {
+  if (!obj->hasParentId() || !obj->hasName()) {
+    err->setErrorNo(ERROR_INVALID_PARAMS);
+    return false;
+  }
+
+  if (!obj->hasId()) {
+    std::string uuid;
+    if (!CreateUUID(uuid)) {
+      err->setErrorNo(ERROR_INTERNAL_ERROR);
+      return false;
+    }
+    obj->setId(uuid);
+  }
+  
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt))
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt)) {
+    err->setErrorNo(ERROR_INTERNAL_ERROR);
     return false;
+  }
 
   sqlite3_bind_text(stmt, 1, obj->objId.c_str(), (int)obj->objId.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 2, obj->parentId.c_str(), (int)obj->parentId.length(), SQLITE_STATIC);
@@ -137,13 +155,14 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   sqlite3_bind_text(stmt, 4, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
+    err->setErrorNo(ERROR_INVALID_PARAMS);
     sqlite3_finalize(stmt);
     return false;
   }
 
   sqlite3_finalize(stmt);
 
-  return false;
+  return true;
 }
 
 ////////////////////////////////////////////////
@@ -152,10 +171,17 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
 
 bool SQLiteStore::updateObject(Object* obj, Error* err)
 {
-  sqlite3_stmt* stmt = NULL;
-
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE, &stmt))
+  if (!obj->hasId()) {
+    err->setErrorNo(ERROR_INVALID_PARAMS);
     return false;
+  }
+  
+  sqlite3_stmt* stmt = NULL;
+  
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE, &stmt)) {
+    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    return false;
+  }
 
   sqlite3_bind_text(stmt, 1, obj->name.c_str(), (int)obj->name.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 2, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
@@ -186,10 +212,17 @@ bool SQLiteStore::getObject(const std::string& objId, Error* err)
 
 bool SQLiteStore::deleteObject(const std::string& objId, Error* err)
 {
+  if (objId.length() <= 0) {
+    err->setErrorNo(ERROR_INVALID_PARAMS);
+    return false;
+  }
+  
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE, &stmt))
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE, &stmt)) {
+    err->setErrorNo(ERROR_INTERNAL_ERROR);
     return false;
+  }
 
   sqlite3_bind_text(stmt, 1, objId.c_str(), (int)objId.length(), SQLITE_STATIC);
 
@@ -200,7 +233,7 @@ bool SQLiteStore::deleteObject(const std::string& objId, Error* err)
 
   sqlite3_finalize(stmt);
 
-  return false;
+  return true;
 }
 
 ////////////////////////////////////////////////
