@@ -77,6 +77,11 @@ void StoreTestContoller::createRootObjects(Store* store)
   char name[32];
   char data[32];
 
+  q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  objs.clear();
+  BOOST_CHECK(store->browse(&q, &objs, &err));
+  BOOST_CHECK_EQUAL(objs.size(), 0);
+  
   // Insert
 
   for (size_t n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
@@ -124,5 +129,10 @@ void StoreTestContoller::createRootObjects(Store* store)
     BOOST_CHECK(!store->getObject(browseObj->getId(), &fetchObj, &err));
   }
 
+  q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  objs.clear();
+  BOOST_CHECK(store->browse(&q, &objs, &err));
+  BOOST_CHECK_EQUAL(objs.size(), 0);
+  
   BOOST_CHECK(store->clear());
 }

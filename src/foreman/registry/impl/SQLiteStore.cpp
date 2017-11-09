@@ -148,7 +148,13 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
     return false;
   }
 
-  if (!obj->hasId()) {
+  if (obj->hasId()) {
+    if (getObject(obj->getId(), NULL, err)) {
+      err->setErrorNo(ERROR_INVALID_PARAMS);
+      return false;
+    }
+  }
+  else {
     std::string uuid;
     if (!CreateUUID(uuid)) {
       err->setErrorNo(ERROR_INTERNAL_ERROR);
@@ -157,6 +163,14 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
     obj->setId(uuid);
   }
 
+  if (!obj->isRootParentId()) {
+    Object parentObj;
+    if (!getObject(obj->getParentId(), NULL, err)) {
+      err->setErrorNo(ERROR_INVALID_PARAMS);
+      return false;
+    }
+  }
+  
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt)) {
@@ -236,13 +250,15 @@ bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
     sqlite3_finalize(stmt);
     return false;
   }
-  
-  obj->setId(objId);
-  obj->setParentId((const char*)sqlite3_column_text(stmt, 0));
-  obj->setName((const char*)sqlite3_column_text(stmt, 1));
-  unsigned const char* data = sqlite3_column_text(stmt, 2);
-  if (data) {
-    obj->setData((const char*)data);
+
+  if (obj) {
+    obj->setId(objId);
+    obj->setParentId((const char*)sqlite3_column_text(stmt, 0));
+    obj->setName((const char*)sqlite3_column_text(stmt, 1));
+    unsigned const char* data = sqlite3_column_text(stmt, 2);
+    if (data) {
+      obj->setData((const char*)data);
+    }
   }
 
   sqlite3_finalize(stmt);
