@@ -153,20 +153,20 @@ bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt** ppStmt)
 bool SQLiteStore::createObject(Object* obj, Error* err)
 {
   if (!obj->hasParentId() || !obj->hasName()) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     return false;
   }
 
   if (obj->hasId()) {
     if (getObject(obj->getId(), NULL, err)) {
-      err->setErrorNo(ERROR_INVALID_PARAMS);
+      FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
       return false;
     }
   }
   else {
     std::string uuid;
     if (!CreateUUID(uuid)) {
-      err->setErrorNo(ERROR_INTERNAL_ERROR);
+      FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
       return false;
     }
     obj->setId(uuid);
@@ -175,7 +175,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   if (!obj->isRootParentId()) {
     Object parentObj;
     if (!getObject(obj->getParentId(), NULL, err)) {
-      err->setErrorNo(ERROR_INVALID_PARAMS);
+      FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
       return false;
     }
   }
@@ -183,7 +183,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt)) {
-    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
@@ -193,7 +193,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   sqlite3_bind_text(stmt, 4, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     sqlite3_finalize(stmt);
     return false;
   }
@@ -210,14 +210,14 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
 bool SQLiteStore::updateObject(Object* obj, Error* err)
 {
   if (!obj->hasId()) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     return false;
   }
 
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE, &stmt)) {
-    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
@@ -242,14 +242,14 @@ bool SQLiteStore::updateObject(Object* obj, Error* err)
 bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
 {
   if (objId.length() <= 0) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     return false;
   }
 
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID, &stmt)) {
-    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
@@ -282,14 +282,14 @@ bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
 bool SQLiteStore::deleteObject(const std::string& objId, Error* err)
 {
   if (objId.length() <= 0) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     return false;
   }
 
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE, &stmt)) {
-    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
@@ -312,14 +312,14 @@ bool SQLiteStore::deleteObject(const std::string& objId, Error* err)
 bool SQLiteStore::browse(Query* q, Objects* objs, Error* err)
 {
   if (!q->hasParentId()) {
-    err->setErrorNo(ERROR_INVALID_PARAMS);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
     return false;
   }
 
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID, &stmt)) {
-    err->setErrorNo(ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
     return false;
   }
