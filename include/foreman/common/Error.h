@@ -15,7 +15,7 @@
 
 namespace Foreman {
 
-#define FOREMANCC_ERROR_SET_ERRORNO(err, errno) {err->setFileName(__FILE__); err->setLineNo(__LINE__); err->setFuncName(__FUNCTION__); err->setErrorNo(errno);}
+#define FOREMANCC_ERROR_SET_ERRORNO(err, errno) {err->setFileName(__FILE__); err->setLineNo(__LINE__); err->setFuncName(__PRETTY_FUNCTION__); err->setErrorNo(errno);}
   
 class Error {
 
