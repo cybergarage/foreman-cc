@@ -104,7 +104,7 @@ const char* foreman_registry_store_getversion(ForemanRegistryStore* store)
 // foreman_registry_store_createobject
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_createobject(ForemanRegistryStore *store, ForemanRegistryObject* obj, ForemanError* err)
+bool foreman_registry_store_createobject(ForemanRegistryStore* store, ForemanRegistryObject* obj, ForemanError* err)
 {
   if (!store)
     return false;
@@ -115,7 +115,7 @@ bool foreman_registry_store_createobject(ForemanRegistryStore *store, ForemanReg
 // foreman_registry_store_updateobject
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_updateobject(ForemanRegistryStore *store, ForemanRegistryObject* obj, ForemanError* err)
+bool foreman_registry_store_updateobject(ForemanRegistryStore* store, ForemanRegistryObject* obj, ForemanError* err)
 {
   if (!store)
     return false;
@@ -126,7 +126,7 @@ bool foreman_registry_store_updateobject(ForemanRegistryStore *store, ForemanReg
 // foreman_registry_store_getobject
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_getobject(ForemanRegistryStore *store, const char* objId, ForemanRegistryObject* obj, ForemanError* err)
+bool foreman_registry_store_getobject(ForemanRegistryStore* store, const char* objId, ForemanRegistryObject* obj, ForemanError* err)
 {
   if (!store)
     return false;
@@ -137,7 +137,7 @@ bool foreman_registry_store_getobject(ForemanRegistryStore *store, const char* o
 // foreman_registry_store_deleteobject
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_deleteobject(ForemanRegistryStore *store, const char* objId, ForemanError* err)
+bool foreman_registry_store_deleteobject(ForemanRegistryStore* store, const char* objId, ForemanError* err)
 {
   if (!store)
     return false;
@@ -148,7 +148,7 @@ bool foreman_registry_store_deleteobject(ForemanRegistryStore *store, const char
 // foreman_registry_store_browse
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_browse(ForemanRegistryStore *store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err)
+bool foreman_registry_store_browse(ForemanRegistryStore* store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err)
 {
   if (!store)
     return false;
@@ -159,7 +159,7 @@ bool foreman_registry_store_browse(ForemanRegistryStore *store, ForemanRegistryQ
 // foreman_registry_store_search
 ////////////////////////////////////////////////
 
-bool foreman_registry_store_search(ForemanRegistryStore *store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err)
+bool foreman_registry_store_search(ForemanRegistryStore* store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err)
 {
   if (!store)
     return false;

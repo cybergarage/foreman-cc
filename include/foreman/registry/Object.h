@@ -120,10 +120,7 @@ public:
     bool addObject(const Object& obj);
     bool addObject(std::shared_ptr<Foreman::Registry::Object> obj);
 
-    Object* getObject(size_t n)
-    {
-      return at(n).get();
-    }
+    Object* getObject(size_t n);
   };
 }
 }

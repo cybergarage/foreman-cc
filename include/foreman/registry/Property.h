@@ -68,10 +68,7 @@ public:
     bool addProperty(const Property& prop);
     bool addProperty(std::shared_ptr<Foreman::Registry::Property> prop);
 
-    Property* getProperty(size_t n)
-    {
-      return at(n).get();
-    }
+    Property* getProperty(size_t n);
   };
 }
 }
