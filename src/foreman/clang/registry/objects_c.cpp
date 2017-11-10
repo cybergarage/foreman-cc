@@ -41,9 +41,8 @@ bool foreman_registry_objects_delete(ForemanRegistryObjects* objs)
 size_t foreman_registry_objects_size(ForemanRegistryObjects* objs)
 {
   if (!objs)
-    return false;
-  delete (Objects*)objs;
-  return true;
+    return 0;
+  return ((Objects*)objs)->size();
 }
 
 ////////////////////////////////////////////////
