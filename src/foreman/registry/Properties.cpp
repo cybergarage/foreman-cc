@@ -56,8 +56,7 @@ bool Properties::addProperty(std::shared_ptr<Foreman::Registry::Property> prop)
 
 Property* Properties::getProperty(size_t n)
 {
-  if ((size()-1) < n)
+  if ((size() - 1) < n)
     return NULL;
   return at(n).get();
 }
-

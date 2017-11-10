@@ -170,7 +170,7 @@ bool foreman_error_getdetailcode(ForemanError* e, int* code)
 // foreman_error_getlineno
 ////////////////////////////////////////////////
 
-bool foreman_error_getlineno(ForemanError* e, int *lineno)
+bool foreman_error_getlineno(ForemanError* e, int* lineno)
 {
   if (!e)
     return false;
