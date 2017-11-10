@@ -31,14 +31,20 @@ typedef void ForemanError;
 ForemanError* foreman_error_new();
 
 bool foreman_error_setmessage(ForemanError* e, const char* msg);
-bool foreman_error_setcode(ForemanError* e, double code);
+bool foreman_error_setcode(ForemanError* e, int code);
 bool foreman_error_setdetailmessage(ForemanError* e, const char* msg);
-bool foreman_error_setdetailcode(ForemanError* e, double code);
-
+bool foreman_error_setdetailcode(ForemanError* e, int code);
+bool foreman_error_setlineno(ForemanError* e, int lineno);
+bool foreman_error_setfilename(ForemanError* e, const char* name);
+bool foreman_error_setfuncname(ForemanError* e, const char* name);
+  
 bool foreman_error_getmessage(ForemanError* e, const char** msg);
 bool foreman_error_getcode(ForemanError* e, int* code);
 bool foreman_error_getdetailmessage(ForemanError* e, const char** msg);
 bool foreman_error_getdetailcode(ForemanError* e, int* code);
+bool foreman_error_getlineno(ForemanError* e, int *lineno);
+bool foreman_error_getfilename(ForemanError* e, const char** name);
+bool foreman_error_getfuncname(ForemanError* e, const char** name);
 
 bool foreman_error_delete(ForemanError* e);
 
