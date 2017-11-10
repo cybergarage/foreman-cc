@@ -29,6 +29,7 @@ public:
 
     virtual bool open() = 0;
     virtual bool close() = 0;
+    virtual bool clear() = 0;
 
     virtual bool setRetentionInterval(time_t value);
     virtual time_t getRetentionInterval();

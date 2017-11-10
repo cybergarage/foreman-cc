@@ -70,6 +70,17 @@ bool foreman_metric_store_close(ForemanMetricStore* store)
 }
 
 ////////////////////////////////////////////////
+// foreman_metric_store_clear
+////////////////////////////////////////////////
+
+bool foreman_metric_store_clear(ForemanMetricStore* store)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Metric::Store*)(store))->clear();
+}
+
+////////////////////////////////////////////////
 // foreman_metric_store_addmetric
 ////////////////////////////////////////////////
 
