@@ -49,7 +49,7 @@ brew tap cybergarage/homebrew https://github.com/cybergarage/homebrew
 brew install foreman-cc
 ```
 
-Please check the following document if you want to know about the our original site for [Homebrew](https://brew.sh/) in more detail.
+Please check the following site if you want to know about the our original site for [Homebrew](https://brew.sh/) in more detail.
 
 - [nosql/homebrew](https://github.com/cybergarage/homebrew)
 
