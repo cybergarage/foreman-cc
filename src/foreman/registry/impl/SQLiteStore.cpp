@@ -232,7 +232,7 @@ bool SQLiteStore::updateObject(Object* obj, Error* err)
 
   sqlite3_finalize(stmt);
 
-  return false;
+  return true;
 }
 
 ////////////////////////////////////////////////
