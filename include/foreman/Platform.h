@@ -14,7 +14,7 @@
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #elif defined(__APPLE__)
-#define HAVE_LIBUUID 1
+#define HAVE_UUID_UUID_H 1
 #endif
 
 #endif

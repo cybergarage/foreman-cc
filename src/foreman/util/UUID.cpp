@@ -11,7 +11,7 @@
 #include <foreman/Platform.h>
 #include <foreman/util/UUID.h>
 
-#if defined(HAVE_UUID_UUID_H) || defined(HAVE_LIBUUID)
+#if defined(HAVE_UUID_UUID_H)
 #include <uuid/uuid.h>
 #endif
 
@@ -21,7 +21,7 @@
 
 bool Foreman::CreateUUID(std::string& buf)
 {
-#if defined(HAVE_UUID_UUID_H) || defined(HAVE_LIBUUID)
+#if defined(HAVE_UUID_UUID_H)
   uuid_t uuid;
   char uuidStr[64 /* > 36+1 */];
   uuid_generate(uuid);
