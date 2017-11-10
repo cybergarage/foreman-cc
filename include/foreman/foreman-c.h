@@ -125,20 +125,20 @@ typedef void ForemanRegistryStore;
 ForemanRegistryStore* foreman_registry_sqlite_store_new();
 bool foreman_registry_store_delete(ForemanRegistryStore* store);
 
-const char* foreman_registry_store_gettype();
-const char* foreman_registry_store_getVersion();
+const char* foreman_registry_store_gettype(ForemanRegistryStore* store);
+const char* foreman_registry_store_getversion(ForemanRegistryStore* store);
 
-bool foreman_registry_store_open();
-bool foreman_registry_store_close();
-bool foreman_registry_store_clear();
+bool foreman_registry_store_open(ForemanRegistryStore* store);
+bool foreman_registry_store_close(ForemanRegistryStore* store);
+bool foreman_registry_store_clear(ForemanRegistryStore* store);
 
-bool foreman_registry_store_createObject(ForemanRegistryObject* obj, ForemanError* err);
-bool foreman_registry_store_updateObject(ForemanRegistryObject* obj, ForemanError* err);
-bool foreman_registry_store_getObject(const char* objId, ForemanRegistryObject* obj, ForemanError* err);
-bool foreman_registry_store_deleteObject(const char* objId, ForemanError* err);
+bool foreman_registry_store_createobject(ForemanRegistryStore* store, ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_updateobject(ForemanRegistryStore* store, ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_getobject(ForemanRegistryStore* store, const char* objId, ForemanRegistryObject* obj, ForemanError* err);
+bool foreman_registry_store_deleteobject(ForemanRegistryStore* store, const char* objId, ForemanError* err);
 
-bool foreman_registry_store_browse(ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
-bool foreman_registry_store_search(ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
+bool foreman_registry_store_browse(ForemanRegistryStore* store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
+bool foreman_registry_store_search(ForemanRegistryStore* store, ForemanRegistryQuery* q, ForemanRegistryObjects* objs, ForemanError* err);
 
 ////////////////////////////////////////////////
 // Metric::Metric
