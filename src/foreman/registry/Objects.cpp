@@ -49,3 +49,14 @@ bool Objects::addObject(std::shared_ptr<Foreman::Registry::Object> prop)
   push_back(prop);
   return true;
 }
+
+////////////////////////////////////////////////
+// getObject
+////////////////////////////////////////////////
+
+Object* Objects::getObject(size_t n)
+{
+  if ((size()-1) < n)
+    return NULL;
+  return at(n).get();
+}

@@ -81,10 +81,7 @@ public:
     bool addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp);
     bool addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt);
 
-    DataPoint* getDataPoint(size_t n)
-    {
-      return at(n).get();
-    }
+    DataPoint* getDataPoint(size_t n);
 
 protected:
     std::string name_;
