@@ -86,7 +86,7 @@ bool DataPoints::addDataPoints(time_t from, time_t interval, double* values, siz
 
 DataPoint* DataPoints::getDataPoint(size_t n)
 {
-  if ((size()-1) < n)
+  if ((size() - 1) < n)
     return NULL;
   return at(n).get();
 }

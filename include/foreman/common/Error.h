@@ -15,8 +15,14 @@
 
 namespace Foreman {
 
-#define FOREMANCC_ERROR_SET_ERRORNO(err, errno) {err->setFileName(__FILE__); err->setLineNo(__LINE__); err->setFuncName(__PRETTY_FUNCTION__); err->setErrorNo(errno);}
-  
+#define FOREMANCC_ERROR_SET_ERRORNO(err, errno) \
+  {                                             \
+    err->setFileName(__FILE__);                 \
+    err->setLineNo(__LINE__);                   \
+    err->setFuncName(__PRETTY_FUNCTION__);      \
+    err->setErrorNo(errno);                     \
+  }
+
 class Error {
 
   public:
@@ -43,27 +49,27 @@ class Error {
   {
     this->detailCode = value;
   }
-  
+
   void setDetailMessage(const std::string& value)
   {
     this->detailMessage = value;
   }
-  
+
   void setLineNo(int value)
   {
     this->lineNo = value;
   }
-  
+
   void setFileName(const std::string& value)
   {
     this->fileName = value;
   }
-  
+
   void setFuncName(const std::string& value)
   {
     this->funcName = value;
   }
-  
+
   int getCode() const
   {
     return this->code;
@@ -88,7 +94,7 @@ class Error {
   {
     return this->lineNo;
   }
-  
+
   const char* getFileName() const
   {
     return this->fileName.c_str();
@@ -98,7 +104,7 @@ class Error {
   {
     return this->funcName.c_str();
   }
-  
+
   bool equals(const Error& err) const;
 
   void setErrorNo(int errno);
@@ -111,7 +117,7 @@ class Error {
 
   int detailCode;
   std::string detailMessage;
-  
+
   int lineNo;
   std::string fileName;
   std::string funcName;
