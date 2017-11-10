@@ -109,8 +109,28 @@ void StoreTestContoller::createRootObjects(Store* store)
     Object* browseObj = objs.getObject(n);
     BOOST_CHECK(browseObj);
     BOOST_CHECK(browseObj->isRootParentId());
-    snprintf(name, sizeof(name), "name%ld", n);
-    snprintf(data, sizeof(data), "data%ld", n);
+
+    Object fetchObj;
+    BOOST_CHECK(store->getObject(browseObj->getId(), &fetchObj, &err));
+    BOOST_CHECK(browseObj->equals(&fetchObj));
+  }
+
+  // Update
+
+  q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  objs.clear();
+  BOOST_CHECK(store->browse(&q, &objs, &err));
+  BOOST_CHECK_EQUAL(objs.size(), FORMANCC_TEST_LOOP_DEFAULT);
+
+  for (size_t n = 0; n < objs.size(); n++) {
+    Object* browseObj = objs.getObject(n);
+    BOOST_CHECK(browseObj);
+
+    snprintf(name, sizeof(name), "new_name%ld", n);
+    snprintf(data, sizeof(data), "new_data%ld", n);
+    browseObj->setName(name);
+    browseObj->setData(data);
+    BOOST_CHECK(store->updateObject(browseObj, &err));
 
     Object fetchObj;
     BOOST_CHECK(store->getObject(browseObj->getId(), &fetchObj, &err));
@@ -208,6 +228,36 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
     strcpy(parentId, objId);
   }
 
+  // Update
+  
+  strcpy(parentId, FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
+  
+  for (size_t n = 1; n <= FORMANCC_TEST_LOOP_DEFAULT; n++) {
+    objs.clear();
+    q.setParentId(parentId);
+    BOOST_CHECK(store->browse(&q, &objs, &err));
+    BOOST_CHECK_EQUAL(objs.size(), 1);
+    
+    snprintf(objId, sizeof(name), "id%ld", n);
+    
+    Object obj;
+    BOOST_CHECK(store->getObject(objId, &obj, &err));
+    BOOST_CHECK_EQUAL(obj.getParentId(), parentId);
+    
+    snprintf(name, sizeof(name), "new_name%ld", n);
+    snprintf(data, sizeof(data), "new_data%ld", n);
+
+    obj.setName(name);
+    obj.setData(data);
+    BOOST_CHECK(store->updateObject(&obj, &err));
+
+    Object fetchObj;
+    BOOST_CHECK(store->getObject(obj.getId(), &fetchObj, &err));
+    BOOST_CHECK(obj.equals(&fetchObj));
+    
+    strcpy(parentId, objId);
+  }
+  
   // Delete
 
   for (size_t n = FORMANCC_TEST_LOOP_DEFAULT; 1 <= n; n--) {
