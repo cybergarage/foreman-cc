@@ -229,21 +229,21 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
   }
 
   // Update
-  
+
   strcpy(parentId, FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
-  
+
   for (size_t n = 1; n <= FORMANCC_TEST_LOOP_DEFAULT; n++) {
     objs.clear();
     q.setParentId(parentId);
     BOOST_CHECK(store->browse(&q, &objs, &err));
     BOOST_CHECK_EQUAL(objs.size(), 1);
-    
+
     snprintf(objId, sizeof(name), "id%ld", n);
-    
+
     Object obj;
     BOOST_CHECK(store->getObject(objId, &obj, &err));
     BOOST_CHECK_EQUAL(obj.getParentId(), parentId);
-    
+
     snprintf(name, sizeof(name), "new_name%ld", n);
     snprintf(data, sizeof(data), "new_data%ld", n);
 
@@ -254,10 +254,10 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
     Object fetchObj;
     BOOST_CHECK(store->getObject(obj.getId(), &fetchObj, &err));
     BOOST_CHECK(obj.equals(&fetchObj));
-    
+
     strcpy(parentId, objId);
   }
-  
+
   // Delete
 
   for (size_t n = FORMANCC_TEST_LOOP_DEFAULT; 1 <= n; n--) {

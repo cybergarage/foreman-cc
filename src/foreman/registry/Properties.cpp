@@ -51,6 +51,15 @@ bool Properties::addProperty(std::shared_ptr<Foreman::Registry::Property> prop)
 }
 
 ////////////////////////////////////////////////
+// setProperty
+////////////////////////////////////////////////
+
+bool Properties::setProperty(Property* prop)
+{
+  return false;
+}
+
+////////////////////////////////////////////////
 // getProperty
 ////////////////////////////////////////////////
 
@@ -60,3 +69,21 @@ Property* Properties::getProperty(size_t n)
     return NULL;
   return at(n).get();
 }
+
+////////////////////////////////////////////////
+// getProperty
+////////////////////////////////////////////////
+
+Property* Properties::getProperty(const std::string& name)
+{
+  size_t propCont = size();
+  for (size_t n = 0; n < propCont; n++) {
+    Property* prop = getProperty(n);
+    if (!prop)
+      continue;
+    if (prop->hasName(name))
+      return prop;
+  }
+  return NULL;
+}
+
