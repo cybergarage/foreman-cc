@@ -16,6 +16,7 @@
 
 #include <foreman/Const.h>
 #include <foreman/registry/Object.h>
+#include <foreman/registry/Property.h>
 
 namespace Foreman {
 namespace Registry {
@@ -96,15 +97,35 @@ public:
       return (0 < this->data.length()) ? true : false;
     }
 
+    bool setProperty(Property* prop);
+    bool getProperty(const std::string& name, Property* prop);
+    bool getProperties(Properties* props);
+
     bool equals(Object* obj) const;
 
-public:
-    void initialize();
+protected:
 
+    void setPropertyData(const std::string& value)
+    {
+      this->propData = value;
+    }
+
+    const char* getPropertyData() const
+    {
+      return this->propData.c_str();
+    }
+
+public:
     std::string objId;
     std::string parentId;
     std::string name;
     std::string data;
+    std::string propData;
+
+private:
+    void initialize();
+
+    bool updatePropertyData(Properties* props);
   };
 
   ////////////////////////////////////////////////

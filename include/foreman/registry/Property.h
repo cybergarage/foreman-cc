@@ -38,6 +38,11 @@ public:
       return this->name.c_str();
     }
 
+    bool hasName(const std::string& value)
+    {
+      return (this->name.compare(value) == 0) ? true : false;
+    }
+
     void setData(const std::string& value)
     {
       this->data = value;
@@ -68,7 +73,10 @@ public:
     bool addProperty(const Property& prop);
     bool addProperty(std::shared_ptr<Foreman::Registry::Property> prop);
 
+    bool setProperty(Property* prop);
+
     Property* getProperty(size_t n);
+    Property* getProperty(const std::string& name);
   };
 }
 }
