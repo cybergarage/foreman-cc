@@ -19,8 +19,8 @@ http_default_port,8080
 
 registry_root_object_id,"0"
 
-registry_properties_delim,"\t"
-registry_property_delim,"\a"
+registry_properties_delim,7
+registry_property_delim,9
 
 # ================================================================================
 # Metric
