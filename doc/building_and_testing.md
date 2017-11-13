@@ -36,6 +36,23 @@ The `foreman-cc` package has the header files, the source files and the project 
 | Unit Test  | test  |  Unit tests using [Boost](http://www.boost.org) test library |
 | Benchmark Test  | bin  |  Benchmark tests using [google-benchmark](https://github.com/google/benchmark) |
 
+## Esay Installation
+
+## MacOSX
+
+### Homebrew
+
+Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. Toinstall `foreman-cc`, use `brew` command as the following.
+
+```
+brew tap cybergarage/homebrew https://github.com/cybergarage/homebrew
+brew install foreman-cc
+```
+
+Please check the following site if you want to know about the our original site for [Homebrew](https://brew.sh/) in more detail.
+
+- [nosql/homebrew](https://github.com/cybergarage/homebrew)
+
 ## Building from Source
 
 ## Linux
