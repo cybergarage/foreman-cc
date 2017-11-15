@@ -143,5 +143,8 @@ bool Object::equals(Object* obj) const
   if (this->data.compare(obj->getData()) != 0)
     return false;
 
+  if (this->propData.compare(obj->getPropertyData()) != 0)
+    return false;
+  
   return true;
 }

@@ -101,10 +101,6 @@ public:
     bool getProperty(const std::string& name, Property* prop);
     bool getProperties(Properties* props);
 
-    bool equals(Object* obj) const;
-
-protected:
-
     void setPropertyData(const std::string& value)
     {
       this->propData = value;
@@ -115,6 +111,8 @@ protected:
       return this->propData.c_str();
     }
 
+    bool equals(Object* obj) const;
+    
 public:
     std::string objId;
     std::string parentId;
