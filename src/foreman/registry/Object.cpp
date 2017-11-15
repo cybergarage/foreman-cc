@@ -96,19 +96,17 @@ bool Object::getProperties(Properties* props)
   }
 
   for (auto propLine : propLines) {
-    std::istringstream propLineStream(this->propData);
-    std::string name;
-    if (!std::getline(propLineStream, name, (char)FOREMANCC_REGISTRY_PROPERTY_DELIM))
+    size_t propDelimIdx = propLine.find((char)FOREMANCC_REGISTRY_PROPERTY_DELIM);
+    if (propDelimIdx == std::string::npos)
       return false;
-    std::string value;
-    if (!std::getline(propLineStream, value, (char)FOREMANCC_REGISTRY_PROPERTY_DELIM))
-      return false;
+    std::string name = propLine.substr(0,propDelimIdx);
+    std::string value = propLine.substr((propDelimIdx+1));
     
     Property *prop = new Property();
     if (!prop)
       return false;
     prop->setName(name);
-    prop->setData(data);
+    prop->setData(value);
     props->addProperty(prop);
   }
   
@@ -126,14 +124,14 @@ bool Object::updatePropertyData(Properties* props)
   bool firstProperty = true;
   for (auto prop : *props) {
     if (!firstProperty) {
-      propDataStream << FOREMANCC_REGISTRY_PROPERTIES_DELIM;
+      propDataStream << (char)FOREMANCC_REGISTRY_PROPERTIES_DELIM;
     }
     else {
       firstProperty = false;
     }
     
     propDataStream << prop->getName();
-    propDataStream << FOREMANCC_REGISTRY_PROPERTY_DELIM;
+    propDataStream << (char)FOREMANCC_REGISTRY_PROPERTY_DELIM;
     propDataStream << prop->getData();
   }
   
