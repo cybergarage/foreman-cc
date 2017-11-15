@@ -76,6 +76,7 @@ void StoreTestContoller::createRootObjects(Store* store)
   Objects objs;
   char name[32];
   char data[32];
+  char prop[32];
 
   q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
   objs.clear();
@@ -87,11 +88,13 @@ void StoreTestContoller::createRootObjects(Store* store)
   for (size_t n = 0; n < FORMANCC_TEST_LOOP_DEFAULT; n++) {
     snprintf(name, sizeof(name), "name%ld", n);
     snprintf(data, sizeof(data), "data%ld", n);
+    snprintf(prop, sizeof(prop), "prop%ld", n);
 
     Object obj;
     obj.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
     obj.setName(name);
     obj.setData(data);
+    obj.setPropertyData(prop);
     BOOST_CHECK(store->createObject(&obj, &err));
 
     // Insert a same object
@@ -128,8 +131,10 @@ void StoreTestContoller::createRootObjects(Store* store)
 
     snprintf(name, sizeof(name), "new_name%ld", n);
     snprintf(data, sizeof(data), "new_data%ld", n);
+    snprintf(prop, sizeof(data), "new_prop%ld", n);
     browseObj->setName(name);
     browseObj->setData(data);
+    browseObj->setPropertyData(data);
     BOOST_CHECK(store->updateObject(browseObj, &err));
 
     Object fetchObj;
@@ -175,6 +180,7 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
   char parentId[32];
   char name[32];
   char data[32];
+  char prop[32];
 
   q.setParentId(FOREMANCC_REGISTRY_ROOT_OBJECT_ID);
   objs.clear();
@@ -189,11 +195,13 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
     snprintf(objId, sizeof(name), "id%ld", n);
     snprintf(name, sizeof(name), "name%ld", n);
     snprintf(data, sizeof(data), "data%ld", n);
+    snprintf(prop, sizeof(prop), "prop%ld", n);
 
     Object obj;
     obj.setId(objId);
     obj.setName(name);
     obj.setData(data);
+    obj.setPropertyData(prop);
 
     // insert an invalid object whose parent object is not found
     obj.setParentId(objId);
@@ -246,9 +254,11 @@ void StoreTestContoller::createHierarchicalObjects(Store* store)
 
     snprintf(name, sizeof(name), "new_name%ld", n);
     snprintf(data, sizeof(data), "new_data%ld", n);
+    snprintf(prop, sizeof(prop), "new_property%ld", n);
 
     obj.setName(name);
     obj.setData(data);
+    obj.setPropertyData(data);
     BOOST_CHECK(store->updateObject(&obj, &err));
 
     Object fetchObj;

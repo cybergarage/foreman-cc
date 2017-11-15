@@ -16,12 +16,12 @@
 using namespace Foreman::Registry;
 
 #define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE "registry"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, primary key(id))"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data) values (?, ?, ?, ?)"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE "update registry set name = ?, data = ? where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, prop text, primary key(id))"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data, prop) values (?, ?, ?, ?, ?)"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE "update registry set name = ?, data = ?, prop = ? where id = ?"
 #define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE "delete from registry where id = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID "select pid, name, data from registry where id = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, data from registry where pid = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID "select pid, name, data, prop from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, data, prop from registry where pid = ?"
 #define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TRUNCATE "delete from registry"
 
 ////////////////////////////////////////////////
@@ -191,6 +191,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   sqlite3_bind_text(stmt, 2, obj->parentId.c_str(), (int)obj->parentId.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 3, obj->name.c_str(), (int)obj->name.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 4, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
+  sqlite3_bind_text(stmt, 4, obj->propData.c_str(), (int)obj->propData.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
@@ -223,7 +224,8 @@ bool SQLiteStore::updateObject(Object* obj, Error* err)
 
   sqlite3_bind_text(stmt, 1, obj->name.c_str(), (int)obj->name.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 2, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
-  sqlite3_bind_text(stmt, 3, obj->objId.c_str(), (int)obj->objId.length(), SQLITE_STATIC);
+  sqlite3_bind_text(stmt, 3, obj->propData.c_str(), (int)obj->propData.length(), SQLITE_STATIC);
+  sqlite3_bind_text(stmt, 4, obj->objId.c_str(), (int)obj->objId.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
@@ -267,6 +269,10 @@ bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
     unsigned const char* data = sqlite3_column_text(stmt, 2);
     if (data) {
       obj->setData((const char*)data);
+    }
+    unsigned const char* prop = sqlite3_column_text(stmt, 3);
+    if (prop) {
+      obj->setPropertyData((const char*)prop);
     }
   }
 
@@ -337,6 +343,10 @@ bool SQLiteStore::browse(Query* q, Objects* objs, Error* err)
     unsigned const char* data = sqlite3_column_text(stmt, 2);
     if (data) {
       obj->setData((const char*)data);
+    }
+    unsigned const char* prop = sqlite3_column_text(stmt, 3);
+    if (prop) {
+      obj->setPropertyData((const char*)prop);
     }
 
     objs->addObject(obj);
