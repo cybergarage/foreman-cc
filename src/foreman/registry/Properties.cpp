@@ -56,7 +56,13 @@ bool Properties::addProperty(std::shared_ptr<Foreman::Registry::Property> prop)
 
 bool Properties::setProperty(Property* prop)
 {
-  return false;
+  Property *currProp = getProperty(prop->getName());
+  if (currProp) {
+    currProp->setData(prop->getData());
+    return true;
+  }
+  
+  return addProperty(new Property(prop));
 }
 
 ////////////////////////////////////////////////

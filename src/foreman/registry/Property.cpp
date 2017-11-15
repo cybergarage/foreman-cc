@@ -23,3 +23,18 @@ Property::Property()
 Property::~Property()
 {
 }
+
+Property::Property(const Property *prop)
+{
+  setProperty(prop);
+}
+
+////////////////////////////////////////////////
+// Property
+////////////////////////////////////////////////
+
+void Property::setProperty(const Property *prop)
+{
+  setName(prop->getName());
+  setData(prop->getData());
+}
