@@ -129,3 +129,25 @@ bool foreman_registry_object_getdata(ForemanRegistryObject* obj, const char** da
   *data = ((Object*)obj)->getData();
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_registry_object_setproperty
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setproperty(ForemanRegistryObject* obj, ForemanRegistryProperty* prop)
+{
+  if (!obj || !prop)
+    return false;
+  return ((Object*)obj)->setProperty(((Property*)prop));
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_getproperties
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getproperties(ForemanRegistryObject* obj, ForemanRegistryProperties* props)
+{
+  if (!obj || !props)
+    return false;
+  return ((Object*)obj)->getProperties(((Properties*)props));
+}
