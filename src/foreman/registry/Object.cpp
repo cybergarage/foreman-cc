@@ -22,10 +22,27 @@ using namespace Foreman::Registry;
 
 Object::Object()
 {
+  clear();
 }
 
 Object::~Object()
 {
+  clear();
+}
+
+////////////////////////////////////////////////
+// clear
+////////////////////////////////////////////////
+
+bool Object::clear()
+{
+  this->objId = "";
+  this->parentId = "";
+  this->name = "";
+  this->data = "";
+  this->propData = "";
+
+  return true;
 }
 
 ////////////////////////////////////////////////

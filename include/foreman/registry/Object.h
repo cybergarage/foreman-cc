@@ -113,6 +113,8 @@ public:
 
     bool equals(Object* obj) const;
     
+    bool clear();
+    
 public:
     std::string objId;
     std::string parentId;
