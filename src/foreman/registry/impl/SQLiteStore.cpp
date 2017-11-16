@@ -191,7 +191,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
   sqlite3_bind_text(stmt, 2, obj->parentId.c_str(), (int)obj->parentId.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 3, obj->name.c_str(), (int)obj->name.length(), SQLITE_STATIC);
   sqlite3_bind_text(stmt, 4, obj->data.c_str(), (int)obj->data.length(), SQLITE_STATIC);
-  sqlite3_bind_text(stmt, 4, obj->propData.c_str(), (int)obj->propData.length(), SQLITE_STATIC);
+  sqlite3_bind_text(stmt, 5, obj->propData.c_str(), (int)obj->propData.length(), SQLITE_STATIC);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_PARAMS);
