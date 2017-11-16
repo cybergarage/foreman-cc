@@ -96,6 +96,7 @@ bool foreman_registry_object_setproperty(ForemanRegistryObject* obj, ForemanRegi
 bool foreman_registry_object_getid(ForemanRegistryObject* obj, const char** id);
 bool foreman_registry_object_getparentid(ForemanRegistryObject* obj, const char** pid);
 bool foreman_registry_object_getname(ForemanRegistryObject* obj, const char** name);
+bool foreman_registry_object_getdata(ForemanRegistryObject* obj, const char** data);
 bool foreman_registry_object_getpropertydata(ForemanRegistryObject* obj, const char** data);
 bool foreman_registry_object_getproperties(ForemanRegistryObject* obj, ForemanRegistryProperties* props);
 
