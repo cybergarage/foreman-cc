@@ -110,11 +110,23 @@ bool foreman_registry_object_getname(ForemanRegistryObject* obj, const char** na
 // foreman_registry_object_setdata
 ////////////////////////////////////////////////
 
-bool foreman_registry_object_setdata(ForemanRegistryObject* obj, const char* pid)
+bool foreman_registry_object_setdata(ForemanRegistryObject* obj, const char* data)
 {
   if (!obj)
     return false;
-  ((Object*)obj)->setData(pid);
+  ((Object*)obj)->setData(data);
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_setpropertydata
+////////////////////////////////////////////////
+
+bool foreman_registry_object_setpropertydata(ForemanRegistryObject* obj, const char* data)
+{
+  if (!obj)
+    return false;
+  ((Object*)obj)->setPropertyData(data);
   return true;
 }
 
@@ -127,6 +139,18 @@ bool foreman_registry_object_getdata(ForemanRegistryObject* obj, const char** da
   if (!obj || !data)
     return false;
   *data = ((Object*)obj)->getData();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_registry_object_getpropertydata
+////////////////////////////////////////////////
+
+bool foreman_registry_object_getpropertydata(ForemanRegistryObject* obj, const char** data)
+{
+  if (!obj || !data)
+    return false;
+  *data = ((Object*)obj)->getPropertyData();
   return true;
 }
 
