@@ -8,17 +8,16 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_PLATFORM_H_
-#define _FOREMANCC_PLATFORM_H_
+#include <foreman/action/Parameter.h>
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#elif defined(__APPLE__)
-#define HAVE_UUID_UUID_H 1
-#endif
+using namespace Foreman::Action;
 
-#if !defined(byte)
-typedef unsigned char byte;
-#endif
+////////////////////////////////////////////////
+// Parameter
+////////////////////////////////////////////////
 
-#endif
+Parameter::Parameter()
+{
+}
+
+Parameter::~Parameter() {}

@@ -15,6 +15,13 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/action/Parameter.cpp \
+	../../src/foreman/action/Parameters.cpp \
+	../../src/foreman/action/Script.cpp \
+	../../src/foreman/action/ScriptEngine.cpp \
+	../../src/foreman/action/ScriptEngineMap.cpp \
+	../../src/foreman/action/ScriptManager.cpp \
+	../../src/foreman/action/ScriptMap.cpp \
 	../../src/foreman/clang/common/error_c.cpp \
 	../../src/foreman/clang/metric/datapoint_c.cpp \
 	../../src/foreman/clang/metric/datapoints_c.cpp \
@@ -62,6 +69,7 @@ foremancc_sources = \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \
 	../../src/foreman/registry/Store.cpp \
+	../../src/foreman/util/Mutex.cpp \
 	../../src/foreman/util/Util.cpp \
 	../../src/foreman/util/UUID.cpp
 

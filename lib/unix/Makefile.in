@@ -146,6 +146,13 @@ libforeman___a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
+	../../src/foreman/action/Parameter.$(OBJEXT) \
+	../../src/foreman/action/Parameters.$(OBJEXT) \
+	../../src/foreman/action/Script.$(OBJEXT) \
+	../../src/foreman/action/ScriptEngine.$(OBJEXT) \
+	../../src/foreman/action/ScriptEngineMap.$(OBJEXT) \
+	../../src/foreman/action/ScriptManager.$(OBJEXT) \
+	../../src/foreman/action/ScriptMap.$(OBJEXT) \
 	../../src/foreman/clang/common/error_c.$(OBJEXT) \
 	../../src/foreman/clang/metric/datapoint_c.$(OBJEXT) \
 	../../src/foreman/clang/metric/datapoints_c.$(OBJEXT) \
@@ -193,6 +200,7 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/registry/Property.$(OBJEXT) \
 	../../src/foreman/registry/Query.$(OBJEXT) \
 	../../src/foreman/registry/Store.$(OBJEXT) \
+	../../src/foreman/util/Mutex.$(OBJEXT) \
 	../../src/foreman/util/Util.$(OBJEXT) \
 	../../src/foreman/util/UUID.$(OBJEXT)
 am_libforeman___a_OBJECTS = $(am__objects_1)
@@ -351,6 +359,13 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/action/Parameter.cpp \
+	../../src/foreman/action/Parameters.cpp \
+	../../src/foreman/action/Script.cpp \
+	../../src/foreman/action/ScriptEngine.cpp \
+	../../src/foreman/action/ScriptEngineMap.cpp \
+	../../src/foreman/action/ScriptManager.cpp \
+	../../src/foreman/action/ScriptMap.cpp \
 	../../src/foreman/clang/common/error_c.cpp \
 	../../src/foreman/clang/metric/datapoint_c.cpp \
 	../../src/foreman/clang/metric/datapoints_c.cpp \
@@ -398,6 +413,7 @@ foremancc_sources = \
 	../../src/foreman/registry/Property.cpp \
 	../../src/foreman/registry/Query.cpp \
 	../../src/foreman/registry/Store.cpp \
+	../../src/foreman/util/Mutex.cpp \
 	../../src/foreman/util/Util.cpp \
 	../../src/foreman/util/UUID.cpp
 
@@ -480,6 +496,33 @@ clean-libLIBRARIES:
 ../../src/beringei/TimeSeriesStream.$(OBJEXT):  \
 	../../src/beringei/$(am__dirstamp) \
 	../../src/beringei/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/action
+	@: > ../../src/foreman/action/$(am__dirstamp)
+../../src/foreman/action/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/action/$(DEPDIR)
+	@: > ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/Parameter.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/Parameters.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/Script.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/ScriptEngine.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/ScriptEngineMap.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/ScriptManager.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/ScriptMap.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/clang/common/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/clang/common
 	@: > ../../src/foreman/clang/common/$(am__dirstamp)
@@ -681,6 +724,9 @@ clean-libLIBRARIES:
 ../../src/foreman/util/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/util/$(DEPDIR)
 	@: > ../../src/foreman/util/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/util/Mutex.$(OBJEXT):  \
+	../../src/foreman/util/$(am__dirstamp) \
+	../../src/foreman/util/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/util/Util.$(OBJEXT):  \
 	../../src/foreman/util/$(am__dirstamp) \
 	../../src/foreman/util/$(DEPDIR)/$(am__dirstamp)
@@ -696,6 +742,7 @@ libforeman++.a: $(libforeman___a_OBJECTS) $(libforeman___a_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ../../src/beringei/*.$(OBJEXT)
+	-rm -f ../../src/foreman/action/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/common/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/registry/*.$(OBJEXT)
@@ -712,6 +759,13 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/BitUtil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Parameter.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Parameters.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Script.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngine.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngineMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptManager.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/common/$(DEPDIR)/error_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/datapoint_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/metric/$(DEPDIR)/datapoints_c.Po@am__quote@
@@ -759,6 +813,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/$(DEPDIR)/Store.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLStore.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/registry/impl/$(DEPDIR)/SQLiteStore.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/util/$(DEPDIR)/Mutex.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/util/$(DEPDIR)/UUID.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/util/$(DEPDIR)/Util.Po@am__quote@
 
@@ -895,6 +950,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f ../../src/beringei/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/beringei/$(am__dirstamp)
+	-rm -f ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/action/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/common/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/metric/$(DEPDIR)/$(am__dirstamp)
@@ -924,7 +981,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -970,7 +1027,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

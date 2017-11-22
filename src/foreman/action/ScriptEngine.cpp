@@ -8,17 +8,18 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_PLATFORM_H_
-#define _FOREMANCC_PLATFORM_H_
+#include <foreman/action/Script.h>
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#elif defined(__APPLE__)
-#define HAVE_UUID_UUID_H 1
-#endif
+Foreman::Action::ScriptEngine::ScriptEngine(const std::string& language)
+{
+  init();
+  this->language = language;
+}
 
-#if !defined(byte)
-typedef unsigned char byte;
-#endif
+void Foreman::Action::ScriptEngine::init()
+{
+}
 
-#endif
+Foreman::Action::ScriptEngine::~ScriptEngine()
+{
+}

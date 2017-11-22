@@ -56,12 +56,12 @@ bool Properties::addProperty(std::shared_ptr<Foreman::Registry::Property> prop)
 
 bool Properties::setProperty(Property* prop)
 {
-  Property *currProp = getProperty(prop->getName());
+  Property* currProp = getProperty(prop->getName());
   if (currProp) {
     currProp->setData(prop->getData());
     return true;
   }
-  
+
   return addProperty(new Property(prop));
 }
 
@@ -92,4 +92,3 @@ Property* Properties::getProperty(const std::string& name)
   }
   return NULL;
 }
-

@@ -25,7 +25,7 @@ namespace Registry {
 
 public:
     Property();
-    Property(const Property *prop);
+    Property(const Property* prop);
 
     virtual ~Property();
 
@@ -54,7 +54,7 @@ public:
       return this->data.c_str();
     }
 
-    void setProperty(const Property *prop);
+    void setProperty(const Property* prop);
 
 private:
     void initialize();
