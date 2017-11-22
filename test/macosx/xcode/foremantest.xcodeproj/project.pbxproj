@@ -23,6 +23,9 @@
 		215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2BF1FAB3C0E0089A36B /* ClangQueryTest.cpp */; };
 		215DB2C41FAB3C0E0089A36B /* ClangStoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2C01FAB3C0E0089A36B /* ClangStoreTest.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
+		2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */; };
+		2187B6DB1FC5AD0600E2234D /* ScriptText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D91FC5AD0600E2234D /* ScriptText.cpp */; };
+		2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6E01FC5B33100E2234D /* MutexTest.cpp */; };
 		21ABA0AE1FB0902D00982715 /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */; };
 		21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */; };
 		21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E91FA0A58100DB18AB /* QueryTest.cpp */; };
@@ -81,6 +84,9 @@
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
+		2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterTest.cpp; path = ../../action/ParameterTest.cpp; sourceTree = "<group>"; };
+		2187B6D91FC5AD0600E2234D /* ScriptText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptText.cpp; path = ../../action/ScriptText.cpp; sourceTree = "<group>"; };
+		2187B6E01FC5B33100E2234D /* MutexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MutexTest.cpp; path = ../../util/MutexTest.cpp; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21ABA0AC1FB0902D00982715 /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../registry/StoreTestController.h; sourceTree = "<group>"; };
 		21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../registry/StoreTestController.cpp; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		2117C4E81FB312C600F7ACF9 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6E01FC5B33100E2234D /* MutexTest.cpp */,
 				2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */,
 			);
 			name = util;
@@ -167,6 +174,7 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6D71FC5ACF300E2234D /* action */,
 				215DB2B31FAB3AEE0089A36B /* registry */,
 				215DB27E1FAAD6E70089A36B /* common */,
 				21AF27E71FA0A56B00DB18AB /* metric */,
@@ -191,6 +199,15 @@
 				2175C3191E52F53D006C4425 /* libforeman++.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2187B6D71FC5ACF300E2234D /* action */ = {
+			isa = PBXGroup;
+			children = (
+				2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */,
+				2187B6D91FC5AD0600E2234D /* ScriptText.cpp */,
+			);
+			name = action;
 			sourceTree = "<group>";
 		};
 		218DFCCD1E52F28000224C70 = {
@@ -328,8 +345,11 @@
 				21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */,
 				215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */,
 				215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */,
+				2187B6DB1FC5AD0600E2234D /* ScriptText.cpp in Sources */,
+				2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */,
 				215DB2921FAB2EE30089A36B /* ClangErrorTest.cpp in Sources */,
 				215DB28F1FAB2ED90089A36B /* ClangStoreTest.cpp in Sources */,
+				2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */,
 				215DB2B81FAB3B0E0089A36B /* ObjectTest.cpp in Sources */,
 				215DB2901FAB2ED90089A36B /* ClangResultSetTest.cpp in Sources */,
 			);

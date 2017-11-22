@@ -14,6 +14,8 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
+	..//action/ParameterTest.cpp \
+	..//action/ScriptText.cpp \
 	..//clang/common/ClangErrorTest.cpp \
 	..//clang/metric/ClangMetricsTest.cpp \
 	..//clang/metric/ClangQueryTest.cpp \
@@ -36,6 +38,7 @@ foremantest_SOURCES = \
 	..//registry/QueryTest.cpp \
 	..//registry/StoreTest.cpp \
 	..//registry/StoreTestController.cpp \
+	..//util/MutexTest.cpp \
 	..//util/UUIDTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a

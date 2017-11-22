@@ -8,17 +8,18 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_PLATFORM_H_
-#define _FOREMANCC_PLATFORM_H_
+#include <boost/test/unit_test.hpp>
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#elif defined(__APPLE__)
-#define HAVE_UUID_UUID_H 1
-#endif
+#include <foreman/util/UUID.h>
 
-#if !defined(byte)
-typedef unsigned char byte;
-#endif
+using namespace Foreman;
 
-#endif
+BOOST_AUTO_TEST_SUITE(util)
+
+BOOST_AUTO_TEST_CASE(UUIDCreate)
+{
+  std::string uuid;
+  BOOST_CHECK(CreateUUID(uuid));
+}
+
+BOOST_AUTO_TEST_SUITE_END()

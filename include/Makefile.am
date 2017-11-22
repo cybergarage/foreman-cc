@@ -9,6 +9,8 @@
 ##################################################################
 
 foremancc_header = \
+	./foreman/action/Parameter.h \
+	./foreman/action/Script.h \
 	./foreman/common/Error.h \
 	./foreman/common/Errors.h \
 	./foreman/Const.h \
@@ -38,6 +40,7 @@ foremancc_header = \
 	./foreman/registry/Property.h \
 	./foreman/registry/Query.h \
 	./foreman/registry/Store.h \
+	./foreman/util/Mutex.h \
 	./foreman/util/Util.h \
 	./foreman/util/UUID.h
 

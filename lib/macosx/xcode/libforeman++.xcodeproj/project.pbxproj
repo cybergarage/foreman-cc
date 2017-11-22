@@ -71,6 +71,17 @@
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
+		2187B6CB1FC5ACA800E2234D /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C41FC5ACA800E2234D /* Script.cpp */; };
+		2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */; };
+		2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */; };
+		2187B6CE1FC5ACA800E2234D /* Parameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C71FC5ACA800E2234D /* Parameter.cpp */; };
+		2187B6CF1FC5ACA800E2234D /* ScriptEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C81FC5ACA800E2234D /* ScriptEngine.cpp */; };
+		2187B6D01FC5ACA800E2234D /* ScriptMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */; };
+		2187B6D11FC5ACA800E2234D /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6CA1FC5ACA800E2234D /* Parameters.cpp */; };
+		2187B6D51FC5ACD800E2234D /* Script.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6D31FC5ACD800E2234D /* Script.h */; };
+		2187B6D61FC5ACD800E2234D /* Parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6D41FC5ACD800E2234D /* Parameter.h */; };
+		2187B6DD1FC5B28B00E2234D /* Mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6DC1FC5B28B00E2234D /* Mutex.h */; };
+		2187B6DF1FC5B2DD00E2234D /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6DE1FC5B2DC00E2234D /* Mutex.cpp */; };
 		2188DBE41FB00AEE00940208 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE01FB00AEE00940208 /* Query.h */; };
 		2188DBE51FB00AEE00940208 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE11FB00AEE00940208 /* Property.h */; };
 		2188DBE61FB00AEE00940208 /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE21FB00AEE00940208 /* Store.h */; };
@@ -160,6 +171,17 @@
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		2187B6C41FC5ACA800E2234D /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Script.cpp; path = action/Script.cpp; sourceTree = "<group>"; };
+		2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineMap.cpp; path = action/ScriptEngineMap.cpp; sourceTree = "<group>"; };
+		2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptManager.cpp; path = action/ScriptManager.cpp; sourceTree = "<group>"; };
+		2187B6C71FC5ACA800E2234D /* Parameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parameter.cpp; path = action/Parameter.cpp; sourceTree = "<group>"; };
+		2187B6C81FC5ACA800E2234D /* ScriptEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngine.cpp; path = action/ScriptEngine.cpp; sourceTree = "<group>"; };
+		2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptMap.cpp; path = action/ScriptMap.cpp; sourceTree = "<group>"; };
+		2187B6CA1FC5ACA800E2234D /* Parameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parameters.cpp; path = action/Parameters.cpp; sourceTree = "<group>"; };
+		2187B6D31FC5ACD800E2234D /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Script.h; path = ../action/Script.h; sourceTree = "<group>"; };
+		2187B6D41FC5ACD800E2234D /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameter.h; path = ../action/Parameter.h; sourceTree = "<group>"; };
+		2187B6DC1FC5B28B00E2234D /* Mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mutex.h; sourceTree = "<group>"; };
+		2187B6DE1FC5B2DC00E2234D /* Mutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mutex.cpp; path = util/Mutex.cpp; sourceTree = "<group>"; };
 		2188DBE01FB00AEE00940208 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = registry/Query.h; sourceTree = "<group>"; };
 		2188DBE11FB00AEE00940208 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = registry/Property.h; sourceTree = "<group>"; };
 		2188DBE21FB00AEE00940208 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = registry/Store.h; sourceTree = "<group>"; };
@@ -249,6 +271,7 @@
 		215DB27B1FAAD6CE0089A36B /* common */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6DE1FC5B2DC00E2234D /* Mutex.cpp */,
 				215DB2961FAB31000089A36B /* Error.cpp */,
 			);
 			name = common;
@@ -270,6 +293,7 @@
 		215DB2A11FAB3A730089A36B /* registry */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6C31FC5AC9000E2234D /* action */,
 				215EDC441FB03784006DF3AE /* impl */,
 				215DB2C51FAB565F0089A36B /* Properties.cpp */,
 				215DB2A51FAB3A8C0089A36B /* Object.cpp */,
@@ -327,6 +351,7 @@
 		216A5AEB1F9C59830092272A /* util */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6DC1FC5B28B00E2234D /* Mutex.h */,
 				2117C4EB1FB3131A00F7ACF9 /* UUID.h */,
 				216A5AEC1F9C59830092272A /* Util.h */,
 			);
@@ -397,6 +422,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				2187B6D21FC5ACC300E2234D /* action */,
 				2188DBDF1FB00ADF00940208 /* registry */,
 				215DB2771FAAD69B0089A36B /* common */,
 				216A5AEB1F9C59830092272A /* util */,
@@ -432,6 +458,30 @@
 			);
 			name = foreman;
 			path = ../../../src/foreman;
+			sourceTree = "<group>";
+		};
+		2187B6C31FC5AC9000E2234D /* action */ = {
+			isa = PBXGroup;
+			children = (
+				2187B6C71FC5ACA800E2234D /* Parameter.cpp */,
+				2187B6CA1FC5ACA800E2234D /* Parameters.cpp */,
+				2187B6C41FC5ACA800E2234D /* Script.cpp */,
+				2187B6C81FC5ACA800E2234D /* ScriptEngine.cpp */,
+				2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */,
+				2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */,
+				2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */,
+			);
+			name = action;
+			sourceTree = "<group>";
+		};
+		2187B6D21FC5ACC300E2234D /* action */ = {
+			isa = PBXGroup;
+			children = (
+				2187B6D41FC5ACD800E2234D /* Parameter.h */,
+				2187B6D31FC5ACD800E2234D /* Script.h */,
+			);
+			name = action;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2188DBDF1FB00ADF00940208 /* registry */ = {
@@ -498,7 +548,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2187B6DD1FC5B28B00E2234D /* Mutex.h in Headers */,
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
+				2187B6D51FC5ACD800E2234D /* Script.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
 				2188DBE41FB00AEE00940208 /* Query.h in Headers */,
@@ -515,6 +567,7 @@
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
+				2187B6D61FC5ACD800E2234D /* Parameter.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
@@ -592,13 +645,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2187B6CB1FC5ACA800E2234D /* Script.cpp in Sources */,
 				216A5B7B1F9C5B8E0092272A /* datapoints_c.cpp in Sources */,
+				2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */,
 				215EDC711FB04A22006DF3AE /* RingArrayTimeSeries.cpp in Sources */,
 				215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */,
 				215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */,
 				215EDC681FB04A22006DF3AE /* TimeSeries.cpp in Sources */,
 				2117C4EE1FB3158400F7ACF9 /* UUID.cpp in Sources */,
 				2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */,
+				2187B6D11FC5ACA800E2234D /* Parameters.cpp in Sources */,
 				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
 				216A5B381F9C59990092272A /* Data.cpp in Sources */,
@@ -610,8 +666,11 @@
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
 				215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */,
+				2187B6CF1FC5ACA800E2234D /* ScriptEngine.cpp in Sources */,
 				215EDC641FB04A22006DF3AE /* StaticArrayTimeSeries.cpp in Sources */,
+				2187B6CE1FC5ACA800E2234D /* Parameter.cpp in Sources */,
 				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
+				2187B6DF1FC5B2DD00E2234D /* Mutex.cpp in Sources */,
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
 				215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */,
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
@@ -621,6 +680,7 @@
 				215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */,
 				215DB2971FAB31000089A36B /* Error.cpp in Sources */,
 				215EDC6D1FB04A22006DF3AE /* GraphiteStore.cpp in Sources */,
+				2187B6D01FC5ACA800E2234D /* ScriptMap.cpp in Sources */,
 				215DB29F1FAB3A650089A36B /* object_c.cpp in Sources */,
 				215EDC6B1FB04A22006DF3AE /* MemStore.cpp in Sources */,
 				215EDC701FB04A22006DF3AE /* NarrowTableStore.cpp in Sources */,
@@ -637,6 +697,7 @@
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
 				215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
+				2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */,
 				215EDC661FB04A22006DF3AE /* RingMapStore.cpp in Sources */,
 				216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */,
 				215EDC671FB04A22006DF3AE /* TimeSeriesMapStore.cpp in Sources */,

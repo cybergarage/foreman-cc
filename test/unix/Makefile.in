@@ -110,7 +110,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ..//clang/common/ClangErrorTest.$(OBJEXT) \
+am_foremantest_OBJECTS = ..//action/ParameterTest.$(OBJEXT) \
+	..//action/ScriptText.$(OBJEXT) \
+	..//clang/common/ClangErrorTest.$(OBJEXT) \
 	..//clang/metric/ClangMetricsTest.$(OBJEXT) \
 	..//clang/metric/ClangQueryTest.$(OBJEXT) \
 	..//clang/metric/ClangResultSetTest.$(OBJEXT) \
@@ -130,7 +132,7 @@ am_foremantest_OBJECTS = ..//clang/common/ClangErrorTest.$(OBJEXT) \
 	..//registry/QueryTest.$(OBJEXT) \
 	..//registry/StoreTest.$(OBJEXT) \
 	..//registry/StoreTestController.$(OBJEXT) \
-	..//util/UUIDTest.$(OBJEXT)
+	..//util/MutexTest.$(OBJEXT) ..//util/UUIDTest.$(OBJEXT)
 foremantest_OBJECTS = $(am_foremantest_OBJECTS)
 foremantest_DEPENDENCIES = ../../lib/unix/libforeman++.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -489,6 +491,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
+	..//action/ParameterTest.cpp \
+	..//action/ScriptText.cpp \
 	..//clang/common/ClangErrorTest.cpp \
 	..//clang/metric/ClangMetricsTest.cpp \
 	..//clang/metric/ClangQueryTest.cpp \
@@ -511,6 +515,7 @@ foremantest_SOURCES = \
 	..//registry/QueryTest.cpp \
 	..//registry/StoreTest.cpp \
 	..//registry/StoreTestController.cpp \
+	..//util/MutexTest.cpp \
 	..//util/UUIDTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
@@ -550,6 +555,16 @@ $(am__aclocal_m4_deps):
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+../action/$(am__dirstamp):
+	@$(MKDIR_P) ..//action
+	@: > ../action/$(am__dirstamp)
+../action/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//action/$(DEPDIR)
+	@: > ../action/$(DEPDIR)/$(am__dirstamp)
+..//action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+..//action/ScriptText.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
 ../clang/common/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/common
 	@: > ../clang/common/$(am__dirstamp)
@@ -652,6 +667,8 @@ clean-noinstPROGRAMS:
 ../util/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//util/$(DEPDIR)
 	@: > ../util/$(DEPDIR)/$(am__dirstamp)
+..//util/MutexTest.$(OBJEXT): ../util/$(am__dirstamp) \
+	../util/$(DEPDIR)/$(am__dirstamp)
 ..//util/UUIDTest.$(OBJEXT): ../util/$(am__dirstamp) \
 	../util/$(DEPDIR)/$(am__dirstamp)
 
@@ -662,6 +679,7 @@ foremantest$(EXEEXT): $(foremantest_OBJECTS) $(foremantest_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ..//*.$(OBJEXT)
+	-rm -f ..//action/*.$(OBJEXT)
 	-rm -f ..//clang/common/*.$(OBJEXT)
 	-rm -f ..//clang/metric/*.$(OBJEXT)
 	-rm -f ..//clang/registry/*.$(OBJEXT)
@@ -674,6 +692,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptText.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@
@@ -695,6 +715,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/QueryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/StoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/StoreTestController.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../util/$(DEPDIR)/MutexTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../util/$(DEPDIR)/UUIDTest.Po@am__quote@
 
 .cpp.o:
@@ -994,6 +1015,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f ../$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../$(am__dirstamp)
+	-rm -f ../action/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../action/$(am__dirstamp)
 	-rm -f ../clang/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../clang/common/$(am__dirstamp)
 	-rm -f ../clang/metric/$(DEPDIR)/$(am__dirstamp)
@@ -1017,7 +1040,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1063,7 +1086,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
