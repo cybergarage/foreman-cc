@@ -249,6 +249,32 @@ bool foreman_metric_store_clear(ForemanMetricStore* store);
 bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m);
 bool foreman_metric_store_query(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 
+////////////////////////////////////////////////
+// Action::Parameter
+////////////////////////////////////////////////
+
+typedef void ForemanActionParameter;
+
+ForemanActionParameter* foreman_action_parameter_new();
+bool foreman_action_parameter_delete(ForemanActionParameter* param);
+
+bool foreman_action_parameter_setname(ForemanActionParameter* param, const char* name);
+bool foreman_action_parameter_getname(ForemanActionParameter* param, const char** name);
+
+////////////////////////////////////////////////
+// Action::Properties
+////////////////////////////////////////////////
+
+typedef void ForemanActionParameters;
+
+ForemanActionParameters* foreman_action_parameters_new();
+bool foreman_action_parameters_delete(ForemanActionParameters* params);
+
+size_t foreman_action_parameters_size(ForemanActionParameters* params);
+
+bool foreman_action_parameters_addparamerty(ForemanActionParameters* params, ForemanActionParameter* param);
+ForemanActionParameter* foreman_action_parameters_getparamerty(ForemanActionParameters* params, size_t n);
+
 #ifdef __cplusplus
 }
 #endif

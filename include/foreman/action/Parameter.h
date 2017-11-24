@@ -29,7 +29,19 @@ public:
     Parameter();
     virtual ~Parameter();
 
+    void setName(const std::string& name)
+    {
+      name_ = name;
+    }
+
+    const char* getName()
+    {
+      return name_.c_str();
+    }
+
 private:
+protected:
+    std::string name_;
   };
 
   ////////////////////////////////////////////////
@@ -46,9 +58,6 @@ public:
     bool addParameter(std::shared_ptr<Parameter> param);
 
     Parameter* getParameter(size_t n);
-
-protected:
-    std::string name_;
   };
 }
 }

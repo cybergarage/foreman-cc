@@ -34,6 +34,8 @@
 		21AF27FD1FA0A58200DB18AB /* TimeSeriesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27F01FA0A58100DB18AB /* TimeSeriesTest.cpp */; };
 		21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27F41FA0A58100DB18AB /* MetricsTest.cpp */; };
 		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
+		21EF31B81FC8198600ECF706 /* ClangParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21EF31B61FC8198600ECF706 /* ClangParameterTest.cpp */; };
+		21EF31B91FC8198600ECF706 /* ClangScriptManagerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21EF31B71FC8198600ECF706 /* ClangScriptManagerTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		21AF27F01FA0A58100DB18AB /* TimeSeriesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTest.cpp; path = ../../../metric/TimeSeriesTest.cpp; sourceTree = "<group>"; };
 		21AF27F21FA0A58100DB18AB /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../../metric/StoreTestController.h; sourceTree = "<group>"; };
 		21AF27F41FA0A58100DB18AB /* MetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTest.cpp; path = ../../../metric/MetricsTest.cpp; sourceTree = "<group>"; };
+		21EF31B61FC8198600ECF706 /* ClangParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangParameterTest.cpp; path = ../../clang/action/ClangParameterTest.cpp; sourceTree = "<group>"; };
+		21EF31B71FC8198600ECF706 /* ClangScriptManagerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangScriptManagerTest.cpp; path = ../../clang/action/ClangScriptManagerTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,11 +249,21 @@
 		21CBC7831F54016100B87994 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				21EF31B51FC8196800ECF706 /* action */,
 				215DB2BC1FAB3BAF0089A36B /* registry */,
 				215DB2881FAB2ECA0089A36B /* metric */,
 				215DB2871FAB2EAD0089A36B /* common */,
 			);
 			name = clang;
+			sourceTree = "<group>";
+		};
+		21EF31B51FC8196800ECF706 /* action */ = {
+			isa = PBXGroup;
+			children = (
+				21EF31B61FC8198600ECF706 /* ClangParameterTest.cpp */,
+				21EF31B71FC8198600ECF706 /* ClangScriptManagerTest.cpp */,
+			);
+			name = action;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21EF31B91FC8198600ECF706 /* ClangScriptManagerTest.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
 				21AF27FD1FA0A58200DB18AB /* TimeSeriesTest.cpp in Sources */,
 				21AF27FC1FA0A58200DB18AB /* DataPointTest.cpp in Sources */,
@@ -342,6 +357,7 @@
 				215DB2C21FAB3C0E0089A36B /* ClangPropertyTest.cpp in Sources */,
 				21AF27F91FA0A58200DB18AB /* StoreTest.cpp in Sources */,
 				2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */,
+				21EF31B81FC8198600ECF706 /* ClangParameterTest.cpp in Sources */,
 				21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */,
 				215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */,
 				215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */,
