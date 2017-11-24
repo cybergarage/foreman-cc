@@ -112,6 +112,8 @@ PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_foremantest_OBJECTS = ..//action/ParameterTest.$(OBJEXT) \
 	..//action/ScriptText.$(OBJEXT) \
+	..//clang/action/ClangParameterTest.$(OBJEXT) \
+	..//clang/action/ClangScriptManagerTest.$(OBJEXT) \
 	..//clang/common/ClangErrorTest.$(OBJEXT) \
 	..//clang/metric/ClangMetricsTest.$(OBJEXT) \
 	..//clang/metric/ClangQueryTest.$(OBJEXT) \
@@ -493,6 +495,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
 	..//action/ParameterTest.cpp \
 	..//action/ScriptText.cpp \
+	..//clang/action/ClangParameterTest.cpp \
+	..//clang/action/ClangScriptManagerTest.cpp \
 	..//clang/common/ClangErrorTest.cpp \
 	..//clang/metric/ClangMetricsTest.cpp \
 	..//clang/metric/ClangQueryTest.cpp \
@@ -565,6 +569,18 @@ clean-noinstPROGRAMS:
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ScriptText.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
+../clang/action/$(am__dirstamp):
+	@$(MKDIR_P) ..//clang/action
+	@: > ../clang/action/$(am__dirstamp)
+../clang/action/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//clang/action/$(DEPDIR)
+	@: > ../clang/action/$(DEPDIR)/$(am__dirstamp)
+..//clang/action/ClangParameterTest.$(OBJEXT):  \
+	../clang/action/$(am__dirstamp) \
+	../clang/action/$(DEPDIR)/$(am__dirstamp)
+..//clang/action/ClangScriptManagerTest.$(OBJEXT):  \
+	../clang/action/$(am__dirstamp) \
+	../clang/action/$(DEPDIR)/$(am__dirstamp)
 ../clang/common/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/common
 	@: > ../clang/common/$(am__dirstamp)
@@ -680,6 +696,7 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ..//*.$(OBJEXT)
 	-rm -f ..//action/*.$(OBJEXT)
+	-rm -f ..//clang/action/*.$(OBJEXT)
 	-rm -f ..//clang/common/*.$(OBJEXT)
 	-rm -f ..//clang/metric/*.$(OBJEXT)
 	-rm -f ..//clang/registry/*.$(OBJEXT)
@@ -694,6 +711,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptText.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@
@@ -1017,6 +1036,8 @@ distclean-generic:
 	-rm -f ../$(am__dirstamp)
 	-rm -f ../action/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../action/$(am__dirstamp)
+	-rm -f ../clang/action/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../clang/action/$(am__dirstamp)
 	-rm -f ../clang/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../clang/common/$(am__dirstamp)
 	-rm -f ../clang/metric/$(DEPDIR)/$(am__dirstamp)
@@ -1040,7 +1061,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1086,7 +1107,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

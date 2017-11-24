@@ -16,6 +16,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
 	..//action/ParameterTest.cpp \
 	..//action/ScriptText.cpp \
+	..//clang/action/ClangParameterTest.cpp \
+	..//clang/action/ClangScriptManagerTest.cpp \
 	..//clang/common/ClangErrorTest.cpp \
 	..//clang/metric/ClangMetricsTest.cpp \
 	..//clang/metric/ClangQueryTest.cpp \

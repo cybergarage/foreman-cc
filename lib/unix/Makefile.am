@@ -22,6 +22,9 @@ foremancc_sources = \
 	../../src/foreman/action/ScriptEngineMap.cpp \
 	../../src/foreman/action/ScriptManager.cpp \
 	../../src/foreman/action/ScriptMap.cpp \
+	../../src/foreman/clang/action/parameter_c.cpp \
+	../../src/foreman/clang/action/parameters_c.cpp \
+	../../src/foreman/clang/action/script_manager_c.cpp \
 	../../src/foreman/clang/common/error_c.cpp \
 	../../src/foreman/clang/metric/datapoint_c.cpp \
 	../../src/foreman/clang/metric/datapoints_c.cpp \
