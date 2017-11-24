@@ -22,6 +22,9 @@ AM_INIT_AUTOMAKE([subdir-objects])
 SQLITE3_VERSION=3.14.0
 BENCHMARK_VERSION=1.1.0
 
+LUA_VERSION=5.2.0
+PYTHON_VERSION=2.7.9
+
 ##################################################################
 # Checks compiler
 ##################################################################
@@ -103,6 +106,71 @@ if [ test "$eneble_graphite" = yes ]; then
 	AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
 fi
 
+##############################
+# Check Language Options
+##############################
+
+# Python
+
+AC_ARG_ENABLE(
+	[script-python],
+	[  --enable-script-python enable Python support [default=no]],
+	[
+		if test $enableval = yes; then
+			FOREMAN_SUPPORT_PYTHON=yes
+		else
+			FOREMAN_SUPPORT_PYTHON=no
+		fi
+	],[
+		FOREMAN_SUPPORT_PYTHON=no
+	]
+)
+
+if [ test $FOREMAN_SUPPORT_PYTHON = yes ]; then
+  AC_CHECK_PROG(FOUND_PYTHON_CONFIG, python-config, yes, no)
+  if [ test $FOUND_PYTHON_CONFIG != yes ]; then
+    AC_MSG_ERROR(FOREMAN for C needs Python $PYTHON_VERSION later)
+  fi
+  AC_CHECK_HEADERS([Python/Python.h])
+  AC_CHECK_HEADERS([Python.h])
+  AC_DEFINE([FOREMAN_SUPPORT_PYTHON],1,[Python])
+  LIBS+=" "
+  LIBS+=`python-config --libs`
+fi
+
+# Lua
+
+AC_ARG_ENABLE(
+	[script-lua],
+	[  --enable-script-lua	enable Lua support [default=no]],
+	[
+		if test $enableval = yes; then
+			FOREMAN_SUPPORT_LUA=yes
+		else
+			FOREMAN_SUPPORT_LUA=no
+		fi
+	],[
+		FOREMAN_SUPPORT_LUA=no
+	]
+)
+if [ test $FOREMAN_SUPPORT_LUA = yes ]; then
+	FOUND_LUA_LIB=no
+	AC_CHECK_HEADERS([lua.h])
+	AC_CHECK_LIB([lua],[main],[FOUND_LUA_LIB=yes])
+	if [ test $FOUND_LUA_LIB != yes ]; then
+		AC_CHECK_LIB([lua5.2],[main],[FOUND_LUA_LIB=yes])
+        	LIBS+="-llua5.2"
+	fi
+	if [ test $FOUND_LUA_LIB != yes ]; then
+		AC_CHECK_LIB([lua5.3],[main],[FOUND_LUA_LIB=yes])
+        	LIBS+="-llua5.3"
+	fi
+	if [ test $FOUND_LUA_LIB != yes ]; then
+		AC_MSG_ERROR(FOREMAN for C needs LUA $LUA_VERSION later)
+	fi
+	AC_DEFINE([FOREMAN_SUPPORT_LUA],1,[Lua])
+fi
+
 ##################################################################
 # Benchmark
 ##################################################################
@@ -147,8 +215,7 @@ if [ test "$build_test" = yes ]; then
 		[AC_CHECK_LIB([boost_thread],[main],,[AC_MSG_ERROR(Foreman needs boost::thread-mt)])])
 
 	AC_CHECK_LIB([boost_unit_test_framework-mt],[main],,
-		[AC_CHECK_LIB([boost_unit_test_framework],[main],,[AC_MSG_ERROR(Foreman needs boost::boo
-st_unit_test_framework)])])
+		[AC_CHECK_LIB([boost_unit_test_framework],[main],,[AC_MSG_ERROR(Foreman needs boost::boost_unit_test_framework)])])
 fi
 
 ##################################################################

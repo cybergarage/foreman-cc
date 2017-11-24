@@ -199,6 +199,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+FOUND_PYTHON_CONFIG = @FOUND_PYTHON_CONFIG@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -269,6 +270,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 foremancc_header = \
+	./foreman/action/impl/Lua.h \
+	./foreman/action/impl/Python.h \
 	./foreman/action/Parameter.h \
 	./foreman/action/Script.h \
 	./foreman/common/Error.h \

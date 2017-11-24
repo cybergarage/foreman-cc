@@ -70,6 +70,10 @@
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
+		217303B41FC841A8000B0ECE /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 217303B21FC841A7000B0ECE /* Lua.h */; };
+		217303B51FC841A8000B0ECE /* Python.h in Headers */ = {isa = PBXBuildFile; fileRef = 217303B31FC841A8000B0ECE /* Python.h */; };
+		217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B61FC841BF000B0ECE /* LuaEngine.cpp */; };
+		217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B91FC841DF000B0ECE /* PythonEngine.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
 		2187B6CB1FC5ACA800E2234D /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C41FC5ACA800E2234D /* Script.cpp */; };
 		2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */; };
@@ -173,6 +177,10 @@
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
+		217303B21FC841A7000B0ECE /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = ../action/impl/Lua.h; sourceTree = "<group>"; };
+		217303B31FC841A8000B0ECE /* Python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Python.h; path = ../action/impl/Python.h; sourceTree = "<group>"; };
+		217303B61FC841BF000B0ECE /* LuaEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngine.cpp; path = action/impl/LuaEngine.cpp; sourceTree = "<group>"; };
+		217303B91FC841DF000B0ECE /* PythonEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngine.cpp; path = action/impl/PythonEngine.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		2187B6C41FC5ACA800E2234D /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Script.cpp; path = action/Script.cpp; sourceTree = "<group>"; };
 		2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineMap.cpp; path = action/ScriptEngineMap.cpp; sourceTree = "<group>"; };
@@ -415,6 +423,24 @@
 			path = ../../../src/beringei;
 			sourceTree = "<group>";
 		};
+		217303B11FC84187000B0ECE /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				217303B21FC841A7000B0ECE /* Lua.h */,
+				217303B31FC841A8000B0ECE /* Python.h */,
+			);
+			name = impl;
+			sourceTree = "<group>";
+		};
+		217303B81FC841C9000B0ECE /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				217303B91FC841DF000B0ECE /* PythonEngine.cpp */,
+				217303B61FC841BF000B0ECE /* LuaEngine.cpp */,
+			);
+			name = impl;
+			sourceTree = "<group>";
+		};
 		2175C2F21E52F423006C4425 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +495,7 @@
 		2187B6C31FC5AC9000E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
+				217303B81FC841C9000B0ECE /* impl */,
 				2187B6C71FC5ACA800E2234D /* Parameter.cpp */,
 				2187B6CA1FC5ACA800E2234D /* Parameters.cpp */,
 				2187B6C41FC5ACA800E2234D /* Script.cpp */,
@@ -483,6 +510,7 @@
 		2187B6D21FC5ACC300E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
+				217303B11FC84187000B0ECE /* impl */,
 				2187B6D41FC5ACD800E2234D /* Parameter.h */,
 				2187B6D31FC5ACD800E2234D /* Script.h */,
 			);
@@ -575,6 +603,7 @@
 				21ABA0AB1FB0871000982715 /* MatrixStore.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
+				217303B51FC841A8000B0ECE /* Python.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
 				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
@@ -582,6 +611,7 @@
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
+				217303B41FC841A8000B0ECE /* Lua.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
 				2187B6D61FC5ACD800E2234D /* Parameter.h in Headers */,
@@ -667,6 +697,7 @@
 				2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */,
 				215EDC711FB04A22006DF3AE /* RingArrayTimeSeries.cpp in Sources */,
 				215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */,
+				217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */,
 				215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */,
 				21EF31B11FC818EB00ECF706 /* script_manager_c.cpp in Sources */,
 				215EDC681FB04A22006DF3AE /* TimeSeries.cpp in Sources */,
@@ -686,6 +717,7 @@
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
 				215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */,
+				217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */,
 				2187B6CF1FC5ACA800E2234D /* ScriptEngine.cpp in Sources */,
 				215EDC641FB04A22006DF3AE /* StaticArrayTimeSeries.cpp in Sources */,
 				2187B6CE1FC5ACA800E2234D /* Parameter.cpp in Sources */,

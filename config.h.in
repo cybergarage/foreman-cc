@@ -6,6 +6,12 @@
 /* --enable-graphite */
 #undef FOREMAN_ENABLE_GRAPHITE
 
+/* Lua */
+#undef FOREMAN_SUPPORT_LUA
+
+/* Python */
+#undef FOREMAN_SUPPORT_PYTHON
+
 /* Define to 1 if you have the <benchmark/benchmark.h> header file. */
 #undef HAVE_BENCHMARK_BENCHMARK_H
 
@@ -69,8 +75,17 @@
 /* Define to 1 if you have the `uuid' library (-luuid). */
 #undef HAVE_LIBUUID
 
+/* Define to 1 if you have the <lua.h> header file. */
+#undef HAVE_LUA_H
+
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the <Python.h> header file. */
+#undef HAVE_PYTHON_H
+
+/* Define to 1 if you have the <Python/Python.h> header file. */
+#undef HAVE_PYTHON_PYTHON_H
 
 /* Define to 1 if you have the <sqlite3.h> header file. */
 #undef HAVE_SQLITE3_H

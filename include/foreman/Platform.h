@@ -21,4 +21,10 @@
 typedef unsigned char byte;
 #endif
 
+#if defined(__APPLE__)
+#define FOREMAN_SUPPORT_LUA 1
+#define FOREMAN_SUPPORT_PYTHON 1
+#define HAVE_PYTHON_PYTHON_H 1
+#endif
+
 #endif

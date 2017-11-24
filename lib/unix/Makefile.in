@@ -146,6 +146,8 @@ libforeman___a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
+	../../src/foreman/action/impl/LuaEngine.$(OBJEXT) \
+	../../src/foreman/action/impl/PythonEngine.$(OBJEXT) \
 	../../src/foreman/action/Parameter.$(OBJEXT) \
 	../../src/foreman/action/Parameters.$(OBJEXT) \
 	../../src/foreman/action/Script.$(OBJEXT) \
@@ -288,6 +290,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+FOUND_PYTHON_CONFIG = @FOUND_PYTHON_CONFIG@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -362,6 +365,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/action/impl/LuaEngine.cpp \
+	../../src/foreman/action/impl/PythonEngine.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
 	../../src/foreman/action/Script.cpp \
@@ -502,6 +507,18 @@ clean-libLIBRARIES:
 ../../src/beringei/TimeSeriesStream.$(OBJEXT):  \
 	../../src/beringei/$(am__dirstamp) \
 	../../src/beringei/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/action/impl
+	@: > ../../src/foreman/action/impl/$(am__dirstamp)
+../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/action/impl/$(DEPDIR)
+	@: > ../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/LuaEngine.$(OBJEXT):  \
+	../../src/foreman/action/impl/$(am__dirstamp) \
+	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/PythonEngine.$(OBJEXT):  \
+	../../src/foreman/action/impl/$(am__dirstamp) \
+	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/action
 	@: > ../../src/foreman/action/$(am__dirstamp)
@@ -764,6 +781,7 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ../../src/beringei/*.$(OBJEXT)
 	-rm -f ../../src/foreman/action/*.$(OBJEXT)
+	-rm -f ../../src/foreman/action/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/action/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/common/*.$(OBJEXT)
 	-rm -f ../../src/foreman/clang/metric/*.$(OBJEXT)
@@ -788,6 +806,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngineMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/LuaEngine.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameter_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameters_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/script_manager_c.Po@am__quote@
@@ -977,6 +997,8 @@ distclean-generic:
 	-rm -f ../../src/beringei/$(am__dirstamp)
 	-rm -f ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/action/$(am__dirstamp)
+	-rm -f ../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/action/impl/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/action/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/action/$(am__dirstamp)
 	-rm -f ../../src/foreman/clang/common/$(DEPDIR)/$(am__dirstamp)
@@ -1008,7 +1030,7 @@ clean: clean-am
 clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/clang/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/action/impl/$(DEPDIR) ../../src/foreman/clang/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1054,7 +1076,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/clang/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
+	-rm -rf ../../src/beringei/$(DEPDIR) ../../src/foreman/action/$(DEPDIR) ../../src/foreman/action/impl/$(DEPDIR) ../../src/foreman/clang/action/$(DEPDIR) ../../src/foreman/clang/common/$(DEPDIR) ../../src/foreman/clang/metric/$(DEPDIR) ../../src/foreman/clang/registry/$(DEPDIR) ../../src/foreman/common/$(DEPDIR) ../../src/foreman/metric/$(DEPDIR) ../../src/foreman/metric/impl/$(DEPDIR) ../../src/foreman/net/$(DEPDIR) ../../src/foreman/registry/$(DEPDIR) ../../src/foreman/registry/impl/$(DEPDIR) ../../src/foreman/util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

@@ -14,8 +14,10 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
+	..//action/LuaEngineTest.cpp \
 	..//action/ParameterTest.cpp \
-	..//action/ScriptText.cpp \
+	..//action/PythonEngineTest.cpp \
+	..//action/ScriptTest.cpp \
 	..//clang/action/ClangParameterTest.cpp \
 	..//clang/action/ClangScriptManagerTest.cpp \
 	..//clang/common/ClangErrorTest.cpp \
