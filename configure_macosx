@@ -2,4 +2,4 @@
 export CFLAGS="-I/usr/local/include"
 export CXXFLAGS="-std=c++11 $CFLAGS"
 export LDFLAGS="-L/usr/local/lib"
-./configure  MKDIR_P='mkdir -p' $@
+./configure --enable-script-python --enable-script-lua MKDIR_P='mkdir -p' $@

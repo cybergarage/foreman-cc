@@ -15,6 +15,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/action/impl/LuaEngine.cpp \
+	../../src/foreman/action/impl/PythonEngine.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
 	../../src/foreman/action/Script.cpp \

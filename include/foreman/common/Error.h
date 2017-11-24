@@ -15,12 +15,12 @@
 
 namespace Foreman {
 
-#define FOREMANCC_ERROR_SET_ERRORNO(err, errno) \
+#define FOREMANCC_ERROR_SET_ERRORNO(err, errcode) \
   {                                             \
     err->setFileName(__FILE__);                 \
     err->setLineNo(__LINE__);                   \
     err->setFuncName(__PRETTY_FUNCTION__);      \
-    err->setErrorNo(errno);                     \
+    err->setErrorNo(errcode);                     \
   }
 
 class Error {
@@ -107,7 +107,7 @@ class Error {
 
   bool equals(const Error& err) const;
 
-  void setErrorNo(int errno);
+  void setErrorNo(int errorno);
 
   private:
   void initialize();

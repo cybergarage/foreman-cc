@@ -22,9 +22,11 @@
 		215DB2C21FAB3C0E0089A36B /* ClangPropertyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2BE1FAB3C0E0089A36B /* ClangPropertyTest.cpp */; };
 		215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2BF1FAB3C0E0089A36B /* ClangQueryTest.cpp */; };
 		215DB2C41FAB3C0E0089A36B /* ClangStoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2C01FAB3C0E0089A36B /* ClangStoreTest.cpp */; };
+		217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */; };
+		217303AF1FC84160000B0ECE /* LuaEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
 		2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */; };
-		2187B6DB1FC5AD0600E2234D /* ScriptText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D91FC5AD0600E2234D /* ScriptText.cpp */; };
+		2187B6DB1FC5AD0600E2234D /* ScriptTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D91FC5AD0600E2234D /* ScriptTest.cpp */; };
 		2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6E01FC5B33100E2234D /* MutexTest.cpp */; };
 		21ABA0AE1FB0902D00982715 /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */; };
 		21AF27F51FA0A58200DB18AB /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AF27E81FA0A58100DB18AB /* StoreTestController.cpp */; };
@@ -83,11 +85,13 @@
 		215DB2BE1FAB3C0E0089A36B /* ClangPropertyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangPropertyTest.cpp; path = ../../clang/registry/ClangPropertyTest.cpp; sourceTree = "<group>"; };
 		215DB2BF1FAB3C0E0089A36B /* ClangQueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangQueryTest.cpp; path = ../../clang/registry/ClangQueryTest.cpp; sourceTree = "<group>"; };
 		215DB2C01FAB3C0E0089A36B /* ClangStoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangStoreTest.cpp; path = ../../clang/registry/ClangStoreTest.cpp; sourceTree = "<group>"; };
+		217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngineTest.cpp; path = ../../action/PythonEngineTest.cpp; sourceTree = "<group>"; };
+		217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngineTest.cpp; path = ../../action/LuaEngineTest.cpp; sourceTree = "<group>"; };
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
 		2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterTest.cpp; path = ../../action/ParameterTest.cpp; sourceTree = "<group>"; };
-		2187B6D91FC5AD0600E2234D /* ScriptText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptText.cpp; path = ../../action/ScriptText.cpp; sourceTree = "<group>"; };
+		2187B6D91FC5AD0600E2234D /* ScriptTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptTest.cpp; path = ../../action/ScriptTest.cpp; sourceTree = "<group>"; };
 		2187B6E01FC5B33100E2234D /* MutexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MutexTest.cpp; path = ../../util/MutexTest.cpp; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21ABA0AC1FB0902D00982715 /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../registry/StoreTestController.h; sourceTree = "<group>"; };
@@ -208,8 +212,10 @@
 		2187B6D71FC5ACF300E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
+				217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */,
+				217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */,
 				2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */,
-				2187B6D91FC5AD0600E2234D /* ScriptText.cpp */,
+				2187B6D91FC5AD0600E2234D /* ScriptTest.cpp */,
 			);
 			name = action;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			files = (
 				21EF31B91FC8198600ECF706 /* ClangScriptManagerTest.cpp in Sources */,
 				2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */,
+				217303AF1FC84160000B0ECE /* LuaEngineTest.cpp in Sources */,
 				21AF27FD1FA0A58200DB18AB /* TimeSeriesTest.cpp in Sources */,
 				21AF27FC1FA0A58200DB18AB /* DataPointTest.cpp in Sources */,
 				21AF27F61FA0A58200DB18AB /* QueryTest.cpp in Sources */,
@@ -361,8 +368,9 @@
 				21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */,
 				215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */,
 				215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */,
-				2187B6DB1FC5AD0600E2234D /* ScriptText.cpp in Sources */,
+				2187B6DB1FC5AD0600E2234D /* ScriptTest.cpp in Sources */,
 				2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */,
+				217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */,
 				215DB2921FAB2EE30089A36B /* ClangErrorTest.cpp in Sources */,
 				215DB28F1FAB2ED90089A36B /* ClangStoreTest.cpp in Sources */,
 				2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */,

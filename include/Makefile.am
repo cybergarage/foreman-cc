@@ -9,6 +9,8 @@
 ##################################################################
 
 foremancc_header = \
+	./foreman/action/impl/Lua.h \
+	./foreman/action/impl/Python.h \
 	./foreman/action/Parameter.h \
 	./foreman/action/Script.h \
 	./foreman/common/Error.h \
