@@ -15,6 +15,7 @@
 #include <string>
 
 #include <foreman/Platform.h>
+#include <foreman/action/Parameter.h>
 #include <foreman/common/Error.h>
 #include <foreman/util/Mutex.h>
 
@@ -155,8 +156,7 @@ public:
     }
 
     virtual bool compile(const Script* script) const = 0;
-    virtual bool run(const Script* script, const std::string& params, std::string* results, Error* error) const = 0;
-    virtual bool run(const std::string& script, std::string* result, Error* error) const = 0;
+    virtual bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const = 0;
 
     void lock() const
     {
@@ -214,8 +214,7 @@ public:
       return this->engines.hasEngine(lang);
     }
 
-    bool execMethod(const std::string& name, const std::string& params, std::string* result, Error* error);
-    bool execScript(const std::string& lang, const std::string& script, int encodeType, std::string* result, Error* error);
+    bool execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* error);
 
 private:
     ScriptMap scripts;

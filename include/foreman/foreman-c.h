@@ -282,6 +282,7 @@ ForemanActionParameter* foreman_action_parameters_getparamerty(ForemanActionPara
 typedef void ForemanActionScriptManager;
 
 ForemanActionScriptManager* foreman_action_script_manager_new();
+bool foreman_action_script_manager_excemethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
 
 #ifdef __cplusplus
