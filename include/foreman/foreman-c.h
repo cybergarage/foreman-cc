@@ -275,6 +275,15 @@ size_t foreman_action_parameters_size(ForemanActionParameters* params);
 bool foreman_action_parameters_addparamerty(ForemanActionParameters* params, ForemanActionParameter* param);
 ForemanActionParameter* foreman_action_parameters_getparamerty(ForemanActionParameters* params, size_t n);
 
+////////////////////////////////////////////////
+// Action::ScriptManager
+////////////////////////////////////////////////
+
+typedef void ForemanActionScriptManager;
+
+ForemanActionScriptManager* foreman_action_script_manager_new();
+bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
+
 #ifdef __cplusplus
 }
 #endif
