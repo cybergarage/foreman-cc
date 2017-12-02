@@ -44,7 +44,7 @@ Foreman::Action::LuaEngine::~LuaEngine()
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::compile(const Script* luaScript, Error *err) const
+bool Foreman::Action::LuaEngine::compile(const Script* luaScript, Error* err) const
 {
   const byte* scriptCode = luaScript->getCode();
   int loadingResult = luaL_loadstring(this->luaState, (const char*)scriptCode);
