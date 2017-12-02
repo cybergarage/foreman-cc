@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_SUITE(action)
 
 BOOST_AUTO_TEST_CASE(LuaEngine)
 {
-  LuaEngine *engine = new LuaEngine();
+  LuaEngine* engine = new LuaEngine();
   delete engine;
 }
 

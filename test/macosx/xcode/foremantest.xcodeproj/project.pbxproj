@@ -448,6 +448,8 @@
 					"-lsqlite3",
 					"-lgflags",
 					"-ljemalloc",
+					"-lpython",
+					"-llua",
 					"-lboost_unit_test_framework",
 					"-lboost_system",
 				);
@@ -506,6 +508,8 @@
 					"-lsqlite3",
 					"-lgflags",
 					"-ljemalloc",
+					"-lpython",
+					"-llua",
 					"-lboost_unit_test_framework",
 					"-lboost_system",
 				);

@@ -10,6 +10,10 @@
 
 #include <foreman/action/Script.h>
 
+////////////////////////////////////////////////
+// ScriptEngine
+////////////////////////////////////////////////
+
 Foreman::Action::ScriptEngine::ScriptEngine(const std::string& language)
 {
   init();

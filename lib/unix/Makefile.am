@@ -17,6 +17,7 @@ foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/action/impl/LuaEngine.cpp \
 	../../src/foreman/action/impl/PythonEngine.cpp \
+	../../src/foreman/action/impl/PythonScript.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
 	../../src/foreman/action/Script.cpp \

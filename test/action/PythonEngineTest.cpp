@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_SUITE(action)
 
 BOOST_AUTO_TEST_CASE(PythonEngine)
 {
-  PythonEngine *engine = new PythonEngine();
+  PythonEngine* engine = new PythonEngine();
   delete engine;
 }
 

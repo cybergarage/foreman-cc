@@ -23,7 +23,8 @@ const std::string Foreman::Action::LuaEngine::LANGUAGE = "lua";
 // Constructor
 ////////////////////////////////////////////////
 
-Foreman::Action::LuaEngine::LuaEngine(): ScriptEngine(LANGUAGE)
+Foreman::Action::LuaEngine::LuaEngine()
+    : ScriptEngine(LANGUAGE)
 {
   this->luaState = luaL_newstate();
 
@@ -43,7 +44,7 @@ Foreman::Action::LuaEngine::~LuaEngine()
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::compile(const Script* luaScript) const
+bool Foreman::Action::LuaEngine::compile(const Script* luaScript, Error *err) const
 {
   const byte* scriptCode = luaScript->getCode();
   int loadingResult = luaL_loadstring(this->luaState, (const char*)scriptCode);
@@ -84,6 +85,10 @@ bool Foreman::Action::LuaEngine::popString(std::string* result) const
   return false;
 }
 
+////////////////////////////////////////////////
+// popError
+////////////////////////////////////////////////
+
 bool Foreman::Action::LuaEngine::popError(Error* error) const
 {
   int nStack = lua_gettop(this->luaState);
@@ -96,6 +101,10 @@ bool Foreman::Action::LuaEngine::popError(Error* error) const
 
   return true;
 }
+
+////////////////////////////////////////////////
+// run
+////////////////////////////////////////////////
 
 bool Foreman::Action::LuaEngine::run(const Script* script, const Parameters* params, Parameters* results, Error* error) const
 {
@@ -119,7 +128,7 @@ bool Foreman::Action::LuaEngine::run(const Script* script, const Parameters* par
 
   nStack = lua_gettop(this->luaState);
 
-  lua_getglobal(this->luaState, script->getName().c_str());
+  lua_getglobal(this->luaState, script->getName());
   // FIXME
   //lua_pushstring(this->luaState, params.c_str());
 

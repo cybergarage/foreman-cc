@@ -27,6 +27,10 @@ extern "C" {
 namespace Foreman {
 namespace Action {
 
+  ////////////////////////////////////////////////
+  // LuaEngine
+  ////////////////////////////////////////////////
+  
   class LuaEngine : public ScriptEngine {
 
 public:
@@ -36,7 +40,7 @@ public:
     LuaEngine();
     ~LuaEngine();
 
-    bool compile(const Script* script) const;
+    bool compile(const Script* script, Error* error) const;
     bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const;
 
     bool popString(std::string* result) const;

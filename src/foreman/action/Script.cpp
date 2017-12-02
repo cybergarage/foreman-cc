@@ -10,11 +10,30 @@
 
 #include <foreman/Const.h>
 #include <foreman/action/Script.h>
+#include <foreman/action/impl/Python.h>
 
 #include <string.h>
 
 const int Foreman::Action::Script::ENCODING_NONE = FOREMANCC_ACTION_SCRIPT_ENCORDING_NONE;
 const int Foreman::Action::Script::ENCODING_BASE64 = FOREMANCC_ACTION_SCRIPT_ENCORDING_BASE64;
+
+////////////////////////////////////////////////
+// compile
+////////////////////////////////////////////////
+
+Foreman::Action::Script* Foreman::Action::Script::CreateScript(const std::string& lang)
+{
+#if defined(FOREMAN_SUPPORT_PYTHON)
+  if (lang.compare(Foreman::Action::PythonEngine::LANGUAGE) == 0)
+    return new Foreman::Action::PythonScript();
+#endif
+
+  return new Script(lang);
+}
+
+////////////////////////////////////////////////
+// compile
+////////////////////////////////////////////////
 
 Foreman::Action::Script::Script(const std::string& lang)
 {
@@ -22,21 +41,16 @@ Foreman::Action::Script::Script(const std::string& lang)
   this->language = lang;
 }
 
-Foreman::Action::Script::Script(const std::string& lang, const std::string& name, const std::string& code)
+Foreman::Action::Script::~Script()
 {
-  init();
-  this->language = lang;
-  setName(name);
-  setCode(code);
+  if (this->code) {
+    free(this->code);
+  }
 }
 
-Foreman::Action::Script::Script(const std::string& lang, const std::string& name, const byte* code, size_t codeLen)
-{
-  init();
-  this->language = lang;
-  setName(name);
-  setCode(code, codeLen);
-}
+////////////////////////////////////////////////
+// init
+////////////////////////////////////////////////
 
 void Foreman::Action::Script::init()
 {
@@ -46,12 +60,9 @@ void Foreman::Action::Script::init()
   setEncording(ENCODING_NONE);
 }
 
-Foreman::Action::Script::~Script()
-{
-  if (this->code) {
-    free(this->code);
-  }
-}
+////////////////////////////////////////////////
+// setCode
+////////////////////////////////////////////////
 
 bool Foreman::Action::Script::setCode(const byte* code, size_t codeLen)
 {
@@ -74,6 +85,10 @@ bool Foreman::Action::Script::setCode(const std::string code)
 {
   return setCode((const byte*)code.c_str(), (code.length() + 1));
 }
+
+////////////////////////////////////////////////
+// isBinaryCode
+////////////////////////////////////////////////
 
 bool Foreman::Action::Script::isBinaryCode()
 {

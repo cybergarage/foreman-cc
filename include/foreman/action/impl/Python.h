@@ -27,24 +27,50 @@
 #endif
 
 namespace Foreman {
-  namespace Action {
-    
-    class PythonEngine : public ScriptEngine {
-      
-    public:
-      static const std::string LANGUAGE;
-      
-    public:
-      PythonEngine();
-      ~PythonEngine();
-      
-      bool compile(const Script* script) const;
-      bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const;
-    };
-  }
+namespace Action {
+
+  ////////////////////////////////////////////////
+  // PtyhonScript
+  ////////////////////////////////////////////////
+  
+  class PythonScript : public Script {
+public:
+    PythonScript();
+    ~PythonScript();
+
+    bool clear();
+
+    bool compile(Error* error);
+    bool isCompiled() const;
+
+private:
+    PyObject* module_;
+    PyObject* func_;
+  };
+
+  ////////////////////////////////////////////////
+  // PythonEngine
+  ////////////////////////////////////////////////
+  
+  class PythonEngine : public ScriptEngine {
+
+public:
+    static const std::string LANGUAGE;
+    static const std::string MODULE;
+
+public:
+    PythonEngine();
+    ~PythonEngine();
+
+    bool compile(Script* script, Error* error);
+    bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const;
+
+private:
+    bool setLastDetailError(Error* error) const;
+  };
+}
 }
 
 #endif
 
 #endif
-

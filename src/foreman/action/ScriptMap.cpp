@@ -10,6 +10,10 @@
 
 #include <foreman/action/Script.h>
 
+////////////////////////////////////////////////
+// ScriptMap
+////////////////////////////////////////////////
+
 Foreman::Action::ScriptMap::ScriptMap()
 {
 }
@@ -19,18 +23,30 @@ Foreman::Action::ScriptMap::~ScriptMap()
   clear();
 }
 
+////////////////////////////////////////////////
+// hasScript
+////////////////////////////////////////////////
+
 bool Foreman::Action::ScriptMap::hasScript(const std::string& name) const
 {
   return (find(name) != end()) ? true : false;
 }
 
-const Foreman::Action::Script* Foreman::Action::ScriptMap::getScript(const std::string& name) const
+////////////////////////////////////////////////
+// getScript
+////////////////////////////////////////////////
+
+Foreman::Action::Script* Foreman::Action::ScriptMap::getScript(const std::string& name)
 {
-  ScriptMap::const_iterator scriptIt = find(name);
+  ScriptMap::iterator scriptIt = find(name);
   if (scriptIt == end())
     return NULL;
   return scriptIt->second;
 }
+
+////////////////////////////////////////////////
+// clear
+////////////////////////////////////////////////
 
 void Foreman::Action::ScriptMap::clear()
 {

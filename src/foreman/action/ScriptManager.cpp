@@ -11,6 +11,10 @@
 #include <foreman/action/Script.h>
 #include <foreman/common/Errors.h>
 
+////////////////////////////////////////////////
+// ScriptManager
+////////////////////////////////////////////////
+
 Foreman::Action::ScriptManager::ScriptManager()
 {
 }
@@ -18,6 +22,10 @@ Foreman::Action::ScriptManager::ScriptManager()
 Foreman::Action::ScriptManager::~ScriptManager()
 {
 }
+
+////////////////////////////////////////////////
+// setScript
+////////////////////////////////////////////////
 
 bool Foreman::Action::ScriptManager::setScript(Script* script)
 {
@@ -39,6 +47,10 @@ bool Foreman::Action::ScriptManager::setScript(Script* script)
   return true;
 }
 
+////////////////////////////////////////////////
+// setEngine
+////////////////////////////////////////////////
+
 bool Foreman::Action::ScriptManager::setEngine(ScriptEngine* engine)
 {
   if (!engine)
@@ -59,9 +71,13 @@ bool Foreman::Action::ScriptManager::setEngine(ScriptEngine* engine)
   return true;
 }
 
+////////////////////////////////////////////////
+// setScript
+////////////////////////////////////////////////
+
 bool Foreman::Action::ScriptManager::setScript(const std::string& method, const std::string& lang, const std::string& code, int encodeType, Error* err)
 {
-  const ScriptEngine* scriptEngine = this->engines.getEngine(lang);
+  ScriptEngine* scriptEngine = this->engines.getEngine(lang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
@@ -70,15 +86,16 @@ bool Foreman::Action::ScriptManager::setScript(const std::string& method, const 
   if (code.length() <= 0)
     return removeScript(method, err);
 
-  Script* script = new Script(lang, method, code);
+  Script *script = Foreman::Action::Script::CreateScript(lang);
   if (!script) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
+  script->setName(method);
+  script->setCode(code);
   script->setEncording(encodeType);
 
-  if (!scriptEngine->compile(script)) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+  if (!scriptEngine->compile(script, err)) {
     delete script;
     return false;
   }
@@ -91,6 +108,10 @@ bool Foreman::Action::ScriptManager::setScript(const std::string& method, const 
 
   return true;
 }
+
+////////////////////////////////////////////////
+// removeScript
+////////////////////////////////////////////////
 
 bool Foreman::Action::ScriptManager::removeScript(const std::string& method, Error* err)
 {
