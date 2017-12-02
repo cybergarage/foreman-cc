@@ -25,7 +25,7 @@ namespace Action {
   ////////////////////////////////////////////////
   // Script
   ////////////////////////////////////////////////
-  
+
   class Script {
 public:
     static const int ENCODING_NONE;
@@ -135,7 +135,7 @@ private:
   ////////////////////////////////////////////////
   // ScriptMap
   ////////////////////////////////////////////////
-  
+
   class ScriptMap : public std::map<std::string, Script*> {
 
 public:
@@ -156,7 +156,7 @@ public:
   ////////////////////////////////////////////////
   // ScriptEngine
   ////////////////////////////////////////////////
-  
+
   class ScriptEngine {
 
 public:
@@ -169,7 +169,7 @@ public:
     }
 
     virtual bool compile(Script* script, Error* error) = 0;
-    virtual bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const = 0;
+    virtual bool run(Script* script, const Parameters* params, Parameters* results, Error* error) = 0;
 
     void lock() const
     {
@@ -192,7 +192,7 @@ private:
   ////////////////////////////////////////////////
   // ScriptEngineMap
   ////////////////////////////////////////////////
-  
+
   class ScriptEngineMap : public std::map<std::string, ScriptEngine*> {
 
 public:
@@ -211,7 +211,7 @@ private:
   ////////////////////////////////////////////////
   // ScriptManager
   ////////////////////////////////////////////////
-  
+
   class ScriptManager {
 
 public:

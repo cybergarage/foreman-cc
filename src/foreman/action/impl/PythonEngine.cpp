@@ -50,9 +50,10 @@ Foreman::Action::PythonEngine::~PythonEngine()
 
 bool Foreman::Action::PythonEngine::compile(Script* script, Error* err)
 {
-  PythonScript *pyScript = dynamic_cast<PythonScript *>(script);
+  PythonScript* pyScript = dynamic_cast<PythonScript*>(script);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
     return false;
   }
 
@@ -63,13 +64,75 @@ bool Foreman::Action::PythonEngine::compile(Script* script, Error* err)
 // run
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonEngine::run(const Script* script, const Parameters* params, Parameters* results, Error* error) const
+bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params, Parameters* results, Error* err)
 {
+  // See :
+  // 5. Embedding Python in Another Application¶
+  // https://docs.python.org/2.7/extending/embedding.html#embedding-python-in-another-application
+
+  PythonScript* pyScript = dynamic_cast<PythonScript*>(script);
+  if (!pyScript) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
+    return false;
+  }
+
+  // TODO : Remove the mutex lock
   lock();
 
+  if (!pyScript->isCompiled()) {
+    if (!pyScript->compile(err)) {
+      setLastDetailError(err);
+      return false;
+    }
+  }
+
+  // Set input parameters
+
+  PythonParameters pInParams;
+  if (!pInParams.set(params)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
+    return false;
+  }
+
+  // Set outnput parameters
+
+  PythonParameters pOutParams;
+
+  // Exec script
+
+  PyObject* pArgs = PyTuple_New(2);
+  if (!pArgs) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
+    return false;
+  }
+
+  PyTuple_SetItem(pArgs, 0, pInParams.getPyObject());
+  PyTuple_SetItem(pArgs, 1, pOutParams.getPyObject());
+
+  PyObject* pResults = PyObject_CallObject(pyScript->getFuncObject(), pArgs);
+  if (!pResults) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
+    Py_DECREF(pArgs);
+    return false;
+  }
+
+  if (!pOutParams.get(results)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    setLastDetailError(err);
+    Py_DECREF(pArgs);
+    return false;
+  }
+
+  Py_DECREF(pArgs);
+
+  // TODO : Remove the mutex lock
   unlock();
 
-  return false;
+  return true;
 }
 
 ////////////////////////////////////////////////

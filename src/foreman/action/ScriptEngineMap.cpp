@@ -43,7 +43,7 @@ void Foreman::Action::ScriptEngineMap::clear()
     if (script)
       delete script;
   }
-  
+
   std::map<std::string, ScriptEngine*>::clear();
 }
 
@@ -67,4 +67,3 @@ Foreman::Action::ScriptEngine* Foreman::Action::ScriptEngineMap::getEngine(const
     return NULL;
   return engineIt->second;
 }
-

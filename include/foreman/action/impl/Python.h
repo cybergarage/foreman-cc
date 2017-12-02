@@ -30,9 +30,58 @@ namespace Foreman {
 namespace Action {
 
   ////////////////////////////////////////////////
-  // PtyhonScript
+  // PythonParameter
   ////////////////////////////////////////////////
   
+  class PythonParameter {
+  public:
+    PythonParameter();
+    ~PythonParameter();
+    
+    bool set(const Parameter* param);
+    bool get(Parameter* param);
+    
+    bool equals(const Parameter* param);
+    
+    PyObject* getPyObject()
+    {
+      return obj_;
+    }
+    
+  private:
+    bool clear();
+    
+  private:
+    PyObject* obj_;
+  };
+
+  ////////////////////////////////////////////////
+  // PythonParameters
+  ////////////////////////////////////////////////
+
+  class PythonParameters {
+public:
+    PythonParameters();
+    ~PythonParameters();
+
+    bool set(const Parameters* params);
+    bool get(Parameters* params);
+
+    bool equals(const Parameters* params);
+
+    PyObject* getPyObject()
+    {
+      return dict_;
+    }
+
+private:
+    PyObject* dict_;
+  };
+
+  ////////////////////////////////////////////////
+  // PythonScript
+  ////////////////////////////////////////////////
+
   class PythonScript : public Script {
 public:
     PythonScript();
@@ -43,6 +92,16 @@ public:
     bool compile(Error* error);
     bool isCompiled() const;
 
+    PyObject* getModuleObject()
+    {
+      return module_;
+    }
+
+    PyObject* getFuncObject()
+    {
+      return func_;
+    }
+
 private:
     PyObject* module_;
     PyObject* func_;
@@ -51,7 +110,7 @@ private:
   ////////////////////////////////////////////////
   // PythonEngine
   ////////////////////////////////////////////////
-  
+
   class PythonEngine : public ScriptEngine {
 
 public:
@@ -63,7 +122,7 @@ public:
     ~PythonEngine();
 
     bool compile(Script* script, Error* error);
-    bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const;
+    bool run(Script* script, const Parameters* params, Parameters* results, Error* error);
 
 private:
     bool setLastDetailError(Error* error) const;

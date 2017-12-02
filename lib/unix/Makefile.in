@@ -148,6 +148,8 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
 	../../src/foreman/action/impl/LuaEngine.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonEngine.$(OBJEXT) \
+	../../src/foreman/action/impl/PythonParameter.$(OBJEXT) \
+	../../src/foreman/action/impl/PythonParameters.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonScript.$(OBJEXT) \
 	../../src/foreman/action/Parameter.$(OBJEXT) \
 	../../src/foreman/action/Parameters.$(OBJEXT) \
@@ -368,6 +370,8 @@ foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
 	../../src/foreman/action/impl/LuaEngine.cpp \
 	../../src/foreman/action/impl/PythonEngine.cpp \
+	../../src/foreman/action/impl/PythonParameter.cpp \
+	../../src/foreman/action/impl/PythonParameters.cpp \
 	../../src/foreman/action/impl/PythonScript.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
@@ -519,6 +523,12 @@ clean-libLIBRARIES:
 	../../src/foreman/action/impl/$(am__dirstamp) \
 	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/impl/PythonEngine.$(OBJEXT):  \
+	../../src/foreman/action/impl/$(am__dirstamp) \
+	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/PythonParameter.$(OBJEXT):  \
+	../../src/foreman/action/impl/$(am__dirstamp) \
+	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/PythonParameters.$(OBJEXT):  \
 	../../src/foreman/action/impl/$(am__dirstamp) \
 	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/impl/PythonScript.$(OBJEXT):  \
@@ -813,6 +823,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/LuaEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonEngine.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonParameter.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonParameters.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonScript.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameter_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameters_c.Po@am__quote@
