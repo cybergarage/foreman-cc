@@ -22,15 +22,20 @@
 namespace Foreman {
 namespace Action {
 
+  ////////////////////////////////////////////////
+  // Script
+  ////////////////////////////////////////////////
+  
   class Script {
 public:
     static const int ENCODING_NONE;
     static const int ENCODING_BASE64;
 
 public:
+    static Script* CreateScript(const std::string& lang);
+
+public:
     Script(const std::string& lang);
-    Script(const std::string& lang, const std::string& name, const std::string& code);
-    Script(const std::string& lang, const std::string& name, const byte* code, size_t codeLen);
 
     virtual ~Script();
 
@@ -39,9 +44,9 @@ public:
       return this->language;
     }
 
-    bool isLanguage(const std::string& language) const
+    bool isLanguage(const std::string& lang) const
     {
-      return (this->language.compare(language) == 0) ? true : false;
+      return (this->language.compare(lang) == 0) ? true : false;
     }
 
     bool setName(const std::string& name)
@@ -50,9 +55,9 @@ public:
       return true;
     }
 
-    const std::string& getName() const
+    const char* getName() const
     {
-      return this->name;
+      return this->name.c_str();
     }
 
     const bool hasName() const
@@ -127,6 +132,10 @@ private:
     int codeEncoding;
   };
 
+  ////////////////////////////////////////////////
+  // ScriptMap
+  ////////////////////////////////////////////////
+  
   class ScriptMap : public std::map<std::string, Script*> {
 
 public:
@@ -134,7 +143,7 @@ public:
     virtual ~ScriptMap();
 
     bool hasScript(const std::string& name) const;
-    const Script* getScript(const std::string& name) const;
+    Script* getScript(const std::string& name);
 
     void clear();
   };
@@ -144,6 +153,10 @@ public:
     ScriptEngineStatusBadRequest = 400,
   };
 
+  ////////////////////////////////////////////////
+  // ScriptEngine
+  ////////////////////////////////////////////////
+  
   class ScriptEngine {
 
 public:
@@ -155,7 +168,7 @@ public:
       return this->language;
     }
 
-    virtual bool compile(const Script* script) const = 0;
+    virtual bool compile(Script* script, Error* error) = 0;
     virtual bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const = 0;
 
     void lock() const
@@ -176,6 +189,10 @@ private:
     mutable Mutex mutex;
   };
 
+  ////////////////////////////////////////////////
+  // ScriptEngineMap
+  ////////////////////////////////////////////////
+  
   class ScriptEngineMap : public std::map<std::string, ScriptEngine*> {
 
 public:
@@ -183,7 +200,7 @@ public:
     virtual ~ScriptEngineMap();
 
     bool hasEngine(const std::string& lang) const;
-    const ScriptEngine* getEngine(const std::string& lang) const;
+    ScriptEngine* getEngine(const std::string& lang);
 
     void clear();
 
@@ -191,6 +208,10 @@ private:
     void init();
   };
 
+  ////////////////////////////////////////////////
+  // ScriptManager
+  ////////////////////////////////////////////////
+  
   class ScriptManager {
 
 public:

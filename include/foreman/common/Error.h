@@ -16,10 +16,10 @@
 namespace Foreman {
 
 #define FOREMANCC_ERROR_SET_ERRORNO(err, errcode) \
-  {                                             \
-    err->setFileName(__FILE__);                 \
-    err->setLineNo(__LINE__);                   \
-    err->setFuncName(__PRETTY_FUNCTION__);      \
+  {                                               \
+    err->setFileName(__FILE__);                   \
+    err->setLineNo(__LINE__);                     \
+    err->setFuncName(__PRETTY_FUNCTION__);        \
     err->setErrorNo(errcode);                     \
   }
 

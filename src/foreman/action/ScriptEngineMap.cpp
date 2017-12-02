@@ -10,6 +10,10 @@
 
 #include <foreman/action/Script.h>
 
+////////////////////////////////////////////////
+// ScriptEngineMap
+////////////////////////////////////////////////
+
 Foreman::Action::ScriptEngineMap::ScriptEngineMap()
 {
   init();
@@ -20,22 +24,17 @@ Foreman::Action::ScriptEngineMap::~ScriptEngineMap()
   clear();
 }
 
+////////////////////////////////////////////////
+// init
+////////////////////////////////////////////////
+
 void Foreman::Action::ScriptEngineMap::init()
 {
 }
 
-bool Foreman::Action::ScriptEngineMap::hasEngine(const std::string& lang) const
-{
-  return (find(lang) != end()) ? true : false;
-}
-
-const Foreman::Action::ScriptEngine* Foreman::Action::ScriptEngineMap::getEngine(const std::string& lang) const
-{
-  ScriptEngineMap::const_iterator engineIt = find(lang);
-  if (engineIt == end())
-    return NULL;
-  return engineIt->second;
-}
+////////////////////////////////////////////////
+// clear
+////////////////////////////////////////////////
 
 void Foreman::Action::ScriptEngineMap::clear()
 {
@@ -44,6 +43,28 @@ void Foreman::Action::ScriptEngineMap::clear()
     if (script)
       delete script;
   }
-
+  
   std::map<std::string, ScriptEngine*>::clear();
 }
+
+////////////////////////////////////////////////
+// hasEngine
+////////////////////////////////////////////////
+
+bool Foreman::Action::ScriptEngineMap::hasEngine(const std::string& lang) const
+{
+  return (find(lang) != end()) ? true : false;
+}
+
+////////////////////////////////////////////////
+// getEngine
+////////////////////////////////////////////////
+
+Foreman::Action::ScriptEngine* Foreman::Action::ScriptEngineMap::getEngine(const std::string& lang)
+{
+  ScriptEngineMap::iterator engineIt = find(lang);
+  if (engineIt == end())
+    return NULL;
+  return engineIt->second;
+}
+

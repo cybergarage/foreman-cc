@@ -70,11 +70,14 @@
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
-		217303B41FC841A8000B0ECE /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 217303B21FC841A7000B0ECE /* Lua.h */; };
-		217303B51FC841A8000B0ECE /* Python.h in Headers */ = {isa = PBXBuildFile; fileRef = 217303B31FC841A8000B0ECE /* Python.h */; };
 		217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B61FC841BF000B0ECE /* LuaEngine.cpp */; };
 		217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B91FC841DF000B0ECE /* PythonEngine.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
+		21841B7E1FD24D9E00CE59C8 /* Script.h in Headers */ = {isa = PBXBuildFile; fileRef = 21841B7C1FD24D9E00CE59C8 /* Script.h */; };
+		21841B7F1FD24D9E00CE59C8 /* Parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 21841B7D1FD24D9E00CE59C8 /* Parameter.h */; };
+		21841B831FD24DB800CE59C8 /* Python.h in Headers */ = {isa = PBXBuildFile; fileRef = 21841B811FD24DB800CE59C8 /* Python.h */; };
+		21841B841FD24DB800CE59C8 /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 21841B821FD24DB800CE59C8 /* Lua.h */; };
+		21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B861FD286A300CE59C8 /* PythonScript.cpp */; };
 		2187B6CB1FC5ACA800E2234D /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C41FC5ACA800E2234D /* Script.cpp */; };
 		2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */; };
 		2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */; };
@@ -82,8 +85,6 @@
 		2187B6CF1FC5ACA800E2234D /* ScriptEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C81FC5ACA800E2234D /* ScriptEngine.cpp */; };
 		2187B6D01FC5ACA800E2234D /* ScriptMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */; };
 		2187B6D11FC5ACA800E2234D /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6CA1FC5ACA800E2234D /* Parameters.cpp */; };
-		2187B6D51FC5ACD800E2234D /* Script.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6D31FC5ACD800E2234D /* Script.h */; };
-		2187B6D61FC5ACD800E2234D /* Parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6D41FC5ACD800E2234D /* Parameter.h */; };
 		2187B6DD1FC5B28B00E2234D /* Mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 2187B6DC1FC5B28B00E2234D /* Mutex.h */; };
 		2187B6DF1FC5B2DD00E2234D /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6DE1FC5B2DC00E2234D /* Mutex.cpp */; };
 		2188DBE41FB00AEE00940208 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE01FB00AEE00940208 /* Query.h */; };
@@ -177,11 +178,14 @@
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
-		217303B21FC841A7000B0ECE /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = ../action/impl/Lua.h; sourceTree = "<group>"; };
-		217303B31FC841A8000B0ECE /* Python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Python.h; path = ../action/impl/Python.h; sourceTree = "<group>"; };
 		217303B61FC841BF000B0ECE /* LuaEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngine.cpp; path = action/impl/LuaEngine.cpp; sourceTree = "<group>"; };
 		217303B91FC841DF000B0ECE /* PythonEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngine.cpp; path = action/impl/PythonEngine.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		21841B7C1FD24D9E00CE59C8 /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Script.h; path = ../action/Script.h; sourceTree = "<group>"; };
+		21841B7D1FD24D9E00CE59C8 /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameter.h; path = ../action/Parameter.h; sourceTree = "<group>"; };
+		21841B811FD24DB800CE59C8 /* Python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Python.h; path = ../../action/impl/Python.h; sourceTree = "<group>"; };
+		21841B821FD24DB800CE59C8 /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = ../../action/impl/Lua.h; sourceTree = "<group>"; };
+		21841B861FD286A300CE59C8 /* PythonScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonScript.cpp; path = action/impl/PythonScript.cpp; sourceTree = "<group>"; };
 		2187B6C41FC5ACA800E2234D /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Script.cpp; path = action/Script.cpp; sourceTree = "<group>"; };
 		2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineMap.cpp; path = action/ScriptEngineMap.cpp; sourceTree = "<group>"; };
 		2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptManager.cpp; path = action/ScriptManager.cpp; sourceTree = "<group>"; };
@@ -189,8 +193,6 @@
 		2187B6C81FC5ACA800E2234D /* ScriptEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngine.cpp; path = action/ScriptEngine.cpp; sourceTree = "<group>"; };
 		2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptMap.cpp; path = action/ScriptMap.cpp; sourceTree = "<group>"; };
 		2187B6CA1FC5ACA800E2234D /* Parameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parameters.cpp; path = action/Parameters.cpp; sourceTree = "<group>"; };
-		2187B6D31FC5ACD800E2234D /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Script.h; path = ../action/Script.h; sourceTree = "<group>"; };
-		2187B6D41FC5ACD800E2234D /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameter.h; path = ../action/Parameter.h; sourceTree = "<group>"; };
 		2187B6DC1FC5B28B00E2234D /* Mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mutex.h; sourceTree = "<group>"; };
 		2187B6DE1FC5B2DC00E2234D /* Mutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mutex.cpp; path = util/Mutex.cpp; sourceTree = "<group>"; };
 		2188DBE01FB00AEE00940208 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = registry/Query.h; sourceTree = "<group>"; };
@@ -423,19 +425,11 @@
 			path = ../../../src/beringei;
 			sourceTree = "<group>";
 		};
-		217303B11FC84187000B0ECE /* impl */ = {
-			isa = PBXGroup;
-			children = (
-				217303B21FC841A7000B0ECE /* Lua.h */,
-				217303B31FC841A8000B0ECE /* Python.h */,
-			);
-			name = impl;
-			sourceTree = "<group>";
-		};
 		217303B81FC841C9000B0ECE /* impl */ = {
 			isa = PBXGroup;
 			children = (
 				217303B91FC841DF000B0ECE /* PythonEngine.cpp */,
+				21841B861FD286A300CE59C8 /* PythonScript.cpp */,
 				217303B61FC841BF000B0ECE /* LuaEngine.cpp */,
 			);
 			name = impl;
@@ -453,7 +447,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				2187B6D21FC5ACC300E2234D /* action */,
+				21841B7B1FD24D7A00CE59C8 /* action */,
 				2188DBDF1FB00ADF00940208 /* registry */,
 				215DB2771FAAD69B0089A36B /* common */,
 				216A5AEB1F9C59830092272A /* util */,
@@ -492,6 +486,26 @@
 			path = ../../../src/foreman;
 			sourceTree = "<group>";
 		};
+		21841B7B1FD24D7A00CE59C8 /* action */ = {
+			isa = PBXGroup;
+			children = (
+				21841B801FD24DA200CE59C8 /* impl */,
+				21841B7D1FD24D9E00CE59C8 /* Parameter.h */,
+				21841B7C1FD24D9E00CE59C8 /* Script.h */,
+			);
+			name = action;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		21841B801FD24DA200CE59C8 /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				21841B821FD24DB800CE59C8 /* Lua.h */,
+				21841B811FD24DB800CE59C8 /* Python.h */,
+			);
+			path = impl;
+			sourceTree = "<group>";
+		};
 		2187B6C31FC5AC9000E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,17 +519,6 @@
 				2187B6C91FC5ACA800E2234D /* ScriptMap.cpp */,
 			);
 			name = action;
-			sourceTree = "<group>";
-		};
-		2187B6D21FC5ACC300E2234D /* action */ = {
-			isa = PBXGroup;
-			children = (
-				217303B11FC84187000B0ECE /* impl */,
-				2187B6D41FC5ACD800E2234D /* Parameter.h */,
-				2187B6D31FC5ACD800E2234D /* Script.h */,
-			);
-			name = action;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2188DBDF1FB00ADF00940208 /* registry */ = {
@@ -593,9 +596,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21841B841FD24DB800CE59C8 /* Lua.h in Headers */,
 				2187B6DD1FC5B28B00E2234D /* Mutex.h in Headers */,
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
-				2187B6D51FC5ACD800E2234D /* Script.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
 				215573C21EA1DBE90083A51C /* HttpClient.h in Headers */,
 				2188DBE41FB00AEE00940208 /* Query.h in Headers */,
@@ -603,18 +606,17 @@
 				21ABA0AB1FB0871000982715 /* MatrixStore.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
-				217303B51FC841A8000B0ECE /* Python.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
+				21841B7F1FD24D9E00CE59C8 /* Parameter.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
 				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
 				21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
+				21841B7E1FD24D9E00CE59C8 /* Script.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
-				217303B41FC841A8000B0ECE /* Lua.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
-				2187B6D61FC5ACD800E2234D /* Parameter.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
@@ -623,6 +625,7 @@
 				21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */,
 				2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */,
 				2188DBE61FB00AEE00940208 /* Store.h in Headers */,
+				21841B831FD24DB800CE59C8 /* Python.h in Headers */,
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
 				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
 				21ABA0A21FB07ABD00982715 /* SQLiteStore.h in Headers */,
@@ -744,6 +747,7 @@
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				21216A981FB475EE00C900D4 /* objects_c.cpp in Sources */,
+				21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
