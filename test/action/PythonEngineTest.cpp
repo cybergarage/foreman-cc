@@ -26,15 +26,24 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
 BOOST_AUTO_TEST_CASE(PythonParameters)
 {
+  Py_Initialize();
+
   Foreman::Action::Parameters params;
+
+  Foreman::Action::Integer* iParam = new Foreman::Action::Integer();
+  iParam->setName("iparam");
+  iParam->setValue(1);
+  params.addParameter(iParam);
 
   Foreman::Action::PythonParameters pyInParams;
   BOOST_CHECK(pyInParams.set(&params));
   BOOST_CHECK(pyInParams.equals(&params));
 
-  Foreman::Action::PythonParameters pyOutParams;
-  BOOST_CHECK(pyOutParams.get(&params));
-  BOOST_CHECK(pyOutParams.equals(&params));
+  Foreman::Action::Parameters pyOutParams;
+  BOOST_CHECK(pyInParams.get(&params));
+  BOOST_CHECK(pyInParams.equals(&pyOutParams));
+
+  Py_Finalize();
 }
 
 #endif
