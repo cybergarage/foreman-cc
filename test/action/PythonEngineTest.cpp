@@ -30,10 +30,29 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
 
   Foreman::Action::Parameters params;
 
-  Foreman::Action::Integer* iParam = new Foreman::Action::Integer();
+  // Integer
+  auto iParam = new Foreman::Action::Integer();
   iParam->setName("iparam");
   iParam->setValue(1);
   params.addParameter(iParam);
+
+  // Real
+  auto rParam = new Foreman::Action::Real();
+  rParam->setName("rparam");
+  rParam->setValue(10.0);
+  params.addParameter(rParam);
+
+  // Bool
+  auto bParam = new Foreman::Action::Bool();
+  bParam->setName("bparam");
+  bParam->setValue(true);
+  params.addParameter(bParam);
+
+  // String
+  auto sParam = new Foreman::Action::String();
+  sParam->setName("sparam");
+  sParam->setValue("svalue");
+  params.addParameter(sParam);
 
   Foreman::Action::PythonParameters pyInParams;
   BOOST_CHECK(pyInParams.set(&params));
