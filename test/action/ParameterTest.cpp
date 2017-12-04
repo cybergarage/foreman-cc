@@ -19,16 +19,16 @@ BOOST_AUTO_TEST_SUITE(action)
 BOOST_AUTO_TEST_CASE(NewParameter)
 {
   Integer ivalue;
-  BOOST_CHECK(ivalue.isInterger());
+  BOOST_CHECK(ivalue.isInteger());
 
   Real rvalue;
-  BOOST_CHECK(ivalue.isReal());
+  BOOST_CHECK(rvalue.isReal());
 
   String svalue;
   BOOST_CHECK(svalue.isString());
 
   Bool bvalue;
-  BOOST_CHECK(ivalue.isBool());
+  BOOST_CHECK(bvalue.isBool());
 }
 
 BOOST_AUTO_TEST_SUITE_END()

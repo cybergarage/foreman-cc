@@ -32,26 +32,35 @@ namespace Action {
   ////////////////////////////////////////////////
   // PythonParameter
   ////////////////////////////////////////////////
-  
-  class PythonParameter {
-  public:
+
+  class PythonParameter : public Parameter {
+public:
     PythonParameter();
     ~PythonParameter();
-    
+
+    bool setName(const std::string& name)
+    {
+      Parameter::setName(name);
+      return true;
+    }
+
+    bool setName(PyObject* pyObj);
+    bool setValue(PyObject* pyObj);
+
     bool set(const Parameter* param);
-    bool get(Parameter* param);
-    
+    bool get(Parameter** param);
+
     bool equals(const Parameter* param);
-    
+
     PyObject* getPyObject()
     {
       return obj_;
     }
-    
-  private:
+
+private:
     bool clear();
-    
-  private:
+
+private:
     PyObject* obj_;
   };
 
