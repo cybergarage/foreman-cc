@@ -19,7 +19,7 @@ using namespace Foreman::Action;
 
 ForemanActionParameter* foreman_action_parameter_new()
 {
-  return new Parameter();
+  return NULL;
 }
 
 ////////////////////////////////////////////////

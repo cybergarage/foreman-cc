@@ -16,8 +16,9 @@ using namespace Foreman::Action;
 // Parameter
 ////////////////////////////////////////////////
 
-Parameter::Parameter()
+Parameter::Parameter(ParameterType type)
 {
+  type_ = type;
 }
 
 Parameter::~Parameter() {}
