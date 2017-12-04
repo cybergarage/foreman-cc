@@ -28,8 +28,6 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
 {
   Foreman::Action::Parameters params;
 
-  //params.addParameter("")
-
   Foreman::Action::PythonParameters pyInParams;
   BOOST_CHECK(pyInParams.set(&params));
   BOOST_CHECK(pyInParams.equals(&params));
