@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/registry/registry-c.h>
 #include <foreman/registry/impl/StoreImpl.h>
+#include <foreman/registry/registry-c.h>
 
 using namespace Foreman::Registry;
 

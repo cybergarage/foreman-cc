@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/action/action-c.h>
 #include <foreman/action/Script.h>
+#include <foreman/action/action-c.h>
 #include <foreman/action/impl/ScriptImpl.h>
 
 using namespace Foreman::Action;
