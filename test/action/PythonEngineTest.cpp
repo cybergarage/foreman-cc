@@ -47,17 +47,20 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
   bParam->setName("bparam");
   bParam->setValue(true);
   params.addParameter(bParam);
-
+  
   // String
   auto sParam = new Foreman::Action::String();
   sParam->setName("sparam");
   sParam->setValue("svalue");
   params.addParameter(sParam);
 
+
+  // Set
   Foreman::Action::PythonParameters pyInParams;
   BOOST_CHECK(pyInParams.set(&params));
   BOOST_CHECK(pyInParams.equals(&params));
 
+  // Get  
   Foreman::Action::Parameters pyOutParams;
   BOOST_CHECK(pyInParams.get(&params));
   BOOST_CHECK(pyInParams.equals(&pyOutParams));

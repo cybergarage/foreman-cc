@@ -35,11 +35,20 @@ PythonParameter::~PythonParameter()
 bool PythonParameter::clear()
 {
   if (this->obj_) {
-    Py_DECREF(this->obj_);
+    Py_XDECREF(this->obj_);
     this->obj_ = NULL;
   }
-
   return true;
+}
+
+////////////////////////////////////////////////
+// getPyObject
+////////////////////////////////////////////////
+
+PyObject* PythonParameter::getPyObject() const
+{
+  Py_XINCREF(this->obj_);
+  return this->obj_;
 }
 
 ////////////////////////////////////////////////

@@ -52,10 +52,7 @@ public:
 
     bool equals(const Parameter* param);
 
-    PyObject* getPyObject()
-    {
-      return obj_;
-    }
+    PyObject* getPyObject() const;
 
 private:
     bool clear();
