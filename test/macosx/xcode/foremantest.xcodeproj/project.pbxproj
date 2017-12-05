@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */; };
+		213F999B1FD65EEA00A84EB2 /* ScriptManagerTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 213F99991FD65EE800A84EB2 /* ScriptManagerTestController.cpp */; };
 		215DB2801FAAD7000089A36B /* ErrorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB27F1FAAD7000089A36B /* ErrorTest.cpp */; };
 		215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2891FAB2ED80089A36B /* ClangQueryTest.cpp */; };
 		215DB28E1FAB2ED90089A36B /* ClangMetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB28A1FAB2ED90089A36B /* ClangMetricsTest.cpp */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		2117C4E91FB312DB00F7ACF9 /* UUIDTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UUIDTest.cpp; path = ../../util/UUIDTest.cpp; sourceTree = "<group>"; };
+		213F99991FD65EE800A84EB2 /* ScriptManagerTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptManagerTestController.cpp; path = ../../action/ScriptManagerTestController.cpp; sourceTree = "<group>"; };
+		213F999A1FD65EE900A84EB2 /* ScriptManagerTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptManagerTestController.h; path = ../../action/ScriptManagerTestController.h; sourceTree = "<group>"; };
 		215DB27F1FAAD7000089A36B /* ErrorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ErrorTest.cpp; path = ../../common/ErrorTest.cpp; sourceTree = "<group>"; };
 		215DB2891FAB2ED80089A36B /* ClangQueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangQueryTest.cpp; path = ../../clang/metric/ClangQueryTest.cpp; sourceTree = "<group>"; };
 		215DB28A1FAB2ED90089A36B /* ClangMetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangMetricsTest.cpp; path = ../../clang/metric/ClangMetricsTest.cpp; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 		2187B6D71FC5ACF300E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
+				213F99991FD65EE800A84EB2 /* ScriptManagerTestController.cpp */,
+				213F999A1FD65EE900A84EB2 /* ScriptManagerTestController.h */,
 				217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */,
 				217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */,
 				2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */,
@@ -368,6 +373,7 @@
 				21AF28001FA0A58200DB18AB /* MetricsTest.cpp in Sources */,
 				215DB2C31FAB3C0E0089A36B /* ClangQueryTest.cpp in Sources */,
 				215DB28D1FAB2ED90089A36B /* ClangQueryTest.cpp in Sources */,
+				213F999B1FD65EEA00A84EB2 /* ScriptManagerTestController.cpp in Sources */,
 				2187B6DB1FC5AD0600E2234D /* ScriptTest.cpp in Sources */,
 				2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */,
 				217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */,

@@ -17,6 +17,7 @@ foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/PythonEngineTest.cpp \
+	..//action/ScriptManagerTestController.cpp \
 	..//action/ScriptTest.cpp \
 	..//clang/action/ClangParameterTest.cpp \
 	..//clang/action/ClangScriptManagerTest.cpp \
