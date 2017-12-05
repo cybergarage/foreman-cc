@@ -47,10 +47,16 @@ void ScriptManagerTestController::testHello(ScriptManager* scriptMgr)
 
   Parameters results;
   Error err;
-  BOOST_CHECK(scriptMgr->execMethod(FOREMANCC_SCRIPT_HELLO_ECHO_METHOD, &params, &results, &err));
+  auto isExecuted = scriptMgr->execMethod(FOREMANCC_SCRIPT_HELLO_ECHO_METHOD, &params, &results, &err);
+  BOOST_CHECK(isExecuted);
+  if (!isExecuted)
+    return;
 
   auto echoMsg = results.getParameter(FOREMANCC_SCRIPT_HELLO_ECHO_PARAM_NAME);
   BOOST_CHECK(echoMsg);
+  if (!echoMsg)
+    return;
+  
   BOOST_CHECK(echoMsg->isString());
   auto echoStr = dynamic_cast<const String*>(echoMsg);
   BOOST_CHECK(echoStr);
