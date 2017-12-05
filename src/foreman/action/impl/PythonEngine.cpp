@@ -28,11 +28,12 @@ const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME
 Foreman::Action::PythonEngine::PythonEngine()
     : ScriptEngine(LANGUAGE)
 {
-  Py_Initialize();
-
+  if (!Py_IsInitialized()) {
+    Py_Initialize();
 #if PY_MAJOR_VERSION >= 3
 #else
 #endif
+  }
 }
 
 ////////////////////////////////////////////////
@@ -41,7 +42,9 @@ Foreman::Action::PythonEngine::PythonEngine()
 
 Foreman::Action::PythonEngine::~PythonEngine()
 {
-  Py_Finalize();
+  if (Py_IsInitialized()) {
+    Py_Finalize();
+  }
 }
 
 ////////////////////////////////////////////////
