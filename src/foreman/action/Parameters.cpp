@@ -61,3 +61,16 @@ Parameter* Parameters::getParameter(size_t n)
     return NULL;
   return at(n).get();
 }
+
+////////////////////////////////////////////////
+// getParameter
+////////////////////////////////////////////////
+
+Parameter* Parameters::getParameter(const std::string &name)
+{
+  for(auto param = begin(); param != end(); ++param) {
+    if ((*param)->isName(name))
+      return (*param).get();
+  }
+  return NULL;
+}
