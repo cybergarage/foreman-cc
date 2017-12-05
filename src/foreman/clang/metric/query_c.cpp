@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/foreman-c.h>
+#include <foreman/metric/metric-c.h>
 #include <foreman/metric/Query.h>
 
 using namespace Foreman::Metric;

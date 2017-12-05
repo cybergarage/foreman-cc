@@ -5264,6 +5264,9 @@ if test "x$ac_cv_lib_lua_main" = xyes; then :
   FOUND_LUA_LIB=yes
 fi
 
+	if  test $FOUND_LUA_LIB = yes ; then
+       	LIBS+="-llua"
+	fi
 	if  test $FOUND_LUA_LIB != yes ; then
 		{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -llua5.2" >&5
 $as_echo_n "checking for main in -llua5.2... " >&6; }

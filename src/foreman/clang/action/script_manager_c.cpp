@@ -8,9 +8,9 @@
  *
  ******************************************************************/
 
+#include <foreman/action/action-c.h>
 #include <foreman/action/Script.h>
 #include <foreman/action/impl/ScriptImpl.h>
-#include <foreman/foreman-c.h>
 
 using namespace Foreman::Action;
 

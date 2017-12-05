@@ -68,6 +68,9 @@
 		216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B751F9C5B8E0092272A /* store_c.cpp */; };
 		216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B771F9C5B8E0092272A /* store_c_factory.cpp */; };
 		216DE7BE1FD692B500475938 /* DefaultScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */; };
+		216DE7C01FD6994800475938 /* common-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 216DE7BF1FD6994800475938 /* common-c.h */; };
+		216DE7C21FD69A1D00475938 /* registry-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 216DE7C11FD69A1C00475938 /* registry-c.h */; };
+		216DE7C41FD69A5900475938 /* metric-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 216DE7C31FD69A5800475938 /* metric-c.h */; };
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
@@ -175,6 +178,9 @@
 		216A5B751F9C5B8E0092272A /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c.cpp; sourceTree = "<group>"; };
 		216A5B771F9C5B8E0092272A /* store_c_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c_factory.cpp; sourceTree = "<group>"; };
 		216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultScriptManager.cpp; path = action/impl/DefaultScriptManager.cpp; sourceTree = "<group>"; };
+		216DE7BF1FD6994800475938 /* common-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "common-c.h"; path = "common/common-c.h"; sourceTree = "<group>"; };
+		216DE7C11FD69A1C00475938 /* registry-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "registry-c.h"; path = "registry/registry-c.h"; sourceTree = "<group>"; };
+		216DE7C31FD69A5800475938 /* metric-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "metric-c.h"; sourceTree = "<group>"; };
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 		215DB2771FAAD69B0089A36B /* common */ = {
 			isa = PBXGroup;
 			children = (
+				216DE7BF1FD6994800475938 /* common-c.h */,
 				2117C4EF1FB342C900F7ACF9 /* Errors.h */,
 				215DB2781FAAD6B20089A36B /* Error.h */,
 			);
@@ -353,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				21ABA0971FB07AB200982715 /* impl */,
+				216DE7C31FD69A5800475938 /* metric-c.h */,
 				216A5ADB1F9C597B0092272A /* DataPoint.h */,
 				216A5ADD1F9C597B0092272A /* Metric.h */,
 				216A5ADE1F9C597B0092272A /* Query.h */,
@@ -507,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				2188DBEA1FB028A300940208 /* impl */,
+				216DE7C11FD69A1C00475938 /* registry-c.h */,
 				2188DBE31FB00AEE00940208 /* Object.h */,
 				2188DBE11FB00AEE00940208 /* Property.h */,
 				2188DBE01FB00AEE00940208 /* Query.h */,
@@ -595,6 +604,7 @@
 				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
+				216DE7C01FD6994800475938 /* common-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
@@ -602,6 +612,7 @@
 				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
 				2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */,
 				21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */,
+				216DE7C21FD69A1D00475938 /* registry-c.h in Headers */,
 				2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */,
 				2188DBE61FB00AEE00940208 /* Store.h in Headers */,
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
@@ -612,6 +623,7 @@
 				21ABA0A31FB07ABD00982715 /* TimeSeries.h in Headers */,
 				215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
+				216DE7C41FD69A5900475938 /* metric-c.h in Headers */,
 				21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
