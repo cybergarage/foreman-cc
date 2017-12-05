@@ -40,8 +40,8 @@ public:
     LuaEngine();
     ~LuaEngine();
 
-    bool compile(const Script* script, Error* error) const;
-    bool run(const Script* script, const Parameters* params, Parameters* results, Error* error) const;
+    bool compile(Script* script, Error* error);
+    bool run(Script* script, const Parameters* params, Parameters* results, Error* error);
 
     bool popString(std::string* result) const;
     bool popError(Error* error) const;

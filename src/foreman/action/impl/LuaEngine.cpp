@@ -44,7 +44,7 @@ Foreman::Action::LuaEngine::~LuaEngine()
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::compile(const Script* luaScript, Error* err) const
+bool Foreman::Action::LuaEngine::compile(Script* luaScript, Error* error)
 {
   const byte* scriptCode = luaScript->getCode();
   int loadingResult = luaL_loadstring(this->luaState, (const char*)scriptCode);
@@ -106,7 +106,7 @@ bool Foreman::Action::LuaEngine::popError(Error* error) const
 // run
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::run(const Script* script, const Parameters* params, Parameters* results, Error* error) const
+bool Foreman::Action::LuaEngine::run(Script* script, const Parameters* params, Parameters* results, Error* error)
 {
   lock();
 
