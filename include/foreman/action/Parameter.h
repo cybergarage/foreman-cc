@@ -50,7 +50,7 @@ public:
       return name_.c_str();
     }
 
-    bool isName(const std::string &name) const
+    bool isName(const std::string& name) const
     {
       return (name_.compare(name) == 0) ? true : false;
     }
@@ -151,7 +151,7 @@ public:
     bool addParameter(std::shared_ptr<Parameter> param);
 
     Parameter* getParameter(size_t n);
-    Parameter* getParameter(const std::string &name);
+    Parameter* getParameter(const std::string& name);
   };
 }
 }

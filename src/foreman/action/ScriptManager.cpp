@@ -27,7 +27,7 @@ Foreman::Action::ScriptManager::~ScriptManager()
 // setScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setScript(Script* script)
+bool Foreman::Action::ScriptManager::addScript(Script* script)
 {
   if (!script)
     return false;
@@ -48,10 +48,10 @@ bool Foreman::Action::ScriptManager::setScript(Script* script)
 }
 
 ////////////////////////////////////////////////
-// setEngine
+// addEngine
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setEngine(ScriptEngine* engine)
+bool Foreman::Action::ScriptManager::addEngine(ScriptEngine* engine)
 {
   if (!engine)
     return false;
@@ -75,7 +75,7 @@ bool Foreman::Action::ScriptManager::setEngine(ScriptEngine* engine)
 // setScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setScript(const std::string& method, const std::string& lang, const std::string& code, int encodeType, Error* err)
+bool Foreman::Action::ScriptManager::addScript(const std::string& method, const std::string& lang, const std::string& code, int encodeType, Error* err)
 {
   ScriptEngine* scriptEngine = this->engines.getEngine(lang);
   if (!scriptEngine) {
@@ -100,7 +100,7 @@ bool Foreman::Action::ScriptManager::setScript(const std::string& method, const 
     return false;
   }
 
-  if (!setScript(script)) {
+  if (!addScript(script)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     delete script;
     return false;

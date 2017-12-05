@@ -77,9 +77,6 @@ bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params
     return false;
   }
 
-  // TODO : Remove the mutex lock
-  lock();
-
   if (!pyScript->isCompiled()) {
     if (!pyScript->compile(err)) {
       setLastDetailError(err);
@@ -120,6 +117,17 @@ bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params
     return false;
   }
 
+  if ((pResults != Py_None) && (pResults != Py_True)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    PyObject* errMsg = PyObject_Repr(pResults);
+    if (errMsg) {
+      err->setDetailMessage(PyString_AsString(errMsg));
+      Py_DECREF(errMsg);
+    }
+    Py_DECREF(pArgs);
+    return false;
+  }
+
   if (!pOutParams.get(results)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
@@ -128,9 +136,6 @@ bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params
   }
 
   Py_DECREF(pArgs);
-
-  // TODO : Remove the mutex lock
-  unlock();
 
   return true;
 }

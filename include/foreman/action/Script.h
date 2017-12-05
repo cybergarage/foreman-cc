@@ -218,8 +218,7 @@ public:
     ScriptManager();
     virtual ~ScriptManager();
 
-    bool setScript(const std::string& method, const std::string& lang, const std::string& script, int encodeType, Error* error);
-    bool setScript(Script* script);
+    bool addScript(Script* script);
 
     bool hasScript(const std::string& name) const
     {
@@ -228,7 +227,7 @@ public:
 
     bool removeScript(const std::string& method, Error* error);
 
-    bool setEngine(ScriptEngine* engine);
+    bool addEngine(ScriptEngine* engine);
 
     bool hasEngine(const std::string& lang) const
     {
@@ -236,6 +235,9 @@ public:
     }
 
     bool execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* error);
+
+private:
+    bool addScript(const std::string& method, const std::string& lang, const std::string& script, int encodeType, Error* error);
 
 private:
     ScriptMap scripts;

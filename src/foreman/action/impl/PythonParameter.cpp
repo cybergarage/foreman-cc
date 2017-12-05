@@ -82,7 +82,7 @@ bool PythonParameter::setValue(PyObject* pyObj)
     setType(BoolType);
     return true;
   }
-  
+
   if (PyInt_Check(pyObj)) {
     this->obj_ = pyObj;
     setType(IntegerType);

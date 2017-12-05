@@ -12,7 +12,7 @@
 
 #include "ScriptManagerTestController.h"
 #include <foreman/action/Script.h>
-#include <foreman/action/impl/Python.h>
+#include <foreman/action/impl/ScriptImpl.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -23,12 +23,6 @@ static const char* PY_ECHO_CODE = "def " FOREMANCC_SCRIPT_HELLO_ECHO_METHOD "(pa
                                   "  for key, value in params.iteritems():\n"
                                   "    results[key] = value\n"
                                   "  return true\n";
-
-BOOST_AUTO_TEST_CASE(PythonEngine)
-{
-  PythonEngine* engine = new PythonEngine();
-  delete engine;
-}
 
 BOOST_AUTO_TEST_CASE(PythonParameters)
 {
@@ -71,6 +65,22 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
   BOOST_CHECK(pyInParams.equals(&pyOutParams));
 
   Py_Finalize();
+}
+
+BOOST_AUTO_TEST_CASE(PythonEngine)
+{
+  Foreman::Action::ScriptManager scriptMgr;
+  Foreman::Action::ScriptManagerTestController testControllerr;
+
+  auto pyEngine = new Foreman::Action::PythonEngine();
+  BOOST_CHECK(scriptMgr.addEngine(pyEngine));
+
+  auto hello = new Foreman::Action::PythonScript();
+  BOOST_CHECK(hello->setName(FOREMANCC_SCRIPT_HELLO_ECHO_METHOD));
+  BOOST_CHECK(hello->setCode(PY_ECHO_CODE));
+  BOOST_CHECK(scriptMgr.addScript(hello));
+
+  testControllerr.run(&scriptMgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
