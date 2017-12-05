@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/action/action-c.h>
 #include <foreman/action/Parameter.h>
+#include <foreman/action/action-c.h>
 
 using namespace Foreman::Action;
 
@@ -112,4 +112,3 @@ bool foreman_action_parameter_setstring(ForemanActionParameter* param, const cha
   paramObj->setValue(value);
   return true;
 }
-

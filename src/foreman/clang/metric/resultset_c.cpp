@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/metric-c.h>
 #include <foreman/metric/ResultSet.h>
+#include <foreman/metric/metric-c.h>
 
 using namespace Foreman::Metric;
 

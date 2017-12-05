@@ -9,12 +9,14 @@
 ##################################################################
 
 foremancc_header = \
+	./foreman/action/action-c.h \
 	./foreman/action/impl/Default.h \
 	./foreman/action/impl/Lua.h \
 	./foreman/action/impl/Python.h \
 	./foreman/action/impl/ScriptImpl.h \
 	./foreman/action/Parameter.h \
 	./foreman/action/Script.h \
+	./foreman/common/common-c.h \
 	./foreman/common/Error.h \
 	./foreman/common/Errors.h \
 	./foreman/Const.h \
@@ -31,6 +33,7 @@ foremancc_header = \
 	./foreman/metric/impl/StoreImpl.h \
 	./foreman/metric/impl/TimeSeries.h \
 	./foreman/metric/impl/TimeSeriesMapStore.h \
+	./foreman/metric/metric-c.h \
 	./foreman/metric/Metric.h \
 	./foreman/metric/Query.h \
 	./foreman/metric/ResultSet.h \
@@ -43,6 +46,7 @@ foremancc_header = \
 	./foreman/registry/Object.h \
 	./foreman/registry/Property.h \
 	./foreman/registry/Query.h \
+	./foreman/registry/registry-c.h \
 	./foreman/registry/Store.h \
 	./foreman/util/Mutex.h \
 	./foreman/util/Util.h \

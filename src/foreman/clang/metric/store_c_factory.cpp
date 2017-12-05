@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/metric-c.h>
 #include <foreman/metric/impl/StoreImpl.h>
+#include <foreman/metric/metric-c.h>
 
 using namespace Foreman::Metric;
 

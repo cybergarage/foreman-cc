@@ -12,7 +12,7 @@
 #define _FOREMANCC_FOREMANC_H_
 
 #include <foreman/action/action-c.h>
-#include <foreman/registry/registry-c.h>
 #include <foreman/metric/metric-c.h>
+#include <foreman/registry/registry-c.h>
 
 #endif
