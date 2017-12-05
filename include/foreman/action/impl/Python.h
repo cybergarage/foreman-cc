@@ -38,12 +38,7 @@ public:
     PythonParameter();
     ~PythonParameter();
 
-    bool setName(const std::string& name)
-    {
-      Parameter::setName(name);
-      return true;
-    }
-
+    bool setName(const std::string& name);
     bool setName(PyObject* pyObj);
     bool setValue(PyObject* pyObj);
 
