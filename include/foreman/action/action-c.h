@@ -27,11 +27,20 @@ extern "C" {
 
 typedef void ForemanActionParameter;
 
-ForemanActionParameter* foreman_action_parameter_new();
+ForemanActionParameter* foreman_action_parameter_integer_new();
+ForemanActionParameter* foreman_action_parameter_real_new();
+ForemanActionParameter* foreman_action_parameter_bool_new();
+ForemanActionParameter* foreman_action_parameter_string_new();
+
 bool foreman_action_parameter_delete(ForemanActionParameter* param);
 
 bool foreman_action_parameter_setname(ForemanActionParameter* param, const char* name);
 bool foreman_action_parameter_getname(ForemanActionParameter* param, const char** name);
+
+bool foreman_action_parameter_setinteger(ForemanActionParameter* param, long value);
+bool foreman_action_parameter_setreal(ForemanActionParameter* param, double value);
+bool foreman_action_parameter_setbool(ForemanActionParameter* param, bool value);
+bool foreman_action_parameter_setstring(ForemanActionParameter* param, const char* value);
 
 ////////////////////////////////////////////////
 // Parameters

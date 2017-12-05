@@ -14,13 +14,6 @@
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(NewActionParameter)
-{
-  ForemanActionParameter* param = foreman_action_parameter_new();
-  BOOST_CHECK(param);
-  BOOST_CHECK(foreman_action_parameter_delete(param));
-}
-
 BOOST_AUTO_TEST_CASE(NewActionParameters)
 {
   ForemanActionParameters* params = foreman_action_parameters_new();
