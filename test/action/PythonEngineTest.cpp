@@ -10,13 +10,19 @@
 
 #include <boost/test/unit_test.hpp>
 
+#include "ScriptManagerTestController.h"
 #include <foreman/action/Script.h>
 #include <foreman/action/impl/Python.h>
+
+#if defined(FOREMAN_SUPPORT_PYTHON)
 
 BOOST_AUTO_TEST_SUITE(action)
 BOOST_AUTO_TEST_SUITE(python)
 
-#if defined(FOREMAN_SUPPORT_PYTHON)
+static const char* PY_ECHO_CODE = "def " FOREMANCC_SCRIPT_HELLO_ECHO_METHOD "(params,results):\n"
+                                  "  for key, value in params.iteritems():\n"
+                                  "    results[key] = value\n"
+                                  "  return true\n";
 
 BOOST_AUTO_TEST_CASE(PythonEngine)
 {
@@ -47,20 +53,19 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
   bParam->setName("bparam");
   bParam->setValue(true);
   params.addParameter(bParam);
-  
+
   // String
   auto sParam = new Foreman::Action::String();
   sParam->setName("sparam");
   sParam->setValue("svalue");
   params.addParameter(sParam);
 
-
   // Set
   Foreman::Action::PythonParameters pyInParams;
   BOOST_CHECK(pyInParams.set(&params));
   BOOST_CHECK(pyInParams.equals(&params));
 
-  // Get  
+  // Get
   Foreman::Action::Parameters pyOutParams;
   BOOST_CHECK(pyInParams.get(&params));
   BOOST_CHECK(pyInParams.equals(&pyOutParams));
@@ -68,7 +73,7 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
   Py_Finalize();
 }
 
-#endif
+BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE_END()
-BOOST_AUTO_TEST_SUITE_END()
+#endif
