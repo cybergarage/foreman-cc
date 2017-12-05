@@ -55,6 +55,16 @@ PyObject* PythonParameter::getPyObject() const
 // setName
 ////////////////////////////////////////////////
 
+bool PythonParameter::setName(const std::string& name)
+{
+  Parameter::setName(name);
+  return true;
+}
+
+////////////////////////////////////////////////
+// setName
+////////////////////////////////////////////////
+
 bool PythonParameter::setName(PyObject* pyObj)
 {
   if (!pyObj)
@@ -167,6 +177,8 @@ bool PythonParameter::set(const Parameter* param)
 
 bool PythonParameter::get(Parameter** param)
 {
+  *param = NULL;
+  
   switch (getType()) {
   case IntegerType: {
     auto iparam = new Integer();
@@ -174,7 +186,6 @@ bool PythonParameter::get(Parameter** param)
       return false;
     iparam->setValue(PyInt_AsLong(this->obj_));
     *param = iparam;
-    return true;
   } break;
   case RealType: {
     auto rparam = new Real();
@@ -182,7 +193,6 @@ bool PythonParameter::get(Parameter** param)
       return false;
     rparam->setValue(PyFloat_AsDouble(this->obj_));
     *param = rparam;
-    return true;
   } break;
   case BoolType: {
     auto bparam = new Bool();
@@ -191,7 +201,6 @@ bool PythonParameter::get(Parameter** param)
     auto bvalue = (this->obj_ == Py_True) ? true : false;
     bparam->setValue(bvalue);
     *param = bparam;
-    return true;
   } break;
   case StringType: {
     auto sparam = new String();
@@ -199,13 +208,17 @@ bool PythonParameter::get(Parameter** param)
       return false;
     sparam->setValue(PyString_AsString(this->obj_));
     *param = sparam;
-    return true;
   } break;
   default:
     return false;
   }
 
-  return false;
+  if (!(*param))
+    return false;
+
+  (*param)->setName(getName());
+  
+  return true;
 }
 
 ////////////////////////////////////////////////
