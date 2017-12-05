@@ -11,6 +11,8 @@
 #ifndef _FOREMANCC_ACTION_SCRIPTIMPL_H_
 #define _FOREMANCC_ACTION_SCRIPTIMPL_H_
 
+#include <foreman/action/impl/Default.h>
+
 #include <foreman/action/impl/Lua.h>
 #include <foreman/action/impl/Python.h>
 

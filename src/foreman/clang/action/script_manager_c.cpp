@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <foreman/action/Script.h>
+#include <foreman/action/impl/ScriptImpl.h>
 #include <foreman/foreman-c.h>
 
 using namespace Foreman::Action;
@@ -19,7 +20,7 @@ using namespace Foreman::Action;
 
 ForemanActionScriptManager* foreman_action_script_manager_new()
 {
-  return new ScriptManager();
+  return new DefaultScriptManager();
 }
 
 ////////////////////////////////////////////////

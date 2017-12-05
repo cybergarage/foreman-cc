@@ -56,7 +56,7 @@ void ScriptManagerTestController::testHello(ScriptManager* scriptMgr)
   BOOST_CHECK(echoMsg);
   if (!echoMsg)
     return;
-  
+
   BOOST_CHECK(echoMsg->isString());
   auto echoStr = dynamic_cast<const String*>(echoMsg);
   BOOST_CHECK(echoStr);

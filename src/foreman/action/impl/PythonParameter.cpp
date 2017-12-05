@@ -178,7 +178,7 @@ bool PythonParameter::set(const Parameter* param)
 bool PythonParameter::get(Parameter** param)
 {
   *param = NULL;
-  
+
   switch (getType()) {
   case IntegerType: {
     auto iparam = new Integer();
@@ -217,7 +217,7 @@ bool PythonParameter::get(Parameter** param)
     return false;
 
   (*param)->setName(getName());
-  
+
   return true;
 }
 

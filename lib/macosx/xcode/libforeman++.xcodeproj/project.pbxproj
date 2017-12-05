@@ -67,6 +67,7 @@
 		216A5B811F9C5B8E0092272A /* resultset_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B731F9C5B8E0092272A /* resultset_c.cpp */; };
 		216A5B831F9C5B8E0092272A /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B751F9C5B8E0092272A /* store_c.cpp */; };
 		216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B771F9C5B8E0092272A /* store_c_factory.cpp */; };
+		216DE7BE1FD692B500475938 /* DefaultScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */; };
 		217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */; };
 		217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */; };
 		217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217109F11E867D2A004B2CF6 /* BitUtil.cpp */; };
@@ -173,6 +174,7 @@
 		216A5B731F9C5B8E0092272A /* resultset_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resultset_c.cpp; sourceTree = "<group>"; };
 		216A5B751F9C5B8E0092272A /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c.cpp; sourceTree = "<group>"; };
 		216A5B771F9C5B8E0092272A /* store_c_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = store_c_factory.cpp; sourceTree = "<group>"; };
+		216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultScriptManager.cpp; path = action/impl/DefaultScriptManager.cpp; sourceTree = "<group>"; };
 		217109EC1E867B1D004B2CF6 /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSeriesStream.h; sourceTree = "<group>"; };
 		217109EF1E867B2A004B2CF6 /* TimeSeriesStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeSeriesStream.cpp; sourceTree = "<group>"; };
 		217109F11E867D2A004B2CF6 /* BitUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitUtil.cpp; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		217303B81FC841C9000B0ECE /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */,
 				21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */,
 				21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */,
 				217303B91FC841DF000B0ECE /* PythonEngine.cpp */,
@@ -695,6 +698,7 @@
 				216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
+				216DE7BE1FD692B500475938 /* DefaultScriptManager.cpp in Sources */,
 				215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */,
 				217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */,
 				2187B6CF1FC5ACA800E2234D /* ScriptEngine.cpp in Sources */,

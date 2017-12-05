@@ -146,6 +146,7 @@ libforeman___a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/beringei/TimeSeriesStream.$(OBJEXT) \
+	../../src/foreman/action/impl/DefaultScriptManager.$(OBJEXT) \
 	../../src/foreman/action/impl/LuaEngine.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonEngine.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonParameter.$(OBJEXT) \
@@ -368,6 +369,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/beringei/TimeSeriesStream.cpp \
+	../../src/foreman/action/impl/DefaultScriptManager.cpp \
 	../../src/foreman/action/impl/LuaEngine.cpp \
 	../../src/foreman/action/impl/PythonEngine.cpp \
 	../../src/foreman/action/impl/PythonParameter.cpp \
@@ -519,6 +521,9 @@ clean-libLIBRARIES:
 ../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/action/impl/$(DEPDIR)
 	@: > ../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/impl/DefaultScriptManager.$(OBJEXT):  \
+	../../src/foreman/action/impl/$(am__dirstamp) \
+	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/impl/LuaEngine.$(OBJEXT):  \
 	../../src/foreman/action/impl/$(am__dirstamp) \
 	../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
@@ -821,6 +826,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngineMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/DefaultScriptManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/LuaEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonParameter.Po@am__quote@
