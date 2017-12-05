@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/foreman-c.h>
+#include <foreman/registry/registry-c.h>
 #include <foreman/registry/Object.h>
 
 using namespace Foreman::Registry;

@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
+#include <foreman/common/common-c.h>
 #include <foreman/common/Error.h>
-#include <foreman/foreman-c.h>
 
 using namespace Foreman;
 
