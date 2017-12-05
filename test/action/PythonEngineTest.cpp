@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_SUITE(python)
 static const char* PY_ECHO_CODE = "def " FOREMANCC_SCRIPT_HELLO_ECHO_METHOD "(params,results):\n"
                                   "  for key, value in params.iteritems():\n"
                                   "    results[key] = value\n"
-                                  "  return true\n";
+                                  "  return True\n";
 
 BOOST_AUTO_TEST_CASE(PythonParameters)
 {
