@@ -15,7 +15,7 @@
 
 #if defined(FOREMAN_SUPPORT_LUA)
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Engine.h>
 #include <string>
 
 extern "C" {
@@ -40,8 +40,8 @@ public:
     LuaEngine();
     ~LuaEngine();
 
-    bool compile(Script* script, Error* error);
-    bool run(Script* script, const Parameters* params, Parameters* results, Error* error);
+    bool compile(Method* method, Error* error);
+    bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
     bool popString(std::string* result) const;
     bool popError(Error* error) const;

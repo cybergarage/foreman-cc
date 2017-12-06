@@ -8,11 +8,8 @@
  *
  ******************************************************************/
 
-#include <boost/algorithm/string/replace.hpp>
-#include <boost/lexical_cast.hpp>
-#include <sstream>
-
-#include <foreman/action/impl/ScriptImpl.h>
+#include <foreman/action/impl/EngineImpl.h>
+#include <foreman/action/impl/ManagerImpl.h>
 
 ////////////////////////////////////////////////
 // DefaultScriptManager

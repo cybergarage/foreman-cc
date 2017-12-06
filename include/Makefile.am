@@ -10,12 +10,14 @@
 
 foremancc_header = \
 	./foreman/action/action-c.h \
-	./foreman/action/impl/Default.h \
+	./foreman/action/Engine.h \
+	./foreman/action/impl/EngineImpl.h \
 	./foreman/action/impl/Lua.h \
+	./foreman/action/impl/ManagerImpl.h \
 	./foreman/action/impl/Python.h \
-	./foreman/action/impl/ScriptImpl.h \
+	./foreman/action/Manager.h \
+	./foreman/action/Method.h \
 	./foreman/action/Parameter.h \
-	./foreman/action/Script.h \
 	./foreman/common/common-c.h \
 	./foreman/common/Error.h \
 	./foreman/common/Errors.h \

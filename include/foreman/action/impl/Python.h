@@ -15,8 +15,7 @@
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
-#include <foreman/action/Script.h>
-#include <string>
+#include <foreman/action/Engine.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 #if defined(HAVE_PYTHON_PYTHON_H)
@@ -80,13 +79,13 @@ private:
   };
 
   ////////////////////////////////////////////////
-  // PythonScript
+  // PythonMethod
   ////////////////////////////////////////////////
 
-  class PythonScript : public Script {
+  class PythonMethod : public Method {
 public:
-    PythonScript();
-    ~PythonScript();
+    PythonMethod();
+    ~PythonMethod();
 
     bool clear();
 
@@ -122,8 +121,8 @@ public:
     PythonEngine();
     ~PythonEngine();
 
-    bool compile(Script* script, Error* error);
-    bool run(Script* script, const Parameters* params, Parameters* results, Error* error);
+    bool compile(Method* method, Error* error);
+    bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
 private:
     bool setLastDetailError(Error* error) const;

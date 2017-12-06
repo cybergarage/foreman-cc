@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_SCRIPT_MANAGERTESTCONTROLLER_H_
 #define _FOREMANCC_SCRIPT_MANAGERTESTCONTROLLER_H_
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Manager.h>
 
 ////////////////////////////////////////////////
 // Constants

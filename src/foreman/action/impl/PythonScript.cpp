@@ -12,17 +12,17 @@
 #include <foreman/common/Errors.h>
 
 ////////////////////////////////////////////////
-// PythonScript
+// PythonMethod
 ////////////////////////////////////////////////
 
-Foreman::Action::PythonScript::PythonScript()
-    : Foreman::Action::Script(Foreman::Action::PythonEngine::LANGUAGE)
+Foreman::Action::PythonMethod::PythonMethod()
+    : Foreman::Action::Method(Foreman::Action::PythonEngine::LANGUAGE)
 {
   module_ = NULL;
   func_ = NULL;
 }
 
-Foreman::Action::PythonScript::~PythonScript()
+Foreman::Action::PythonMethod::~PythonMethod()
 {
   clear();
 }
@@ -31,7 +31,7 @@ Foreman::Action::PythonScript::~PythonScript()
 // clear
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonScript::clear()
+bool Foreman::Action::PythonMethod::clear()
 {
   if (module_) {
     Py_DECREF(module_);
@@ -50,7 +50,7 @@ bool Foreman::Action::PythonScript::clear()
 // isCompiled
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonScript::isCompiled() const
+bool Foreman::Action::PythonMethod::isCompiled() const
 {
   if (!module_ || !func_)
     return false;
@@ -62,14 +62,14 @@ bool Foreman::Action::PythonScript::isCompiled() const
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonScript::compile(Error* err)
+bool Foreman::Action::PythonMethod::compile(Error* err)
 {
   if (!clear()) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  const char* methodName = getName();
+  auto methodName = getName().c_str();
   char moduleName[64];
   snprintf(moduleName, sizeof(moduleName), "%s-%s", PythonEngine::MODULE.c_str(), methodName);
 

@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Engine.h>
 
 ////////////////////////////////////////////////
 // ScriptEngine

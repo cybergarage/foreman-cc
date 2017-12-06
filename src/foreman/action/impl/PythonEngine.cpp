@@ -51,9 +51,9 @@ Foreman::Action::PythonEngine::~PythonEngine()
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonEngine::compile(Script* script, Error* err)
+bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
 {
-  PythonScript* pyScript = dynamic_cast<PythonScript*>(script);
+  PythonMethod* pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
@@ -67,13 +67,13 @@ bool Foreman::Action::PythonEngine::compile(Script* script, Error* err)
 // run
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params, Parameters* results, Error* err)
+bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params, Parameters* results, Error* err)
 {
   // See :
   // 5. Embedding Python in Another Application¶
   // https://docs.python.org/2.7/extending/embedding.html#embedding-python-in-another-application
 
-  PythonScript* pyScript = dynamic_cast<PythonScript*>(script);
+  PythonMethod* pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
@@ -100,7 +100,7 @@ bool Foreman::Action::PythonEngine::run(Script* script, const Parameters* params
 
   PythonParameters pOutParams;
 
-  // Exec script
+  // Exec method
 
   PyObject* pArgs = PyTuple_New(2);
   if (!pArgs) {
