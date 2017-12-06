@@ -21,13 +21,13 @@ foremancc_sources = \
 	../../src/foreman/action/impl/PythonParameter.cpp \
 	../../src/foreman/action/impl/PythonParameters.cpp \
 	../../src/foreman/action/impl/PythonScript.cpp \
+	../../src/foreman/action/Method.cpp \
+	../../src/foreman/action/MethodMap.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
-	../../src/foreman/action/Script.cpp \
 	../../src/foreman/action/ScriptEngine.cpp \
 	../../src/foreman/action/ScriptEngineMap.cpp \
 	../../src/foreman/action/ScriptManager.cpp \
-	../../src/foreman/action/ScriptMap.cpp \
 	../../src/foreman/clang/action/parameter_c.cpp \
 	../../src/foreman/clang/action/parameters_c.cpp \
 	../../src/foreman/clang/action/script_manager_c.cpp \

@@ -152,13 +152,13 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonParameter.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonParameters.$(OBJEXT) \
 	../../src/foreman/action/impl/PythonScript.$(OBJEXT) \
+	../../src/foreman/action/Method.$(OBJEXT) \
+	../../src/foreman/action/MethodMap.$(OBJEXT) \
 	../../src/foreman/action/Parameter.$(OBJEXT) \
 	../../src/foreman/action/Parameters.$(OBJEXT) \
-	../../src/foreman/action/Script.$(OBJEXT) \
 	../../src/foreman/action/ScriptEngine.$(OBJEXT) \
 	../../src/foreman/action/ScriptEngineMap.$(OBJEXT) \
 	../../src/foreman/action/ScriptManager.$(OBJEXT) \
-	../../src/foreman/action/ScriptMap.$(OBJEXT) \
 	../../src/foreman/clang/action/parameter_c.$(OBJEXT) \
 	../../src/foreman/clang/action/parameters_c.$(OBJEXT) \
 	../../src/foreman/clang/action/script_manager_c.$(OBJEXT) \
@@ -375,13 +375,13 @@ foremancc_sources = \
 	../../src/foreman/action/impl/PythonParameter.cpp \
 	../../src/foreman/action/impl/PythonParameters.cpp \
 	../../src/foreman/action/impl/PythonScript.cpp \
+	../../src/foreman/action/Method.cpp \
+	../../src/foreman/action/MethodMap.cpp \
 	../../src/foreman/action/Parameter.cpp \
 	../../src/foreman/action/Parameters.cpp \
-	../../src/foreman/action/Script.cpp \
 	../../src/foreman/action/ScriptEngine.cpp \
 	../../src/foreman/action/ScriptEngineMap.cpp \
 	../../src/foreman/action/ScriptManager.cpp \
-	../../src/foreman/action/ScriptMap.cpp \
 	../../src/foreman/clang/action/parameter_c.cpp \
 	../../src/foreman/clang/action/parameters_c.cpp \
 	../../src/foreman/clang/action/script_manager_c.cpp \
@@ -545,13 +545,16 @@ clean-libLIBRARIES:
 ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/action/$(DEPDIR)
 	@: > ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/Method.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/action/MethodMap.$(OBJEXT):  \
+	../../src/foreman/action/$(am__dirstamp) \
+	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/Parameter.$(OBJEXT):  \
 	../../src/foreman/action/$(am__dirstamp) \
 	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/Parameters.$(OBJEXT):  \
-	../../src/foreman/action/$(am__dirstamp) \
-	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/action/Script.$(OBJEXT):  \
 	../../src/foreman/action/$(am__dirstamp) \
 	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/ScriptEngine.$(OBJEXT):  \
@@ -561,9 +564,6 @@ clean-libLIBRARIES:
 	../../src/foreman/action/$(am__dirstamp) \
 	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/action/ScriptManager.$(OBJEXT):  \
-	../../src/foreman/action/$(am__dirstamp) \
-	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/action/ScriptMap.$(OBJEXT):  \
 	../../src/foreman/action/$(am__dirstamp) \
 	../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/clang/action/$(am__dirstamp):
@@ -819,13 +819,13 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/BitUtil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Method.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/MethodMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Parameter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Parameters.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Script.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptEngineMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptManager.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/ScriptMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/DefaultScriptManager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/LuaEngine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonEngine.Po@am__quote@

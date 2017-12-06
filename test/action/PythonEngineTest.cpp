@@ -11,8 +11,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include "ScriptManagerTestController.h"
-#include <foreman/action/Script.h>
-#include <foreman/action/impl/ScriptImpl.h>
+#include <foreman/action/impl/Python.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -75,10 +74,10 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto pyEngine = new Foreman::Action::PythonEngine();
   BOOST_CHECK(scriptMgr.addEngine(pyEngine));
 
-  auto hello = new Foreman::Action::PythonScript();
+  auto hello = new Foreman::Action::PythonMethod();
   BOOST_CHECK(hello->setName(FOREMANCC_SCRIPT_HELLO_ECHO_METHOD));
   BOOST_CHECK(hello->setCode(PY_ECHO_CODE));
-  BOOST_CHECK(scriptMgr.addScript(hello));
+  BOOST_CHECK(scriptMgr.addMethod(hello));
 
   testControllerr.run(&scriptMgr);
 }

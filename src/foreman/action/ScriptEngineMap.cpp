@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Engine.h>
 
 ////////////////////////////////////////////////
 // ScriptEngineMap
@@ -38,10 +38,10 @@ void Foreman::Action::ScriptEngineMap::init()
 
 void Foreman::Action::ScriptEngineMap::clear()
 {
-  for (ScriptEngineMap::iterator engineIt = begin(); engineIt != end(); engineIt++) {
-    ScriptEngine* script = engineIt->second;
-    if (script)
-      delete script;
+  for (auto engineIt = begin(); engineIt != end(); engineIt++) {
+    auto engine = engineIt->second;
+    if (engine)
+      delete engine;
   }
 
   std::map<std::string, ScriptEngine*>::clear();
@@ -62,7 +62,7 @@ bool Foreman::Action::ScriptEngineMap::hasEngine(const std::string& lang) const
 
 Foreman::Action::ScriptEngine* Foreman::Action::ScriptEngineMap::getEngine(const std::string& lang)
 {
-  ScriptEngineMap::iterator engineIt = find(lang);
+  auto engineIt = find(lang);
   if (engineIt == end())
     return NULL;
   return engineIt->second;

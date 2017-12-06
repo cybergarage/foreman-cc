@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Manager.h>
 #include <foreman/common/Errors.h>
 
 ////////////////////////////////////////////////
@@ -27,22 +27,22 @@ Foreman::Action::ScriptManager::~ScriptManager()
 // setScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addScript(Script* script)
+bool Foreman::Action::ScriptManager::addMethod(Method* method)
 {
-  if (!script)
+  if (!method)
     return false;
 
-  const std::string& name = script->getName();
+  auto name = method->getName();
   if (name.length() <= 0) {
     return false;
   }
 
-  const Script* currentScript = this->scripts.getScript(name);
+  auto currentScript = this->methods.getMethod(name);
   if (currentScript) {
     delete currentScript;
   }
 
-  this->scripts[name] = script;
+  this->methods[name] = method;
 
   return true;
 }
@@ -56,12 +56,12 @@ bool Foreman::Action::ScriptManager::addEngine(ScriptEngine* engine)
   if (!engine)
     return false;
 
-  const std::string& engineLang = engine->getLanguage();
+  auto engineLang = engine->getLanguage();
   if (engineLang.length() <= 0) {
     return false;
   }
 
-  const ScriptEngine* currentEngine = this->engines.getEngine(engineLang);
+  auto currentEngine = this->engines.getEngine(engineLang);
   if (currentEngine) {
     delete currentEngine;
   }
@@ -72,37 +72,39 @@ bool Foreman::Action::ScriptManager::addEngine(ScriptEngine* engine)
 }
 
 ////////////////////////////////////////////////
-// setScript
+// addMethod
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addScript(const std::string& method, const std::string& lang, const std::string& code, int encodeType, Error* err)
+bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, int encodeType, Error* err)
 {
+  if (code.length() <= 0) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    return false;
+  }
+
   ScriptEngine* scriptEngine = this->engines.getEngine(lang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  if (code.length() <= 0)
-    return removeScript(method, err);
-
-  Script* script = Foreman::Action::Script::CreateScript(lang);
-  if (!script) {
+  Method* method = Foreman::Action::Method::CreateMethod(lang);
+  if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
-  script->setName(method);
-  script->setCode(code);
-  script->setEncording(encodeType);
+  method->setName(name);
+  method->setCode(code);
+  method->setEncording(encodeType);
 
-  if (!scriptEngine->compile(script, err)) {
-    delete script;
+  if (!scriptEngine->compile(method, err)) {
+    delete method;
     return false;
   }
 
-  if (!addScript(script)) {
+  if (!addMethod(method)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    delete script;
+    delete method;
     return false;
   }
 
@@ -113,36 +115,36 @@ bool Foreman::Action::ScriptManager::addScript(const std::string& method, const 
 // removeScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::removeScript(const std::string& method, Error* err)
+bool Foreman::Action::ScriptManager::removeMethod(const std::string& name, Error* err)
 {
-  const Script* script = this->scripts.getScript(method);
-  if (!script) {
+  auto method = this->methods.getMethod(name);
+  if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  return (this->scripts.erase(method) == 1) ? true : false;
+  return (this->methods.erase(name) == 1) ? true : false;
 }
 
 bool Foreman::Action::ScriptManager::execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* err)
 {
-  Script* script = this->scripts.getScript(name);
-  if (!script) {
+  auto method = this->methods.getMethod(name);
+  if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  const std::string& scriptLang = script->getLanguage();
+  auto scriptLang = method->getLanguage();
   if (scriptLang.length() <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  ScriptEngine* scriptEngine = this->engines.getEngine(scriptLang);
+  auto scriptEngine = this->engines.getEngine(scriptLang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  return scriptEngine->run(script, params, results, err);
+  return scriptEngine->run(method, params, results, err);
 }

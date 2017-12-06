@@ -8,53 +8,53 @@
  *
  ******************************************************************/
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Method.h>
 
 ////////////////////////////////////////////////
-// ScriptMap
+// MethodMap
 ////////////////////////////////////////////////
 
-Foreman::Action::ScriptMap::ScriptMap()
+Foreman::Action::MethodMap::MethodMap()
 {
 }
 
-Foreman::Action::ScriptMap::~ScriptMap()
+Foreman::Action::MethodMap::~MethodMap()
 {
   clear();
 }
 
 ////////////////////////////////////////////////
-// hasScript
+// hasMethod
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptMap::hasScript(const std::string& name) const
+bool Foreman::Action::MethodMap::hasMethod(const std::string& name) const
 {
   return (find(name) != end()) ? true : false;
 }
 
 ////////////////////////////////////////////////
-// getScript
+// getMethod
 ////////////////////////////////////////////////
 
-Foreman::Action::Script* Foreman::Action::ScriptMap::getScript(const std::string& name)
+Foreman::Action::Method* Foreman::Action::MethodMap::getMethod(const std::string& name)
 {
-  ScriptMap::iterator scriptIt = find(name);
-  if (scriptIt == end())
+  auto methodIt = find(name);
+  if (methodIt == end())
     return NULL;
-  return scriptIt->second;
+  return methodIt->second;
 }
 
 ////////////////////////////////////////////////
 // clear
 ////////////////////////////////////////////////
 
-void Foreman::Action::ScriptMap::clear()
+void Foreman::Action::MethodMap::clear()
 {
-  for (ScriptMap::iterator scriptIt = begin(); scriptIt != end(); scriptIt++) {
-    Script* script = scriptIt->second;
+  for (auto methodIt = begin(); methodIt != end(); methodIt++) {
+    Method* script = methodIt->second;
     if (script) {
       delete script;
     }
   }
-  std::map<std::string, Script*>::clear();
+  std::map<std::string, Method*>::clear();
 }

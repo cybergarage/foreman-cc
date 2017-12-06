@@ -8,10 +8,10 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_ACTION_DEFAULT_H_
-#define _FOREMANCC_ACTION_DEFAULT_H_
+#ifndef _FOREMANCC_ACTION_MANAGERIMPL_H_
+#define _FOREMANCC_ACTION_MANAGERIMPL_H_
 
-#include <foreman/action/Script.h>
+#include <foreman/action/Manager.h>
 
 namespace Foreman {
 namespace Action {

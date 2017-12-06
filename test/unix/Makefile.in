@@ -111,10 +111,10 @@ CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_foremantest_OBJECTS = ..//action/LuaEngineTest.$(OBJEXT) \
+	..//action/MethodTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
 	..//action/PythonEngineTest.$(OBJEXT) \
 	..//action/ScriptManagerTestController.$(OBJEXT) \
-	..//action/ScriptTest.$(OBJEXT) \
 	..//clang/action/ClangParameterTest.$(OBJEXT) \
 	..//clang/action/ClangScriptManagerTest.$(OBJEXT) \
 	..//clang/common/ClangErrorTest.$(OBJEXT) \
@@ -498,10 +498,10 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
+	..//action/MethodTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/PythonEngineTest.cpp \
 	..//action/ScriptManagerTestController.cpp \
-	..//action/ScriptTest.cpp \
 	..//clang/action/ClangParameterTest.cpp \
 	..//clang/action/ClangScriptManagerTest.cpp \
 	..//clang/common/ClangErrorTest.cpp \
@@ -574,14 +574,14 @@ clean-noinstPROGRAMS:
 	@: > ../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
+..//action/MethodTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/PythonEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ScriptManagerTestController.$(OBJEXT):  \
 	../action/$(am__dirstamp) ../action/$(DEPDIR)/$(am__dirstamp)
-..//action/ScriptTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
 ../clang/action/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/action
 	@: > ../clang/action/$(am__dirstamp)
@@ -723,10 +723,10 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/LuaEngineTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/MethodTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/PythonEngineTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptManagerTestController.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@

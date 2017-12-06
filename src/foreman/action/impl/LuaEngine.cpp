@@ -44,7 +44,7 @@ Foreman::Action::LuaEngine::~LuaEngine()
 // compile
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::compile(Script* luaScript, Error* error)
+bool Foreman::Action::LuaEngine::compile(Method* luaScript, Error* error)
 {
   const byte* scriptCode = luaScript->getCode();
   int loadingResult = luaL_loadstring(this->luaState, (const char*)scriptCode);
@@ -106,13 +106,13 @@ bool Foreman::Action::LuaEngine::popError(Error* error) const
 // run
 ////////////////////////////////////////////////
 
-bool Foreman::Action::LuaEngine::run(Script* script, const Parameters* params, Parameters* results, Error* error)
+bool Foreman::Action::LuaEngine::run(Method* method, const Parameters* params, Parameters* results, Error* error)
 {
   lock();
 
   int nStack = lua_gettop(this->luaState);
 
-  if (luaL_loadstring(this->luaState, (const char*)script->getCode()) != 0) {
+  if (luaL_loadstring(this->luaState, (const char*)method->getCode()) != 0) {
     popError(error);
     unlock();
     return false;
@@ -128,7 +128,7 @@ bool Foreman::Action::LuaEngine::run(Script* script, const Parameters* params, P
 
   nStack = lua_gettop(this->luaState);
 
-  lua_getglobal(this->luaState, script->getName());
+  lua_getglobal(this->luaState, method->getName().c_str());
   // FIXME
   //lua_pushstring(this->luaState, params.c_str());
 
