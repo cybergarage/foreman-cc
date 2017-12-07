@@ -102,18 +102,18 @@ public:
       return (0 < this->codeLen) ? true : false;
     }
 
-    bool setEncording(int encoding)
+    bool setEncoding(int encoding)
     {
       this->codeEncoding = encoding;
       return true;
     }
 
-    const bool hasEncording() const
+    const bool hasEncoding() const
     {
       return (0 < this->codeEncoding) ? true : false;
     }
 
-    int getEncording() const
+    int getEncoding() const
     {
       return this->codeEncoding;
     }

@@ -62,7 +62,7 @@ void Foreman::Action::Method::init()
   this->language = "";
   this->code = NULL;
   this->codeLen = 0;
-  setEncording(ENCODING_NONE);
+  setEncoding(ENCODING_NONE);
 }
 
 ////////////////////////////////////////////////
