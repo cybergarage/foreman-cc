@@ -27,13 +27,16 @@ Foreman::Action::ScriptManager::~ScriptManager()
 // setScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addMethod(Method* method)
+bool Foreman::Action::ScriptManager::addMethod(Method* method, Error* err)
 {
-  if (!method)
+  if (!method) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
+  }
 
   auto name = method->getName();
   if (name.length() <= 0) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
   }
 
@@ -102,8 +105,7 @@ bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const st
     return false;
   }
 
-  if (!addMethod(method)) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+  if (!addMethod(method, err)) {
     delete method;
     return false;
   }

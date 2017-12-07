@@ -79,8 +79,8 @@ bool foreman_action_parameters_delete(ForemanActionParameters* params);
 
 size_t foreman_action_parameters_size(ForemanActionParameters* params);
 
-bool foreman_action_parameters_addparamerty(ForemanActionParameters* params, ForemanActionParameter* param);
-ForemanActionParameter* foreman_action_parameters_getparamerty(ForemanActionParameters* params, size_t n);
+bool foreman_action_parameters_addparameter(ForemanActionParameters* params, ForemanActionParameter* param);
+ForemanActionParameter* foreman_action_parameters_getparameter(ForemanActionParameters* params, size_t n);
 
 ////////////////////////////////////////////////
 // ScriptManager
@@ -89,6 +89,7 @@ ForemanActionParameter* foreman_action_parameters_getparamerty(ForemanActionPara
 typedef void ForemanActionScriptManager;
 
 ForemanActionScriptManager* foreman_action_script_manager_new();
+bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod *method, ForemanError* err);
 bool foreman_action_script_manager_excemethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
 
