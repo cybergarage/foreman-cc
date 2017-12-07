@@ -90,7 +90,7 @@ typedef void ForemanActionScriptManager;
 
 ForemanActionScriptManager* foreman_action_script_manager_new();
 bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod *method, ForemanError* err);
-bool foreman_action_script_manager_excemethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
+bool foreman_action_script_manager_execmethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
 
 #ifdef __cplusplus

@@ -47,10 +47,10 @@ bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, Fo
 }
 
 ////////////////////////////////////////////////
-// foreman_action_script_manager_excemethod
+// foreman_action_script_manager_execmethod
 ////////////////////////////////////////////////
 
-bool foreman_action_script_manager_excemethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err)
+bool foreman_action_script_manager_execmethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err)
 {
   if (!mgr || !name || !params || !results || !err)
     return false;
