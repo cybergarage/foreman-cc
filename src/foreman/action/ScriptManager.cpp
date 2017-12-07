@@ -95,7 +95,7 @@ bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const st
   }
   method->setName(name);
   method->setCode(code);
-  method->setEncording(encodeType);
+  method->setEncoding(encodeType);
 
   if (!scriptEngine->compile(method, err)) {
     delete method;

@@ -43,8 +43,9 @@ bool foreman_action_method_getcode(ForemanActionMethod* method, const byte** cod
 bool foreman_action_method_getcodelength(ForemanActionMethod* method, size_t* size);
 bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char** code);
 
-bool foreman_action_method_setencording(ForemanActionMethod* method, int encType);
-bool foreman_action_method_getencording(ForemanActionMethod* method, int* encType);
+bool foreman_action_method_setencoding(ForemanActionMethod* method, int encType);
+bool foreman_action_method_getencoding(ForemanActionMethod* method, int* encType);
+bool foreman_action_method_isbase64encoded(ForemanActionMethod* method);
 
 ////////////////////////////////////////////////
 // Parameter

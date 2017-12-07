@@ -139,24 +139,36 @@ bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char
 }
 
 ////////////////////////////////////////////////
-// foreman_action_method_setencording
+// foreman_action_method_setencoding
 ////////////////////////////////////////////////
 
-bool foreman_action_method_setencording(ForemanActionMethod* method, int encType)
+bool foreman_action_method_setencoding(ForemanActionMethod* method, int encType)
 {
   if (!method)
     return false;
-  return ((Method*)method)->setEncording(encType);
+  return ((Method*)method)->setEncoding(encType);
 }
 
 ////////////////////////////////////////////////
-// foreman_action_method_getencording
+// foreman_action_method_getencoding
 ////////////////////////////////////////////////
 
-bool foreman_action_method_getencording(ForemanActionMethod* method, int* encType)
+bool foreman_action_method_getencoding(ForemanActionMethod* method, int* encType)
 {
   if (!method || !encType)
     return false;
-  *encType = ((Method*)method)->getEncording();
+  *encType = ((Method*)method)->getEncoding();
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_action_method_isbase64encoded
+////////////////////////////////////////////////
+
+bool foreman_action_method_isbase64encoded(ForemanActionMethod* method)
+{
+  if (!method)
+    return false;
+  return ((Method*)method)->isBase64Encoded();
+}
+
