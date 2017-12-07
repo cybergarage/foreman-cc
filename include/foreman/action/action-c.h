@@ -68,6 +68,11 @@ bool foreman_action_parameter_setreal(ForemanActionParameter* param, double valu
 bool foreman_action_parameter_setbool(ForemanActionParameter* param, bool value);
 bool foreman_action_parameter_setstring(ForemanActionParameter* param, const char* value);
 
+bool foreman_action_parameter_getinteger(ForemanActionParameter* param, long *value);
+bool foreman_action_parameter_getreal(ForemanActionParameter* param, double *value);
+bool foreman_action_parameter_getbool(ForemanActionParameter* param, bool *value);
+bool foreman_action_parameter_getstring(ForemanActionParameter* param, const char ** value);
+
 ////////////////////////////////////////////////
 // Parameters
 ////////////////////////////////////////////////

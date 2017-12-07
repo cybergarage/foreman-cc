@@ -112,3 +112,43 @@ bool foreman_action_parameter_setstring(ForemanActionParameter* param, const cha
   paramObj->setValue(value);
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_action_parameter_get<type>
+////////////////////////////////////////////////
+
+bool foreman_action_parameter_getinteger(ForemanActionParameter* param, long *value)
+{
+  auto paramObj = dynamic_cast<Integer*>((Parameter*)param);
+  if (!paramObj)
+    return false;
+  *value = paramObj->getValue();
+  return true;
+}
+
+bool foreman_action_parameter_getreal(ForemanActionParameter* param, double *value)
+{
+  auto paramObj = dynamic_cast<Real*>((Parameter*)param);
+  if (!paramObj)
+    return false;
+  *value = paramObj->getValue();
+  return true;
+}
+
+bool foreman_action_parameter_getbool(ForemanActionParameter* param, bool *value)
+{
+  auto paramObj = dynamic_cast<Bool*>((Parameter*)param);
+  if (!paramObj)
+    return false;
+  *value = paramObj->getValue();
+  return true;
+}
+
+bool foreman_action_parameter_getstring(ForemanActionParameter* param, const char ** value)
+{
+  auto paramObj = dynamic_cast<String*>((Parameter*)param);
+  if (!paramObj)
+    return false;
+  *value = paramObj->getValue().c_str();
+  return true;
+}
