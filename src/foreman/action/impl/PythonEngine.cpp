@@ -53,7 +53,7 @@ Foreman::Action::PythonEngine::~PythonEngine()
 
 bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
 {
-  PythonMethod* pyScript = dynamic_cast<PythonMethod*>(method);
+  auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
@@ -73,7 +73,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   // 5. Embedding Python in Another Application¶
   // https://docs.python.org/2.7/extending/embedding.html#embedding-python-in-another-application
 
-  PythonMethod* pyScript = dynamic_cast<PythonMethod*>(method);
+  auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
