@@ -50,11 +50,11 @@ bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, co
 // foreman_action_script_manager_addmethod
 ////////////////////////////////////////////////
 
-bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod *method, ForemanError* err)
+bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod* method, ForemanError* err)
 {
   if (!mgr || !method || !err)
     return false;
-  return ((ScriptManager*)mgr)->addMethod((Method *)method, (Foreman::Error*)err);
+  return ((ScriptManager*)mgr)->addMethod((Method*)method, (Foreman::Error*)err);
 }
 
 ////////////////////////////////////////////////
