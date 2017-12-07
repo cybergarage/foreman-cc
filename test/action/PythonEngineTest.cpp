@@ -68,6 +68,7 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
 
 BOOST_AUTO_TEST_CASE(PythonEngine)
 {
+  Foreman::Error err;
   Foreman::Action::ScriptManager scriptMgr;
   Foreman::Action::ScriptManagerTestController testControllerr;
 
@@ -77,7 +78,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto hello = new Foreman::Action::PythonMethod();
   BOOST_CHECK(hello->setName(FOREMANCC_SCRIPT_HELLO_ECHO_METHOD));
   BOOST_CHECK(hello->setCode(PY_ECHO_CODE));
-  BOOST_CHECK(scriptMgr.addMethod(hello));
+  BOOST_CHECK(scriptMgr.addMethod(hello, &err));
 
   testControllerr.run(&scriptMgr);
 }

@@ -35,7 +35,7 @@ public:
     ScriptManager();
     virtual ~ScriptManager();
 
-    bool addMethod(Method* method);
+    bool addMethod(Method* method, Error* error);
 
     bool hasMethod(const std::string& name) const
     {

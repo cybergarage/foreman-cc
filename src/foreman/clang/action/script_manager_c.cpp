@@ -36,7 +36,18 @@ bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr)
 }
 
 ////////////////////////////////////////////////
-// foreman_action_script_manager_delete
+// foreman_action_script_manager_addmethod
+////////////////////////////////////////////////
+
+bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod *method, ForemanError* err)
+{
+  if (!mgr || !method || !err)
+    return false;
+  return ((ScriptManager*)mgr)->addMethod((Method *)method, (Foreman::Error*)err);
+}
+
+////////////////////////////////////////////////
+// foreman_action_script_manager_excemethod
 ////////////////////////////////////////////////
 
 bool foreman_action_script_manager_excemethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err)
