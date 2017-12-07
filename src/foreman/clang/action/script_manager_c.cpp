@@ -36,6 +36,17 @@ bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr)
 }
 
 ////////////////////////////////////////////////
+// foreman_action_script_manager_hasengine
+////////////////////////////////////////////////
+
+bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, const char* name)
+{
+  if (!mgr || !name)
+    return false;
+  return ((ScriptManager*)mgr)->hasEngine(name);
+}
+
+////////////////////////////////////////////////
 // foreman_action_script_manager_addmethod
 ////////////////////////////////////////////////
 
@@ -44,6 +55,17 @@ bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, Fo
   if (!mgr || !method || !err)
     return false;
   return ((ScriptManager*)mgr)->addMethod((Method *)method, (Foreman::Error*)err);
+}
+
+////////////////////////////////////////////////
+// foreman_action_script_manager_hasmethod
+////////////////////////////////////////////////
+
+bool foreman_action_script_manager_hasmethod(ForemanActionScriptManager* mgr, const char* name)
+{
+  if (!mgr || !name)
+    return false;
+  return ((ScriptManager*)mgr)->hasMethod(name);
 }
 
 ////////////////////////////////////////////////
