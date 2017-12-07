@@ -80,6 +80,7 @@
 		21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B861FD286A300CE59C8 /* PythonScript.cpp */; };
 		21841B891FD2BA8200CE59C8 /* PythonParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */; };
 		21841B8B1FD2CC8F00CE59C8 /* PythonParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */; };
+		2185502A1FD8D52F000F2D66 /* method_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218550291FD8D52E000F2D66 /* method_c.cpp */; };
 		2187B6CB1FC5ACA800E2234D /* Method.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C41FC5ACA800E2234D /* Method.cpp */; };
 		2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */; };
 		2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */; };
@@ -190,6 +191,7 @@
 		21841B861FD286A300CE59C8 /* PythonScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonScript.cpp; path = action/impl/PythonScript.cpp; sourceTree = "<group>"; };
 		21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameters.cpp; path = action/impl/PythonParameters.cpp; sourceTree = "<group>"; };
 		21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameter.cpp; path = action/impl/PythonParameter.cpp; sourceTree = "<group>"; };
+		218550291FD8D52E000F2D66 /* method_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = method_c.cpp; path = clang/action/method_c.cpp; sourceTree = "<group>"; };
 		2187B6C41FC5ACA800E2234D /* Method.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Method.cpp; path = action/Method.cpp; sourceTree = "<group>"; };
 		2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineMap.cpp; path = action/ScriptEngineMap.cpp; sourceTree = "<group>"; };
 		2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptManager.cpp; path = action/ScriptManager.cpp; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 		21EF31AE1FC818C500ECF706 /* action */ = {
 			isa = PBXGroup;
 			children = (
+				218550291FD8D52E000F2D66 /* method_c.cpp */,
 				21EF31B01FC818EB00ECF706 /* parameter_c.cpp */,
 				21EF31B31FC818F300ECF706 /* parameters_c.cpp */,
 				21EF31AF1FC818EB00ECF706 /* script_manager_c.cpp */,
@@ -746,6 +749,7 @@
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
 				215DB29E1FAB3A650089A36B /* property_c.cpp in Sources */,
 				216A5B7D1F9C5B8E0092272A /* metric_c.cpp in Sources */,
+				2185502A1FD8D52F000F2D66 /* method_c.cpp in Sources */,
 				2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */,
 				215EDC661FB04A22006DF3AE /* RingMapStore.cpp in Sources */,
 				216A5B851F9C5B8E0092272A /* store_c_factory.cpp in Sources */,

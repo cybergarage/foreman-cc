@@ -159,6 +159,7 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/action/ScriptEngine.$(OBJEXT) \
 	../../src/foreman/action/ScriptEngineMap.$(OBJEXT) \
 	../../src/foreman/action/ScriptManager.$(OBJEXT) \
+	../../src/foreman/clang/action/method_c.$(OBJEXT) \
 	../../src/foreman/clang/action/parameter_c.$(OBJEXT) \
 	../../src/foreman/clang/action/parameters_c.$(OBJEXT) \
 	../../src/foreman/clang/action/script_manager_c.$(OBJEXT) \
@@ -382,6 +383,7 @@ foremancc_sources = \
 	../../src/foreman/action/ScriptEngine.cpp \
 	../../src/foreman/action/ScriptEngineMap.cpp \
 	../../src/foreman/action/ScriptManager.cpp \
+	../../src/foreman/clang/action/method_c.cpp \
 	../../src/foreman/clang/action/parameter_c.cpp \
 	../../src/foreman/clang/action/parameters_c.cpp \
 	../../src/foreman/clang/action/script_manager_c.cpp \
@@ -572,6 +574,9 @@ clean-libLIBRARIES:
 ../../src/foreman/clang/action/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/clang/action/$(DEPDIR)
 	@: > ../../src/foreman/clang/action/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/clang/action/method_c.$(OBJEXT):  \
+	../../src/foreman/clang/action/$(am__dirstamp) \
+	../../src/foreman/clang/action/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/clang/action/parameter_c.$(OBJEXT):  \
 	../../src/foreman/clang/action/$(am__dirstamp) \
 	../../src/foreman/clang/action/$(DEPDIR)/$(am__dirstamp)
@@ -832,6 +837,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonParameter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonParameters.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/impl/$(DEPDIR)/PythonScript.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/method_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameter_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/parameters_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/clang/action/$(DEPDIR)/script_manager_c.Po@am__quote@

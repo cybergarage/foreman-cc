@@ -115,6 +115,7 @@ am_foremantest_OBJECTS = ..//action/LuaEngineTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
 	..//action/PythonEngineTest.$(OBJEXT) \
 	..//action/ScriptManagerTestController.$(OBJEXT) \
+	..//clang/action/ClangMethodTest.$(OBJEXT) \
 	..//clang/action/ClangParameterTest.$(OBJEXT) \
 	..//clang/action/ClangScriptManagerTest.$(OBJEXT) \
 	..//clang/common/ClangErrorTest.$(OBJEXT) \
@@ -502,6 +503,7 @@ foremantest_SOURCES = \
 	..//action/ParameterTest.cpp \
 	..//action/PythonEngineTest.cpp \
 	..//action/ScriptManagerTestController.cpp \
+	..//clang/action/ClangMethodTest.cpp \
 	..//clang/action/ClangParameterTest.cpp \
 	..//clang/action/ClangScriptManagerTest.cpp \
 	..//clang/common/ClangErrorTest.cpp \
@@ -588,6 +590,9 @@ clean-noinstPROGRAMS:
 ../clang/action/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ..//clang/action/$(DEPDIR)
 	@: > ../clang/action/$(DEPDIR)/$(am__dirstamp)
+..//clang/action/ClangMethodTest.$(OBJEXT):  \
+	../clang/action/$(am__dirstamp) \
+	../clang/action/$(DEPDIR)/$(am__dirstamp)
 ..//clang/action/ClangParameterTest.$(OBJEXT):  \
 	../clang/action/$(am__dirstamp) \
 	../clang/action/$(DEPDIR)/$(am__dirstamp)
@@ -727,6 +732,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/PythonEngineTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptManagerTestController.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangMethodTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@

@@ -22,6 +22,31 @@ extern "C" {
 #endif
 
 ////////////////////////////////////////////////
+// Method
+////////////////////////////////////////////////
+
+typedef void ForemanActionMethod;
+
+ForemanActionMethod* foreman_action_method_new();
+
+bool foreman_action_method_delete(ForemanActionMethod* method);
+
+bool foreman_action_method_setname(ForemanActionMethod* method, const char* name);
+bool foreman_action_method_getname(ForemanActionMethod* method, const char** name);
+
+bool foreman_action_method_setlanguage(ForemanActionMethod* method, const char* lang);
+bool foreman_action_method_getlanguage(ForemanActionMethod* method, const char** lang);
+
+bool foreman_action_method_setcode(ForemanActionMethod* method, const byte* code, size_t codeLen);
+bool foreman_action_method_setstringcode(ForemanActionMethod* method, const char* code);
+bool foreman_action_method_getcode(ForemanActionMethod* method, const byte** code);
+bool foreman_action_method_getcodelength(ForemanActionMethod* method, size_t* size);
+bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char** code);
+
+bool foreman_action_method_setencording(ForemanActionMethod* method, int encType);
+bool foreman_action_method_getencording(ForemanActionMethod* method, int* encType);
+
+////////////////////////////////////////////////
 // Parameter
 ////////////////////////////////////////////////
 
