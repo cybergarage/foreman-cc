@@ -16,7 +16,7 @@ BOOST_AUTO_TEST_SUITE(clang)
 
 BOOST_AUTO_TEST_CASE(NewMethod)
 {
-  ForemanActionMethod* method = foreman_action_method_new();
+  ForemanActionMethod* method = foreman_action_method_new("");
   BOOST_CHECK(method);
   BOOST_CHECK(foreman_action_method_delete(method));
 }

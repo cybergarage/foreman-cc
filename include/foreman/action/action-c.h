@@ -27,7 +27,7 @@ extern "C" {
 
 typedef void ForemanActionMethod;
 
-ForemanActionMethod* foreman_action_method_new();
+ForemanActionMethod* foreman_action_method_new(const char* language);
 
 bool foreman_action_method_delete(ForemanActionMethod* method);
 
