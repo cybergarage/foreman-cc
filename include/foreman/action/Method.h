@@ -45,6 +45,17 @@ public:
       return this->language;
     }
 
+    bool setLanguage(const std::string& lang)
+    {
+      this->language = lang;
+      return true;
+    }
+    
+    const std::string& getLanguage()
+    {
+      return this->language;
+    }
+    
     bool isLanguage(const std::string& lang) const
     {
       return (this->language.compare(lang) == 0) ? true : false;
