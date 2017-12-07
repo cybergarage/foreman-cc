@@ -65,12 +65,35 @@ bool foreman_action_parameter_setname(ForemanActionParameter* param, const char*
 // foreman_action_parameter_getname
 ////////////////////////////////////////////////
 
-bool foreman_action_parameter_getname(ForemanActionParameter* param, const char** name)
+const char *foreman_action_parameter_getname(ForemanActionParameter* param)
 {
-  if (!param || !name)
-    return false;
-  *name = ((Parameter*)param)->getName();
-  return true;
+  if (!param)
+    return nullptr;
+  return ((Parameter*)param)->getName();
+}
+
+////////////////////////////////////////////////
+// foreman_action_parameter_is<type>
+////////////////////////////////////////////////
+
+bool foreman_action_parameter_isinteger(ForemanActionParameter* param)
+{
+  return ((Parameter*)param)->isInteger();
+}
+
+bool foreman_action_parameter_isreal(ForemanActionParameter* param)
+{
+  return ((Parameter*)param)->isReal();
+}
+
+bool foreman_action_parameter_isbool(ForemanActionParameter* param)
+{
+  return ((Parameter*)param)->isBool();
+}
+
+bool foreman_action_parameter_isstring(ForemanActionParameter* param)
+{
+  return ((Parameter*)param)->isString();
 }
 
 ////////////////////////////////////////////////
@@ -117,38 +140,34 @@ bool foreman_action_parameter_setstring(ForemanActionParameter* param, const cha
 // foreman_action_parameter_get<type>
 ////////////////////////////////////////////////
 
-bool foreman_action_parameter_getinteger(ForemanActionParameter* param, long *value)
+long foreman_action_parameter_getinteger(ForemanActionParameter* param)
 {
   auto paramObj = dynamic_cast<Integer*>((Parameter*)param);
   if (!paramObj)
-    return false;
-  *value = paramObj->getValue();
-  return true;
+    return 0;
+  return paramObj->getValue();
 }
 
-bool foreman_action_parameter_getreal(ForemanActionParameter* param, double *value)
+double foreman_action_parameter_getreal(ForemanActionParameter* param)
 {
   auto paramObj = dynamic_cast<Real*>((Parameter*)param);
   if (!paramObj)
-    return false;
-  *value = paramObj->getValue();
-  return true;
+    return 0.0;
+  return paramObj->getValue();
 }
 
-bool foreman_action_parameter_getbool(ForemanActionParameter* param, bool *value)
+bool foreman_action_parameter_getbool(ForemanActionParameter* param)
 {
   auto paramObj = dynamic_cast<Bool*>((Parameter*)param);
   if (!paramObj)
     return false;
-  *value = paramObj->getValue();
-  return true;
+  return paramObj->getValue();
 }
 
-bool foreman_action_parameter_getstring(ForemanActionParameter* param, const char ** value)
+const char* foreman_action_parameter_getstring(ForemanActionParameter* param)
 {
   auto paramObj = dynamic_cast<String*>((Parameter*)param);
   if (!paramObj)
-    return false;
-  *value = paramObj->getValue().c_str();
-  return true;
+    return nullptr;
+  return paramObj->getValue().c_str();
 }

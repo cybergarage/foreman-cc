@@ -171,4 +171,3 @@ bool foreman_action_method_isbase64encoded(ForemanActionMethod* method)
     return false;
   return ((Method*)method)->isBase64Encoded();
 }
-

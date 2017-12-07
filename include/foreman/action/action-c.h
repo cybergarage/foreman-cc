@@ -61,17 +61,22 @@ ForemanActionParameter* foreman_action_parameter_string_new();
 bool foreman_action_parameter_delete(ForemanActionParameter* param);
 
 bool foreman_action_parameter_setname(ForemanActionParameter* param, const char* name);
-bool foreman_action_parameter_getname(ForemanActionParameter* param, const char** name);
+const char*foreman_action_parameter_getname(ForemanActionParameter* param);
+
+bool foreman_action_parameter_isinteger(ForemanActionParameter* param);
+bool foreman_action_parameter_isreal(ForemanActionParameter* param);
+bool foreman_action_parameter_isbool(ForemanActionParameter* param);
+bool foreman_action_parameter_isstring(ForemanActionParameter* param);
 
 bool foreman_action_parameter_setinteger(ForemanActionParameter* param, long value);
 bool foreman_action_parameter_setreal(ForemanActionParameter* param, double value);
 bool foreman_action_parameter_setbool(ForemanActionParameter* param, bool value);
 bool foreman_action_parameter_setstring(ForemanActionParameter* param, const char* value);
 
-bool foreman_action_parameter_getinteger(ForemanActionParameter* param, long *value);
-bool foreman_action_parameter_getreal(ForemanActionParameter* param, double *value);
-bool foreman_action_parameter_getbool(ForemanActionParameter* param, bool *value);
-bool foreman_action_parameter_getstring(ForemanActionParameter* param, const char ** value);
+long foreman_action_parameter_getinteger(ForemanActionParameter* param);
+double foreman_action_parameter_getreal(ForemanActionParameter* param);
+bool foreman_action_parameter_getbool(ForemanActionParameter* param);
+const char* foreman_action_parameter_getstring(ForemanActionParameter* param);
 
 ////////////////////////////////////////////////
 // Parameters
@@ -96,7 +101,7 @@ typedef void ForemanActionScriptManager;
 ForemanActionScriptManager* foreman_action_script_manager_new();
 bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, const char* name);
 
-bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod *method, ForemanError* err);
+bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod* method, ForemanError* err);
 bool foreman_action_script_manager_hasmethod(ForemanActionScriptManager* mgr, const char* name);
 bool foreman_action_script_manager_execmethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 
