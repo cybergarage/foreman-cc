@@ -32,8 +32,13 @@ Foreman::Action::Method* Foreman::Action::Method::CreateMethod(const std::string
 }
 
 ////////////////////////////////////////////////
-// compile
+// Method
 ////////////////////////////////////////////////
+
+Foreman::Action::Method::Method()
+{
+  init();
+}
 
 Foreman::Action::Method::Method(const std::string& lang)
 {

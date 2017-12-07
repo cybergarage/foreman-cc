@@ -35,6 +35,7 @@ public:
     static Method* CreateMethod(const std::string& lang);
 
 public:
+    Method();
     Method(const std::string& lang);
 
     virtual ~Method();
