@@ -10,6 +10,7 @@
 
 #include <foreman/action/Method.h>
 #include <foreman/action/action-c.h>
+#include <foreman/action/impl/Python.h>
 
 using namespace Foreman::Action;
 
@@ -17,9 +18,13 @@ using namespace Foreman::Action;
 // foreman_action_method_new
 ////////////////////////////////////////////////
 
-ForemanActionMethod* foreman_action_method_new()
+ForemanActionMethod* foreman_action_method_new(const char* language)
 {
-  return new Method();
+  std::string lang = language;
+  if (lang.compare(PythonEngine::LANGUAGE) == 0)
+    return new PythonMethod();
+
+  return new  Method();
 }
 
 ////////////////////////////////////////////////
