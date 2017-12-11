@@ -42,7 +42,7 @@ The `foreman-cc` package has the header files, the source files and the project 
 
 ### Homebrew
 
-Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. Toinstall `foreman-cc`, use `brew` command as the following.
+Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. To install `foreman-cc`, use `brew` command as the following.
 
 ```
 brew tap cybergarage/homebrew https://github.com/cybergarage/homebrew
