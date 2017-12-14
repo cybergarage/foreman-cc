@@ -4,15 +4,6 @@
 
 `foreman-cc` is a core package of Foreman which is written by C++. To build Foreman, you have to install the library, `libforeman++`, at first.
 
-## Supported Compilers and Platforms
-
-The `foreman-cc` supports the following compilers and platforms now.
-
-| Platform | Compiler |
-|---|---|
-| Ubuntu 16.04 | GCC 5.4.0 |
-| MacOSX 10.12 | LLVM 9.0.0 (XCode 9.0) | 
-
 ## System Requirement
 
 The `foreman-cc` uses the following package. Please install the packages in your platform before compiling `foreman-cc`.
