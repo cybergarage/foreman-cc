@@ -1,4 +1,4 @@
-![foreman_logo](./img/icon.png)
+![foreman_logo](https://raw.github.com/cybergarage/foreman-doc/master/img/icon.png)
 
 # Coding Guidelines
 
