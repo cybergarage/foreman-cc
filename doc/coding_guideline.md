@@ -8,10 +8,10 @@ The `foreman-cc` supports the following compilers and platforms now.
 
 | Platform | Compiler | Requirement |
 |---|---|---|
-| CentOS 7.3.0 | GCC 4.8.5 | Must |
-| CentOS 6.8.0 | GCC 4.4.7 | Should |
 | Ubuntu 16.04 | GCC 5.4.0 | Must |
 | MacOSX 10.12 | LLVM 9.0.0 (XCode 9.0) |  Must |
+| CentOS 7.3.0 | GCC 4.8.5 | Should |
+| CentOS 6.8.0 | GCC 4.4.7 | Should |
 
 ## Coding Guidelines
 
