@@ -57,10 +57,10 @@ bool Foreman::Error::isError()
   return false;
 }
 
-void Foreman::Error::setErrorNo(int errno)
+void Foreman::Error::setErrorNo(int err_no)
 {
-  setCode(errno);
-  setMessage(Foreman::ErrorCodeToMessage(errno));
+  setCode(err_no);
+  setMessage(Foreman::ErrorCodeToMessage(err_no));
 }
 
 bool Foreman::Error::equals(const Error& other) const

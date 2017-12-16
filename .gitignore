@@ -11,6 +11,7 @@
 /missing
 /stamp-h1
 /stamp-h2
+Makefile.in
 Makefile
 .deps
 .dirstamp
