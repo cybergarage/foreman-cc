@@ -89,29 +89,25 @@ bool PythonParameter::setValue(PyObject* pyObj)
 
   if (PyBool_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(BoolType);
-    value_ = (this->obj_ == Py_True);
+    Parameter::setValue(this->obj_ == Py_True);
     return true;
   }
 
   if (PyInt_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(IntegerType);
-    value_ = PyInt_AsLong(this->obj_);
+    Parameter::setValue(PyInt_AsLong(this->obj_));
     return true;
   }
 
   if (PyFloat_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(RealType);
-    value_ = PyFloat_AsDouble(this->obj_);
+    Parameter::setValue(PyFloat_AsDouble(this->obj_));
     return true;
   }
 
   if (PyString_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(StringType);
-    value_ = PyString_AsString(this->obj_);
+    Parameter::setValue(PyString_AsString(this->obj_));
     return true;
   }
 

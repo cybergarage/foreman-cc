@@ -65,31 +65,19 @@ public:
       return name_ == name;
     }
 
-    bool isInteger() const { return isType(IntegerType); }
-    bool isReal() const { return isType(RealType); }
-    bool isString() const { return isType(StringType); }
-    bool isBool() const { return isType(BoolType); }
-
-    void setType(ParameterType type)
-    {
-      type_ = type;
-    }
-
     ParameterType getType() const
     {
       return type_;
     }
 
     template <class T>
-    void setValue(T value)
+    bool setValue(T value)
     {
       value_ = value;
       type_ = static_cast<ParameterType>(value_.which());
+      return true;
     }
     const auto getValue() const -> const decltype(value_)& { return value_; }
-
-private:
-    bool isType(ParameterType type) const { return value_.which() == type; }
   };
 
   ////////////////////////////////////////////////
