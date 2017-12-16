@@ -15,6 +15,8 @@
 #include <string>
 #include <vector>
 
+#include <boost/variant.hpp>
+
 #include <foreman/Platform.h>
 
 namespace Foreman {
@@ -24,11 +26,14 @@ namespace Action {
   // Type
   ////////////////////////////////////////////////
 
-  enum ParameterType { UnknownType,
+  // Change the template arguments for boost::variant in Paramater if this changes
+  enum ParameterType {
     IntegerType,
     RealType,
     StringType,
-    BoolType };
+    BoolType,
+    UnknownType
+  };
 
   ////////////////////////////////////////////////
   // Parameter
@@ -52,7 +57,7 @@ public:
 
     bool isName(const std::string& name) const
     {
-      return (name_.compare(name) == 0) ? true : false;
+      return name_ == name;
     }
 
     bool isInteger() const { return isType(IntegerType); }
@@ -70,78 +75,31 @@ public:
       return type_;
     }
 
+    template <class T>
+    void setValue(T value)
+    {
+      value_ = value;
+      type_ = static_cast<ParameterType>(value_.which());
+    }
+    const auto getValue() const -> const decltype(value_)& { return value_; }
+
 private:
     bool isType(ParameterType type) const
     {
-      return (type_ == type) ? true : false;
+      return value_.which() == type;
     }
 
 protected:
     std::string name_;
     ParameterType type_;
-  };
-
-  class Integer : public Parameter {
-public:
-    Integer()
-        : Parameter(IntegerType)
-    {
-    }
-    ~Integer() {}
-    void setValue(long value) { value_ = value; }
-    long getValue() const { return value_; }
-
-private:
-    long value_;
-  };
-
-  class Real : public Parameter {
-public:
-    Real()
-        : Parameter(RealType)
-    {
-    }
-    ~Real() {}
-    void setValue(double value) { value_ = value; }
-    double getValue() const { return value_; }
-
-private:
-    double value_;
-  };
-
-  class String : public Parameter {
-public:
-    String()
-        : Parameter(StringType)
-    {
-    }
-    ~String() {}
-    void setValue(const std::string& value) { value_ = value; }
-    const std::string& getValue() const { return value_; }
-
-private:
-    std::string value_;
-  };
-
-  class Bool : public Parameter {
-public:
-    Bool()
-        : Parameter(BoolType)
-    {
-    }
-    ~Bool() {}
-    void setValue(bool value) { value_ = value; }
-    bool getValue() const { return value_; }
-
-private:
-    bool value_;
+    boost::variant<long, double, std::string, bool> value_;
   };
 
   ////////////////////////////////////////////////
   // Parameters
   ////////////////////////////////////////////////
 
-  class Parameters : public std::vector<std::shared_ptr<Parameter>> {
+  class Parameters : public std::vector<std::shared_ptr<Parameter> > {
 public:
     Parameters();
     virtual ~Parameters();
@@ -155,5 +113,4 @@ public:
   };
 }
 }
-
 #endif
