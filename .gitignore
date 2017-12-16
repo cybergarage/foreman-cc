@@ -18,6 +18,7 @@ config.h
 config.h.in~
 config.log
 config.status
+configure
 
 # Compiled Object files
 *.slo
