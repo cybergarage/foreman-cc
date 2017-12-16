@@ -40,6 +40,11 @@ namespace Action {
   ////////////////////////////////////////////////
 
   class Parameter {
+protected:
+    std::string name_;
+    ParameterType type_;
+    boost::variant<long, double, std::string, bool> value_;
+
 public:
     Parameter();
     Parameter(ParameterType type);
@@ -84,15 +89,7 @@ public:
     const auto getValue() const -> const decltype(value_)& { return value_; }
 
 private:
-    bool isType(ParameterType type) const
-    {
-      return value_.which() == type;
-    }
-
-protected:
-    std::string name_;
-    ParameterType type_;
-    boost::variant<long, double, std::string, bool> value_;
+    bool isType(ParameterType type) const { return value_.which() == type; }
   };
 
   ////////////////////////////////////////////////
