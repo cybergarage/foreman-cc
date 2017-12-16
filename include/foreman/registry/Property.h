@@ -11,6 +11,7 @@
 #ifndef _FOREMANCC_REGISTRY_PROPERTY_H_
 #define _FOREMANCC_REGISTRY_PROPERTY_H_
 
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -67,7 +68,7 @@ private:
   // Properties
   ////////////////////////////////////////////////
 
-  class Properties : public std::vector<std::shared_ptr<Property>> {
+  class Properties : public std::vector<std::shared_ptr<Property> > {
 public:
     Properties();
     virtual ~Properties();
