@@ -17,22 +17,7 @@ using namespace Foreman::Action;
 // foreman_action_parameter_<type>_new
 ////////////////////////////////////////////////
 
-ForemanActionParameter* foreman_action_parameter_integer_new()
-{
-  return new Parameter();
-}
-
-ForemanActionParameter* foreman_action_parameter_real_new()
-{
-  return new Parameter();
-}
-
-ForemanActionParameter* foreman_action_parameter_bool_new()
-{
-  return new Parameter();
-}
-
-ForemanActionParameter* foreman_action_parameter_string_new()
+ForemanActionParameter* foreman_action_parameter_new()
 {
   return new Parameter();
 }
@@ -78,22 +63,22 @@ const char* foreman_action_parameter_getname(ForemanActionParameter* param)
 
 bool foreman_action_parameter_isinteger(ForemanActionParameter* param)
 {
-  return ((Parameter*)param)->isInteger();
+  return ((Parameter*)param)->getType() == IntegerType;
 }
 
 bool foreman_action_parameter_isreal(ForemanActionParameter* param)
 {
-  return ((Parameter*)param)->isReal();
+  return ((Parameter*)param)->getType() == RealType;
 }
 
 bool foreman_action_parameter_isbool(ForemanActionParameter* param)
 {
-  return ((Parameter*)param)->isBool();
+  return ((Parameter*)param)->getType() == BoolType;
 }
 
 bool foreman_action_parameter_isstring(ForemanActionParameter* param)
 {
-  return ((Parameter*)param)->isString();
+  return ((Parameter*)param)->getType() == StringType;
 }
 
 ////////////////////////////////////////////////
