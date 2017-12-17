@@ -8,10 +8,7 @@
  *
  ******************************************************************/
 
-#include <iostream>
-
 #include <sqlite3.h>
-#include <stdio.h>
 
 #include <foreman/metric/impl/MatrixStore.h>
 

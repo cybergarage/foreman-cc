@@ -77,7 +77,7 @@ public:
       type_ = static_cast<ParameterType>(value_.which());
       return true;
     }
-    const auto getValue() const -> const decltype(value_)& { return value_; }
+    const decltype(auto) getValue() const { return value_; }
   };
 
   ////////////////////////////////////////////////

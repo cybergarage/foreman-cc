@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <math.h>
+#include <ctime>
 
 #include <foreman/Const.h>
 #include <foreman/metric/Store.h>
@@ -32,7 +32,7 @@ Store::~Store()
 // setRetentionInterval
 ////////////////////////////////////////////////
 
-bool Store::setRetentionInterval(time_t value)
+bool Store::setRetentionInterval(std::time_t value)
 {
   retentionInterval_ = value;
   return true;
@@ -42,7 +42,7 @@ bool Store::setRetentionInterval(time_t value)
 // getRetentionInterval
 ////////////////////////////////////////////////
 
-time_t Store::getRetentionInterval()
+std::time_t Store::getRetentionInterval()
 {
   return retentionInterval_;
 }
@@ -51,7 +51,7 @@ time_t Store::getRetentionInterval()
 // setRetentionPeriod
 ////////////////////////////////////////////////
 
-bool Store::setRetentionPeriod(time_t sec)
+bool Store::setRetentionPeriod(std::time_t sec)
 {
   retentionPeriod_ = sec;
   return true;
@@ -61,7 +61,7 @@ bool Store::setRetentionPeriod(time_t sec)
 // getRetentionPeriod
 ////////////////////////////////////////////////
 
-time_t Store::getRetentionPeriod()
+std::time_t Store::getRetentionPeriod()
 {
   return retentionPeriod_;
 };
@@ -88,7 +88,7 @@ std::shared_ptr<Metric> Store::findMetric(const std::string& name)
 // findMetric
 ////////////////////////////////////////////////
 
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
+std::shared_ptr<std::vector<std::shared_ptr<Metric> > > Store::getMetrics()
 {
   return metricMap_.getMetrics();
 }

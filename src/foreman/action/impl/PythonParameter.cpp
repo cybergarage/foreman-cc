@@ -127,7 +127,7 @@ bool PythonParameter::set(const Parameter* param)
 
   setName(param->getName());
 
-  PyObject* pyObj = NULL;
+  PyObject* pyObj = nullptr;
   type_ = param->getType();
   value_ = param->getValue();
 
@@ -140,6 +140,8 @@ bool PythonParameter::set(const Parameter* param)
     pyObj = PyString_FromString(boost::get<std::string>(value_).c_str());
   case BoolType:
     pyObj = boost::get<bool>(value_) ? Py_True : Py_False;
+  default:
+    return false;
   }
 
   if (!pyObj)

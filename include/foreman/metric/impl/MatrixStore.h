@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_METRIC_MATRIX_STORE_H_
 #define _FOREMANCC_METRIC_MATRIX_STORE_H_
 
-#include <time.h>
+#include <ctime>
 
 #include <sqlite3.h>
 

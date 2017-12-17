@@ -15,9 +15,9 @@
 #include "config.h"
 #endif
 
+#include <ctime>
 #include <memory>
 #include <string>
-#include <time.h>
 
 namespace Foreman {
 
@@ -33,8 +33,8 @@ class Graphite {
   void setCarbonPort(int port);
   void setHttpPort(int port);
 
-  bool addValue(const std::string& path, time_t ts, double value);
-  bool getValues(const std::string& path, time_t beginTs, time_t endTs, time_t interval, double** values, size_t* valueCnt);
+  bool addValue(const std::string& path, std::time_t ts, double value);
+  bool getValues(const std::string& path, std::time_t beginTs, std::time_t endTs, std::time_t interval, double** values, size_t* valueCnt);
 
   private:
   std::string host;
