@@ -77,14 +77,14 @@ public:
       type_ = static_cast<ParameterType>(value_.which());
       return true;
     }
-    const decltype(auto) getValue() const { return value_; }
+    decltype(auto) getValue() const { return value_; }
   };
 
   ////////////////////////////////////////////////
   // Parameters
   ////////////////////////////////////////////////
 
-  class Parameters : public std::vector<std::shared_ptr<Parameter> > {
+  class Parameters : public std::vector<std::shared_ptr<Parameter>> {
 public:
     Parameters();
     virtual ~Parameters();

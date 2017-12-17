@@ -1,5 +1,5 @@
 #!/bin/bash
 export CFLAGS="$CFLAGS -I/usr/local/include"
-export CXXFLAGS="-std=c++14 $CXXFLAGS $CFLAGS"
+export CXXFLAGS="-std=c++14 -Wall -O2 $CXXFLAGS $CFLAGS"
 export LDFLAGS="$LDFLAGS -L/usr/local/lib"
 ./configure --enable-script-python --enable-script-lua MKDIR_P='mkdir -p' $@

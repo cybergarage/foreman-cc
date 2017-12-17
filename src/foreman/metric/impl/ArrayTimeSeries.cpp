@@ -10,8 +10,8 @@
 
 #include <algorithm>
 
-#include <sqlite3.h>
 #include <cstdio>
+#include <sqlite3.h>
 
 #include <foreman/metric/impl/ArrayTimeSeries.h>
 #include <foreman/util/Util.h>

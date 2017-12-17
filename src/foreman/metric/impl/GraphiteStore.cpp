@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <sqlite3.h>
 #include <cstdio>
+#include <sqlite3.h>
 
 #include <foreman/Const.h>
 #include <foreman/metric/impl/GraphiteStore.h>

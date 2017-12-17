@@ -39,9 +39,9 @@ public:
   // TimeSeriesMap
   ////////////////////////////////////////////////
 
-  typedef std::pair<std::string, std::shared_ptr<TimeSeries> > TimeSeriesPair;
+  typedef std::pair<std::string, std::shared_ptr<TimeSeries>> TimeSeriesPair;
 
-  class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries> > {
+  class TimeSeriesMap : public std::unordered_map<std::string, std::shared_ptr<TimeSeries>> {
 public:
     TimeSeriesMap();
     virtual ~TimeSeriesMap();
@@ -51,7 +51,7 @@ public:
     virtual std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m);
 
     bool addValue(const Metric& m);
-    bool addValues(std::vector<std::shared_ptr<Metric> > metrics);
+    bool addValues(std::vector<std::shared_ptr<Metric>> metrics);
     bool getValues(Query* q, ResultSet* rs);
   };
 }
