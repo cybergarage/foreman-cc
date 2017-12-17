@@ -12,7 +12,6 @@
 #define _FOREMANCC_METRIC_MEMSTORE_H_
 
 #include <foreman/metric/Store.h>
-#include <time.h>
 
 namespace Foreman {
 namespace Metric {

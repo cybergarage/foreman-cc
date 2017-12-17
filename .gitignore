@@ -11,6 +11,11 @@
 /missing
 /stamp-h1
 /stamp-h2
+bin/foremanbench/unix/Makefile.am
+bin/foremanusage/unix/Makefile.am
+include/Makefile.am
+lib/unix/Makefile.am
+test/unix/Makefile.am
 Makefile.in
 Makefile
 .deps
@@ -60,6 +65,7 @@ xcuserdata/
 
 # Vim
 .*.sw?
+.ycm_extra_conf.py
 
 # Beringei
 #include/beringei/*.h
