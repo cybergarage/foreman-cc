@@ -61,7 +61,7 @@ private:
   // DataPoints
   ////////////////////////////////////////////////
 
-  class DataPoints : public std::vector<std::shared_ptr<DataPoint> > {
+  class DataPoints : public std::vector<std::shared_ptr<DataPoint>> {
 public:
     DataPoints();
     virtual ~DataPoints();
@@ -91,10 +91,10 @@ protected:
   // DataPointMap
   ////////////////////////////////////////////////
 
-  typedef std::pair<std::string, std::shared_ptr<DataPoints> > DataPointsPair;
-  typedef std::unordered_map<std::string, std::shared_ptr<DataPoints> >::iterator DataPointsMapIt;
+  typedef std::pair<std::string, std::shared_ptr<DataPoints>> DataPointsPair;
+  typedef std::unordered_map<std::string, std::shared_ptr<DataPoints>>::iterator DataPointsMapIt;
 
-  class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<DataPoints> > {
+  class DataPointsMap : public std::unordered_map<std::string, std::shared_ptr<DataPoints>> {
 public:
     DataPointsMap();
     virtual ~DataPointsMap();

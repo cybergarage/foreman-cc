@@ -68,7 +68,7 @@ private:
   // Properties
   ////////////////////////////////////////////////
 
-  class Properties : public std::vector<std::shared_ptr<Property> > {
+  class Properties : public std::vector<std::shared_ptr<Property>> {
 public:
     Properties();
     virtual ~Properties();
