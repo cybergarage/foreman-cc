@@ -15,6 +15,8 @@
 #include <string>
 #include <vector>
 
+#include <boost/variant.hpp>
+
 #include <foreman/Platform.h>
 
 namespace Foreman {
@@ -24,17 +26,25 @@ namespace Action {
   // Type
   ////////////////////////////////////////////////
 
-  enum ParameterType { UnknownType,
+  // Change the template arguments for boost::variant in Paramater if this changes
+  enum ParameterType {
     IntegerType,
     RealType,
     StringType,
-    BoolType };
+    BoolType,
+    UnknownType
+  };
 
   ////////////////////////////////////////////////
   // Parameter
   ////////////////////////////////////////////////
 
   class Parameter {
+protected:
+    std::string name_;
+    ParameterType type_;
+    boost::variant<long, double, std::string, bool> value_;
+
 public:
     Parameter();
     Parameter(ParameterType type);
@@ -52,17 +62,7 @@ public:
 
     bool isName(const std::string& name) const
     {
-      return (name_.compare(name) == 0) ? true : false;
-    }
-
-    bool isInteger() const { return isType(IntegerType); }
-    bool isReal() const { return isType(RealType); }
-    bool isString() const { return isType(StringType); }
-    bool isBool() const { return isType(BoolType); }
-
-    void setType(ParameterType type)
-    {
-      type_ = type;
+      return name_ == name;
     }
 
     ParameterType getType() const
@@ -70,71 +70,14 @@ public:
       return type_;
     }
 
-private:
-    bool isType(ParameterType type) const
+    template <class T>
+    bool setValue(T value)
     {
-      return (type_ == type) ? true : false;
+      value_ = value;
+      type_ = static_cast<ParameterType>(value_.which());
+      return true;
     }
-
-protected:
-    std::string name_;
-    ParameterType type_;
-  };
-
-  class Integer : public Parameter {
-public:
-    Integer()
-        : Parameter(IntegerType)
-    {
-    }
-    ~Integer() {}
-    void setValue(long value) { value_ = value; }
-    long getValue() const { return value_; }
-
-private:
-    long value_;
-  };
-
-  class Real : public Parameter {
-public:
-    Real()
-        : Parameter(RealType)
-    {
-    }
-    ~Real() {}
-    void setValue(double value) { value_ = value; }
-    double getValue() const { return value_; }
-
-private:
-    double value_;
-  };
-
-  class String : public Parameter {
-public:
-    String()
-        : Parameter(StringType)
-    {
-    }
-    ~String() {}
-    void setValue(const std::string& value) { value_ = value; }
-    const std::string& getValue() const { return value_; }
-
-private:
-    std::string value_;
-  };
-
-  class Bool : public Parameter {
-public:
-    Bool()
-        : Parameter(BoolType)
-    {
-    }
-    ~Bool() {}
-    void setValue(bool value) { value_ = value; }
-    bool getValue() const { return value_; }
-
-private:
-    bool value_;
+    decltype(auto) getValue() const { return value_; }
   };
 
   ////////////////////////////////////////////////
@@ -155,5 +98,4 @@ public:
   };
 }
 }
-
 #endif

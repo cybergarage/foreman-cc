@@ -61,7 +61,7 @@ ForemanActionParameter* foreman_action_parameter_string_new();
 bool foreman_action_parameter_delete(ForemanActionParameter* param);
 
 bool foreman_action_parameter_setname(ForemanActionParameter* param, const char* name);
-const char*foreman_action_parameter_getname(ForemanActionParameter* param);
+const char* foreman_action_parameter_getname(ForemanActionParameter* param);
 
 bool foreman_action_parameter_isinteger(ForemanActionParameter* param);
 bool foreman_action_parameter_isreal(ForemanActionParameter* param);

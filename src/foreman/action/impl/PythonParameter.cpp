@@ -89,25 +89,25 @@ bool PythonParameter::setValue(PyObject* pyObj)
 
   if (PyBool_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(BoolType);
+    Parameter::setValue(this->obj_ == Py_True);
     return true;
   }
 
   if (PyInt_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(IntegerType);
+    Parameter::setValue(PyInt_AsLong(this->obj_));
     return true;
   }
 
   if (PyFloat_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(RealType);
+    Parameter::setValue(PyFloat_AsDouble(this->obj_));
     return true;
   }
 
   if (PyString_Check(pyObj)) {
     this->obj_ = pyObj;
-    setType(StringType);
+    Parameter::setValue(PyString_AsString(this->obj_));
     return true;
   }
 
@@ -127,35 +127,19 @@ bool PythonParameter::set(const Parameter* param)
 
   setName(param->getName());
 
-  PyObject* pyObj = NULL;
+  PyObject* pyObj = nullptr;
+  type_ = param->getType();
+  value_ = param->getValue();
 
-  switch (param->getType()) {
-  case IntegerType: {
-    auto iparam = dynamic_cast<const Integer*>(param);
-    if (!iparam)
-      return false;
-    pyObj = PyInt_FromLong(iparam->getValue());
-
-  } break;
-  case RealType: {
-    auto rparam = dynamic_cast<const Real*>(param);
-    if (!rparam)
-      return false;
-    pyObj = PyFloat_FromDouble(rparam->getValue());
-  } break;
-  case BoolType: {
-    auto bparam = dynamic_cast<const Bool*>(param);
-    if (!bparam)
-      return false;
-    pyObj = bparam->getValue() ? Py_True : Py_False;
-
-  } break;
-  case StringType: {
-    auto sparam = dynamic_cast<const String*>(param);
-    if (!sparam)
-      return false;
-    pyObj = PyString_FromString(sparam->getValue().c_str());
-  } break;
+  switch (type_) {
+  case IntegerType:
+    pyObj = PyInt_FromLong(boost::get<long>(value_));
+  case RealType:
+    pyObj = PyFloat_FromDouble(boost::get<double>(value_));
+  case StringType:
+    pyObj = PyString_FromString(boost::get<std::string>(value_).c_str());
+  case BoolType:
+    pyObj = boost::get<bool>(value_) ? Py_True : Py_False;
   default:
     return false;
   }
@@ -177,45 +161,9 @@ bool PythonParameter::set(const Parameter* param)
 
 bool PythonParameter::get(Parameter** param)
 {
-  *param = NULL;
+  *param = new Parameter();
 
-  switch (getType()) {
-  case IntegerType: {
-    auto iparam = new Integer();
-    if (!iparam)
-      return false;
-    iparam->setValue(PyInt_AsLong(this->obj_));
-    *param = iparam;
-  } break;
-  case RealType: {
-    auto rparam = new Real();
-    if (!rparam)
-      return false;
-    rparam->setValue(PyFloat_AsDouble(this->obj_));
-    *param = rparam;
-  } break;
-  case BoolType: {
-    auto bparam = new Bool();
-    if (!bparam)
-      return false;
-    auto bvalue = (this->obj_ == Py_True) ? true : false;
-    bparam->setValue(bvalue);
-    *param = bparam;
-  } break;
-  case StringType: {
-    auto sparam = new String();
-    if (!sparam)
-      return false;
-    sparam->setValue(PyString_AsString(this->obj_));
-    *param = sparam;
-  } break;
-  default:
-    return false;
-  }
-
-  if (!(*param))
-    return false;
-
+  (*param)->setValue(value_);
   (*param)->setName(getName());
 
   return true;
@@ -227,52 +175,7 @@ bool PythonParameter::get(Parameter** param)
 
 bool PythonParameter::equals(const Parameter* param)
 {
-  if (getType() != param->getType())
-    return false;
-
-  switch (getType()) {
-  case IntegerType: {
-    auto iparam = dynamic_cast<const Integer*>(param);
-    if (!iparam)
-      return false;
-    if (PyInt_AsLong(this->obj_) != iparam->getValue())
-      return false;
-    return true;
-  } break;
-  case RealType: {
-    auto rparam = dynamic_cast<const Real*>(param);
-    if (!rparam)
-      return false;
-    if (PyFloat_AsDouble(this->obj_) != rparam->getValue())
-      return false;
-    return true;
-  } break;
-  case BoolType: {
-    auto bparam = dynamic_cast<const Bool*>(param);
-    if (!bparam)
-      return false;
-    auto bvalue = (this->obj_ == Py_True) ? true : false;
-    if (bvalue != bparam->getValue())
-      return false;
-    return true;
-  } break;
-  case StringType: {
-    auto sparam = dynamic_cast<const String*>(param);
-    if (!sparam)
-      return false;
-    const char* pyValue = PyString_AsString(this->obj_);
-    if (!pyValue)
-      return false;
-    auto value = sparam->getValue();
-    if (value.compare(pyValue) != 0)
-      return false;
-    return true;
-  } break;
-  default:
-    return false;
-  }
-
-  return false;
+  return param->getValue() == value_;
 }
 
 #endif

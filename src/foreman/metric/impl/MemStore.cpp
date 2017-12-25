@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <math.h>
+#include <cmath>
 
 #include <foreman/metric/impl/MemStore.h>
 
@@ -36,7 +36,7 @@ size_t MemStore::getColumnCount()
 {
   if (retentionInterval_ == 0)
     return 0;
-  return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
+  return (int)(std::ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
 }
 
 ////////////////////////////////////////////////

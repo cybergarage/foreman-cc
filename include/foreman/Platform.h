@@ -26,5 +26,8 @@ typedef unsigned char byte;
 #define FOREMAN_SUPPORT_PYTHON 1
 #define HAVE_PYTHON_PYTHON_H 1
 #endif
+#if defined(__linux)
+#define FOREMAN_SUPPORT_PYTHON 1
+#endif
 
 #endif

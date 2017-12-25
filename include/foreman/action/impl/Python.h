@@ -12,6 +12,7 @@
 #define _FOREMANCC_ACTION_PYTHON_H_
 
 #include <foreman/Platform.h>
+#include <foreman/action/Parameter.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -25,6 +26,14 @@
 #endif
 #endif
 
+#if PY_MAJOR_VERSION >= 3
+#define PyString_AsString PyUnicode_AsUTF8
+#define PyString_FromString PyUnicode_FromString
+#define PyString_Check PyUnicode_Check
+#define PyInt_Check PyLong_Check
+#define PyInt_FromLong PyLong_FromLong
+#define PyInt_AsLong PyLong_AsLong
+#endif
 namespace Foreman {
 namespace Action {
 
