@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <ctime>
+#include <math.h>
 
 #include <foreman/Const.h>
 #include <foreman/metric/Store.h>
@@ -32,7 +32,7 @@ Store::~Store()
 // setRetentionInterval
 ////////////////////////////////////////////////
 
-bool Store::setRetentionInterval(std::time_t value)
+bool Store::setRetentionInterval(time_t value)
 {
   retentionInterval_ = value;
   return true;
@@ -42,7 +42,7 @@ bool Store::setRetentionInterval(std::time_t value)
 // getRetentionInterval
 ////////////////////////////////////////////////
 
-std::time_t Store::getRetentionInterval()
+time_t Store::getRetentionInterval()
 {
   return retentionInterval_;
 }
@@ -51,7 +51,7 @@ std::time_t Store::getRetentionInterval()
 // setRetentionPeriod
 ////////////////////////////////////////////////
 
-bool Store::setRetentionPeriod(std::time_t sec)
+bool Store::setRetentionPeriod(time_t sec)
 {
   retentionPeriod_ = sec;
   return true;
@@ -61,7 +61,7 @@ bool Store::setRetentionPeriod(std::time_t sec)
 // getRetentionPeriod
 ////////////////////////////////////////////////
 
-std::time_t Store::getRetentionPeriod()
+time_t Store::getRetentionPeriod()
 {
   return retentionPeriod_;
 };

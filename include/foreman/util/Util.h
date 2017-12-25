@@ -11,17 +11,18 @@
 #ifndef _FOREMANCC_UTIL_H_
 #define _FOREMANCC_UTIL_H_
 
-#include <cmath>
-#include <cstdlib>
+#include <math.h>
+#include <stdlib.h>
 
 namespace Foreman {
 
-double* CreateNanDataPointValueArray(std::size_t size);
+double* CreateNanDataPointValueArray(size_t size);
 
 inline bool IsValidDataPointValue(double value)
 {
-  // NaN never compares equal with another NaN.
-  return !std::isnan(value);
+  if (value == NAN)
+    return false;
+  return true;
 }
 }
 

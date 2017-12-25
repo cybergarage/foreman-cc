@@ -12,7 +12,7 @@
 #include <foreman/action/Method.h>
 #include <foreman/action/impl/Python.h>
 
-#include <cstring>
+#include <string.h>
 
 const int Foreman::Action::Method::ENCODING_NONE = FOREMANCC_ACTION_SCRIPT_ENCORDING_NONE;
 const int Foreman::Action::Method::ENCODING_BASE64 = FOREMANCC_ACTION_SCRIPT_ENCORDING_BASE64;
@@ -80,7 +80,7 @@ bool Foreman::Action::Method::setCode(const byte* code, size_t codeLen)
   if (!this->code)
     return false;
 
-  std::memcpy(this->code, code, codeLen);
+  memcpy(this->code, code, codeLen);
   this->codeLen = codeLen;
 
   return true;

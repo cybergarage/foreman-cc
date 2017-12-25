@@ -11,7 +11,6 @@
 #ifndef _FOREMANCC_REGISTRY_PROPERTY_H_
 #define _FOREMANCC_REGISTRY_PROPERTY_H_
 
-#include <memory>
 #include <string>
 #include <vector>
 
