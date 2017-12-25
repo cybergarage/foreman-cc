@@ -1,0 +1,7 @@
+Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
+Name: foreman-cc
+Maintainer: Satoshi Konno <skonno@cybergarage.org>
+Source: https://github.com/cybergarage/foreman-cc
+
+Copyright: 2017 Satoshi Konno <skonno@cybergarage.org>
+License: BSD

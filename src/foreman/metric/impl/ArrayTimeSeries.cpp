@@ -10,9 +10,8 @@
 
 #include <algorithm>
 
+#include <cstdio>
 #include <sqlite3.h>
-#include <stdio.h>
-#include <string.h>
 
 #include <foreman/metric/impl/ArrayTimeSeries.h>
 #include <foreman/util/Util.h>
@@ -53,7 +52,7 @@ bool ArrayTimeSeries::addValue(const Metric& m)
 // getQueryDataCount
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::getQueryDataCount(Query* q, size_t* valueCnt)
+bool ArrayTimeSeries::getQueryDataCount(Query* q, std::size_t* valueCnt)
 {
   if (!q->getDataPointCount(valueCnt))
     return false;
@@ -68,7 +67,7 @@ bool ArrayTimeSeries::getQueryDataCount(Query* q, size_t* valueCnt)
 // reallocValueArray
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::reallocValueArray(size_t size)
+bool ArrayTimeSeries::reallocValueArray(std::size_t size)
 {
   if (!clear())
     return false;
@@ -86,7 +85,7 @@ bool ArrayTimeSeries::reallocValueArray(size_t size)
 // setValueArray
 ////////////////////////////////////////////////
 
-bool ArrayTimeSeries::setValueArray(double* values, size_t size)
+bool ArrayTimeSeries::setValueArray(double* values, std::size_t size)
 {
   if (!clear())
     return false;

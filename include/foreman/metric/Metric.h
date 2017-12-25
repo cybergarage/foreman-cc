@@ -16,7 +16,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <time.h>
+#include <ctime>
 
 #include <foreman/Platform.h>
 
@@ -34,7 +34,7 @@ public:
 
     std::string name;
     double value;
-    time_t timestamp;
+    std::time_t timestamp;
   };
 
   ////////////////////////////////////////////////
