@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <cstdio>
 #include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/Const.h>
 #include <foreman/metric/impl/GraphiteStore.h>
@@ -103,7 +103,7 @@ bool GraphiteStore::getValues(Query* q, ResultSet* rs)
     return false;
 
   double* values = NULL;
-  std::size_t valueCout = 0;
+  size_t valueCout = 0;
 
   if (!graphite.getValues(q->target, q->from, q->until, q->interval, &values, &valueCout))
     return false;
