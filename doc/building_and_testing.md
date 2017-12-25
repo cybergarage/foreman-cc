@@ -12,7 +12,7 @@ The `foreman-cc` uses the following package. Please install the packages in your
 |---|---|---|
 | [SQLite](https://www.sqlite.org)  | >= 3.16.0  | O |
 | [Folly](https://www.sqlite.org)  | >= 2017.08.21.00  | X (--enable-beringei) |
-| [Boost](http://www.boost.org/)  | >= 1.65.0  | O |
+| [Boost](http://www.boost.org/)  | >= 1.65.0  | X (--enable-test) |
 | [google-benchmark](https://github.com/google/benchmark)  | >= 1.2.0  | X ( --enable-benchmark) |
 
 ## Directory Structure

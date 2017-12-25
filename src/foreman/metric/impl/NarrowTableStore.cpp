@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <sqlite3.h>
+#include <stdio.h>
 
 #include <foreman/Const.h>
 #include <foreman/metric/impl/SQLiteStore.h>
