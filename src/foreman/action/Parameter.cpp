@@ -18,10 +18,12 @@ using namespace Foreman::Action;
 
 Parameter::Parameter()
 {
-  type_ = UnknownType;
+  setType(UnknownType);
 }
 
 Parameter::Parameter(ParameterType type)
 {
-  type_ = type;
+  setType(type);
 }
+
+Parameter::~Parameter() {}

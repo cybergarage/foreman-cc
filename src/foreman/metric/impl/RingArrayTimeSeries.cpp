@@ -10,8 +10,9 @@
 
 #include <algorithm>
 
-#include <cstring>
 #include <sqlite3.h>
+#include <stdio.h>
+#include <string.h>
 
 #include <foreman/metric/impl/RingMapStore.h>
 #include <foreman/util/Util.h>
@@ -61,12 +62,12 @@ bool RingArrayTimeSeries::getValues(Query* q, ResultSet* rs)
 
   size_t arrayRightCnt = arraySize_ - arrayInsertIndex_;
   if (0 < arrayRightCnt) {
-    std::memcpy(values, (values_ + arrayInsertIndex_), (sizeof(double) * arrayRightCnt));
+    memcpy(values, (values_ + arrayInsertIndex_), (sizeof(double) * arrayRightCnt));
   }
 
   size_t arrayLeftCnt = arrayInsertIndex_;
   if (0 < arrayLeftCnt) {
-    std::memcpy((values + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
+    memcpy((values + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
   }
 
   bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);

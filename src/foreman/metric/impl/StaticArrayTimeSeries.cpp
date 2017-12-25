@@ -10,8 +10,9 @@
 
 #include <algorithm>
 
-#include <cstring>
 #include <sqlite3.h>
+#include <stdio.h>
+#include <string.h>
 
 #include <foreman/metric/impl/ArrayTimeSeries.h>
 #include <foreman/util/Util.h>
@@ -43,7 +44,7 @@ bool StaticArrayTimeSeries::addValue(const Metric& m)
   if (!ArrayTimeSeries::addValue(m))
     return false;
 
-  std::memcpy(newValues, (values_ + 1), (sizeof(double) * (arraySize_ - 1)));
+  memcpy(newValues, (values_ + 1), (sizeof(double) * (arraySize_ - 1)));
   delete values_;
 
   values_ = newValues;
