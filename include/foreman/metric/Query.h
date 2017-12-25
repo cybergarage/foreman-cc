@@ -16,7 +16,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <ctime>
+#include <time.h>
 
 #include <foreman/Platform.h>
 #include <foreman/metric/Metric.h>
@@ -87,9 +87,9 @@ public:
 
 public:
     std::string target;
-    std::time_t from;
-    std::time_t until;
-    std::time_t interval;
+    time_t from;
+    time_t until;
+    time_t interval;
   };
 }
 }

@@ -15,11 +15,11 @@
 // CreateNanDataPointValueArray
 ////////////////////////////////////////////////
 
-double* Foreman::CreateNanDataPointValueArray(std::size_t size)
+double* Foreman::CreateNanDataPointValueArray(size_t size)
 {
   double* values = new double[size];
   if (!values)
-    return nullptr;
+    return NULL;
 
   for (size_t n = 0; n < size; n++) {
     values[n] = NAN;
