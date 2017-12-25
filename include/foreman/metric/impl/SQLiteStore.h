@@ -11,6 +11,8 @@
 #ifndef _FOREMANCC_METRIC_SQLITETORE_H_
 #define _FOREMANCC_METRIC_SQLITETORE_H_
 
+#include <time.h>
+
 #include <sqlite3.h>
 
 #include <foreman/metric/impl/MemStore.h>
