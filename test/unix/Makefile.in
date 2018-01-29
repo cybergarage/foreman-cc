@@ -110,26 +110,35 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ..//clang/common/ClangErrorTest.$(OBJEXT) \
-	..//clang/action/ClangScriptManagerTest.$(OBJEXT) \
-	..//clang/action/ClangParameterTest.$(OBJEXT) \
-	..//clang/action/ClangMethodTest.$(OBJEXT) \
-	..//clang/registry/ClangStoreTest.$(OBJEXT) \
-	..//clang/registry/ClangQueryTest.$(OBJEXT) \
-	..//clang/registry/ClangObjectTest.$(OBJEXT) \
-	..//clang/registry/ClangPropertyTest.$(OBJEXT) \
-	..//clang/metric/ClangStoreTest.$(OBJEXT) \
-	..//clang/metric/ClangQueryTest.$(OBJEXT) \
-	..//clang/metric/ClangResultSetTest.$(OBJEXT) \
-	..//clang/metric/ClangMetricsTest.$(OBJEXT) \
-	..//util/MutexTest.$(OBJEXT) ..//util/UUIDTest.$(OBJEXT) \
+am_foremantest_OBJECTS = ..//util/MutexTest.$(OBJEXT) \
+	..//util/UUIDTest.$(OBJEXT) \
+	..//binding/clang/common/ClangErrorTest.$(OBJEXT) \
+	..//binding/clang/action/ClangScriptManagerTest.$(OBJEXT) \
+	..//binding/clang/action/ClangParameterTest.$(OBJEXT) \
+	..//binding/clang/action/ClangMethodTest.$(OBJEXT) \
+	..//binding/clang/register/ClangStoreTest.$(OBJEXT) \
+	..//binding/clang/register/ClangObjectTest.$(OBJEXT) \
+	..//binding/clang/registry/ClangStoreTest.$(OBJEXT) \
+	..//binding/clang/registry/ClangQueryTest.$(OBJEXT) \
+	..//binding/clang/registry/ClangObjectTest.$(OBJEXT) \
+	..//binding/clang/registry/ClangPropertyTest.$(OBJEXT) \
+	..//binding/clang/metric/ClangStoreTest.$(OBJEXT) \
+	..//binding/clang/metric/ClangQueryTest.$(OBJEXT) \
+	..//binding/clang/metric/ClangResultSetTest.$(OBJEXT) \
+	..//binding/clang/metric/ClangMetricsTest.$(OBJEXT) \
 	..//common/ErrorTest.$(OBJEXT) \
 	..//action/ScriptManagerTestController.$(OBJEXT) \
 	..//action/PythonEngineTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
 	..//action/LuaEngineTest.$(OBJEXT) \
-	..//action/MethodTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
-	..//registry/ObjectTest.$(OBJEXT) \
+	..//action/MethodTest.$(OBJEXT) \
+	..//register/ObjectTest.$(OBJEXT) \
+	..//register/StoreTestController.$(OBJEXT) \
+	..//register/StoreTest.$(OBJEXT) \
+	..//macosx/xcode/binding/ClangScriptManagerTest.$(OBJEXT) \
+	..//macosx/xcode/binding/ClangParameterTest.$(OBJEXT) \
+	..//macosx/xcode/binding/ClangMethodTest.$(OBJEXT) \
+	..//ForemanTest.$(OBJEXT) ..//registry/ObjectTest.$(OBJEXT) \
 	..//registry/PropertyTest.$(OBJEXT) \
 	..//registry/StoreTestController.$(OBJEXT) \
 	..//registry/StoreTest.$(OBJEXT) \
@@ -498,26 +507,34 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
-	..//clang/common/ClangErrorTest.cpp \
-	..//clang/action/ClangScriptManagerTest.cpp \
-	..//clang/action/ClangParameterTest.cpp \
-	..//clang/action/ClangMethodTest.cpp \
-	..//clang/registry/ClangStoreTest.cpp \
-	..//clang/registry/ClangQueryTest.cpp \
-	..//clang/registry/ClangObjectTest.cpp \
-	..//clang/registry/ClangPropertyTest.cpp \
-	..//clang/metric/ClangStoreTest.cpp \
-	..//clang/metric/ClangQueryTest.cpp \
-	..//clang/metric/ClangResultSetTest.cpp \
-	..//clang/metric/ClangMetricsTest.cpp \
 	..//util/MutexTest.cpp \
 	..//util/UUIDTest.cpp \
+	..//binding/clang/common/ClangErrorTest.cpp \
+	..//binding/clang/action/ClangScriptManagerTest.cpp \
+	..//binding/clang/action/ClangParameterTest.cpp \
+	..//binding/clang/action/ClangMethodTest.cpp \
+	..//binding/clang/register/ClangStoreTest.cpp \
+	..//binding/clang/register/ClangObjectTest.cpp \
+	..//binding/clang/registry/ClangStoreTest.cpp \
+	..//binding/clang/registry/ClangQueryTest.cpp \
+	..//binding/clang/registry/ClangObjectTest.cpp \
+	..//binding/clang/registry/ClangPropertyTest.cpp \
+	..//binding/clang/metric/ClangStoreTest.cpp \
+	..//binding/clang/metric/ClangQueryTest.cpp \
+	..//binding/clang/metric/ClangResultSetTest.cpp \
+	..//binding/clang/metric/ClangMetricsTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//action/ScriptManagerTestController.cpp \
 	..//action/PythonEngineTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/LuaEngineTest.cpp \
 	..//action/MethodTest.cpp \
+	..//register/ObjectTest.cpp \
+	..//register/StoreTestController.cpp \
+	..//register/StoreTest.cpp \
+	..//macosx/xcode/binding/ClangScriptManagerTest.cpp \
+	..//macosx/xcode/binding/ClangParameterTest.cpp \
+	..//macosx/xcode/binding/ClangMethodTest.cpp \
 	..//ForemanTest.cpp \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
@@ -568,66 +585,6 @@ $(am__aclocal_m4_deps):
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
-../clang/common/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/common
-	@: > ../clang/common/$(am__dirstamp)
-../clang/common/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/common/$(DEPDIR)
-	@: > ../clang/common/$(DEPDIR)/$(am__dirstamp)
-..//clang/common/ClangErrorTest.$(OBJEXT):  \
-	../clang/common/$(am__dirstamp) \
-	../clang/common/$(DEPDIR)/$(am__dirstamp)
-../clang/action/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/action
-	@: > ../clang/action/$(am__dirstamp)
-../clang/action/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/action/$(DEPDIR)
-	@: > ../clang/action/$(DEPDIR)/$(am__dirstamp)
-..//clang/action/ClangScriptManagerTest.$(OBJEXT):  \
-	../clang/action/$(am__dirstamp) \
-	../clang/action/$(DEPDIR)/$(am__dirstamp)
-..//clang/action/ClangParameterTest.$(OBJEXT):  \
-	../clang/action/$(am__dirstamp) \
-	../clang/action/$(DEPDIR)/$(am__dirstamp)
-..//clang/action/ClangMethodTest.$(OBJEXT):  \
-	../clang/action/$(am__dirstamp) \
-	../clang/action/$(DEPDIR)/$(am__dirstamp)
-../clang/registry/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/registry
-	@: > ../clang/registry/$(am__dirstamp)
-../clang/registry/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/registry/$(DEPDIR)
-	@: > ../clang/registry/$(DEPDIR)/$(am__dirstamp)
-..//clang/registry/ClangStoreTest.$(OBJEXT):  \
-	../clang/registry/$(am__dirstamp) \
-	../clang/registry/$(DEPDIR)/$(am__dirstamp)
-..//clang/registry/ClangQueryTest.$(OBJEXT):  \
-	../clang/registry/$(am__dirstamp) \
-	../clang/registry/$(DEPDIR)/$(am__dirstamp)
-..//clang/registry/ClangObjectTest.$(OBJEXT):  \
-	../clang/registry/$(am__dirstamp) \
-	../clang/registry/$(DEPDIR)/$(am__dirstamp)
-..//clang/registry/ClangPropertyTest.$(OBJEXT):  \
-	../clang/registry/$(am__dirstamp) \
-	../clang/registry/$(DEPDIR)/$(am__dirstamp)
-../clang/metric/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/metric
-	@: > ../clang/metric/$(am__dirstamp)
-../clang/metric/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ..//clang/metric/$(DEPDIR)
-	@: > ../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangStoreTest.$(OBJEXT):  \
-	../clang/metric/$(am__dirstamp) \
-	../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangQueryTest.$(OBJEXT):  \
-	../clang/metric/$(am__dirstamp) \
-	../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangResultSetTest.$(OBJEXT):  \
-	../clang/metric/$(am__dirstamp) \
-	../clang/metric/$(DEPDIR)/$(am__dirstamp)
-..//clang/metric/ClangMetricsTest.$(OBJEXT):  \
-	../clang/metric/$(am__dirstamp) \
-	../clang/metric/$(DEPDIR)/$(am__dirstamp)
 ../util/$(am__dirstamp):
 	@$(MKDIR_P) ..//util
 	@: > ../util/$(am__dirstamp)
@@ -638,6 +595,78 @@ clean-noinstPROGRAMS:
 	../util/$(DEPDIR)/$(am__dirstamp)
 ..//util/UUIDTest.$(OBJEXT): ../util/$(am__dirstamp) \
 	../util/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/common/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/common
+	@: > ../binding/clang/common/$(am__dirstamp)
+../binding/clang/common/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/common/$(DEPDIR)
+	@: > ../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/common/ClangErrorTest.$(OBJEXT):  \
+	../binding/clang/common/$(am__dirstamp) \
+	../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/action/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/action
+	@: > ../binding/clang/action/$(am__dirstamp)
+../binding/clang/action/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/action/$(DEPDIR)
+	@: > ../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/action/ClangScriptManagerTest.$(OBJEXT):  \
+	../binding/clang/action/$(am__dirstamp) \
+	../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/action/ClangParameterTest.$(OBJEXT):  \
+	../binding/clang/action/$(am__dirstamp) \
+	../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/action/ClangMethodTest.$(OBJEXT):  \
+	../binding/clang/action/$(am__dirstamp) \
+	../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/register/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/register
+	@: > ../binding/clang/register/$(am__dirstamp)
+../binding/clang/register/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/register/$(DEPDIR)
+	@: > ../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/register/ClangStoreTest.$(OBJEXT):  \
+	../binding/clang/register/$(am__dirstamp) \
+	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/register/ClangObjectTest.$(OBJEXT):  \
+	../binding/clang/register/$(am__dirstamp) \
+	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/registry/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/registry
+	@: > ../binding/clang/registry/$(am__dirstamp)
+../binding/clang/registry/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/registry/$(DEPDIR)
+	@: > ../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/registry/ClangStoreTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/registry/ClangQueryTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/registry/ClangObjectTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/registry/ClangPropertyTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/metric/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/metric
+	@: > ../binding/clang/metric/$(am__dirstamp)
+../binding/clang/metric/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/metric/$(DEPDIR)
+	@: > ../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/metric/ClangStoreTest.$(OBJEXT):  \
+	../binding/clang/metric/$(am__dirstamp) \
+	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/metric/ClangQueryTest.$(OBJEXT):  \
+	../binding/clang/metric/$(am__dirstamp) \
+	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/metric/ClangResultSetTest.$(OBJEXT):  \
+	../binding/clang/metric/$(am__dirstamp) \
+	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/metric/ClangMetricsTest.$(OBJEXT):  \
+	../binding/clang/metric/$(am__dirstamp) \
+	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
 ../common/$(am__dirstamp):
 	@$(MKDIR_P) ..//common
 	@: > ../common/$(am__dirstamp)
@@ -662,6 +691,34 @@ clean-noinstPROGRAMS:
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/MethodTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
+../register/$(am__dirstamp):
+	@$(MKDIR_P) ..//register
+	@: > ../register/$(am__dirstamp)
+../register/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//register/$(DEPDIR)
+	@: > ../register/$(DEPDIR)/$(am__dirstamp)
+..//register/ObjectTest.$(OBJEXT): ../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+..//register/StoreTestController.$(OBJEXT):  \
+	../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+..//register/StoreTest.$(OBJEXT): ../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+../macosx/xcode/binding/$(am__dirstamp):
+	@$(MKDIR_P) ..//macosx/xcode/binding
+	@: > ../macosx/xcode/binding/$(am__dirstamp)
+../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//macosx/xcode/binding/$(DEPDIR)
+	@: > ../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
+..//macosx/xcode/binding/ClangScriptManagerTest.$(OBJEXT):  \
+	../macosx/xcode/binding/$(am__dirstamp) \
+	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
+..//macosx/xcode/binding/ClangParameterTest.$(OBJEXT):  \
+	../macosx/xcode/binding/$(am__dirstamp) \
+	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
+..//macosx/xcode/binding/ClangMethodTest.$(OBJEXT):  \
+	../macosx/xcode/binding/$(am__dirstamp) \
+	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
 ../$(am__dirstamp):
 	@$(MKDIR_P) ../
 	@: > ../$(am__dirstamp)
@@ -714,12 +771,15 @@ mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ..//*.$(OBJEXT)
 	-rm -f ..//action/*.$(OBJEXT)
-	-rm -f ..//clang/action/*.$(OBJEXT)
-	-rm -f ..//clang/common/*.$(OBJEXT)
-	-rm -f ..//clang/metric/*.$(OBJEXT)
-	-rm -f ..//clang/registry/*.$(OBJEXT)
+	-rm -f ..//binding/clang/action/*.$(OBJEXT)
+	-rm -f ..//binding/clang/common/*.$(OBJEXT)
+	-rm -f ..//binding/clang/metric/*.$(OBJEXT)
+	-rm -f ..//binding/clang/register/*.$(OBJEXT)
+	-rm -f ..//binding/clang/registry/*.$(OBJEXT)
 	-rm -f ..//common/*.$(OBJEXT)
+	-rm -f ..//macosx/xcode/binding/*.$(OBJEXT)
 	-rm -f ..//metric/*.$(OBJEXT)
+	-rm -f ..//register/*.$(OBJEXT)
 	-rm -f ..//registry/*.$(OBJEXT)
 	-rm -f ..//util/*.$(OBJEXT)
 
@@ -732,25 +792,33 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/PythonEngineTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptManagerTestController.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangMethodTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangResultSetTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/metric/$(DEPDIR)/ClangStoreTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangObjectTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangPropertyTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangQueryTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangResultSetTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangStoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/register/$(DEPDIR)/ClangObjectTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/register/$(DEPDIR)/ClangStoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangObjectTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangPropertyTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangMethodTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangParameterTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/QueryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/StoreTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/TimeSeriesTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../register/$(DEPDIR)/ObjectTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../register/$(DEPDIR)/StoreTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../register/$(DEPDIR)/StoreTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/ObjectTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/PropertyTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../registry/$(DEPDIR)/QueryTest.Po@am__quote@
@@ -1058,18 +1126,24 @@ distclean-generic:
 	-rm -f ../$(am__dirstamp)
 	-rm -f ../action/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../action/$(am__dirstamp)
-	-rm -f ../clang/action/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../clang/action/$(am__dirstamp)
-	-rm -f ../clang/common/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../clang/common/$(am__dirstamp)
-	-rm -f ../clang/metric/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../clang/metric/$(am__dirstamp)
-	-rm -f ../clang/registry/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../clang/registry/$(am__dirstamp)
+	-rm -f ../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/action/$(am__dirstamp)
+	-rm -f ../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/common/$(am__dirstamp)
+	-rm -f ../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/metric/$(am__dirstamp)
+	-rm -f ../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/register/$(am__dirstamp)
+	-rm -f ../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/registry/$(am__dirstamp)
 	-rm -f ../common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../common/$(am__dirstamp)
+	-rm -f ../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../macosx/xcode/binding/$(am__dirstamp)
 	-rm -f ../metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../metric/$(am__dirstamp)
+	-rm -f ../register/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../register/$(am__dirstamp)
 	-rm -f ../registry/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../registry/$(am__dirstamp)
 	-rm -f ../util/$(DEPDIR)/$(am__dirstamp)
@@ -1083,7 +1157,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../macosx/xcode/binding/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1129,7 +1203,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../clang/action/$(DEPDIR) ../clang/common/$(DEPDIR) ../clang/metric/$(DEPDIR) ../clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../macosx/xcode/binding/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
