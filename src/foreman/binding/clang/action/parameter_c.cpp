@@ -65,7 +65,7 @@ bool foreman_action_parameter_setname(ForemanActionParameter* param, const char*
 // foreman_action_parameter_getname
 ////////////////////////////////////////////////
 
-const char *foreman_action_parameter_getname(ForemanActionParameter* param)
+const char* foreman_action_parameter_getname(ForemanActionParameter* param)
 {
   if (!param)
     return nullptr;
