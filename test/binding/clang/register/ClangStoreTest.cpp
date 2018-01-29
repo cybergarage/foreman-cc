@@ -14,7 +14,7 @@
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(NewRegisterSQLiteStore)
+BOOST_AUTO_TEST_CASE(NewRegisterStore)
 {
   ForemanRegisterStore* store = foreman_register_store_new();
   BOOST_CHECK(store);

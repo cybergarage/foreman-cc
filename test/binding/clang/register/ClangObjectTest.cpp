@@ -14,7 +14,7 @@
 
 BOOST_AUTO_TEST_SUITE(clang)
 
-BOOST_AUTO_TEST_CASE(NewObject)
+BOOST_AUTO_TEST_CASE(NewRegisterObject)
 {
   ForemanRegisterObject* obj = foreman_register_object_new();
   BOOST_CHECK(obj);
