@@ -134,11 +134,8 @@ am_foremantest_OBJECTS = ..//util/MutexTest.$(OBJEXT) \
 	..//action/MethodTest.$(OBJEXT) \
 	..//register/ObjectTest.$(OBJEXT) \
 	..//register/StoreTestController.$(OBJEXT) \
-	..//register/StoreTest.$(OBJEXT) \
-	..//macosx/xcode/binding/ClangScriptManagerTest.$(OBJEXT) \
-	..//macosx/xcode/binding/ClangParameterTest.$(OBJEXT) \
-	..//macosx/xcode/binding/ClangMethodTest.$(OBJEXT) \
-	..//ForemanTest.$(OBJEXT) ..//registry/ObjectTest.$(OBJEXT) \
+	..//register/StoreTest.$(OBJEXT) ..//ForemanTest.$(OBJEXT) \
+	..//registry/ObjectTest.$(OBJEXT) \
 	..//registry/PropertyTest.$(OBJEXT) \
 	..//registry/StoreTestController.$(OBJEXT) \
 	..//registry/StoreTest.$(OBJEXT) \
@@ -532,9 +529,6 @@ foremantest_SOURCES = \
 	..//register/ObjectTest.cpp \
 	..//register/StoreTestController.cpp \
 	..//register/StoreTest.cpp \
-	..//macosx/xcode/binding/ClangScriptManagerTest.cpp \
-	..//macosx/xcode/binding/ClangParameterTest.cpp \
-	..//macosx/xcode/binding/ClangMethodTest.cpp \
 	..//ForemanTest.cpp \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
@@ -704,21 +698,6 @@ clean-noinstPROGRAMS:
 	../register/$(DEPDIR)/$(am__dirstamp)
 ..//register/StoreTest.$(OBJEXT): ../register/$(am__dirstamp) \
 	../register/$(DEPDIR)/$(am__dirstamp)
-../macosx/xcode/binding/$(am__dirstamp):
-	@$(MKDIR_P) ..//macosx/xcode/binding
-	@: > ../macosx/xcode/binding/$(am__dirstamp)
-../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ..//macosx/xcode/binding/$(DEPDIR)
-	@: > ../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
-..//macosx/xcode/binding/ClangScriptManagerTest.$(OBJEXT):  \
-	../macosx/xcode/binding/$(am__dirstamp) \
-	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
-..//macosx/xcode/binding/ClangParameterTest.$(OBJEXT):  \
-	../macosx/xcode/binding/$(am__dirstamp) \
-	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
-..//macosx/xcode/binding/ClangMethodTest.$(OBJEXT):  \
-	../macosx/xcode/binding/$(am__dirstamp) \
-	../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
 ../$(am__dirstamp):
 	@$(MKDIR_P) ../
 	@: > ../$(am__dirstamp)
@@ -777,7 +756,6 @@ mostlyclean-compile:
 	-rm -f ..//binding/clang/register/*.$(OBJEXT)
 	-rm -f ..//binding/clang/registry/*.$(OBJEXT)
 	-rm -f ..//common/*.$(OBJEXT)
-	-rm -f ..//macosx/xcode/binding/*.$(OBJEXT)
 	-rm -f ..//metric/*.$(OBJEXT)
 	-rm -f ..//register/*.$(OBJEXT)
 	-rm -f ..//registry/*.$(OBJEXT)
@@ -807,9 +785,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangMethodTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangParameterTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../macosx/xcode/binding/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/QueryTest.Po@am__quote@
@@ -1138,8 +1113,6 @@ distclean-generic:
 	-rm -f ../binding/clang/registry/$(am__dirstamp)
 	-rm -f ../common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../common/$(am__dirstamp)
-	-rm -f ../macosx/xcode/binding/$(DEPDIR)/$(am__dirstamp)
-	-rm -f ../macosx/xcode/binding/$(am__dirstamp)
 	-rm -f ../metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../metric/$(am__dirstamp)
 	-rm -f ../register/$(DEPDIR)/$(am__dirstamp)
@@ -1157,7 +1130,7 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../macosx/xcode/binding/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -1203,7 +1176,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../macosx/xcode/binding/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
+	-rm -rf ../$(DEPDIR) ../action/$(DEPDIR) ../binding/clang/action/$(DEPDIR) ../binding/clang/common/$(DEPDIR) ../binding/clang/metric/$(DEPDIR) ../binding/clang/register/$(DEPDIR) ../binding/clang/registry/$(DEPDIR) ../common/$(DEPDIR) ../metric/$(DEPDIR) ../register/$(DEPDIR) ../registry/$(DEPDIR) ../util/$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

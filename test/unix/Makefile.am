@@ -39,9 +39,6 @@ foremantest_SOURCES = \
 	..//register/ObjectTest.cpp \
 	..//register/StoreTestController.cpp \
 	..//register/StoreTest.cpp \
-	..//macosx/xcode/binding/ClangScriptManagerTest.cpp \
-	..//macosx/xcode/binding/ClangParameterTest.cpp \
-	..//macosx/xcode/binding/ClangMethodTest.cpp \
 	..//ForemanTest.cpp \
 	..//registry/ObjectTest.cpp \
 	..//registry/PropertyTest.cpp \
