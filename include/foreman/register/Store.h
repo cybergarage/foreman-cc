@@ -36,7 +36,9 @@ public:
     virtual bool setObject(Object* obj, Error* err) = 0;
     virtual bool getObject(const std::string& objId, Object* obj, Error* err) = 0;
     virtual bool removeObject(const std::string& objId, Error* err) = 0;
-  };
+
+    virtual size_t size() = 0;
+};
 }
 }
 

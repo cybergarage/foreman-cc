@@ -37,7 +37,9 @@ public:
     bool setObject(Object* obj, Error* err);
     bool getObject(const std::string& objId, Object* obj, Error* err);
     bool removeObject(const std::string& objId, Error* err);
-  };
+
+    size_t size();
+};
 }
 }
 
