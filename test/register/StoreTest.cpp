@@ -13,7 +13,7 @@
 #include "StoreTestController.h"
 #include <foreman/register/impl/MemStore.h>
 
-BOOST_AUTO_TEST_SUITE(registry)
+BOOST_AUTO_TEST_SUITE(register_)
 
 using namespace Foreman::Register;
 

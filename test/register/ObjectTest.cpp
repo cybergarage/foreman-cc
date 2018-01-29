@@ -17,7 +17,7 @@
 
 using namespace Foreman::Register;
 
-BOOST_AUTO_TEST_SUITE(registry)
+BOOST_AUTO_TEST_SUITE(register_)
 
 BOOST_AUTO_TEST_CASE(Object)
 {
