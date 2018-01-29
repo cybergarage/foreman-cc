@@ -106,3 +106,13 @@ bool MemStore::removeObject(const std::string& key, Error* err)
 {
   return ObjectMap::remove(key);
 }
+
+////////////////////////////////////////////////
+// size
+////////////////////////////////////////////////
+
+size_t MemStore::size()
+{
+  return ObjectMap::size();
+}
+
