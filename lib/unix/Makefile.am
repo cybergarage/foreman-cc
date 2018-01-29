@@ -25,6 +25,8 @@ foremancc_sources = \
 	../../src/foreman/binding/clang/action/parameter_c.cpp \
 	../../src/foreman/binding/clang/action/parameters_c.cpp \
 	../../src/foreman/binding/clang/action/method_c.cpp \
+	../../src/foreman/binding/clang/register/store_c.cpp \
+	../../src/foreman/binding/clang/register/object_c.cpp \
 	../../src/foreman/binding/clang/registry/properties_c.cpp \
 	../../src/foreman/binding/clang/registry/query_c.cpp \
 	../../src/foreman/binding/clang/registry/property_c.cpp \
@@ -52,6 +54,10 @@ foremancc_sources = \
 	../../src/foreman/action/ScriptEngineMap.cpp \
 	../../src/foreman/action/ScriptManager.cpp \
 	../../src/foreman/action/Method.cpp \
+	../../src/foreman/register/impl/MemStore.cpp \
+	../../src/foreman/register/impl/ObjectMap.cpp \
+	../../src/foreman/register/Object.cpp \
+	../../src/foreman/register/Store.cpp \
 	../../src/foreman/registry/impl/SQLStore.cpp \
 	../../src/foreman/registry/impl/SQLiteStore.cpp \
 	../../src/foreman/registry/Query.cpp \

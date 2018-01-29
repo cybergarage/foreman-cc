@@ -27,6 +27,11 @@ foremancc_header = \
 	./foreman/action/Parameter.h \
 	./foreman/action/Manager.h \
 	./foreman/action/Method.h \
+	./foreman/register/impl/ObjectMap.h \
+	./foreman/register/impl/MemStore.h \
+	./foreman/register/register-c.h \
+	./foreman/register/Object.h \
+	./foreman/register/Store.h \
 	./foreman/foreman-c.h \
 	./foreman/registry/impl/StoreImpl.h \
 	./foreman/registry/impl/SQLStore.h \

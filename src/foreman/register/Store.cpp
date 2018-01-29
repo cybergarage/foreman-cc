@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) 2017 Satoshi Konno. All rights reserved.
  *
@@ -8,12 +8,19 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMANC_H_
-#define _FOREMANCC_FOREMANC_H_
+#include <foreman/Const.h>
+#include <foreman/register/Store.h>
 
-#include <foreman/action/action-c.h>
-#include <foreman/metric/metric-c.h>
-#include <foreman/register/register-c.h>
-#include <foreman/registry/registry-c.h>
+using namespace Foreman::Register;
 
-#endif
+////////////////////////////////////////////////
+// Store
+////////////////////////////////////////////////
+
+Store::Store()
+{
+}
+
+Store::~Store()
+{
+}
