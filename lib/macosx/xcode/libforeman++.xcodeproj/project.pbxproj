@@ -13,10 +13,6 @@
 		2113F193201FA02600F5C672 /* Manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18E201FA02500F5C672 /* Manager.h */; };
 		2113F194201FA02600F5C672 /* Method.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18F201FA02500F5C672 /* Method.h */; };
 		2113F195201FA02600F5C672 /* Parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F190201FA02600F5C672 /* Parameter.h */; };
-		2113F19A201FA03400F5C672 /* EngineImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F196201FA03400F5C672 /* EngineImpl.h */; };
-		2113F19B201FA03400F5C672 /* Python.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F197201FA03400F5C672 /* Python.h */; };
-		2113F19C201FA03400F5C672 /* ManagerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F198201FA03400F5C672 /* ManagerImpl.h */; };
-		2113F19D201FA03400F5C672 /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F199201FA03400F5C672 /* Lua.h */; };
 		2113F1A3201FA07300F5C672 /* ObjectMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F1A1201FA07300F5C672 /* ObjectMap.h */; };
 		2113F1A4201FA07300F5C672 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F1A2201FA07300F5C672 /* MemStore.h */; };
 		2113F1A8201FA08000F5C672 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F1A5201FA07F00F5C672 /* Object.h */; };
@@ -25,6 +21,13 @@
 		2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EB1FB3131A00F7ACF9 /* UUID.h */; };
 		2117C4EE1FB3158400F7ACF9 /* UUID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2117C4ED1FB3158300F7ACF9 /* UUID.cpp */; };
 		2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = 2117C4EF1FB342C900F7ACF9 /* Errors.h */; };
+		21247FFB201FF23A006D9187 /* PythonFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21247FFA201FF23A006D9187 /* PythonFunctions.cpp */; };
+		21247FFF201FF450006D9187 /* GlobalObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21247FFD201FF450006D9187 /* GlobalObject.cpp */; };
+		21248006201FF882006D9187 /* EngineImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248001201FF881006D9187 /* EngineImpl.h */; };
+		21248007201FF882006D9187 /* Python.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248002201FF882006D9187 /* Python.h */; };
+		21248008201FF882006D9187 /* ManagerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248003201FF882006D9187 /* ManagerImpl.h */; };
+		21248009201FF882006D9187 /* GlobalObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248004201FF882006D9187 /* GlobalObject.h */; };
+		2124800A201FF883006D9187 /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248005201FF882006D9187 /* Lua.h */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
@@ -143,10 +146,6 @@
 		2113F18E201FA02500F5C672 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = action/Manager.h; sourceTree = "<group>"; };
 		2113F18F201FA02500F5C672 /* Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Method.h; path = action/Method.h; sourceTree = "<group>"; };
 		2113F190201FA02600F5C672 /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parameter.h; path = action/Parameter.h; sourceTree = "<group>"; };
-		2113F196201FA03400F5C672 /* EngineImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineImpl.h; path = ../action/impl/EngineImpl.h; sourceTree = "<group>"; };
-		2113F197201FA03400F5C672 /* Python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Python.h; path = ../action/impl/Python.h; sourceTree = "<group>"; };
-		2113F198201FA03400F5C672 /* ManagerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerImpl.h; path = ../action/impl/ManagerImpl.h; sourceTree = "<group>"; };
-		2113F199201FA03400F5C672 /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = ../action/impl/Lua.h; sourceTree = "<group>"; };
 		2113F1A1201FA07300F5C672 /* ObjectMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectMap.h; path = register/impl/ObjectMap.h; sourceTree = "<group>"; };
 		2113F1A2201FA07300F5C672 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = register/impl/MemStore.h; sourceTree = "<group>"; };
 		2113F1A5201FA07F00F5C672 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = register/Object.h; sourceTree = "<group>"; };
@@ -156,6 +155,13 @@
 		2117C4ED1FB3158300F7ACF9 /* UUID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UUID.cpp; path = util/UUID.cpp; sourceTree = "<group>"; };
 		2117C4EF1FB342C900F7ACF9 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = common/Errors.h; sourceTree = "<group>"; };
 		211B343E1E52F1B8008D5228 /* libforeman++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libforeman++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21247FFA201FF23A006D9187 /* PythonFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonFunctions.cpp; path = action/impl/PythonFunctions.cpp; sourceTree = "<group>"; };
+		21247FFD201FF450006D9187 /* GlobalObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalObject.cpp; path = action/impl/GlobalObject.cpp; sourceTree = "<group>"; };
+		21248001201FF881006D9187 /* EngineImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngineImpl.h; path = action/impl/EngineImpl.h; sourceTree = "<group>"; };
+		21248002201FF882006D9187 /* Python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Python.h; path = action/impl/Python.h; sourceTree = "<group>"; };
+		21248003201FF882006D9187 /* ManagerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerImpl.h; path = action/impl/ManagerImpl.h; sourceTree = "<group>"; };
+		21248004201FF882006D9187 /* GlobalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalObject.h; path = action/impl/GlobalObject.h; sourceTree = "<group>"; };
+		21248005201FF882006D9187 /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = action/impl/Lua.h; sourceTree = "<group>"; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
@@ -281,25 +287,14 @@
 		2113F18A201FA00100F5C672 /* action */ = {
 			isa = PBXGroup;
 			children = (
+				21248000201FF86A006D9187 /* impl */,
 				2113F18D201FA02500F5C672 /* action-c.h */,
 				2113F18C201FA02500F5C672 /* Engine.h */,
 				2113F18E201FA02500F5C672 /* Manager.h */,
 				2113F18F201FA02500F5C672 /* Method.h */,
 				2113F190201FA02600F5C672 /* Parameter.h */,
-				2113F18B201FA00E00F5C672 /* impl */,
 			);
 			name = action;
-			sourceTree = "<group>";
-		};
-		2113F18B201FA00E00F5C672 /* impl */ = {
-			isa = PBXGroup;
-			children = (
-				2113F196201FA03400F5C672 /* EngineImpl.h */,
-				2113F199201FA03400F5C672 /* Lua.h */,
-				2113F198201FA03400F5C672 /* ManagerImpl.h */,
-				2113F197201FA03400F5C672 /* Python.h */,
-			);
-			path = impl;
 			sourceTree = "<group>";
 		};
 		2113F19E201FA04200F5C672 /* register */ = {
@@ -337,6 +332,18 @@
 				211B343E1E52F1B8008D5228 /* libforeman++.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		21248000201FF86A006D9187 /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				21248001201FF881006D9187 /* EngineImpl.h */,
+				21248004201FF882006D9187 /* GlobalObject.h */,
+				21248005201FF882006D9187 /* Lua.h */,
+				21248003201FF882006D9187 /* ManagerImpl.h */,
+				21248002201FF882006D9187 /* Python.h */,
+			);
+			name = impl;
 			sourceTree = "<group>";
 		};
 		2129D19A1E9693E700FCA490 /* net */ = {
@@ -484,6 +491,8 @@
 		217303B81FC841C9000B0ECE /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				21247FFD201FF450006D9187 /* GlobalObject.cpp */,
+				21247FFA201FF23A006D9187 /* PythonFunctions.cpp */,
 				216DE7BD1FD692B500475938 /* DefaultScriptManager.cpp */,
 				21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */,
 				21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */,
@@ -725,13 +734,10 @@
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				2113F1A4201FA07300F5C672 /* MemStore.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
-				2113F19C201FA03400F5C672 /* ManagerImpl.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
-				2113F19A201FA03400F5C672 /* EngineImpl.h in Headers */,
 				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
 				21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */,
-				2113F19B201FA03400F5C672 /* Python.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
 				21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */,
 				2113F1A8201FA08000F5C672 /* Object.h in Headers */,
@@ -742,9 +748,13 @@
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
+				2124800A201FF883006D9187 /* Lua.h in Headers */,
 				2113F195201FA02600F5C672 /* Parameter.h in Headers */,
+				21248006201FF882006D9187 /* EngineImpl.h in Headers */,
 				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
+				21248008201FF882006D9187 /* ManagerImpl.h in Headers */,
 				2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */,
+				21248007201FF882006D9187 /* Python.h in Headers */,
 				21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */,
 				216DE7C21FD69A1D00475938 /* registry-c.h in Headers */,
 				2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */,
@@ -757,9 +767,9 @@
 				2113F1AA201FA08000F5C672 /* register-c.h in Headers */,
 				216A5AE31F9C597B0092272A /* DataPoint.h in Headers */,
 				21ABA0A31FB07ABD00982715 /* TimeSeries.h in Headers */,
-				2113F19D201FA03400F5C672 /* Lua.h in Headers */,
 				215EDC461FB03925006DF3AE /* StoreImpl.h in Headers */,
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
+				21248009201FF882006D9187 /* GlobalObject.h in Headers */,
 				216DE7C41FD69A5900475938 /* metric-c.h in Headers */,
 				21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */,
 				2113F193201FA02600F5C672 /* Manager.h in Headers */,
@@ -866,6 +876,7 @@
 				215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */,
 				21BA40E8201EECDA0083998C /* parameter_c.cpp in Sources */,
 				21BA411F201F82D60083998C /* object_c.cpp in Sources */,
+				21247FFB201FF23A006D9187 /* PythonFunctions.cpp in Sources */,
 				21841B891FD2BA8200CE59C8 /* PythonParameters.cpp in Sources */,
 				215DB2A81FAB3A8C0089A36B /* Store.cpp in Sources */,
 				215DB2A71FAB3A8C0089A36B /* Query.cpp in Sources */,
@@ -884,6 +895,7 @@
 				21BA4102201F47620083998C /* ObjectMap.cpp in Sources */,
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
+				21247FFF201FF450006D9187 /* GlobalObject.cpp in Sources */,
 				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				21BA40CE201EECA40083998C /* store_c.cpp in Sources */,
 				21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */,

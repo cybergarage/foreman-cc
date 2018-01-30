@@ -28,6 +28,12 @@
 namespace Foreman {
 namespace Action {
 
+  PyMethodDef* GetPythonSystemMethods();
+
+#if PY_MAJOR_VERSION >= 3
+  PyModuleDef* GetPythonSystemModule();
+#endif
+
   ////////////////////////////////////////////////
   // PythonParameter
   ////////////////////////////////////////////////

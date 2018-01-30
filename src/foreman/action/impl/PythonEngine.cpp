@@ -30,8 +30,11 @@ Foreman::Action::PythonEngine::PythonEngine()
 {
   if (!Py_IsInitialized()) {
     Py_Initialize();
+
 #if PY_MAJOR_VERSION >= 3
+    PyModule_Create(GetPythonSystemModule());
 #else
+    Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
 #endif
   }
 }

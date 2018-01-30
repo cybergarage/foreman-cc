@@ -115,4 +115,3 @@ size_t MemStore::size()
 {
   return ObjectMap::size();
 }
-

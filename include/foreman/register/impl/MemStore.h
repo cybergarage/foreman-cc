@@ -39,7 +39,7 @@ public:
     bool removeObject(const std::string& objId, Error* err);
 
     size_t size();
-};
+  };
 }
 }
 
