@@ -86,7 +86,7 @@ bool foreman_register_object_getdata(ForemanRegisterObject* obj, const char** da
 // foreman_register_object_getversion
 ////////////////////////////////////////////////
 
-bool foreman_register_object_getversion(ForemanRegisterObject* obj, long *ver)
+bool foreman_register_object_getversion(ForemanRegisterObject* obj, long* ver)
 {
   if (!obj || !ver)
     return false;
@@ -98,7 +98,7 @@ bool foreman_register_object_getversion(ForemanRegisterObject* obj, long *ver)
 // foreman_register_object_gettimestamp
 ////////////////////////////////////////////////
 
-bool foreman_register_object_gettimestamp(ForemanRegisterObject* obj, time_t *ts)
+bool foreman_register_object_gettimestamp(ForemanRegisterObject* obj, time_t* ts)
 {
   if (!obj || !ts)
     return false;

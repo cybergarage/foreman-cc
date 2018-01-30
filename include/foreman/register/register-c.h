@@ -39,8 +39,8 @@ bool foreman_register_object_setdata(ForemanRegisterObject* obj, const char* dat
 bool foreman_register_object_getkey(ForemanRegisterObject* obj, const char** name);
 bool foreman_register_object_getdata(ForemanRegisterObject* obj, const char** data);
 
-bool foreman_register_object_getversion(ForemanRegisterObject* obj, long *ver);
-bool foreman_register_object_gettimestamp(ForemanRegisterObject* obj, time_t *ts);
+bool foreman_register_object_getversion(ForemanRegisterObject* obj, long* ver);
+bool foreman_register_object_gettimestamp(ForemanRegisterObject* obj, time_t* ts);
 
 ////////////////////////////////////////////////
 // Store

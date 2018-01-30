@@ -124,7 +124,6 @@
 		21BA40DF201EECBD0083998C /* query_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40D8201EECBC0083998C /* query_c.cpp */; };
 		21BA40E0201EECBD0083998C /* datapoint_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40D9201EECBD0083998C /* datapoint_c.cpp */; };
 		21BA40E2201EECCD0083998C /* error_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40E1201EECCD0083998C /* error_c.cpp */; };
-		21BA40E7201EECDA0083998C /* script_manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40E3201EECDA0083998C /* script_manager_c.cpp */; };
 		21BA40E8201EECDA0083998C /* parameter_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40E4201EECDA0083998C /* parameter_c.cpp */; };
 		21BA40E9201EECDA0083998C /* parameters_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40E5201EECDA0083998C /* parameters_c.cpp */; };
 		21BA40EA201EECDA0083998C /* method_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40E6201EECDA0083998C /* method_c.cpp */; };
@@ -135,6 +134,8 @@
 		21BA411E201F82D60083998C /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA411C201F82D60083998C /* store_c.cpp */; };
 		21BA411F201F82D60083998C /* object_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA411D201F82D60083998C /* object_c.cpp */; };
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
+		21C7700020208CA800653C56 /* manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C76FFF20208CA800653C56 /* manager_c.cpp */; };
+		21C7700220208D6A00653C56 /* Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C7700120208D6A00653C56 /* Manager.cpp */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 /* End PBXBuildFile section */
@@ -258,7 +259,6 @@
 		21BA40D8201EECBC0083998C /* query_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = query_c.cpp; path = binding/clang/metric/query_c.cpp; sourceTree = "<group>"; };
 		21BA40D9201EECBD0083998C /* datapoint_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datapoint_c.cpp; path = binding/clang/metric/datapoint_c.cpp; sourceTree = "<group>"; };
 		21BA40E1201EECCD0083998C /* error_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = error_c.cpp; path = binding/clang/common/error_c.cpp; sourceTree = "<group>"; };
-		21BA40E3201EECDA0083998C /* script_manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = script_manager_c.cpp; path = binding/clang/action/script_manager_c.cpp; sourceTree = "<group>"; };
 		21BA40E4201EECDA0083998C /* parameter_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parameter_c.cpp; path = binding/clang/action/parameter_c.cpp; sourceTree = "<group>"; };
 		21BA40E5201EECDA0083998C /* parameters_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parameters_c.cpp; path = binding/clang/action/parameters_c.cpp; sourceTree = "<group>"; };
 		21BA40E6201EECDA0083998C /* method_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = method_c.cpp; path = binding/clang/action/method_c.cpp; sourceTree = "<group>"; };
@@ -269,6 +269,8 @@
 		21BA411C201F82D60083998C /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = binding/clang/register/store_c.cpp; sourceTree = "<group>"; };
 		21BA411D201F82D60083998C /* object_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = object_c.cpp; path = binding/clang/register/object_c.cpp; sourceTree = "<group>"; };
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
+		21C76FFF20208CA800653C56 /* manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = manager_c.cpp; path = binding/clang/action/manager_c.cpp; sourceTree = "<group>"; };
+		21C7700120208D6A00653C56 /* Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manager.cpp; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -567,6 +569,7 @@
 				2187B6C51FC5ACA800E2234D /* ScriptEngineMap.cpp */,
 				2187B6C61FC5ACA800E2234D /* ScriptManager.cpp */,
 				2187B6C91FC5ACA800E2234D /* MethodMap.cpp */,
+				21C7700120208D6A00653C56 /* Manager.cpp */,
 			);
 			name = action;
 			sourceTree = "<group>";
@@ -633,10 +636,10 @@
 		21BA40C3201EEC650083998C /* action */ = {
 			isa = PBXGroup;
 			children = (
+				21C76FFF20208CA800653C56 /* manager_c.cpp */,
 				21BA40E6201EECDA0083998C /* method_c.cpp */,
 				21BA40E4201EECDA0083998C /* parameter_c.cpp */,
 				21BA40E5201EECDA0083998C /* parameters_c.cpp */,
-				21BA40E3201EECDA0083998C /* script_manager_c.cpp */,
 			);
 			name = action;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
 				216DE7BE1FD692B500475938 /* DefaultScriptManager.cpp in Sources */,
+				21C7700220208D6A00653C56 /* Manager.cpp in Sources */,
 				215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */,
 				217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */,
 				21BA40D1201EECA40083998C /* property_c.cpp in Sources */,
@@ -873,6 +877,7 @@
 				21BA411E201F82D60083998C /* store_c.cpp in Sources */,
 				215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */,
 				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
+				21C7700020208CA800653C56 /* manager_c.cpp in Sources */,
 				215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */,
 				21BA40E8201EECDA0083998C /* parameter_c.cpp in Sources */,
 				21BA411F201F82D60083998C /* object_c.cpp in Sources */,
@@ -904,7 +909,6 @@
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				21BA40EA201EECDA0083998C /* method_c.cpp in Sources */,
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,
-				21BA40E7201EECDA0083998C /* script_manager_c.cpp in Sources */,
 				2187B6CC1FC5ACA800E2234D /* ScriptEngineMap.cpp in Sources */,
 				215EDC661FB04A22006DF3AE /* RingMapStore.cpp in Sources */,
 				21BA40D0201EECA40083998C /* object_c.cpp in Sources */,

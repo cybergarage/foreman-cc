@@ -16,12 +16,12 @@ BOOST_AUTO_TEST_SUITE(clang)
 
 BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 {
-  ForemanActionScriptManager* mgr;
+  ForemanActionManager* mgr;
 
-  mgr = foreman_action_script_manager_new();
+  mgr = foreman_action_manager_new();
   BOOST_CHECK(mgr);
 
-  BOOST_CHECK(foreman_action_script_manager_delete(mgr));
+  BOOST_CHECK(foreman_action_manager_delete(mgr));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

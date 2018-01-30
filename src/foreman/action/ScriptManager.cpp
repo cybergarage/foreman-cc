@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <foreman/action/Manager.h>
+#include <foreman/action/impl/GlobalObject.h>
 #include <foreman/common/Errors.h>
 
 ////////////////////////////////////////////////
@@ -21,6 +22,36 @@ Foreman::Action::ScriptManager::ScriptManager()
 
 Foreman::Action::ScriptManager::~ScriptManager()
 {
+}
+
+////////////////////////////////////////////////
+// setRegisterStore
+////////////////////////////////////////////////
+
+bool Foreman::Action::ScriptManager::setRegisterStore(Foreman::Register::Store* store)
+{
+  SetGlobalRegisterStore(store);
+  return true;
+}
+
+////////////////////////////////////////////////
+// setRegistryStore
+////////////////////////////////////////////////
+
+bool Foreman::Action::ScriptManager::setRegistryStore(Foreman::Registry::Store* store)
+{
+  SetGlobalRegistryStore(store);
+  return true;
+}
+
+////////////////////////////////////////////////
+// setMetricStore
+////////////////////////////////////////////////
+
+bool Foreman::Action::ScriptManager::setMetricStore(Foreman::Metric::Store* store)
+{
+  SetGlobalMetricStore(store);
+  return true;
 }
 
 ////////////////////////////////////////////////

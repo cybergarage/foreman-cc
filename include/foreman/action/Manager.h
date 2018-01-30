@@ -19,6 +19,10 @@
 #include <foreman/common/Error.h>
 #include <foreman/util/Mutex.h>
 
+#include <foreman/metric/Store.h>
+#include <foreman/register/Store.h>
+#include <foreman/registry/Store.h>
+
 #include <foreman/action/Engine.h>
 #include <foreman/action/Method.h>
 
@@ -34,6 +38,10 @@ namespace Action {
 public:
     ScriptManager();
     virtual ~ScriptManager();
+
+    bool setRegisterStore(Foreman::Register::Store* store);
+    bool setRegistryStore(Foreman::Registry::Store* store);
+    bool setMetricStore(Foreman::Metric::Store* store);
 
     bool addMethod(Method* method, Error* error);
 
@@ -59,6 +67,17 @@ private:
 private:
     MethodMap methods;
     ScriptEngineMap engines;
+  };
+
+  ////////////////////////////////////////////////
+  // Manager
+  ////////////////////////////////////////////////
+
+  class Manager : public ScriptManager {
+
+public:
+    Manager();
+    virtual ~Manager();
   };
 }
 }
