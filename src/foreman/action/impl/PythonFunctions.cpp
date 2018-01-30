@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <foreman/Const.h>
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
 
@@ -17,7 +18,7 @@
  * foreman_python_setregistry
  ****************************************/
 
-PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
+PyObject* foreman_python_setregister(PyObject* self, PyObject* args)
 {
   const char *key, *val;
 
@@ -42,7 +43,7 @@ PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
  * foreman_python_getregistry
  ****************************************/
 
-PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
+PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
 {
   const char* key;
 
@@ -64,7 +65,7 @@ PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
  * foreman_python_removeregistry
  ****************************************/
 
-PyObject* foreman_python_removeregistry(PyObject* self, PyObject* args)
+PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
 {
   const char* key;
 
@@ -86,9 +87,9 @@ PyObject* foreman_python_removeregistry(PyObject* self, PyObject* args)
  ****************************************/
 
 static PyMethodDef gForemanPythonMethods[] = {
-  { "foreman_setregister", foreman_python_setregistry, METH_VARARGS, "" },
-  { "foreman_getregister", foreman_python_getregistry, METH_VARARGS, "" },
-  { "foreman_removeregister", foreman_python_removeregistry, METH_VARARGS, "" },
+  { FOREMANCC_PYTHON_SETREGISTER, foreman_python_setregister, METH_VARARGS, "" },
+  { FOREMANCC_PYTHON_GETREGISTER, foreman_python_getregister, METH_VARARGS, "" },
+  { FOREMANCC_PYTHON_REMOVEREGISTER, foreman_python_removeregister, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 
