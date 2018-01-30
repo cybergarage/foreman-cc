@@ -111,10 +111,10 @@ CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_foremantest_OBJECTS = ..//action/LuaEngineTest.$(OBJEXT) \
+	..//action/ManagerTestController.$(OBJEXT) \
 	..//action/MethodTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
 	..//action/PythonEngineTest.$(OBJEXT) \
-	..//action/ScriptManagerTestController.$(OBJEXT) \
 	..//binding/clang/action/ClangMethodTest.$(OBJEXT) \
 	..//binding/clang/action/ClangParameterTest.$(OBJEXT) \
 	..//binding/clang/action/ClangScriptManagerTest.$(OBJEXT) \
@@ -504,10 +504,10 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
+	..//action/ManagerTestController.cpp \
 	..//action/MethodTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/PythonEngineTest.cpp \
-	..//action/ScriptManagerTestController.cpp \
 	..//binding/clang/action/ClangMethodTest.cpp \
 	..//binding/clang/action/ClangParameterTest.cpp \
 	..//binding/clang/action/ClangScriptManagerTest.cpp \
@@ -586,14 +586,14 @@ clean-noinstPROGRAMS:
 	@: > ../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
+..//action/ManagerTestController.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/MethodTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/PythonEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
-..//action/ScriptManagerTestController.$(OBJEXT):  \
-	../action/$(am__dirstamp) ../action/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/action/$(am__dirstamp):
 	@$(MKDIR_P) ..//binding/clang/action
 	@: > ../binding/clang/action/$(am__dirstamp)
@@ -765,10 +765,10 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/LuaEngineTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ManagerTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/MethodTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/PythonEngineTest.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ScriptManagerTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@

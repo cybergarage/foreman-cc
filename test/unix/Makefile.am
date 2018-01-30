@@ -15,10 +15,10 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
+	..//action/ManagerTestController.cpp \
 	..//action/MethodTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/PythonEngineTest.cpp \
-	..//action/ScriptManagerTestController.cpp \
 	..//binding/clang/action/ClangMethodTest.cpp \
 	..//binding/clang/action/ClangParameterTest.cpp \
 	..//binding/clang/action/ClangScriptManagerTest.cpp \

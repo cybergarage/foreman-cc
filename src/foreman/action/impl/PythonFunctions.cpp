@@ -101,8 +101,8 @@ PyMethodDef* Foreman::Action::GetPythonSystemMethods()
 #if PY_MAJOR_VERSION >= 3
 static struct PyModuleDef gForemanPythonModule = {
   PyModuleDef_HEAD_INIT,
-  FOREMAN_PRODUCT_NAME, /* m_name */
-  FOREMAN_PRODUCT_NAME, /* m_doc */
+  FOREMANCC_PRODUCT_NAME, /* m_name */
+  FOREMANCC_PRODUCT_NAME, /* m_doc */
   -1, /* m_size */
   gForemanPythonMethods, /* m_methods */
   NULL, /* m_reload */

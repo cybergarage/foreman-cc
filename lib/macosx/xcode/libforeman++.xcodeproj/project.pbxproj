@@ -136,6 +136,7 @@
 		21C33CAE1E869F660011C873 /* TimeSeriesStream-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */; };
 		21C7700020208CA800653C56 /* manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C76FFF20208CA800653C56 /* manager_c.cpp */; };
 		21C7700220208D6A00653C56 /* Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C7700120208D6A00653C56 /* Manager.cpp */; };
+		21C770072020A0AF00653C56 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C770062020A0AE00653C56 /* StoreImpl.h */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 /* End PBXBuildFile section */
@@ -271,6 +272,7 @@
 		21C33CAD1E869F660011C873 /* TimeSeriesStream-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeSeriesStream-inl.h"; sourceTree = "<group>"; };
 		21C76FFF20208CA800653C56 /* manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = manager_c.cpp; path = binding/clang/action/manager_c.cpp; sourceTree = "<group>"; };
 		21C7700120208D6A00653C56 /* Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manager.cpp; sourceTree = "<group>"; };
+		21C770062020A0AE00653C56 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = register/impl/StoreImpl.h; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +315,7 @@
 		2113F1A0201FA06100F5C672 /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				21C770062020A0AE00653C56 /* StoreImpl.h */,
 				2113F1A2201FA07300F5C672 /* MemStore.h */,
 				2113F1A1201FA07300F5C672 /* ObjectMap.h */,
 			);
@@ -753,6 +756,7 @@
 				21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */,
 				2124800A201FF883006D9187 /* Lua.h in Headers */,
 				2113F195201FA02600F5C672 /* Parameter.h in Headers */,
+				21C770072020A0AF00653C56 /* StoreImpl.h in Headers */,
 				21248006201FF882006D9187 /* EngineImpl.h in Headers */,
 				2188DBE51FB00AEE00940208 /* Property.h in Headers */,
 				21248008201FF882006D9187 /* ManagerImpl.h in Headers */,

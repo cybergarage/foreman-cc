@@ -307,6 +307,7 @@ foremancc_header = \
 	./foreman/Platform.h \
 	./foreman/register/impl/MemStore.h \
 	./foreman/register/impl/ObjectMap.h \
+	./foreman/register/impl/StoreImpl.h \
 	./foreman/register/Object.h \
 	./foreman/register/register-c.h \
 	./foreman/register/Store.h \
