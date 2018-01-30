@@ -54,6 +54,7 @@ const char* foreman_register_store_getversion(ForemanRegisterStore* store);
 bool foreman_register_store_open(ForemanRegisterStore* store);
 bool foreman_register_store_close(ForemanRegisterStore* store);
 bool foreman_register_store_clear(ForemanRegisterStore* store);
+size_t foreman_register_store_size(ForemanRegisterStore* store);
 
 bool foreman_register_store_setobject(ForemanRegisterStore* store, ForemanRegisterObject* obj, ForemanError* err);
 bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* objId, ForemanRegisterObject* obj, ForemanError* err);

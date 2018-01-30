@@ -38,17 +38,6 @@ bool foreman_register_store_delete(ForemanRegisterStore* store)
 // foreman_register_store_open
 ////////////////////////////////////////////////
 
-const char* foreman_register_store_gettype(ForemanRegisterStore* store);
-
-////////////////////////////////////////////////
-// foreman_register_store_open
-////////////////////////////////////////////////
-const char* foreman_register_store_getversion(ForemanRegisterStore* store);
-
-////////////////////////////////////////////////
-// foreman_register_store_open
-////////////////////////////////////////////////
-
 bool foreman_register_store_open(ForemanRegisterStore* store)
 {
   if (!store)
@@ -131,4 +120,15 @@ bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char
   if (!store)
     return false;
   return ((Foreman::Register::Store*)(store))->removeObject(objId, (Foreman::Error*)(err));
+}
+
+////////////////////////////////////////////////
+// foreman_register_store_size
+////////////////////////////////////////////////
+
+size_t foreman_register_store_size(ForemanRegisterStore* store)
+{
+  if (!store)
+    return 0;
+  return ((Foreman::Register::Store*)(store))->size();
 }
