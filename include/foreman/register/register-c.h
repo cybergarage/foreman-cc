@@ -60,8 +60,8 @@ bool foreman_register_store_clear(ForemanRegisterStore* store);
 size_t foreman_register_store_size(ForemanRegisterStore* store);
 
 bool foreman_register_store_setobject(ForemanRegisterStore* store, ForemanRegisterObject* obj, ForemanError* err);
-bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* objId, ForemanRegisterObject* obj, ForemanError* err);
-bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char* objId, ForemanError* err);
+bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* key, ForemanRegisterObject* obj, ForemanError* err);
+bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char* key, ForemanError* err);
 
 #ifdef __cplusplus
 }
