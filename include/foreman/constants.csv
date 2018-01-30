@@ -45,6 +45,14 @@ action_script_encording_none,0
 action_script_encording_base64,1
 
 # ================================================================================
+# Action (Python)
+# ================================================================================
+
+python_setregister,"foreman_setregister"
+python_getregister,"foreman_getregister"
+python_removeregister,"foreman_setregister"
+
+# ================================================================================
 # FQL
 # ================================================================================
 
@@ -60,3 +68,4 @@ fql_operator_gt,">"
 fql_operator_ge,">="
 fql_operator_lt,"<"
 fql_operator_le,"<="
+
