@@ -16,7 +16,7 @@ static Foreman::Register::Store* gForemanGlobalRegisterStore = NULL;
  * SetGlobalRegisterStore
  ****************************************/
 
-void SetGlobalRegisterStore(Foreman::Register::Store* store)
+void Foreman::Action::SetGlobalRegisterStore(Foreman::Register::Store* store)
 {
   gForemanGlobalRegisterStore = store;
 }
@@ -25,7 +25,7 @@ void SetGlobalRegisterStore(Foreman::Register::Store* store)
  * round_python_getlocalnode
  ****************************************/
 
-Foreman::Register::Store* GetGlobalRegisterStore()
+Foreman::Register::Store* Foreman::Action::GetGlobalRegisterStore()
 {
   return gForemanGlobalRegisterStore;
 }
