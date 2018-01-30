@@ -81,3 +81,27 @@ bool foreman_register_object_getdata(ForemanRegisterObject* obj, const char** da
   *data = ((Object*)obj)->getData();
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_register_object_getversion
+////////////////////////////////////////////////
+
+bool foreman_register_object_getversion(ForemanRegisterObject* obj, long *ver)
+{
+  if (!obj || !ver)
+    return false;
+  *ver = ((Object*)obj)->getVersion();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_register_object_gettimestamp
+////////////////////////////////////////////////
+
+bool foreman_register_object_gettimestamp(ForemanRegisterObject* obj, time_t *ts)
+{
+  if (!obj || !ts)
+    return false;
+  *ts = ((Object*)obj)->getTimestamp();
+  return true;
+}

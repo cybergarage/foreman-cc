@@ -57,12 +57,12 @@ public:
 
     int getVersion()
     {
-      return version;
+      return this->version;
     }
 
     time_t getTimestamp()
     {
-      return timestamp;
+      return this->timestamp;
     }
 
     bool equals(Object* obj) const;
