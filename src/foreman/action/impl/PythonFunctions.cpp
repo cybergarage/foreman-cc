@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <foreman/action/impl/Python.h>
 #include <foreman/action/impl/GlobalObject.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
@@ -27,7 +28,12 @@ PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
   if (!store)
     return NULL;
 
-  bool isSuccess = foreman_local_node_setregistry(node, key, val);
+  Foreman::Register:: Object obj;
+  obj.setKey(key);
+  obj.setData(val);
+  
+  Foreman::Error err;
+  bool isSuccess = store->setObject(&obj, &err);
 
   return Py_BuildValue("i", isSuccess);
 }
@@ -38,7 +44,7 @@ PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
 
 PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
 {
-  const char *key, *val;
+  const char *key;
 
   if (!PyArg_ParseTuple(args, "s", &key))
     return NULL;
@@ -47,12 +53,11 @@ PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
   if (!store)
     return NULL;
 
-  RoundRegistry* reg = foreman_local_node_getregistry(node, key);
-  if (!foreman_registry_getstring(reg, &val)) {
-    reg = NULL;
-  }
+  Foreman::Register:: Object obj;
+  Foreman::Error err;
+  bool isSuccess = store->getObject(key, &obj, &err);
 
-  return Py_BuildValue("s", (reg ? val : ""));
+  return Py_BuildValue("s", (isSuccess ? obj.getData() : ""));
 }
 
 /****************************************
@@ -70,7 +75,8 @@ PyObject* foreman_python_removeregistry(PyObject* self, PyObject* args)
   if (!store)
     return NULL;
 
-  bool isSuccess = foreman_local_node_removeregistry(node, key);
+  Foreman::Error err;
+  bool isSuccess = store->removeObject(key, &err);
 
   return Py_BuildValue("i", isSuccess);
 }
@@ -80,13 +86,13 @@ PyObject* foreman_python_removeregistry(PyObject* self, PyObject* args)
  ****************************************/
 
 static PyMethodDef gForemanPythonMethods[] = {
-  { foreman_SYSTEM_METHOD_SET_REGISTRY, foreman_python_setregistry, METH_VARARGS, "" },
-  { foreman_SYSTEM_METHOD_GET_REGISTRY, foreman_python_getregistry, METH_VARARGS, "" },
-  { foreman_SYSTEM_METHOD_REMOVE_REGISTRY, foreman_python_removeregistry, METH_VARARGS, "" },
+  { "foreman_setregister", foreman_python_setregistry, METH_VARARGS, "" },
+  { "foreman_getregister", foreman_python_getregistry, METH_VARARGS, "" },
+  { "foreman_removeregister", foreman_python_removeregistry, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 
-PyMethodDef* Foreman::Action::GetPythonSystemMethods();
+PyMethodDef* Foreman::Action::GetPythonSystemMethods()
 {
   return gForemanPythonMethods;
 }
@@ -104,7 +110,7 @@ static struct PyModuleDef gForemanPythonModule = {
   NULL, /* m_free */
 };
 
-PyModuleDef* Foreman::Action::GetPythonSystemModule();
+PyModuleDef* Foreman::Action::GetPythonSystemModule()
 {
   return &gForemanPythonModule;
 }
