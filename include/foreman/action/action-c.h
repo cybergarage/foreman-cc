@@ -16,7 +16,9 @@
 #endif
 
 #include <foreman/common/common-c.h>
+#include <foreman/metric/metric-c.h>
 #include <foreman/register/register-c.h>
+#include <foreman/registry/registry-c.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -94,21 +96,23 @@ bool foreman_action_parameters_addparameter(ForemanActionParameters* params, For
 ForemanActionParameter* foreman_action_parameters_getparameter(ForemanActionParameters* params, size_t n);
 
 ////////////////////////////////////////////////
-// ScriptManager
+// Manager
 ////////////////////////////////////////////////
 
-typedef void ForemanActionScriptManager;
+typedef void ForemanActionManager;
 
-ForemanActionScriptManager* foreman_action_script_manager_new();
-bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
+ForemanActionManager* foreman_action_manager_new();
+bool foreman_action_manager_delete(ForemanActionManager* mgr);
 
-bool foreman_action_script_manager_setregisterstore(ForemanActionScriptManager* mgr, ForemanRegisterStore *store);
+bool foreman_action_manager_setregisterstore(ForemanActionManager* mgr, ForemanRegisterStore* store);
+bool foreman_action_manager_setregistrystore(ForemanActionManager* mgr, ForemanRegistryStore* store);
+bool foreman_action_manager_setmetricstore(ForemanActionManager* mgr, ForemanMetricStore* store);
 
-bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, const char* name);
-  
-bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod* method, ForemanError* err);
-bool foreman_action_script_manager_hasmethod(ForemanActionScriptManager* mgr, const char* name);
-bool foreman_action_script_manager_execmethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
+bool foreman_action_manager_hasengine(ForemanActionManager* mgr, const char* name);
+
+bool foreman_action_manager_addmethod(ForemanActionManager* mgr, ForemanActionMethod* method, ForemanError* err);
+bool foreman_action_manager_hasmethod(ForemanActionManager* mgr, const char* name);
+bool foreman_action_manager_execmethod(ForemanActionManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 
 #ifdef __cplusplus
 }

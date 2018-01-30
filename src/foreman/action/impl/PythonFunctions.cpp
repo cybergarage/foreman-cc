@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <foreman/action/impl/Python.h>
 #include <foreman/action/impl/GlobalObject.h>
+#include <foreman/action/impl/Python.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -28,10 +28,10 @@ PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
   if (!store)
     return NULL;
 
-  Foreman::Register:: Object obj;
+  Foreman::Register::Object obj;
   obj.setKey(key);
   obj.setData(val);
-  
+
   Foreman::Error err;
   bool isSuccess = store->setObject(&obj, &err);
 
@@ -44,7 +44,7 @@ PyObject* foreman_python_setregistry(PyObject* self, PyObject* args)
 
 PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
 {
-  const char *key;
+  const char* key;
 
   if (!PyArg_ParseTuple(args, "s", &key))
     return NULL;
@@ -53,7 +53,7 @@ PyObject* foreman_python_getregistry(PyObject* self, PyObject* args)
   if (!store)
     return NULL;
 
-  Foreman::Register:: Object obj;
+  Foreman::Register::Object obj;
   Foreman::Error err;
   bool isSuccess = store->getObject(key, &obj, &err);
 
