@@ -16,6 +16,7 @@
 #endif
 
 #include <foreman/common/common-c.h>
+#include <foreman/register/register-c.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -99,13 +100,15 @@ ForemanActionParameter* foreman_action_parameters_getparameter(ForemanActionPara
 typedef void ForemanActionScriptManager;
 
 ForemanActionScriptManager* foreman_action_script_manager_new();
-bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, const char* name);
+bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
 
+bool foreman_action_script_manager_setregisterstore(ForemanActionScriptManager* mgr, ForemanRegisterStore *store);
+
+bool foreman_action_script_manager_hasengine(ForemanActionScriptManager* mgr, const char* name);
+  
 bool foreman_action_script_manager_addmethod(ForemanActionScriptManager* mgr, ForemanActionMethod* method, ForemanError* err);
 bool foreman_action_script_manager_hasmethod(ForemanActionScriptManager* mgr, const char* name);
 bool foreman_action_script_manager_execmethod(ForemanActionScriptManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
-
-bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr);
 
 #ifdef __cplusplus
 }

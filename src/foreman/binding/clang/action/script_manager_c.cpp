@@ -11,6 +11,7 @@
 #include <foreman/action/Method.h>
 #include <foreman/action/action-c.h>
 #include <foreman/action/impl/ManagerImpl.h>
+#include <foreman/action/impl/GlobalObject.h>
 
 using namespace Foreman::Action;
 
@@ -32,6 +33,18 @@ bool foreman_action_script_manager_delete(ForemanActionScriptManager* mgr)
   if (!mgr)
     return false;
   delete (ScriptManager*)mgr;
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_action_script_manager_setregisterstore
+////////////////////////////////////////////////
+
+bool foreman_action_script_manager_setregisterstore(ForemanActionScriptManager* mgr, ForemanRegisterStore *store)
+{
+  if (!mgr || !store)
+    return false;
+  SetGlobalRegisterStore(((Foreman::Register::Store*)store));
   return true;
 }
 
