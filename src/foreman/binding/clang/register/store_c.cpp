@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/register/impl/MemStore.h>
+#include <foreman/register/impl/StoreImpl.h>
 #include <foreman/register/register-c.h>
 
 using namespace Foreman::Register;
