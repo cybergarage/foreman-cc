@@ -43,6 +43,10 @@ public:
     bool setRegistryStore(Foreman::Registry::Store* store);
     bool setMetricStore(Foreman::Metric::Store* store);
 
+    Foreman::Register::Store* getRegisterStore();
+    Foreman::Registry::Store* getRegistryStore();
+    Foreman::Metric::Store* getMetricStore();
+
     bool addMethod(Method* method, Error* error);
 
     bool hasMethod(const std::string& name) const

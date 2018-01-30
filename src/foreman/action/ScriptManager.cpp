@@ -12,53 +12,70 @@
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/common/Errors.h>
 
+using namespace Foreman::Action;
+
 ////////////////////////////////////////////////
 // ScriptManager
 ////////////////////////////////////////////////
 
-Foreman::Action::ScriptManager::ScriptManager()
+ScriptManager::ScriptManager()
 {
 }
 
-Foreman::Action::ScriptManager::~ScriptManager()
+ScriptManager::~ScriptManager()
 {
 }
 
 ////////////////////////////////////////////////
-// setRegisterStore
+// ?etRegisterStore
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setRegisterStore(Foreman::Register::Store* store)
+bool ScriptManager::setRegisterStore(Foreman::Register::Store* store)
 {
   SetGlobalRegisterStore(store);
   return true;
 }
 
+Foreman::Register::Store* getRegisterStore()
+{
+  return GetGlobalRegisterStore();
+}
+
 ////////////////////////////////////////////////
-// setRegistryStore
+// ?etRegistryStore
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setRegistryStore(Foreman::Registry::Store* store)
+bool ScriptManager::setRegistryStore(Foreman::Registry::Store* store)
 {
   SetGlobalRegistryStore(store);
   return true;
 }
 
+Foreman::Registry::Store* getRegistryStore()
+{
+  return GetGlobalRegistryStore();
+}
+
 ////////////////////////////////////////////////
-// setMetricStore
+// ?etMetricStore
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::setMetricStore(Foreman::Metric::Store* store)
+bool ScriptManager::setMetricStore(Foreman::Metric::Store* store)
 {
   SetGlobalMetricStore(store);
   return true;
+}
+
+Foreman::Metric::Store* getMetricStore()
+{
+  return GetGlobalMetricStore();
 }
 
 ////////////////////////////////////////////////
 // setScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addMethod(Method* method, Error* err)
+bool ScriptManager::addMethod(Method* method, Error* err)
 {
   if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
@@ -85,7 +102,7 @@ bool Foreman::Action::ScriptManager::addMethod(Method* method, Error* err)
 // addEngine
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addEngine(ScriptEngine* engine)
+bool ScriptManager::addEngine(ScriptEngine* engine)
 {
   if (!engine)
     return false;
@@ -109,7 +126,7 @@ bool Foreman::Action::ScriptManager::addEngine(ScriptEngine* engine)
 // addMethod
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, int encodeType, Error* err)
+bool ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, int encodeType, Error* err)
 {
   if (code.length() <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
@@ -122,7 +139,7 @@ bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const st
     return false;
   }
 
-  Method* method = Foreman::Action::Method::CreateMethod(lang);
+  Method* method = Method::CreateMethod(lang);
   if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
@@ -148,7 +165,7 @@ bool Foreman::Action::ScriptManager::addMethod(const std::string& name, const st
 // removeScript
 ////////////////////////////////////////////////
 
-bool Foreman::Action::ScriptManager::removeMethod(const std::string& name, Error* err)
+bool ScriptManager::removeMethod(const std::string& name, Error* err)
 {
   auto method = this->methods.getMethod(name);
   if (!method) {
@@ -159,7 +176,7 @@ bool Foreman::Action::ScriptManager::removeMethod(const std::string& name, Error
   return (this->methods.erase(name) == 1) ? true : false;
 }
 
-bool Foreman::Action::ScriptManager::execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* err)
+bool ScriptManager::execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* err)
 {
   auto method = this->methods.getMethod(name);
   if (!method) {
