@@ -48,9 +48,9 @@ action_script_encording_base64,1
 # Action (Python)
 # ================================================================================
 
-python_setregister,"foreman_setregister"
-python_getregister,"foreman_getregister"
-python_removeregister,"foreman_setregister"
+python_setregister,"setregister"
+python_getregister,"getregister"
+python_removeregister,"setregister"
 
 # ================================================================================
 # FQL
