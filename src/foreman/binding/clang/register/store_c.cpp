@@ -104,22 +104,22 @@ bool foreman_register_store_setobject(ForemanRegisterStore* store, ForemanRegist
 // foreman_register_store_getobject
 ////////////////////////////////////////////////
 
-bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* objId, ForemanRegisterObject* obj, ForemanError* err)
+bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* key, ForemanRegisterObject* obj, ForemanError* err)
 {
   if (!store)
     return false;
-  return ((Foreman::Register::Store*)(store))->getObject(objId, (Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
+  return ((Foreman::Register::Store*)(store))->getObject(key, (Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
 }
 
 ////////////////////////////////////////////////
 // foreman_register_store_removeobject
 ////////////////////////////////////////////////
 
-bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char* objId, ForemanError* err)
+bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char* key, ForemanError* err)
 {
   if (!store)
     return false;
-  return ((Foreman::Register::Store*)(store))->removeObject(objId, (Foreman::Error*)(err));
+  return ((Foreman::Register::Store*)(store))->removeObject(key, (Foreman::Error*)(err));
 }
 
 ////////////////////////////////////////////////
