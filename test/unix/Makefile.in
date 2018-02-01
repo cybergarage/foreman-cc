@@ -111,6 +111,7 @@ CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
 am_foremantest_OBJECTS = ..//action/LuaEngineTest.$(OBJEXT) \
+	..//action/ManagerTest.$(OBJEXT) \
 	..//action/ManagerTestController.$(OBJEXT) \
 	..//action/MethodTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
@@ -504,6 +505,7 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
+	..//action/ManagerTest.cpp \
 	..//action/ManagerTestController.cpp \
 	..//action/MethodTest.cpp \
 	..//action/ParameterTest.cpp \
@@ -585,6 +587,8 @@ clean-noinstPROGRAMS:
 	@$(MKDIR_P) ..//action/$(DEPDIR)
 	@: > ../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+..//action/ManagerTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ManagerTestController.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
@@ -765,6 +769,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/LuaEngineTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ManagerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ManagerTestController.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/MethodTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@

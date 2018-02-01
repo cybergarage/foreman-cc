@@ -8,20 +8,24 @@
  *
  ******************************************************************/
 
-#include <foreman/action/impl/EngineImpl.h>
-#include <foreman/action/impl/ManagerImpl.h>
+#include <boost/test/unit_test.hpp>
 
-////////////////////////////////////////////////
-// DefaultScriptManager
-////////////////////////////////////////////////
+#include <foreman/Const.h>
+#include <foreman/action/Manager.h>
 
-Foreman::Action::DefaultScriptManager::DefaultScriptManager()
+using namespace Foreman::Action;
+
+BOOST_AUTO_TEST_SUITE(action)
+
+BOOST_AUTO_TEST_CASE(ManagerTest)
 {
+  Manager mgr;
+
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  addEngine(new PythonEngine());
 #endif
 
 #if defined(FOREMAN_SUPPORT_LUA)
-  addEngine(new LuaEngine());
 #endif
 }
+
+BOOST_AUTO_TEST_SUITE_END()

@@ -15,6 +15,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
 	..//action/LuaEngineTest.cpp \
+	..//action/ManagerTest.cpp \
 	..//action/ManagerTestController.cpp \
 	..//action/MethodTest.cpp \
 	..//action/ParameterTest.cpp \
