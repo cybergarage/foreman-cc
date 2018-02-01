@@ -275,7 +275,6 @@ foremancc_header = \
 	./foreman/action/impl/EngineImpl.h \
 	./foreman/action/impl/GlobalObject.h \
 	./foreman/action/impl/Lua.h \
-	./foreman/action/impl/ManagerImpl.h \
 	./foreman/action/impl/Python.h \
 	./foreman/action/Manager.h \
 	./foreman/action/Method.h \
