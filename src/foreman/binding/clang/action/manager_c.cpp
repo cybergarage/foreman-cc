@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <foreman/action/Manager.h>
 #include <foreman/action/Method.h>
 #include <foreman/action/action-c.h>
 #include <foreman/action/impl/GlobalObject.h>
