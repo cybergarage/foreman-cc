@@ -92,6 +92,34 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(setreg->setCode(PY_SET_REGISTRY_CODE));
   BOOST_CHECK(mgr.addMethod(setreg, &err));
 
+  // get_registry
+
+  static const char* PY_GET_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
+                                            "def " FOREMANCC_SCRIPT_GET_REGISTER_METHOD "(params,results):\n"
+                                            "  for reg_key, value in params.iteritems():\n"
+                                            "    reg_value = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_PYTHON_GETREGISTER "(reg_key)\n"
+                                            "    results[reg_key] = reg_value\n"
+                                            "  return True\n";
+
+  auto getreg = new Foreman::Action::PythonMethod();
+  BOOST_CHECK(getreg->setName(FOREMANCC_SCRIPT_GET_REGISTER_METHOD));
+  BOOST_CHECK(getreg->setCode(PY_GET_REGISTRY_CODE));
+  BOOST_CHECK(mgr.addMethod(getreg, &err));
+
+  // remove_registry
+
+  static const char* PY_REMOVE_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
+                                               "def " FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD "(params,results):\n"
+                                               "  for key, value in params.iteritems():\n"
+                                               "    if " FOREMANCC_PRODUCT_NAME "." FOREMANCC_PYTHON_REMOVEREGISTER "(key) == False:\n"
+                                               "      return False\n"
+                                               "  return True\n";
+
+  auto rmreg = new Foreman::Action::PythonMethod();
+  BOOST_CHECK(rmreg->setName(FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD));
+  BOOST_CHECK(rmreg->setCode(PY_REMOVE_REGISTRY_CODE));
+  BOOST_CHECK(mgr.addMethod(rmreg, &err));
+
   testControllerr.run(&mgr);
 }
 
