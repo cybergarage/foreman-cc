@@ -18,7 +18,7 @@
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
-const std::string Foreman::Action::PythonEngine::LANGUAGE = "python";
+const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
 
 ////////////////////////////////////////////////

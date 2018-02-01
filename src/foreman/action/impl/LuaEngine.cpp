@@ -12,12 +12,13 @@
 #include <boost/lexical_cast.hpp>
 #include <sstream>
 
+#include <foreman/Const.h>
 #include <foreman/action/impl/Lua.h>
 #include <foreman/common/Errors.h>
 
 #if defined(FOREMAN_SUPPORT_LUA)
 
-const std::string Foreman::Action::LuaEngine::LANGUAGE = "lua";
+const std::string Foreman::Action::LuaEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_LUA;
 
 ////////////////////////////////////////////////
 // Constructor
