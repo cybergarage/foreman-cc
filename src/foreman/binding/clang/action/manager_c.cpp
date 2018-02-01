@@ -11,7 +11,6 @@
 #include <foreman/action/Method.h>
 #include <foreman/action/action-c.h>
 #include <foreman/action/impl/GlobalObject.h>
-#include <foreman/action/impl/ManagerImpl.h>
 
 using namespace Foreman::Action;
 
