@@ -44,6 +44,9 @@ metric_store_default_retentioni_interval,300
 action_script_encording_none,0
 action_script_encording_base64,1
 
+action_script_engine_python,"python"
+action_script_engine_lua,"lua"
+
 # ================================================================================
 # Action (Python)
 # ================================================================================

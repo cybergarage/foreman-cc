@@ -22,9 +22,11 @@ BOOST_AUTO_TEST_CASE(ManagerTest)
   Manager mgr;
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
+  BOOST_CHECK(mgr.hasEngine(FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON));
 #endif
 
 #if defined(FOREMAN_SUPPORT_LUA)
+  BOOST_CHECK(mgr.hasEngine(FOREMANCC_ACTION_SCRIPT_ENGINE_LUA));
 #endif
 }
 
