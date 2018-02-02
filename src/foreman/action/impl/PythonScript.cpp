@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#if defined(FOREMAN_SUPPORT_PYTHON)
+
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
 
@@ -95,3 +97,4 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
 
   return true;
 }
+#endif
