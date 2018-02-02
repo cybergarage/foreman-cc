@@ -8,11 +8,11 @@
  *
  ******************************************************************/
 
+#if defined(FOREMAN_SUPPORT_PYTHON)
+
 #include <foreman/action/impl/Python.h>
 
 using namespace Foreman::Action;
-
-#if defined(FOREMAN_SUPPORT_PYTHON)
 
 ////////////////////////////////////////////////
 // PythonParameters

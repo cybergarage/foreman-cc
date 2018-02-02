@@ -17,12 +17,10 @@
 
 #include <foreman/action/Engine.h>
 
-#if defined(FOREMAN_SUPPORT_PYTHON)
 #if defined(HAVE_PYTHON_PYTHON_H)
 #include <Python/Python.h>
 #else
 #include <Python.h>
-#endif
 #endif
 
 namespace Foreman {
