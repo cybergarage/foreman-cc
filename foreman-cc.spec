@@ -1,13 +1,13 @@
 AutoReqProv: no
 
 Name: foreman-cc
-Version: 0.1
+Version: %{expand:%%(git describe --abbrev=0 --tags)}
 Release:	1%{?dist}
 Summary: Foreman C++ library
 
 Group: libs
-License: BSD-3-claise
-URL: http://github.com/cybergarage/foreman-cc
+License: BSD-3-clause
+URL: https://github.com/cybergarage/foreman-cc
 
 BuildRequires: python-devel, boost-devel, libsqlite3x-devel, automake
 Requires: python
@@ -23,10 +23,11 @@ find . -mindepth 1 -delete
 cp -af %{SOURCEURL0}/. .
 
 %build
-export CFLAGS="$(pkg-config --cflags --libs python3) -Wall"
+#export CFLAGS="$(pkg-config --cflags --libs python3) -Wall"
+export CFLAGS="-Wall -O2"
 export CXXFLAGS="-std=c++14 $CFLAGS"
 export PYTHON_VERSION=3
-%configure --enable-script-python
+%configure
 make %{?_smp_mflags}
 
 
