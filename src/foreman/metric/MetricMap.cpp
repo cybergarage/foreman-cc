@@ -53,7 +53,7 @@ std::shared_ptr<Metric> MetricMap::findMetric(const std::string& name)
 
 std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
 {
-  std::shared_ptr<Metrics> mm = std::shared_ptr<Metrics>(new Metrics());
+  std::shared_ptr<MetricArray> mm = std::shared_ptr<MetricArray>(new MetricArray());
   for (auto it = begin(); it != end(); ++it) {
     mm->addMetric(*it->second);
   }

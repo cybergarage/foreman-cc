@@ -46,10 +46,10 @@ size_t foreman_metric_resultset_getdatapointcount(ForemanMetricResultSet* rs)
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_resultset_firstdatapoints
+// foreman_metric_resultset_getfirstmetrics
 ////////////////////////////////////////////////
 
-ForemanMetricDataPoints* foreman_metric_resultset_firstdatapoints(ForemanMetricResultSet* rs)
+ForemanMetrics* foreman_metric_resultset_getfirstmetrics(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -58,10 +58,10 @@ ForemanMetricDataPoints* foreman_metric_resultset_firstdatapoints(ForemanMetricR
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_resultset_nextdatapoints
+// foreman_metric_resultset_getnextmetrics
 ////////////////////////////////////////////////
 
-ForemanMetricDataPoints* foreman_metric_resultset_nextdatapoints(ForemanMetricResultSet* rs)
+ForemanMetrics* foreman_metric_resultset_getnextmetrics(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return NULL;
@@ -70,10 +70,10 @@ ForemanMetricDataPoints* foreman_metric_resultset_nextdatapoints(ForemanMetricRe
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_resultset_finddatapoints
+// foreman_metric_resultset_findmetrics
 ////////////////////////////////////////////////
 
-ForemanMetricDataPoints* foreman_metric_resultset_finddatapoints(ForemanMetricResultSet* rs, const char* name)
+ForemanMetrics* foreman_metric_resultset_findmetrics(ForemanMetricResultSet* rs, const char* name)
 {
   if (!rs)
     return NULL;

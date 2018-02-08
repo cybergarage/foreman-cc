@@ -97,10 +97,10 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
 // addValues
 ////////////////////////////////////////////////
 
-bool Store::addValues(const Metrics& values)
+bool Store::getData(const MetricArray& values)
 {
   for (std::shared_ptr<Foreman::Metric::Metric> value : values) {
-    if (!addValue(*value))
+    if (!getData(*value))
       return false;
   }
 

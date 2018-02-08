@@ -29,6 +29,8 @@
 		2124800A201FF883006D9187 /* Lua.h in Headers */ = {isa = PBXBuildFile; fileRef = 21248005201FF882006D9187 /* Lua.h */; };
 		2129D1A31E96A64600FCA490 /* Graphite.h in Headers */ = {isa = PBXBuildFile; fileRef = 2129D1A21E96A64600FCA490 /* Graphite.h */; };
 		2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2129D1A41E96A64E00FCA490 /* Graphite.cpp */; };
+		2144751F202C54C4002255FB /* Metrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2144751E202C54C4002255FB /* Metrics.cpp */; };
+		21447523202C593B002255FB /* Metrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 21447522202C593B002255FB /* Metrics.h */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
 		215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573C31EA1DC0A0083A51C /* HttpClient.cpp */; };
 		215DB2791FAAD6B20089A36B /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2781FAAD6B20089A36B /* Error.h */; };
@@ -61,11 +63,10 @@
 		216A5AE71F9C597B0092272A /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5ADF1F9C597B0092272A /* ResultSet.h */; };
 		216A5AE81F9C597B0092272A /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AE01F9C597B0092272A /* Store.h */; };
 		216A5AED1F9C59830092272A /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A5AEC1F9C59830092272A /* Util.h */; };
-		216A5B381F9C59990092272A /* Data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0C1F9C59990092272A /* Data.cpp */; };
-		216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0E1F9C59990092272A /* DataMap.cpp */; };
+		216A5B381F9C59990092272A /* Metric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0C1F9C59990092272A /* Metric.cpp */; };
+		216A5B3A1F9C59990092272A /* MetricMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B0E1F9C59990092272A /* MetricMap.cpp */; };
 		216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B101F9C59990092272A /* DataPoint.cpp */; };
-		216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B121F9C59990092272A /* DataPoints.cpp */; };
-		216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B141F9C59990092272A /* DataPointsMap.cpp */; };
+		216A5B401F9C59990092272A /* MetricsMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B141F9C59990092272A /* MetricsMap.cpp */; };
 		216A5B4A1F9C59990092272A /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B1E1F9C59990092272A /* Query.cpp */; };
 		216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B201F9C59990092272A /* ResultSet.cpp */; };
 		216A5B561F9C59990092272A /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216A5B2A1F9C59990092272A /* Store.cpp */; };
@@ -163,6 +164,8 @@
 		21248005201FF882006D9187 /* Lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lua.h; path = action/impl/Lua.h; sourceTree = "<group>"; };
 		2129D1A21E96A64600FCA490 /* Graphite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphite.h; sourceTree = "<group>"; };
 		2129D1A41E96A64E00FCA490 /* Graphite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphite.cpp; sourceTree = "<group>"; };
+		2144751E202C54C4002255FB /* Metrics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metrics.cpp; sourceTree = "<group>"; };
+		21447522202C593B002255FB /* Metrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metrics.h; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		215573C31EA1DC0A0083A51C /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
 		215DB2781FAAD6B20089A36B /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Error.h; path = common/Error.h; sourceTree = "<group>"; };
@@ -195,11 +198,10 @@
 		216A5ADF1F9C597B0092272A /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
 		216A5AE01F9C597B0092272A /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
 		216A5AEC1F9C59830092272A /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		216A5B0C1F9C59990092272A /* Data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
-		216A5B0E1F9C59990092272A /* DataMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataMap.cpp; sourceTree = "<group>"; };
+		216A5B0C1F9C59990092272A /* Metric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Metric.cpp; sourceTree = "<group>"; };
+		216A5B0E1F9C59990092272A /* MetricMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricMap.cpp; sourceTree = "<group>"; };
 		216A5B101F9C59990092272A /* DataPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPoint.cpp; sourceTree = "<group>"; };
-		216A5B121F9C59990092272A /* DataPoints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPoints.cpp; sourceTree = "<group>"; };
-		216A5B141F9C59990092272A /* DataPointsMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataPointsMap.cpp; sourceTree = "<group>"; };
+		216A5B141F9C59990092272A /* MetricsMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricsMap.cpp; sourceTree = "<group>"; };
 		216A5B1E1F9C59990092272A /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
 		216A5B201F9C59990092272A /* ResultSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultSet.cpp; sourceTree = "<group>"; };
 		216A5B2A1F9C59990092272A /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Store.cpp; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				216DE7C31FD69A5800475938 /* metric-c.h */,
 				216A5ADB1F9C597B0092272A /* DataPoint.h */,
 				216A5ADD1F9C597B0092272A /* Metric.h */,
+				21447522202C593B002255FB /* Metrics.h */,
 				216A5ADE1F9C597B0092272A /* Query.h */,
 				216A5ADF1F9C597B0092272A /* ResultSet.h */,
 				216A5AE01F9C597B0092272A /* Store.h */,
@@ -455,11 +458,11 @@
 			isa = PBXGroup;
 			children = (
 				215EDC551FB04A16006DF3AE /* impl */,
-				216A5B0C1F9C59990092272A /* Data.cpp */,
-				216A5B0E1F9C59990092272A /* DataMap.cpp */,
+				216A5B0C1F9C59990092272A /* Metric.cpp */,
+				2144751E202C54C4002255FB /* Metrics.cpp */,
+				216A5B0E1F9C59990092272A /* MetricMap.cpp */,
 				216A5B101F9C59990092272A /* DataPoint.cpp */,
-				216A5B121F9C59990092272A /* DataPoints.cpp */,
-				216A5B141F9C59990092272A /* DataPointsMap.cpp */,
+				216A5B141F9C59990092272A /* MetricsMap.cpp */,
 				216A5B1E1F9C59990092272A /* Query.cpp */,
 				216A5B201F9C59990092272A /* ResultSet.cpp */,
 				216A5B2A1F9C59990092272A /* Store.cpp */,
@@ -736,6 +739,7 @@
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
+				21447523202C593B002255FB /* Metrics.h in Headers */,
 				2188DBEC1FB028C200940208 /* SQLStore.h in Headers */,
 				21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */,
 				217109ED1E867B1D004B2CF6 /* TimeSeriesStream.h in Headers */,
@@ -848,13 +852,13 @@
 				21BA40E2201EECCD0083998C /* error_c.cpp in Sources */,
 				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
-				216A5B381F9C59990092272A /* Data.cpp in Sources */,
+				216A5B381F9C59990092272A /* Metric.cpp in Sources */,
 				217109F31E867D2A004B2CF6 /* BitUtil.cpp in Sources */,
 				21BA40F7201F430A0083998C /* MemStore.cpp in Sources */,
 				21BA40F5201F42F50083998C /* Store.cpp in Sources */,
 				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
 				21BA40F4201F42F50083998C /* Object.cpp in Sources */,
-				216A5B401F9C59990092272A /* DataPointsMap.cpp in Sources */,
+				216A5B401F9C59990092272A /* MetricsMap.cpp in Sources */,
 				217109F01E867B2A004B2CF6 /* TimeSeriesStream.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
 				21C7700220208D6A00653C56 /* Manager.cpp in Sources */,
@@ -872,7 +876,7 @@
 				215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */,
 				21BA411E201F82D60083998C /* store_c.cpp in Sources */,
 				215DB2C61FAB565F0089A36B /* Properties.cpp in Sources */,
-				216A5B3A1F9C59990092272A /* DataMap.cpp in Sources */,
+				216A5B3A1F9C59990092272A /* MetricMap.cpp in Sources */,
 				21C7700020208CA800653C56 /* manager_c.cpp in Sources */,
 				215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */,
 				21BA40E8201EECDA0083998C /* parameter_c.cpp in Sources */,
@@ -885,6 +889,7 @@
 				215DB2971FAB31000089A36B /* Error.cpp in Sources */,
 				215EDC6D1FB04A22006DF3AE /* GraphiteStore.cpp in Sources */,
 				2187B6D01FC5ACA800E2234D /* MethodMap.cpp in Sources */,
+				2144751F202C54C4002255FB /* Metrics.cpp in Sources */,
 				21BA40DA201EECBD0083998C /* resultset_c.cpp in Sources */,
 				215EDC6B1FB04A22006DF3AE /* MemStore.cpp in Sources */,
 				21BA40E9201EECDA0083998C /* parameters_c.cpp in Sources */,
@@ -897,7 +902,6 @@
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				21247FFF201FF450006D9187 /* GlobalObject.cpp in Sources */,
-				216A5B3E1F9C59990092272A /* DataPoints.cpp in Sources */,
 				21BA40CE201EECA40083998C /* store_c.cpp in Sources */,
 				21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */,
 				21BA40CF201EECA40083998C /* query_c.cpp in Sources */,

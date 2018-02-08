@@ -226,6 +226,7 @@
 		215DB2B31FAB3AEE0089A36B /* registry */ = {
 			isa = PBXGroup;
 			children = (
+				21BA4106201F7D120083998C /* DataPointTest.cpp */,
 				21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */,
 				21ABA0AC1FB0902D00982715 /* StoreTestController.h */,
 				215DB2B41FAB3B0D0089A36B /* ObjectTest.cpp */,
@@ -313,7 +314,6 @@
 		21BA4104201F7CF90083998C /* metric */ = {
 			isa = PBXGroup;
 			children = (
-				21BA4106201F7D120083998C /* DataPointTest.cpp */,
 				21BA410A201F7D120083998C /* MetricsTest.cpp */,
 				21BA4108201F7D120083998C /* QueryTest.cpp */,
 				21BA410B201F7D120083998C /* StoreTest.cpp */,

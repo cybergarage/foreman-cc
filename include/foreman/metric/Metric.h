@@ -41,7 +41,7 @@ public:
   // Metrics
   ////////////////////////////////////////////////
 
-  typedef std::pair<std::string, std::shared_ptr<Metric>> MetricsPair;
+  typedef std::pair<std::string, std::shared_ptr<Metric>> MetricPair;
 
   class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>> {
 public:
@@ -54,10 +54,10 @@ public:
     std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
   };
 
-  class Metrics : public std::vector<std::shared_ptr<Metric>> {
+  class MetricArray : public std::vector<std::shared_ptr<Metric>> {
 public:
-    Metrics(){};
-    virtual ~Metrics(){};
+    MetricArray(){};
+    virtual ~MetricArray(){};
     bool addMetric(const Metric& m)
     {
       std::shared_ptr<Foreman::Metric::Metric> cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));

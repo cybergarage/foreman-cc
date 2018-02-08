@@ -59,7 +59,7 @@ bool RingMapStore::realloc()
 
   tsMap_->clear();
 
-  for (MetricsPair m : metricMap_) {
+  for (MetricPair m : metricMap_) {
     double* rowData = CreateNanDataPointValueArray(columnCount);
     if (rowData == nullptr)
       return false;

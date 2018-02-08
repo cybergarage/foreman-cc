@@ -12,7 +12,7 @@
 #define _FOREMANCC_METRIC_RESULTSET_H_
 
 #include <foreman/Platform.h>
-#include <foreman/metric/DataPoint.h>
+#include <foreman/metric/Metrics.h>
 
 namespace Foreman {
 namespace Metric {
@@ -28,28 +28,28 @@ public:
 
     bool clear();
 
-    bool addDataPoints(DataPoints* dps)
+    bool addDataPoints(Metrics* dps)
     {
-      return dataPointsMap_.addDataPoints(dps);
+      return dataPointsMap_.addMetrics(dps);
     }
 
-    bool addDataPoints(std::shared_ptr<DataPoints> dps)
+    bool addDataPoints(std::shared_ptr<Metrics> dps)
     {
-      return dataPointsMap_.addDataPoints(dps);
+      return dataPointsMap_.addMetrics(dps);
     }
 
     bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
     {
-      return dataPointsMap_.addDataPoints(name, from, interval, values, valueCnt);
+      return dataPointsMap_.addMetrics(name, from, interval, values, valueCnt);
     }
 
-    DataPoints* findDataPoints(const std::string& name)
+    Metrics* findDataPoints(const std::string& name)
     {
-      return dataPointsMap_.findDataPoints(name);
+      return dataPointsMap_.findMetrics(name);
     }
 
-    DataPoints* firstDataPoint();
-    DataPoints* nextDataPoint();
+    Metrics* firstDataPoint();
+    Metrics* nextDataPoint();
 
     size_t getDataPointCount()
     {
@@ -57,7 +57,7 @@ public:
     }
 
 private:
-    DataPointsMap dataPointsMap_;
+    MetricsMap dataPointsMap_;
     DataPointsMapIt currIt_;
   };
 }

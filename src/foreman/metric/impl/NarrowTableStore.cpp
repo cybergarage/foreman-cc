@@ -130,7 +130,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 // addValue
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::addValue(const Metric& m)
+bool NarrowTableStore::getData(const Metric& m)
 {
   std::shared_ptr<Metric> mm = findMetric(m.name);
   if (!mm)
@@ -191,7 +191,7 @@ bool NarrowTableStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
+bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;

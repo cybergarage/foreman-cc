@@ -142,4 +142,3 @@ bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char
   *code = ((Method*)method)->getStringCode();
   return true;
 }
-

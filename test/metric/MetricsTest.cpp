@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(NewMetricTest)
 
 BOOST_AUTO_TEST_CASE(NewMetricsTest)
 {
-  Metrics metrics;
+  MetricArray metrics;
 
   BOOST_CHECK_EQUAL(metrics.size(), 0);
 }
