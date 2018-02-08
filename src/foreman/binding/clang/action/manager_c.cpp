@@ -103,6 +103,28 @@ bool foreman_action_manager_hasmethod(ForemanActionManager* mgr, const char* nam
 }
 
 ////////////////////////////////////////////////
+// foreman_action_manager_removemethod
+////////////////////////////////////////////////
+
+bool foreman_action_manager_removemethod(ForemanActionManager* mgr, const char* name, ForemanError* err)
+{
+  if (!mgr || !name)
+    return false;
+  return ((Manager*)mgr)->removeMethod(name, (Foreman::Error*)err);
+}
+
+////////////////////////////////////////////////
+// foreman_action_manager_removeallmethods
+////////////////////////////////////////////////
+
+bool foreman_action_manager_removeallmethods(ForemanActionManager* mgr, ForemanError* err)
+{
+  if (!mgr)
+    return false;
+  return ((Manager*)mgr)->removeAllMethods((Foreman::Error*)err);
+}
+
+////////////////////////////////////////////////
 // foreman_action_manager_execmethod
 ////////////////////////////////////////////////
 
@@ -111,4 +133,39 @@ bool foreman_action_manager_execmethod(ForemanActionManager* mgr, const char* na
   if (!mgr || !name || !params || !results || !err)
     return false;
   return ((Manager*)mgr)->execMethod(name, (Parameters*)params, (Parameters*)results, (Foreman::Error*)err);
+}
+
+////////////////////////////////////////////////
+// foreman_action_manager_getfirstmethod
+////////////////////////////////////////////////
+
+ForemanActionMethod* foreman_action_manager_getfirstmethod(ForemanActionManager* mgr)
+{
+  auto methodMap = ((Manager*)mgr)->getMethodMap();
+  auto firstMethod = methodMap->cbegin();
+  if (firstMethod == methodMap->cend()) {
+    return NULL;
+  }
+  return (ForemanActionMethod*)firstMethod->second;
+}
+
+////////////////////////////////////////////////
+// foreman_action_manager_nextmethod
+////////////////////////////////////////////////
+
+ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr, ForemanActionMethod* currMethod)
+{
+  auto currMethodName = ((Method*)currMethod)->getName();
+  auto methodMap = ((Manager*)mgr)->getMethodMap();
+  for (auto method = methodMap->cbegin(); method != methodMap->cend(); method++) {
+    if (method->first.compare(currMethodName) == 0) {
+      auto nextMethod = method++;
+      if (nextMethod == methodMap->cend()) {
+        return NULL;
+      }
+      return (ForemanActionMethod*)nextMethod->second;
+    }
+  }
+
+  return NULL;
 }
