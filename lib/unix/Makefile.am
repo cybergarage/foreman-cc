@@ -51,11 +51,7 @@ foremancc_sources = \
 	../../src/foreman/binding/clang/registry/store_c.cpp \
 	../../src/foreman/common/Error.cpp \
 	../../src/foreman/Manager.cpp \
-	../../src/foreman/metric/Data.cpp \
-	../../src/foreman/metric/DataMap.cpp \
 	../../src/foreman/metric/DataPoint.cpp \
-	../../src/foreman/metric/DataPoints.cpp \
-	../../src/foreman/metric/DataPointsMap.cpp \
 	../../src/foreman/metric/impl/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/impl/GraphiteStore.cpp \
@@ -70,6 +66,10 @@ foremancc_sources = \
 	../../src/foreman/metric/impl/TimeSeriesMap.cpp \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \
 	../../src/foreman/metric/impl/TSmapStore.cpp \
+	../../src/foreman/metric/Metric.cpp \
+	../../src/foreman/metric/MetricMap.cpp \
+	../../src/foreman/metric/Metrics.cpp \
+	../../src/foreman/metric/MetricsMap.cpp \
 	../../src/foreman/metric/Query.cpp \
 	../../src/foreman/metric/ResultSet.cpp \
 	../../src/foreman/metric/Store.cpp \

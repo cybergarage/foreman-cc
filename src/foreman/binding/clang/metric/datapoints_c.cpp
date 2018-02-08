@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/DataPoint.h>
+#include <foreman/metric/Metrics.h>
 #include <foreman/metric/metric-c.h>
 
 using namespace Foreman::Metric;
@@ -17,31 +17,31 @@ using namespace Foreman::Metric;
 // foreman_metric_datapoints_getname
 ////////////////////////////////////////////////
 
-const char* foreman_metric_datapoints_getname(ForemanMetricDataPoints* dps)
+const char* foreman_metric_metrics_getname(ForemanMetrics* m)
 {
-  if (!dps)
+  if (!m)
     return "";
-  return ((DataPoints*)dps)->getName();
+  return ((Metrics*)m)->getName();
 }
 
 ////////////////////////////////////////////////
 // foreman_metric_datapoints_size
 ////////////////////////////////////////////////
 
-size_t foreman_metric_datapoints_size(ForemanMetricDataPoints* dps)
+size_t foreman_metric_metrics_getdatapointsize(ForemanMetrics* m)
 {
-  if (!dps)
+  if (!m)
     return 0;
-  return ((DataPoints*)dps)->size();
+  return ((Metrics*)m)->size();
 }
 
 ////////////////////////////////////////////////
 // foreman_metric_datapoints_get
 ////////////////////////////////////////////////
 
-ForemanMetricDataPoint* foreman_metric_datapoints_get(ForemanMetricDataPoints* dps, size_t n)
+ForemanMetricDataPoint* foreman_metric_metrics_getdatapoint(ForemanMetrics* m, size_t n)
 {
-  if (!dps)
+  if (!m)
     return NULL;
-  return ((DataPoints*)dps)->at(n).get();
+  return ((Metrics*)m)->at(n).get();
 }

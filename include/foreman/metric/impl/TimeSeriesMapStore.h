@@ -26,8 +26,8 @@ public:
     TimeSeriesMapStore();
     virtual ~TimeSeriesMapStore();
 
-    bool addValue(const Metric& m);
-    bool getValues(Query* q, ResultSet* rs);
+    bool getData(const Metric& m);
+    bool queryData(Query* q, ResultSet* rs);
 
 protected:
     std::shared_ptr<TimeSeriesMap> tsMap_;

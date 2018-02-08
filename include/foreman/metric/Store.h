@@ -40,10 +40,10 @@ public:
     virtual std::shared_ptr<Metric> findMetric(const std::string& name);
     virtual std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
 
-    virtual bool addValue(const Metric& value) = 0;
-    virtual bool addValues(const Metrics& values);
+    virtual bool getData(const Metric& value) = 0;
+    virtual bool getData(const MetricArray& values);
 
-    virtual bool getValues(Query* q, ResultSet* rs) = 0;
+    virtual bool queryData(Query* q, ResultSet* rs) = 0;
 
     virtual size_t getMemoryUsage() = 0;
     virtual size_t getStorageUsage() = 0;

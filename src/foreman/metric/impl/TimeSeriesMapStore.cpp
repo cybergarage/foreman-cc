@@ -29,7 +29,7 @@ TimeSeriesMapStore::~TimeSeriesMapStore()
 // addValue
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::addValue(const Metric& m)
+bool TimeSeriesMapStore::getData(const Metric& m)
 {
   return tsMap_->addValue(m);
 }
@@ -38,7 +38,7 @@ bool TimeSeriesMapStore::addValue(const Metric& m)
 // getValues
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::getValues(Query* q, ResultSet* rs)
+bool TimeSeriesMapStore::queryData(Query* q, ResultSet* rs)
 {
   return tsMap_->getValues(q, rs);
 }

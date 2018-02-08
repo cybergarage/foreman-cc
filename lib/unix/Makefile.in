@@ -182,11 +182,7 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/binding/clang/registry/store_c.$(OBJEXT) \
 	../../src/foreman/common/Error.$(OBJEXT) \
 	../../src/foreman/Manager.$(OBJEXT) \
-	../../src/foreman/metric/Data.$(OBJEXT) \
-	../../src/foreman/metric/DataMap.$(OBJEXT) \
 	../../src/foreman/metric/DataPoint.$(OBJEXT) \
-	../../src/foreman/metric/DataPoints.$(OBJEXT) \
-	../../src/foreman/metric/DataPointsMap.$(OBJEXT) \
 	../../src/foreman/metric/impl/ArrayTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/impl/BeringeiTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/impl/GraphiteStore.$(OBJEXT) \
@@ -201,6 +197,10 @@ am__objects_1 = ../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/metric/impl/TimeSeriesMap.$(OBJEXT) \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.$(OBJEXT) \
 	../../src/foreman/metric/impl/TSmapStore.$(OBJEXT) \
+	../../src/foreman/metric/Metric.$(OBJEXT) \
+	../../src/foreman/metric/MetricMap.$(OBJEXT) \
+	../../src/foreman/metric/Metrics.$(OBJEXT) \
+	../../src/foreman/metric/MetricsMap.$(OBJEXT) \
 	../../src/foreman/metric/Query.$(OBJEXT) \
 	../../src/foreman/metric/ResultSet.$(OBJEXT) \
 	../../src/foreman/metric/Store.$(OBJEXT) \
@@ -414,11 +414,7 @@ foremancc_sources = \
 	../../src/foreman/binding/clang/registry/store_c.cpp \
 	../../src/foreman/common/Error.cpp \
 	../../src/foreman/Manager.cpp \
-	../../src/foreman/metric/Data.cpp \
-	../../src/foreman/metric/DataMap.cpp \
 	../../src/foreman/metric/DataPoint.cpp \
-	../../src/foreman/metric/DataPoints.cpp \
-	../../src/foreman/metric/DataPointsMap.cpp \
 	../../src/foreman/metric/impl/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/BeringeiTimeSeries.cpp \
 	../../src/foreman/metric/impl/GraphiteStore.cpp \
@@ -433,6 +429,10 @@ foremancc_sources = \
 	../../src/foreman/metric/impl/TimeSeriesMap.cpp \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \
 	../../src/foreman/metric/impl/TSmapStore.cpp \
+	../../src/foreman/metric/Metric.cpp \
+	../../src/foreman/metric/MetricMap.cpp \
+	../../src/foreman/metric/Metrics.cpp \
+	../../src/foreman/metric/MetricsMap.cpp \
 	../../src/foreman/metric/Query.cpp \
 	../../src/foreman/metric/ResultSet.cpp \
 	../../src/foreman/metric/Store.cpp \
@@ -701,19 +701,7 @@ clean-libLIBRARIES:
 ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/metric/$(DEPDIR)
 	@: > ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/Data.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/DataMap.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/DataPoint.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/DataPoints.$(OBJEXT):  \
-	../../src/foreman/metric/$(am__dirstamp) \
-	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
-../../src/foreman/metric/DataPointsMap.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/impl/$(am__dirstamp):
@@ -764,6 +752,18 @@ clean-libLIBRARIES:
 ../../src/foreman/metric/impl/TSmapStore.$(OBJEXT):  \
 	../../src/foreman/metric/impl/$(am__dirstamp) \
 	../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/Metric.$(OBJEXT):  \
+	../../src/foreman/metric/$(am__dirstamp) \
+	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/MetricMap.$(OBJEXT):  \
+	../../src/foreman/metric/$(am__dirstamp) \
+	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/Metrics.$(OBJEXT):  \
+	../../src/foreman/metric/$(am__dirstamp) \
+	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/metric/MetricsMap.$(OBJEXT):  \
+	../../src/foreman/metric/$(am__dirstamp) \
+	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/Query.$(OBJEXT):  \
 	../../src/foreman/metric/$(am__dirstamp) \
 	../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
@@ -928,11 +928,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/registry/$(DEPDIR)/query_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/registry/$(DEPDIR)/store_c.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/common/$(DEPDIR)/Error.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Data.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPoint.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPoints.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPointsMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Metric.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/MetricMap.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Metrics.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/MetricsMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Query.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/ResultSet.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Store.Po@am__quote@
