@@ -126,7 +126,7 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
 // addMethod
 ////////////////////////////////////////////////
 
-bool ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, int encodeType, Error* err)
+bool ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, Error* err)
 {
   if (code.length() <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
@@ -146,7 +146,6 @@ bool ScriptManager::addMethod(const std::string& name, const std::string& lang, 
   }
   method->setName(name);
   method->setCode(code);
-  method->setEncoding(encodeType);
 
   if (!scriptEngine->compile(method, err)) {
     delete method;
