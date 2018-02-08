@@ -60,7 +60,7 @@ public:
     virtual ~MetricArray(){};
     bool addMetric(const Metric& m)
     {
-      std::shared_ptr<Foreman::Metric::Metric> cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
+      auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
       push_back(cm);
       return true;
     }

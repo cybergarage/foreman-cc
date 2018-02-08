@@ -39,7 +39,7 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT; n++) {
     std::ostringstream s;
     s << FORMANCC_MEMSTORETESTCONTROLLER_METRICS_NAME_PREFIX << n;
-    std::shared_ptr<Foreman::Metric::Metric> m = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric());
+    auto m = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric());
     m->name = s.str();
     metrics.push_back(m);
   }
@@ -50,7 +50,7 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
   BOOST_CHECK(store->setRetentionPeriod(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC));
   BOOST_CHECK_EQUAL(store->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
 
-  for (std::shared_ptr<Foreman::Metric::Metric> m : metrics) {
+  for (auto m : metrics) {
     store->addMetric(m);
   }
 
@@ -63,7 +63,7 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
   time_t metricTs = beginTs;
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
     Foreman::Metric::MetricArray values;
-    for (std::shared_ptr<Foreman::Metric::Metric> m : metrics) {
+    for (auto m : metrics) {
       std::shared_ptr<Foreman::Metric::Metric> value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
       value->timestamp = metricTs;
       value->value = n;
@@ -76,7 +76,7 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
 
   // Get metrics
 
-  for (std::shared_ptr<Foreman::Metric::Metric> m : metrics) {
+  for (auto m : metrics) {
     Foreman::Metric::Query q;
     q.setTarget(*m);
     q.setFrom(beginTs);
