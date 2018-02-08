@@ -28,18 +28,18 @@ MetricsMap::~MetricsMap()
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool MetricsMap::addMetrics(Metrics* dps)
+bool MetricsMap::addMetrics(Metrics* ms)
 {
-  return addMetrics(std::shared_ptr<Metrics>(dps));
+  return addMetrics(std::shared_ptr<Metrics>(ms));
 }
 
 ////////////////////////////////////////////////
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool MetricsMap::addMetrics(std::shared_ptr<Metrics> dps)
+bool MetricsMap::addMetrics(std::shared_ptr<Metrics> ms)
 {
-  insert(std::make_pair(dps->getName(), dps));
+  insert(std::make_pair(ms->getName(), ms));
   return true;
 }
 
@@ -49,17 +49,17 @@ bool MetricsMap::addMetrics(std::shared_ptr<Metrics> dps)
 
 bool MetricsMap::addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
 {
-  Metrics* dps = findMetrics(name);
-  if (!dps) {
-    dps = new Foreman::Metric::Metrics();
-    if (!dps)
+  Metrics* ms = findMetrics(name);
+  if (!ms) {
+    ms = new Foreman::Metric::Metrics();
+    if (!ms)
       return false;
-    dps->setName(name);
-    if (!addMetrics(dps))
+    ms->setName(name);
+    if (!addMetrics(ms))
       return false;
   }
 
-  return dps->addDataPoints(from, interval, values, valueCnt);
+  return ms->addDataPoints(from, interval, values, valueCnt);
 }
 
 ////////////////////////////////////////////////
@@ -68,7 +68,7 @@ bool MetricsMap::addMetrics(const std::string& name, time_t from, time_t interva
 
 Metrics* MetricsMap::findMetrics(const std::string& name)
 {
-  MetricsMap::const_iterator dpIt = std::unordered_map<std::string, std::shared_ptr<Metrics>>::find(name);
+  auto dpIt = std::unordered_map<std::string, std::shared_ptr<Metrics>>::find(name);
   if (dpIt == MetricsMap::end())
     return nullptr;
 

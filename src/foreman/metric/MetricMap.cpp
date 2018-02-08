@@ -40,7 +40,7 @@ bool MetricMap::addMetric(std::shared_ptr<Metric> m)
 
 std::shared_ptr<Metric> MetricMap::findMetric(const std::string& name)
 {
-  MetricMap::const_iterator tsIt = std::unordered_map<std::string, std::shared_ptr<Metric>>::find(name);
+  auto tsIt = std::unordered_map<std::string, std::shared_ptr<Metric>>::find(name);
   if (tsIt == MetricMap::end())
     return nullptr;
 
@@ -53,7 +53,7 @@ std::shared_ptr<Metric> MetricMap::findMetric(const std::string& name)
 
 std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
 {
-  std::shared_ptr<MetricArray> mm = std::shared_ptr<MetricArray>(new MetricArray());
+  auto mm = std::shared_ptr<MetricArray>(new MetricArray());
   for (auto it = begin(); it != end(); ++it) {
     mm->addMetric(*it->second);
   }
@@ -66,7 +66,7 @@ std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
 
 bool MetricMap::addMetrics(std::vector<std::shared_ptr<Metric>> metrics)
 {
-  for (std::shared_ptr<Metric> m : metrics) {
+  for (auto m : metrics) {
     if (!addMetric(m))
       return false;
   }
