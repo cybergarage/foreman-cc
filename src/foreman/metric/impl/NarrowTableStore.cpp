@@ -145,11 +145,7 @@ bool NarrowTableStore::addData(const Metric& m)
   // Revise Timestamp
 
   time_t metricTs = m.timestamp;
-  time_t retentionInterval = getRetentionPeriod();
-  if ((0 < retentionInterval) && (retentionInterval < metricTs)) {
-    metricTs -= (metricTs / retentionInterval);
-  }
-
+  
   // Insert a value
 
   sqlite3_stmt* stmt = NULL;
@@ -211,9 +207,19 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
 
   sqlite3_stmt* stmt = NULL;
 
+  //////////////////////////
+  
+  /*
+  #define TEST_SQL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ?"
+
+  if (!prepare(TEST_SQL, &stmt))
+    return false;
+  sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
+  */
+
   if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
-
+  
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
   sqlite3_bind_int(stmt, 2, (int)q->from);
   sqlite3_bind_int(stmt, 3, (int)q->until);

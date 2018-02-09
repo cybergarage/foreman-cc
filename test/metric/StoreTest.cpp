@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
   StoreTestContoller testController;
 
   MemStore* store = new BeringeiStore();
-  //testController.run(store);
+  testController.run(store);
   delete store;
 }
 
