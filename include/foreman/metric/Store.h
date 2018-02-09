@@ -40,8 +40,8 @@ public:
     virtual std::shared_ptr<Metric> findMetric(const std::string& name);
     virtual std::shared_ptr<MetricArray> getAllMetric();
 
-    virtual bool getData(const Metric& value) = 0;
-    virtual bool getData(const MetricArray& values);
+    virtual bool addData(const Metric& value) = 0;
+    virtual bool addData(const MetricArray& values);
 
     virtual bool queryData(Query* q, ResultSet* rs) = 0;
 

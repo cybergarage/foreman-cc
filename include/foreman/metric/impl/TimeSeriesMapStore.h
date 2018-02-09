@@ -26,7 +26,7 @@ public:
     TimeSeriesMapStore();
     virtual ~TimeSeriesMapStore();
 
-    bool getData(const Metric& m);
+    bool addData(const Metric& m);
     bool queryData(Query* q, ResultSet* rs);
 
 protected:
