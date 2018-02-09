@@ -97,10 +97,10 @@ std::shared_ptr<MetricArray> Store::getAllMetric()
 // addValues
 ////////////////////////////////////////////////
 
-bool Store::getData(const MetricArray& values)
+bool Store::addData(const MetricArray& values)
 {
-  for (std::shared_ptr<Foreman::Metric::Metric> value : values) {
-    if (!getData(*value))
+  for (auto value : values) {
+    if (!addData(*value))
       return false;
   }
 

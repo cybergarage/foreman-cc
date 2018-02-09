@@ -89,14 +89,14 @@ bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m)
   if (!store || !m)
     return false;
 
-  if (((Foreman::Metric::Store*)(store))->getData(*((const Foreman::Metric::Metric*)(m))))
+  if (((Foreman::Metric::Store*)(store))->addData(*((const Foreman::Metric::Metric*)(m))))
     return true;
 
   auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*((const Foreman::Metric::Metric*)(m))));
   if (!((Foreman::Metric::Store*)(store))->addMetric(cm))
     return false;
 
-  return ((Foreman::Metric::Store*)(store))->getData(*((const Foreman::Metric::Metric*)(m)));
+  return ((Foreman::Metric::Store*)(store))->addData(*((const Foreman::Metric::Metric*)(m)));
 }
 
 ////////////////////////////////////////////////

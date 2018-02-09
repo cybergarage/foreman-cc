@@ -64,12 +64,12 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
     Foreman::Metric::MetricArray values;
     for (auto m : metrics) {
-      std::shared_ptr<Foreman::Metric::Metric> value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
+      auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
       value->timestamp = metricTs;
       value->value = n;
       values.push_back(value);
     }
-    BOOST_CHECK(store->getData(values));
+    BOOST_CHECK(store->addData(values));
     metricTs += FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL;
   }
   time_t endTs = metricTs;
