@@ -85,12 +85,12 @@ std::shared_ptr<Metric> Store::findMetric(const std::string& name)
 }
 
 ////////////////////////////////////////////////
-// findMetric
+// getMetricArray
 ////////////////////////////////////////////////
 
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
+std::shared_ptr<MetricArray> Store::getAllMetric()
 {
-  return metricMap_.getMetrics();
+  return metricMap_.getMetricArray();
 }
 
 ////////////////////////////////////////////////

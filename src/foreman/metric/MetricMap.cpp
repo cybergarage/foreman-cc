@@ -48,10 +48,10 @@ std::shared_ptr<Metric> MetricMap::findMetric(const std::string& name)
 }
 
 ////////////////////////////////////////////////
-// findMetric
+// getMetricArray
 ////////////////////////////////////////////////
 
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> MetricMap::getMetrics()
+std::shared_ptr<MetricArray> MetricMap::getMetricArray()
 {
   auto mm = std::shared_ptr<MetricArray>(new MetricArray());
   for (auto it = begin(); it != end(); ++it) {

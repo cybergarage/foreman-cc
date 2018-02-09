@@ -38,6 +38,22 @@ public:
   };
 
   ////////////////////////////////////////////////
+  // MetricArray
+  ////////////////////////////////////////////////
+  
+  class MetricArray : public std::vector<std::shared_ptr<Metric>> {
+  public:
+    MetricArray(){};
+    virtual ~MetricArray(){};
+    bool addMetric(const Metric& m)
+    {
+      auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
+      push_back(cm);
+      return true;
+    }
+  };
+  
+  ////////////////////////////////////////////////
   // Metrics
   ////////////////////////////////////////////////
 
@@ -51,20 +67,9 @@ public:
     bool addMetric(std::shared_ptr<Metric> m);
     bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
     std::shared_ptr<Metric> findMetric(const std::string& name);
-    std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
+    std::shared_ptr<MetricArray> getMetricArray();
   };
 
-  class MetricArray : public std::vector<std::shared_ptr<Metric>> {
-public:
-    MetricArray(){};
-    virtual ~MetricArray(){};
-    bool addMetric(const Metric& m)
-    {
-      auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
-      push_back(cm);
-      return true;
-    }
-  };
 }
 }
 
