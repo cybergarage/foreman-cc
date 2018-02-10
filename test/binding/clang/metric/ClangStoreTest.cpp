@@ -57,7 +57,7 @@ static void TestClangStore(ForemanMetricStore* store)
     BOOST_CHECK(foreman_metric_query_settarget(q, mname));
 
     ForemanMetricResultSet* rs = foreman_metric_resultset_new();
-    BOOST_CHECK(foreman_metric_store_query(store, q, rs));
+    BOOST_CHECK(foreman_metric_store_querydata(store, q, rs));
 
     BOOST_CHECK_EQUAL(foreman_metric_resultset_getdatapointcount(rs), 1);
     ForemanMetrics* m = foreman_metric_resultset_findmetrics(rs, mname);
