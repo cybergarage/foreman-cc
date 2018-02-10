@@ -135,26 +135,26 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;
-  
+
   sqlite3_stmt* stmt = NULL;
-  
+
   if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
     return false;
-  
+
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
-  
+
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     auto name = sqlite3_column_text(stmt, 0);
     if (!name)
       continue;
     auto ms = std::shared_ptr<Metrics>(new Metrics);
-    ms->setName((const char *)name);
+    ms->setName((const char*)name);
     if (!rs->addDataPoints(ms))
       return false;
   }
-  
+
   sqlite3_finalize(stmt);
-  
+
   return true;
 }
 
@@ -177,7 +177,7 @@ bool NarrowTableStore::addData(const Metric& m)
   // Revise Timestamp
 
   time_t metricTs = m.timestamp;
-  
+
   // Insert a value
 
   sqlite3_stmt* stmt = NULL;
@@ -241,7 +241,7 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
 
   if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
     return false;
-  
+
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
   sqlite3_bind_int(stmt, 2, (int)q->from);
   sqlite3_bind_int(stmt, 3, (int)q->until);

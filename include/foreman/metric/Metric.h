@@ -40,9 +40,9 @@ public:
   ////////////////////////////////////////////////
   // MetricArray
   ////////////////////////////////////////////////
-  
+
   class MetricArray : public std::vector<std::shared_ptr<Metric>> {
-  public:
+public:
     MetricArray(){};
     virtual ~MetricArray(){};
     bool addMetric(const Metric& m)
@@ -52,7 +52,7 @@ public:
       return true;
     }
   };
-  
+
   ////////////////////////////////////////////////
   // Metrics
   ////////////////////////////////////////////////
@@ -69,7 +69,6 @@ public:
     std::shared_ptr<Metric> findMetric(const std::string& name);
     std::shared_ptr<MetricArray> getMetricArray();
   };
-
 }
 }
 
