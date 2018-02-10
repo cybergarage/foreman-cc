@@ -37,6 +37,7 @@ public:
     virtual time_t getRetentionPeriod();
 
     virtual bool addMetric(std::shared_ptr<Metric> m);
+    virtual bool queryMetric(Query* q, ResultSet* rs) = 0;
 
     virtual bool addData(const Metric& value) = 0;
     virtual bool addData(const MetricArray& values);
