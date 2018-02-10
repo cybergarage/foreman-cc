@@ -118,6 +118,7 @@ bool foreman_metric_store_close(ForemanMetricStore* store);
 bool foreman_metric_store_clear(ForemanMetricStore* store);
 
 bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m);
+bool foreman_metric_store_querymetric(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 
 #ifdef __cplusplus
