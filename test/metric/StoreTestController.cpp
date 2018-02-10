@@ -51,22 +51,22 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
   BOOST_CHECK_EQUAL(store->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
 
   // Add metric
-  
+
   for (auto m : metrics) {
     store->addMetric(m);
   }
-  
+
   BOOST_CHECK_EQUAL(store->getRowCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
   BOOST_CHECK(store->realloc());
-  
+
   // Query metric
-  
+
   for (auto m : metrics) {
     Foreman::Metric::Query q;
     q.setTarget(*m);
 
     Foreman::Metric::ResultSet rs;
-    
+
     BOOST_CHECK(store->queryMetric(&q, &rs));
     BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
   }

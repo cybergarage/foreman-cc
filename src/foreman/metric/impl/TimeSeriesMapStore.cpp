@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <regex>
 #include <foreman/metric/impl/TimeSeriesMapStore.h>
+#include <regex>
 
 using namespace Foreman::Metric;
 
@@ -46,8 +46,8 @@ bool TimeSeriesMapStore::queryMetric(Query* q, ResultSet* rs)
 
   std::string likeName = q->getTarget();
   std::regex nameRegex(likeName);
-  
-  for (auto m:*tsMap_) {
+
+  for (auto m : *tsMap_) {
     auto name = m.first;
     if (!regex_match(name, nameRegex))
       continue;
@@ -56,7 +56,7 @@ bool TimeSeriesMapStore::queryMetric(Query* q, ResultSet* rs)
     if (!rs->addDataPoints(ms))
       return false;
   }
-  
+
   return true;
 }
 

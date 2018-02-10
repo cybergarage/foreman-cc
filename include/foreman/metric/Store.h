@@ -53,7 +53,6 @@ protected:
     time_t retentionPeriod_;
 
     std::shared_ptr<Metric> findMetric(const std::string& name);
-
   };
 }
 }
