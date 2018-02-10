@@ -59,6 +59,7 @@ public:
     bool open();
     bool clear();
     bool addMetric(std::shared_ptr<Metric> m);
+    bool queryMetric(Query* q, ResultSet* rs);
     bool addData(const Metric& m);
     bool queryData(Query* q, ResultSet* rs);
   };
