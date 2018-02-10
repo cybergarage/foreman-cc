@@ -37,7 +37,6 @@ public:
     virtual time_t getRetentionPeriod();
 
     virtual bool addMetric(std::shared_ptr<Metric> m);
-    virtual std::shared_ptr<Metric> findMetric(const std::string& name);
 
     virtual bool addData(const Metric& value) = 0;
     virtual bool addData(const MetricArray& values);
@@ -51,6 +50,9 @@ protected:
     MetricMap metricMap_;
     time_t retentionInterval_;
     time_t retentionPeriod_;
+
+    std::shared_ptr<Metric> findMetric(const std::string& name);
+
   };
 }
 }
