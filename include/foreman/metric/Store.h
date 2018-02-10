@@ -38,7 +38,6 @@ public:
 
     virtual bool addMetric(std::shared_ptr<Metric> m);
     virtual std::shared_ptr<Metric> findMetric(const std::string& name);
-    virtual std::shared_ptr<MetricArray> getAllMetric();
 
     virtual bool addData(const Metric& value) = 0;
     virtual bool addData(const MetricArray& values);
