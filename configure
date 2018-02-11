@@ -5194,8 +5194,6 @@ done
 
 $as_echo "#define FOREMAN_SUPPORT_PYTHON 1" >>confdefs.h
 
-  LIBS+=" "
-  LIBS+=`python-config --libs`
 fi
 
 # Lua
