@@ -16,7 +16,9 @@
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
-#if defined(HAVE_PYTHON_PYTHON_H)
+#if defined(HAVE_PYTHON_H)
+#include <Python.h>
+#elif defined(HAVE_PYTHON_PYTHON_H)
 #include <Python/Python.h>
 #else
 #include <Python.h>

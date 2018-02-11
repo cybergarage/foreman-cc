@@ -1,5 +1,5 @@
 #!/bin/bash
-export CFLAGS="-I/usr/local/include"
+export CFLAGS="-I/usr/local/include `python-config --includes`"
 export CXXFLAGS="-std=c++11 $CFLAGS"
-export LDFLAGS="-L/usr/local/lib"
+export LDFLAGS="-L/usr/local/lib  `python-config --libs`"
 ./configure --enable-script-python --enable-script-lua MKDIR_P='mkdir -p' $@

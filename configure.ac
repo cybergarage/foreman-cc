@@ -134,8 +134,6 @@ if [ test $FOREMAN_SUPPORT_PYTHON = yes ]; then
   AC_CHECK_HEADERS([Python/Python.h])
   AC_CHECK_HEADERS([Python.h])
   AC_DEFINE([FOREMAN_SUPPORT_PYTHON],1,[Python])
-  LIBS+=" "
-  LIBS+=`python-config --libs`
 fi
 
 # Lua
