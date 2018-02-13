@@ -51,26 +51,38 @@ public:
 
     bool hasMethod(const std::string& name) const
     {
-      return this->methods.hasMethod(name);
+      return this->methodMap.hasMethod(name);
     }
 
     bool removeMethod(const std::string& method, Error* error);
+    bool removeAllMethods(Error* error);
 
     bool addEngine(ScriptEngine* engine);
 
     bool hasEngine(const std::string& lang) const
     {
-      return this->engines.hasEngine(lang);
+      return this->engineMap.hasEngine(lang);
     }
 
     bool execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* error);
 
 private:
-    bool addMethod(const std::string& method, const std::string& lang, const std::string& script, int encodeType, Error* error);
+    bool addMethod(const std::string& method, const std::string& lang, const std::string& script, Error* error);
 
 private:
-    MethodMap methods;
-    ScriptEngineMap engines;
+    MethodMap methodMap;
+    ScriptEngineMap engineMap;
+
+public:
+    const MethodMap* getMethodMap()
+    {
+      return &methodMap;
+    }
+
+    const ScriptEngineMap* getEngineMap()
+    {
+      return &engineMap;
+    }
   };
 
   ////////////////////////////////////////////////

@@ -46,10 +46,6 @@ bool foreman_action_method_getcode(ForemanActionMethod* method, const byte** cod
 bool foreman_action_method_getcodelength(ForemanActionMethod* method, size_t* size);
 bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char** code);
 
-bool foreman_action_method_setencoding(ForemanActionMethod* method, int encType);
-bool foreman_action_method_getencoding(ForemanActionMethod* method, int* encType);
-bool foreman_action_method_isbase64encoded(ForemanActionMethod* method);
-
 ////////////////////////////////////////////////
 // Parameter
 ////////////////////////////////////////////////
@@ -111,8 +107,13 @@ bool foreman_action_manager_setmetricstore(ForemanActionManager* mgr, ForemanMet
 bool foreman_action_manager_hasengine(ForemanActionManager* mgr, const char* name);
 
 bool foreman_action_manager_addmethod(ForemanActionManager* mgr, ForemanActionMethod* method, ForemanError* err);
+bool foreman_action_manager_removemethod(ForemanActionManager* mgr, const char* name, ForemanError* err);
 bool foreman_action_manager_hasmethod(ForemanActionManager* mgr, const char* name);
 bool foreman_action_manager_execmethod(ForemanActionManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
+bool foreman_action_manager_removeallmethods(ForemanActionManager* mgr, ForemanError* err);
+
+ForemanActionMethod* foreman_action_manager_getfirstmethod(ForemanActionManager* mgr);
+ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr, ForemanActionMethod* method);
 
 #ifdef __cplusplus
 }

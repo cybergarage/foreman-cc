@@ -38,10 +38,26 @@ public:
   };
 
   ////////////////////////////////////////////////
+  // MetricArray
+  ////////////////////////////////////////////////
+
+  class MetricArray : public std::vector<std::shared_ptr<Metric>> {
+public:
+    MetricArray(){};
+    virtual ~MetricArray(){};
+    bool addMetric(const Metric& m)
+    {
+      auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
+      push_back(cm);
+      return true;
+    }
+  };
+
+  ////////////////////////////////////////////////
   // Metrics
   ////////////////////////////////////////////////
 
-  typedef std::pair<std::string, std::shared_ptr<Metric>> MetricsPair;
+  typedef std::pair<std::string, std::shared_ptr<Metric>> MetricPair;
 
   class MetricMap : public std::unordered_map<std::string, std::shared_ptr<Metric>> {
 public:
@@ -51,19 +67,7 @@ public:
     bool addMetric(std::shared_ptr<Metric> m);
     bool addMetrics(std::vector<std::shared_ptr<Metric>> metrics);
     std::shared_ptr<Metric> findMetric(const std::string& name);
-    std::shared_ptr<std::vector<std::shared_ptr<Metric>>> getMetrics();
-  };
-
-  class Metrics : public std::vector<std::shared_ptr<Metric>> {
-public:
-    Metrics(){};
-    virtual ~Metrics(){};
-    bool addMetric(const Metric& m)
-    {
-      std::shared_ptr<Foreman::Metric::Metric> cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));
-      push_back(cm);
-      return true;
-    }
+    std::shared_ptr<MetricArray> getMetricArray();
   };
 }
 }

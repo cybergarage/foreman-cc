@@ -10,6 +10,7 @@
 
 #include <foreman/action/Method.h>
 #include <foreman/action/action-c.h>
+
 #include <foreman/action/impl/Python.h>
 
 using namespace Foreman::Action;
@@ -20,6 +21,7 @@ using namespace Foreman::Action;
 
 ForemanActionMethod* foreman_action_method_new(const char* language)
 {
+#if defined(FOREMAN_SUPPORT_PYTHON)
   std::string lang = language;
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
@@ -144,38 +146,4 @@ bool foreman_action_method_getstringcode(ForemanActionMethod* method, const char
     return false;
   *code = ((Method*)method)->getStringCode();
   return true;
-}
-
-////////////////////////////////////////////////
-// foreman_action_method_setencoding
-////////////////////////////////////////////////
-
-bool foreman_action_method_setencoding(ForemanActionMethod* method, int encType)
-{
-  if (!method)
-    return false;
-  return ((Method*)method)->setEncoding(encType);
-}
-
-////////////////////////////////////////////////
-// foreman_action_method_getencoding
-////////////////////////////////////////////////
-
-bool foreman_action_method_getencoding(ForemanActionMethod* method, int* encType)
-{
-  if (!method || !encType)
-    return false;
-  *encType = ((Method*)method)->getEncoding();
-  return true;
-}
-
-////////////////////////////////////////////////
-// foreman_action_method_isbase64encoded
-////////////////////////////////////////////////
-
-bool foreman_action_method_isbase64encoded(ForemanActionMethod* method)
-{
-  if (!method)
-    return false;
-  return ((Method*)method)->isBase64Encoded();
 }

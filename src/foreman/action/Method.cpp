@@ -14,9 +14,6 @@
 
 #include <string.h>
 
-const int Foreman::Action::Method::ENCODING_NONE = FOREMANCC_ACTION_SCRIPT_ENCORDING_NONE;
-const int Foreman::Action::Method::ENCODING_BASE64 = FOREMANCC_ACTION_SCRIPT_ENCORDING_BASE64;
-
 ////////////////////////////////////////////////
 // compile
 ////////////////////////////////////////////////
@@ -62,7 +59,6 @@ void Foreman::Action::Method::init()
   this->language = "";
   this->code = NULL;
   this->codeLen = 0;
-  setEncoding(ENCODING_NONE);
 }
 
 ////////////////////////////////////////////////

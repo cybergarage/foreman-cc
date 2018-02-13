@@ -28,10 +28,6 @@ namespace Action {
 
   class Method {
 public:
-    static const int ENCODING_NONE;
-    static const int ENCODING_BASE64;
-
-public:
     static Method* CreateMethod(const std::string& lang);
 
 public:
@@ -102,37 +98,6 @@ public:
       return (0 < this->codeLen) ? true : false;
     }
 
-    bool setEncoding(int encoding)
-    {
-      this->codeEncoding = encoding;
-      return true;
-    }
-
-    const bool hasEncoding() const
-    {
-      return (0 < this->codeEncoding) ? true : false;
-    }
-
-    int getEncoding() const
-    {
-      return this->codeEncoding;
-    }
-
-    bool isEncoding(int encoding) const
-    {
-      return (this->codeEncoding == encoding) ? true : false;
-    }
-
-    bool isBase64Encoded() const
-    {
-      return isEncoding(ENCODING_BASE64);
-    }
-
-    bool isEncoded() const
-    {
-      return !isEncoding(ENCODING_NONE);
-    }
-
 private:
     void init();
 
@@ -141,7 +106,6 @@ private:
     std::string name;
     byte* code;
     size_t codeLen;
-    int codeEncoding;
   };
 
   ////////////////////////////////////////////////

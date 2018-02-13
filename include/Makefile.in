@@ -298,6 +298,7 @@ foremancc_header = \
 	./foreman/metric/impl/TimeSeriesMapStore.h \
 	./foreman/metric/metric-c.h \
 	./foreman/metric/Metric.h \
+	./foreman/metric/Metrics.h \
 	./foreman/metric/Query.h \
 	./foreman/metric/ResultSet.h \
 	./foreman/metric/Store.h \

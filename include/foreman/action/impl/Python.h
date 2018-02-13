@@ -12,12 +12,13 @@
 #define _FOREMANCC_ACTION_PYTHON_H_
 
 #include <foreman/Platform.h>
+#include <foreman/action/Engine.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
-#include <foreman/action/Engine.h>
-
-#if defined(HAVE_PYTHON_PYTHON_H)
+#if defined(HAVE_PYTHON_H)
+#include <Python.h>
+#elif defined(HAVE_PYTHON_PYTHON_H)
 #include <Python/Python.h>
 #else
 #include <Python.h>

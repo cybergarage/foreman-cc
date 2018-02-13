@@ -69,14 +69,14 @@ time_t foreman_metric_datapoint_gettimestamp(ForemanMetricDataPoint* dp);
 double foreman_metric_datapoint_getvalue(ForemanMetricDataPoint* dp);
 
 ////////////////////////////////////////////////
-// DataPoints
+// Metrics
 ////////////////////////////////////////////////
 
-typedef void ForemanMetricDataPoints;
+typedef void ForemanMetrics;
 
-const char* foreman_metric_datapoints_getname(ForemanMetricDataPoints* dps);
-size_t foreman_metric_datapoints_size(ForemanMetricDataPoints* dps);
-ForemanMetricDataPoints* foreman_metric_datapoints_get(ForemanMetricDataPoints* dps, size_t n);
+const char* foreman_metric_metrics_getname(ForemanMetrics* m);
+size_t foreman_metric_metrics_getdatapointsize(ForemanMetrics* m);
+ForemanMetrics* foreman_metric_metrics_getdatapoint(ForemanMetrics* m, size_t n);
 
 ////////////////////////////////////////////////
 // ResultSet
@@ -88,9 +88,9 @@ ForemanMetricResultSet* foreman_metric_resultset_new();
 
 size_t foreman_metric_resultset_getdatapointcount(ForemanMetricResultSet* rs);
 
-ForemanMetricDataPoints* foreman_metric_resultset_firstdatapoints(ForemanMetricResultSet* rs);
-ForemanMetricDataPoints* foreman_metric_resultset_nextdatapoints(ForemanMetricResultSet* rs);
-ForemanMetricDataPoints* foreman_metric_resultset_finddatapoints(ForemanMetricResultSet* rs, const char* name);
+ForemanMetrics* foreman_metric_resultset_getfirstmetrics(ForemanMetricResultSet* rs);
+ForemanMetrics* foreman_metric_resultset_getnextmetrics(ForemanMetricResultSet* rs);
+ForemanMetrics* foreman_metric_resultset_findmetrics(ForemanMetricResultSet* rs, const char* name);
 
 bool foreman_metric_resultset_delete(ForemanMetricResultSet* rs);
 
@@ -118,7 +118,8 @@ bool foreman_metric_store_close(ForemanMetricStore* store);
 bool foreman_metric_store_clear(ForemanMetricStore* store);
 
 bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m);
-bool foreman_metric_store_query(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
+bool foreman_metric_store_querymetric(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
+bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 
 #ifdef __cplusplus
 }
