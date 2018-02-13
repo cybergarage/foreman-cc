@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: foreman-cc
+Source: https://github.com/cybergarage/foreman-cc
+
+Files: *
+Copyright: 2017 Satoshi Konno <skonno@cybergarage.org>
+License: BSD-3-clause

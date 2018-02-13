@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#if defined(FOREMAN_SUPPORT_PYTHON)
+
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/lexical_cast.hpp>
 #include <sstream>
@@ -15,8 +17,6 @@
 #include <foreman/Const.h>
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
-
-#if defined(FOREMAN_SUPPORT_PYTHON)
 
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
