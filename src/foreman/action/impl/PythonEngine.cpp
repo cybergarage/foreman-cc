@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#include <foreman/Platform.h>
+
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
 #include <boost/algorithm/string/replace.hpp>

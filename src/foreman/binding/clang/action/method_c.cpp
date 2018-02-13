@@ -21,7 +21,6 @@ using namespace Foreman::Action;
 
 ForemanActionMethod* foreman_action_method_new(const char* language)
 {
-#if defined(FOREMAN_SUPPORT_PYTHON)
   std::string lang = language;
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
