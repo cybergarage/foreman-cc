@@ -112,6 +112,7 @@ bool foreman_action_manager_hasmethod(ForemanActionManager* mgr, const char* nam
 bool foreman_action_manager_execmethod(ForemanActionManager* mgr, const char* name, ForemanActionParameters* params, ForemanActionParameters* results, ForemanError* err);
 bool foreman_action_manager_removeallmethods(ForemanActionManager* mgr, ForemanError* err);
 
+ForemanActionMethod *foreman_action_manager_getmethod(ForemanActionManager* mgr, const char* name);
 ForemanActionMethod* foreman_action_manager_getfirstmethod(ForemanActionManager* mgr);
 ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr, ForemanActionMethod* method);
 
