@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#include <foreman/Platform.h>
+
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
 #include <foreman/Const.h>
