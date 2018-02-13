@@ -54,6 +54,11 @@ public:
       return this->methodMap.hasMethod(name);
     }
 
+    Method *getMethod(const std::string& name)
+    {
+      return this->methodMap.getMethod(name);
+    }
+
     bool removeMethod(const std::string& method, Error* error);
     bool removeAllMethods(Error* error);
 
