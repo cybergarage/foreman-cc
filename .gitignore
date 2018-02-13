@@ -60,3 +60,10 @@ xcuserdata/
 #include/beringei/*.h
 #src/beringei/*.h
 #src/beringei/*.cpp
+
+debian/debhelper-build-stamp
+debian/foreman-cc/
+debian/foreman-cc.debhelper.log
+debian/foreman-cc.substvars
+debian/foreman-cc.dirs
+debian/files

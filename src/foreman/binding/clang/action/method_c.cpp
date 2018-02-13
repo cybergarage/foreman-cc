@@ -23,6 +23,8 @@ ForemanActionMethod* foreman_action_method_new(const char* language)
 {
 #if defined(FOREMAN_SUPPORT_PYTHON)
   std::string lang = language;
+
+#if defined(FOREMAN_SUPPORT_PYTHON)
   if (lang.compare(PythonEngine::LANGUAGE) == 0)
     return new PythonMethod();
 #endif

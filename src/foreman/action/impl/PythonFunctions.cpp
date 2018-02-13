@@ -8,11 +8,11 @@
  *
  ******************************************************************/
 
+#if defined(FOREMAN_SUPPORT_PYTHON)
+
 #include <foreman/Const.h>
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
-
-#if defined(FOREMAN_SUPPORT_PYTHON)
 
 /****************************************
  * foreman_python_setregistry
