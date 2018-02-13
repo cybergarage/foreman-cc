@@ -10,7 +10,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <foreman/metric/DataPoint.h>
+#include <foreman/metric/Metrics.h>
 
 using namespace Foreman::Metric;
 
@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(NewDataPointTest)
 
 BOOST_AUTO_TEST_CASE(NewDataPointsTest)
 {
-  DataPoints metrics;
+  Metrics metrics;
 
   BOOST_CHECK_EQUAL(metrics.size(), 0);
 }

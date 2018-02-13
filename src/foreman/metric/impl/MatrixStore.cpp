@@ -61,8 +61,8 @@ bool MatrixStore::realloc()
 
   tsMap_->clear();
 
-  for (MetricsPair m : metricMap_) {
-    std::shared_ptr<MatrixTimeSeries> ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
+  for (MetricPair m : metricMap_) {
+    auto ts = std::shared_ptr<MatrixTimeSeries>(new MatrixTimeSeries());
     if (!ts->reallocValueArray(columnCount))
       return false;
     tsMap_->insert(std::make_pair(m.second->name, ts));

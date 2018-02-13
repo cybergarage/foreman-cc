@@ -85,22 +85,13 @@ std::shared_ptr<Metric> Store::findMetric(const std::string& name)
 }
 
 ////////////////////////////////////////////////
-// findMetric
-////////////////////////////////////////////////
-
-std::shared_ptr<std::vector<std::shared_ptr<Metric>>> Store::getMetrics()
-{
-  return metricMap_.getMetrics();
-}
-
-////////////////////////////////////////////////
 // addValues
 ////////////////////////////////////////////////
 
-bool Store::addValues(const Metrics& values)
+bool Store::addData(const MetricArray& values)
 {
-  for (std::shared_ptr<Foreman::Metric::Metric> value : values) {
-    if (!addValue(*value))
+  for (auto value : values) {
+    if (!addData(*value))
       return false;
   }
 

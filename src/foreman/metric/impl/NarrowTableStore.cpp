@@ -23,6 +23,7 @@ using namespace Foreman::Metric;
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INDEX_NAME_DDL "create index if not exists factor_name_idx on factor(name)"
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INSERT "insert into factor (name) values (?)"
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_BY_NAME "select rowid from factor where name = ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME "select name from factor where name LIKE ?"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TABLE "record"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_ID "id"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_VAL "val"
@@ -127,10 +128,41 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 }
 
 ////////////////////////////////////////////////
-// addValue
+// queryMetric
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::addValue(const Metric& m)
+bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
+{
+  if (!q || !rs)
+    return false;
+
+  sqlite3_stmt* stmt = NULL;
+
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
+    return false;
+
+  sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
+
+  while (sqlite3_step(stmt) == SQLITE_ROW) {
+    auto name = sqlite3_column_text(stmt, 0);
+    if (!name)
+      continue;
+    auto ms = std::shared_ptr<Metrics>(new Metrics);
+    ms->setName((const char*)name);
+    if (!rs->addDataPoints(ms))
+      return false;
+  }
+
+  sqlite3_finalize(stmt);
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// addData
+////////////////////////////////////////////////
+
+bool NarrowTableStore::addData(const Metric& m)
 {
   std::shared_ptr<Metric> mm = findMetric(m.name);
   if (!mm)
@@ -145,10 +177,6 @@ bool NarrowTableStore::addValue(const Metric& m)
   // Revise Timestamp
 
   time_t metricTs = m.timestamp;
-  time_t retentionInterval = getRetentionPeriod();
-  if ((0 < retentionInterval) && (retentionInterval < metricTs)) {
-    metricTs -= (metricTs / retentionInterval);
-  }
 
   // Insert a value
 
@@ -188,10 +216,10 @@ bool NarrowTableStore::addValue(const Metric& m)
 }
 
 ////////////////////////////////////////////////
-// getValues
+// queryData
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::getValues(Query* q, ResultSet* rs)
+bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;

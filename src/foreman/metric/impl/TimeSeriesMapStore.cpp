@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <foreman/metric/impl/TimeSeriesMapStore.h>
+#include <regex>
 
 using namespace Foreman::Metric;
 
@@ -29,16 +30,41 @@ TimeSeriesMapStore::~TimeSeriesMapStore()
 // addValue
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::addValue(const Metric& m)
+bool TimeSeriesMapStore::addData(const Metric& m)
 {
   return tsMap_->addValue(m);
 }
 
 ////////////////////////////////////////////////
-// getValues
+// queryMetric
 ////////////////////////////////////////////////
 
-bool TimeSeriesMapStore::getValues(Query* q, ResultSet* rs)
+bool TimeSeriesMapStore::queryMetric(Query* q, ResultSet* rs)
+{
+  if (!q || !rs)
+    return false;
+
+  std::string likeName = q->getTarget();
+  std::regex nameRegex(likeName);
+
+  for (auto m : *tsMap_) {
+    auto name = m.first;
+    if (!regex_match(name, nameRegex))
+      continue;
+    auto ms = std::shared_ptr<Metrics>(new Metrics);
+    ms->setName(name);
+    if (!rs->addDataPoints(ms))
+      return false;
+  }
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// queryData
+////////////////////////////////////////////////
+
+bool TimeSeriesMapStore::queryData(Query* q, ResultSet* rs)
 {
   return tsMap_->getValues(q, rs);
 }

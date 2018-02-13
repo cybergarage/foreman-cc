@@ -89,26 +89,41 @@ bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m)
   if (!store || !m)
     return false;
 
-  if (((Foreman::Metric::Store*)(store))->addValue(*((const Foreman::Metric::Metric*)(m))))
+  if (((Foreman::Metric::Store*)(store))->addData(*((const Foreman::Metric::Metric*)(m))))
     return true;
 
-  std::shared_ptr<Foreman::Metric::Metric> cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*((const Foreman::Metric::Metric*)(m))));
+  auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*((const Foreman::Metric::Metric*)(m))));
   if (!((Foreman::Metric::Store*)(store))->addMetric(cm))
     return false;
 
-  return ((Foreman::Metric::Store*)(store))->addValue(*((const Foreman::Metric::Metric*)(m)));
+  return ((Foreman::Metric::Store*)(store))->addData(*((const Foreman::Metric::Metric*)(m)));
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_store_query
+// foreman_metric_store_querymetric
 ////////////////////////////////////////////////
 
-bool foreman_metric_store_query(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
+bool foreman_metric_store_querymetric(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
 {
   if (!store || !q || !rs)
     return false;
 
-  if (!((Foreman::Metric::Store*)(store))->getValues(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs))))
+  if (!((Foreman::Metric::Store*)(store))->queryMetric(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs))))
+    return false;
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_querydata
+////////////////////////////////////////////////
+
+bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
+{
+  if (!store || !q || !rs)
+    return false;
+
+  if (!((Foreman::Metric::Store*)(store))->queryData(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs))))
     return false;
 
   return true;

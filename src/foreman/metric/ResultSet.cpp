@@ -41,7 +41,7 @@ bool ResultSet::clear()
 // gets
 ////////////////////////////////////////////////
 
-DataPoints* ResultSet::firstDataPoint()
+Metrics* ResultSet::firstDataPoint()
 {
   currIt_ = dataPointsMap_.begin();
 
@@ -55,7 +55,7 @@ DataPoints* ResultSet::firstDataPoint()
 // next
 ////////////////////////////////////////////////
 
-DataPoints* ResultSet::nextDataPoint()
+Metrics* ResultSet::nextDataPoint()
 {
   if (currIt_ == dataPointsMap_.end())
     return NULL;

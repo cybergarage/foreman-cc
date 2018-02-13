@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <foreman/metric/DataPoint.h>
+#include <foreman/metric/Metrics.h>
 #include <foreman/util/Util.h>
 
 using namespace Foreman::Metric;
@@ -17,17 +17,17 @@ using namespace Foreman::Metric;
 // DataPoints
 ////////////////////////////////////////////////
 
-DataPoints::DataPoints()
+Metrics::Metrics()
 {
 }
 
-DataPoints::~DataPoints() {}
+Metrics::~Metrics() {}
 
 ////////////////////////////////////////////////
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPoints::addDataPoint(DataPoint* dp)
+bool Metrics::addDataPoint(DataPoint* dp)
 {
   return addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint>(dp));
 }
@@ -36,7 +36,7 @@ bool DataPoints::addDataPoint(DataPoint* dp)
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPoints::addDataPoint(const DataPoint& dp)
+bool Metrics::addDataPoint(const DataPoint& dp)
 {
   return addDataPoint(new Foreman::Metric::DataPoint(dp));
 }
@@ -45,7 +45,7 @@ bool DataPoints::addDataPoint(const DataPoint& dp)
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPoints::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
+bool Metrics::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
 {
   push_back(dp);
   return true;
@@ -55,7 +55,7 @@ bool DataPoints::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool DataPoints::addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt)
+bool Metrics::addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt)
 {
   time_t ts = from;
   for (int n = 0; n < valueCnt; n++) {
@@ -84,7 +84,7 @@ bool DataPoints::addDataPoints(time_t from, time_t interval, double* values, siz
 // addDataPoints
 ////////////////////////////////////////////////
 
-DataPoint* DataPoints::getDataPoint(size_t n)
+DataPoint* Metrics::getDataPoint(size_t n)
 {
   if ((size() - 1) < n)
     return NULL;
