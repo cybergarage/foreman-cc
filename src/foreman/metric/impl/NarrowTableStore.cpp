@@ -227,6 +227,9 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
   if (q->until <= q->from)
     return false;
 
+  if (q->interval == 0)
+    return false;
+  
   size_t valueCount = (q->until - q->from) / q->interval;
   if (valueCount <= 0)
     return false;
