@@ -1,3 +1,4 @@
 #!/bin/bash
+export CXXFLAGS="-std=c++14 $CFLAGS"
 sudo apt-get install -y libsqlite3-dev
-./configure_linux $@
+./configure_linux "$@"
