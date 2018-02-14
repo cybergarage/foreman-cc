@@ -12,6 +12,8 @@
 
 #include <foreman/action/impl/Lua.h>
 
+#if defined(FOREMAN_SUPPORT_LUA)
+
 using namespace Foreman::Action;
 
 BOOST_AUTO_TEST_SUITE(action)
@@ -23,3 +25,5 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+
+#endif

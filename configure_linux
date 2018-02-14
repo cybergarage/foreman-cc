@@ -1,4 +1,4 @@
 #!/bin/bash
-export CFLAGS="-std=c++11"
-export CPPFLAGS="$CFLAGS"
-./configure $@
+export CFLAGS="-Wall -O2 $CFLAGS"
+export CXXFLAGS="$CXXFLAGS $CFLAGS"
+./configure "$@"
