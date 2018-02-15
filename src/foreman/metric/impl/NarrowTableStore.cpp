@@ -24,6 +24,7 @@ using namespace Foreman::Metric;
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_INSERT "insert into factor (name) values (?)"
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_BY_NAME "select rowid from factor where name = ?"
 #define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME "select name from factor where name LIKE ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_ALL "select name from factor"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TABLE "record"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_ID "id"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_VAL "val"
@@ -138,11 +139,16 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
-    return false;
-
-  sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
-
+    if (q->hasTarget()) {
+    if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
+      return false;
+    sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
+  }
+  else {
+    if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_ALL, &stmt))
+      return false;
+  }
+  
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     auto name = sqlite3_column_text(stmt, 0);
     if (!name)
