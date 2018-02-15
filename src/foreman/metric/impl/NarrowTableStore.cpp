@@ -139,7 +139,7 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
 
   sqlite3_stmt* stmt = NULL;
 
-    if (q->hasTarget()) {
+  if (q->hasTarget()) {
     if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
       return false;
     sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
@@ -148,7 +148,7 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
     if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_ALL, &stmt))
       return false;
   }
-  
+
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     auto name = sqlite3_column_text(stmt, 0);
     if (!name)
@@ -235,7 +235,7 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
 
   if (q->interval == 0)
     return false;
-  
+
   size_t valueCount = (q->until - q->from) / q->interval;
   if (valueCount <= 0)
     return false;

@@ -54,7 +54,7 @@ public:
       return this->methodMap.hasMethod(name);
     }
 
-    Method *getMethod(const std::string& name)
+    Method* getMethod(const std::string& name)
     {
       return this->methodMap.getMethod(name);
     }
