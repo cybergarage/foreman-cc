@@ -106,7 +106,7 @@ bool foreman_action_manager_hasmethod(ForemanActionManager* mgr, const char* nam
 // foreman_action_manager_getmethod
 ////////////////////////////////////////////////
 
-ForemanActionMethod *foreman_action_manager_getmethod(ForemanActionManager* mgr, const char* name)
+ForemanActionMethod* foreman_action_manager_getmethod(ForemanActionManager* mgr, const char* name)
 {
   if (!mgr || !name)
     return NULL;
