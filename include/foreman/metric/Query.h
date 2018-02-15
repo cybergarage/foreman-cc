@@ -50,6 +50,11 @@ public:
       return target.c_str();
     }
 
+    bool hasTarget()
+    {
+      return (0 < target.length()) ? true : false;
+    }
+    
     bool setFrom(time_t value)
     {
       from = value;
