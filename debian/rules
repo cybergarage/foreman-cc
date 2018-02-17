@@ -27,3 +27,5 @@ export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 #override_dh_auto_configure:
 #	dh_auto_configure -- --enable-script-python
 
+override_dh_auto_clean:
+	-dh_auto_clean
