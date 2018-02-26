@@ -2,7 +2,7 @@ AutoReqProv: no
 
 Name: foreman-cc
 Version: %{expand:%%(git describe --abbrev=0 --tags)}
-Release:	1%{?dist}
+Release:	%{_sd_build_id}%{?dist}
 Summary: Foreman C++ library
 
 Group: libs
