@@ -19,7 +19,7 @@ export CFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 
 %:
-	dh $@  --with autotools_dev
+	dh $@  --with autotools_dev --parallel
 
 
 # dh_make generated override targets
