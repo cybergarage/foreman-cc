@@ -31,8 +31,8 @@ ResultSet::~ResultSet()
 
 bool ResultSet::clear()
 {
-  dataPointsMap_.clear();
-  currIt_ = dataPointsMap_.end();
+  metricsMap_.clear();
+  currIt_ = metricsMap_.end();
 
   return true;
 }
@@ -41,11 +41,11 @@ bool ResultSet::clear()
 // gets
 ////////////////////////////////////////////////
 
-Metrics* ResultSet::firstDataPoint()
+Metrics* ResultSet::firstMetrics()
 {
-  currIt_ = dataPointsMap_.begin();
+  currIt_ = metricsMap_.begin();
 
-  if (currIt_ == dataPointsMap_.end())
+  if (currIt_ == metricsMap_.end())
     return NULL;
 
   return currIt_->second.get();
@@ -55,13 +55,13 @@ Metrics* ResultSet::firstDataPoint()
 // next
 ////////////////////////////////////////////////
 
-Metrics* ResultSet::nextDataPoint()
+Metrics* ResultSet::nextMetrics()
 {
-  if (currIt_ == dataPointsMap_.end())
+  if (currIt_ == metricsMap_.end())
     return NULL;
 
   currIt_++;
-  if (currIt_ == dataPointsMap_.end())
+  if (currIt_ == metricsMap_.end())
     return NULL;
 
   return currIt_->second.get();

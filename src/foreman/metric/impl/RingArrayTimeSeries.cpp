@@ -70,7 +70,7 @@ bool RingArrayTimeSeries::getValues(Query* q, ResultSet* rs)
     memcpy((values + arrayRightCnt), values_, (sizeof(double) * arrayLeftCnt));
   }
 
-  bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
+  bool isSuccess = rs->addMetrics(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
 
   delete[] values;
 

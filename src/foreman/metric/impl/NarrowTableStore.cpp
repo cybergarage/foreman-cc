@@ -160,7 +160,7 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
       continue;
     auto ms = std::shared_ptr<Metrics>(new Metrics);
     ms->setName((const char*)name);
-    if (!rs->addDataPoints(ms))
+    if (!rs->addMetrics(ms))
       return false;
   }
 
@@ -270,7 +270,7 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   }
   sqlite3_finalize(stmt);
 
-  bool isSuccess = rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
+  bool isSuccess = rs->addMetrics(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
 
   delete[] values;
 
@@ -287,12 +287,12 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* dataRs)
     return false;
 
   Query dataQuery = *q;
-  auto m = metricsRs.firstDataPoint();
+  auto m = metricsRs.firstMetrics();
   while (m) {
     dataQuery.setTarget(m->getName());
     if (!querySingleData(&dataQuery, dataRs))
       return false;
-    m = metricsRs.nextDataPoint();
+    m = metricsRs.nextMetrics();
   }
 
   return true;

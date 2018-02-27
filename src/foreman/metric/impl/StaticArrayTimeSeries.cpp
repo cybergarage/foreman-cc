@@ -63,5 +63,5 @@ bool StaticArrayTimeSeries::getValues(Query* q, ResultSet* rs)
   if (!getQueryDataCount(q, &valueCount))
     return false;
 
-  return rs->addDataPoints(q->getTarget(), q->getFrom(), q->getInterval(), values_, valueCount);
+  return rs->addMetrics(q->getTarget(), q->getFrom(), q->getInterval(), values_, valueCount);
 }
