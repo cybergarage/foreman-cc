@@ -21,6 +21,7 @@ AM_INIT_AUTOMAKE([subdir-objects])
 
 SQLITE3_VERSION=3.14.0
 BENCHMARK_VERSION=1.1.0
+ALGLIB_VERSION=3.12.0
 
 LUA_VERSION=5.2.0
 PYTHON_VERSION=2.7.9
@@ -64,6 +65,25 @@ AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSI
 
 AC_CHECK_LIB([uuid],[main])
 AC_CHECK_HEADERS([uuid/uuid.h])
+
+##################################################################
+# Check option libraries (ALGLIB)
+##################################################################
+
+AC_ARG_ENABLE(
+  [alglib],
+  AC_HELP_STRING([--enable-alglib], [ enable ALGLIB (default = no) ]),
+  [case "${enableval}" in
+    yes | no ) eneble_alglib="${enableval}" ;;
+  esac],
+  []
+)
+
+AM_CONDITIONAL(FOREMAN_ENABLE_ALGLIB,test "$eneble_alglib" = yes)
+if [ test "$eneble_alglib" = yes ]; then
+  AC_DEFINE([FOREMAN_ENABLE_ALGLIB],1,[--enable-alglib])
+  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB &ALGLIB_VERSION later])])
+fi
 
 ##################################################################
 # Check option libraries (Beringei)

@@ -12,8 +12,12 @@ The `foreman-cc` uses the following package. Please install the packages in your
 |---|---|---|
 | [SQLite](https://www.sqlite.org)  | >= 3.16.0  | O |
 | [Folly](https://www.sqlite.org)  | >= 2017.08.21.00  | X (--enable-beringei) |
+| [ALGLIB](http://www.alglib.net)  | >= 3.12.0  | X (--enable-alglib) |
 | [Boost](http://www.boost.org/)  | >= 1.65.0  | X (--enable-test) |
 | [google-benchmark](https://github.com/google/benchmark)  | >= 1.2.0  | X ( --enable-benchmark) |
+
+528  brew tap  brewsci/science
+529  brew install alglib
 
 ## Directory Structure
 
@@ -36,6 +40,9 @@ The `foreman-cc` package has the header files, the source files and the project 
 Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. To install `foreman-cc`, use `brew` command as the following.
 
 ```
+brew tap brewsci/science
+brew install alglib
+
 brew tap cybergarage/homebrew https://github.com/cybergarage/homebrew
 brew install foreman-cc
 ```

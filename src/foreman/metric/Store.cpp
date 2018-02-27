@@ -11,7 +11,12 @@
 #include <math.h>
 
 #include <foreman/Const.h>
+#include <foreman/Platform.h>
 #include <foreman/metric/Store.h>
+
+#if defined(FOREMAN_ENABLE_ALGLIB)
+#include <alglib/statistics.h>
+#endif
 
 using namespace Foreman::Metric;
 
@@ -96,4 +101,17 @@ bool Store::addData(const MetricArray& values)
   }
 
   return true;
+}
+
+////////////////////////////////////////////////
+// analyzeData
+////////////////////////////////////////////////
+
+bool Store::analyzeData(Query* q, ResultSet* rs)
+{
+#if defined(FOREMAN_ENABLE_ALGLIB)
+  v = pearsoncorr2(x, y);
+#endif
+
+  return false;
 }

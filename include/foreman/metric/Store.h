@@ -47,6 +47,8 @@ public:
     virtual size_t getMemoryUsage() = 0;
     virtual size_t getStorageUsage() = 0;
 
+    virtual bool analyzeData(Query* q, ResultSet* rs);
+
 protected:
     MetricMap metricMap_;
     time_t retentionInterval_;

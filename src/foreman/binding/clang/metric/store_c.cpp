@@ -128,3 +128,18 @@ bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuer
 
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_metric_store_querydata
+////////////////////////////////////////////////
+
+bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
+{
+  if (!store || !q || !rs)
+    return false;
+
+  if (!((Foreman::Metric::Store*)(store))->analyzeData(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs))))
+    return false;
+
+  return true;
+}
