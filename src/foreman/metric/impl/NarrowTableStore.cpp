@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <algorithm>
 #include <sqlite3.h>
 #include <stdio.h>
 
@@ -142,7 +143,11 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
   if (q->hasTarget()) {
     if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
       return false;
-    sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
+
+    // Replace '*' to '%" for Graphite query.
+    auto target = q->target;
+    std::replace(target.begin(), target.end(), '*', '%');
+    sqlite3_bind_text(stmt, 1, target.c_str(), (int)target.length(), SQLITE_TRANSIENT);
   }
   else {
     if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_FACTOR_SELECT_ALL, &stmt))
@@ -225,7 +230,7 @@ bool NarrowTableStore::addData(const Metric& m)
 // queryData
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
+bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
 {
   if (!q || !rs)
     return false;
@@ -270,4 +275,25 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* rs)
   delete[] values;
 
   return isSuccess;
+}
+
+bool NarrowTableStore::queryData(Query* q, ResultSet* dataRs)
+{
+  if (!q || !dataRs)
+    return false;
+
+  ResultSet metricsRs;
+  if (!queryMetric(q, &metricsRs))
+    return false;
+
+  Query dataQuery = *q;
+  auto m = metricsRs.firstDataPoint();
+  while (m) {
+    dataQuery.setTarget(m->getName());
+    if (!querySingleData(&dataQuery, dataRs))
+      return false;
+    m = metricsRs.nextDataPoint();
+  }
+
+  return true;
 }

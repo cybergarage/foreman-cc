@@ -33,7 +33,7 @@ public:
     StoreTestContoller();
     virtual ~StoreTestContoller();
 
-    void run(Foreman::Metric::MemStore* store);
+    void run(Foreman::Metric::Store* store);
   };
 }
 }
