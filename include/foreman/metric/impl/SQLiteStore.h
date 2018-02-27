@@ -62,6 +62,9 @@ public:
     bool queryMetric(Query* q, ResultSet* rs);
     bool addData(const Metric& m);
     bool queryData(Query* q, ResultSet* rs);
+
+private:
+    bool querySingleData(Query* q, ResultSet* rs);
   };
 }
 }

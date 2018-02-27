@@ -26,12 +26,17 @@ StoreTestContoller::~StoreTestContoller() {}
 // run
 ////////////////////////////////////////////////
 
-void StoreTestContoller::run(Foreman::Metric::MemStore* store)
+void StoreTestContoller::run(Foreman::Metric::Store* store)
 {
+  auto memStore = dynamic_cast<Foreman::Metric::MemStore*>(store);
+  auto sqlStore = dynamic_cast<Foreman::Metric::SQLiteStore*>(store);
+
   BOOST_CHECK(store->open());
 
-  BOOST_CHECK_EQUAL(store->getRowCount(), 0);
-  BOOST_CHECK_EQUAL(store->getColumnCount(), 0);
+  if (memStore) {
+    BOOST_CHECK_EQUAL(memStore->getRowCount(), 0);
+    BOOST_CHECK_EQUAL(memStore->getColumnCount(), 0);
+  }
 
   // Initialize metrics
 
@@ -44,11 +49,14 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
     metrics.push_back(m);
   }
 
-  // Initialize memstore
+  // Initialize store
 
   BOOST_CHECK(store->setRetentionInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL));
   BOOST_CHECK(store->setRetentionPeriod(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC));
-  BOOST_CHECK_EQUAL(store->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+
+  if (memStore) {
+    BOOST_CHECK_EQUAL(memStore->getColumnCount(), FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+  }
 
   // Add metric
 
@@ -56,8 +64,10 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
     store->addMetric(m);
   }
 
-  BOOST_CHECK_EQUAL(store->getRowCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
-  BOOST_CHECK(store->realloc());
+  if (memStore) {
+    BOOST_CHECK_EQUAL(memStore->getRowCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+    BOOST_CHECK(memStore->realloc());
+  }
 
   // Query metric
 
@@ -69,6 +79,17 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
 
     BOOST_CHECK(store->queryMetric(&q, &rs));
     BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
+  }
+
+  // Query metric (LIKE)
+
+  if (sqlStore) { // TODO: All store should support like search
+    Foreman::Metric::Query q;
+    q.setTarget(FORMANCC_MEMSTORETESTCONTROLLER_METRICS_NAME_PREFIX "*");
+
+    Foreman::Metric::ResultSet rs;
+    BOOST_CHECK(store->queryMetric(&q, &rs));
+    BOOST_CHECK_EQUAL(rs.getDataPointCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
   }
 
   // Insert metrics data
@@ -102,11 +123,11 @@ void StoreTestContoller::run(Foreman::Metric::MemStore* store)
     BOOST_CHECK(store->queryData(&q, &rs));
     BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
 
-    for (Foreman::Metric::Metrics* dps = rs.firstDataPoint(); dps; dps = rs.nextDataPoint()) {
+    for (auto dps = rs.firstDataPoint(); dps; dps = rs.nextDataPoint()) {
       size_t dpsCount = dps->size();
       BOOST_CHECK_EQUAL(dpsCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
       for (size_t n = 0; n < dpsCount; n++) {
-        Foreman::Metric::DataPoint* dp = dps->getDataPoint(n);
+        auto dp = dps->getDataPoint(n);
         if (dp->getValue() != n)
           BOOST_CHECK_EQUAL(dp->getValue(), n);
       }
