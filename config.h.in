@@ -1,5 +1,8 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* --enable-alglib */
+#undef FOREMAN_ENABLE_ALGLIB
+
 /* --enable-beringei */
 #undef FOREMAN_ENABLE_BERINGEI
 
@@ -20,6 +23,9 @@
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the `alglib' library (-lalglib). */
+#undef HAVE_LIBALGLIB
 
 /* Define to 1 if you have the `benchmark' library (-lbenchmark). */
 #undef HAVE_LIBBENCHMARK
