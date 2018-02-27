@@ -78,7 +78,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     Foreman::Metric::ResultSet rs;
 
     BOOST_CHECK(store->queryMetric(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), 1);
   }
 
   // Query metric (LIKE)
@@ -89,7 +89,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
 
     Foreman::Metric::ResultSet rs;
     BOOST_CHECK(store->queryMetric(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getDataPointCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
   }
 
   // Insert metrics data
@@ -121,9 +121,9 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     Foreman::Metric::ResultSet rs;
 
     BOOST_CHECK(store->queryData(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getDataPointCount(), 1);
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), 1);
 
-    for (auto dps = rs.firstDataPoint(); dps; dps = rs.nextDataPoint()) {
+    for (auto dps = rs.firstMetrics(); dps; dps = rs.nextMetrics()) {
       size_t dpsCount = dps->size();
       BOOST_CHECK_EQUAL(dpsCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
       for (size_t n = 0; n < dpsCount; n++) {

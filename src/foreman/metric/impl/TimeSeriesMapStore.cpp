@@ -53,7 +53,7 @@ bool TimeSeriesMapStore::queryMetric(Query* q, ResultSet* rs)
       continue;
     auto ms = std::shared_ptr<Metrics>(new Metrics);
     ms->setName(name);
-    if (!rs->addDataPoints(ms))
+    if (!rs->addMetrics(ms))
       return false;
   }
 

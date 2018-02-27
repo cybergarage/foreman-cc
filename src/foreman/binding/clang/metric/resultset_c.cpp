@@ -42,7 +42,7 @@ size_t foreman_metric_resultset_getdatapointcount(ForemanMetricResultSet* rs)
 {
   if (!rs)
     return 0;
-  return ((ResultSet*)rs)->getDataPointCount();
+  return ((ResultSet*)rs)->getMetricsCount();
 }
 
 ////////////////////////////////////////////////
@@ -54,7 +54,7 @@ ForemanMetrics* foreman_metric_resultset_getfirstmetrics(ForemanMetricResultSet*
   if (!rs)
     return NULL;
 
-  return ((ResultSet*)rs)->firstDataPoint();
+  return ((ResultSet*)rs)->firstMetrics();
 }
 
 ////////////////////////////////////////////////
@@ -66,7 +66,7 @@ ForemanMetrics* foreman_metric_resultset_getnextmetrics(ForemanMetricResultSet* 
   if (!rs)
     return NULL;
 
-  return ((ResultSet*)rs)->nextDataPoint();
+  return ((ResultSet*)rs)->nextMetrics();
 }
 
 ////////////////////////////////////////////////
@@ -78,5 +78,5 @@ ForemanMetrics* foreman_metric_resultset_findmetrics(ForemanMetricResultSet* rs,
   if (!rs)
     return NULL;
 
-  return ((ResultSet*)rs)->findDataPoints(name);
+  return ((ResultSet*)rs)->findMetrics(name);
 }

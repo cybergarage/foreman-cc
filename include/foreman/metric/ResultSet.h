@@ -28,36 +28,36 @@ public:
 
     bool clear();
 
-    bool addDataPoints(Metrics* dps)
+    bool addMetrics(Metrics* dps)
     {
-      return dataPointsMap_.addMetrics(dps);
+      return metricsMap_.addMetrics(dps);
     }
 
-    bool addDataPoints(std::shared_ptr<Metrics> dps)
+    bool addMetrics(std::shared_ptr<Metrics> dps)
     {
-      return dataPointsMap_.addMetrics(dps);
+      return metricsMap_.addMetrics(dps);
     }
 
-    bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
+    bool addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
     {
-      return dataPointsMap_.addMetrics(name, from, interval, values, valueCnt);
+      return metricsMap_.addMetrics(name, from, interval, values, valueCnt);
     }
 
-    Metrics* findDataPoints(const std::string& name)
+    Metrics* findMetrics(const std::string& name)
     {
-      return dataPointsMap_.findMetrics(name);
+      return metricsMap_.findMetrics(name);
     }
 
-    Metrics* firstDataPoint();
-    Metrics* nextDataPoint();
+    Metrics* firstMetrics();
+    Metrics* nextMetrics();
 
-    size_t getDataPointCount()
+    size_t getMetricsCount()
     {
-      return dataPointsMap_.size();
+      return metricsMap_.size();
     }
 
 private:
-    MetricsMap dataPointsMap_;
+    MetricsMap metricsMap_;
     DataPointsMapIt currIt_;
   };
 }
