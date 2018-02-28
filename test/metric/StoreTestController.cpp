@@ -134,5 +134,23 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     }
   }
 
+  // Analyze metrics data
+  
+#if defined(FOREMAN_ENABLE_ANALYZER)
+
+  for (auto m : metrics) {
+    Foreman::Metric::Query q;
+    q.setTarget(*m);
+    
+    Foreman::Metric::ResultSet rs;
+    
+    BOOST_CHECK(store->analyzeData(&q, &rs));
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);    
+  }
+
+#endif
+  
+  // Finalize
+  
   BOOST_CHECK(store->close());
 }

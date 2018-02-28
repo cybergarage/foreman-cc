@@ -17,14 +17,19 @@
 #define HAVE_UUID_UUID_H 1
 #endif
 
-#if !defined(byte)
-typedef unsigned char byte;
-#endif
-
 #if defined(__APPLE__)
 #define FOREMAN_SUPPORT_LUA 1
 #define FOREMAN_SUPPORT_PYTHON 1
 #define HAVE_PYTHON_PYTHON_H 1
+#define FOREMAN_ENABLE_ALGLIB 1
+#endif
+
+#if !defined(byte)
+typedef unsigned char byte;
+#endif
+
+#if defined(FOREMAN_ENABLE_ALGLIB)
+#define FOREMAN_ENABLE_ANALYZER 1
 #endif
 
 #endif

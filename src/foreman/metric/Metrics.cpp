@@ -90,3 +90,23 @@ DataPoint* Metrics::getDataPoint(size_t n)
     return NULL;
   return at(n).get();
 }
+
+////////////////////////////////////////////////
+// getMetricsValues (ALGLIB)
+////////////////////////////////////////////////
+
+#if defined(FOREMAN_ENABLE_ALGLIB)
+
+bool Metrics::getMetricsValues(alglib::real_1d_array &realArray)
+{
+  auto metricsCount = size();
+  realArray.setlength(metricsCount);
+  for (size_t n=0; n < metricsCount; n++) {
+    auto dp = getDataPoint(n);
+    realArray[n] = dp->getValue();
+  }
+  
+  return true;
+}
+
+#endif

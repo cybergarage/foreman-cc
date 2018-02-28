@@ -107,11 +107,53 @@ bool Store::addData(const MetricArray& values)
 // analyzeData
 ////////////////////////////////////////////////
 
-bool Store::analyzeData(Query* q, ResultSet* rs)
+bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
 {
+  ResultSet firstMetricsRs;
+  if (!queryData(q, &firstMetricsRs))
+    return false;
+  
+  auto firstMetrics = firstMetricsRs.firstMetrics();
+  
 #if defined(FOREMAN_ENABLE_ALGLIB)
-  v = pearsoncorr2(x, y);
+  alglib::real_1d_array firstMetricsData;
+  if (!firstMetrics->getMetricsValues(firstMetricsData))
+    return false;
+#else
+  return false;
 #endif
 
-  return false;
+  Query qAll;
+  qAll.setTarget("*"); // TODO : Define "*" as a constant value
+  
+  ResultSet allMetricsRs;
+  if (!queryMetric(&qAll, &allMetricsRs))
+    return false;
+  
+  for (auto m = allMetricsRs.firstMetrics(); m; m = allMetricsRs.nextMetrics()) {
+#if defined(FOREMAN_ENABLE_ALGLIB)
+    alglib::real_1d_array metricsData;
+    if (!m->getMetricsValues(metricsData))
+      continue;
+
+    auto corr = alglib::pearsoncorr2(firstMetricsData, metricsData);
+    if (isnan(corr)) {
+      continue;
+    }
+#endif
+
+#if defined(FOREMAN_ENABLE_ALGLIB)
+    auto rm = new Metrics();
+    rm->setName(m->getName());
+    
+    // [0] : PPMCC
+    auto dp = new DataPoint();
+    dp->setValue(corr);
+    rm->addDataPoint(dp);
+
+    analyzeRs->addMetrics(rm);
+#endif
+  }
+
+  return true;
 }
