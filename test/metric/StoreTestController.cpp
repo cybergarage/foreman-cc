@@ -128,29 +128,47 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
       BOOST_CHECK_EQUAL(mCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
       for (size_t n = 0; n < mCount; n++) {
         auto dp = m->getDataPoint(n);
-        if (dp->getValue() != n)
+        if (dp->getValue() != n) {
           BOOST_CHECK_EQUAL(dp->getValue(), n);
+        }
       }
     }
   }
 
   // Analyze metrics data
-  
+
 #if defined(FOREMAN_ENABLE_ANALYZER)
 
-  for (auto m : metrics) {
-    Foreman::Metric::Query q;
-    q.setTarget(*m);
-    
-    Foreman::Metric::ResultSet rs;
-    
-    BOOST_CHECK(store->analyzeData(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+  if (sqlStore) { // TODO: All store should support like search
+    for (auto m : metrics) {
+      Foreman::Metric::Query q;
+      q.setTarget(*m);
+      q.setFrom(beginTs);
+      q.setUntil(endTs);
+      q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
+
+      Foreman::Metric::ResultSet rs;
+
+      BOOST_CHECK(store->analyzeData(&q, &rs));
+      BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+
+      for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
+        size_t mCount = m->size();
+        BOOST_CHECK_EQUAL(mCount, 1);
+        if (mCount < 1)
+          continue;
+        auto dp = m->getDataPoint(0);
+        BOOST_CHECK(0 <= dp->getValue());
+      }
+      
+      // NOTE : Check only first metrics
+      break;
+    }
   }
 
 #endif
-  
+
   // Finalize
-  
+
   BOOST_CHECK(store->close());
 }
