@@ -74,8 +74,8 @@ public:
     MetricsMap();
     virtual ~MetricsMap();
 
-    bool addMetrics(Metrics* dps);
-    bool addMetrics(std::shared_ptr<Metrics> dps);
+    bool addMetrics(Metrics* m);
+    bool addMetrics(std::shared_ptr<Metrics> m);
     bool addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt);
 
     Metrics* findMetrics(const std::string& name);
