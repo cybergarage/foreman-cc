@@ -55,9 +55,9 @@ public:
     DataPoint* getDataPoint(size_t n);
 
 #if defined(FOREMAN_ENABLE_ALGLIB)
-    bool getMetricsValues(alglib::real_1d_array &array);
+    bool getMetricsValues(alglib::real_1d_array& array);
 #endif
-    
+
 protected:
     std::string name_;
   };
