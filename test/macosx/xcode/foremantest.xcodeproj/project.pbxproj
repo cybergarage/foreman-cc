@@ -510,6 +510,7 @@
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
+					"-lalglib",
 					"-lboost_unit_test_framework",
 					"-lboost_system",
 				);
@@ -570,6 +571,7 @@
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
+					"-lalglib",
 					"-lboost_unit_test_framework",
 					"-lboost_system",
 				);
