@@ -123,11 +123,11 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     BOOST_CHECK(store->queryData(&q, &rs));
     BOOST_CHECK_EQUAL(rs.getMetricsCount(), 1);
 
-    for (auto dps = rs.firstMetrics(); dps; dps = rs.nextMetrics()) {
-      size_t dpsCount = dps->size();
-      BOOST_CHECK_EQUAL(dpsCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
-      for (size_t n = 0; n < dpsCount; n++) {
-        auto dp = dps->getDataPoint(n);
+    for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
+      size_t mCount = m->size();
+      BOOST_CHECK_EQUAL(mCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+      for (size_t n = 0; n < mCount; n++) {
+        auto dp = m->getDataPoint(n);
         if (dp->getValue() != n)
           BOOST_CHECK_EQUAL(dp->getValue(), n);
       }
@@ -145,7 +145,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     Foreman::Metric::ResultSet rs;
     
     BOOST_CHECK(store->analyzeData(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);    
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
   }
 
 #endif

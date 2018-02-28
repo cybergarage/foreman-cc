@@ -28,14 +28,14 @@ public:
 
     bool clear();
 
-    bool addMetrics(Metrics* dps)
+    bool addMetrics(Metrics* m)
     {
-      return metricsMap_.addMetrics(dps);
+      return metricsMap_.addMetrics(m);
     }
 
-    bool addMetrics(std::shared_ptr<Metrics> dps)
+    bool addMetrics(std::shared_ptr<Metrics> m)
     {
-      return metricsMap_.addMetrics(dps);
+      return metricsMap_.addMetrics(m);
     }
 
     bool addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
