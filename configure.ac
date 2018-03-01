@@ -82,6 +82,8 @@ AC_ARG_ENABLE(
 AM_CONDITIONAL(FOREMAN_ENABLE_ALGLIB,test "$eneble_alglib" = yes)
 if [ test "$eneble_alglib" = yes ]; then
   AC_DEFINE([FOREMAN_ENABLE_ALGLIB],1,[--enable-alglib])
+  AC_CHECK_HEADERS([libalglib/statistics.h])
+  AC_CHECK_HEADERS([alglib/statistics.h])
   AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB &ALGLIB_VERSION later])])
 fi
 
@@ -126,9 +128,9 @@ if [ test "$eneble_graphite" = yes ]; then
 	AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
 fi
 
-##############################
+##################################################################
 # Check Language Options
-##############################
+##################################################################
 
 # Python
 

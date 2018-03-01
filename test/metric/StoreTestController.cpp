@@ -154,15 +154,19 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
 
       for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
         size_t mCount = m->size();
-        BOOST_CHECK_EQUAL(mCount, 1);
-        if (mCount < 1)
+        BOOST_CHECK_EQUAL(mCount, 2);
+        if (mCount < 2)
           continue;
-        auto dp = m->getDataPoint(0);
-        BOOST_CHECK(0 <= dp->getValue());
+        auto corr = m->getDataPoint(0);
+        BOOST_CHECK(0 <= corr->getValue());
+        auto maxDp = m->getDataPoint(1);
+        BOOST_CHECK(0 <= maxDp->getValue());
+        BOOST_CHECK(0 <= maxDp->getTimestamp());
       }
 
-      // NOTE : Check only first metrics
-      break;
+      // NOTE : Check only first metrics to save the testing time.
+      if (m)
+        break;
     }
   }
 

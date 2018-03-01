@@ -15,7 +15,11 @@
 #include <foreman/metric/Store.h>
 
 #if defined(FOREMAN_ENABLE_ALGLIB)
+#if defined(HAVE_LIBALGLIB_STATISTICS_H)
+#include <libalglib/statistics.h>
+#else
 #include <alglib/statistics.h>
+#endif
 #endif
 
 using namespace Foreman::Metric;
@@ -123,8 +127,6 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
   alglib::real_1d_array firstMetricsData;
   if (!firstMetrics->getMetricsValues(firstMetricsData))
     return false;
-#else
-  return false;
 #endif
 
   Query qAll;
@@ -141,32 +143,46 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
     if (!queryData(&qm, &metricRs))
       return false;
 
-    auto firstMetrics = metricRs.firstMetrics();
-    if (!firstMetrics)
+    auto otherFirstMetrics = metricRs.firstMetrics();
+    if (!otherFirstMetrics)
       continue;
 
 #if defined(FOREMAN_ENABLE_ALGLIB)
-    alglib::real_1d_array metricsData;
-    if (!firstMetrics->getMetricsValues(metricsData))
+    alglib::real_1d_array otherMetricsData;
+    if (!otherFirstMetrics->getMetricsValues(otherMetricsData))
       continue;
 
-    auto corr = alglib::pearsoncorr2(firstMetricsData, metricsData);
+    auto corr = alglib::pearsoncorr2(firstMetricsData, otherMetricsData);
     if (isnan(corr)) {
       continue;
     }
 #endif
 
-#if defined(FOREMAN_ENABLE_ALGLIB)
     auto rm = new Metrics();
     rm->setName(m->getName());
 
     // [0] : PPMCC
     auto dp = new DataPoint();
+#if defined(FOREMAN_ENABLE_ALGLIB)
     dp->setValue(corr);
+#else
+    dp->setValue(NaN);
+#endif
     rm->addDataPoint(dp);
 
+    // [1] : Max Value
+    auto maxIndex = otherFirstMetrics->getMaxValueIndex();
+    if (0 < maxIndex) {
+      auto maxDp = otherFirstMetrics->getDataPoint(maxIndex);
+      auto dp = new DataPoint();
+      if (dp) {
+        dp->setValue(maxDp->getValue());
+        dp->setTimestamp(maxDp->getTimestamp());
+        rm->addDataPoint(dp);
+      }
+    }
+
     resultMs.addMetrics(rm);
-#endif
   }
 
   // Sort result
