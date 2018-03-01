@@ -92,6 +92,30 @@ DataPoint* Metrics::getDataPoint(size_t n)
 }
 
 ////////////////////////////////////////////////
+// getMaxValueIndex
+////////////////////////////////////////////////
+
+ssize_t Metrics::getMaxValueIndex()
+{
+  double lastMaxValue = NAN;
+  size_t lastMaxValueIndex = -1;
+  size_t n=0;
+  for (auto dp : *this) {
+    if (n == 0) {
+      lastMaxValueIndex = 0;
+      lastMaxValue = dp->getValue();
+    }
+    else if (lastMaxValue <= dp->getValue()) {
+      lastMaxValueIndex = n;
+      lastMaxValue = dp->getValue();
+    }
+    n++;
+  }
+  
+  return lastMaxValueIndex;
+}
+
+////////////////////////////////////////////////
 // getMetricsValues (ALGLIB)
 ////////////////////////////////////////////////
 
