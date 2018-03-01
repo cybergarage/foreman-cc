@@ -160,7 +160,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
         auto dp = m->getDataPoint(0);
         BOOST_CHECK(0 <= dp->getValue());
       }
-      
+
       // NOTE : Check only first metrics
       break;
     }
