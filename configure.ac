@@ -74,16 +74,17 @@ AC_ARG_ENABLE(
   [alglib],
   AC_HELP_STRING([--enable-alglib], [ enable ALGLIB (default = no) ]),
   [case "${enableval}" in
-    yes | no ) eneble_alglib="${enableval}" ;;
+    yes | no ) enable_alglib="${enableval}" ;;
   esac],
   []
 )
 
-AM_CONDITIONAL(FOREMAN_ENABLE_ALGLIB,test "$eneble_alglib" = yes)
-if [ test "$eneble_alglib" = yes ]; then
+AM_CONDITIONAL(FOREMAN_ENABLE_ALGLIB,test "$enable_alglib" = yes)
+if [ test "$enable_alglib" = yes ]; then
   AC_DEFINE([FOREMAN_ENABLE_ALGLIB],1,[--enable-alglib])
-  AC_CHECK_HEADERS([libalglib/statistics.h])
-  AC_CHECK_HEADERS([alglib/statistics.h])
+  AC_LANG_PUSH([C++])
+  AC_CHECK_HEADERS([libalglib/statistics.h alglib/statistics.h], break)
+  AC_LANG_POP([C++])
   AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB &ALGLIB_VERSION later])])
 fi
 
@@ -95,13 +96,13 @@ AC_ARG_ENABLE(
  	[beringei],
 	AC_HELP_STRING([--enable-beringei], [ enable beringei (default = no) ]),
 	[case "${enableval}" in
-    	yes | no ) eneble_beringei="${enableval}" ;;
+    	yes | no ) enable_beringei="${enableval}" ;;
 	esac],
 	[]
 )
 
-AM_CONDITIONAL(FOREMAN_ENABLE_BERINGEI,test "$eneble_beringei" = yes)
-if [ test "$eneble_beringei" = yes ]; then
+AM_CONDITIONAL(FOREMAN_ENABLE_BERINGEI,test "$enable_beringei" = yes)
+if [ test "$enable_beringei" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_BERINGEI],1,[--enable-beringei])
 	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
 	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
@@ -116,13 +117,13 @@ AC_ARG_ENABLE(
  	[graphite],
 	AC_HELP_STRING([--enable-graphite], [ enable graphite (default = no) ]),
 	[case "${enableval}" in
-    	yes | no ) eneble_graphite="${enableval}" ;;
+    	yes | no ) enable_graphite="${enableval}" ;;
 	esac],
 	[]
 )
 
-AM_CONDITIONAL(FOREMAN_ENABLE_GRAPHITE,test "$eneble_graphite" = yes)
-if [ test "$eneble_graphite" = yes ]; then
+AM_CONDITIONAL(FOREMAN_ENABLE_GRAPHITE,test "$enable_graphite" = yes)
+if [ test "$enable_graphite" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_GRAPHITE],1,[--enable-graphite])
 	AC_CHECK_HEADERS([curl/curl.h])
 	AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
