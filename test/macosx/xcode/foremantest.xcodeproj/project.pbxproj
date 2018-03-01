@@ -33,12 +33,13 @@
 		2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */; };
 		2187B6DB1FC5AD0600E2234D /* MethodTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D91FC5AD0600E2234D /* MethodTest.cpp */; };
 		2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6E01FC5B33100E2234D /* MutexTest.cpp */; };
+		218A21A22047B4330091E76F /* MetricTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218A21A12047B4330091E76F /* MetricTest.cpp */; };
+		218A21A62047B48D0091E76F /* MetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218A21A52047B48D0091E76F /* MetricsTest.cpp */; };
 		21ABA0AE1FB0902D00982715 /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */; };
 		21BA410C201F7D120083998C /* DataPointTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4106201F7D120083998C /* DataPointTest.cpp */; };
 		21BA410D201F7D120083998C /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4107201F7D120083998C /* StoreTestController.cpp */; };
 		21BA410E201F7D120083998C /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4108201F7D120083998C /* QueryTest.cpp */; };
 		21BA410F201F7D120083998C /* TimeSeriesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4109201F7D120083998C /* TimeSeriesTest.cpp */; };
-		21BA4110201F7D120083998C /* MetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA410A201F7D120083998C /* MetricsTest.cpp */; };
 		21BA4111201F7D120083998C /* StoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA410B201F7D120083998C /* StoreTest.cpp */; };
 		21BA4114201F7D1F0083998C /* StoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4112201F7D1F0083998C /* StoreTest.cpp */; };
 		21BA4115201F7D1F0083998C /* ObjectTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4113201F7D1F0083998C /* ObjectTest.cpp */; };
@@ -106,6 +107,8 @@
 		2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterTest.cpp; path = ../../action/ParameterTest.cpp; sourceTree = "<group>"; };
 		2187B6D91FC5AD0600E2234D /* MethodTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MethodTest.cpp; path = ../../action/MethodTest.cpp; sourceTree = "<group>"; };
 		2187B6E01FC5B33100E2234D /* MutexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MutexTest.cpp; path = ../../util/MutexTest.cpp; sourceTree = "<group>"; };
+		218A21A12047B4330091E76F /* MetricTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricTest.cpp; path = ../../metric/MetricTest.cpp; sourceTree = "<group>"; };
+		218A21A52047B48D0091E76F /* MetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTest.cpp; path = ../../metric/MetricsTest.cpp; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21ABA0AC1FB0902D00982715 /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../registry/StoreTestController.h; sourceTree = "<group>"; };
 		21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../registry/StoreTestController.cpp; sourceTree = "<group>"; };
@@ -114,7 +117,6 @@
 		21BA4107201F7D120083998C /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../metric/StoreTestController.cpp; sourceTree = "<group>"; };
 		21BA4108201F7D120083998C /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QueryTest.cpp; path = ../../metric/QueryTest.cpp; sourceTree = "<group>"; };
 		21BA4109201F7D120083998C /* TimeSeriesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeriesTest.cpp; path = ../../metric/TimeSeriesTest.cpp; sourceTree = "<group>"; };
-		21BA410A201F7D120083998C /* MetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTest.cpp; path = ../../metric/MetricsTest.cpp; sourceTree = "<group>"; };
 		21BA410B201F7D120083998C /* StoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTest.cpp; path = ../../metric/StoreTest.cpp; sourceTree = "<group>"; };
 		21BA4112201F7D1F0083998C /* StoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTest.cpp; path = ../../register/StoreTest.cpp; sourceTree = "<group>"; };
 		21BA4113201F7D1F0083998C /* ObjectTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectTest.cpp; path = ../../register/ObjectTest.cpp; sourceTree = "<group>"; };
@@ -314,7 +316,8 @@
 		21BA4104201F7CF90083998C /* metric */ = {
 			isa = PBXGroup;
 			children = (
-				21BA410A201F7D120083998C /* MetricsTest.cpp */,
+				218A21A52047B48D0091E76F /* MetricsTest.cpp */,
+				218A21A12047B4330091E76F /* MetricTest.cpp */,
 				21BA4108201F7D120083998C /* QueryTest.cpp */,
 				21BA410B201F7D120083998C /* StoreTest.cpp */,
 				21BA4107201F7D120083998C /* StoreTestController.cpp */,
@@ -410,6 +413,7 @@
 				2113F172201F988900F5C672 /* ClangQueryTest.cpp in Sources */,
 				21BA4111201F7D120083998C /* StoreTest.cpp in Sources */,
 				215DB2B91FAB3B0E0089A36B /* StoreTest.cpp in Sources */,
+				218A21A22047B4330091E76F /* MetricTest.cpp in Sources */,
 				21BA4118201F7DBF0083998C /* StoreTestController.cpp in Sources */,
 				2113F168201F985E00F5C672 /* ClangMethodTest.cpp in Sources */,
 				2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */,
@@ -420,6 +424,7 @@
 				2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */,
 				217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */,
 				21BA410D201F7D120083998C /* StoreTestController.cpp in Sources */,
+				218A21A62047B48D0091E76F /* MetricsTest.cpp in Sources */,
 				2113F178201F98A000F5C672 /* ClangStoreTest.cpp in Sources */,
 				2113F170201F988900F5C672 /* ClangMetricsTest.cpp in Sources */,
 				2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */,
@@ -430,7 +435,6 @@
 				21C7700D2022C40600653C56 /* ManagerTest.cpp in Sources */,
 				215DB2B81FAB3B0E0089A36B /* ObjectTest.cpp in Sources */,
 				21BA4114201F7D1F0083998C /* StoreTest.cpp in Sources */,
-				21BA4110201F7D120083998C /* MetricsTest.cpp in Sources */,
 				21BA410C201F7D120083998C /* DataPointTest.cpp in Sources */,
 				2113F17E201F98BA00F5C672 /* ClangQueryTest.cpp in Sources */,
 				21BA410F201F7D120083998C /* TimeSeriesTest.cpp in Sources */,

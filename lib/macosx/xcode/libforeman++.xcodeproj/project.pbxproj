@@ -97,6 +97,7 @@
 		2188DBE71FB00AEE00940208 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBE31FB00AEE00940208 /* Object.h */; };
 		2188DBEC1FB028C200940208 /* SQLStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2188DBEB1FB028C200940208 /* SQLStore.h */; };
 		21893D8C1E86AD4C001ED8D5 /* BitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 21893D8B1E86AD4C001ED8D5 /* BitUtil.h */; };
+		218A21A02047B1E40091E76F /* MetricsArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218A219F2047B1E40091E76F /* MetricsArray.cpp */; };
 		218D47C91F503251002A3FA2 /* foreman-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 218D47C81F503251002A3FA2 /* foreman-c.h */; };
 		21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0981FB07ABC00982715 /* BeringeiStore.h */; };
 		21ABA0A11FB07ABD00982715 /* ArrayTimeSeries.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */; };
@@ -232,6 +233,7 @@
 		2188DBE31FB00AEE00940208 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = registry/Object.h; sourceTree = "<group>"; };
 		2188DBEB1FB028C200940208 /* SQLStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLStore.h; path = registry/impl/SQLStore.h; sourceTree = "<group>"; };
 		21893D8B1E86AD4C001ED8D5 /* BitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitUtil.h; sourceTree = "<group>"; };
+		218A219F2047B1E40091E76F /* MetricsArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricsArray.cpp; sourceTree = "<group>"; };
 		218D47C81F503251002A3FA2 /* foreman-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foreman-c.h"; sourceTree = "<group>"; };
 		21ABA0981FB07ABC00982715 /* BeringeiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeringeiStore.h; path = impl/BeringeiStore.h; sourceTree = "<group>"; };
 		21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayTimeSeries.h; path = impl/ArrayTimeSeries.h; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				2144751E202C54C4002255FB /* Metrics.cpp */,
 				216A5B0E1F9C59990092272A /* MetricMap.cpp */,
 				216A5B101F9C59990092272A /* DataPoint.cpp */,
+				218A219F2047B1E40091E76F /* MetricsArray.cpp */,
 				216A5B141F9C59990092272A /* MetricsMap.cpp */,
 				216A5B1E1F9C59990092272A /* Query.cpp */,
 				216A5B201F9C59990092272A /* ResultSet.cpp */,
@@ -842,6 +845,7 @@
 				2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */,
 				215EDC711FB04A22006DF3AE /* RingArrayTimeSeries.cpp in Sources */,
 				215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */,
+				218A21A02047B1E40091E76F /* MetricsArray.cpp in Sources */,
 				217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */,
 				21BA40E0201EECBD0083998C /* datapoint_c.cpp in Sources */,
 				215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */,

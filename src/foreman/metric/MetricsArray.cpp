@@ -13,14 +13,14 @@
 using namespace Foreman::Metric;
 
 ////////////////////////////////////////////////
-// MetricsMap
+// MetricsArray
 ////////////////////////////////////////////////
 
-MetricsMap::MetricsMap()
+MetricsArray::MetricsArray()
 {
 }
 
-MetricsMap::~MetricsMap()
+MetricsArray::~MetricsArray()
 {
 }
 
@@ -28,7 +28,7 @@ MetricsMap::~MetricsMap()
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool MetricsMap::addMetrics(Metrics* ms)
+bool MetricsArray::addMetrics(Metrics* ms)
 {
   return addMetrics(std::shared_ptr<Metrics>(ms));
 }
@@ -37,9 +37,9 @@ bool MetricsMap::addMetrics(Metrics* ms)
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool MetricsMap::addMetrics(std::shared_ptr<Metrics> ms)
+bool MetricsArray::addMetrics(std::shared_ptr<Metrics> ms)
 {
-  insert(std::make_pair(ms->getName(), ms));
+  push_back(ms);
   return true;
 }
 
@@ -47,7 +47,7 @@ bool MetricsMap::addMetrics(std::shared_ptr<Metrics> ms)
 // addDataPoints
 ////////////////////////////////////////////////
 
-bool MetricsMap::addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
+bool MetricsArray::addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
 {
   Metrics* ms = findMetrics(name);
   if (!ms) {
@@ -66,11 +66,11 @@ bool MetricsMap::addMetrics(const std::string& name, time_t from, time_t interva
 // findDataPoints
 ////////////////////////////////////////////////
 
-Metrics* MetricsMap::findMetrics(const std::string& name)
+Metrics* MetricsArray::findMetrics(const std::string& name)
 {
-  auto msIt = std::unordered_map<std::string, std::shared_ptr<Metrics>>::find(name);
-  if (msIt == MetricsMap::end())
-    return nullptr;
-
-  return msIt->second.get();
+  for (auto msIt = begin(); msIt != end(); msIt++) {
+    if (name.compare((*msIt)->getName()) == 0)
+      return (*msIt).get();
+  }
+  return NULL;
 }

@@ -30,22 +30,22 @@ public:
 
     bool addMetrics(Metrics* m)
     {
-      return metricsMap_.addMetrics(m);
+      return msArray_.addMetrics(m);
     }
 
     bool addMetrics(std::shared_ptr<Metrics> m)
     {
-      return metricsMap_.addMetrics(m);
+      return msArray_.addMetrics(m);
     }
 
     bool addMetrics(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
     {
-      return metricsMap_.addMetrics(name, from, interval, values, valueCnt);
+      return msArray_.addMetrics(name, from, interval, values, valueCnt);
     }
 
     Metrics* findMetrics(const std::string& name)
     {
-      return metricsMap_.findMetrics(name);
+      return msArray_.findMetrics(name);
     }
 
     Metrics* firstMetrics();
@@ -53,12 +53,12 @@ public:
 
     size_t getMetricsCount()
     {
-      return metricsMap_.size();
+      return msArray_.size();
     }
 
 private:
-    MetricsMap metricsMap_;
-    DataPointsMapIt currIt_;
+    MetricsArray msArray_;
+    MetricsArrayIt currIt_;
   };
 }
 }
