@@ -117,6 +117,8 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
   if (!firstMetrics)
     return false;
 
+  MetricsArray resultMs;
+
 #if defined(FOREMAN_ENABLE_ALGLIB)
   alglib::real_1d_array firstMetricsData;
   if (!firstMetrics->getMetricsValues(firstMetricsData))
@@ -163,8 +165,23 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
     dp->setValue(corr);
     rm->addDataPoint(dp);
 
-    analyzeRs->addMetrics(rm);
+    resultMs.addMetrics(rm);
 #endif
+  }
+
+  // Sort result
+
+  std::sort(
+      resultMs.begin(),
+      resultMs.end(),
+      [](const std::shared_ptr<Metrics> m1, const std::shared_ptr<Metrics> m2) {
+        auto xdp = m1->getDataPoint(0);
+        auto ydp = m2->getDataPoint(0);
+        return xdp->getValue() > ydp->getValue();
+      });
+
+  for (auto rm : resultMs) {
+    analyzeRs->addMetrics(rm);
   }
 
   return true;
