@@ -22,7 +22,11 @@
 #include <foreman/metric/DataPoint.h>
 
 #if defined(FOREMAN_ENABLE_ALGLIB)
-#include <alglib/ap.h>
+#if defined(HAVE_LIBALGLIB_STATISTICS_H)
+#include <libalglib/statistics.h>
+#else
+#include <alglib/statistics.h>
+#endif
 #endif
 
 namespace Foreman {
