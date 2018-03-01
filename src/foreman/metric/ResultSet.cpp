@@ -31,8 +31,8 @@ ResultSet::~ResultSet()
 
 bool ResultSet::clear()
 {
-  metricsMap_.clear();
-  currIt_ = metricsMap_.end();
+  msArray_.clear();
+  currIt_ = msArray_.end();
 
   return true;
 }
@@ -43,12 +43,12 @@ bool ResultSet::clear()
 
 Metrics* ResultSet::firstMetrics()
 {
-  currIt_ = metricsMap_.begin();
+  currIt_ = msArray_.begin();
 
-  if (currIt_ == metricsMap_.end())
+  if (currIt_ == msArray_.end())
     return NULL;
 
-  return currIt_->second.get();
+  return (*currIt_).get();
 }
 
 ////////////////////////////////////////////////
@@ -57,12 +57,12 @@ Metrics* ResultSet::firstMetrics()
 
 Metrics* ResultSet::nextMetrics()
 {
-  if (currIt_ == metricsMap_.end())
+  if (currIt_ == msArray_.end())
     return NULL;
 
   currIt_++;
-  if (currIt_ == metricsMap_.end())
+  if (currIt_ == msArray_.end())
     return NULL;
 
-  return currIt_->second.get();
+  return (*currIt_).get();
 }
