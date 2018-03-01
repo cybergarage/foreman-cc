@@ -116,7 +116,7 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
   auto firstMetrics = firstMetricsRs.firstMetrics();
   if (!firstMetrics)
     return false;
-  
+
 #if defined(FOREMAN_ENABLE_ALGLIB)
   alglib::real_1d_array firstMetricsData;
   if (!firstMetrics->getMetricsValues(firstMetricsData))
@@ -142,7 +142,7 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
     auto firstMetrics = metricRs.firstMetrics();
     if (!firstMetrics)
       continue;
-    
+
 #if defined(FOREMAN_ENABLE_ALGLIB)
     alglib::real_1d_array metricsData;
     if (!firstMetrics->getMetricsValues(metricsData))
