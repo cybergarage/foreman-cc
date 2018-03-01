@@ -99,7 +99,7 @@ ssize_t Metrics::getMaxValueIndex()
 {
   double lastMaxValue = NAN;
   size_t lastMaxValueIndex = -1;
-  size_t n=0;
+  size_t n = 0;
   for (auto dp : *this) {
     if (n == 0) {
       lastMaxValueIndex = 0;
@@ -111,7 +111,7 @@ ssize_t Metrics::getMaxValueIndex()
     }
     n++;
   }
-  
+
   return lastMaxValueIndex;
 }
 

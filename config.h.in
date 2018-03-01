@@ -15,6 +15,9 @@
 /* Python */
 #undef FOREMAN_SUPPORT_PYTHON
 
+/* Define to 1 if you have the <alglib/statistics.h> header file. */
+#undef HAVE_ALGLIB_STATISTICS_H
+
 /* Define to 1 if you have the <benchmark/benchmark.h> header file. */
 #undef HAVE_BENCHMARK_BENCHMARK_H
 
@@ -26,6 +29,9 @@
 
 /* Define to 1 if you have the `alglib' library (-lalglib). */
 #undef HAVE_LIBALGLIB
+
+/* Define to 1 if you have the <libalglib/statistics.h> header file. */
+#undef HAVE_LIBALGLIB_STATISTICS_H
 
 /* Define to 1 if you have the `benchmark' library (-lbenchmark). */
 #undef HAVE_LIBBENCHMARK
