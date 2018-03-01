@@ -67,3 +67,6 @@ debian/foreman-cc.debhelper.log
 debian/foreman-cc.substvars
 debian/foreman-cc.dirs
 debian/files
+
+# Vim
+.*.sw?
