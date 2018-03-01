@@ -191,9 +191,9 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
       resultMs.begin(),
       resultMs.end(),
       [](const std::shared_ptr<Metrics> m1, const std::shared_ptr<Metrics> m2) {
-        auto xdp = m1->getDataPoint(0);
-        auto ydp = m2->getDataPoint(0);
-        return xdp->getValue() > ydp->getValue();
+        auto m1dp = m1->getDataPoint(0);
+        auto m2dp = m2->getDataPoint(0);
+        return m1dp->getValue() > m2dp->getValue();
       });
 
   for (auto rm : resultMs) {
