@@ -15,7 +15,7 @@
 
 PFLAGS := $(shell pkg-config --cflags --libs python3)
 export PYTHON_VERSION=3
-export CFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
+export CFLAGS= -Wall -O2 ${PFLAGS} -Wall
 export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 
 %:
@@ -24,8 +24,8 @@ export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
-#override_dh_auto_configure:
-#	dh_auto_configure -- --enable-script-python
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-alglib
 
 override_dh_auto_clean:
 	-dh_auto_clean

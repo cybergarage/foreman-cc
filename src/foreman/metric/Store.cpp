@@ -8,7 +8,8 @@
  *
  ******************************************************************/
 
-#include <math.h>
+#include <cmath>
+#include <algorithm>
 
 #include <foreman/Const.h>
 #include <foreman/Platform.h>
@@ -153,7 +154,7 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
       continue;
 
     auto corr = alglib::pearsoncorr2(firstMetricsData, otherMetricsData);
-    if (isnan(corr)) {
+    if (std::isnan(corr)) {
       continue;
     }
 #endif
@@ -166,7 +167,7 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
 #if defined(FOREMAN_ENABLE_ALGLIB)
     dp->setValue(corr);
 #else
-    dp->setValue(NaN);
+    dp->setValue(NAN);
 #endif
     rm->addDataPoint(dp);
 
