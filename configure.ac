@@ -64,7 +64,7 @@ AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSI
 # Check option libraries
 ##################################################################
 
-AC_CHECK_LIB([uuid],[main],,[AC_MSG_ERROR(Foreman needs libUUID $UUID_VERSION later)])
+AC_CHECK_LIB([uuid],[main],,[AC_MSG_ERROR(Foreman needs libuuid $UUID_VERSION later)])
 AC_CHECK_HEADERS([uuid/uuid.h])
 
 ##################################################################
