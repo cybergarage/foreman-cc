@@ -1,2 +1,3 @@
 #!/bin/bash
+export CXXFLAGS="-std=c++11"
 ./configure_linux "$@"
