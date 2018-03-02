@@ -1,4 +1,4 @@
 #!/bin/bash
-export CFLAGS="-Wall -O2 $CFLAGS"
-export CXXFLAGS="$CXXFLAGS $CFLAGS"
+export CXXFLAGS="$CXXFLAGS -Wall -O2 `python-config --includes`"
+export LDFLAGS="$LDFLAGS `python-config --libs`"
 ./configure --enable-alglib "$@"
