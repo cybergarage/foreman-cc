@@ -2,10 +2,7 @@
 sudo yum -y --enablerepo=extras install epel-release
 sudo yum install -y wget
 sudo yum install -y gcc gcc-c++ libgcc boost-devel automake cmake
-sudo yum install -y sqlite-devel curl-devel libuuid-devel alglib-devel python-pip
-# FIXME : enable python-config on CentOS
-# sudo pip install --upgrade pip
-# sudo pip install python-config
+sudo yum install -y sqlite-devel curl-devel libuuid-devel alglib-devel python-devel
 
 # For Facebook-folly
 sudo yum install -y \
