@@ -708,7 +708,6 @@ infodir
 docdir
 oldincludedir
 includedir
-runstatedir
 localstatedir
 sharedstatedir
 sysconfdir
@@ -792,7 +791,6 @@ datadir='${datarootdir}'
 sysconfdir='${prefix}/etc'
 sharedstatedir='${prefix}/com'
 localstatedir='${prefix}/var'
-runstatedir='${localstatedir}/run'
 includedir='${prefix}/include'
 oldincludedir='/usr/include'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
@@ -1045,15 +1043,6 @@ do
   | -silent | --silent | --silen | --sile | --sil)
     silent=yes ;;
 
-  -runstatedir | --runstatedir | --runstatedi | --runstated \
-  | --runstate | --runstat | --runsta | --runst | --runs \
-  | --run | --ru | --r)
-    ac_prev=runstatedir ;;
-  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
-  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
-  | --run=* | --ru=* | --r=*)
-    runstatedir=$ac_optarg ;;
-
   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
     ac_prev=sbindir ;;
   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
@@ -1191,7 +1180,7 @@ fi
 for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
 		datadir sysconfdir sharedstatedir localstatedir includedir \
 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
-		libdir localedir mandir runstatedir
+		libdir localedir mandir
 do
   eval ac_val=\$$ac_var
   # Remove trailing slashes.
@@ -1344,7 +1333,6 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
-  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -2868,6 +2856,7 @@ fi
 SQLITE3_VERSION=3.14.0
 BENCHMARK_VERSION=1.1.0
 ALGLIB_VERSION=3.9.0
+UUID_VERSION=1.6.2
 
 LUA_VERSION=5.2.0
 PYTHON_VERSION=2.7.9
@@ -5000,6 +4989,8 @@ _ACEOF
 
   LIBS="-luuid $LIBS"
 
+else
+  as_fn_error $? "Foreman needs libUUID $UUID_VERSION later" "$LINENO" 5
 fi
 
 for ac_header in uuid/uuid.h
@@ -5022,12 +5013,12 @@ done
 # Check whether --enable-alglib was given.
 if test "${enable_alglib+set}" = set; then :
   enableval=$enable_alglib; case "${enableval}" in
-    yes | no ) eneble_alglib="${enableval}" ;;
+    yes | no ) enable_alglib="${enableval}" ;;
   esac
 fi
 
 
- if test "$eneble_alglib" = yes; then
+ if test "$enable_alglib" = yes; then
   FOREMAN_ENABLE_ALGLIB_TRUE=
   FOREMAN_ENABLE_ALGLIB_FALSE='#'
 else
@@ -5035,7 +5026,7 @@ else
   FOREMAN_ENABLE_ALGLIB_FALSE=
 fi
 
-if  test "$eneble_alglib" = yes ; then
+if  test "$enable_alglib" = yes ; then
 
 $as_echo "#define FOREMAN_ENABLE_ALGLIB 1" >>confdefs.h
 
@@ -5250,12 +5241,12 @@ fi
 # Check whether --enable-beringei was given.
 if test "${enable_beringei+set}" = set; then :
   enableval=$enable_beringei; case "${enableval}" in
-    	yes | no ) eneble_beringei="${enableval}" ;;
+    	yes | no ) enable_beringei="${enableval}" ;;
 	esac
 fi
 
 
- if test "$eneble_beringei" = yes; then
+ if test "$enable_beringei" = yes; then
   FOREMAN_ENABLE_BERINGEI_TRUE=
   FOREMAN_ENABLE_BERINGEI_FALSE='#'
 else
@@ -5263,7 +5254,7 @@ else
   FOREMAN_ENABLE_BERINGEI_FALSE=
 fi
 
-if  test "$eneble_beringei" = yes ; then
+if  test "$enable_beringei" = yes ; then
 
 $as_echo "#define FOREMAN_ENABLE_BERINGEI 1" >>confdefs.h
 
@@ -5402,12 +5393,12 @@ fi
 # Check whether --enable-graphite was given.
 if test "${enable_graphite+set}" = set; then :
   enableval=$enable_graphite; case "${enableval}" in
-    	yes | no ) eneble_graphite="${enableval}" ;;
+    	yes | no ) enable_graphite="${enableval}" ;;
 	esac
 fi
 
 
- if test "$eneble_graphite" = yes; then
+ if test "$enable_graphite" = yes; then
   FOREMAN_ENABLE_GRAPHITE_TRUE=
   FOREMAN_ENABLE_GRAPHITE_FALSE='#'
 else
@@ -5415,7 +5406,7 @@ else
   FOREMAN_ENABLE_GRAPHITE_FALSE=
 fi
 
-if  test "$eneble_graphite" = yes ; then
+if  test "$enable_graphite" = yes ; then
 
 $as_echo "#define FOREMAN_ENABLE_GRAPHITE 1" >>confdefs.h
 

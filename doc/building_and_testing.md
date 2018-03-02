@@ -11,6 +11,7 @@ The `foreman-cc` uses the following package. Please install the packages in your
 | Library | Requirements version | Mandatory |
 |---|---|---|
 | [SQLite](https://www.sqlite.org)  | >= 3.16.0  | O |
+| [libuuid](http://www.ossp.org/pkg/lib/uuid/)  | >= 1.6.2 | O |
 | [Folly](https://www.sqlite.org)  | >= 2017.08.21.00  | X (--enable-beringei) |
 | [ALGLIB](http://www.alglib.net)  | >= 3.9.0  | X (--enable-alglib) |
 | [Boost](http://www.boost.org/)  | >= 1.65.0  | X (--enable-test) |
@@ -42,6 +43,8 @@ Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. To inst
 ```
 brew tap brewsci/science
 brew install alglib
+
+brew install ossp-uuid
 
 brew tap cybergarage/homebrew https://github.com/cybergarage/homebrew
 brew install foreman-cc

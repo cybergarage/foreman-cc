@@ -22,6 +22,7 @@ AM_INIT_AUTOMAKE([subdir-objects])
 SQLITE3_VERSION=3.14.0
 BENCHMARK_VERSION=1.1.0
 ALGLIB_VERSION=3.9.0
+UUID_VERSION=1.6.2
 
 LUA_VERSION=5.2.0
 PYTHON_VERSION=2.7.9
@@ -63,7 +64,7 @@ AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSI
 # Check option libraries
 ##################################################################
 
-AC_CHECK_LIB([uuid],[main])
+AC_CHECK_LIB([uuid],[main],,[AC_MSG_ERROR(Foreman needs libUUID $UUID_VERSION later)])
 AC_CHECK_HEADERS([uuid/uuid.h])
 
 ##################################################################

@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 
 #include <foreman/Const.h>
 #include <foreman/Platform.h>
