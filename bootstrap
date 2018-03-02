@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# ./beringei_setup
 pushd include/foreman && ./Const.h.build && popd
 pushd include/foreman/common && ./Errors.h.build && popd
 

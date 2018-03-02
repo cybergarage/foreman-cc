@@ -1,0 +1,15 @@
+#!/bin/bash
+
+FOLLY_VERSION="2018.02.26.00"
+FOLLY_PACKEAGE="v${FOLLY_VERSION}.tar.gz"
+FOLLY_DIR="folly-${FOLLY_VERSION}"
+FOLLY_GITHUB_URL="https://github.com/facebook/folly/archive/${FOLLY_PACKEAGE}"
+
+echo ${FOLLY_GITHUB_URL}
+
+wget ${FOLLY_GITHUB_URL}
+tar xvfz ${FOLLY_PACKEAGE}
+cd ${FOLLY_DIR}
+sed -i "s/cmake_minimum_required/#cmake_minimum_required/g" CMakeLists.txt
+rm -rf ${FOLLY_DIR}
+rm ${FOLLY_PACKEAGE}

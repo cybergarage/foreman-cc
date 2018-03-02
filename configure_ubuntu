@@ -1,4 +1,5 @@
 #!/bin/bash
-sudo apt-get install -y libsqlite3-dev libcurl3-dev uuid-dev libalglib-dev
-export CXXFLAGS="-std=c++14"
+export CFLAGS="`python-config --includes`"
+export CXXFLAGS="$CFLAGS -std=c++14"
+export LDFLAGS="`python-config --libs`"
 ./configure_linux "$@"
