@@ -130,7 +130,7 @@ bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuer
 }
 
 ////////////////////////////////////////////////
-// foreman_metric_store_querydata
+// foreman_metric_store_analyzedata
 ////////////////////////////////////////////////
 
 bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
