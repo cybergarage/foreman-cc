@@ -11,7 +11,6 @@
 #ifndef _FOREMANCC_FOREMANC_H_
 #define _FOREMANCC_FOREMANC_H_
 
-#include <foreman/common/common-c.h>
 #include <foreman/action/action-c.h>
 #include <foreman/metric/metric-c.h>
 #include <foreman/register/register-c.h>
