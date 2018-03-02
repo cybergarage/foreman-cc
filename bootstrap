@@ -9,7 +9,7 @@ pushd test/unix && ./Makefile.am.build > Makefile.am && popd
 pushd bin/foremanbench/unix && ./Makefile.am.build > Makefile.am && popd
 pushd bin/foremanusage/unix && ./Makefile.am.build > Makefile.am && popd
 
-./format
+# ./format
 
 if [ ! -d config ]; then
     mkdir config
