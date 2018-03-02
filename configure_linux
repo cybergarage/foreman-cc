@@ -1,3 +1,7 @@
 #!/bin/bash
-export CXXFLAGS="$CXXFLAGS -Wall -O2"
-./configure --enable-alglib "$@"
+if [ `which python-config` ]; then
+    export CFLAGS="$CFLAGS `python-config --includes`"
+    export LDFLAGS="$LDFLAGS `python-config --libs`"
+fi
+export CXXFLAGS="$CFLAGS $CXXFLAGS -Wall -O2"
+./configure --enable-script-python --enable-alglib "$@"
