@@ -21,6 +21,9 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
   mgr = foreman_action_manager_new();
   BOOST_CHECK(mgr);
 
+  auto method = foreman_action_manager_getfirstmethod(mgr);
+  BOOST_CHECK(!method);
+  
   BOOST_CHECK(foreman_action_manager_delete(mgr));
 }
 

@@ -153,8 +153,8 @@ bool foreman_action_manager_execmethod(ForemanActionManager* mgr, const char* na
 ForemanActionMethod* foreman_action_manager_getfirstmethod(ForemanActionManager* mgr)
 {
   auto methodMap = ((Manager*)mgr)->getMethodMap();
-  auto firstMethod = methodMap->cbegin();
-  if (firstMethod == methodMap->cend()) {
+  auto firstMethod = methodMap->begin();
+  if (firstMethod == methodMap->end()) {
     return NULL;
   }
   return (ForemanActionMethod*)firstMethod->second;
@@ -168,10 +168,10 @@ ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr
 {
   auto currMethodName = ((Method*)currMethod)->getName();
   auto methodMap = ((Manager*)mgr)->getMethodMap();
-  for (auto method = methodMap->cbegin(); method != methodMap->cend(); method++) {
+  for (auto method = methodMap->begin(); method != methodMap->end(); method++) {
     if (method->first.compare(currMethodName) == 0) {
       auto nextMethod = method++;
-      if (nextMethod == methodMap->cend()) {
+      if (nextMethod == methodMap->end()) {
         return NULL;
       }
       return (ForemanActionMethod*)nextMethod->second;
