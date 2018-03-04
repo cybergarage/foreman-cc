@@ -170,7 +170,7 @@ ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr
   auto methodMap = ((Manager*)mgr)->getMethodMap();
   for (auto method = methodMap->begin(); method != methodMap->end(); method++) {
     if (method->first.compare(currMethodName) == 0) {
-      auto nextMethod = method++;
+      auto nextMethod = ++method;
       if (nextMethod == methodMap->end()) {
         return NULL;
       }
