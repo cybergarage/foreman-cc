@@ -16,35 +16,62 @@ BOOST_AUTO_TEST_SUITE(clang)
 
 BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 {
-  ForemanActionManager* mgr;
-
-  mgr = foreman_action_manager_new();
-  BOOST_CHECK(mgr);
+  auto TEST_METHOD_LANG = "python";
+  auto TEST_METHOD_NAME = "qos_unsatisfied";
+  auto TEST_METHOD_CODE = "import foreman\n"
+                          "def qos_unsatisfied(params,results):\n"
+                          "    foreman.set_register('qos', 'false'))\n"
+                          "    return True";
 
   auto err = foreman_error_new();
   
-  // Check first method
+  // Setup
+
+  auto mgr = foreman_action_manager_new();
+  BOOST_CHECK(mgr);
+
+  auto regstryStore = foreman_registry_store_new();
+  BOOST_CHECK(foreman_action_manager_setregistrystore(mgr, regstryStore));
+
+  auto regsterStore = foreman_register_store_new();
+  BOOST_CHECK(foreman_action_manager_setregisterstore(mgr, regsterStore));
   
+  // Check first method
+
   auto method = foreman_action_manager_getfirstmethod(mgr);
   BOOST_CHECK(!method);
 
   // Add a method
-  
-  method = foreman_action_method_new("");
-  BOOST_CHECK(foreman_action_method_setname(method, "test"));
+
+  method = foreman_action_method_new(TEST_METHOD_LANG);
+  BOOST_CHECK(foreman_action_method_setname(method, TEST_METHOD_NAME));
+  BOOST_CHECK(foreman_action_method_setstringcode(method, TEST_METHOD_CODE));
   BOOST_CHECK(foreman_action_manager_addmethod(mgr, method, err));
 
   // Check first method
 
   method = foreman_action_manager_getfirstmethod(mgr);
   BOOST_CHECK(method);
-  
+
   method = foreman_action_manager_nextmethod(mgr, method);
   BOOST_CHECK(!method);
+
+  // Exec method
   
-  foreman_error_delete(err);
-              
+  auto inParams = foreman_action_parameters_new();
+  auto outParams = foreman_action_parameters_new();
+  BOOST_CHECK(foreman_action_manager_execmethod(mgr, TEST_METHOD_NAME, inParams, outParams, err));
+  BOOST_CHECK(foreman_action_parameters_delete(inParams));
+  BOOST_CHECK(foreman_action_parameters_delete(outParams));
+
+  // Finalize
+  
   BOOST_CHECK(foreman_action_manager_delete(mgr));
+
+  BOOST_CHECK(foreman_registry_store_delete(regstryStore));
+  BOOST_CHECK(foreman_register_store_delete(regsterStore));
+
+  foreman_error_delete(err);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
