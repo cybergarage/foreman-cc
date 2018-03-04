@@ -119,10 +119,12 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   PyTuple_SetItem(pArgs, 1, pOutParams.getPyObject());
 
   PyObject* pResults = PyObject_CallObject(pyScript->getFuncObject(), pArgs);
+  
+  Py_DECREF(pArgs);
+  
   if (!pResults) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
-    Py_DECREF(pArgs);
     return false;
   }
 
@@ -133,18 +135,18 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
       err->setDetailMessage(PyString_AsString(errMsg));
       Py_DECREF(errMsg);
     }
-    Py_DECREF(pArgs);
+    Py_DECREF(pResults);
     return false;
   }
 
   if (!pOutParams.get(results)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
-    Py_DECREF(pArgs);
+    Py_DECREF(pResults);
     return false;
   }
 
-  Py_DECREF(pArgs);
+  Py_DECREF(pResults);
 
   return true;
 }
