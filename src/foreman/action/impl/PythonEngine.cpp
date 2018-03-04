@@ -163,15 +163,27 @@ bool Foreman::Action::PythonEngine::setLastDetailError(Error* error) const
       auto errStr = PyString_AsString(utfStr);
       if (errStr) {
         error->setDetailMessage(errStr);
+        Py_DECREF(errStr);
       }
+      Py_DECREF(utfStr);
     }
   }
-  
+
 #if defined(DEBUG)
-  PyObject_Print(ptype, stdout, 0);
-  PyObject_Print(pvalue, stdout, 0);
-  PyObject_Print(ptraceback, stdout, 0);
+  if (ptype)
+    PyObject_Print(ptype, stdout, 0);
+  if (pvalue)
+    PyObject_Print(pvalue, stdout, 0);
+  if (ptraceback)
+    PyObject_Print(ptraceback, stdout, 0);
 #endif
+
+  if (ptype)
+    Py_DECREF(ptype);
+  if (pvalue)
+    Py_XDECREF(pvalue);
+  if (ptraceback)
+    Py_XDECREF(ptraceback);
 
   return true;
 }
