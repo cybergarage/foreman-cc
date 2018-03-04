@@ -108,6 +108,7 @@ bool foreman_registry_query_getparentid(ForemanRegistryQuery* q, const char** pi
 
 typedef void ForemanRegistryStore;
 
+ForemanRegistryStore* foreman_registry_store_new();
 ForemanRegistryStore* foreman_registry_sqlite_store_new();
 bool foreman_registry_store_delete(ForemanRegistryStore* store);
 
