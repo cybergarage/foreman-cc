@@ -157,8 +157,11 @@ bool Foreman::Action::PythonEngine::setLastDetailError(Error* error) const
 {
   PyObject *ptype, *pvalue, *ptraceback;
   PyErr_Fetch(&ptype, &pvalue, &ptraceback);
-  error->setDetailMessage(PyString_AsString(pvalue));
-
+  auto errStr = PyString_AsString(pvalue);
+  if (errStr) {
+    error->setDetailMessage(errStr);
+  }
+  
 #if defined(DEBUG)
   PyObject_Print(ptype, stdout, 0);
   PyObject_Print(pvalue, stdout, 0);
