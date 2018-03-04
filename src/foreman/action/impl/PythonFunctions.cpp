@@ -60,7 +60,12 @@ PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
   Foreman::Error err;
   bool isSuccess = store->getObject(key, &obj, &err);
 
-  return Py_BuildValue("s", (isSuccess ? obj.getData() : ""));
+  const char *regData = NULL;
+  if (isSuccess) {
+    regData = obj.getData();
+  }
+
+  return Py_BuildValue("s", (regData ? regData : ""));
 }
 
 /****************************************
