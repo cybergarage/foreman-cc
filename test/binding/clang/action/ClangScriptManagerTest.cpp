@@ -60,8 +60,10 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 
   // Exec the valid method
   
+#if defined(FOREMAN_SUPPORT_PYTHON)
   BOOST_CHECK(foreman_action_manager_execmethod(mgr, TEST_METHOD_NAME, inParams, outParams, err));
-
+#endif
+  
   // Finalize
 
   BOOST_CHECK(foreman_action_manager_delete(mgr));
