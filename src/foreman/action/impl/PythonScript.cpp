@@ -73,11 +73,17 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
     return false;
   }
 
+  auto methodCode = (const char*)getCode();
+  if (!methodCode) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    return false;
+  }
+
   auto methodName = getName().c_str();
   char moduleName[64];
   snprintf(moduleName, sizeof(moduleName), "%s-%s", PythonEngine::MODULE.c_str(), methodName);
 
-  PyObject* pSource = Py_CompileString((const char*)getCode(), methodName, Py_file_input);
+  PyObject* pSource = Py_CompileString(methodCode, methodName, Py_file_input);
   if (!pSource) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;

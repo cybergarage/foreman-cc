@@ -20,6 +20,8 @@
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
 
+static bool gPy_IsInitialized = false;
+
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
 
@@ -30,9 +32,12 @@ const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME
 Foreman::Action::PythonEngine::PythonEngine()
     : ScriptEngine(LANGUAGE)
 {
-  if (!Py_IsInitialized()) {
-    Py_Initialize();
+  // FIXME : Py_IsInitialized returns true whether Py_Finalize isn't called.
+  if (!gPy_IsInitialized) {
+    gPy_IsInitialized = true;
 
+    Py_Initialize();
+    
 #if PY_MAJOR_VERSION >= 3
     PyModule_Create(GetPythonSystemModule());
 #else
@@ -49,7 +54,7 @@ Foreman::Action::PythonEngine::~PythonEngine()
 {
   if (Py_IsInitialized()) {
     // FIXME : Py_Initialize is aborted after Py_Finalize is called.
-    // Py_Finalize();
+    //Py_Finalize();
   }
 }
 
