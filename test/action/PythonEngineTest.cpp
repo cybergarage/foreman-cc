@@ -121,12 +121,6 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(mgr.addMethod(rmreg, &err));
 
   testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
-  testControllerr.run(&mgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
