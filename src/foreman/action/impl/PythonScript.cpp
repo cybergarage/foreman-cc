@@ -37,14 +37,14 @@ Foreman::Action::PythonMethod::~PythonMethod()
 
 bool Foreman::Action::PythonMethod::clear()
 {
-  if (module_) {
-    Py_DECREF(module_);
-    module_ = NULL;
-  }
-
   if (func_) {
     Py_DECREF(func_);
     func_ = NULL;
+  }
+  
+  if (module_) {
+    Py_DECREF(module_);
+    module_ = NULL;
   }
 
   return true;
