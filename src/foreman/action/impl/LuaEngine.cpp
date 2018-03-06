@@ -8,6 +8,10 @@
  *
  ******************************************************************/
 
+#include <foreman/Platform.h>
+
+#if defined(FOREMAN_SUPPORT_LUA)
+
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/lexical_cast.hpp>
 #include <sstream>
@@ -15,8 +19,6 @@
 #include <foreman/Const.h>
 #include <foreman/action/impl/Lua.h>
 #include <foreman/common/Errors.h>
-
-#if defined(FOREMAN_SUPPORT_LUA)
 
 const std::string Foreman::Action::LuaEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_LUA;
 
@@ -28,8 +30,8 @@ Foreman::Action::LuaEngine::LuaEngine()
     : ScriptEngine(LANGUAGE)
 {
   this->luaState = luaL_newstate();
-
   luaL_openlibs(this->luaState);
+  regsterFunctions();
 }
 
 ////////////////////////////////////////////////
@@ -51,7 +53,6 @@ bool Foreman::Action::LuaEngine::compile(Method* luaScript, Error* error)
   int loadingResult = luaL_loadstring(this->luaState, (const char*)scriptCode);
   lua_settop(this->luaState, 0);
   return (loadingResult == 0) ? true : false;
-  ;
 }
 
 ////////////////////////////////////////////////

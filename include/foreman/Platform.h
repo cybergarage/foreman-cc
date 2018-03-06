@@ -18,6 +18,7 @@
 #endif
 
 #if defined(__APPLE__)
+#define FOREMAN_SUPPORT_LUA 1
 #define FOREMAN_ENABLE_ALGLIB 1
 #endif
 

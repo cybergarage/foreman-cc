@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2104FB66204E40DD0026949E /* LuaMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2104FB65204E40DD0026949E /* LuaMethod.cpp */; };
+		2104FB68204E44D00026949E /* LuaFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2104FB67204E44D00026949E /* LuaFunctions.cpp */; };
 		210781031FB2005F00F9F288 /* Objects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210781021FB2005F00F9F288 /* Objects.cpp */; };
 		2113F191201FA02600F5C672 /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18C201FA02500F5C672 /* Engine.h */; };
 		2113F192201FA02600F5C672 /* action-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18D201FA02500F5C672 /* action-c.h */; };
@@ -76,7 +78,7 @@
 		217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B61FC841BF000B0ECE /* LuaEngine.cpp */; };
 		217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B91FC841DF000B0ECE /* PythonEngine.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
-		21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B861FD286A300CE59C8 /* PythonScript.cpp */; };
+		21841B871FD286A400CE59C8 /* PythonMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B861FD286A300CE59C8 /* PythonMethod.cpp */; };
 		21841B891FD2BA8200CE59C8 /* PythonParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */; };
 		21841B8B1FD2CC8F00CE59C8 /* PythonParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */; };
 		2187B6CB1FC5ACA800E2234D /* Method.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6C41FC5ACA800E2234D /* Method.cpp */; };
@@ -137,6 +139,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2104FB65204E40DD0026949E /* LuaMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaMethod.cpp; path = action/impl/LuaMethod.cpp; sourceTree = "<group>"; };
+		2104FB67204E44D00026949E /* LuaFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaFunctions.cpp; path = action/impl/LuaFunctions.cpp; sourceTree = "<group>"; };
 		210781021FB2005F00F9F288 /* Objects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Objects.cpp; path = registry/Objects.cpp; sourceTree = "<group>"; };
 		2113F18C201FA02500F5C672 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Engine.h; path = action/Engine.h; sourceTree = "<group>"; };
 		2113F18D201FA02500F5C672 /* action-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "action-c.h"; path = "action/action-c.h"; sourceTree = "<group>"; };
@@ -207,7 +211,7 @@
 		217303B61FC841BF000B0ECE /* LuaEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngine.cpp; path = action/impl/LuaEngine.cpp; sourceTree = "<group>"; };
 		217303B91FC841DF000B0ECE /* PythonEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngine.cpp; path = action/impl/PythonEngine.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
-		21841B861FD286A300CE59C8 /* PythonScript.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonScript.cpp; path = action/impl/PythonScript.cpp; sourceTree = "<group>"; };
+		21841B861FD286A300CE59C8 /* PythonMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonMethod.cpp; path = action/impl/PythonMethod.cpp; sourceTree = "<group>"; };
 		21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameters.cpp; path = action/impl/PythonParameters.cpp; sourceTree = "<group>"; };
 		21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameter.cpp; path = action/impl/PythonParameter.cpp; sourceTree = "<group>"; };
 		2187B6C41FC5ACA800E2234D /* Method.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Method.cpp; path = action/Method.cpp; sourceTree = "<group>"; };
@@ -471,8 +475,10 @@
 				21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */,
 				21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */,
 				217303B91FC841DF000B0ECE /* PythonEngine.cpp */,
-				21841B861FD286A300CE59C8 /* PythonScript.cpp */,
+				21841B861FD286A300CE59C8 /* PythonMethod.cpp */,
 				217303B61FC841BF000B0ECE /* LuaEngine.cpp */,
+				2104FB67204E44D00026949E /* LuaFunctions.cpp */,
+				2104FB65204E40DD0026949E /* LuaMethod.cpp */,
 			);
 			name = impl;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				2187B6CB1FC5ACA800E2234D /* Method.cpp in Sources */,
 				2187B6CD1FC5ACA800E2234D /* ScriptManager.cpp in Sources */,
 				215EDC711FB04A22006DF3AE /* RingArrayTimeSeries.cpp in Sources */,
+				2104FB66204E40DD0026949E /* LuaMethod.cpp in Sources */,
 				215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */,
 				218A21A02047B1E40091E76F /* MetricsArray.cpp in Sources */,
 				217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */,
@@ -863,13 +870,14 @@
 				21BA40DC201EECBD0083998C /* metric_c.cpp in Sources */,
 				21BA40DF201EECBD0083998C /* query_c.cpp in Sources */,
 				215EDC701FB04A22006DF3AE /* NarrowTableStore.cpp in Sources */,
+				2104FB68204E44D00026949E /* LuaFunctions.cpp in Sources */,
 				215EDC7B1FB05A16006DF3AE /* SQLiteStore.cpp in Sources */,
 				21BA4102201F47620083998C /* ObjectMap.cpp in Sources */,
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				21247FFF201FF450006D9187 /* GlobalObject.cpp in Sources */,
 				21BA40CE201EECA40083998C /* store_c.cpp in Sources */,
-				21841B871FD286A400CE59C8 /* PythonScript.cpp in Sources */,
+				21841B871FD286A400CE59C8 /* PythonMethod.cpp in Sources */,
 				21BA40CF201EECA40083998C /* query_c.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,

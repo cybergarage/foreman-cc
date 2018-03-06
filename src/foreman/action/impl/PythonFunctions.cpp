@@ -60,7 +60,7 @@ PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
   Foreman::Error err;
   bool isSuccess = store->getObject(key, &obj, &err);
 
-  const char *regData = NULL;
+  const char* regData = NULL;
   if (isSuccess) {
     regData = obj.getData();
   }
@@ -94,9 +94,9 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
  ****************************************/
 
 static PyMethodDef gForemanPythonMethods[] = {
-  { FOREMANCC_PYTHON_SETREGISTER, foreman_python_setregister, METH_VARARGS, "" },
-  { FOREMANCC_PYTHON_GETREGISTER, foreman_python_getregister, METH_VARARGS, "" },
-  { FOREMANCC_PYTHON_REMOVEREGISTER, foreman_python_removeregister, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_SETREGISTER, foreman_python_setregister, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_GETREGISTER, foreman_python_getregister, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER, foreman_python_removeregister, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 

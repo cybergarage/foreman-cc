@@ -37,7 +37,7 @@ Foreman::Action::PythonEngine::PythonEngine()
     gPy_IsInitialized = true;
 
     Py_Initialize();
-    
+
 #if PY_MAJOR_VERSION >= 3
     PyModule_Create(GetPythonSystemModule());
 #else
@@ -124,9 +124,9 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   PyTuple_SetItem(pArgs, 1, pOutParams.getPyObject());
 
   PyObject* pResults = PyObject_CallObject(pyScript->getFuncObject(), pArgs);
-  
+
   Py_DECREF(pArgs);
-  
+
   if (!pResults) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);

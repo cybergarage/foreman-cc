@@ -84,7 +84,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   static const char* PY_SET_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                             "def " FOREMANCC_SCRIPT_SET_REGISTER_METHOD "(params,results):\n"
                                             "  for key, value in params.iteritems():\n"
-                                            "    " FOREMANCC_PRODUCT_NAME "." FOREMANCC_PYTHON_SETREGISTER "(key, value)\n"
+                                            "    " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_SETREGISTER "(key, value)\n"
                                             "  return True\n";
 
   auto setreg = new Foreman::Action::PythonMethod();
@@ -97,7 +97,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   static const char* PY_GET_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                             "def " FOREMANCC_SCRIPT_GET_REGISTER_METHOD "(params,results):\n"
                                             "  for reg_key, value in params.iteritems():\n"
-                                            "    reg_value = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_PYTHON_GETREGISTER "(reg_key)\n"
+                                            "    reg_value = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(reg_key)\n"
                                             "    results[reg_key] = reg_value\n"
                                             "  return True\n";
 
@@ -111,7 +111,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   static const char* PY_REMOVE_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                                "def " FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD "(params,results):\n"
                                                "  for key, value in params.iteritems():\n"
-                                               "    if " FOREMANCC_PRODUCT_NAME "." FOREMANCC_PYTHON_REMOVEREGISTER "(key) == False:\n"
+                                               "    if " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER "(key) == False:\n"
                                                "      return False\n"
                                                "  return True\n";
 
