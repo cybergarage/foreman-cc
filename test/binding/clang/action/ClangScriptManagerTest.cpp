@@ -59,11 +59,11 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
   BOOST_CHECK(!method);
 
   // Exec the valid method
-  
+
 #if defined(FOREMAN_SUPPORT_PYTHON)
   BOOST_CHECK(foreman_action_manager_execmethod(mgr, TEST_METHOD_NAME, inParams, outParams, err));
 #endif
-  
+
   // Finalize
 
   BOOST_CHECK(foreman_action_manager_delete(mgr));
@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 
   BOOST_CHECK(foreman_action_parameters_delete(inParams));
   BOOST_CHECK(foreman_action_parameters_delete(outParams));
-  
+
   foreman_error_delete(err);
 }
 

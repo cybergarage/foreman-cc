@@ -28,6 +28,16 @@ namespace Foreman {
 namespace Action {
 
   ////////////////////////////////////////////////
+  // LuaMethod
+  ////////////////////////////////////////////////
+
+  class LuaMethod : public Method {
+public:
+    LuaMethod();
+    ~LuaMethod();
+  };
+
+  ////////////////////////////////////////////////
   // LuaEngine
   ////////////////////////////////////////////////
 
@@ -47,6 +57,8 @@ public:
     bool popError(Error* error) const;
 
 private:
+    void regsterFunctions();
+
     lua_State* luaState;
   };
 }
