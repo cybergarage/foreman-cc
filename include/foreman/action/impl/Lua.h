@@ -38,6 +38,16 @@ public:
   };
 
   ////////////////////////////////////////////////
+  // LuaTable
+  ////////////////////////////////////////////////
+
+  class LuaTable : Parameters {
+public:
+    LuaTable();
+    ~LuaTable();
+  };
+
+  ////////////////////////////////////////////////
   // LuaEngine
   ////////////////////////////////////////////////
 
@@ -53,6 +63,8 @@ public:
     bool compile(Method* method, Error* error);
     bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
+    bool popBoolean(bool* result) const;
+    bool popTable(LuaTable* table) const;
     bool popString(std::string* result) const;
     bool popError(Error* error) const;
 
