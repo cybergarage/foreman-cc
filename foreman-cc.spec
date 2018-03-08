@@ -9,8 +9,7 @@ Group: libs
 License: BSD-3-clause
 URL: https://github.com/cybergarage/foreman-cc
 
-BuildRequires: python-devel, boost-devel, libsqlite3x-devel, automake, alglib-devel
-Requires: python
+BuildRequires: boost-devel, libsqlite3x-devel, automake, alglib-devel
 
 Source: %{expand:%%(pwd)}
 
@@ -25,7 +24,7 @@ cp -af %{SOURCEURL0}/. .
 %build
 #export CFLAGS="$(pkg-config --cflags --libs python3) -Wall"
 export CFLAGS="-Wall -O2"
-export CXXFLAGS="-std=c++14 $CFLAGS"
+export CXXFLAGS="-std=c++11 $CFLAGS"
 export PYTHON_VERSION=3
 %configure --enable-alglib
 make %{?_smp_mflags}
