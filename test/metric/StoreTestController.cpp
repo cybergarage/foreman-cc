@@ -96,6 +96,34 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
 
   time_t beginTs = time(NULL);
   time_t metricTs = beginTs;
+  time_t endTs = beginTs + (FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL * FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+
+  // Analyze metrics data for empty store
+
+#if defined(FOREMAN_ENABLE_ANALYZER)
+
+  if (sqlStore) { // TODO: All store should support like search
+    for (auto m : metrics) {
+      Foreman::Metric::Query q;
+      q.setTarget(*m);
+      q.setFrom(beginTs);
+      q.setUntil(endTs);
+      q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
+
+      Foreman::Metric::ResultSet rs;
+
+      BOOST_CHECK(!store->analyzeData(&q, &rs));
+
+      // NOTE : Check only first metrics to save the testing time.
+      if (m)
+        break;
+    }
+  }
+
+#endif
+
+  // Insert metrics data
+
   for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
     Foreman::Metric::MetricArray values;
     for (auto m : metrics) {
@@ -107,7 +135,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
     BOOST_CHECK(store->addData(values));
     metricTs += FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL;
   }
-  time_t endTs = metricTs;
+  endTs = metricTs;
 
   // Get metrics data
 
