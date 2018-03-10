@@ -88,6 +88,45 @@ bool Foreman::Action::LuaEngine::popString(std::string* result) const
 }
 
 ////////////////////////////////////////////////
+// popBoolean
+////////////////////////////////////////////////
+
+bool Foreman::Action::LuaEngine::popBoolean(bool* result) const
+{
+  int nStack = lua_gettop(this->luaState);
+  if (nStack <= 0)
+    return false;
+
+  if (!lua_isboolean(this->luaState, -1))
+    return false;
+
+  *result = (lua_toboolean(this->luaState, -1) ? true : false);
+  lua_pop(this->luaState, 1);
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// popTable
+////////////////////////////////////////////////
+
+bool Foreman::Action::LuaEngine::popTable(LuaTable* table) const
+{
+  int nStack = lua_gettop(this->luaState);
+  if (nStack <= 0)
+    return false;
+
+  if (!lua_istable(this->luaState, -1))
+    return false;
+
+  //*result = lua_toboolean(this->luaState, -1) ? true : false;
+
+  lua_pop(this->luaState, 1);
+
+  return true;
+}
+
+////////////////////////////////////////////////
 // popError
 ////////////////////////////////////////////////
 
