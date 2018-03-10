@@ -153,9 +153,15 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
     if (!otherFirstMetrics->getMetricsValues(otherMetricsData))
       continue;
 
-    auto corr = alglib::pearsoncorr2(firstMetricsData, otherMetricsData);
-    if (std::isnan(corr)) {
-      continue;
+    double corr;
+    try {
+      corr = alglib::pearsoncorr2(firstMetricsData, otherMetricsData);
+      if (std::isnan(corr)) {
+        continue;
+      }
+    }
+    catch (...) {
+      return false;
     }
 #endif
 
