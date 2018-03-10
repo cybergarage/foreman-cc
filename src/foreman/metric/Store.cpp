@@ -112,7 +112,7 @@ bool Store::addData(const MetricArray& values)
 // analyzeData
 ////////////////////////////////////////////////
 
-bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
+bool Store::analyzeData(Query* q, ResultSet* analyzeRs, Error* err)
 {
   ResultSet firstMetricsRs;
   if (!queryData(q, &firstMetricsRs))
@@ -159,6 +159,10 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs)
       if (std::isnan(corr)) {
         continue;
       }
+    }
+    catch (alglib::ap_error e) {
+      err->setMessage(e.msg);
+      return false;
     }
     catch (...) {
       return false;

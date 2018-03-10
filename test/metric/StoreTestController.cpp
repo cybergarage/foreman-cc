@@ -28,6 +28,8 @@ StoreTestContoller::~StoreTestContoller() {}
 
 void StoreTestContoller::run(Foreman::Metric::Store* store)
 {
+Foreman:
+  Error err;
   auto memStore = dynamic_cast<Foreman::Metric::MemStore*>(store);
   auto sqlStore = dynamic_cast<Foreman::Metric::SQLiteStore*>(store);
 
@@ -112,7 +114,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
 
       Foreman::Metric::ResultSet rs;
 
-      BOOST_CHECK(!store->analyzeData(&q, &rs));
+      BOOST_CHECK(!store->analyzeData(&q, &rs, &err));
 
       // NOTE : Check only first metrics to save the testing time.
       if (m)
@@ -177,7 +179,7 @@ void StoreTestContoller::run(Foreman::Metric::Store* store)
 
       Foreman::Metric::ResultSet rs;
 
-      BOOST_CHECK(store->analyzeData(&q, &rs));
+      BOOST_CHECK(store->analyzeData(&q, &rs, &err));
       BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
 
       for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
