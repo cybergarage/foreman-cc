@@ -133,12 +133,12 @@ bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuer
 // foreman_metric_store_analyzedata
 ////////////////////////////////////////////////
 
-bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs)
+bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs, ForemanError* err)
 {
   if (!store || !q || !rs)
     return false;
 
-  if (!((Foreman::Metric::Store*)(store))->analyzeData(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs))))
+  if (!((Foreman::Metric::Store*)(store))->analyzeData(((Foreman::Metric::Query*)(q)), ((Foreman::Metric::ResultSet*)(rs)), ((Foreman::Error*)(err))))
     return false;
 
   return true;

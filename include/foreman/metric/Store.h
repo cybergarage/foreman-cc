@@ -11,6 +11,7 @@
 #ifndef _FOREMANCC_METRIC_STORE_H_
 #define _FOREMANCC_METRIC_STORE_H_
 
+#include <foreman/common/Error.h>
 #include <foreman/metric/Metric.h>
 #include <foreman/metric/Query.h>
 #include <foreman/metric/ResultSet.h>
@@ -47,7 +48,7 @@ public:
     virtual size_t getMemoryUsage() = 0;
     virtual size_t getStorageUsage() = 0;
 
-    virtual bool analyzeData(Query* q, ResultSet* rs);
+    virtual bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
 protected:
     MetricMap metricMap_;
