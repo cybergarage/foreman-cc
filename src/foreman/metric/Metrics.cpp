@@ -116,6 +116,30 @@ ssize_t Metrics::getMaxValueIndex()
 }
 
 ////////////////////////////////////////////////
+// getMinValueIndex
+////////////////////////////////////////////////
+
+ssize_t Metrics::getMinValueIndex()
+{
+  double lastMinValue = NAN;
+  size_t lastMinValueIndex = -1;
+  size_t n = 0;
+  for (auto dp : *this) {
+    if (n == 0) {
+      lastMinValueIndex = 0;
+      lastMinValue = dp->getValue();
+    }
+    else if (dp->getValue() < lastMinValue) {
+      lastMinValueIndex = n;
+      lastMinValue = dp->getValue();
+    }
+    n++;
+  }
+
+  return lastMinValueIndex;
+}
+
+////////////////////////////////////////////////
 // getMetricsValues (ALGLIB)
 ////////////////////////////////////////////////
 

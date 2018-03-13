@@ -59,6 +59,7 @@ public:
     DataPoint* getDataPoint(size_t n);
 
     ssize_t getMaxValueIndex();
+    ssize_t getMinValueIndex();
 
 #if defined(FOREMAN_ENABLE_ALGLIB)
     bool getMetricsValues(alglib::real_1d_array& array);
