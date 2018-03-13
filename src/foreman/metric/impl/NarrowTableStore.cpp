@@ -241,7 +241,7 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   if (q->interval == 0)
     return false;
 
-  size_t valueCount = (q->until - q->from) / q->interval;
+  ssize_t valueCount = (q->until - q->from) / q->interval;
   if (valueCount <= 0)
     return false;
 

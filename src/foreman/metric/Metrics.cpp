@@ -58,7 +58,7 @@ bool Metrics::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
 bool Metrics::addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt)
 {
   time_t ts = from;
-  for (int n = 0; n < valueCnt; n++) {
+  for (size_t n = 0; n < valueCnt; n++) {
     if (!IsValidDataPointValue(values[n])) {
       ts += interval;
       continue;
