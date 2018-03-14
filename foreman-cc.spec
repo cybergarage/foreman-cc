@@ -8,7 +8,7 @@ License: BSD-3-clause
 URL: https://github.com/cybergarage/foreman-cc
 
 BuildRequires: automake, libsqlite3x-devel, libstdc++-devel, boost-devel, curl-devel, libuuid-devel
-Requires: alglib, libsqlite3, libstdc++, libuuid
+Requires: alglib, libsqlite3x, libstdc++, libuuid
 
 Source: %{expand:%%(pwd)}
 
