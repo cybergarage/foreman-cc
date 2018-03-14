@@ -1,5 +1,3 @@
-AutoReqProv: no
-
 Name: foreman-cc
 Version: %{expand:%%(git describe --abbrev=0 --tags)}
 Release:	%{_sd_build_id}%{?dist}
@@ -9,7 +7,8 @@ Group: libs
 License: BSD-3-clause
 URL: https://github.com/cybergarage/foreman-cc
 
-BuildRequires: boost-devel, libsqlite3x-devel, automake, alglib-devel
+BuildRequires: automake, libsqlite3x-devel, libstdc++-devel, boost-devel, curl-devel, libuuid-devel
+Requires: alglib, libsqlite3, libstdc++, libuuid
 
 Source: %{expand:%%(pwd)}
 
