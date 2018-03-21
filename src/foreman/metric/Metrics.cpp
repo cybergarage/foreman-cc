@@ -58,7 +58,7 @@ bool Metrics::addDataPoint(std::shared_ptr<Foreman::Metric::DataPoint> dp)
 bool Metrics::addDataPoints(time_t from, time_t interval, double* values, size_t valueCnt)
 {
   time_t ts = from;
-  for (int n = 0; n < valueCnt; n++) {
+  for (size_t n = 0; n < valueCnt; n++) {
     if (!IsValidDataPointValue(values[n])) {
       ts += interval;
       continue;
@@ -113,6 +113,30 @@ ssize_t Metrics::getMaxValueIndex()
   }
 
   return lastMaxValueIndex;
+}
+
+////////////////////////////////////////////////
+// getMinValueIndex
+////////////////////////////////////////////////
+
+ssize_t Metrics::getMinValueIndex()
+{
+  double lastMinValue = NAN;
+  size_t lastMinValueIndex = -1;
+  size_t n = 0;
+  for (auto dp : *this) {
+    if (n == 0) {
+      lastMinValueIndex = 0;
+      lastMinValue = dp->getValue();
+    }
+    else if (dp->getValue() < lastMinValue) {
+      lastMinValueIndex = n;
+      lastMinValue = dp->getValue();
+    }
+    n++;
+  }
+
+  return lastMinValueIndex;
 }
 
 ////////////////////////////////////////////////
