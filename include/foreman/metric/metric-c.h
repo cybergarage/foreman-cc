@@ -103,10 +103,7 @@ typedef void ForemanMetricStore;
 ForemanMetricStore* foreman_metric_store_matrix_create();
 ForemanMetricStore* foreman_metric_store_ringmap_create();
 ForemanMetricStore* foreman_metric_store_sqlite_create();
-
-#if defined(FOREMAN_ENABLE_BERINGEI)
 ForemanMetricStore* foreman_metric_store_tsmap_create();
-#endif
 
 bool foreman_metric_store_delete(ForemanMetricStore* store);
 

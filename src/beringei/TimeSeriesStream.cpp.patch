@@ -1,8 +1,15 @@
-10c10
+10c10,14
 < #include "TimeSeriesStream.h"
 ---
+> #include <foreman/Platform.h>
+> 
+> #if defined(FOREMAN_ENABLE_BERINGEI)
+> 
 > #include <beringei/TimeSeriesStream.h>
-14c14
+14c18
 < #include "BitUtil.h"
 ---
 > #include <beringei/BitUtil.h>
+332a337,338
+> 
+> #endif // FOREMAN_ENABLE_BERINGEI

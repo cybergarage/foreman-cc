@@ -183,8 +183,20 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs, Error* err)
 
     // [1] : Max Value
     auto maxIndex = otherFirstMetrics->getMaxValueIndex();
-    if (0 < maxIndex) {
+    if (0 <= maxIndex) {
       auto maxDp = otherFirstMetrics->getDataPoint(maxIndex);
+      auto dp = new DataPoint();
+      if (dp) {
+        dp->setValue(maxDp->getValue());
+        dp->setTimestamp(maxDp->getTimestamp());
+        rm->addDataPoint(dp);
+      }
+    }
+
+    // [2] : Min Value
+    auto minIndex = otherFirstMetrics->getMinValueIndex();
+    if (0 <= minIndex) {
+      auto maxDp = otherFirstMetrics->getDataPoint(minIndex);
       auto dp = new DataPoint();
       if (dp) {
         dp->setValue(maxDp->getValue());
