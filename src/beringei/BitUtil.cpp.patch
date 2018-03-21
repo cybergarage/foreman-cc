@@ -1,4 +1,11 @@
-10c10
+10c10,14
 < #include "BitUtil.h"
 ---
+> #include <foreman/Platform.h>
+> 
+> #if defined(FOREMAN_ENABLE_BERINGEI)
+> 
 > #include <beringei/BitUtil.h>
+101a106,107
+> 
+> #endif // FOREMAN_ENABLE_BERINGEI
