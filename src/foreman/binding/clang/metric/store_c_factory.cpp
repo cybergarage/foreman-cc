@@ -44,11 +44,11 @@ ForemanMetricStore* foreman_metric_store_sqlite_create()
 // foreman_metric_store_tsmap_create
 ////////////////////////////////////////////////
 
-#if defined(FOREMAN_ENABLE_BERINGEI)
-
 ForemanMetricStore* foreman_metric_store_tsmap_create()
 {
+#if defined(FOREMAN_ENABLE_BERINGEI)
   return new BeringeiStore();
-}
-
+#else
+  return NULL;
 #endif
+}
