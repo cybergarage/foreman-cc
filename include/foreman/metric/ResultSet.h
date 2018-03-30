@@ -56,6 +56,8 @@ public:
       return msArray_.size();
     }
 
+	bool addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt);
+
 private:
     MetricsArray msArray_;
     MetricsArrayIt currIt_;
