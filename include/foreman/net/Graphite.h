@@ -15,9 +15,9 @@
 #include "config.h"
 #endif
 
+#include <ctime>
 #include <memory>
 #include <string>
-#include <time.h>
 
 namespace Foreman {
 

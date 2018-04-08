@@ -10,6 +10,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <ctime>
 
 #include <foreman/Const.h>
 #include <foreman/Platform.h>
@@ -224,4 +225,22 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs, Error* err)
   }
 
   return true;
+}
+
+////////////////////////////////////////////////
+// deleteExpiredMetrics
+////////////////////////////////////////////////
+
+size_t Store::deleteExpiredMetrics()
+{
+  size_t count = 0;
+  time_t now = std::time(nullptr);
+  time_t limit = getRetentionPeriod();
+  for (auto it = metricMap_.begin(); it != metricMap_.end();) {
+    if (std::difftime(now, it->second->timestamp) > limit) {
+      metricMap_.erase(it);
+      count++;
+    }
+  }
+  return count;
 }

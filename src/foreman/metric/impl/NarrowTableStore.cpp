@@ -40,6 +40,7 @@ using namespace Foreman::Metric;
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id and f.name = ? and ts between ? and ?"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_ALL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE "delete from record"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE_BY_TIME "delete from record where ts < ?"
 
 ////////////////////////////////////////////////
 // NarrowTableStore
@@ -296,4 +297,20 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* dataRs)
   }
 
   return true;
+}
+
+size_t NarrowTableStore::deleteExpiredMetrics()
+{
+  if (!isOpened())
+    return 0;
+  sqlite3_stmt* stmt = NULL;
+  if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE_BY_TIME, &stmt))
+    return 0;
+  sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod());
+  if (sqlite3_step(stmt) != SQLITE_DONE) {
+    sqlite3_finalize(stmt);
+    return 0;
+  }
+
+  return sqlite3_changes(db_);
 }

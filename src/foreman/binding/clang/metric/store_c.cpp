@@ -143,3 +143,10 @@ bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQu
 
   return true;
 }
+
+size_t foreman_metric_store_query_delete_expired_metrics(ForemanMetricStore* store)
+{
+  if (!store)
+    return 0;
+  return ((Foreman::Metric::Store*)(store))->deleteExpiredMetrics();
+}
