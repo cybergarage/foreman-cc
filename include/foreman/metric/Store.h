@@ -50,6 +50,8 @@ public:
 
     virtual bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
+    virtual size_t deleteExpiredMetrics();
+
 protected:
     MetricMap metricMap_;
     time_t retentionInterval_;

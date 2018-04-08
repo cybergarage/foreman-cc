@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_METRIC_SQLITETORE_H_
 #define _FOREMANCC_METRIC_SQLITETORE_H_
 
-#include <time.h>
+#include <ctime>
 
 #include <sqlite3.h>
 
@@ -62,6 +62,8 @@ public:
     bool queryMetric(Query* q, ResultSet* rs);
     bool addData(const Metric& m);
     bool queryData(Query* q, ResultSet* rs);
+
+    virtual size_t deleteExpiredMetrics();
 
 private:
     bool querySingleData(Query* q, ResultSet* rs);
