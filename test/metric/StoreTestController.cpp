@@ -184,7 +184,7 @@ Foreman:
 
       for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
         size_t mCount = m->size();
-        BOOST_CHECK_EQUAL(mCount, 2);
+        BOOST_CHECK(2 <= mCount);
         if (mCount < 2)
           continue;
         auto corr = m->getDataPoint(0);
