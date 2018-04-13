@@ -511,6 +511,7 @@
 				OTHER_LDFLAGS = (
 					"-lsqlite3",
 					"-lgflags",
+					"-lglog",
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
@@ -572,6 +573,7 @@
 				OTHER_LDFLAGS = (
 					"-lsqlite3",
 					"-lgflags",
+					"-lglog",
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
