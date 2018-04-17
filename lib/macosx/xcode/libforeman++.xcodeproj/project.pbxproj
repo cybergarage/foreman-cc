@@ -58,7 +58,6 @@
 		215EDC691FB04A22006DF3AE /* BeringeiTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */; };
 		215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */; };
 		215EDC6B1FB04A22006DF3AE /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5D1FB04A22006DF3AE /* MemStore.cpp */; };
-		215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5E1FB04A22006DF3AE /* MatrixStore.cpp */; };
 		215EDC6D1FB04A22006DF3AE /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */; };
 		215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC601FB04A22006DF3AE /* SQLiteStore.cpp */; };
 		215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC611FB04A22006DF3AE /* TSmapStore.cpp */; };
@@ -112,7 +111,6 @@
 		21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09E1FB07ABD00982715 /* GraphiteStore.h */; };
 		21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09F1FB07ABD00982715 /* MemStore.h */; };
 		21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0A81FB0870F00982715 /* RingMapStore.h */; };
-		21ABA0AB1FB0871000982715 /* MatrixStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0A91FB0871000982715 /* MatrixStore.h */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21BA40CD201EECA40083998C /* objects_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40C7201EECA40083998C /* objects_c.cpp */; };
 		21BA40CE201EECA40083998C /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40C8201EECA40083998C /* store_c.cpp */; };
@@ -197,7 +195,6 @@
 		215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeringeiTimeSeries.cpp; path = impl/BeringeiTimeSeries.cpp; sourceTree = "<group>"; };
 		215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayTimeSeries.cpp; path = impl/ArrayTimeSeries.cpp; sourceTree = "<group>"; };
 		215EDC5D1FB04A22006DF3AE /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStore.cpp; path = impl/MemStore.cpp; sourceTree = "<group>"; };
-		215EDC5E1FB04A22006DF3AE /* MatrixStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MatrixStore.cpp; path = impl/MatrixStore.cpp; sourceTree = "<group>"; };
 		215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphiteStore.cpp; path = impl/GraphiteStore.cpp; sourceTree = "<group>"; };
 		215EDC601FB04A22006DF3AE /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLiteStore.cpp; path = impl/SQLiteStore.cpp; sourceTree = "<group>"; };
 		215EDC611FB04A22006DF3AE /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSmapStore.cpp; path = impl/TSmapStore.cpp; sourceTree = "<group>"; };
@@ -251,7 +248,6 @@
 		21ABA09E1FB07ABD00982715 /* GraphiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphiteStore.h; path = impl/GraphiteStore.h; sourceTree = "<group>"; };
 		21ABA09F1FB07ABD00982715 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = impl/MemStore.h; sourceTree = "<group>"; };
 		21ABA0A81FB0870F00982715 /* RingMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingMapStore.h; path = impl/RingMapStore.h; sourceTree = "<group>"; };
-		21ABA0A91FB0871000982715 /* MatrixStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatrixStore.h; path = impl/MatrixStore.h; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21BA40C7201EECA40083998C /* objects_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objects_c.cpp; path = binding/clang/registry/objects_c.cpp; sourceTree = "<group>"; };
 		21BA40C8201EECA40083998C /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = binding/clang/registry/store_c.cpp; sourceTree = "<group>"; };
@@ -441,7 +437,6 @@
 				215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */,
 				215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */,
 				215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */,
-				215EDC5E1FB04A22006DF3AE /* MatrixStore.cpp */,
 				215EDC5D1FB04A22006DF3AE /* MemStore.cpp */,
 				215EDC621FB04A22006DF3AE /* NarrowTableStore.cpp */,
 				215EDC631FB04A22006DF3AE /* RingArrayTimeSeries.cpp */,
@@ -609,7 +604,6 @@
 		21ABA0971FB07AB200982715 /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				21ABA0A91FB0871000982715 /* MatrixStore.h */,
 				21ABA0A81FB0870F00982715 /* RingMapStore.h */,
 				21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */,
 				21ABA0981FB07ABC00982715 /* BeringeiStore.h */,
@@ -740,7 +734,6 @@
 				2188DBE41FB00AEE00940208 /* Query.h in Headers */,
 				2113F1A3201FA07300F5C672 /* ObjectMap.h in Headers */,
 				2113F192201FA02600F5C672 /* action-c.h in Headers */,
-				21ABA0AB1FB0871000982715 /* MatrixStore.h in Headers */,
 				2113F191201FA02600F5C672 /* Engine.h in Headers */,
 				2113F194201FA02600F5C672 /* Method.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
@@ -857,7 +850,6 @@
 				214FA5122080A6B60082CEED /* BitUtil.cpp in Sources */,
 				217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */,
 				21BA40E0201EECBD0083998C /* datapoint_c.cpp in Sources */,
-				215EDC6C1FB04A22006DF3AE /* MatrixStore.cpp in Sources */,
 				215EDC681FB04A22006DF3AE /* TimeSeries.cpp in Sources */,
 				2117C4EE1FB3158400F7ACF9 /* UUID.cpp in Sources */,
 				2129D1A51E96A64E00FCA490 /* Graphite.cpp in Sources */,

@@ -100,7 +100,6 @@ bool foreman_metric_resultset_delete(ForemanMetricResultSet* rs);
 
 typedef void ForemanMetricStore;
 
-ForemanMetricStore* foreman_metric_store_matrix_create();
 ForemanMetricStore* foreman_metric_store_ringmap_create();
 ForemanMetricStore* foreman_metric_store_sqlite_create();
 ForemanMetricStore* foreman_metric_store_tsmap_create();

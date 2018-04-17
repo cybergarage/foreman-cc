@@ -13,7 +13,6 @@
 
 #include <foreman/metric/impl/BeringeiStore.h>
 #include <foreman/metric/impl/GraphiteStore.h>
-#include <foreman/metric/impl/MatrixStore.h>
 #include <foreman/metric/impl/RingMapStore.h>
 #include <foreman/metric/impl/SQLiteStore.h>
 
