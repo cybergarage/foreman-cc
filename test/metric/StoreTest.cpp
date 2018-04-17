@@ -21,19 +21,6 @@ using namespace Foreman::Metric;
 BOOST_AUTO_TEST_SUITE(metric)
 
 ////////////////////////////////////////////////
-// MatrixStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(MatrixStoreTest)
-{
-  StoreTestContoller testController;
-
-  MemStore* store = new MatrixStore();
-  testController.run(store);
-  delete store;
-}
-
-////////////////////////////////////////////////
 // RingMapStore
 ////////////////////////////////////////////////
 

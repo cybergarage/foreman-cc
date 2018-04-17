@@ -131,24 +131,6 @@ BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::NarrowTableStore)
     ->Arg(32);
 
 ////////////////////////////////////////////////
-// MatrixStore
-////////////////////////////////////////////////
-
-BENCHMARK_TEMPLATE(ForemanStoreWrite, Foreman::Metric::MatrixStore)
-    ->Arg(1)
-    ->Arg(4)
-    ->Arg(8)
-    ->Arg(16)
-    ->Arg(32);
-
-BENCHMARK_TEMPLATE(ForemanStoreRead, Foreman::Metric::MatrixStore)
-    ->Arg(1)
-    ->Arg(4)
-    ->Arg(8)
-    ->Arg(16)
-    ->Arg(32);
-
-////////////////////////////////////////////////
 // TSmapStore
 ////////////////////////////////////////////////
 

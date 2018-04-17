@@ -53,9 +53,7 @@ int main(int argc, char* argv[])
 
   Foreman::Metric::Store* store = nullptr;
   std::string storeType = argv[1];
-  if (storeType.compare("matrix") == 0)
-    store = new Foreman::Metric::MatrixStore();
-  else if (storeType.compare("ringmap") == 0)
+  if (storeType.compare("ringmap") == 0)
     store = new Foreman::Metric::RingMapStore();
   else if (storeType.compare("narrowtable") == 0)
     store = new Foreman::Metric::NarrowTableStore();
