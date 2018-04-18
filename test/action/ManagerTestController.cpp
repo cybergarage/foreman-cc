@@ -35,7 +35,7 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
-  //testHello(mgr);
+  testHello(mgr);
   testRegister(mgr);
 
   BOOST_CHECK(regStore.close());
