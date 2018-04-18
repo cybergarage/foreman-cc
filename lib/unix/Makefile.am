@@ -79,7 +79,6 @@ foremancc_sources = \
 	../../src/foreman/metric/impl/TimeSeriesMap.cpp \
 	../../src/foreman/metric/impl/RingArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/RingMapStore.cpp \
-	../../src/foreman/metric/impl/MemStore.cpp \
 	../../src/foreman/metric/impl/ArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/GraphiteStore.cpp \
 	../../src/foreman/metric/impl/SQLiteStore.cpp \

@@ -41,6 +41,7 @@ using namespace Foreman::Metric;
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_SELECT_ALL "select f.name, r.val, r.ts from factor f, record r where f.rowid = r.id"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE "delete from record"
 #define FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE_BY_TIME "delete from record where ts < ?"
+#define FOREMANCC_METRIC_SQLITESOTORE_RECORD_RECORD_COUNT "select count(*) from record"
 
 ////////////////////////////////////////////////
 // NarrowTableStore
@@ -77,12 +78,9 @@ bool NarrowTableStore::open()
 // clear
 ////////////////////////////////////////////////
 
-bool NarrowTableStore::clear()
+void NarrowTableStore::clear()
 {
-  if (!query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE))
-    return false;
-
-  return true;
+  query(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE);
 }
 
 ////////////////////////////////////////////////
@@ -127,7 +125,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
     return false;
   sm->name = m->name;
   sm->rowId = rowId;
-  return MemStore::addMetric(std::shared_ptr<Foreman::Metric::Metric>(sm));
+  return true;
 }
 
 ////////////////////////////////////////////////
@@ -227,6 +225,15 @@ bool NarrowTableStore::addData(const Metric& m)
   return true;
 }
 
+bool NarrowTableStore::addData(const MetricArray& values)
+{
+  for (auto m : values) {
+    if (!addData(*m))
+      return false;
+  }
+  return true;
+}
+
 ////////////////////////////////////////////////
 // queryData
 ////////////////////////////////////////////////
@@ -299,6 +306,10 @@ bool NarrowTableStore::queryData(Query* q, ResultSet* dataRs)
   return true;
 }
 
+////////////////////////////////////////////////
+// deleteExpiredMetrics
+////////////////////////////////////////////////
+
 size_t NarrowTableStore::deleteExpiredMetrics()
 {
   if (!isOpened())
@@ -306,11 +317,25 @@ size_t NarrowTableStore::deleteExpiredMetrics()
   sqlite3_stmt* stmt = NULL;
   if (!prepare(FOREMANCC_METRIC_SQLITESOTORE_RECORD_TRUNCATE_BY_TIME, &stmt))
     return 0;
-  sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod());
+  if (sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod()) != SQLITE_OK) {
+    return 0;
+  }
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
     return 0;
   }
+  sqlite3_finalize(stmt);
 
   return sqlite3_changes(db_);
+}
+
+bool NarrowTableStore::analyzeData(Query* q, ResultSet* rs, Error* err)
+{
+  // TODO
+  return true;
+}
+
+std::shared_ptr<Metric> NarrowTableStore::findMetric(const std::string name)
+{
+  return nullptr;
 }

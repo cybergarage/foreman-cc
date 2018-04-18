@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
   StoreTestContoller testController;
 
-  MemStore* store = new RingMapStore();
+  Store* store = new RingMapStore();
   testController.run(store);
   delete store;
 }
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 {
   StoreTestContoller testController;
 
-  MemStore* store = new NarrowTableStore();
+  Store* store = new NarrowTableStore();
   testController.run(store);
   delete store;
 }
@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
 {
   StoreTestContoller testController;
 
-  MemStore* store = new BeringeiStore();
+  Store* store = new BeringeiStore();
   testController.run(store);
   delete store;
 }

@@ -15,7 +15,7 @@
 
 #include <sqlite3.h>
 
-#include <foreman/metric/impl/MemStore.h>
+#include <foreman/metric/Store.h>
 
 namespace Foreman {
 namespace Metric {
@@ -30,7 +30,7 @@ public:
     int rowId;
   };
 
-  class SQLiteStore : public MemStore {
+  class SQLiteStore : public Store {
 public:
     SQLiteStore();
     ~SQLiteStore();
@@ -57,16 +57,19 @@ public:
     ~NarrowTableStore();
 
     bool open();
-    bool clear();
+    void clear();
     bool addMetric(std::shared_ptr<Metric> m);
     bool queryMetric(Query* q, ResultSet* rs);
     bool addData(const Metric& m);
+    bool addData(const MetricArray& values);
     bool queryData(Query* q, ResultSet* rs);
+    bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
     virtual size_t deleteExpiredMetrics();
 
 private:
     bool querySingleData(Query* q, ResultSet* rs);
+    std::shared_ptr<Metric> findMetric(const std::string name);
   };
 }
 }
