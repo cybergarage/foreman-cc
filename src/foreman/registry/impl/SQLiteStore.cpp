@@ -15,14 +15,14 @@
 
 using namespace Foreman::Registry;
 
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE "registry"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, prop text, primary key(id))"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data, prop) values (?, ?, ?, ?, ?)"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE "update registry set name = ?, data = ?, prop = ? where id = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE "delete from registry where id = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID "select pid, name, data, prop from registry where id = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, data, prop from registry where pid = ?"
-#define FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TRUNCATE "delete from registry"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_TABLE "registry"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_TABLE_DDL "create table if not exists registry (id text, name text, pid text, data text, prop text, primary key(id))"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_CREATE "insert into registry (id, pid, name, data, prop) values (?, ?, ?, ?, ?)"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_UPDATE "update registry set name = ?, data = ?, prop = ? where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_DELETE "delete from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_SELECT_BY_ID "select pid, name, data, prop from registry where id = ?"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_SELECT_BY_PARENTID "select id, name, data, prop from registry where pid = ?"
+#define FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_TRUNCATE "delete from registry"
 
 ////////////////////////////////////////////////
 // SQLiteStore
@@ -70,7 +70,7 @@ bool SQLiteStore::open()
   if (sqlite3_open(":memory:", &db_) != SQLITE_OK)
     return false;
 
-  if (!query(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TABLE_DDL))
+  if (!query(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_TABLE_DDL))
     return false;
 
   return true;
@@ -109,7 +109,7 @@ bool SQLiteStore::close()
 
 bool SQLiteStore::clear()
 {
-  if (!query(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_TRUNCATE))
+  if (!query(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_TRUNCATE))
     return false;
 
   return true;
@@ -182,7 +182,7 @@ bool SQLiteStore::createObject(Object* obj, Error* err)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_CREATE, &stmt)) {
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_CREATE, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
@@ -217,7 +217,7 @@ bool SQLiteStore::updateObject(Object* obj, Error* err)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_UPDATE, &stmt)) {
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_UPDATE, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
@@ -250,7 +250,7 @@ bool SQLiteStore::getObject(const std::string& objId, Object* obj, Error* err)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_ID, &stmt)) {
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_SELECT_BY_ID, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
@@ -294,7 +294,7 @@ bool SQLiteStore::deleteObject(const std::string& objId, Error* err)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_DELETE, &stmt)) {
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_DELETE, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
@@ -324,7 +324,7 @@ bool SQLiteStore::browse(Query* q, Objects* objs, Error* err)
 
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_REGISTRY_SQLITESOTORE_REGISTRY_SELECT_BY_PARENTID, &stmt)) {
+  if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_SELECT_BY_PARENTID, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     setLastDetailError(err);
     return false;
