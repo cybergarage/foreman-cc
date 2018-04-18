@@ -69,7 +69,7 @@ public:
 
 private:
     bool querySingleData(Query* q, ResultSet* rs);
-    std::shared_ptr<Metric> findMetric(const std::string name);
+    bool findMetric(const std::string name, int& rowId);
   };
 }
 }

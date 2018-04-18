@@ -29,6 +29,7 @@ StoreTestContoller::~StoreTestContoller() {}
 void StoreTestContoller::run(Foreman::Metric::Store* store)
 {
 Foreman:
+  bool result;
   Error err;
   auto tsStore = dynamic_cast<Foreman::Metric::TimeSeriesMapStore*>(store);
   auto sqlStore = dynamic_cast<Foreman::Metric::SQLiteStore*>(store);
@@ -136,16 +137,19 @@ Foreman:
 
     Foreman::Metric::ResultSet rs;
 
-    BOOST_CHECK(store->queryData(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getMetricsCount(), 1);
+    result = store->queryData(&q, &rs);
+    BOOST_CHECK(result);
+    if (result) {
+      BOOST_CHECK_EQUAL(rs.getMetricsCount(), 1);
 
-    for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
-      size_t mCount = m->size();
-      BOOST_CHECK_EQUAL(mCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
-      for (size_t n = 0; n < mCount; n++) {
-        auto dp = m->getDataPoint(n);
-        if (dp->getValue() != n) {
-          BOOST_CHECK_EQUAL(dp->getValue(), n);
+      for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
+        size_t mCount = m->size();
+        BOOST_CHECK_EQUAL(mCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+        for (size_t n = 0; n < mCount; n++) {
+          auto dp = m->getDataPoint(n);
+          if (dp->getValue() != n) {
+            BOOST_CHECK_EQUAL(dp->getValue(), n);
+          }
         }
       }
     }
