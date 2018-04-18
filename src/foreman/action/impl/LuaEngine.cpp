@@ -65,6 +65,14 @@ bool Foreman::Action::LuaEngine::popString(std::string* result) const
   if (nStack <= 0)
     return false;
 
+  /*
+  if (lua_istable(this->luaState, -1)) {
+    *result = lua_tostring(this->luaState, -1);
+    lua_pop(this->luaState, 1);
+    return true;
+  }
+   */
+  
   if (lua_isstring(this->luaState, -1)) {
     *result = lua_tostring(this->luaState, -1);
     lua_pop(this->luaState, 1);
@@ -170,12 +178,35 @@ bool Foreman::Action::LuaEngine::run(Method* method, const Parameters* params, P
   nStack = lua_gettop(this->luaState);
 
   lua_getglobal(this->luaState, method->getName().c_str());
-  // FIXME
-  //lua_pushstring(this->luaState, params.c_str());
 
+  /*
+  lua_newtable(this->luaState);
+  for (auto param : *params) {
+    lua_pushstring(this->luaState, param->getName());
+    switch (param->getType()) {
+      case IntegerType: {
+        auto iparam = dynamic_cast<const Integer*>((*param));
+        lua_pushinteger(this->luaState, iparam->getValue());
+      } break;
+      case RealType: {
+        auto rparam = dynamic_cast<const Real*>(*param);
+      } break;
+      case BoolType: {
+        auto bparam = dynamic_cast<const Bool*>(*param);
+      } break;
+      case StringType: {
+        auto sparam = dynamic_cast<const String*>(*param);
+      } break;
+      default:
+        return false;
+    }
+    lua_settable(this->luaState, -3);
+  }
+  */
+  
   nStack = lua_gettop(this->luaState);
 
-  int callResult = lua_pcall(this->luaState, 1, 1, 0);
+  int callResult = lua_pcall(this->luaState, 2, 2, 0);
   nStack = lua_gettop(this->luaState);
   if (callResult == 0) {
     // FIXME
