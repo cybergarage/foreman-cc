@@ -9,8 +9,9 @@
  ******************************************************************/
 
 #include <algorithm>
+#include <cstdio>
+#include <iostream>
 #include <sqlite3.h>
-#include <stdio.h>
 
 #include <foreman/Const.h>
 #include <foreman/metric/impl/SQLiteStore.h>
@@ -115,17 +116,8 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
     return false;
   }
 
-  int rowId = sqlite3_column_int(stmt, 0);
-  sqlite3_finalize(stmt);
-
-  // Insert a metric
-
-  SQLiteMetric* sm = new SQLiteMetric();
-  if (!sm)
-    return false;
-  sm->name = m->name;
-  sm->rowId = rowId;
-  return true;
+  int rowId = 1;
+  return findMetric(m->name, rowId);
 }
 
 ////////////////////////////////////////////////
@@ -174,15 +166,9 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
 
 bool NarrowTableStore::addData(const Metric& m)
 {
-  std::shared_ptr<Metric> mm = findMetric(m.name);
-  if (!mm)
+  int rowId = -1;
+  if (!findMetric(m.name, rowId))
     return false;
-
-  SQLiteMetric* sm = dynamic_cast<SQLiteMetric*>(mm.get());
-  if (!sm)
-    return false;
-
-  int rowId = sm->rowId;
 
   // Revise Timestamp
 
@@ -335,7 +321,21 @@ bool NarrowTableStore::analyzeData(Query* q, ResultSet* rs, Error* err)
   return true;
 }
 
-std::shared_ptr<Metric> NarrowTableStore::findMetric(const std::string name)
+bool NarrowTableStore::findMetric(const std::string name, int& rowId)
 {
-  return nullptr;
+  if (!isOpened())
+    return false;
+  sqlite3_stmt* stmt = NULL;
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, &stmt))
+    return false;
+  if (sqlite3_bind_text(stmt, 1, name.c_str(), name.length(), SQLITE_TRANSIENT) != SQLITE_OK) {
+    return false;
+  }
+  if (sqlite3_step(stmt) != SQLITE_ROW) {
+    sqlite3_finalize(stmt);
+    return false;
+  }
+  rowId = sqlite3_column_int(stmt, 0);
+  sqlite3_finalize(stmt);
+  return true;
 }
