@@ -269,8 +269,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
 foremanbench_SOURCES = \
-	..//BenchmarkController.cpp \
-	..//foremanbench.cpp
+	../BenchmarkController.cpp \
+	../foremanbench.cpp
 
 foremanbench_LDADD = ../../../lib/unix/libforeman++.a
 all: all-am
@@ -608,7 +608,7 @@ uninstall-am: uninstall-binPROGRAMS
 
 .PRECIOUS: Makefile
 
-	..//BenchmarkController.h
+	../BenchmarkController.h
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

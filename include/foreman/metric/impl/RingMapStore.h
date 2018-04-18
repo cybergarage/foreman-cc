@@ -35,7 +35,8 @@ public:
     bool open();
     bool isOpened();
     bool close();
-    bool realloc();
+
+    size_t deleteExpiredMetrics();
   };
 }
 }
