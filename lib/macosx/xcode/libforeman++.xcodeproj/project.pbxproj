@@ -57,7 +57,6 @@
 		215EDC681FB04A22006DF3AE /* TimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5A1FB04A21006DF3AE /* TimeSeries.cpp */; };
 		215EDC691FB04A22006DF3AE /* BeringeiTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */; };
 		215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */; };
-		215EDC6B1FB04A22006DF3AE /* MemStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5D1FB04A22006DF3AE /* MemStore.cpp */; };
 		215EDC6D1FB04A22006DF3AE /* GraphiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */; };
 		215EDC6E1FB04A22006DF3AE /* SQLiteStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC601FB04A22006DF3AE /* SQLiteStore.cpp */; };
 		215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215EDC611FB04A22006DF3AE /* TSmapStore.cpp */; };
@@ -109,7 +108,6 @@
 		21ABA0A41FB07ABD00982715 /* TimeSeriesMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09C1FB07ABD00982715 /* TimeSeriesMapStore.h */; };
 		21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09D1FB07ABD00982715 /* StoreImpl.h */; };
 		21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09E1FB07ABD00982715 /* GraphiteStore.h */; };
-		21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09F1FB07ABD00982715 /* MemStore.h */; };
 		21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0A81FB0870F00982715 /* RingMapStore.h */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21BA40CD201EECA40083998C /* objects_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40C7201EECA40083998C /* objects_c.cpp */; };
@@ -194,7 +192,6 @@
 		215EDC5A1FB04A21006DF3AE /* TimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeSeries.cpp; path = impl/TimeSeries.cpp; sourceTree = "<group>"; };
 		215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeringeiTimeSeries.cpp; path = impl/BeringeiTimeSeries.cpp; sourceTree = "<group>"; };
 		215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayTimeSeries.cpp; path = impl/ArrayTimeSeries.cpp; sourceTree = "<group>"; };
-		215EDC5D1FB04A22006DF3AE /* MemStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemStore.cpp; path = impl/MemStore.cpp; sourceTree = "<group>"; };
 		215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphiteStore.cpp; path = impl/GraphiteStore.cpp; sourceTree = "<group>"; };
 		215EDC601FB04A22006DF3AE /* SQLiteStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SQLiteStore.cpp; path = impl/SQLiteStore.cpp; sourceTree = "<group>"; };
 		215EDC611FB04A22006DF3AE /* TSmapStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSmapStore.cpp; path = impl/TSmapStore.cpp; sourceTree = "<group>"; };
@@ -246,7 +243,6 @@
 		21ABA09C1FB07ABD00982715 /* TimeSeriesMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeriesMapStore.h; path = impl/TimeSeriesMapStore.h; sourceTree = "<group>"; };
 		21ABA09D1FB07ABD00982715 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = impl/StoreImpl.h; sourceTree = "<group>"; };
 		21ABA09E1FB07ABD00982715 /* GraphiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphiteStore.h; path = impl/GraphiteStore.h; sourceTree = "<group>"; };
-		21ABA09F1FB07ABD00982715 /* MemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemStore.h; path = impl/MemStore.h; sourceTree = "<group>"; };
 		21ABA0A81FB0870F00982715 /* RingMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingMapStore.h; path = impl/RingMapStore.h; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21BA40C7201EECA40083998C /* objects_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objects_c.cpp; path = binding/clang/registry/objects_c.cpp; sourceTree = "<group>"; };
@@ -437,7 +433,6 @@
 				215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */,
 				215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */,
 				215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */,
-				215EDC5D1FB04A22006DF3AE /* MemStore.cpp */,
 				215EDC621FB04A22006DF3AE /* NarrowTableStore.cpp */,
 				215EDC631FB04A22006DF3AE /* RingArrayTimeSeries.cpp */,
 				215EDC581FB04A21006DF3AE /* RingMapStore.cpp */,
@@ -608,7 +603,6 @@
 				21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */,
 				21ABA0981FB07ABC00982715 /* BeringeiStore.h */,
 				21ABA09E1FB07ABD00982715 /* GraphiteStore.h */,
-				21ABA09F1FB07ABD00982715 /* MemStore.h */,
 				21ABA09A1FB07ABD00982715 /* SQLiteStore.h */,
 				21ABA09D1FB07ABD00982715 /* StoreImpl.h */,
 				21ABA09B1FB07ABD00982715 /* TimeSeries.h */,
@@ -778,7 +772,6 @@
 				21248009201FF882006D9187 /* GlobalObject.h in Headers */,
 				214FA51B2080A7EA0082CEED /* BitUtil.h in Headers */,
 				216DE7C41FD69A5900475938 /* metric-c.h in Headers */,
-				21ABA0A71FB07ABD00982715 /* MemStore.h in Headers */,
 				2113F193201FA02600F5C672 /* Manager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -896,7 +889,6 @@
 				2187B6D01FC5ACA800E2234D /* MethodMap.cpp in Sources */,
 				2144751F202C54C4002255FB /* Metrics.cpp in Sources */,
 				21BA40DA201EECBD0083998C /* resultset_c.cpp in Sources */,
-				215EDC6B1FB04A22006DF3AE /* MemStore.cpp in Sources */,
 				21BA40E9201EECDA0083998C /* parameters_c.cpp in Sources */,
 				21BA40CD201EECA40083998C /* objects_c.cpp in Sources */,
 				21BA40DC201EECBD0083998C /* metric_c.cpp in Sources */,
