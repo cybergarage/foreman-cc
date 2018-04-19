@@ -65,28 +65,28 @@ bool Foreman::Action::LuaEngine::pushParameters(const Parameters* params)
   for (auto param : *params) {
     lua_pushstring(this->luaState, param->getName());
     switch (param->getType()) {
-      case IntegerType: {
-        auto iparam = dynamic_cast<const Integer*>(param.get());
-        lua_pushinteger(this->luaState, iparam->getValue());
-      } break;
-      case RealType: {
-        auto rparam = dynamic_cast<const Real*>(param.get());
-        lua_pushnumber(this->luaState, rparam->getValue());
-      } break;
-      case BoolType: {
-        auto bparam = dynamic_cast<const Bool*>(param.get());
-        lua_pushboolean(this->luaState, bparam->getValue());
-      } break;
-      case StringType: {
-        auto sparam = dynamic_cast<const String*>(param.get());
-        lua_pushstring(this->luaState, sparam->getValue().c_str());
-      } break;
-      default:
-        return false;
+    case IntegerType: {
+      auto iparam = dynamic_cast<const Integer*>(param.get());
+      lua_pushinteger(this->luaState, iparam->getValue());
+    } break;
+    case RealType: {
+      auto rparam = dynamic_cast<const Real*>(param.get());
+      lua_pushnumber(this->luaState, rparam->getValue());
+    } break;
+    case BoolType: {
+      auto bparam = dynamic_cast<const Bool*>(param.get());
+      lua_pushboolean(this->luaState, bparam->getValue());
+    } break;
+    case StringType: {
+      auto sparam = dynamic_cast<const String*>(param.get());
+      lua_pushstring(this->luaState, sparam->getValue().c_str());
+    } break;
+    default:
+      return false;
     }
     lua_settable(this->luaState, -3);
   }
-  
+
   return true;
 }
 
@@ -160,22 +160,22 @@ bool Foreman::Action::LuaEngine::popParameters(Parameters* params)
 
     auto name = lua_tostring(this->luaState, -1);
 
-    Parameter *param = NULL;
+    Parameter* param = NULL;
     if (lua_isstring(this->luaState, -2)) {
       param = new String();
-      ((String *)param)->setValue(lua_tostring(this->luaState, -2));
+      ((String*)param)->setValue(lua_tostring(this->luaState, -2));
     }
     else if (lua_isboolean(this->luaState, -2)) {
       param = new Bool();
-      ((Bool *)param)->setValue(lua_toboolean(this->luaState, -2));
+      ((Bool*)param)->setValue(lua_toboolean(this->luaState, -2));
     }
     else if (lua_isnumber(this->luaState, -2)) {
       param = new Real();
-      ((Real *)param)->setValue(lua_tonumber(this->luaState, -2));
+      ((Real*)param)->setValue(lua_tonumber(this->luaState, -2));
     }
     else if (lua_isinteger(this->luaState, -2)) {
       param = new Integer();
-      ((Integer *)param)->setValue(lua_tointeger(this->luaState, -2));
+      ((Integer*)param)->setValue(lua_tointeger(this->luaState, -2));
     }
 
     if (param) {
@@ -241,7 +241,7 @@ bool Foreman::Action::LuaEngine::run(Method* method, const Parameters* params, P
     unlock();
     return false;
   }
-  
+
   nStack = lua_gettop(this->luaState);
 
   bool isSuccess = false;
