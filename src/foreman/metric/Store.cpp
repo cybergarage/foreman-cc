@@ -10,6 +10,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <ctime>
 
 #include <foreman/Const.h>
 #include <foreman/Platform.h>
@@ -75,38 +76,6 @@ time_t Store::getRetentionPeriod()
 {
   return retentionPeriod_;
 };
-
-////////////////////////////////////////////////
-// addMetric
-////////////////////////////////////////////////
-
-bool Store::addMetric(std::shared_ptr<Foreman::Metric::Metric> m)
-{
-  return metricMap_.addMetric(m);
-}
-
-////////////////////////////////////////////////
-// findMetric
-////////////////////////////////////////////////
-
-std::shared_ptr<Metric> Store::findMetric(const std::string& name)
-{
-  return metricMap_.findMetric(name);
-}
-
-////////////////////////////////////////////////
-// addValues
-////////////////////////////////////////////////
-
-bool Store::addData(const MetricArray& values)
-{
-  for (auto value : values) {
-    if (!addData(*value))
-      return false;
-  }
-
-  return true;
-}
 
 ////////////////////////////////////////////////
 // analyzeData

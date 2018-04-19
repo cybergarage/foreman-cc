@@ -27,12 +27,21 @@ TimeSeriesMapStore::~TimeSeriesMapStore()
 }
 
 ////////////////////////////////////////////////
-// addValue
+// addData
 ////////////////////////////////////////////////
 
 bool TimeSeriesMapStore::addData(const Metric& m)
 {
   return tsMap_->addValue(m);
+}
+
+bool TimeSeriesMapStore::addData(const MetricArray& values)
+{
+  for (auto m : values) {
+    if (!addData(*m))
+      return false;
+  }
+  return true;
 }
 
 ////////////////////////////////////////////////
@@ -67,4 +76,17 @@ bool TimeSeriesMapStore::queryMetric(Query* q, ResultSet* rs)
 bool TimeSeriesMapStore::queryData(Query* q, ResultSet* rs)
 {
   return tsMap_->getValues(q, rs);
+}
+
+size_t TimeSeriesMapStore::getColumnCount()
+{
+  if (retentionInterval_ == 0)
+    return 0;
+  return (int)(ceil(((double)retentionPeriod_ / (double)retentionInterval_)));
+}
+
+bool TimeSeriesMapStore::addMetric(std::shared_ptr<Metric> m)
+{
+  // TODO
+  return true;
 }

@@ -111,12 +111,13 @@ time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store);
 
 bool foreman_metric_store_open(ForemanMetricStore* store);
 bool foreman_metric_store_close(ForemanMetricStore* store);
-bool foreman_metric_store_clear(ForemanMetricStore* store);
+void foreman_metric_store_clear(ForemanMetricStore* store);
 
 bool foreman_metric_store_addmetric(ForemanMetricStore* store, ForemanMetric* m);
 bool foreman_metric_store_querymetric(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 bool foreman_metric_store_querydata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs);
 bool foreman_metric_store_analyzedata(ForemanMetricStore* store, ForemanMetricQuery* q, ForemanMetricResultSet* rs, ForemanError* err);
+size_t foreman_metric_store_query_delete_expired_metrics(ForemanMetricStore* store);
 
 #ifdef __cplusplus
 }

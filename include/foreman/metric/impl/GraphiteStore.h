@@ -13,7 +13,6 @@
 
 #if defined(FOREMAN_ENABLE_GRAPHITE)
 
-#include <foreman/metric/impl/MemStore.h>
 #include <foreman/net/Graphite.h>
 
 namespace Foreman {
@@ -23,7 +22,7 @@ namespace Metric {
   // GraphiteStore
   ////////////////////////////////////////////////
 
-  class GraphiteStore : public MemStore {
+  class GraphiteStore : public Store {
 public:
     GraphiteStore();
     ~GraphiteStore();

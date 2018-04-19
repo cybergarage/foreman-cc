@@ -39,6 +39,8 @@ public:
 
     bool open();
     bool close();
+
+    size_t deleteExpiredMetrics();
   };
 
   ////////////////////////////////////////////////

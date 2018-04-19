@@ -11,7 +11,7 @@
 #ifndef _FOREMANCC_METRIC_TIMESERIESMAP_STORE_H_
 #define _FOREMANCC_METRIC_TIMESERIESMAP_STORE_H_
 
-#include <foreman/metric/impl/MemStore.h>
+#include <foreman/metric/Store.h>
 #include <foreman/metric/impl/TimeSeries.h>
 
 namespace Foreman {
@@ -21,18 +21,26 @@ namespace Metric {
   // TimeSeriesMapStore
   ////////////////////////////////////////////////
 
-  class TimeSeriesMapStore : public MemStore {
+  class TimeSeriesMapStore : public Store {
+protected:
+    std::shared_ptr<TimeSeriesMap> tsMap_;
+    size_t getColumnCount();
+
 public:
     TimeSeriesMapStore();
     virtual ~TimeSeriesMapStore();
 
+    bool addMetric(std::shared_ptr<Metric> m);
     bool queryMetric(Query* q, ResultSet* rs);
 
     bool addData(const Metric& m);
+    bool addData(const MetricArray& values);
     bool queryData(Query* q, ResultSet* rs);
 
-protected:
-    std::shared_ptr<TimeSeriesMap> tsMap_;
+    virtual void clear()
+    {
+      tsMap_->clear();
+    }
   };
 }
 }
