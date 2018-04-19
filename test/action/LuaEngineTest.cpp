@@ -55,7 +55,10 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
   static const char* LUA_GET_REGISTRY_CODE = "function " FOREMANCC_SCRIPT_GET_REGISTER_METHOD "(params)\n"
                                              "  results = {}\n"
                                              "  for k, v in ipairs(params) do\n"
-                                             "    results[k] = " FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(k)\n"
+                                             "    ok, r = " FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(k)\n"
+                                             "    if ok then\n"
+                                             "      results[k] = r\n"
+                                             "    end\n"
                                              "  end\n"
                                              "  return true, results\n"
                                              "end";

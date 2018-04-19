@@ -118,7 +118,7 @@ void ManagerTestController::testRegister(Manager* mgr)
     BOOST_CHECK(retString);
     BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
   }
-  
+
   // Remove registry
 
   // FIXME : Python error
