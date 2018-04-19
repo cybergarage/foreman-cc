@@ -71,7 +71,7 @@ private:
     bool popBoolean(bool* result) const;
     bool popParameters(Parameters* params);
     bool popError(Error* error) const;
-    
+
     lua_State* luaState;
   };
 }
