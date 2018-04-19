@@ -13,10 +13,8 @@
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
-PFLAGS := $(shell pkg-config --cflags --libs python3)
-export PYTHON_VERSION=3
-export CFLAGS= -Wall -O2 ${PFLAGS} -Wall
-export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
+export CFLAGS= -Wall -O2 -Wall
+export CXXFLAGS= -std=c++14 ${CFLAGS}
 
 %:
 	dh $@  --with autotools_dev --parallel
@@ -25,7 +23,7 @@ export CXXFLAGS= -std=c++14 -Wall -O2 ${PFLAGS} -Wall
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	dh_auto_configure -- --enable-alglib
+	dh_auto_configure -- --enable-alglib --enable-beringei
 
 override_dh_auto_clean:
 	-dh_auto_clean

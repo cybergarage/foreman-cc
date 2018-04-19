@@ -8,6 +8,8 @@
  *
  ******************************************************************/
 
+#include <ctime>
+#include <iostream>
 #include <sqlite3.h>
 #include <stdio.h>
 
@@ -47,27 +49,11 @@ bool RingMapStore::isOpened() { return true; }
 bool RingMapStore::close() { return true; }
 
 ////////////////////////////////////////////////
-// realloc
+// deleteExpiredMetrics
 ////////////////////////////////////////////////
 
-bool RingMapStore::realloc()
+size_t RingMapStore::deleteExpiredMetrics()
 {
-  size_t columnCount = getColumnCount();
-
-  if (columnCount <= 0)
-    return false;
-
-  tsMap_->clear();
-
-  for (MetricPair m : metricMap_) {
-    double* rowData = CreateNanDataPointValueArray(columnCount);
-    if (rowData == nullptr)
-      return false;
-    auto ts = std::shared_ptr<RingMapTimeSeries>(new RingMapTimeSeries());
-    if (!ts->reallocValueArray(columnCount))
-      return false;
-    tsMap_->insert(std::make_pair(m.second->name, ts));
-  }
-
-  return true;
+  // TODO
+  return 0;
 }

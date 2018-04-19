@@ -40,4 +40,10 @@ bool BeringeiStore::open() { return true; }
 
 bool BeringeiStore::close() { return true; }
 
+////////////////////////////////////////////////
+// deleteExpiredMetrics
+////////////////////////////////////////////////
+
+size_t BeringeiStore::deleteExpiredMetrics() { return 0; }
+
 #endif

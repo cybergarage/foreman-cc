@@ -70,8 +70,7 @@ Metrics* ResultSet::nextMetrics()
 bool ResultSet::addDataPoints(const std::string& name, time_t from, time_t interval, double* values, size_t valueCnt)
 {
   Metrics* m = findMetrics(name);
-  if (m == NULL)
-    return false;
-  else
+  if (m)
     return m->addDataPoints(from, interval, values, valueCnt);
+  return false;
 }

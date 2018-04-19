@@ -48,7 +48,6 @@ foremancc_header = \
 	./foreman/metric/impl/TimeSeries.h \
 	./foreman/metric/impl/GraphiteStore.h \
 	./foreman/metric/impl/BeringeiStore.h \
-	./foreman/metric/impl/MemStore.h \
 	./foreman/metric/impl/ArrayTimeSeries.h \
 	./foreman/metric/ResultSet.h \
 	./foreman/metric/Query.h \
