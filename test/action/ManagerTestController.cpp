@@ -35,7 +35,7 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
-  //testHello(mgr);
+  testHello(mgr);
   testRegister(mgr);
 
   BOOST_CHECK(regStore.close());
@@ -112,11 +112,13 @@ void ManagerTestController::testRegister(Manager* mgr)
 
   auto retParam = results.getParameter(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   BOOST_CHECK(retParam);
-  BOOST_CHECK(retParam->isString());
-  auto retString = dynamic_cast<String*>(retParam);
-  BOOST_CHECK(retString);
-  BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
-
+  if (retParam) {
+    BOOST_CHECK(retParam->isString());
+    auto retString = dynamic_cast<String*>(retParam);
+    BOOST_CHECK(retString);
+    BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
+  }
+  
   // Remove registry
 
   // FIXME : Python error
