@@ -63,7 +63,6 @@ public:
     bool addData(const Metric& m);
     bool addData(const MetricArray& values);
     bool queryData(Query* q, ResultSet* rs);
-    bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
     virtual size_t deleteExpiredMetrics();
 

@@ -32,7 +32,6 @@ public:
 
     bool addMetric(std::shared_ptr<Metric> m);
     bool queryMetric(Query* q, ResultSet* rs);
-    bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
     bool addData(const Metric& m);
     bool addData(const MetricArray& values);

@@ -8,7 +8,6 @@
  *
  ******************************************************************/
 
-#include <algorithm>
 #include <foreman/metric/impl/TimeSeriesMapStore.h>
 #include <regex>
 
@@ -38,7 +37,11 @@ bool TimeSeriesMapStore::addData(const Metric& m)
 
 bool TimeSeriesMapStore::addData(const MetricArray& values)
 {
-  return std::all_of(values.begin(), values.end(), [this](auto it) { return this->addData(*it); });
+  for (auto m : values) {
+    if (!addData(*m))
+      return false;
+  }
+  return true;
 }
 
 ////////////////////////////////////////////////
@@ -83,12 +86,6 @@ size_t TimeSeriesMapStore::getColumnCount()
 }
 
 bool TimeSeriesMapStore::addMetric(std::shared_ptr<Metric> m)
-{
-  // TODO
-  return true;
-}
-
-bool TimeSeriesMapStore::analyzeData(Query* q, ResultSet* rs, Error* err)
 {
   // TODO
   return true;

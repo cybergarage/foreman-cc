@@ -45,7 +45,7 @@ public:
 
     virtual bool queryData(Query* q, ResultSet* rs) = 0;
 
-    virtual bool analyzeData(Query* q, ResultSet* rs, Error* err) = 0;
+    virtual bool analyzeData(Query* q, ResultSet* rs, Error* err);
 
     virtual size_t deleteExpiredMetrics() = 0;
 
