@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
   BOOST_CHECK(rmreg->setCode(PY_REMOVE_REGISTRY_CODE));
   BOOST_CHECK(mgr.addMethod(rmreg, &err));
 
-  //testControllerr.run(&mgr);
+  testControllerr.run(&mgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
