@@ -118,7 +118,7 @@ void ManagerTestController::testRegister(Manager* mgr)
     BOOST_CHECK(retString);
     BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
   }
-  
+
   // Remove registry
 
   // FIXME : Python error
@@ -128,6 +128,7 @@ void ManagerTestController::testRegister(Manager* mgr)
   param->setName(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   params.addParameter(param);
   
+   
   results.clear();
   isSuccess = mgr->execMethod(FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);

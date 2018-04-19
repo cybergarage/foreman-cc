@@ -40,7 +40,10 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
 
   static const char* LUA_SET_REGISTRY_CODE = "function " FOREMANCC_SCRIPT_SET_REGISTER_METHOD "(params)\n"
                                              "  for k, v in ipairs(params) do\n"
-                                             "    " FOREMANCC_SYSTEM_FUNCTION_SETREGISTER "(k, v)\n"
+                                             "    ok = " FOREMANCC_SYSTEM_FUNCTION_SETREGISTER "(k, v)\n"
+                                             "    if ~ok then\n"
+                                             "      return false\n"
+                                             "    end\n"
                                              "  end\n"
                                              "  return true, {}\n"
                                              "end";
@@ -55,7 +58,10 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
   static const char* LUA_GET_REGISTRY_CODE = "function " FOREMANCC_SCRIPT_GET_REGISTER_METHOD "(params)\n"
                                              "  results = {}\n"
                                              "  for k, v in ipairs(params) do\n"
-                                             "    results[k] = " FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(k)\n"
+                                             "    ok, v = " FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(k)\n"
+                                             "    if ok then\n"
+                                             "      results[k] = v\n"
+                                             "    end\n"
                                              "  end\n"
                                              "  return true, results\n"
                                              "end";
@@ -69,7 +75,10 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
 
   static const char* LUA_REMOVE_REGISTRY_CODE = "function " FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD "(params)\n"
                                                 "  for k, v in ipairs(params) do\n"
-                                                "    " FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER "(k)\n"
+                                                "    ok = " FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER "(k)\n"
+                                                "    if !ok then\n"
+                                                "      return false\n"
+                                                "    end\n"
                                                 "  end\n"
                                                 "  return true, {}\n"
                                                 "end";
