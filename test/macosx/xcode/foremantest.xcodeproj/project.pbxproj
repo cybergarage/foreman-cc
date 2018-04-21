@@ -27,6 +27,7 @@
 		215DB2B91FAB3B0E0089A36B /* StoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2B51FAB3B0D0089A36B /* StoreTest.cpp */; };
 		215DB2BA1FAB3B0E0089A36B /* PropertyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2B61FAB3B0D0089A36B /* PropertyTest.cpp */; };
 		215DB2BB1FAB3B0E0089A36B /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2B71FAB3B0E0089A36B /* QueryTest.cpp */; };
+		216FFDE9208AE8B2006EB7A1 /* SystemEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216FFDE8208AE8B2006EB7A1 /* SystemEngineTest.cpp */; };
 		217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */; };
 		217303AF1FC84160000B0ECE /* LuaEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
@@ -99,6 +100,7 @@
 		215DB2B51FAB3B0D0089A36B /* StoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTest.cpp; path = ../../registry/StoreTest.cpp; sourceTree = "<group>"; };
 		215DB2B61FAB3B0D0089A36B /* PropertyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PropertyTest.cpp; path = ../../registry/PropertyTest.cpp; sourceTree = "<group>"; };
 		215DB2B71FAB3B0E0089A36B /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QueryTest.cpp; path = ../../registry/QueryTest.cpp; sourceTree = "<group>"; };
+		216FFDE8208AE8B2006EB7A1 /* SystemEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SystemEngineTest.cpp; path = ../../action/SystemEngineTest.cpp; sourceTree = "<group>"; };
 		217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngineTest.cpp; path = ../../action/PythonEngineTest.cpp; sourceTree = "<group>"; };
 		217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngineTest.cpp; path = ../../action/LuaEngineTest.cpp; sourceTree = "<group>"; };
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
@@ -273,13 +275,14 @@
 		2187B6D71FC5ACF300E2234D /* action */ = {
 			isa = PBXGroup;
 			children = (
+				217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */,
 				21C7700C2022C40400653C56 /* ManagerTest.cpp */,
 				21C77004202099F400653C56 /* ManagerTestController.cpp */,
 				21C77003202099F400653C56 /* ManagerTestController.h */,
-				217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */,
-				217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */,
-				2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */,
 				2187B6D91FC5AD0600E2234D /* MethodTest.cpp */,
+				2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */,
+				217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */,
+				216FFDE8208AE8B2006EB7A1 /* SystemEngineTest.cpp */,
 			);
 			name = action;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				21BA4118201F7DBF0083998C /* StoreTestController.cpp in Sources */,
 				2113F168201F985E00F5C672 /* ClangMethodTest.cpp in Sources */,
 				2117C4EA1FB312DB00F7ACF9 /* UUIDTest.cpp in Sources */,
+				216FFDE9208AE8B2006EB7A1 /* SystemEngineTest.cpp in Sources */,
 				2113F17F201F98BA00F5C672 /* ClangObjectTest.cpp in Sources */,
 				21BA4115201F7D1F0083998C /* ObjectTest.cpp in Sources */,
 				2113F169201F985E00F5C672 /* ClangParameterTest.cpp in Sources */,

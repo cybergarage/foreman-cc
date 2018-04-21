@@ -19,11 +19,11 @@
 
 #define FOREMANCC_SCRIPT_ECHO_METHOD "test_echo"
 #define FOREMANCC_SCRIPT_ECHO_PARAM_NAME "message"
-#define FOREMANCC_SCRIPT_ECHO_PARAM_VALUE "hello"
+#define FOREMANCC_SCRIPT_ECHO_PARAM_VALUE "echo"
 
 #define FOREMANCC_SCRIPT_SET_REGISTER_METHOD "test_setregister"
 #define FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME "test_message"
-#define FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE "hello"
+#define FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE "echo"
 
 #define FOREMANCC_SCRIPT_GET_REGISTER_METHOD "test_getregister"
 #define FOREMANCC_SCRIPT_GET_REGISTER_METHOD_PARAM_NAME FOREMANCC_SCRIPT_POST_REGISTER_METHOD_PARAM_NAME
@@ -46,8 +46,7 @@ public:
 
     void run(Manager* scriptMgr);
 
-private:
-    void testHello(Manager* mgr);
+    void testEcho(Manager* mgr, bool checkResultParameters = true);
     void testRegister(Manager* mgr);
   };
 }

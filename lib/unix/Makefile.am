@@ -48,9 +48,11 @@ foremancc_sources = \
 	../../src/foreman/action/impl/LuaTable.cpp \
 	../../src/foreman/action/impl/LuaMethod.cpp \
 	../../src/foreman/action/impl/PythonParameters.cpp \
+	../../src/foreman/action/impl/SystemEngine.cpp \
 	../../src/foreman/action/impl/LuaFunctions.cpp \
 	../../src/foreman/action/impl/PythonFunctions.cpp \
 	../../src/foreman/action/impl/GlobalObject.cpp \
+	../../src/foreman/action/impl/SystemMethod.cpp \
 	../../src/foreman/action/impl/LuaEngine.cpp \
 	../../src/foreman/action/Parameters.cpp \
 	../../src/foreman/action/Parameter.cpp \

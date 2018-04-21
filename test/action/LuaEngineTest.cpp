@@ -23,18 +23,18 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
 {
   Foreman::Error err;
   Foreman::Action::Manager mgr;
-  Foreman::Action::ManagerTestController testControllerr;
+  Foreman::Action::ManagerTestController testController;
 
-  // hello
+  // echo
 
   static const char* LUA_ECHO_CODE = "function " FOREMANCC_SCRIPT_ECHO_METHOD "(params)\n"
                                      "  return true, params\n"
                                      "end";
 
-  auto hello = new Foreman::Action::LuaMethod();
-  BOOST_CHECK(hello->setName(FOREMANCC_SCRIPT_ECHO_METHOD));
-  BOOST_CHECK(hello->setCode(LUA_ECHO_CODE));
-  BOOST_CHECK(mgr.addMethod(hello, &err));
+  auto echo = new Foreman::Action::LuaMethod();
+  BOOST_CHECK(echo->setName(FOREMANCC_SCRIPT_ECHO_METHOD));
+  BOOST_CHECK(echo->setCode(LUA_ECHO_CODE));
+  BOOST_CHECK(mgr.addMethod(echo, &err));
 
   // set_registry
 
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
   BOOST_CHECK(rmreg->setCode(LUA_REMOVE_REGISTRY_CODE));
   BOOST_CHECK(mgr.addMethod(rmreg, &err));
 
-  testControllerr.run(&mgr);
+  testController.run(&mgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

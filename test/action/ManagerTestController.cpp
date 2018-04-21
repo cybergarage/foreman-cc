@@ -35,17 +35,17 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
-  testHello(mgr);
+  testEcho(mgr);
   testRegister(mgr);
 
   BOOST_CHECK(regStore.close());
 }
 
 ////////////////////////////////////////////////
-// testHello
+// testEcho
 ////////////////////////////////////////////////
 
-void ManagerTestController::testHello(Manager* mgr)
+void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
 {
   Parameters params;
   auto param = new String();
@@ -60,6 +60,9 @@ void ManagerTestController::testHello(Manager* mgr)
   if (!isExecuted)
     return;
 
+  if (!checkResultParameters)
+    return;
+  
   auto echoMsg = results.getParameter(FOREMANCC_SCRIPT_ECHO_PARAM_NAME);
   BOOST_CHECK(echoMsg);
   if (!echoMsg)
