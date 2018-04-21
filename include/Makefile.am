@@ -20,6 +20,7 @@ foremancc_header = \
 	./foreman/common/common-c.h \
 	./foreman/action/impl/EngineImpl.h \
 	./foreman/action/impl/GlobalObject.h \
+	./foreman/action/impl/System.h \
 	./foreman/action/impl/Lua.h \
 	./foreman/action/impl/Python.h \
 	./foreman/action/Engine.h \
