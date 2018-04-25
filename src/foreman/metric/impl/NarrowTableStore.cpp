@@ -109,7 +109,6 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 
   // Get ROWID of the inserted metric
 
-
   int rowId = -1;
   return findMetric(m->name, rowId);
 }
@@ -326,5 +325,4 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
   sqlite3_finalize(stmt);
 
   return sqlite3_changes(db_);
-
 }
