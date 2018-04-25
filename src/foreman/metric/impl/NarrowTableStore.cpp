@@ -79,9 +79,11 @@ bool NarrowTableStore::open()
 // clear
 ////////////////////////////////////////////////
 
-void NarrowTableStore::clear()
+bool NarrowTableStore::clear()
 {
-  query(FOREMANCC_METRIC_SQLITESTORE_RECORD_TRUNCATE);
+  if (!query(FOREMANCC_METRIC_SQLITESTORE_RECORD_TRUNCATE))
+    return false;
+  return true;
 }
 
 ////////////////////////////////////////////////
