@@ -25,7 +25,9 @@ ALGLIB_VERSION=3.9.0
 UUID_VERSION=1.6.2
 
 LUA_VERSION=5.2.0
+
 PYTHON_VERSION=2.7.9
+JEMALLOC_VERSION=5.1.0
 
 ##################################################################
 # Checks compiler
@@ -108,6 +110,7 @@ if [ test "$enable_beringei" = yes ]; then
 	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
 	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
 	AC_HAVE_LIBRARY([glog],,[AC_MSG_ERROR([Please install google-glog library])])
+	AC_HAVE_LIBRARY([jemalloc],,[AC_MSG_ERROR([Please install jemalloc library])])
 fi
 
 ##################################################################
