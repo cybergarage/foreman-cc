@@ -78,6 +78,9 @@
 /* Define to 1 if you have the `glog' library (-lglog). */
 #undef HAVE_LIBGLOG
 
+/* Define to 1 if you have the `jemalloc' library (-ljemalloc). */
+#undef HAVE_LIBJEMALLOC
+
 /* Define to 1 if you have the `pthread' library (-lpthread). */
 #undef HAVE_LIBPTHREAD
 

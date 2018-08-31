@@ -25,7 +25,9 @@ ALGLIB_VERSION=3.9.0
 UUID_VERSION=1.6.2
 
 LUA_VERSION=5.2.0
+
 PYTHON_VERSION=2.7.9
+JEMALLOC_VERSION=5.1.0
 
 ##################################################################
 # Checks compiler
@@ -86,7 +88,7 @@ if [ test "$enable_alglib" = yes ]; then
   AC_LANG_PUSH([C++])
   AC_CHECK_HEADERS([libalglib/statistics.h alglib/statistics.h], break)
   AC_LANG_POP([C++])
-  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB &ALGLIB_VERSION later])])
+  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB $ALGLIB_VERSION later])])
 fi
 
 ##################################################################
@@ -108,6 +110,7 @@ if [ test "$enable_beringei" = yes ]; then
 	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
 	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
 	AC_HAVE_LIBRARY([glog],,[AC_MSG_ERROR([Please install google-glog library])])
+	AC_HAVE_LIBRARY([jemalloc],,[AC_MSG_ERROR([Please install jemalloc library])])
 fi
 
 ##################################################################
@@ -177,7 +180,7 @@ AC_ARG_ENABLE(
 )
 if [ test $FOREMAN_SUPPORT_LUA = yes ]; then
 	FOUND_LUA_LIB=no
-	AC_CHECK_HEADERS([lua.h])
+	AC_CHECK_HEADERS([lua.h],[main], AC_MSG_ERROR(FOREMAN for C needs LUA $LUA_VERSION later))
 	AC_CHECK_LIB([lua],[main],[FOUND_LUA_LIB=yes])
 	if [ test $FOUND_LUA_LIB = yes ]; then
        	LIBS+="-llua"

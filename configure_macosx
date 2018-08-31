@@ -1,5 +1,5 @@
 #!/bin/bash
-export CFLAGS="-I/usr/local/include `python-config --includes`"
-export CXXFLAGS="-std=c++11 $CFLAGS"
-export LDFLAGS="-L/usr/local/lib  `python-config --libs`"
-./configure --enable-alglib MKDIR_P='mkdir -p' $@
+export CFLAGS="-I/usr/local/include `pkg-config --cflags lua` `python-config --includes`"
+export CXXFLAGS="-std=c++14 $CFLAGS"
+export LDFLAGS="-L/usr/local/lib  `pkg-config --libs lua` `python-config --libs`"
+./configure --enable-beringei --enable-script-lua --enable-script-python --enable-alglib MKDIR_P='mkdir -p' $@
