@@ -5586,7 +5586,9 @@ if test "x$ac_cv_header_lua_h" = xyes; then :
   cat >>confdefs.h <<_ACEOF
 #define HAVE_LUA_H 1
 _ACEOF
-
+ main
+else
+  as_fn_error $? "FOREMAN for C needs LUA $LUA_VERSION later" "$LINENO" 5
 fi
 
 done

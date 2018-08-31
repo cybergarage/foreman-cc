@@ -177,7 +177,7 @@ AC_ARG_ENABLE(
 )
 if [ test $FOREMAN_SUPPORT_LUA = yes ]; then
 	FOUND_LUA_LIB=no
-	AC_CHECK_HEADERS([lua.h])
+	AC_CHECK_HEADERS([lua.h],[main], AC_MSG_ERROR(FOREMAN for C needs LUA $LUA_VERSION later))
 	AC_CHECK_LIB([lua],[main],[FOUND_LUA_LIB=yes])
 	if [ test $FOUND_LUA_LIB = yes ]; then
        	LIBS+="-llua"
