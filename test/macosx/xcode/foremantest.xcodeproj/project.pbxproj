@@ -509,6 +509,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../../include,
 					/usr/local/include,
+					/usr/local/include/lua,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -574,6 +575,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../../include,
 					/usr/local/include,
+					/usr/local/include/lua,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
