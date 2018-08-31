@@ -86,7 +86,7 @@ if [ test "$enable_alglib" = yes ]; then
   AC_LANG_PUSH([C++])
   AC_CHECK_HEADERS([libalglib/statistics.h alglib/statistics.h], break)
   AC_LANG_POP([C++])
-  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB &ALGLIB_VERSION later])])
+  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB $ALGLIB_VERSION later])])
 fi
 
 ##################################################################
