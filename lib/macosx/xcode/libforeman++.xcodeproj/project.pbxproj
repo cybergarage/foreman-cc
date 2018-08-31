@@ -1045,6 +1045,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = "";
+				HEADER_SEARCH_PATHS = (
+					../../../include,
+					/usr/local/include,
+					/usr/local/include/lua,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1053,6 +1058,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = "";
+				HEADER_SEARCH_PATHS = (
+					../../../include,
+					/usr/local/include,
+					/usr/local/include/lua,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

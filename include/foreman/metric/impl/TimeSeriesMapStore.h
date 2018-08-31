@@ -37,9 +37,10 @@ public:
     bool addData(const MetricArray& values);
     bool queryData(Query* q, ResultSet* rs);
 
-    virtual void clear()
+    virtual bool clear()
     {
       tsMap_->clear();
+      return true;
     }
   };
 }
