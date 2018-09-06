@@ -77,8 +77,8 @@ bool foreman_metric_store_clear(ForemanMetricStore* store)
 {
   if (!store)
     return false;
-  
-  return  ((Foreman::Metric::Store*)(store))->clear();
+
+  return ((Foreman::Metric::Store*)(store))->clear();
 }
 
 ////////////////////////////////////////////////

@@ -21,6 +21,32 @@ using namespace Foreman::Metric;
 BOOST_AUTO_TEST_SUITE(metric)
 
 ////////////////////////////////////////////////
+// NarrowTableStore
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
+{
+  StoreTestContoller testController;
+
+  Store* store = new NarrowTableStore();
+  testController.runAllTests(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
+// NarrowTableStore
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
+{
+  StoreTestContoller testController;
+
+  Store* store = new EmptyStore();
+  testController.runOnlyInsertTests(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
 // RingMapStore
 ////////////////////////////////////////////////
 
@@ -30,23 +56,10 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
   StoreTestContoller testController;
 
   Store* store = new RingMapStore();
-  testController.run(store);
+  testController.runAllTests(store);
   delete store;
 }
 */
-
-////////////////////////////////////////////////
-// NarrowTableStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
-{
-  StoreTestContoller testController;
-
-  Store* store = new NarrowTableStore();
-  testController.run(store);
-  delete store;
-}
 
 ////////////////////////////////////////////////
 // BeringeiStore
@@ -60,7 +73,7 @@ BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
   StoreTestContoller testController;
 
   Store* store = new BeringeiStore();
-  testController.run(store);
+  testController.runAllTests(store);
   delete store;
 }
 */
