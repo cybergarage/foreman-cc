@@ -11,8 +11,8 @@
 #ifndef _FOREMANCC_ACTION_ENGINEIMPL_H_
 #define _FOREMANCC_ACTION_ENGINEIMPL_H_
 
-#include <foreman/action/impl/System.h>
 #include <foreman/action/impl/Lua.h>
 #include <foreman/action/impl/Python.h>
+#include <foreman/action/impl/System.h>
 
 #endif

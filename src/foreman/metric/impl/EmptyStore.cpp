@@ -8,13 +8,22 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_METRIC_STOREIMPL_H_
-#define _FOREMANCC_METRIC_STOREIMPL_H_
+#include <sqlite3.h>
+#include <stdio.h>
 
-#include <foreman/metric/impl/BeringeiStore.h>
+#include <foreman/Const.h>
 #include <foreman/metric/impl/EmptyStore.h>
-#include <foreman/metric/impl/GraphiteStore.h>
-#include <foreman/metric/impl/RingMapStore.h>
-#include <foreman/metric/impl/SQLiteStore.h>
 
-#endif
+using namespace Foreman::Metric;
+
+////////////////////////////////////////////////
+// EmptyStore
+////////////////////////////////////////////////
+
+EmptyStore::EmptyStore()
+{
+}
+
+EmptyStore::~EmptyStore()
+{
+}
