@@ -20,9 +20,9 @@ BOOST_AUTO_TEST_CASE(SystemEngine)
   Foreman::Error err;
   Foreman::Action::Manager mgr;
   Foreman::Action::ManagerTestController testController;
-  
+
   static const char* ECHO_CODE = "echo";
-  
+
   auto echo = new Foreman::Action::SystemMethod();
   BOOST_CHECK(echo->setName(FOREMANCC_SCRIPT_ECHO_METHOD));
   BOOST_CHECK(echo->setCode(ECHO_CODE));
