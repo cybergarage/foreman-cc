@@ -24,6 +24,7 @@ BOOST_AUTO_TEST_SUITE(metric)
 // RingMapStore
 ////////////////////////////////////////////////
 
+/*
 BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
   StoreTestContoller testController;
@@ -32,6 +33,7 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
   testController.run(store);
   delete store;
 }
+*/
 
 ////////////////////////////////////////////////
 // NarrowTableStore
@@ -52,6 +54,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 
 #if defined(FOREMAN_ENABLE_BERINGEI)
 
+/*
 BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
 {
   StoreTestContoller testController;
@@ -60,6 +63,7 @@ BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
   testController.run(store);
   delete store;
 }
+*/
 
 #endif
 
