@@ -45,20 +45,19 @@ bool Foreman::Action::SystemEngine::compile(Method* luaScript, Error* error)
   return true;
 }
 
-
 ////////////////////////////////////////////////
 // run
 ////////////////////////////////////////////////
 
 bool Foreman::Action::SystemEngine::run(Method* method, const Parameters* params, Parameters* results, Error* error)
 {
-  auto code = (char *)method->getCode();
+  auto code = (char*)method->getCode();
   if (!code || (::strlen(code) <= 0))
     return false;
-  
+
   auto ret = ::system(code);
   if (ret < 0)
     return false;
 
-  return (ret ==0) ? true : false;
+  return (ret == 0) ? true : false;
 }
