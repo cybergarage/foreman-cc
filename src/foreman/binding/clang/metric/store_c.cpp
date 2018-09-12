@@ -48,6 +48,28 @@ time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store)
 }
 
 ////////////////////////////////////////////////
+// foreman_metric_store_setretentionperiod
+////////////////////////////////////////////////
+
+bool foreman_metric_store_setretentionperiod(ForemanMetricStore* store, time_t value)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Metric::Store*)(store))->setRetentionPeriod(value);
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_getretentionperiod
+////////////////////////////////////////////////
+
+time_t foreman_metric_store_getretentionperiod(ForemanMetricStore* store)
+{
+  if (!store)
+    return 0;
+  return ((Foreman::Metric::Store*)(store))->getRetentionPeriod();
+}
+
+////////////////////////////////////////////////
 // foreman_metric_store_open
 ////////////////////////////////////////////////
 

@@ -109,6 +109,8 @@ bool foreman_metric_store_delete(ForemanMetricStore* store);
 
 bool foreman_metric_store_setretentioninterval(ForemanMetricStore* store, time_t value);
 time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store);
+bool foreman_metric_store_setretentionperiod(ForemanMetricStore* store, time_t value);
+time_t foreman_metric_store_getretentionperiod(ForemanMetricStore* store);
 
 bool foreman_metric_store_open(ForemanMetricStore* store);
 bool foreman_metric_store_close(ForemanMetricStore* store);
