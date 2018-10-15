@@ -41,6 +41,7 @@ The `foreman-cc` package has the header files, the source files and the project 
 Using [Homebrew](https://brew.sh/), you can install `foreman-cc` easily. To install `foreman-cc`, use `brew` command as the following.
 
 ```
+./setup_macosx 
 brew tap brewsci/science
 brew install alglib
 
@@ -83,7 +84,7 @@ To build on Ubuntu, use `configure_ubuntu` instead of `configure` as the followi
 To build [foreman-cc](https://github.com/cybergarage/foreman-cc), you have to install latest [XCode](https://developer.apple.com/xcode/) from AppStore and the following commands using [Homebrew](https://brew.sh).
 
 ```
-brew install automake autoconf folly
+./setup_macosx 
 ```
 
 To build on MacOSX, use `configure_macosx` instead of `configure` as the following.
