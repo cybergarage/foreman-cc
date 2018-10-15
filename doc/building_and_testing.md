@@ -91,6 +91,7 @@ To build on MacOSX, use `configure_macosx` instead of `configure` as the followi
 
 ```
 ....
+./boostrap
 ./configure_macosx
 ....
 ```
