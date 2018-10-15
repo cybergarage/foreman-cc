@@ -90,10 +90,10 @@ To build [foreman-cc](https://github.com/cybergarage/foreman-cc), you have to in
 To build on MacOSX, use `configure_macosx` instead of `configure` as the following.
 
 ```
-....
 ./boostrap
 ./configure_macosx
-....
+make -j 10
+make install
 ```
 
 #### XCode
