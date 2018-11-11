@@ -8,4 +8,4 @@ brew tap brewsci/science
 brew install ossp-uuid
 brew install alglib
 brew install lua
-brew install folly jemalloc
+brew install folly zstd jemalloc
