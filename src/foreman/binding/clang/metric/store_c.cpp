@@ -29,11 +29,11 @@ bool foreman_metric_store_delete(ForemanMetricStore* store)
 // foreman_metric_store_getname
 ////////////////////////////////////////////////
 
-bool foreman_metric_store_getname(ForemanMetricStore* store, const char** name)
+bool foreman_metric_store_getname(ForemanMetricStore* store, char** name)
 {
   if (!store)
     return false;
-  *name = ((Foreman::Metric::Store*)(store))->getName();
+  *name = ((char *)((Foreman::Metric::Store*)(store))->getName());
   return true;
 }
 
@@ -41,11 +41,11 @@ bool foreman_metric_store_getname(ForemanMetricStore* store, const char** name)
 // foreman_metric_store_getversion
 ////////////////////////////////////////////////
 
-bool foreman_metric_store_getversion(ForemanMetricStore* store, const char** ver)
+bool foreman_metric_store_getversion(ForemanMetricStore* store, char** ver)
 {
   if (!store)
     return false;
-  *ver = ((Foreman::Metric::Store*)(store))->getVersion();
+  *ver = (char *)(((Foreman::Metric::Store*)(store))->getVersion());
   return true;
 }
 
