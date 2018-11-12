@@ -1,7 +1,6 @@
 #!/bin/bash
 
-brew install automake autoconf
-Brew install pkg-config
+brew install automake autoconf pkg-config
 
 brew tap brewsci/science
 
