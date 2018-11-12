@@ -11,6 +11,7 @@
 #ifndef _FOREMANCC_METRIC_EMPTY_STORE_H_
 #define _FOREMANCC_METRIC_EMPTY_STORE_H_
 
+#include <foreman/Const.h>
 #include <foreman/metric/Store.h>
 
 namespace Foreman {
@@ -24,6 +25,9 @@ namespace Metric {
 public:
     EmptyStore();
     ~EmptyStore();
+
+    const char* getName() { return "empty"; }
+    const char* getVersion() { return FOREMANCC_PRODUCT_VERSION; }
 
     bool open() { return true; }
     bool close() { return true; }

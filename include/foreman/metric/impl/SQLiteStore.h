@@ -15,6 +15,7 @@
 
 #include <sqlite3.h>
 
+#include <foreman/Const.h>
 #include <foreman/metric/Store.h>
 
 namespace Foreman {
@@ -26,7 +27,7 @@ namespace Metric {
 
   class SQLiteMetric : public Metric {
 public:
-    SQLiteMetric(){};
+    SQLiteMetric() {};
     int rowId;
   };
 
@@ -55,6 +56,9 @@ protected:
 public:
     NarrowTableStore();
     ~NarrowTableStore();
+
+    const char* getName() { return "sqlstore"; }
+    const char* getVersion() { return FOREMANCC_PRODUCT_VERSION; }
 
     bool open();
     bool clear();

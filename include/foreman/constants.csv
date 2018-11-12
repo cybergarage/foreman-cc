@@ -3,7 +3,7 @@
 # license that can be found in the LICENSE file.
 
 product_name,"foreman"
-product_version,"0.1"
+product_version,"0.8.6"
 
 # ================================================================================
 # Server

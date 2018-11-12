@@ -26,6 +26,30 @@ bool foreman_metric_store_delete(ForemanMetricStore* store)
 }
 
 ////////////////////////////////////////////////
+// foreman_metric_store_getname
+////////////////////////////////////////////////
+
+bool foreman_metric_store_getname(ForemanMetricStore* store, const char** name)
+{
+  if (!store)
+    return false;
+  *name = ((Foreman::Metric::Store*)(store))->getName();
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_getversion
+////////////////////////////////////////////////
+
+bool foreman_metric_store_getversion(ForemanMetricStore* store, const char** ver)
+{
+  if (!store)
+    return false;
+  *ver = ((Foreman::Metric::Store*)(store))->getVersion();
+  return true;
+}
+
+////////////////////////////////////////////////
 // foreman_metric_store_setretentioninterval
 ////////////////////////////////////////////////
 
