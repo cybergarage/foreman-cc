@@ -15,6 +15,7 @@
 #include "config.h"
 #endif
 
+#include <foreman/Const.h>
 #include <foreman/metric/Store.h>
 #include <foreman/metric/impl/TimeSeries.h>
 #include <foreman/metric/impl/TimeSeriesMapStore.h>
@@ -36,6 +37,9 @@ namespace Metric {
 public:
     BeringeiStore();
     ~BeringeiStore();
+
+    const char* getName() { return "tsmap"; }
+    const char* getVersion() { return FOREMANCC_PRODUCT_VERSION; }
 
     bool open();
     bool close();
@@ -65,8 +69,8 @@ private:
 
   class BeringeiTimeSeriesMap : public TimeSeriesMap {
 public:
-    BeringeiTimeSeriesMap(){};
-    ~BeringeiTimeSeriesMap(){};
+    BeringeiTimeSeriesMap() {};
+    ~BeringeiTimeSeriesMap() {};
 
     std::shared_ptr<TimeSeries> createTimeSeries(const Metric& m)
     {

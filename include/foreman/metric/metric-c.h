@@ -107,6 +107,9 @@ ForemanMetricStore* foreman_metric_store_empty_create();
 
 bool foreman_metric_store_delete(ForemanMetricStore* store);
 
+bool foreman_metric_store_getname(ForemanMetricStore* store, const char** name);
+bool foreman_metric_store_getversion(ForemanMetricStore* store, const char** ver);
+
 bool foreman_metric_store_setretentioninterval(ForemanMetricStore* store, time_t value);
 time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store);
 bool foreman_metric_store_setretentionperiod(ForemanMetricStore* store, time_t value);
