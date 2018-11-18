@@ -43,8 +43,8 @@ public:
 
   class MetricArray : public std::vector<std::shared_ptr<Metric>> {
 public:
-    MetricArray(){};
-    virtual ~MetricArray(){};
+    MetricArray() {};
+    virtual ~MetricArray() {};
     bool addMetric(const Metric& m)
     {
       auto cm = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(m));

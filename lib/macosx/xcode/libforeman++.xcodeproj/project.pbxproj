@@ -112,6 +112,8 @@
 		21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09D1FB07ABD00982715 /* StoreImpl.h */; };
 		21ABA0A61FB07ABD00982715 /* GraphiteStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA09E1FB07ABD00982715 /* GraphiteStore.h */; };
 		21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ABA0A81FB0870F00982715 /* RingMapStore.h */; };
+		21B319492140B89E00942166 /* EmptyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B319482140B89D00942166 /* EmptyStore.h */; };
+		21B3194B2140B8F500942166 /* EmptyStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B3194A2140B8F500942166 /* EmptyStore.cpp */; };
 		21B60DBD1E5D47D3009D663B /* Const.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B60DBC1E5D47D3009D663B /* Const.h */; };
 		21BA40CD201EECA40083998C /* objects_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40C7201EECA40083998C /* objects_c.cpp */; };
 		21BA40CE201EECA40083998C /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA40C8201EECA40083998C /* store_c.cpp */; };
@@ -250,6 +252,8 @@
 		21ABA09D1FB07ABD00982715 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = impl/StoreImpl.h; sourceTree = "<group>"; };
 		21ABA09E1FB07ABD00982715 /* GraphiteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphiteStore.h; path = impl/GraphiteStore.h; sourceTree = "<group>"; };
 		21ABA0A81FB0870F00982715 /* RingMapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingMapStore.h; path = impl/RingMapStore.h; sourceTree = "<group>"; };
+		21B319482140B89D00942166 /* EmptyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyStore.h; path = impl/EmptyStore.h; sourceTree = "<group>"; };
+		21B3194A2140B8F500942166 /* EmptyStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EmptyStore.cpp; path = impl/EmptyStore.cpp; sourceTree = "<group>"; };
 		21B60DBC1E5D47D3009D663B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		21BA40C7201EECA40083998C /* objects_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = objects_c.cpp; path = binding/clang/registry/objects_c.cpp; sourceTree = "<group>"; };
 		21BA40C8201EECA40083998C /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = binding/clang/registry/store_c.cpp; sourceTree = "<group>"; };
@@ -437,6 +441,7 @@
 		215EDC551FB04A16006DF3AE /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				21B3194A2140B8F500942166 /* EmptyStore.cpp */,
 				215EDC5C1FB04A22006DF3AE /* ArrayTimeSeries.cpp */,
 				215EDC5B1FB04A21006DF3AE /* BeringeiTimeSeries.cpp */,
 				215EDC5F1FB04A22006DF3AE /* GraphiteStore.cpp */,
@@ -608,6 +613,7 @@
 		21ABA0971FB07AB200982715 /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				21B319482140B89D00942166 /* EmptyStore.h */,
 				21ABA0A81FB0870F00982715 /* RingMapStore.h */,
 				21ABA0991FB07ABD00982715 /* ArrayTimeSeries.h */,
 				21ABA0981FB07ABC00982715 /* BeringeiStore.h */,
@@ -756,6 +762,7 @@
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
 				21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */,
 				216A5AE81F9C597B0092272A /* Store.h in Headers */,
+				21B319492140B89E00942166 /* EmptyStore.h in Headers */,
 				214FA51C2080A7EA0082CEED /* TimeSeriesStream.h in Headers */,
 				2124800A201FF883006D9187 /* Lua.h in Headers */,
 				2113F195201FA02600F5C672 /* Parameter.h in Headers */,
@@ -912,6 +919,7 @@
 				215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */,
 				216A5B561F9C59990092272A /* Store.cpp in Sources */,
 				21247FFF201FF450006D9187 /* GlobalObject.cpp in Sources */,
+				21B3194B2140B8F500942166 /* EmptyStore.cpp in Sources */,
 				21BA40CE201EECA40083998C /* store_c.cpp in Sources */,
 				21841B871FD286A400CE59C8 /* PythonMethod.cpp in Sources */,
 				21BA40CF201EECA40083998C /* query_c.cpp in Sources */,

@@ -50,6 +50,7 @@ inline const char* ErrorCodeToMessage(int code)
   }
   return "";
 }
+
 }
 
 #endif

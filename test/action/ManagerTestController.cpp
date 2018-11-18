@@ -62,7 +62,7 @@ void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
 
   if (!checkResultParameters)
     return;
-  
+
   auto echoMsg = results.getParameter(FOREMANCC_SCRIPT_ECHO_PARAM_NAME);
   BOOST_CHECK(echoMsg);
   if (!echoMsg)
