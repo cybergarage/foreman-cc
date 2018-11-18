@@ -103,11 +103,17 @@ typedef void ForemanMetricStore;
 ForemanMetricStore* foreman_metric_store_ringmap_create();
 ForemanMetricStore* foreman_metric_store_sqlite_create();
 ForemanMetricStore* foreman_metric_store_tsmap_create();
+ForemanMetricStore* foreman_metric_store_empty_create();
 
 bool foreman_metric_store_delete(ForemanMetricStore* store);
 
+bool foreman_metric_store_getname(ForemanMetricStore* store, char** name);
+bool foreman_metric_store_getversion(ForemanMetricStore* store, char** ver);
+
 bool foreman_metric_store_setretentioninterval(ForemanMetricStore* store, time_t value);
 time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store);
+bool foreman_metric_store_setretentionperiod(ForemanMetricStore* store, time_t value);
+time_t foreman_metric_store_getretentionperiod(ForemanMetricStore* store);
 
 bool foreman_metric_store_open(ForemanMetricStore* store);
 bool foreman_metric_store_close(ForemanMetricStore* store);

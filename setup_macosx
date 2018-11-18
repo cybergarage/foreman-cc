@@ -1,11 +1,10 @@
 #!/bin/bash
 
-brew install automake autoconf
-Brew install pkg-config
+brew install automake autoconf pkg-config
 
 brew tap brewsci/science
 
 brew install ossp-uuid
 brew install alglib
 brew install lua
-brew install folly jemalloc
+brew install folly zstd jemalloc

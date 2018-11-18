@@ -26,6 +26,30 @@ bool foreman_metric_store_delete(ForemanMetricStore* store)
 }
 
 ////////////////////////////////////////////////
+// foreman_metric_store_getname
+////////////////////////////////////////////////
+
+bool foreman_metric_store_getname(ForemanMetricStore* store, char** name)
+{
+  if (!store)
+    return false;
+  *name = ((char *)((Foreman::Metric::Store*)(store))->getName());
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_getversion
+////////////////////////////////////////////////
+
+bool foreman_metric_store_getversion(ForemanMetricStore* store, char** ver)
+{
+  if (!store)
+    return false;
+  *ver = (char *)(((Foreman::Metric::Store*)(store))->getVersion());
+  return true;
+}
+
+////////////////////////////////////////////////
 // foreman_metric_store_setretentioninterval
 ////////////////////////////////////////////////
 
@@ -45,6 +69,28 @@ time_t foreman_metric_store_getretentioninterval(ForemanMetricStore* store)
   if (!store)
     return 0;
   return ((Foreman::Metric::Store*)(store))->getRetentionInterval();
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_setretentionperiod
+////////////////////////////////////////////////
+
+bool foreman_metric_store_setretentionperiod(ForemanMetricStore* store, time_t value)
+{
+  if (!store)
+    return false;
+  return ((Foreman::Metric::Store*)(store))->setRetentionPeriod(value);
+}
+
+////////////////////////////////////////////////
+// foreman_metric_store_getretentionperiod
+////////////////////////////////////////////////
+
+time_t foreman_metric_store_getretentionperiod(ForemanMetricStore* store)
+{
+  if (!store)
+    return 0;
+  return ((Foreman::Metric::Store*)(store))->getRetentionPeriod();
 }
 
 ////////////////////////////////////////////////
@@ -77,8 +123,8 @@ bool foreman_metric_store_clear(ForemanMetricStore* store)
 {
   if (!store)
     return false;
-  
-  return  ((Foreman::Metric::Store*)(store))->clear();
+
+  return ((Foreman::Metric::Store*)(store))->clear();
 }
 
 ////////////////////////////////////////////////

@@ -11,6 +11,7 @@
 #ifndef _FOREMANCC_METRIC_RINGMAP_STORE_H_
 #define _FOREMANCC_METRIC_RINGMAP_STORE_H_
 
+#include <foreman/Const.h>
 #include <foreman/metric/impl/ArrayTimeSeries.h>
 #include <foreman/metric/impl/TimeSeriesMapStore.h>
 
@@ -23,14 +24,17 @@ namespace Metric {
 
   class RingMapTimeSeries : public RingArrayTimeSeries {
 public:
-    RingMapTimeSeries(){};
-    ~RingMapTimeSeries(){};
+    RingMapTimeSeries() {};
+    ~RingMapTimeSeries() {};
   };
 
   class RingMapStore : public TimeSeriesMapStore {
 public:
     RingMapStore();
     ~RingMapStore();
+
+    const char* getName() { return "ringmap"; }
+    const char* getVersion() { return FOREMANCC_PRODUCT_VERSION; }
 
     bool open();
     bool isOpened();

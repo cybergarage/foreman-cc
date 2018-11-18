@@ -28,6 +28,9 @@ public:
     Store();
     virtual ~Store() = 0;
 
+    virtual const char* getName() = 0;
+    virtual const char* getVersion() = 0;
+
     virtual bool open() = 0;
     virtual bool close() = 0;
     virtual bool clear() = 0;
