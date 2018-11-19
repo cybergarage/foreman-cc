@@ -30,7 +30,8 @@ void StoreTestContoller::runInitializeTest(Foreman::Metric::Store* store)
 {
   // Initialize timestamps
 
-  this->testMetricBeginTs = time(NULL);
+  auto now = time(NULL);
+  this->testMetricBeginTs = now - (now % FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
   this->testMetricEndTs = this->testMetricBeginTs + (FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL * FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
 
   // Initialize store

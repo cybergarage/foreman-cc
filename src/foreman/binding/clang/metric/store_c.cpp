@@ -33,7 +33,7 @@ bool foreman_metric_store_getname(ForemanMetricStore* store, char** name)
 {
   if (!store)
     return false;
-  *name = ((char *)((Foreman::Metric::Store*)(store))->getName());
+  *name = ((char*)((Foreman::Metric::Store*)(store))->getName());
   return true;
 }
 
@@ -45,7 +45,7 @@ bool foreman_metric_store_getversion(ForemanMetricStore* store, char** ver)
 {
   if (!store)
     return false;
-  *ver = (char *)(((Foreman::Metric::Store*)(store))->getVersion());
+  *ver = (char*)(((Foreman::Metric::Store*)(store))->getVersion());
   return true;
 }
 

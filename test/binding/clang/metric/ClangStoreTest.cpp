@@ -33,8 +33,9 @@ static void TestClangStore(ForemanMetricStore* store)
     BOOST_CHECK(foreman_metric_setname(m[n], name));
   }
 
-  time_t from = time(NULL);
+  time_t now = time(NULL);
   time_t interval = 5 * 60; /* sec */
+  time_t from = now - (now % interval);
   time_t until = from + interval;
 
   // Insert metric values

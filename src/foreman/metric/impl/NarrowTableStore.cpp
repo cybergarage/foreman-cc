@@ -165,7 +165,7 @@ bool NarrowTableStore::addData(const Metric& m)
 
   // Revise Timestamp
 
-  time_t metricTs = m.timestamp;
+  auto metricTs = m.timestamp - (m.timestamp % getRetentionInterval());
 
   // Insert a value
 
@@ -192,7 +192,7 @@ bool NarrowTableStore::addData(const Metric& m)
 
   sqlite3_bind_double(stmt, 1, m.value);
   sqlite3_bind_int(stmt, 2, rowId);
-  sqlite3_bind_int(stmt, 3, (int)m.timestamp);
+  sqlite3_bind_int(stmt, 3, (int)metricTs);
 
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
