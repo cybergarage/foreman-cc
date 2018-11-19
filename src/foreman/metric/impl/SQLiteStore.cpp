@@ -10,6 +10,7 @@
 
 #include <cstdio>
 #include <sqlite3.h>
+#include <thread>
 
 #include <foreman/metric/impl/SQLiteStore.h>
 
@@ -56,7 +57,21 @@ bool SQLiteStore::close()
   if (!db_)
     return false;
 
-  if (sqlite3_close(db_) != SQLITE_OK)
+  int retryCnt = 0;
+  auto stat = sqlite3_close(db_);
+  while (stat != SQLITE_OK) {
+    if (stat != SQLITE_BUSY)
+      return false;
+
+    if (5 < retryCnt)
+      break;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    stat = sqlite3_close(db_);
+    retryCnt++;
+  }
+
+  if (stat != SQLITE_OK)
     return false;
 
   return true;
