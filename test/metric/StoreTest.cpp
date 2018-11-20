@@ -26,7 +26,8 @@ BOOST_AUTO_TEST_SUITE(metric)
 
 BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 {
-  StoreTestContoller testController;
+  StoreTestContollerDefaultConfig config;
+  StoreTestContoller testController(config);
 
   Store* store = new NarrowTableStore();
   testController.runAllTests(store);
@@ -39,7 +40,8 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 
 BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
 {
-  StoreTestContoller testController;
+  StoreTestContollerDefaultConfig config;
+  StoreTestContoller testController(config);
 
   Store* store = new EmptyStore();
   testController.runOnlyInsertTests(store);
@@ -53,7 +55,8 @@ BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
 /*
 BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
-  StoreTestContoller testController;
+ StoreTestContollerDefaultConfig config;
+ StoreTestContoller testController(config);
 
   Store* store = new RingMapStore();
   testController.runAllTests(store);
@@ -70,7 +73,8 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 /*
 BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
 {
-  StoreTestContoller testController;
+ StoreTestContollerDefaultConfig config;
+ StoreTestContoller testController(config);
 
   Store* store = new BeringeiStore();
   testController.runAllTests(store);
