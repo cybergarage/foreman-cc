@@ -27,10 +27,20 @@ BOOST_AUTO_TEST_SUITE(metric)
 BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 {
   StoreTestContollerDefaultConfig config;
-  //config.retentionInterval = 60 * 5;
-  //config.insertInterval = 60;
   StoreTestContoller testController(config);
 
+  Store* store = new NarrowTableStore();
+  testController.runAllTests(store);
+  delete store;
+}
+
+BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveTest)
+{
+  StoreTestContollerDefaultConfig config;
+  config.retentionInterval = 60 * 5;
+  config.insertInterval = 60;
+  StoreTestContoller testController(config);
+  
   Store* store = new NarrowTableStore();
   testController.runAllTests(store);
   delete store;
