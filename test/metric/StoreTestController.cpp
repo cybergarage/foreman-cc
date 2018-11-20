@@ -29,7 +29,7 @@ StoreTestContoller::~StoreTestContoller() {}
 // run
 ////////////////////////////////////////////////
 
-void StoreTestContoller::runInitializeTest(Foreman::Metric::Store* store)
+void StoreTestContoller::initialize(Foreman::Metric::Store* store)
 {
   // Initialize timestamps
 
@@ -55,7 +55,7 @@ void StoreTestContoller::runInitializeTest(Foreman::Metric::Store* store)
   }
 }
 
-void StoreTestContoller::runInsertMetricsTest(Foreman::Metric::Store* store)
+void StoreTestContoller::testInsertMetrics(Foreman::Metric::Store* store)
 {
   // Add metric
 
@@ -64,7 +64,7 @@ void StoreTestContoller::runInsertMetricsTest(Foreman::Metric::Store* store)
   }
 }
 
-void StoreTestContoller::runQueryMetricsTest(Foreman::Metric::Store* store)
+void StoreTestContoller::testQueryMetrics(Foreman::Metric::Store* store)
 {
   auto sqlStore = dynamic_cast<Foreman::Metric::SQLiteStore*>(store);
 
@@ -92,7 +92,7 @@ void StoreTestContoller::runQueryMetricsTest(Foreman::Metric::Store* store)
   }
 }
 
-void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
+void StoreTestContoller::testInsertMetricsData(Foreman::Metric::Store* store)
 {
   time_t metricTs = this->testMetricBeginTs;
 
@@ -111,7 +111,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
   }
 }
 
-void StoreTestContoller::runQueryMetricsDataTest(Foreman::Metric::Store* store)
+void StoreTestContoller::testQueryMetricsData(Foreman::Metric::Store* store)
 {
   // Get metrics data
 
@@ -143,7 +143,7 @@ void StoreTestContoller::runQueryMetricsDataTest(Foreman::Metric::Store* store)
   }
 }
 
-void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
+void StoreTestContoller::testAll(Foreman::Metric::Store* store)
 {
   Error err;
   auto tsStore = dynamic_cast<Foreman::Metric::TimeSeriesMapStore*>(store);
@@ -153,12 +153,12 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
 
   // Initialize store and metrics
 
-  runInitializeTest(store);
+  initialize(store);
 
   // Inesert and query metrics
 
-  runInsertMetricsTest(store);
-  runQueryMetricsTest(store);
+  testInsertMetrics(store);
+  testQueryMetrics(store);
 
   // Analyze metrics data for empty store
 
@@ -186,8 +186,8 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
 
   // Insert and query metrics data
 
-  runInsertMetricsDataTest(store);
-  runQueryMetricsDataTest(store);
+  testInsertMetricsData(store);
+  testQueryMetricsData(store);
 
   // Analyze metrics data
 
@@ -251,13 +251,13 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
   BOOST_CHECK(store->close());
 }
 
-void StoreTestContoller::runOnlyInsertTests(Foreman::Metric::Store* store)
+void StoreTestContoller::testOnlyInsert(Foreman::Metric::Store* store)
 {
   BOOST_CHECK(store->open());
 
-  runInitializeTest(store);
-  runInsertMetricsTest(store);
-  runInsertMetricsDataTest(store);
+  initialize(store);
+  testInsertMetrics(store);
+  testInsertMetricsData(store);
 
   BOOST_CHECK(store->close());
 }

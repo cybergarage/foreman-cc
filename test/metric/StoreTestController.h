@@ -53,8 +53,8 @@ public:
     StoreTestContoller(StoreTestContollerConfig config);
     virtual ~StoreTestContoller();
 
-    void runAllTests(Foreman::Metric::Store* store);
-    void runOnlyInsertTests(Foreman::Metric::Store* store);
+    void testAll(Foreman::Metric::Store* store);
+    void testOnlyInsert(Foreman::Metric::Store* store);
 
 
   private:
@@ -64,11 +64,11 @@ public:
     time_t testMetricEndTs;
     Foreman::Metric::MetricArray testMetrics;
 
-    void runInitializeTest(Foreman::Metric::Store* store);
-    void runInsertMetricsTest(Foreman::Metric::Store* store);
-    void runQueryMetricsTest(Foreman::Metric::Store* store);
-    void runInsertMetricsDataTest(Foreman::Metric::Store* store);
-    void runQueryMetricsDataTest(Foreman::Metric::Store* store);
+    void initialize(Foreman::Metric::Store* store);
+    void testInsertMetrics(Foreman::Metric::Store* store);
+    void testQueryMetrics(Foreman::Metric::Store* store);
+    void testInsertMetricsData(Foreman::Metric::Store* store);
+    void testQueryMetricsData(Foreman::Metric::Store* store);
   };
 }
 }
