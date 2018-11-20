@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <boost/test/unit_test.hpp>
+#include <random>
 
 #include "StoreTestController.h"
 
@@ -94,6 +95,8 @@ void StoreTestContoller::testQueryMetrics(Foreman::Metric::Store* store)
 
 void StoreTestContoller::testInsertMetricsData(Foreman::Metric::Store* store)
 {
+  std::random_device rnd;
+  
   time_t metricTs = this->testMetricBeginTs;
 
   // Insert metrics data
@@ -103,6 +106,9 @@ void StoreTestContoller::testInsertMetricsData(Foreman::Metric::Store* store)
     for (auto m : this->testMetrics) {
       auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
       value->timestamp = metricTs;
+      if (config.enableTimestampJitter) {
+        value->timestamp += rnd() % this->config.insertInterval;
+      }
       value->value = n / (this->config.retentionInterval / this->config.insertInterval);
       values.push_back(value);
     }

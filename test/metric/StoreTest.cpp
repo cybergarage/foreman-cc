@@ -46,6 +46,21 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveTest)
   delete store;
 }
 
+BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveWithJitterTest)
+{
+  StoreTestContollerDefaultConfig config;
+  config.retentionInterval = 60 * 5;
+  config.insertInterval = 60;
+  config.enableTimestampJitter = true;
+  
+  StoreTestContoller testController(config);
+  
+  Store* store = new NarrowTableStore();
+  testController.testAll(store);
+  delete store;
+}
+
+
 ////////////////////////////////////////////////
 // NarrowTableStore
 ////////////////////////////////////////////////
