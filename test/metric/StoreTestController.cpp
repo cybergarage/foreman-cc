@@ -18,7 +18,10 @@ using namespace Foreman::Metric;
 // StoreTestContoller
 ////////////////////////////////////////////////
 
-StoreTestContoller::StoreTestContoller() {}
+StoreTestContoller::StoreTestContoller(StoreTestContollerConfig config)
+{
+  this->config = config;
+}
 
 StoreTestContoller::~StoreTestContoller() {}
 
@@ -31,21 +34,21 @@ void StoreTestContoller::runInitializeTest(Foreman::Metric::Store* store)
   // Initialize timestamps
 
   auto now = time(NULL);
-  this->testMetricBeginTs = now - (now % FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
-  this->testMetricEndTs = this->testMetricBeginTs + (FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL * FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+  this->testMetricBeginTs = now - (now % this->config.retentionInterval);
+  this->testMetricEndTs = this->testMetricBeginTs + (this->config.retentionInterval * (this->config.retentionPeriod / this->config.retentionInterval));
 
   // Initialize store
 
-  BOOST_CHECK(store->setRetentionInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL));
-  BOOST_CHECK(store->setRetentionPeriod(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_SEC));
+  BOOST_CHECK(store->setRetentionInterval(this->config.retentionInterval));
+  BOOST_CHECK(store->setRetentionPeriod(FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC));
 
   // Initialize metrics
 
   this->testMetrics.clear();
 
-  for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT; n++) {
+  for (size_t n = 0; n < this->config.metricsCount; n++) {
     std::ostringstream s;
-    s << FORMANCC_MEMSTORETESTCONTROLLER_METRICS_NAME_PREFIX << n;
+    s << FORMANCC_STORETESTCONTROLLER_METRICS_NAME_PREFIX << n;
     auto m = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric());
     m->name = s.str();
     this->testMetrics.push_back(m);
@@ -81,11 +84,11 @@ void StoreTestContoller::runQueryMetricsTest(Foreman::Metric::Store* store)
 
   if (sqlStore) { // TODO: All store should support like search
     Foreman::Metric::Query q;
-    q.setTarget(FORMANCC_MEMSTORETESTCONTROLLER_METRICS_NAME_PREFIX "*");
+    q.setTarget(FORMANCC_STORETESTCONTROLLER_METRICS_NAME_PREFIX "*");
 
     Foreman::Metric::ResultSet rs;
     BOOST_CHECK(store->queryMetric(&q, &rs));
-    BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+    BOOST_CHECK_EQUAL(rs.getMetricsCount(), this->config.metricsCount);
   }
 }
 
@@ -95,7 +98,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
 
   // Insert metrics data
 
-  for (size_t n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
+  for (size_t n = 0; n < (this->config.retentionPeriod / this->config.retentionInterval); n++) {
     Foreman::Metric::MetricArray values;
     for (auto m : this->testMetrics) {
       auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
@@ -104,7 +107,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
       values.push_back(value);
     }
     BOOST_CHECK(store->addData(values));
-    metricTs += FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL;
+    metricTs += this->config.retentionInterval;
   }
 }
 
@@ -117,7 +120,7 @@ void StoreTestContoller::runQueryMetricsDataTest(Foreman::Metric::Store* store)
     q.setTarget(*m);
     q.setFrom(this->testMetricBeginTs);
     q.setUntil(this->testMetricEndTs);
-    q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
+    q.setInterval(this->config.retentionInterval);
 
     Foreman::Metric::ResultSet rs;
 
@@ -128,7 +131,7 @@ void StoreTestContoller::runQueryMetricsDataTest(Foreman::Metric::Store* store)
 
       for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
         size_t mCount = m->size();
-        BOOST_CHECK_EQUAL(mCount, FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT);
+        BOOST_CHECK_EQUAL(mCount, (this->config.retentionPeriod / this->config.retentionInterval));
         for (size_t n = 0; n < mCount; n++) {
           auto dp = m->getDataPoint(n);
           if (dp->getValue() != n) {
@@ -167,7 +170,7 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
       q.setTarget(*m);
       q.setFrom(this->testMetricBeginTs);
       q.setUntil(this->testMetricEndTs);
-      q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
+      q.setInterval(this->config.retentionInterval);
 
       Foreman::Metric::ResultSet rs;
 
@@ -196,12 +199,12 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
       q.setTarget(*m);
       q.setFrom(this->testMetricBeginTs);
       q.setUntil(this->testMetricEndTs);
-      q.setInterval(FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_INTERVAL);
+      q.setInterval(this->config.retentionInterval);
 
       Foreman::Metric::ResultSet rs;
 
       BOOST_CHECK(store->analyzeData(&q, &rs, &err));
-      BOOST_CHECK_EQUAL(rs.getMetricsCount(), FORMANCC_MEMSTORETESTCONTROLLER_METRICS_COUNT);
+      BOOST_CHECK_EQUAL(rs.getMetricsCount(), this->config.metricsCount);
 
       for (auto m = rs.firstMetrics(); m; m = rs.nextMetrics()) {
         size_t mCount = m->size();
@@ -229,7 +232,7 @@ void StoreTestContoller::runAllTests(Foreman::Metric::Store* store)
     tsStore->clear();
     std::time_t now = std::time(nullptr);
     int i = 0, n;
-    for (n = 0; n < FORMANCC_MEMSTORETESTCONTROLLER_RETENSION_PERIOD_COUNT; n++) {
+    for (n = 0; n < (this->config.retentionPeriod / this->config.retentionInterval); n++) {
       Foreman::Metric::MetricArray values;
       for (auto m : this->testMetrics) {
         auto value = Foreman::Metric::Metric(*m);
