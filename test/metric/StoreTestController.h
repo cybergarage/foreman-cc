@@ -36,6 +36,7 @@ namespace Metric {
     time_t insertInterval;
     time_t retentionPeriod;
     size_t metricsCount;
+    bool enableTimestampJitter;
   };
   
   class StoreTestContollerDefaultConfig : public StoreTestContollerConfig {
@@ -45,6 +46,7 @@ namespace Metric {
       insertInterval = retentionInterval;
       retentionPeriod = FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC;
       metricsCount = FORMANCC_STORETESTCONTROLLER_METRICS_COUNT;
+      enableTimestampJitter = false;
     };
   };
   
