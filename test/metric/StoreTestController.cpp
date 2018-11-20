@@ -103,7 +103,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
     for (auto m : this->testMetrics) {
       auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
       value->timestamp = metricTs;
-      value->value = n;
+      value->value = n / (this->config.retentionInterval / this->config.insertInterval);
       values.push_back(value);
     }
     BOOST_CHECK(store->addData(values));
