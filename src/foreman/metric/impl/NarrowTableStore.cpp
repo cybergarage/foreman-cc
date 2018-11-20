@@ -178,14 +178,13 @@ bool NarrowTableStore::addData(const Metric& m)
   sqlite3_bind_double(stmt, 2, m.value);
   sqlite3_bind_int(stmt, 3, (int)metricTs);
 
-  if (sqlite3_step(stmt) == SQLITE_DONE) {
-    sqlite3_finalize(stmt);
+  auto stat = sqlite3_step(stmt);
+  sqlite3_finalize(stmt);
+  if (stat == SQLITE_DONE) {
     return true;
   }
 
-  sqlite3_finalize(stmt);
-
-  // Update a value
+  // Update the inserted value
 
   if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, &stmt))
     return false;
@@ -194,14 +193,10 @@ bool NarrowTableStore::addData(const Metric& m)
   sqlite3_bind_int(stmt, 2, rowId);
   sqlite3_bind_int(stmt, 3, (int)metricTs);
 
-  if (sqlite3_step(stmt) != SQLITE_DONE) {
-    sqlite3_finalize(stmt);
-    return false;
-  }
-
+  stat = sqlite3_step(stmt);
   sqlite3_finalize(stmt);
 
-  return true;
+  return (stat == SQLITE_DONE) ? true : false;
 }
 
 bool NarrowTableStore::addData(const MetricArray& values)

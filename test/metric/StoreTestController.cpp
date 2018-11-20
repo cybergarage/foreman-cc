@@ -40,7 +40,7 @@ void StoreTestContoller::runInitializeTest(Foreman::Metric::Store* store)
   // Initialize store
 
   BOOST_CHECK(store->setRetentionInterval(this->config.retentionInterval));
-  BOOST_CHECK(store->setRetentionPeriod(FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC));
+  BOOST_CHECK(store->setRetentionPeriod(this->config.retentionPeriod));
 
   // Initialize metrics
 
@@ -98,7 +98,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
 
   // Insert metrics data
 
-  for (size_t n = 0; n < (this->config.retentionPeriod / this->config.retentionInterval); n++) {
+  for (size_t n = 0; n < (this->config.retentionPeriod / this->config.insertInterval); n++) {
     Foreman::Metric::MetricArray values;
     for (auto m : this->testMetrics) {
       auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
@@ -107,7 +107,7 @@ void StoreTestContoller::runInsertMetricsDataTest(Foreman::Metric::Store* store)
       values.push_back(value);
     }
     BOOST_CHECK(store->addData(values));
-    metricTs += this->config.retentionInterval;
+    metricTs += this->config.insertInterval;
   }
 }
 
