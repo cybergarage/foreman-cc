@@ -13,7 +13,7 @@
 
 #include <foreman/metric/impl/StoreImpl.h>
 
-#define FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL 60
+#define FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL (60 * 5)
 #define FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_HOUR 6
 #define FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC (60 * 60 * FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_HOUR)
 
@@ -33,6 +33,7 @@ namespace Metric {
     
   public:
     time_t retentionInterval;
+    time_t insertInterval;
     time_t retentionPeriod;
     size_t metricsCount;
   };
@@ -41,6 +42,7 @@ namespace Metric {
   public:
     StoreTestContollerDefaultConfig() {
       retentionInterval = FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL;
+      insertInterval = retentionInterval;
       retentionPeriod = FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC;
       metricsCount = FORMANCC_STORETESTCONTROLLER_METRICS_COUNT;
     };
