@@ -4,4 +4,4 @@ if [ `which python-config` ]; then
     export LDFLAGS="$LDFLAGS `python-config --libs`"
 fi
 export CXXFLAGS="$CFLAGS $CXXFLAGS -Wall -O2"
-./configure --enable-alglib "$@"
+./configure --enable-script-python --enable-alglib "$@"
