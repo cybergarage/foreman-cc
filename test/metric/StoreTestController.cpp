@@ -19,7 +19,7 @@ using namespace Foreman::Metric;
 // StoreTestContoller
 ////////////////////////////////////////////////
 
-StoreTestContoller::StoreTestContoller(StoreTestContollerConfig config)
+StoreTestContoller::StoreTestContoller(StoreTestConfig config)
 {
   this->config = config;
 }
@@ -96,7 +96,7 @@ void StoreTestContoller::testQueryMetrics(Foreman::Metric::Store* store)
 void StoreTestContoller::testInsertMetricsData(Foreman::Metric::Store* store)
 {
   std::random_device rnd;
-  
+
   time_t metricTs = this->testMetricBeginTs;
 
   // Insert metrics data
