@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_SUITE(metric)
 
 BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 {
-  StoreTestContollerDefaultConfig config;
+  DefaultStoreTestContollerConfig config;
   StoreTestContoller testController(config);
 
   Store* store = new NarrowTableStore();
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreTest)
 
 BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveTest)
 {
-  StoreTestContollerDefaultConfig config;
+  DefaultStoreTestContollerConfig config;
   config.retentionInterval = 60 * 5;
   config.insertInterval = 60;
   StoreTestContoller testController(config);
@@ -48,7 +48,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveTest)
 
 BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveWithJitterTest)
 {
-  StoreTestContollerDefaultConfig config;
+  DefaultStoreTestContollerConfig config;
   config.retentionInterval = 60 * 5;
   config.insertInterval = 60;
   config.enableTimestampJitter = true;
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveWithJitterTest)
 
 BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
 {
-  StoreTestContollerDefaultConfig config;
+  DefaultStoreTestContollerConfig config;
   StoreTestContoller testController(config);
 
   Store* store = new EmptyStore();
@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
 /*
 BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 {
- StoreTestContollerDefaultConfig config;
+ DefaultStoreTestContollerConfig config;
  StoreTestContoller testController(config);
 
   Store* store = new RingMapStore();
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(RingMapStoreTest)
 /*
 BOOST_AUTO_TEST_CASE(BeringeiStoreTest)
 {
- StoreTestContollerDefaultConfig config;
+ DefaultStoreTestContollerConfig config;
  StoreTestContoller testController(config);
 
   Store* store = new BeringeiStore();
