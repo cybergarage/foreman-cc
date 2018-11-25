@@ -11,14 +11,8 @@
 #ifndef _FOREMANCC_METRIC_STORETESTCONTROLLER_H_
 #define _FOREMANCC_METRIC_STORETESTCONTROLLER_H_
 
+#include "StoreTestConfig.h"
 #include <foreman/metric/impl/StoreImpl.h>
-
-#define FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL (60 * 5)
-#define FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_HOUR 6
-#define FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC (60 * 60 * FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_HOUR)
-
-#define FORMANCC_STORETESTCONTROLLER_METRICS_COUNT 500
-#define FORMANCC_STORETESTCONTROLLER_METRICS_NAME_PREFIX "name"
 
 ////////////////////////////////////////////////
 // StoreTestContoller
@@ -27,41 +21,17 @@
 namespace Foreman {
 namespace Metric {
 
-  class StoreTestContollerConfig {
-  public:
-    StoreTestContollerConfig() {};
-    
-  public:
-    time_t retentionInterval;
-    time_t insertInterval;
-    time_t retentionPeriod;
-    size_t metricsCount;
-    bool enableTimestampJitter;
-  };
-  
-  class DefaultStoreTestContollerConfig : public StoreTestContollerConfig {
-  public:
-    DefaultStoreTestContollerConfig() {
-      retentionInterval = FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL;
-      insertInterval = retentionInterval;
-      retentionPeriod = FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC;
-      metricsCount = FORMANCC_STORETESTCONTROLLER_METRICS_COUNT;
-      enableTimestampJitter = false;
-    };
-  };
-  
-  class StoreTestContoller : public StoreTestContollerConfig {
+  class StoreTestContoller : public StoreTestConfig {
 public:
-    StoreTestContoller(StoreTestContollerConfig config);
+    StoreTestContoller(StoreTestConfig config);
     virtual ~StoreTestContoller();
 
     void testAll(Foreman::Metric::Store* store);
     void testOnlyInsert(Foreman::Metric::Store* store);
 
+private:
+    StoreTestConfig config;
 
-  private:
-    StoreTestContollerConfig config;
-    
     time_t testMetricBeginTs;
     time_t testMetricEndTs;
     Foreman::Metric::MetricArray testMetrics;
