@@ -39,9 +39,9 @@ namespace Metric {
     bool enableTimestampJitter;
   };
   
-  class StoreTestContollerDefaultConfig : public StoreTestContollerConfig {
+  class DefaultStoreTestContollerConfig : public StoreTestContollerConfig {
   public:
-    StoreTestContollerDefaultConfig() {
+    DefaultStoreTestContollerConfig() {
       retentionInterval = FORMANCC_STORETESTCONTROLLER_RETENSION_INTERVAL;
       insertInterval = retentionInterval;
       retentionPeriod = FORMANCC_STORETESTCONTROLLER_RETENSION_PERIOD_SEC;
