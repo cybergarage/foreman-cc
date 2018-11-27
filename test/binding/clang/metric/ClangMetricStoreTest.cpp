@@ -47,6 +47,7 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
   time_t until = from + config->retentionPeriod;
 
   // Insert metric values
+
   int tn;
   time_t ts = from;
   for (tn = 0; tn < (config->retentionPeriod / config->insertInterval); tn++) {
@@ -66,9 +67,32 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
     ts += config->insertInterval;
   }
 
+  // Query metrics
+  
+  auto q = foreman_metric_query_new();
+  for (n = 0; n < config->metricsCount; n++) {
+    const char* mname;
+    BOOST_CHECK(foreman_metric_getname(m[n], &mname));
+    BOOST_CHECK(foreman_metric_query_settarget(q, mname));
+    
+    auto rs = foreman_metric_resultset_new();
+    BOOST_CHECK(foreman_metric_store_querymetric(store, q, rs));
+    
+    BOOST_CHECK_EQUAL(foreman_metric_resultset_getdatapointcount(rs), 1);
+    auto qm = foreman_metric_resultset_getfirstmetrics(rs);
+    BOOST_CHECK(qm);
+    
+    const char* qname;
+    BOOST_CHECK(foreman_metric_getname(qm, &qname));
+    // FIXME
+    //BOOST_CHECK_EQUAL(qname, mname);
+    
+    BOOST_CHECK(foreman_metric_resultset_delete(rs));
+  }
+  
   // Query metric values
 
-  ForemanMetricQuery* q = foreman_metric_query_new();
+  q = foreman_metric_query_new();
   BOOST_CHECK(foreman_metric_query_setfrom(q, from));
   BOOST_CHECK(foreman_metric_query_setuntil(q, until));
   BOOST_CHECK(foreman_metric_query_setinterval(q, config->retentionInterval));
@@ -78,18 +102,18 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
     BOOST_CHECK(foreman_metric_getname(m[n], &mname));
     BOOST_CHECK(foreman_metric_query_settarget(q, mname));
 
-    ForemanMetricResultSet* rs = foreman_metric_resultset_new();
+    auto rs = foreman_metric_resultset_new();
     BOOST_CHECK(foreman_metric_store_querydata(store, q, rs));
 
     BOOST_CHECK_EQUAL(foreman_metric_resultset_getdatapointcount(rs), 1);
-    ForemanMetrics* m = foreman_metric_resultset_findmetrics(rs, mname);
+    auto m = foreman_metric_resultset_findmetrics(rs, mname);
     BOOST_CHECK(m);
 
     size_t dataCnt = foreman_metric_metrics_getdatapointsize(m);
     BOOST_CHECK_EQUAL(dataCnt, (config->retentionPeriod / config->retentionInterval));
 
     for (auto i = 0; i < dataCnt; i++) {
-      ForemanMetrics* dp = foreman_metric_metrics_getdatapoint(m, i);
+      auto dp = foreman_metric_metrics_getdatapoint(m, i);
       BOOST_CHECK(dp);
       if (!dp)
         continue;
