@@ -20,6 +20,8 @@
 #include <Python.h>
 #elif defined(HAVE_PYTHON_PYTHON_H)
 #include <Python/Python.h>
+#elif defined(__APPLE__)
+#include <Python/Python.h>
 #else
 #include <Python.h>
 #endif
