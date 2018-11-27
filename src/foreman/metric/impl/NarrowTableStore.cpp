@@ -103,7 +103,6 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
     return false;
   }
 
-  
   sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
@@ -114,7 +113,7 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
   sqlite3_finalize(stmt);
 
   unlock();
-  
+
   // Get ROWID of the inserted metric
 
   int rowId = -1;
@@ -133,7 +132,7 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
   lock();
 
   sqlite3_stmt* stmt = NULL;
-  
+
   if (q->hasTarget()) {
     if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, &stmt)) {
       unlock();
@@ -170,7 +169,7 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
   sqlite3_finalize(stmt);
 
   unlock();
-  
+
   return true;
 }
 
@@ -191,7 +190,7 @@ bool NarrowTableStore::addData(const Metric& m)
   // Insert a value
 
   lock();
-  
+
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_INSERT, &stmt)) {
@@ -225,7 +224,7 @@ bool NarrowTableStore::addData(const Metric& m)
   sqlite3_finalize(stmt);
 
   unlock();
-  
+
   return (stat == SQLITE_DONE) ? true : false;
 }
 
@@ -264,7 +263,7 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   // Select values
 
   lock();
-  
+
   sqlite3_stmt* stmt = NULL;
 
   if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt)) {
@@ -287,7 +286,7 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   sqlite3_finalize(stmt);
 
   unlock();
-  
+
   bool isSuccess = rs->addMetrics(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
 
   delete[] values;
@@ -324,16 +323,16 @@ size_t NarrowTableStore::deleteExpiredMetrics()
 {
   if (!isOpened())
     return 0;
-  
+
   lock();
 
   sqlite3_stmt* stmt = NULL;
-  
+
   if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_TRUNCATE_BY_TIME, &stmt)) {
     unlock();
     return 0;
   }
-  
+
   if (sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod()) != SQLITE_OK) {
     unlock();
     return 0;
@@ -358,7 +357,7 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
     return 0;
 
   lock();
-  
+
   sqlite3_stmt* stmt = NULL;
   if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, &stmt)) {
     unlock();
@@ -376,6 +375,6 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
   sqlite3_finalize(stmt);
 
   unlock();
-  
+
   return sqlite3_changes(db_);
 }
