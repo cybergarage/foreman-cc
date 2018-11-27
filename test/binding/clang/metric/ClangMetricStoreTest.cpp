@@ -68,28 +68,28 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
   }
 
   // Query metrics
-  
+
   auto q = foreman_metric_query_new();
   for (n = 0; n < config->metricsCount; n++) {
     const char* mname;
     BOOST_CHECK(foreman_metric_getname(m[n], &mname));
     BOOST_CHECK(foreman_metric_query_settarget(q, mname));
-    
+
     auto rs = foreman_metric_resultset_new();
     BOOST_CHECK(foreman_metric_store_querymetric(store, q, rs));
-    
+
     BOOST_CHECK_EQUAL(foreman_metric_resultset_getdatapointcount(rs), 1);
     auto qm = foreman_metric_resultset_getfirstmetrics(rs);
     BOOST_CHECK(qm);
-    
+
     const char* qname;
     BOOST_CHECK(foreman_metric_getname(qm, &qname));
     // FIXME
     //BOOST_CHECK_EQUAL(qname, mname);
-    
+
     BOOST_CHECK(foreman_metric_resultset_delete(rs));
   }
-  
+
   // Query metric values
 
   q = foreman_metric_query_new();

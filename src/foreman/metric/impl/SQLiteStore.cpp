@@ -87,12 +87,12 @@ bool SQLiteStore::query(const std::string& query)
     return false;
 
   lock();
-  
+
   char* errMsg = NULL;
   auto rc = sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg);
 
   unlock();
-  
+
   return (rc == SQLITE_OK) ? true : false;
 }
 
