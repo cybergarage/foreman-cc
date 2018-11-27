@@ -94,19 +94,27 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
 {
   sqlite3_stmt* stmt = NULL;
 
+  lock();
+
   // Insert a metric
 
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_INSERT, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_INSERT, &stmt)) {
+    unlock();
     return false;
+  }
 
+  
   sqlite3_bind_text(stmt, 1, m->name.c_str(), (int)m->name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
+    unlock();
     return false;
   }
 
   sqlite3_finalize(stmt);
 
+  unlock();
+  
   // Get ROWID of the inserted metric
 
   int rowId = -1;
@@ -122,11 +130,15 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
   if (!q || !rs)
     return false;
 
-  sqlite3_stmt* stmt = NULL;
+  lock();
 
+  sqlite3_stmt* stmt = NULL;
+  
   if (q->hasTarget()) {
-    if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, &stmt))
+    if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, &stmt)) {
+      unlock();
       return false;
+    }
 
     // Replace '*' to '%" for Graphite query.
     auto target = q->target;
@@ -134,22 +146,31 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
     sqlite3_bind_text(stmt, 1, target.c_str(), (int)target.length(), SQLITE_TRANSIENT);
   }
   else {
-    if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_ALL, &stmt))
+    if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_ALL, &stmt)) {
+      unlock();
       return false;
+    }
   }
 
-  while (sqlite3_step(stmt) == SQLITE_ROW) {
+  auto rc = sqlite3_step(stmt);
+  while (rc == SQLITE_ROW) {
     auto name = sqlite3_column_text(stmt, 0);
     if (!name)
       continue;
-    auto ms = std::shared_ptr<Metrics>(new Metrics);
+    auto ms = std::shared_ptr<Metrics>(new Metrics());
     ms->setName((const char*)name);
-    if (!rs->addMetrics(ms))
+    if (!rs->addMetrics(ms)) {
+      sqlite3_finalize(stmt);
+      unlock();
       return false;
+    }
+    rc = sqlite3_step(stmt);
   }
 
   sqlite3_finalize(stmt);
 
+  unlock();
+  
   return true;
 }
 
@@ -169,10 +190,14 @@ bool NarrowTableStore::addData(const Metric& m)
 
   // Insert a value
 
+  lock();
+  
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_INSERT, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_INSERT, &stmt)) {
+    unlock();
     return false;
+  }
 
   sqlite3_bind_int(stmt, 1, rowId);
   sqlite3_bind_double(stmt, 2, m.value);
@@ -181,13 +206,16 @@ bool NarrowTableStore::addData(const Metric& m)
   auto stat = sqlite3_step(stmt);
   sqlite3_finalize(stmt);
   if (stat == SQLITE_DONE) {
+    unlock();
     return true;
   }
 
   // Update the inserted value
 
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, &stmt)) {
+    unlock();
     return false;
+  }
 
   sqlite3_bind_double(stmt, 1, m.value);
   sqlite3_bind_int(stmt, 2, rowId);
@@ -196,6 +224,8 @@ bool NarrowTableStore::addData(const Metric& m)
   stat = sqlite3_step(stmt);
   sqlite3_finalize(stmt);
 
+  unlock();
+  
   return (stat == SQLITE_DONE) ? true : false;
 }
 
@@ -233,10 +263,14 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
 
   // Select values
 
+  lock();
+  
   sqlite3_stmt* stmt = NULL;
 
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, &stmt)) {
+    unlock();
     return false;
+  }
 
   sqlite3_bind_text(stmt, 1, q->target.c_str(), (int)q->target.length(), SQLITE_TRANSIENT);
   sqlite3_bind_int(stmt, 2, (int)q->from);
@@ -252,6 +286,8 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   }
   sqlite3_finalize(stmt);
 
+  unlock();
+  
   bool isSuccess = rs->addMetrics(q->getTarget(), q->getFrom(), q->getInterval(), values, valueCount);
 
   delete[] values;
@@ -288,17 +324,30 @@ size_t NarrowTableStore::deleteExpiredMetrics()
 {
   if (!isOpened())
     return 0;
+  
+  lock();
+
   sqlite3_stmt* stmt = NULL;
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_TRUNCATE_BY_TIME, &stmt))
-    return 0;
-  if (sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod()) != SQLITE_OK) {
+  
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_RECORD_TRUNCATE_BY_TIME, &stmt)) {
+    unlock();
     return 0;
   }
+  
+  if (sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod()) != SQLITE_OK) {
+    unlock();
+    return 0;
+  }
+
   if (sqlite3_step(stmt) != SQLITE_DONE) {
     sqlite3_finalize(stmt);
+    unlock();
     return 0;
   }
+
   sqlite3_finalize(stmt);
+
+  unlock();
 
   return sqlite3_changes(db_);
 }
@@ -307,17 +356,26 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
 {
   if (!isOpened())
     return 0;
+
+  lock();
+  
   sqlite3_stmt* stmt = NULL;
-  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, &stmt))
+  if (!prepare(FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, &stmt)) {
+    unlock();
     return false;
+  }
 
   sqlite3_bind_text(stmt, 1, name.c_str(), (int)name.length(), SQLITE_TRANSIENT);
   if (sqlite3_step(stmt) != SQLITE_ROW) {
     sqlite3_finalize(stmt);
+    unlock();
     return false;
   }
+
   rowId = sqlite3_column_int(stmt, 0);
   sqlite3_finalize(stmt);
 
+  unlock();
+  
   return sqlite3_changes(db_);
 }

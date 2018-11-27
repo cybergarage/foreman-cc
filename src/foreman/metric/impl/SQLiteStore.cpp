@@ -86,11 +86,14 @@ bool SQLiteStore::query(const std::string& query)
   if (!isOpened())
     return false;
 
+  lock();
+  
   char* errMsg = NULL;
-  if (sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg) != SQLITE_OK)
-    return false;
+  auto rc = sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg);
 
-  return true;
+  unlock();
+  
+  return (rc == SQLITE_OK) ? true : false;
 }
 
 ////////////////////////////////////////////////
