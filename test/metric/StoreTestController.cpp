@@ -101,7 +101,7 @@ void StoreTestContoller::testInsertMetricsData(Foreman::Metric::Store* store)
 
   // Insert metrics data
 
-  for (size_t n = 0; n < (this->config.retentionPeriod / this->config.insertInterval); n++) {
+  for (size_t n = 0; n < size_t(this->config.retentionPeriod / this->config.insertInterval); n++) {
     Foreman::Metric::MetricArray values;
     for (auto m : this->testMetrics) {
       auto value = std::shared_ptr<Foreman::Metric::Metric>(new Foreman::Metric::Metric(*m));
