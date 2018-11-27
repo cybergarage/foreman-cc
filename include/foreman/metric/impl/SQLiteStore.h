@@ -17,6 +17,7 @@
 
 #include <foreman/Const.h>
 #include <foreman/metric/Store.h>
+#include <foreman/util/Mutex.h>
 
 namespace Foreman {
 namespace Metric {
@@ -31,7 +32,7 @@ public:
     int rowId;
   };
 
-  class SQLiteStore : public Store {
+  class SQLiteStore : public Store, public Mutex {
 public:
     SQLiteStore();
     ~SQLiteStore();
