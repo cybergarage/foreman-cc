@@ -242,6 +242,7 @@
 		2188DBE21FB00AEE00940208 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = registry/Store.h; sourceTree = "<group>"; };
 		2188DBE31FB00AEE00940208 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Object.h; path = registry/Object.h; sourceTree = "<group>"; };
 		2188DBEB1FB028C200940208 /* SQLStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLStore.h; path = registry/impl/SQLStore.h; sourceTree = "<group>"; };
+		2189DCCA21ADAF0500C4904E /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		218A219F2047B1E40091E76F /* MetricsArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetricsArray.cpp; sourceTree = "<group>"; };
 		218D47C81F503251002A3FA2 /* foreman-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foreman-c.h"; sourceTree = "<group>"; };
 		21ABA0981FB07ABC00982715 /* BeringeiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeringeiStore.h; path = impl/BeringeiStore.h; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 				2175C2F21E52F423006C4425 /* Headers */,
 				2175C2F81E52F44D006C4425 /* Sources */,
 				211B343F1E52F1B8008D5228 /* Products */,
+				2189DCC921ADAF0400C4904E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -608,6 +610,14 @@
 				2188DBEB1FB028C200940208 /* SQLStore.h */,
 			);
 			name = impl;
+			sourceTree = "<group>";
+		};
+		2189DCC921ADAF0400C4904E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2189DCCA21ADAF0500C4904E /* Python.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		21ABA0971FB07AB200982715 /* impl */ = {
