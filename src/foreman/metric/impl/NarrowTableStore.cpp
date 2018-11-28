@@ -333,7 +333,7 @@ size_t NarrowTableStore::deleteExpiredMetrics()
     return 0;
   }
 
-  if (sqlite3_bind_int(stmt, 1, std::time(nullptr) - getRetentionPeriod()) != SQLITE_OK) {
+  if (sqlite3_bind_int(stmt, 1, int(std::time(nullptr) - getRetentionPeriod())) != SQLITE_OK) {
     unlock();
     return 0;
   }

@@ -31,12 +31,12 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
 
   ForemanMetric* m[config->metricsCount];
   char name[32];
-  int n;
+  size_t n;
 
   for (n = 0; n < config->metricsCount; n++) {
     m[n] = foreman_metric_new();
     BOOST_CHECK(m[n]);
-    snprintf(name, sizeof(name), "%s%04d", FORMANCC_STORETESTCONTROLLER_METRICS_NAME_PREFIX, n);
+    snprintf(name, sizeof(name), "%s%04ld", FORMANCC_STORETESTCONTROLLER_METRICS_NAME_PREFIX, n);
     BOOST_CHECK(foreman_metric_setname(m[n], name));
   }
 
