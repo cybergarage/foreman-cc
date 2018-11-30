@@ -112,7 +112,7 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
     size_t dataCnt = foreman_metric_metrics_getdatapointsize(m);
     BOOST_CHECK_EQUAL(dataCnt, (config->retentionPeriod / config->retentionInterval));
 
-    for (auto i = 0; i < dataCnt; i++) {
+    for (size_t i = 0; i < dataCnt; i++) {
       auto dp = foreman_metric_metrics_getdatapoint(m, i);
       BOOST_CHECK(dp);
       if (!dp)
