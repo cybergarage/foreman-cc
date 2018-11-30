@@ -32,7 +32,6 @@ export CXXFLAGS="-std=c++11 $CFLAGS"
 %configure_centos
 make %{?_smp_mflags}
 
-
 %install
 make install DESTDIR=%{buildroot}
 
