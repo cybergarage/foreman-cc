@@ -48,7 +48,8 @@ Foreman::Action::PythonEngine::PythonEngine()
 Foreman::Action::PythonEngine::~PythonEngine()
 {
   if (Py_IsInitialized()) {
-    Py_Finalize();
+    // FIXME : Py_Initialize() aborts after Py_Finalize() is called
+    //Py_Finalize();
   }
 }
 
