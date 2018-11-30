@@ -33,22 +33,6 @@ void Foreman::Action::ScriptEngineMap::init()
 }
 
 ////////////////////////////////////////////////
-// clear
-////////////////////////////////////////////////
-
-void Foreman::Action::ScriptEngineMap::clear()
-{
-  for (auto engineIt = begin(); engineIt != end(); engineIt++) {
-    auto engine = engineIt->second;
-    if (!engine)
-      continue;
-    delete engine;
-  }
-
-  std::map<std::string, ScriptEngine*>::clear();
-}
-
-////////////////////////////////////////////////
 // hasEngine
 ////////////////////////////////////////////////
 
@@ -66,5 +50,6 @@ Foreman::Action::ScriptEngine* Foreman::Action::ScriptEngineMap::getEngine(const
   auto engineIt = find(lang);
   if (engineIt == end())
     return NULL;
-  return engineIt->second;
+  auto engine = engineIt->second.get();
+  return engine;
 }
