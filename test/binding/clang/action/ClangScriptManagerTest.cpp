@@ -10,6 +10,7 @@
 
 #include <boost/test/unit_test.hpp>
 
+#include <foreman/Platform.h>
 #include <foreman/foreman-c.h>
 
 BOOST_AUTO_TEST_SUITE(clang)
