@@ -13,6 +13,7 @@
 
 #include <map>
 #include <string>
+#include <memory>
 
 #include <foreman/Platform.h>
 #include <foreman/action/Method.h>
@@ -63,7 +64,7 @@ private:
   // ScriptEngineMap
   ////////////////////////////////////////////////
 
-  class ScriptEngineMap : public std::map<std::string, ScriptEngine*> {
+  class ScriptEngineMap : public std::map<std::string, std::unique_ptr<ScriptEngine>> {
 
 public:
     ScriptEngineMap();
@@ -71,8 +72,6 @@ public:
 
     bool hasEngine(const std::string& lang) const;
     ScriptEngine* getEngine(const std::string& lang);
-
-    void clear();
 
 private:
     void init();

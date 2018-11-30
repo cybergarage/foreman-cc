@@ -117,7 +117,7 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
     delete currentEngine;
   }
 
-  this->engineMap[engineLang] = engine;
+  this->engineMap[engineLang] = std::unique_ptr<ScriptEngine>(engine);
 
   return true;
 }
