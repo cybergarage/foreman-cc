@@ -40,8 +40,9 @@ void Foreman::Action::ScriptEngineMap::clear()
 {
   for (auto engineIt = begin(); engineIt != end(); engineIt++) {
     auto engine = engineIt->second;
-    if (engine)
-      delete engine;
+    if (!engine)
+      continue;
+    delete engine;
   }
 
   std::map<std::string, ScriptEngine*>::clear();
