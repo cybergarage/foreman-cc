@@ -27,9 +27,6 @@ export CFLAGS="$CFLAGS `python-config --includes` -Wall -O2"
 export LDFLAGS="$LDFLAGS `python-config --libs`"
 export CXXFLAGS="-std=c++11 $CFLAGS"
 %configure --enable-script-python --enable-alglib
-
-#export PYTHON_VERSION=3
-%configure_centos
 make %{?_smp_mflags}
 
 %install
