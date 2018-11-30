@@ -22,10 +22,8 @@ cp -af %{SOURCEURL0}/. .
 
 %build
 #export CFLAGS="$(pkg-config --cflags --libs python3) -Wall"
-export CFLAGS="-Wall -O2"
-export CXXFLAGS="-std=c++14 $CFLAGS"
-export PYTHON_VERSION=3
-%configure --enable-alglib --enable-beringei
+#export PYTHON_VERSION=3
+%configure_centos
 make %{?_smp_mflags}
 
 
