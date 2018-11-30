@@ -24,20 +24,31 @@ const static int ERROR_SCRIPT_ENGINE_NOT_FOUND = 701;
 const static int ERROR_SCRIPT_COMPILE_ERROR = 702;
 const static int ERROR_SCRIPT_RUNTIME_ERROR = 703;
 
-inline const char *ErrorCodeToMessage(int code) {
-    switch(code) {
-    case 0: return "Unknown Error";
-    case 300: return "Bad Destination";
-    case 400: return "Invalid Request";
-    case 401: return "Method not found";
-    case 402: return "Invalid params";
-    case 600: return "Internal error";
-    case 700: return "Script Engine Internal Error";
-    case 701: return "Script Engine Not Found";
-    case 702: return "Script Compile Error";
-    case 703: return "Script Runtime Error";
-    }
-    return "";
+inline const char* ErrorCodeToMessage(int code)
+{
+  switch (code) {
+  case 0:
+    return "Unknown Error";
+  case 300:
+    return "Bad Destination";
+  case 400:
+    return "Invalid Request";
+  case 401:
+    return "Method not found";
+  case 402:
+    return "Invalid params";
+  case 600:
+    return "Internal error";
+  case 700:
+    return "Script Engine Internal Error";
+  case 701:
+    return "Script Engine Not Found";
+  case 702:
+    return "Script Compile Error";
+  case 703:
+    return "Script Runtime Error";
+  }
+  return "";
 }
 
 }
