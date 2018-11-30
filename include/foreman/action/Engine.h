@@ -12,8 +12,8 @@
 #define _FOREMANCC_ACTION_ENGINE_H_
 
 #include <map>
-#include <string>
 #include <memory>
+#include <string>
 
 #include <foreman/Platform.h>
 #include <foreman/action/Method.h>
