@@ -7,8 +7,8 @@ Group: libs
 License: BSD-3-clause
 URL: https://github.com/cybergarage/foreman-cc
 
-BuildRequires: automake, sqlite-devel, curl-devel, libuuid-devel, python-devel, alglib-devel
-Requires: sqlite, libuuid, python, alglib
+BuildRequires: automake, sqlite-devel, curl-devel, libuuid-devel, python-devel
+Requires: sqlite, libuuid, python
 
 Source: %{expand:%%(pwd)}
 
