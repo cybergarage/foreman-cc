@@ -100,6 +100,17 @@ public:
     Manager();
     virtual ~Manager();
   };
+
+  ////////////////////////////////////////////////
+  // DefaultManager
+  ////////////////////////////////////////////////
+  
+  class DefaultManager : public Manager {
+    
+  public:
+    DefaultManager();
+    virtual ~DefaultManager();
+  };
 }
 }
 
