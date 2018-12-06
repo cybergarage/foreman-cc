@@ -21,7 +21,7 @@ using namespace Foreman::Action;
 
 ForemanActionManager* foreman_action_manager_new()
 {
-  return new Manager();
+  return (Manager *)(new DefaultManager());
 }
 
 ////////////////////////////////////////////////
