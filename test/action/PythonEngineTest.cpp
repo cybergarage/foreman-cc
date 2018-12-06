@@ -20,7 +20,9 @@ BOOST_AUTO_TEST_SUITE(python)
 
 BOOST_AUTO_TEST_CASE(PythonParameters)
 {
-  Py_Initialize();
+#if defined(FOREMAN_ENABLE_PYTHON_BASIC_TEST) // See PythonEngine::~PythonEngine()
+
+  Foreman::Action::PythonEngineInitialize();
 
   Foreman::Action::Parameters params;
 
@@ -58,7 +60,8 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
   BOOST_CHECK(pyInParams.get(&params));
   BOOST_CHECK(pyInParams.equals(&pyOutParams));
 
-  Py_Finalize();
+  Foreman::Action::PythonEngineFinalize();
+#endif
 }
 
 BOOST_AUTO_TEST_CASE(PythonEngine)
