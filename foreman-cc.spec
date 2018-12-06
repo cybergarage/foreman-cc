@@ -26,9 +26,9 @@ cp -af %{SOURCEURL0}/. .
 #export CFLAGS="$CFLAGS `python-config --includes` -Wall -O2"
 #export LDFLAGS="$LDFLAGS `python-config --libs`"
 #export CXXFLAGS="-std=c++11 $CFLAGS"
-%bootstrap
-#%configure --enable-script-python --enable-alglib
-%configure_centos
+./bootstrap
+#configure --enable-script-python --enable-alglib
+./configure_centos
 make %{?_smp_mflags}
 
 %install
