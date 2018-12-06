@@ -21,6 +21,8 @@ BOOST_AUTO_TEST_CASE(SystemEngine)
   Foreman::Action::Manager mgr;
   Foreman::Action::ManagerTestController testController;
 
+  mgr.addEngine(new Foreman::Action::SystemEngine());
+  
   static const char* ECHO_CODE = "echo";
 
   auto echo = new Foreman::Action::SystemMethod();
