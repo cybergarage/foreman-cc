@@ -66,6 +66,10 @@ BOOST_AUTO_TEST_CASE(PythonParameters)
 
 BOOST_AUTO_TEST_CASE(PythonEngine)
 {
+  // FIXME : See PythonEngine::~PythonEngine()
+  if (Foreman::Action::PythonEngineIsInitialized())
+    return;
+
   Foreman::Error err;
   Foreman::Action::Manager mgr;
   Foreman::Action::ManagerTestController testController;

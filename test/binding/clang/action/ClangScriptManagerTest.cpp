@@ -13,10 +13,20 @@
 #include <foreman/Platform.h>
 #include <foreman/foreman-c.h>
 
+#if defined(FOREMAN_SUPPORT_PYTHON)
+#include <foreman/action/impl/Python.h>
+#endif
+
 BOOST_AUTO_TEST_SUITE(clang)
 
 BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 {
+#if defined(FOREMAN_SUPPORT_PYTHON)
+  // FIXME : See PythonEngine::~PythonEngine()
+  if (Foreman::Action::PythonEngineIsInitialized())
+    return;
+#endif
+
   auto TEST_METHOD_LANG = "python";
   auto TEST_METHOD_NAME = "qos_unsatisfied";
   auto TEST_METHOD_CODE = "import foreman\n"
