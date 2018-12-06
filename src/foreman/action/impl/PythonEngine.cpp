@@ -24,21 +24,63 @@ const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCR
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
 
 ////////////////////////////////////////////////
+// PythonEngineInitialize
+////////////////////////////////////////////////
+
+bool Foreman::Action::PythonEngineInitialize()
+{
+  if (Py_IsInitialized())
+    return true;
+
+  Py_Initialize();
+
+#if PY_MAJOR_VERSION >= 3
+  PyModule_Create(GetPythonSystemModule());
+#else
+  Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
+#endif
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// PythonEngineIsInitialized
+////////////////////////////////////////////////
+
+bool Foreman::Action::PythonEngineIsInitialized()
+{
+  return Py_IsInitialized() ? true : false;
+}
+
+////////////////////////////////////////////////
+// PythonEngineFinalize
+////////////////////////////////////////////////
+
+bool Foreman::Action::PythonEngineFinalize()
+{
+  if (!Py_IsInitialized())
+    return true;
+
+  // See :
+  // Python/C API Reference Manual » Initializing and finalizing the interpreter
+  // https://docs.python.org/2.7/c-api/init.html
+  // Some extensions may not work properly if their initialization routine is called
+  // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
+
+  //Py_Finalize();
+
+  return true;
+}
+
+////////////////////////////////////////////////
 // Constructor
 ////////////////////////////////////////////////
 
 Foreman::Action::PythonEngine::PythonEngine()
     : ScriptEngine(LANGUAGE)
 {
-  if (!Py_IsInitialized()) {
-    Py_Initialize();
-
-#if PY_MAJOR_VERSION >= 3
-    PyModule_Create(GetPythonSystemModule());
-#else
-    Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
-#endif
-  }
+  if (PythonEngineInitialize())
+    return;
 }
 
 ////////////////////////////////////////////////
@@ -47,10 +89,7 @@ Foreman::Action::PythonEngine::PythonEngine()
 
 Foreman::Action::PythonEngine::~PythonEngine()
 {
-  if (Py_IsInitialized()) {
-    // FIXME : Py_Initialize() aborts after Py_Finalize() is called
-    //Py_Finalize();
-  }
+  PythonEngineFinalize();
 }
 
 ////////////////////////////////////////////////
