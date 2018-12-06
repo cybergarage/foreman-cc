@@ -29,6 +29,10 @@
 namespace Foreman {
 namespace Action {
 
+  bool PythonEngineInitialize();
+  bool PythonEngineIsInitialized();
+  bool PythonEngineFinalize();
+
   PyMethodDef* GetPythonSystemMethods();
 
 #if PY_MAJOR_VERSION >= 3
