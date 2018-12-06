@@ -8,28 +8,27 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
-
-#include <foreman/Const.h>
 #include <foreman/action/Manager.h>
+#include <foreman/action/impl/EngineImpl.h>
+#include <foreman/common/Errors.h>
 
-using namespace Foreman::Action;
+////////////////////////////////////////////////
+// DefaultManager
+////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_SUITE(action)
-
-BOOST_AUTO_TEST_CASE(ManagerTest)
+Foreman::Action::DefaultManager::DefaultManager()
 {
-  /*
-  Manager mgr;
+  addEngine(new SystemEngine());
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  BOOST_CHECK(mgr.hasEngine(FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON));
+  addEngine(new PythonEngine());
 #endif
 
 #if defined(FOREMAN_SUPPORT_LUA)
-  BOOST_CHECK(mgr.hasEngine(FOREMANCC_ACTION_SCRIPT_ENGINE_LUA));
+  addEngine(new LuaEngine());
 #endif
-*/
 }
 
-BOOST_AUTO_TEST_SUITE_END()
+Foreman::Action::DefaultManager::~DefaultManager()
+{
+}

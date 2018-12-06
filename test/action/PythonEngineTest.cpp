@@ -70,6 +70,8 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   Foreman::Action::Manager mgr;
   Foreman::Action::ManagerTestController testController;
 
+  mgr.addEngine(new Foreman::Action::PythonEngine());
+  
   // echo
 
   static const char* PY_ECHO_CODE = "def " FOREMANCC_SCRIPT_ECHO_METHOD "(params,results):\n"

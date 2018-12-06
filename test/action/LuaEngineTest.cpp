@@ -25,6 +25,8 @@ BOOST_AUTO_TEST_CASE(LuaEngine)
   Foreman::Action::Manager mgr;
   Foreman::Action::ManagerTestController testController;
 
+  mgr.addEngine(new LuaEngine());
+
   // echo
 
   static const char* LUA_ECHO_CODE = "function " FOREMANCC_SCRIPT_ECHO_METHOD "(params)\n"

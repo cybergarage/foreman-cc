@@ -18,15 +18,6 @@
 
 Foreman::Action::Manager::Manager()
 {
-  addEngine(new SystemEngine());
-
-#if defined(FOREMAN_SUPPORT_PYTHON)
-  addEngine(new PythonEngine());
-#endif
-
-#if defined(FOREMAN_SUPPORT_LUA)
-  addEngine(new LuaEngine());
-#endif
 }
 
 Foreman::Action::Manager::~Manager()
