@@ -28,7 +28,7 @@ cp -af %{SOURCEURL0}/. .
 #export CXXFLAGS="-std=c++11 $CFLAGS"
 ./bootstrap
 #configure --enable-script-python --enable-alglib
-./configure_centos
+./configure_centos --prefix=/usr
 make %{?_smp_mflags}
 
 %install
@@ -37,7 +37,7 @@ make install DESTDIR=%{buildroot}
 
 %files
 %defattr(644,root,root,755)
-/usr/lib64/libforeman++.a
+/usr/lib/libforeman++.a
 /usr/include/foreman
 
 
