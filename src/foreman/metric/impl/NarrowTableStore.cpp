@@ -346,9 +346,11 @@ size_t NarrowTableStore::deleteExpiredMetrics()
 
   sqlite3_finalize(stmt);
 
-  unlock();
+  size_t nRows = sqlite3_changes(db_);
 
-  return sqlite3_changes(db_);
+  unlock();
+  
+  return nRows;
 }
 
 bool NarrowTableStore::findMetric(const std::string name, int& rowId)
@@ -376,5 +378,5 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
 
   unlock();
 
-  return sqlite3_changes(db_);
+  return true;
 }
