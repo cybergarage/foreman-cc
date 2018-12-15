@@ -10,7 +10,7 @@
 
 lib_LIBRARIES = libforeman++.a
 
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_builddir)/src
 
 foremancc_sources = \
 	../../src/beringei/TimeSeriesStream.cpp \
@@ -18,6 +18,7 @@ foremancc_sources = \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
 	../../src/foreman/util/Mutex.cpp \
+	../../src/foreman/util/Log.cpp \
 	../../src/foreman/util/Util.cpp \
 	../../src/foreman/util/UUID.cpp \
 	../../src/foreman/binding/clang/common/error_c.cpp \
