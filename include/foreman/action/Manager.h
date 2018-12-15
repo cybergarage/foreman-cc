@@ -104,10 +104,10 @@ public:
   ////////////////////////////////////////////////
   // DefaultManager
   ////////////////////////////////////////////////
-  
+
   class DefaultManager : public Manager {
-    
-  public:
+
+public:
     DefaultManager();
     virtual ~DefaultManager();
   };
