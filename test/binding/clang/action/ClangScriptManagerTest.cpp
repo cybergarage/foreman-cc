@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
   // Exec the valid method
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  for (auto n=0; n<10; n++) {
+  for (auto n = 0; n < 10; n++) {
     BOOST_CHECK(foreman_action_manager_execmethod(mgr, TEST_METHOD_NAME, inParams, outParams, err));
   }
 #endif

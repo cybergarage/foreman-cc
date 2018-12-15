@@ -349,7 +349,7 @@ size_t NarrowTableStore::deleteExpiredMetrics()
   size_t nRows = sqlite3_changes(db_);
 
   unlock();
-  
+
   return nRows;
 }
 
