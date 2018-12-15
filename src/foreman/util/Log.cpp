@@ -58,7 +58,7 @@ void Foreman::Log::Output(int severity, const char* file, int line_n, const char
 
   strftime(tsPrefix, MAX_LOG_BUF, "%c", localts);
 
-  prefixLen = snprintf(msg, MAX_LOG_BUF, "%s : %s ", tsPrefix, ForemanLogType2String(severity));
+  prefixLen = snprintf(msg, MAX_LOG_BUF, "%s [%s] ", tsPrefix, ForemanLogType2String(severity));
 
   va_start(list, format);
   vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, list);
