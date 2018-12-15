@@ -16,11 +16,6 @@
 
 #include <foreman/util/Log.h>
 
-#if defined(WIN32)
-#define snprintf _snprintf
-#define vsnprintf _vsnprintf
-#endif
-
 static const char* log_error_s = LOG_LEVEL_ERROR_S;
 static const char* log_warning_s = LOG_LEVEL_WARN_S;
 static const char* log_info_s = LOG_LEVEL_INFO_S;
