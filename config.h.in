@@ -1,5 +1,8 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* Define to 1 if you want to debug */
+#undef DEBUG
+
 /* --enable-alglib */
 #undef FOREMAN_ENABLE_ALGLIB
 

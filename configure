@@ -625,8 +625,6 @@ LTLIBOBJS
 LIBOBJS
 FOREMAN_ENABLE_TESTS_FALSE
 FOREMAN_ENABLE_TESTS_TRUE
-DEBUG_FALSE
-DEBUG_TRUE
 FOREMAN_ENABLE_BENCHMARK_FALSE
 FOREMAN_ENABLE_BENCHMARK_TRUE
 FOUND_PYTHON_CONFIG
@@ -5837,30 +5835,22 @@ fi
 fi
 
 ##################################################################
-# Debugging
+# Debug
 ##################################################################
 
 # Check whether --enable-debug was given.
 if test "${enable_debug+set}" = set; then :
   enableval=$enable_debug; case "${enableval}" in
-             yes) debug=true ;;
-             no)  debug=false ;;
-             *)   as_fn_error $? "bad value ${enableval} for --enable-debug" "$LINENO" 5 ;;
+    	yes | no ) enable_debug ="${enableval}" ;;
 	esac
-else
-  debug=false
-
 fi
 
 
- if test x"$debug" = x"true"; then
-  DEBUG_TRUE=
-  DEBUG_FALSE='#'
-else
-  DEBUG_TRUE='#'
-  DEBUG_FALSE=
-fi
+if  test "$enable_debug" = yes ; then
 
+$as_echo "#define DEBUG 1" >>confdefs.h
+
+fi
 
 ##################################################################
 # Testing
@@ -6368,10 +6358,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${FOREMAN_ENABLE_BENCHMARK_TRUE}" && test -z "${FOREMAN_ENABLE_BENCHMARK_FALSE}"; then
   as_fn_error $? "conditional \"FOREMAN_ENABLE_BENCHMARK\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${DEBUG_TRUE}" && test -z "${DEBUG_FALSE}"; then
-  as_fn_error $? "conditional \"DEBUG\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${FOREMAN_ENABLE_TESTS_TRUE}" && test -z "${FOREMAN_ENABLE_TESTS_FALSE}"; then

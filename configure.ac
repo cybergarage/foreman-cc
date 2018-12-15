@@ -219,20 +219,21 @@ if [ test "$build_benchmark" = yes ]; then
 fi
 
 ##################################################################
-# Debugging
+# Debug
 ##################################################################
 
-AC_ARG_ENABLE(debug,
-	AS_HELP_STRING([--enable-debug], [enable debugging (default = no)]),
+AC_ARG_ENABLE(
+ 	[debug],
+	AC_HELP_STRING([--enable-debug], [enable debugging (default = no)]),
 	[case "${enableval}" in
-             yes) debug=true ;;
-             no)  debug=false ;;
-             *)   AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+    	yes | no ) enable_debug ="${enableval}" ;;
 	esac],
-	[debug=false]
+	[]
 )
 
-AM_CONDITIONAL(DEBUG, test x"$debug" = x"true")
+if [ test "$enable_debug" = yes ]; then
+	AC_DEFINE([DEBUG],1,[Define to 1 if you want to debug])
+fi
 
 ##################################################################
 # Testing
