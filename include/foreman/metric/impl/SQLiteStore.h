@@ -44,6 +44,9 @@ public:
 
     bool query(const std::string& query);
     bool prepare(const std::string& query, sqlite3_stmt** ppStmt);
+    bool bind(sqlite3_stmt* stmt, int n, const std::string& text);
+    bool bind(sqlite3_stmt* stmt, int n, int value);
+    bool bind(sqlite3_stmt* stmt, int n, double value);
 
 protected:
     sqlite3* db_;
