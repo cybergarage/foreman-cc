@@ -143,6 +143,8 @@
 		21C7700020208CA800653C56 /* manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C76FFF20208CA800653C56 /* manager_c.cpp */; };
 		21C770072020A0AF00653C56 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C770062020A0AE00653C56 /* StoreImpl.h */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
+		21E7F18621C47DFA00B16A4F /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21E7F18421C47DFA00B16A4F /* Log.cpp */; };
+		21E7F18721C47DFA00B16A4F /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E7F18521C47DFA00B16A4F /* Log.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +287,8 @@
 		21C76FFF20208CA800653C56 /* manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = manager_c.cpp; path = binding/clang/action/manager_c.cpp; sourceTree = "<group>"; };
 		21C770062020A0AE00653C56 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = register/impl/StoreImpl.h; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
+		21E7F18421C47DFA00B16A4F /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = util/Log.cpp; sourceTree = "<group>"; };
+		21E7F18521C47DFA00B16A4F /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = util/Log.h; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -736,6 +740,8 @@
 		21C85F131F9C4BB000D59EAE /* util */ = {
 			isa = PBXGroup;
 			children = (
+				21E7F18421C47DFA00B16A4F /* Log.cpp */,
+				21E7F18521C47DFA00B16A4F /* Log.h */,
 				2117C4ED1FB3158300F7ACF9 /* UUID.cpp */,
 				21C85F141F9C4BBC00D59EAE /* Util.cpp */,
 			);
@@ -760,6 +766,7 @@
 				2113F194201FA02600F5C672 /* Method.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				2113F1A4201FA07300F5C672 /* MemStore.h in Headers */,
+				21E7F18721C47DFA00B16A4F /* Log.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
@@ -881,6 +888,7 @@
 				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
 				216A5B381F9C59990092272A /* Metric.cpp in Sources */,
+				21E7F18621C47DFA00B16A4F /* Log.cpp in Sources */,
 				21BA40F7201F430A0083998C /* MemStore.cpp in Sources */,
 				21BA40F5201F42F50083998C /* Store.cpp in Sources */,
 				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
@@ -1002,7 +1010,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					../../../include,
+					../../../src,
 					/usr/local/include,
+					/usr/local/include/lua,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1055,7 +1065,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					../../../include,
+					../../../src,
 					/usr/local/include,
+					/usr/local/include/lua,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1069,6 +1081,7 @@
 				EXECUTABLE_PREFIX = "";
 				HEADER_SEARCH_PATHS = (
 					../../../include,
+					../../../src,
 					/usr/local/include,
 					/usr/local/include/lua,
 				);
@@ -1082,6 +1095,7 @@
 				EXECUTABLE_PREFIX = "";
 				HEADER_SEARCH_PATHS = (
 					../../../include,
+					../../../src,
 					/usr/local/include,
 					/usr/local/include/lua,
 				);
