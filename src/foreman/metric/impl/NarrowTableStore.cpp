@@ -163,11 +163,11 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
 
   auto rc = sqlite3_step(stmt);
 
-  if (rc == SQLITE_ERROR) {
-    LOG_ERROR("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc);
+  if (rc == SQLITE_ROW) {
+    LOG_INFO("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc);
   }
   else {
-    LOG_INFO("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc);
+    LOG_ERROR("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc);
   }
 
   size_t rowCnt = 1;
@@ -269,12 +269,12 @@ bool NarrowTableStore::addData(const Metric& m)
 
   unlock();
 
-  if (rc != SQLITE_DONE) {
-    LOG_ERROR("%s (%lf, %s:%d, %d)", FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, m.value, m.name.c_str(), rowId, (int)metricTs);
-    return false;
+  if (rc == SQLITE_DONE) {
+    LOG_INFO("%s (%s:%d, %lf, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, m.name.c_str(), rowId, m.value, (int)metricTs, rc);
   }
-
-  LOG_INFO("%s (%s:%d, %lf, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, m.name.c_str(), rowId, m.value, (int)metricTs, rc);
+  else {
+    LOG_ERROR("%s (%lf, %s:%d, %d)", FOREMANCC_METRIC_SQLITESTORE_RECORD_UPDATE, m.value, m.name.c_str(), rowId, (int)metricTs);
+  }
 
   return (rc == SQLITE_DONE) ? true : false;
 }
@@ -335,11 +335,11 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
 
   auto rc = sqlite3_step(stmt);
 
-  if (rc == SQLITE_ERROR) {
-    LOG_ERROR("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
+  if (rc == SQLITE_ROW) {
+    LOG_INFO("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
   }
   else {
-    LOG_INFO("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
+    LOG_ERROR("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
   }
 
   size_t rowCont = 1;
@@ -455,11 +455,11 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
 
   unlock();
 
-  if (rc == SQLITE_ERROR) {
-    LOG_ERROR("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, name.c_str(), rc);
+  if (rc == SQLITE_ROW) {
+    LOG_INFO("%s (%s:%d) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, name.c_str(), rowId, rc);
   }
   else {
-    LOG_INFO("%s (%s:%d) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, name.c_str(), rowId, rc);
+    LOG_ERROR("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, name.c_str(), rc);
   }
 
   return (rc == SQLITE_ROW) ? true : false;
