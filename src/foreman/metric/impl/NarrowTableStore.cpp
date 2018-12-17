@@ -122,9 +122,9 @@ bool NarrowTableStore::addMetric(std::shared_ptr<Metric> m)
   int rowId = -1;
   if (!findMetric(m->name, rowId))
     return false;
-  
+
   LOG_INFO("%s (%s:%d)", FOREMANCC_METRIC_SQLITESTORE_FACTOR_INSERT, m->name.c_str(), rowId);
-  
+
   return true;
 }
 
@@ -170,10 +170,13 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
     LOG_INFO("%s (%s) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc);
   }
 
+  size_t rowCnt = 1;
+
   while (rc == SQLITE_ROW) {
     auto name = sqlite3_column_text(stmt, 0);
     if (!name)
       continue;
+
     auto ms = std::shared_ptr<Metrics>(new Metrics());
     ms->setName((const char*)name);
     if (!rs->addMetrics(ms)) {
@@ -181,10 +184,15 @@ bool NarrowTableStore::queryMetric(Query* q, ResultSet* rs)
       unlock();
       return false;
     }
+
+    LOG_INFO("[%d] %s (%s) : %d (%s)", rowCnt, FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_LIKE_NAME, q->target.c_str(), rc, name);
+
     rc = sqlite3_step(stmt);
+    rowCnt++;
   }
 
   sqlite3_finalize(stmt);
+
   unlock();
 
   return true;
@@ -334,6 +342,7 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
     LOG_INFO("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
   }
 
+  size_t rowCont = 1;
   while (rc == SQLITE_ROW) {
     double value = sqlite3_column_double(stmt, 1);
     time_t valueTs = sqlite3_column_int(stmt, 2);
@@ -341,7 +350,11 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
     if ((0 <= valueIdx) && (valueIdx < valueCount)) {
       values[valueIdx] = value;
     }
+
+    LOG_INFO("[%d] %s (%s, %lf, %d) : %d", rowCont, FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), value, valueTs, rc);
+
     rc = sqlite3_step(stmt);
+    rowCont++;
   }
 
   sqlite3_finalize(stmt);
@@ -448,6 +461,6 @@ bool NarrowTableStore::findMetric(const std::string name, int& rowId)
   else {
     LOG_INFO("%s (%s:%d) : %d", FOREMANCC_METRIC_SQLITESTORE_FACTOR_SELECT_BY_NAME, name.c_str(), rowId, rc);
   }
-  
+
   return (rc == SQLITE_ROW) ? true : false;
 }
