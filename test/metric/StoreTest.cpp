@@ -21,6 +21,20 @@ using namespace Foreman::Metric;
 BOOST_AUTO_TEST_SUITE(metric)
 
 ////////////////////////////////////////////////
+// EmptyStoreTest
+////////////////////////////////////////////////
+
+BOOST_AUTO_TEST_CASE(EmptyStoreTest)
+{
+  DefaultStoreTestConfig config;
+  StoreTestContoller testController(config);
+
+  Store* store = new EmptyStore();
+  testController.testOnlyInsert(store);
+  delete store;
+}
+
+////////////////////////////////////////////////
 // NarrowTableStore
 ////////////////////////////////////////////////
 
@@ -57,20 +71,6 @@ BOOST_AUTO_TEST_CASE(NarrowTableStoreMassiveWithJitterTest)
 
   Store* store = new NarrowTableStore();
   testController.testAll(store);
-  delete store;
-}
-
-////////////////////////////////////////////////
-// NarrowTableStore
-////////////////////////////////////////////////
-
-BOOST_AUTO_TEST_CASE(EmptyTableStoreTest)
-{
-  DefaultStoreTestConfig config;
-  StoreTestContoller testController(config);
-
-  Store* store = new EmptyStore();
-  testController.testOnlyInsert(store);
   delete store;
 }
 
