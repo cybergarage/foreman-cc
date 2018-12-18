@@ -55,6 +55,7 @@ action_script_engine_lua,"lua"
 system_function_setregister,"set_register"
 system_function_getregister,"get_register"
 system_function_removeregister,"remove_register"
+system_function_executequery,"execute_query"
 
 # ================================================================================
 # FQL
