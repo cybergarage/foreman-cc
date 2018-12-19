@@ -14,6 +14,7 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
+	..//ClientTest.cpp \
 	..//util/MutexTest.cpp \
 	..//util/UUIDTest.cpp \
 	..//binding/clang/common/ClangErrorTest.cpp \

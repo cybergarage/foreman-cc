@@ -17,6 +17,7 @@ foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
+	../../src/foreman/Client.cpp \
 	../../src/foreman/util/Mutex.cpp \
 	../../src/foreman/util/Log.cpp \
 	../../src/foreman/util/Util.cpp \

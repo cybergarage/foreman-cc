@@ -110,8 +110,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ..//util/MutexTest.$(OBJEXT) \
-	..//util/UUIDTest.$(OBJEXT) \
+am_foremantest_OBJECTS = ../ClientTest.$(OBJEXT) \
+	..//util/MutexTest.$(OBJEXT) ..//util/UUIDTest.$(OBJEXT) \
 	..//binding/clang/common/ClangErrorTest.$(OBJEXT) \
 	..//binding/clang/action/ClangScriptManagerTest.$(OBJEXT) \
 	..//binding/clang/action/ClangParameterTest.$(OBJEXT) \
@@ -164,7 +164,8 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ../$(DEPDIR)/ForemanTest.Po \
+am__depfiles_remade = ../$(DEPDIR)/ClientTest.Po \
+	../$(DEPDIR)/ForemanTest.Po \
 	../action/$(DEPDIR)/LuaEngineTest.Po \
 	../action/$(DEPDIR)/ManagerTestController.Po \
 	../action/$(DEPDIR)/MethodTest.Po \
@@ -545,6 +546,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
+	..//ClientTest.cpp \
 	..//util/MutexTest.cpp \
 	..//util/UUIDTest.cpp \
 	..//binding/clang/common/ClangErrorTest.cpp \
@@ -622,6 +624,14 @@ $(am__aclocal_m4_deps):
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+../$(am__dirstamp):
+	@$(MKDIR_P) ..
+	@: > ../$(am__dirstamp)
+../$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../$(DEPDIR)
+	@: > ../$(DEPDIR)/$(am__dirstamp)
+../ClientTest.$(OBJEXT): ../$(am__dirstamp) \
+	../$(DEPDIR)/$(am__dirstamp)
 ../util/$(am__dirstamp):
 	@$(MKDIR_P) ..//util
 	@: > ../util/$(am__dirstamp)
@@ -743,12 +753,6 @@ clean-noinstPROGRAMS:
 	../register/$(DEPDIR)/$(am__dirstamp)
 ..//register/StoreTest.$(OBJEXT): ../register/$(am__dirstamp) \
 	../register/$(DEPDIR)/$(am__dirstamp)
-../$(am__dirstamp):
-	@$(MKDIR_P) ..
-	@: > ../$(am__dirstamp)
-../$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../$(DEPDIR)
-	@: > ../$(DEPDIR)/$(am__dirstamp)
 ../ForemanTest.$(OBJEXT): ../$(am__dirstamp) \
 	../$(DEPDIR)/$(am__dirstamp)
 ../registry/$(am__dirstamp):
@@ -811,6 +815,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ClientTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../$(DEPDIR)/ForemanTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/LuaEngineTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ManagerTestController.Po@am__quote@ # am--include-marker
@@ -1188,7 +1193,8 @@ clean: clean-am
 clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ../$(DEPDIR)/ForemanTest.Po
+		-rm -f ../$(DEPDIR)/ClientTest.Po
+	-rm -f ../$(DEPDIR)/ForemanTest.Po
 	-rm -f ../action/$(DEPDIR)/LuaEngineTest.Po
 	-rm -f ../action/$(DEPDIR)/ManagerTestController.Po
 	-rm -f ../action/$(DEPDIR)/MethodTest.Po
@@ -1272,7 +1278,8 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ../$(DEPDIR)/ForemanTest.Po
+		-rm -f ../$(DEPDIR)/ClientTest.Po
+	-rm -f ../$(DEPDIR)/ForemanTest.Po
 	-rm -f ../action/$(DEPDIR)/LuaEngineTest.Po
 	-rm -f ../action/$(DEPDIR)/ManagerTestController.Po
 	-rm -f ../action/$(DEPDIR)/MethodTest.Po

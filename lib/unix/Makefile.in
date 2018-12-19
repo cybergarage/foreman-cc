@@ -148,6 +148,7 @@ am__objects_1 = ../../src/beringei/TimeSeriesStream.$(OBJEXT) \
 	../../src/beringei/BitUtil.$(OBJEXT) \
 	../../src/foreman/net/Graphite.$(OBJEXT) \
 	../../src/foreman/net/HttpClient.$(OBJEXT) \
+	../../src/foreman/Client.$(OBJEXT) \
 	../../src/foreman/util/Mutex.$(OBJEXT) \
 	../../src/foreman/util/Log.$(OBJEXT) \
 	../../src/foreman/util/Util.$(OBJEXT) \
@@ -247,6 +248,7 @@ depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = ../../src/beringei/$(DEPDIR)/BitUtil.Po \
 	../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po \
+	../../src/foreman/$(DEPDIR)/Client.Po \
 	../../src/foreman/action/$(DEPDIR)/DefaultManager.Po \
 	../../src/foreman/action/$(DEPDIR)/Manager.Po \
 	../../src/foreman/action/$(DEPDIR)/Method.Po \
@@ -472,6 +474,7 @@ foremancc_sources = \
 	../../src/beringei/BitUtil.cpp \
 	../../src/foreman/net/Graphite.cpp \
 	../../src/foreman/net/HttpClient.cpp \
+	../../src/foreman/Client.cpp \
 	../../src/foreman/util/Mutex.cpp \
 	../../src/foreman/util/Log.cpp \
 	../../src/foreman/util/Util.cpp \
@@ -644,6 +647,14 @@ clean-libLIBRARIES:
 ../../src/foreman/net/HttpClient.$(OBJEXT):  \
 	../../src/foreman/net/$(am__dirstamp) \
 	../../src/foreman/net/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman
+	@: > ../../src/foreman/$(am__dirstamp)
+../../src/foreman/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/$(DEPDIR)
+	@: > ../../src/foreman/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/Client.$(OBJEXT): ../../src/foreman/$(am__dirstamp) \
+	../../src/foreman/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/util/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/util
 	@: > ../../src/foreman/util/$(am__dirstamp)
@@ -983,6 +994,7 @@ libforeman++.a: $(libforeman___a_OBJECTS) $(libforeman___a_DEPENDENCIES) $(EXTRA
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f ../../src/beringei/*.$(OBJEXT)
+	-rm -f ../../src/foreman/*.$(OBJEXT)
 	-rm -f ../../src/foreman/action/*.$(OBJEXT)
 	-rm -f ../../src/foreman/action/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/action/*.$(OBJEXT)
@@ -1005,6 +1017,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/BitUtil.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/$(DEPDIR)/Client.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/DefaultManager.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Manager.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/action/$(DEPDIR)/Method.Po@am__quote@ # am--include-marker
@@ -1230,6 +1243,8 @@ distclean-generic:
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
 	-rm -f ../../src/beringei/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/beringei/$(am__dirstamp)
+	-rm -f ../../src/foreman/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/$(am__dirstamp)
 	-rm -f ../../src/foreman/action/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/action/$(am__dirstamp)
 	-rm -f ../../src/foreman/action/impl/$(DEPDIR)/$(am__dirstamp)
@@ -1273,6 +1288,7 @@ clean-am: clean-generic clean-libLIBRARIES mostlyclean-am
 distclean: distclean-am
 		-rm -f ../../src/beringei/$(DEPDIR)/BitUtil.Po
 	-rm -f ../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po
+	-rm -f ../../src/foreman/$(DEPDIR)/Client.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/DefaultManager.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/Manager.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/Method.Po
@@ -1402,6 +1418,7 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 		-rm -f ../../src/beringei/$(DEPDIR)/BitUtil.Po
 	-rm -f ../../src/beringei/$(DEPDIR)/TimeSeriesStream.Po
+	-rm -f ../../src/foreman/$(DEPDIR)/Client.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/DefaultManager.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/Manager.Po
 	-rm -f ../../src/foreman/action/$(DEPDIR)/Method.Po
