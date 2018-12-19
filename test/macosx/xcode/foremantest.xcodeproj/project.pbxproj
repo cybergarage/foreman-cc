@@ -31,6 +31,7 @@
 		217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AC1FC84160000B0ECE /* PythonEngineTest.cpp */; };
 		217303AF1FC84160000B0ECE /* LuaEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303AD1FC84160000B0ECE /* LuaEngineTest.cpp */; };
 		2175C3131E52F51E006C4425 /* ForemanTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2175C30F1E52F51E006C4425 /* ForemanTest.cpp */; };
+		2183486221CA48BD00B3E95F /* ClientTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2183486121CA48BD00B3E95F /* ClientTest.cpp */; };
 		2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */; };
 		2187B6DB1FC5AD0600E2234D /* MethodTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6D91FC5AD0600E2234D /* MethodTest.cpp */; };
 		2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6E01FC5B33100E2234D /* MutexTest.cpp */; };
@@ -105,6 +106,7 @@
 		2175C30E1E52F51E006C4425 /* ForemanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForemanTest.h; path = ../../ForemanTest.h; sourceTree = "<group>"; };
 		2175C30F1E52F51E006C4425 /* ForemanTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ForemanTest.cpp; path = ../../ForemanTest.cpp; sourceTree = "<group>"; };
 		2175C3141E52F53D006C4425 /* libforeman++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "libforeman++.xcodeproj"; path = "../../../lib/macosx/xcode/libforeman++.xcodeproj"; sourceTree = "<group>"; };
+		2183486121CA48BD00B3E95F /* ClientTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClientTest.cpp; path = ../../ClientTest.cpp; sourceTree = "<group>"; };
 		2187B6D81FC5AD0600E2234D /* ParameterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParameterTest.cpp; path = ../../action/ParameterTest.cpp; sourceTree = "<group>"; };
 		2187B6D91FC5AD0600E2234D /* MethodTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MethodTest.cpp; path = ../../action/MethodTest.cpp; sourceTree = "<group>"; };
 		2187B6E01FC5B33100E2234D /* MutexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MutexTest.cpp; path = ../../util/MutexTest.cpp; sourceTree = "<group>"; };
@@ -245,14 +247,15 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2113F160201F980C00F5C672 /* binding */,
-				21BA4104201F7CF90083998C /* metric */,
-				21BA4103201F7CEE0083998C /* register */,
-				2187B6D71FC5ACF300E2234D /* action */,
-				215DB2B31FAB3AEE0089A36B /* registry */,
-				215DB27E1FAAD6E70089A36B /* common */,
+				2183486121CA48BD00B3E95F /* ClientTest.cpp */,
 				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
 				2175C30E1E52F51E006C4425 /* ForemanTest.h */,
+				2187B6D71FC5ACF300E2234D /* action */,
+				2113F160201F980C00F5C672 /* binding */,
+				215DB27E1FAAD6E70089A36B /* common */,
+				21BA4104201F7CF90083998C /* metric */,
+				21BA4103201F7CEE0083998C /* register */,
+				215DB2B31FAB3AEE0089A36B /* registry */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				21ABA0AE1FB0902D00982715 /* StoreTestController.cpp in Sources */,
 				2113F180201F98BA00F5C672 /* ClangStoreTest.cpp in Sources */,
 				215DB2BA1FAB3B0E0089A36B /* PropertyTest.cpp in Sources */,
+				2183486221CA48BD00B3E95F /* ClientTest.cpp in Sources */,
 				215DB2BB1FAB3B0E0089A36B /* QueryTest.cpp in Sources */,
 				21BA410E201F7D120083998C /* QueryTest.cpp in Sources */,
 				2113F171201F988900F5C672 /* ClangResultSetTest.cpp in Sources */,

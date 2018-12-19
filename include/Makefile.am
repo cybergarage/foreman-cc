@@ -10,6 +10,7 @@
 
 foremancc_header = \
 	./foreman/Foreman.h \
+	./foreman/Client.h \
 	./foreman/net/HttpClient.h \
 	./foreman/net/Graphite.h \
 	./foreman/util/UUID.h \

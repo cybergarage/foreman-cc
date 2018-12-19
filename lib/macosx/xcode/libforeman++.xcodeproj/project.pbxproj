@@ -87,6 +87,8 @@
 		217303B71FC841BF000B0ECE /* LuaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B61FC841BF000B0ECE /* LuaEngine.cpp */; };
 		217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 217303B91FC841DF000B0ECE /* PythonEngine.cpp */; };
 		2175C2F71E52F444006C4425 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2175C2F51E52F444006C4425 /* Platform.h */; };
+		2183486421CA492200B3E95F /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2183486321CA492200B3E95F /* Client.cpp */; };
+		2183486621CA499300B3E95F /* Client.h in Headers */ = {isa = PBXBuildFile; fileRef = 2183486521CA499200B3E95F /* Client.h */; };
 		21841B871FD286A400CE59C8 /* PythonMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B861FD286A300CE59C8 /* PythonMethod.cpp */; };
 		21841B891FD2BA8200CE59C8 /* PythonParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */; };
 		21841B8B1FD2CC8F00CE59C8 /* PythonParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */; };
@@ -230,6 +232,8 @@
 		217303B61FC841BF000B0ECE /* LuaEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaEngine.cpp; path = action/impl/LuaEngine.cpp; sourceTree = "<group>"; };
 		217303B91FC841DF000B0ECE /* PythonEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonEngine.cpp; path = action/impl/PythonEngine.cpp; sourceTree = "<group>"; };
 		2175C2F51E52F444006C4425 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		2183486321CA492200B3E95F /* Client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Client.cpp; path = ../../../src/foreman/Client.cpp; sourceTree = "<group>"; };
+		2183486521CA499200B3E95F /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		21841B861FD286A300CE59C8 /* PythonMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonMethod.cpp; path = action/impl/PythonMethod.cpp; sourceTree = "<group>"; };
 		21841B881FD2BA8200CE59C8 /* PythonParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameters.cpp; path = action/impl/PythonParameters.cpp; sourceTree = "<group>"; };
 		21841B8A1FD2CC8E00CE59C8 /* PythonParameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonParameter.cpp; path = action/impl/PythonParameter.cpp; sourceTree = "<group>"; };
@@ -539,6 +543,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				2183486521CA499200B3E95F /* Client.h */,
 				2113F19E201FA04200F5C672 /* register */,
 				2113F18A201FA00100F5C672 /* action */,
 				2188DBDF1FB00ADF00940208 /* registry */,
@@ -558,6 +563,7 @@
 		2175C2F81E52F44D006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2183486321CA492200B3E95F /* Client.cpp */,
 				214FA5082080A6720082CEED /* beringei */,
 				2175C2F91E52F470006C4425 /* foreman */,
 			);
@@ -792,6 +798,7 @@
 				2117C4F01FB342CA00F7ACF9 /* Errors.h in Headers */,
 				21248007201FF882006D9187 /* Python.h in Headers */,
 				21ABA0AA1FB0871000982715 /* RingMapStore.h in Headers */,
+				2183486621CA499300B3E95F /* Client.h in Headers */,
 				216DE7C21FD69A1D00475938 /* registry-c.h in Headers */,
 				2117C4EC1FB3131B00F7ACF9 /* UUID.h in Headers */,
 				2188DBE61FB00AEE00940208 /* Store.h in Headers */,
@@ -907,6 +914,7 @@
 				2187B6CE1FC5ACA800E2234D /* Parameter.cpp in Sources */,
 				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
 				213E954B21B8D95C00A49748 /* Manager.cpp in Sources */,
+				2183486421CA492200B3E95F /* Client.cpp in Sources */,
 				216FFDEF208AEFFF006EB7A1 /* SystemMethod.cpp in Sources */,
 				2187B6DF1FC5B2DD00E2234D /* Mutex.cpp in Sources */,
 				21BA40DD201EECBD0083998C /* store_c_factory.cpp in Sources */,
