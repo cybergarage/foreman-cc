@@ -14,4 +14,8 @@
 
 BOOST_AUTO_TEST_CASE(Client)
 {
+  Foreman::Client client;
+  
+  if (!client.ping())
+    return;
 }
