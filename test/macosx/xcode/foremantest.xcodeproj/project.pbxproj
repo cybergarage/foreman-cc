@@ -602,6 +602,18 @@
 		218DFCDE1E52F28000224C70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-lgflags",
+					"-lglog",
+					"-ljemalloc",
+					"-lpython",
+					"-llua",
+					"-lalglib",
+					"-lboost_unit_test_framework",
+					"-lboost_system",
+					"-lcurl",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -609,6 +621,18 @@
 		218DFCDF1E52F28000224C70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+					"-lgflags",
+					"-lglog",
+					"-ljemalloc",
+					"-lpython",
+					"-llua",
+					"-lalglib",
+					"-lboost_unit_test_framework",
+					"-lboost_system",
+					"-lcurl",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

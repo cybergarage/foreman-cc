@@ -15,8 +15,6 @@
 #include "config.h"
 #endif
 
-#include <ctime>
-#include <memory>
 #include <string>
 
 namespace Foreman {
@@ -29,6 +27,9 @@ class Client {
 
   void setHost(const std::string& host);
   void setPort(int port);
+
+  bool ping();
+  bool query(const std::string& query, std::string* res);
 
   private:
   std::string host;

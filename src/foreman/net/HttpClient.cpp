@@ -17,6 +17,22 @@ using namespace Foreman;
 //  HttpClient
 ////////////////////////////////////////////////
 
+HttpClient::HttpClient()
+{
+}
+
+////////////////////////////////////////////////
+//  ~HttpClient
+////////////////////////////////////////////////
+
+HttpClient::~HttpClient()
+{
+}
+
+////////////////////////////////////////////////
+//  HttpClient::get
+////////////////////////////////////////////////
+
 /* Curl gets the response in chunks, so we need to collect them into a single
  * string.
  */
@@ -47,5 +63,3 @@ bool HttpClient::get(const std::string& uri, std::string& content)
   }
   return false;
 }
-
-// vim: ts=2 sw=2 tw=80

@@ -20,9 +20,11 @@ AM_INIT_AUTOMAKE([subdir-objects])
 ##################################################################
 
 SQLITE3_VERSION=3.14.0
-BENCHMARK_VERSION=1.1.0
 ALGLIB_VERSION=3.9.0
 UUID_VERSION=1.6.2
+CURL_VERSION=7.63.0
+
+BENCHMARK_VERSION=1.1.0
 
 LUA_VERSION=5.2.0
 
@@ -62,12 +64,11 @@ AC_CHECK_LIB([pthread],[main],,[AC_MSG_ERROR(Foreman needs POSIX thread library)
 AC_CHECK_HEADERS([sqlite3.h])
 AC_CHECK_LIB([sqlite3],[main],,[AC_MSG_ERROR(Foreman needs SQLite $SQLITE3_VERSION later)])
 
-##################################################################
-# Check option libraries
-##################################################################
-
 AC_CHECK_LIB([uuid],[main],,[AC_MSG_ERROR(Foreman needs libuuid $UUID_VERSION later)])
 AC_CHECK_HEADERS([uuid/uuid.h])
+
+AC_CHECK_HEADERS([curl/curl.h])
+AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcur $CURL_VERSION  laterl)])
 
 ##################################################################
 # Check option libraries (ALGLIB)
@@ -129,8 +130,6 @@ AC_ARG_ENABLE(
 AM_CONDITIONAL(FOREMAN_ENABLE_GRAPHITE,test "$enable_graphite" = yes)
 if [ test "$enable_graphite" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_GRAPHITE],1,[--enable-graphite])
-	AC_CHECK_HEADERS([curl/curl.h])
-	AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcurl)])
 fi
 
 ##################################################################
