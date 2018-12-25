@@ -49,13 +49,13 @@ void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
 {
   Parameters params;
   auto param = new String();
-  param->setName(FOREMANCC_SCRIPT_ECHO_PARAM_NAME);
-  param->setValue(FOREMANCC_SCRIPT_ECHO_PARAM_VALUE);
+  param->setName(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_NAME);
+  param->setValue(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_VALUE);
   params.addParameter(param);
 
   Parameters results;
   Error err;
-  auto isExecuted = mgr->execMethod(FOREMANCC_SCRIPT_ECHO_METHOD, &params, &results, &err);
+  auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_ECHO_METHOD, &params, &results, &err);
   BOOST_CHECK(isExecuted);
   if (!isExecuted)
     return;
@@ -63,7 +63,7 @@ void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
   if (!checkResultParameters)
     return;
 
-  auto echoMsg = results.getParameter(FOREMANCC_SCRIPT_ECHO_PARAM_NAME);
+  auto echoMsg = results.getParameter(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_NAME);
   BOOST_CHECK(echoMsg);
   if (!echoMsg)
     return;
@@ -71,7 +71,7 @@ void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
   BOOST_CHECK(echoMsg->isString());
   auto echoStr = dynamic_cast<const String*>(echoMsg);
   BOOST_CHECK(echoStr);
-  BOOST_CHECK_EQUAL(FOREMANCC_SCRIPT_ECHO_PARAM_VALUE, echoStr->getValue());
+  BOOST_CHECK_EQUAL(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_VALUE, echoStr->getValue());
 }
 
 ////////////////////////////////////////////////
@@ -90,12 +90,12 @@ void ManagerTestController::testRegister(Manager* mgr)
 
   params.clear();
   param = new String();
-  param->setName(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
-  param->setValue(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
+  param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
+  param->setValue(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
   params.addParameter(param);
 
   results.clear();
-  isSuccess = mgr->execMethod(FOREMANCC_SCRIPT_SET_REGISTER_METHOD, &params, &results, &err);
+  isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
   if (!isSuccess)
     return;
@@ -104,22 +104,22 @@ void ManagerTestController::testRegister(Manager* mgr)
 
   params.clear();
   param = new String();
-  param->setName(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
+  param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   params.addParameter(param);
 
   results.clear();
-  isSuccess = mgr->execMethod(FOREMANCC_SCRIPT_GET_REGISTER_METHOD, &params, &results, &err);
+  isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_GET_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
   if (!isSuccess)
     return;
 
-  auto retParam = results.getParameter(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
+  auto retParam = results.getParameter(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   BOOST_CHECK(retParam);
   if (retParam) {
     BOOST_CHECK(retParam->isString());
     auto retString = dynamic_cast<String*>(retParam);
     BOOST_CHECK(retString);
-    BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
+    BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
   }
 
   // Remove registry
@@ -128,12 +128,12 @@ void ManagerTestController::testRegister(Manager* mgr)
   /*
   params.clear();
   param = new String();
-  param->setName(FOREMANCC_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
+  param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   params.addParameter(param);
   
    
   results.clear();
-  isSuccess = mgr->execMethod(FOREMANCC_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
+  isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
    */
 }
