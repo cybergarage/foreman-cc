@@ -12,8 +12,8 @@
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
-#include <foreman/Const.h>
 #include <foreman/Client.h>
+#include <foreman/Const.h>
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
 
@@ -108,7 +108,7 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
     return NULL;
 
   // Query
-  
+
   std::string jsonRes;
   Foreman::Client client;
   if (!client.query(query, &jsonRes)) {

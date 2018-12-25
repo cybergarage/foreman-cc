@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE(SystemEngine)
   static const char* ECHO_CODE = "echo";
 
   auto echo = new Foreman::Action::SystemMethod();
-  BOOST_CHECK(echo->setName(FOREMANCC_SCRIPT_ECHO_METHOD));
+  BOOST_CHECK(echo->setName(FOREMANCC_TEST_SCRIPT_ECHO_METHOD));
   BOOST_CHECK(echo->setCode(ECHO_CODE));
   BOOST_CHECK(mgr.addMethod(echo, &err));
 
