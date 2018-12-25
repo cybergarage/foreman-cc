@@ -54,13 +54,18 @@ void Client::setPort(int port)
 
 bool Client::query(const std::string& query, std::string* res)
 {
+  HttpClient client;
+
+  std::string encodedQuery;
+  if (!client.encode(query, encodedQuery))
+    return false;
+
   char urlPath[256];
-  if (snprintf(urlPath, sizeof(urlPath), "http://%s:%d%s?%s=%s", this->host.c_str(), this->port, FOREMANCC_HTTP_REQUEST_FQL_PATH, FOREMANCC_HTTP_REQUEST_FQL_QUERY_PARAM, query.c_str())) {
+  if (snprintf(urlPath, sizeof(urlPath), "http://%s:%d%s?%s=%s", this->host.c_str(), this->port, FOREMANCC_HTTP_REQUEST_FQL_PATH, FOREMANCC_HTTP_REQUEST_FQL_QUERY_PARAM, encodedQuery.c_str()) < 0) {
     return false;
   }
 
-  HttpClient client;
-  if (client.get(urlPath, *res))
+  if (!client.get(urlPath, *res))
     return false;
 
   return true;
