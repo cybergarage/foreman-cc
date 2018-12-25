@@ -19,6 +19,7 @@ using namespace Foreman;
 
 HttpClient::HttpClient()
 {
+  curl_global_init(CURL_GLOBAL_ALL);
 }
 
 ////////////////////////////////////////////////
@@ -27,6 +28,25 @@ HttpClient::HttpClient()
 
 HttpClient::~HttpClient()
 {
+}
+
+////////////////////////////////////////////////
+//  HttpClient::encode
+////////////////////////////////////////////////
+
+bool HttpClient::encode(const std::string& str, std::string& encordedStr)
+{
+  CURL* curl = curl_easy_init();
+  if (!curl)
+    return false;
+
+  char* ret = curl_easy_escape(curl, str.c_str(), (int)str.size());
+  if (ret) {
+    encordedStr = ret;
+    curl_free(ret);
+  }
+
+  return (ret != NULL) ? true : false;
 }
 
 ////////////////////////////////////////////////
@@ -45,21 +65,18 @@ size_t HttpClient::curl_response_reader(void* ptr, size_t size, size_t nmemb, st
 
 bool HttpClient::get(const std::string& uri, std::string& content)
 {
-  CURL* curl;
-  CURLcode res;
-
   curl_global_init(CURL_GLOBAL_ALL);
-  curl = curl_easy_init();
-  if (curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HttpClient::curl_response_reader);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&content);
+  CURL* curl = curl_easy_init();
+  if (!curl)
+    return false;
 
-    res = curl_easy_perform(curl);
-    /* always cleanup */
-    curl_easy_cleanup(curl);
-    if (res == CURLE_OK)
-      return true;
-  }
-  return false;
+  curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+  curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, HttpClient::curl_response_reader);
+  curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&content);
+
+  CURLcode res = curl_easy_perform(curl);
+
+  curl_easy_cleanup(curl);
+
+  return (res == CURLE_OK) ? true : false;
 }

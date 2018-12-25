@@ -26,6 +26,7 @@ class HttpClient {
   HttpClient();
   ~HttpClient();
 
+  bool encode(const std::string& str, std::string& encordedStr);
   bool get(const std::string& uri, std::string& content);
 };
 }
