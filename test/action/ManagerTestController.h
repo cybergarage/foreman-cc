@@ -32,6 +32,9 @@
 #define FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD "test_removeregister"
 #define FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD_PARAM_NAME FOREMANCC_TEST_SCRIPT_POST_REGISTER_METHOD_PARAM_NAME
 
+#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD "test_executequery"
+#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "q"
+
 ////////////////////////////////////////////////
 // ManagerTestController.h
 ////////////////////////////////////////////////
@@ -48,6 +51,7 @@ public:
 
     void testEcho(Manager* mgr, bool checkResultParameters = true);
     void testRegister(Manager* mgr);
+    void testQuery(Manager* mgr);
   };
 }
 }
