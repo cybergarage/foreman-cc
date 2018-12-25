@@ -137,3 +137,24 @@ void ManagerTestController::testRegister(Manager* mgr)
   BOOST_CHECK(isSuccess);
    */
 }
+
+////////////////////////////////////////////////
+// testQuery
+////////////////////////////////////////////////
+
+#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD "test_executequery"
+#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "q"
+
+void ManagerTestController::testQuery(Manager* mgr)
+{
+  Parameters params;
+  auto param = new String();
+  param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
+  param->setValue("EXPORT CONFIG");
+  params.addParameter(param);
+  
+  Parameters results;
+  Error err;
+  auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err);
+  BOOST_CHECK(isExecuted);
+}

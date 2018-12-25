@@ -129,22 +129,24 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(rmreg->setCode(PY_REMOVE_REGISTRY_CODE));
   BOOST_CHECK(mgr.addMethod(rmreg, &err));
 
-  FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY
   // execute_query
   
   static const char* PY_EXECUTE_QUERY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
-  "def " FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD "(params,results):\n"
-  "  for key, value in params.iteritems():\n"
-  "    if " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY "(key) == False:\n"
-  "      return False\n"
+  "def " FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD "(params,results):\n"
+  "  jsonRes = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY "(params[\"" FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "\"])\n"
+  "  if jsonRes is None:\n"
+  "    return False\n"
+  "  for key, value in jsonRes.iteritems():\n"
+  "    results[key] = value\n"
   "  return True\n";
   
-  auto rmreg = new Foreman::Action::PythonMethod();
-  BOOST_CHECK(rmreg->setName(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD));
-  BOOST_CHECK(rmreg->setCode(PY_REMOVE_REGISTRY_CODE));
-  BOOST_CHECK(mgr.addMethod(rmreg, &err));
+  auto exQuery = new Foreman::Action::PythonMethod();
+  BOOST_CHECK(exQuery->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD));
+  BOOST_CHECK(exQuery->setCode(PY_EXECUTE_QUERY_CODE));
+  BOOST_CHECK(mgr.addMethod(exQuery, &err));
 
   testController.run(&mgr);
+  testController.testQuery(&mgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
