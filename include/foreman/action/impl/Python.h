@@ -127,6 +127,8 @@ private:
 public:
     static const std::string LANGUAGE;
     static const std::string MODULE;
+    static const std::string USER_MODULE;
+    static const std::string SYSTEM_MODULE;
 
 public:
     PythonEngine();
@@ -136,10 +138,12 @@ public:
     bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
 private:
-    bool setLastDetailError(Error* error) const;
+    bool getLastDetailError(Error* error) const;
   };
 }
 }
+
+bool foreman_python_getlasterror(Foreman::Error* error);
 
 #endif
 
