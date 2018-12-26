@@ -145,9 +145,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(exQuery->setCode(PY_EXECUTE_QUERY_CODE));
   BOOST_CHECK(mgr.addMethod(exQuery, &err));
 
-  testController.testEcho(&mgr);
-  testController.testRegister(&mgr);
-  testController.testQuery(&mgr);
+  testController.run(&mgr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
