@@ -183,6 +183,44 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
 }
 
 /****************************************
+ * foreman_python_postquery
+ ****************************************/
+
+PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* host;
+  const char* query;
+  int port;
+  if (!PyArg_ParseTuple(args, "sis", &host, &port, &query))
+    return NULL;
+
+  // Query
+
+  std::string jsonRes;
+  Foreman::Client client;
+  client.setHost(host);
+  client.setPort(port);
+  if (!client.query(query, &jsonRes)) {
+    return NULL;
+  }
+
+  // Parse the JSON response
+
+  PyObject* jsonObj = foreman_python_string2jsonobject(jsonRes, &err);
+
+  if (!jsonObj) {
+    foreman_python_getlasterror(&err);
+    return NULL;
+  }
+
+  Py_DECREF(jsonObj);
+
+  return jsonObj;
+}
+
+/****************************************
  * Python Modules
  ****************************************/
 
@@ -191,6 +229,7 @@ static PyMethodDef gForemanPythonMethods[] = {
   { FOREMANCC_SYSTEM_FUNCTION_GETREGISTER, foreman_python_getregister, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER, foreman_python_removeregister, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY, foreman_python_executequery, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_POSTQUERY, foreman_python_postquery, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 

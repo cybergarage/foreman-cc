@@ -10,8 +10,8 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <foreman/Const.h>
 #include <foreman/Client.h>
+#include <foreman/Const.h>
 #include <foreman/register/impl/StoreImpl.h>
 
 #include "../ForemanTest.h"
@@ -42,7 +42,7 @@ void ManagerTestController::run(Manager* mgr)
 #if defined(FOREMAN_SUPPORT_PYTHON)
   testQuery(mgr);
 #endif
-  
+
   BOOST_CHECK(regStore.close());
 }
 
@@ -147,13 +147,10 @@ void ManagerTestController::testRegister(Manager* mgr)
 // testQuery
 ////////////////////////////////////////////////
 
-#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD "test_executequery"
-#define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "q"
-
 void ManagerTestController::testQuery(Manager* mgr)
 {
   Foreman::Client client;
-  
+
   // Check whether foremand is runnging
   if (!client.ping())
     return;
@@ -163,9 +160,15 @@ void ManagerTestController::testQuery(Manager* mgr)
   param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
   param->setValue("EXPORT FROM CONFIG");
   params.addParameter(param);
-
+  
   Parameters results;
   Error err;
-  auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err);
-  BOOST_CHECK(isExecuted);
+
+  // Execute Query
+  
+  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
+
+  // Post Query
+  
+  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
 }
