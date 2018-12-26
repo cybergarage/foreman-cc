@@ -16,6 +16,7 @@
 #include <foreman/Const.h>
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
+#include <foreman/common/Error.h>
 
 /****************************************
  * foreman_python_setregistry
@@ -94,15 +95,67 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
  * foreman_python_executequery
  ****************************************/
 
-#define foreman_python_parsejson_module FOREMANCC_PRODUCT_NAME "_internal"
-#define foreman_python_parsejson_method "foreman_python_parsejson"
-#define foreman_python_parsejson_code    \
-  "import json\n"                        \
-  "def foreman_python_parsejson(str):\n" \
+#define FOREMANCC_PYTHON_PARSEJSON_METHOD "_foreman_python_parsejson"
+#define FOREMANCC_PYTHON_PARSEJSON_MODULE FOREMANCC_PRODUCT_NAME "_internal"
+
+#if !defined(DEBUG)
+#define FOREMANCC_PYTHON_PARSEJSON_METHOD_CODE        \
+  "import json\n"                                     \
+  "def " FOREMANCC_PYTHON_PARSEJSON_METHOD "(str):\n" \
   "    return json.loads(str)\n"
+#else
+#define FOREMANCC_PYTHON_PARSEJSON_METHOD_CODE        \
+  "import json\n"                                     \
+  "def " FOREMANCC_PYTHON_PARSEJSON_METHOD "(str):\n" \
+  "    jsonObj = json.loads(str)\n"                   \
+  "    print(jsonObj)\n"                              \
+  "    return jsonObj\n"
+#endif
+
+PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::Error* err)
+{
+  static PyObject* pyJsonFunc = NULL;
+
+  if (!pyJsonFunc) {
+    PyObject* pSource = Py_CompileString(FOREMANCC_PYTHON_PARSEJSON_METHOD_CODE, FOREMANCC_PYTHON_PARSEJSON_METHOD, Py_file_input);
+    if (!pSource) {
+      foreman_python_getlasterror(err);
+      return NULL;
+    }
+
+    auto moduleName = Foreman::Action::PythonEngine::SYSTEM_MODULE.c_str();
+    PyObject* pyModule = PyImport_ExecCodeModule((char*)moduleName, pSource);
+    Py_DECREF(pSource);
+    if (!pyModule) {
+      foreman_python_getlasterror(err);
+      return NULL;
+    }
+
+    pyJsonFunc = PyObject_GetAttrString(pyModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
+    if (!pyJsonFunc || !PyCallable_Check(pyJsonFunc)) {
+      foreman_python_getlasterror(err);
+      Py_DECREF(pyModule);
+      return NULL;
+    }
+  }
+
+  PyObject* pArgs = PyTuple_New(1);
+  if (!pArgs) {
+    foreman_python_getlasterror(err);
+    return NULL;
+  }
+
+  PyTuple_SetItem(pArgs, 0, PyUnicode_FromString(jsonStr.c_str()));
+  PyObject* pResults = PyObject_CallObject(pyJsonFunc, pArgs);
+  Py_DECREF(pArgs);
+
+  return pResults;
+}
 
 PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
 {
+  Foreman::Error err;
+
   const char* query;
   if (!PyArg_ParseTuple(args, "s", &query))
     return NULL;
@@ -115,47 +168,18 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
     return NULL;
   }
 
-  // Comile
+  // Parse the JSON response
 
-  PyObject* pSource = Py_CompileString(foreman_python_parsejson_code, foreman_python_parsejson_method, Py_file_input);
-  if (!pSource) {
+  PyObject* jsonObj = foreman_python_string2jsonobject(jsonRes, &err);
+
+  if (!jsonObj) {
+    foreman_python_getlasterror(&err);
     return NULL;
   }
 
-  PyObject* pyModule = PyImport_ExecCodeModuleEx((char*)foreman_python_parsejson_module, pSource, (char*)foreman_python_parsejson_method);
-  Py_DECREF(pSource);
-  if (pyModule) {
-    return NULL;
-  }
+  Py_DECREF(jsonObj);
 
-  PyObject* pyFunc = PyObject_GetAttrString(pyModule, foreman_python_parsejson_method);
-  if (!pyFunc || !PyCallable_Check(pyFunc)) {
-    Py_DECREF(pyModule);
-    return NULL;
-  }
-
-  // Exec method
-
-  PyObject* pArgs = PyTuple_New(2);
-  if (!pArgs) {
-    return NULL;
-  }
-
-  PyTuple_SetItem(pArgs, 0, PyUnicode_FromString(query));
-
-  PyObject* pResults = PyObject_CallObject(pyFunc, pArgs);
-
-  Py_DECREF(pyFunc);
-  Py_DECREF(pyModule);
-  Py_DECREF(pArgs);
-
-  if (!pResults) {
-    return NULL;
-  }
-
-  Py_DECREF(pResults);
-
-  return pResults;
+  return jsonObj;
 }
 
 /****************************************

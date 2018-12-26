@@ -28,7 +28,9 @@ namespace Action {
     IntegerType,
     RealType,
     StringType,
-    BoolType };
+    BoolType,
+    DictType,
+    ListType };
 
   ////////////////////////////////////////////////
   // Parameter
@@ -135,6 +137,26 @@ public:
 
 private:
     bool value_;
+  };
+
+  // FIXME : Not implemented yet
+  class Dict : public Parameter {
+public:
+    Dict()
+        : Parameter(DictType)
+    {
+    }
+    ~Dict() {}
+  };
+
+  // FIXME : Not implemented yet
+  class List : public Parameter {
+public:
+    List()
+        : Parameter(ListType)
+    {
+    }
+    ~List() {}
   };
 
   ////////////////////////////////////////////////
