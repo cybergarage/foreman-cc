@@ -9,7 +9,9 @@
  ******************************************************************/
 
 #include <boost/test/unit_test.hpp>
+
 #include <foreman/Const.h>
+#include <foreman/Client.h>
 #include <foreman/register/impl/StoreImpl.h>
 
 #include "../ForemanTest.h"
@@ -147,6 +149,12 @@ void ManagerTestController::testRegister(Manager* mgr)
 
 void ManagerTestController::testQuery(Manager* mgr)
 {
+  Foreman::Client client;
+  
+  // Check whether foremand is runnging
+  if (!client.ping())
+    return;
+
   Parameters params;
   auto param = new String();
   param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
