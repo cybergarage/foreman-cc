@@ -145,6 +145,25 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(exQuery->setCode(PY_EXECUTE_QUERY_CODE));
   BOOST_CHECK(mgr.addMethod(exQuery, &err));
 
+  // post_query
+  static const char* PY_POST_QUERY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
+                                          "def " FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD "(params,results):\n"
+                                          "  host = \"" FOREMANCC_TEST_SCRIPT_POST_QUERY_HOST "\"\n"
+                                          "  port = " FOREMANCC_TEST_SCRIPT_POST_QUERY_PORT "\n"
+                                          "  jsonRes = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_POSTQUERY "(host, port, params[\"" FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "\"])\n"
+                                          "  if jsonRes is None:\n"
+                                          "    return False\n"
+                                          "  for key, value in jsonRes.iteritems():\n"
+                                          "    results[key] = value\n"
+                                          "  return True\n";
+
+  auto postQuery = new Foreman::Action::PythonMethod();
+  BOOST_CHECK(postQuery->setName(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD));
+  BOOST_CHECK(postQuery->setCode(PY_POST_QUERY_CODE));
+  BOOST_CHECK(mgr.addMethod(postQuery, &err));
+  
+  // run all tests
+
   testController.run(&mgr);
 }
 

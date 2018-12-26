@@ -35,6 +35,11 @@
 #define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD "test_executequery"
 #define FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "q"
 
+#define FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD "test_postquery"
+#define FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD_QUERY_PARAM_NAME "q"
+#define FOREMANCC_TEST_SCRIPT_POST_QUERY_HOST "localhost"
+#define FOREMANCC_TEST_SCRIPT_POST_QUERY_PORT "8188"
+
 ////////////////////////////////////////////////
 // ManagerTestController.h
 ////////////////////////////////////////////////
