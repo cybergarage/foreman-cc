@@ -22,6 +22,8 @@
 
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
+const std::string Foreman::Action::PythonEngine::USER_MODULE = FOREMANCC_PRODUCT_NAME "_user";
+const std::string Foreman::Action::PythonEngine::SYSTEM_MODULE = FOREMANCC_PRODUCT_NAME "_system";
 
 ////////////////////////////////////////////////
 // PythonEngineInitialize
@@ -101,7 +103,7 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
   auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 
@@ -121,13 +123,13 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 
   if (!pyScript->isCompiled()) {
     if (!pyScript->compile(err)) {
-      setLastDetailError(err);
+      getLastDetailError(err);
       return false;
     }
   }
@@ -137,7 +139,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   PythonParameters pInParams;
   if (!pInParams.set(params)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 
@@ -150,7 +152,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   PyObject* pArgs = PyTuple_New(2);
   if (!pArgs) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 
@@ -163,7 +165,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   if (!pResults) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 
@@ -180,7 +182,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   if (!pOutParams.get(results)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     Py_DECREF(pResults);
     return false;
   }
@@ -191,10 +193,15 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 }
 
 ////////////////////////////////////////////////
-// getLastError
+// getLastDetailError
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonEngine::setLastDetailError(Error* error) const
+bool Foreman::Action::PythonEngine::getLastDetailError(Error* err) const
+{
+  return foreman_python_getlasterror(err);
+}
+
+bool foreman_python_getlasterror(Foreman::Error* error)
 {
   PyObject *ptype, *pvalue, *ptraceback;
   PyErr_Fetch(&ptype, &pvalue, &ptraceback);

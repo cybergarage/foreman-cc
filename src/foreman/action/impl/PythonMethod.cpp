@@ -80,16 +80,14 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
   }
 
   auto methodName = getName().c_str();
-  char moduleName[64];
-  snprintf(moduleName, sizeof(moduleName), "%s-%s", PythonEngine::MODULE.c_str(), methodName);
-
   PyObject* pSource = Py_CompileString(methodCode, methodName, Py_file_input);
   if (!pSource) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
   }
 
-  this->module_ = PyImport_ExecCodeModuleEx((char*)moduleName, pSource, (char*)methodName);
+  auto moduleName = PythonEngine::USER_MODULE.c_str();
+  this->module_ = PyImport_ExecCodeModule((char*)moduleName, pSource);
   Py_DECREF(pSource);
   if (!(this->module_)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
