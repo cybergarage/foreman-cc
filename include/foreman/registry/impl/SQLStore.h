@@ -60,7 +60,7 @@ public:
 protected:
     sqlite3* db_;
 
-    bool setLastDetailError(Error* err);
+    bool getLastDetailError(Error* err);
   };
 }
 }

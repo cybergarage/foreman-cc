@@ -113,6 +113,18 @@ bool PythonParameter::setValue(PyObject* pyObj)
     return true;
   }
 
+  if (PyDict_Check(pyObj)) {
+    this->obj_ = pyObj;
+    setType(DictType);
+    return true;
+  }
+
+  if (PyList_Check(pyObj)) {
+    this->obj_ = pyObj;
+    setType(ListType);
+    return true;
+  }
+
   return false;
 }
 
@@ -210,6 +222,20 @@ bool PythonParameter::get(Parameter** param)
       return false;
     sparam->setValue(PyString_AsString(this->obj_));
     *param = sparam;
+  } break;
+    // FIXME : Not implemented yet
+  case DictType: {
+    auto dparam = new Dict();
+    if (!dparam)
+      return false;
+    *param = dparam;
+  } break;
+    // FIXME : Not implemented yet
+  case ListType: {
+    auto lparam = new List();
+    if (!lparam)
+      return false;
+    *param = lparam;
   } break;
   default:
     return false;

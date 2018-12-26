@@ -38,10 +38,10 @@ SQLiteStore::~SQLiteStore()
 }
 
 ////////////////////////////////////////////////
-// SetLastDetailError
+// getLastDetailError
 ////////////////////////////////////////////////
 
-bool SQLiteStore::setLastDetailError(Error* err)
+bool SQLiteStore::getLastDetailError(Error* err)
 {
   if (!db_)
     return false;
@@ -326,7 +326,7 @@ bool SQLiteStore::browse(Query* q, Objects* objs, Error* err)
 
   if (!prepare(FOREMANCC_REGISTRY_SQLITESTORE_REGISTRY_SELECT_BY_PARENTID, &stmt)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    setLastDetailError(err);
+    getLastDetailError(err);
     return false;
   }
 

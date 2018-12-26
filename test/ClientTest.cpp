@@ -15,16 +15,16 @@
 BOOST_AUTO_TEST_CASE(Client)
 {
   const char queries[][256] = {
-    "EXPORT CONFIG"
+    "EXPORT FROM CONFIG"
   };
-  
+
   Foreman::Client client;
 
   // Check whether foremand is runnging
   if (!client.ping())
     return;
-  
-  for(auto query : queries) {
+
+  for (auto query : queries) {
     std::string res;
     BOOST_CHECK(client.query(query, &res));
     BOOST_CHECK(0 < res.size());
