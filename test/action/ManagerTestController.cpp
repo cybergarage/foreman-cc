@@ -39,7 +39,10 @@ void ManagerTestController::run(Manager* mgr)
 
   testEcho(mgr);
   testRegister(mgr);
-
+#if defined(FOREMAN_SUPPORT_PYTHON)
+  testQuery(mgr);
+#endif
+  
   BOOST_CHECK(regStore.close());
 }
 
