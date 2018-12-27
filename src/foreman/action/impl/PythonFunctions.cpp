@@ -17,6 +17,7 @@
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Error.h>
+#include <foreman/util/Log.h>
 
 /****************************************
  * foreman_python_setregistry
@@ -166,9 +167,11 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
 
   std::string jsonRes;
   Foreman::Client client;
+  LOG_INFO("%s", query);
   if (!client.query(query, &jsonRes)) {
     return NULL;
   }
+  LOG_INFO("%s", jsonRes.c_str());
 
   // Parse the JSON response
 
@@ -178,8 +181,6 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
     foreman_python_getlasterror(&err);
     return NULL;
   }
-
-  Py_DECREF(jsonObj);
 
   return jsonObj;
 }
@@ -204,9 +205,11 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
   Foreman::Client client;
   client.setHost(host);
   client.setPort(port);
+  LOG_INFO("%s", query);
   if (!client.query(query, &jsonRes)) {
     return NULL;
   }
+  LOG_INFO("%s", jsonRes.c_str());
 
   // Parse the JSON response
 
@@ -216,8 +219,6 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
     foreman_python_getlasterror(&err);
     return NULL;
   }
-
-  Py_DECREF(jsonObj);
 
   return jsonObj;
 }
