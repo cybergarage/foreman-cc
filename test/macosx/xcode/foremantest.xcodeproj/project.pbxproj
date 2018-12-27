@@ -604,8 +604,6 @@
 			buildSettings = {
 				OTHER_LDFLAGS = (
 					"-lsqlite3",
-					"-lgflags",
-					"-lglog",
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
@@ -623,8 +621,6 @@
 			buildSettings = {
 				OTHER_LDFLAGS = (
 					"-lsqlite3",
-					"-lgflags",
-					"-lglog",
 					"-ljemalloc",
 					"-lpython",
 					"-llua",
