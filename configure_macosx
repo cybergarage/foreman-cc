@@ -3,4 +3,4 @@ export CFLAGS="-I/usr/local/include `pkg-config --cflags lua` `python-config --i
 export CXXFLAGS="$CFLAGS $CXXFLAGS -O0 -std=c++14"
 export LDFLAGS="-L/usr/local/lib  `pkg-config --libs lua` `python-config --libs`"
 #./configure --enable-beringei --enable-script-lua --enable-script-python --enable-alglib MKDIR_P='mkdir -p' $@
-./configure --enable-beringei --enable-alglib --enable-script-python MKDIR_P='mkdir -p' $@
+./configure --enable-alglib --enable-script-python MKDIR_P='mkdir -p' $@
