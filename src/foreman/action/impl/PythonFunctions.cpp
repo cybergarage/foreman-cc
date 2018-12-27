@@ -114,6 +114,7 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
 
 PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::Error* err)
 {
+  static PyObject* pyJsonModule = NULL;
   static PyObject* pyJsonFunc = NULL;
 
   if (!pyJsonFunc) {
@@ -124,17 +125,16 @@ PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::
     }
 
     auto moduleName = Foreman::Action::PythonEngine::SYSTEM_MODULE.c_str();
-    PyObject* pyModule = PyImport_ExecCodeModule((char*)moduleName, pSource);
+    pyJsonModule = PyImport_ExecCodeModule((char*)moduleName, pSource);
     Py_DECREF(pSource);
-    if (!pyModule) {
+    if (!pyJsonModule) {
       foreman_python_getlasterror(err);
       return NULL;
     }
 
-    pyJsonFunc = PyObject_GetAttrString(pyModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
+    pyJsonFunc = PyObject_GetAttrString(pyJsonModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
     if (!pyJsonFunc || !PyCallable_Check(pyJsonFunc)) {
       foreman_python_getlasterror(err);
-      Py_DECREF(pyModule);
       return NULL;
     }
   }

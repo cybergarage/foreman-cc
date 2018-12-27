@@ -160,15 +160,15 @@ void ManagerTestController::testQuery(Manager* mgr)
   param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
   param->setValue("EXPORT FROM CONFIG");
   params.addParameter(param);
-  
+
   Parameters results;
   Error err;
 
   // Execute Query
-  
+
   BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
 
   // Post Query
-  
+
   BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
 }
