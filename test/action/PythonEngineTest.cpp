@@ -146,6 +146,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(mgr.addMethod(exQuery, &err));
 
   // post_query
+
   static const char* PY_POST_QUERY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                           "def " FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD "(params,results):\n"
                                           "  host = \"" FOREMANCC_TEST_SCRIPT_POST_QUERY_HOST "\"\n"
@@ -161,7 +162,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(postQuery->setName(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD));
   BOOST_CHECK(postQuery->setCode(PY_POST_QUERY_CODE));
   BOOST_CHECK(mgr.addMethod(postQuery, &err));
-  
+
   // run all tests
 
   testController.run(&mgr);
