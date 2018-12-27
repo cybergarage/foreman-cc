@@ -19,7 +19,7 @@
 
 #if defined(__APPLE__)
 #define FOREMAN_ENABLE_ALGLIB 1
-#define FOREMAN_ENABLE_BERINGEI 1
+//#define FOREMAN_ENABLE_BERINGEI 1
 #define FOREMAN_SUPPORT_PYTHON 1
 #endif
 
