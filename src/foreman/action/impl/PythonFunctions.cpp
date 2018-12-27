@@ -135,6 +135,8 @@ PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::
     pyJsonFunc = PyObject_GetAttrString(pyJsonModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
     if (!pyJsonFunc || !PyCallable_Check(pyJsonFunc)) {
       foreman_python_getlasterror(err);
+      Py_DECREF(pyJsonModule);
+      pyJsonModule = NULL;
       return NULL;
     }
   }
