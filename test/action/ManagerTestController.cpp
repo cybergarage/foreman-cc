@@ -38,7 +38,7 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
   testEcho(mgr);
-  testRegister(mgr);
+  //testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
   testQuery(mgr);
 #endif
@@ -155,20 +155,27 @@ void ManagerTestController::testQuery(Manager* mgr)
   if (!client.ping())
     return;
 
-  Parameters params;
-  auto param = new String();
-  param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
-  param->setValue("EXPORT FROM CONFIG");
-  params.addParameter(param);
+  std::vector<std::string> queries;
+  queries.push_back("EXPORT FROM CONFIG");
+  queries.push_back("SET (query_test_reg, 1.0) INTO REGISTER");
+  queries.push_back("EXPORT FROM REGISTER WHERE name == query_test_reg");
 
-  Parameters results;
-  Error err;
-
-  // Execute Query
-
-  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
-
-  // Post Query
-
-  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
+  for(auto query : queries) {
+    Parameters params;
+    auto param = new String();
+    param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
+    param->setValue(query.c_str());
+    params.addParameter(param);
+    
+    Parameters results;
+    Error err;
+    
+    // Execute Query
+    
+    BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
+    
+    // Post Query
+    
+    BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
+  }
 }
