@@ -19,6 +19,8 @@
 
 using namespace Foreman::Action;
 
+#define FOREMANCC_TEST_SCRIPT_REPETITION_COUNT 5
+
 ////////////////////////////////////////////////
 // ManagerTestController.h
 ////////////////////////////////////////////////
@@ -37,10 +39,12 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
-  testEcho(mgr);
-  //testRegister(mgr);
+  for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
+    testRegister(mgr);
+    //testEcho(mgr);
+  }
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  testQuery(mgr);
+  //testQuery(mgr);
 #endif
 
   BOOST_CHECK(regStore.close());
@@ -122,15 +126,15 @@ void ManagerTestController::testRegister(Manager* mgr)
   BOOST_CHECK(retParam);
   if (retParam) {
     BOOST_CHECK(retParam->isString());
-    auto retString = dynamic_cast<String*>(retParam);
-    BOOST_CHECK(retString);
-    BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
+    if (retParam->isString()) {
+      auto retString = dynamic_cast<String*>(retParam);
+      BOOST_CHECK(retString);
+      BOOST_CHECK_EQUAL(retString->getValue().c_str(), FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_VALUE);
+    }
   }
 
   // Remove registry
 
-  // FIXME : Python error
-  /*
   params.clear();
   param = new String();
   param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
@@ -140,7 +144,6 @@ void ManagerTestController::testRegister(Manager* mgr)
   results.clear();
   isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
-   */
 }
 
 ////////////////////////////////////////////////
@@ -160,22 +163,22 @@ void ManagerTestController::testQuery(Manager* mgr)
   queries.push_back("SET (query_test_reg, 1.0) INTO REGISTER");
   queries.push_back("EXPORT FROM REGISTER WHERE name == query_test_reg");
 
-  for(auto query : queries) {
+  for (auto query : queries) {
     Parameters params;
     auto param = new String();
     param->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME);
     param->setValue(query.c_str());
     params.addParameter(param);
-    
+
     Parameters results;
     Error err;
-    
+
     // Execute Query
-    
+
     BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
-    
+
     // Post Query
-    
+
     BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
   }
 }

@@ -86,7 +86,7 @@ bool MemStore::close()
 
 bool MemStore::setObject(Object* obj, Error* err)
 {
-  return ObjectMap::set(*obj);
+  return ObjectMap::set(obj);
 }
 
 ////////////////////////////////////////////////

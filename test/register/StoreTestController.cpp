@@ -34,7 +34,7 @@ void StoreTestContoller::run(Store* store)
 
   Foreman::Error err;
 
-  for (int n = 0; n < 10; n++) {
+  for (int n = 0; n < 100; n++) {
     std::stringstream ss;
     time_t ts;
 

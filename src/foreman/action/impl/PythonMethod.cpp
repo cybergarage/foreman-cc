@@ -86,7 +86,7 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
     return false;
   }
 
-  auto moduleName = PythonEngine::USER_MODULE.c_str();
+  auto moduleName = PythonEngine::MODULE.c_str();// USER_MODULE.c_str();
   this->module_ = PyImport_ExecCodeModule((char*)moduleName, pSource);
   Py_DECREF(pSource);
   if (!(this->module_)) {
