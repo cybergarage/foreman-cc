@@ -40,12 +40,12 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
-    testRegister(mgr);
     //testEcho(mgr);
-  }
+    //testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  //testQuery(mgr);
+    testQuery(mgr);
 #endif
+  }
 
   BOOST_CHECK(regStore.close());
 }
