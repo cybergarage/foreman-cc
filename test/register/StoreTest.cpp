@@ -15,18 +15,16 @@
 
 BOOST_AUTO_TEST_SUITE(register_)
 
-using namespace Foreman::Register;
-
 ////////////////////////////////////////////////
 // MemStore
 ////////////////////////////////////////////////
 
 BOOST_AUTO_TEST_CASE(MemStore)
 {
-  StoreTestContoller testController;
+  Foreman::Register::StoreTestContoller testController;
 
-  MemStore* store = new MemStore();
-  //testController.run(store);
+  auto store = new Foreman::Register::MemStore();
+  testController.run(store);
   delete store;
 }
 

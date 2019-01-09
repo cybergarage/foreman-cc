@@ -42,7 +42,7 @@ PyObject* foreman_python_setregister(PyObject* self, PyObject* args)
   bool isSuccess = store->setObject(&obj, &err);
 
   LOG_INFO("SET KEY : %s = %s (%d)", key, val, int(isSuccess));
-  
+
   return Py_BuildValue("i", isSuccess);
 }
 
@@ -72,7 +72,7 @@ PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
 
   LOG_INFO("GET KEY : %s = %s (%d)", key, (regData ? regData : ""), int(isSuccess));
 
-  return Py_BuildValue("s", (regData ? regData : ""));
+  return Py_BuildValue("s", regData);
 }
 
 /****************************************
@@ -92,6 +92,8 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
 
   Foreman::Error err;
   bool isSuccess = store->removeObject(key, &err);
+
+  LOG_INFO("REMOVE KEY : %s (%d)", key, int(isSuccess));
 
   return Py_BuildValue("i", isSuccess);
 }

@@ -25,6 +25,11 @@ Object::Object()
   clear();
 }
 
+Object::Object(const Object* other)
+{
+  set(other);
+}
+
 Object::~Object()
 {
   clear();
@@ -42,6 +47,18 @@ bool Object::clear()
   this->version = 0;
 
   return true;
+}
+
+////////////////////////////////////////////////
+// set
+////////////////////////////////////////////////
+
+void Object::set(const Object* other)
+{
+  this->key = other->key;
+  this->data = other->data;
+  this->timestamp = other->timestamp;
+  this->version = other->version;
 }
 
 ////////////////////////////////////////////////

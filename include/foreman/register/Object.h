@@ -25,8 +25,11 @@ namespace Register {
 
 public:
     Object();
+    Object(const Object* other);
 
     virtual ~Object();
+
+    void set(const Object* other);
 
     void setKey(const std::string& value)
     {
