@@ -119,16 +119,22 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
   "    return jsonObj\n"
 #endif
 
-PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::Error* err)
+bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObject** pyObj, Foreman::Error* err)
 {
   static PyObject* pyJsonModule = NULL;
   static PyObject* pyJsonFunc = NULL;
 
+  *pyObj = NULL;
+  
+  if (jsonStr.size() <= 0) {
+    return true;
+  }
+  
   if (!pyJsonFunc) {
     PyObject* pSource = Py_CompileString(FOREMANCC_PYTHON_PARSEJSON_METHOD_CODE, FOREMANCC_PYTHON_PARSEJSON_METHOD, Py_file_input);
     if (!pSource) {
       foreman_python_getlasterror(err);
-      return NULL;
+      return false;
     }
 
     auto moduleName = Foreman::Action::PythonEngine::SYSTEM_MODULE.c_str();
@@ -136,7 +142,7 @@ PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::
     Py_DECREF(pSource);
     if (!pyJsonModule) {
       foreman_python_getlasterror(err);
-      return NULL;
+      return false;
     }
 
     pyJsonFunc = PyObject_GetAttrString(pyJsonModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
@@ -144,21 +150,23 @@ PyObject* foreman_python_string2jsonobject(const std::string& jsonStr, Foreman::
       foreman_python_getlasterror(err);
       Py_DECREF(pyJsonModule);
       pyJsonModule = NULL;
-      return NULL;
+      return false;
     }
   }
 
   PyObject* pArgs = PyTuple_New(1);
   if (!pArgs) {
     foreman_python_getlasterror(err);
-    return NULL;
+    return false;
   }
 
   PyTuple_SetItem(pArgs, 0, PyUnicode_FromString(jsonStr.c_str()));
   PyObject* pResults = PyObject_CallObject(pyJsonFunc, pArgs);
   Py_DECREF(pArgs);
 
-  return pResults;
+  *pyObj = pResults;
+  
+  return true;
 }
 
 PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
@@ -181,14 +189,14 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
 
   // Parse the JSON response
 
-  PyObject* jsonObj = foreman_python_string2jsonobject(jsonRes, &err);
-
-  if (!jsonObj) {
+  PyObject* resObj;
+  
+  if (!foreman_python_string2jsonobject(jsonRes, &resObj, &err)) {
     foreman_python_getlasterror(&err);
     return NULL;
   }
-
-  return jsonObj;
+  
+  return resObj;
 }
 
 /****************************************
@@ -219,14 +227,14 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
 
   // Parse the JSON response
 
-  PyObject* jsonObj = foreman_python_string2jsonobject(jsonRes, &err);
-
-  if (!jsonObj) {
+  PyObject* resObj;
+  
+  if (!foreman_python_string2jsonobject(jsonRes, &resObj, &err)) {
     foreman_python_getlasterror(&err);
     return NULL;
   }
 
-  return jsonObj;
+  return resObj;
 }
 
 /****************************************
