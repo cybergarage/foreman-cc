@@ -165,13 +165,11 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
     }
   }
 
-  PyObject* pArgs = PyTuple_New(1);
-  if (!pArgs) {
-    foreman_python_getlasterror(err);
-    return false;
-  }
-
-  PyTuple_SetItem(pArgs, 0, PyUnicode_FromString(jsonStr.c_str()));
+  // See
+  // Python/C API Reference Manual- Reference Count Details
+  // https://docs.python.org/2.0/api/refcountDetails.html
+  
+  PyObject* pArgs = Py_BuildValue("(s)", jsonStr.c_str());
   PyObject* pResults = PyObject_CallObject(pyJsonFunc, pArgs);
   Py_XDECREF(pArgs);
 
