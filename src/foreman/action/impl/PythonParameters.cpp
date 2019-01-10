@@ -27,7 +27,7 @@ PythonParameters::PythonParameters()
 
 PythonParameters::~PythonParameters()
 {
-  Py_DECREF(this->dict_);
+  Py_XDECREF(this->dict_);
 }
 
 ////////////////////////////////////////////////

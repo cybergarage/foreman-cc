@@ -38,12 +38,12 @@ Foreman::Action::PythonMethod::~PythonMethod()
 bool Foreman::Action::PythonMethod::clear()
 {
   if (func_) {
-    Py_DECREF(func_);
+    Py_XDECREF(func_);
     func_ = NULL;
   }
 
   if (module_) {
-    Py_DECREF(module_);
+    Py_XDECREF(module_);
     module_ = NULL;
   }
 
@@ -88,7 +88,7 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
 
   auto moduleName = PythonEngine::USER_MODULE.c_str();
   this->module_ = PyImport_ExecCodeModule((char*)moduleName, pSource);
-  Py_DECREF(pSource);
+  Py_XDECREF(pSource);
   if (!(this->module_)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
