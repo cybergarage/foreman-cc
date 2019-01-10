@@ -38,12 +38,12 @@ Foreman::Action::PythonMethod::~PythonMethod()
 bool Foreman::Action::PythonMethod::clear()
 {
   if (func_) {
-    Py_XDECREF(func_);
+    Py_CLEAR(func_);
     func_ = NULL;
   }
 
   if (module_) {
-    Py_XDECREF(module_);
+    Py_CLEAR(module_);
     module_ = NULL;
   }
 
