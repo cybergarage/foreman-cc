@@ -168,7 +168,7 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
   // See
   // Python/C API Reference Manual- Reference Count Details
   // https://docs.python.org/2.0/api/refcountDetails.html
-  
+
   PyObject* pArgs = Py_BuildValue("(s)", jsonStr.c_str());
   PyObject* pResults = PyObject_CallObject(pyJsonFunc, pArgs);
   Py_XDECREF(pArgs);

@@ -37,7 +37,7 @@ PythonParameter::~PythonParameter()
 bool PythonParameter::clear()
 {
   if (this->obj_) {
-    //Py_CLEAR(this->obj_);
+    Py_CLEAR(this->obj_);
     this->obj_ = NULL;
   }
   return true;
@@ -49,7 +49,6 @@ bool PythonParameter::clear()
 
 PyObject* PythonParameter::getPyObject() const
 {
-  Py_XINCREF(this->obj_);
   return this->obj_;
 }
 
@@ -91,36 +90,42 @@ bool PythonParameter::setValue(PyObject* pyObj)
 
   if (PyBool_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(BoolType);
     return true;
   }
 
   if (PyInt_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(IntegerType);
     return true;
   }
 
   if (PyFloat_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(RealType);
     return true;
   }
 
   if (PyString_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(StringType);
     return true;
   }
 
   if (PyDict_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(DictType);
     return true;
   }
 
   if (PyList_Check(pyObj)) {
     this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
     setType(ListType);
     return true;
   }
@@ -178,7 +183,6 @@ bool PythonParameter::set(const Parameter* param)
     return false;
 
   if (!setValue(pyObj)) {
-    Py_XDECREF(pyObj);
     return false;
   }
 

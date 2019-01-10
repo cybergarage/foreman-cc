@@ -19,7 +19,7 @@
 
 using namespace Foreman::Action;
 
-#define FOREMANCC_TEST_SCRIPT_REPETITION_COUNT 5
+#define FOREMANCC_TEST_SCRIPT_REPETITION_COUNT 10
 
 ////////////////////////////////////////////////
 // ManagerTestController.h

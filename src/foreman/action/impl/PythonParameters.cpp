@@ -40,6 +40,11 @@ bool PythonParameters::set(const Parameters* params)
     PythonParameter pyParam;
     if (!pyParam.set(param.get()))
       return false;
+
+    // See :
+    // Extending Python with C or C++ - Ownership Rules
+    // https://docs.python.org/3/extending/extending.html
+
     if (PyDict_SetItemString(this->dict_, param->getName(), pyParam.getPyObject()) != 0)
       return false;
   }
