@@ -116,8 +116,10 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
 
 bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params, Parameters* results, Error* err)
 {
-  // See :
-  // 5. Embedding Python in Another Application¶
+  // See
+  // Python Documentation - Extending Python with C or C++
+  // https://docs.python.org/3/extending/extending.html
+  // Python Documentation - Embedding Python in Another Application¶
   // https://docs.python.org/2.7/extending/embedding.html#embedding-python-in-another-application
 
   auto pyScript = dynamic_cast<PythonMethod*>(method);
@@ -149,18 +151,12 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   // Exec method
 
-  PyObject* pArgs = PyTuple_New(2);
-  if (!pArgs) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    getLastDetailError(err);
-    return false;
-  }
+  // See
+  // Python/C API Reference Manual- Reference Count Details
+  // https://docs.python.org/2.0/api/refcountDetails.html
 
-  PyTuple_SetItem(pArgs, 0, pInParams.getPyObject());
-  PyTuple_SetItem(pArgs, 1, pOutParams.getPyObject());
-
+  PyObject* pArgs = Py_BuildValue("(OO)", pInParams.getPyObject(), pOutParams.getPyObject());
   PyObject* pResults = PyObject_CallObject(pyScript->getFuncObject(), pArgs);
-
   Py_XDECREF(pArgs);
 
   if (!pResults) {
