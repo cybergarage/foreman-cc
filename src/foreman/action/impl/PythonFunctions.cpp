@@ -20,6 +20,11 @@
 #include <foreman/util/Log.h>
 
 /****************************************
+ * See: Python Documentation - Extending Python with C or C++
+ * https://docs.python.org/3/extending/extending.html
+ ****************************************/
+
+/****************************************
  * foreman_python_setregistry
  ****************************************/
 
@@ -27,12 +32,14 @@ PyObject* foreman_python_setregister(PyObject* self, PyObject* args)
 {
   const char *key, *val;
 
-  if (!PyArg_ParseTuple(args, "ss", &key, &val))
-    return NULL;
+  if (!PyArg_ParseTuple(args, "ss", &key, &val)) {
+    Py_RETURN_NONE;
+  }
 
   auto store = Foreman::Action::GetGlobalRegisterStore();
-  if (!store)
-    return NULL;
+  if (!store) {
+    Py_RETURN_NONE;
+  }
 
   Foreman::Register::Object obj;
   obj.setKey(key);
@@ -54,12 +61,14 @@ PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
 {
   const char* key;
 
-  if (!PyArg_ParseTuple(args, "s", &key))
-    return NULL;
+  if (!PyArg_ParseTuple(args, "s", &key)) {
+    Py_RETURN_NONE;
+  }
 
   auto store = Foreman::Action::GetGlobalRegisterStore();
-  if (!store)
-    return NULL;
+  if (!store) {
+    Py_RETURN_NONE;
+  }
 
   Foreman::Register::Object obj;
   Foreman::Error err;
@@ -83,12 +92,14 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
 {
   const char* key;
 
-  if (!PyArg_ParseTuple(args, "s", &key))
-    return NULL;
+  if (!PyArg_ParseTuple(args, "s", &key)) {
+    Py_RETURN_NONE;
+  }
 
   auto store = Foreman::Action::GetGlobalRegisterStore();
-  if (!store)
-    return NULL;
+  if (!store) {
+    Py_RETURN_NONE;
+  }
 
   Foreman::Error err;
   bool isSuccess = store->removeObject(key, &err);
@@ -182,7 +193,7 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client &cl
   std::string jsonRes;
   LOG_INFO("%s", query);
   if (!client.query(query, &jsonRes)) {
-    return NULL;
+    Py_RETURN_NONE;
   }
   LOG_INFO("%s", jsonRes.c_str());
   
@@ -192,7 +203,7 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client &cl
   
   if (!foreman_python_string2jsonobject(jsonRes, &resObj, &err)) {
     foreman_python_getlasterror(&err);
-    return NULL;
+    Py_RETURN_NONE;
   }
   
   if (!resObj) {
@@ -211,8 +222,9 @@ PyObject* foreman_python_executequery(PyObject* self, PyObject* args)
   Foreman::Error err;
 
   const char* query;
-  if (!PyArg_ParseTuple(args, "s", &query))
-    return NULL;
+  if (!PyArg_ParseTuple(args, "s", &query)) {
+    Py_RETURN_NONE;
+  }
 
   Foreman::Client client;
 
@@ -230,8 +242,9 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
   const char* host;
   const char* query;
   int port;
-  if (!PyArg_ParseTuple(args, "sis", &host, &port, &query))
-    return NULL;
+  if (!PyArg_ParseTuple(args, "sis", &host, &port, &query)) {
+    Py_RETURN_NONE;
+  }
 
   Foreman::Client client;
   client.setHost(host);
