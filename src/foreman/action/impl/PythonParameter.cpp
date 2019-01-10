@@ -37,7 +37,7 @@ PythonParameter::~PythonParameter()
 bool PythonParameter::clear()
 {
   if (this->obj_) {
-    Py_CLEAR(this->obj_);
+    //Py_CLEAR(this->obj_);
     this->obj_ = NULL;
   }
   return true;

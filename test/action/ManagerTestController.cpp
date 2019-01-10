@@ -40,10 +40,10 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
-    //testEcho(mgr);
+    testEcho(mgr);
     testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    //testQuery(mgr);
+    testQuery(mgr);
 #endif
   }
 
@@ -134,7 +134,6 @@ void ManagerTestController::testRegister(Manager* mgr)
   }
 
   // Remove registry
-
   params.clear();
   param = new String();
   param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
