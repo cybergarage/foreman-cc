@@ -41,9 +41,9 @@ void ManagerTestController::run(Manager* mgr)
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
     //testEcho(mgr);
-    //testRegister(mgr);
+    testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    testQuery(mgr);
+    //testQuery(mgr);
 #endif
   }
 
@@ -139,8 +139,7 @@ void ManagerTestController::testRegister(Manager* mgr)
   param = new String();
   param->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   params.addParameter(param);
-  
-   
+
   results.clear();
   isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);

@@ -136,11 +136,11 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
   static PyObject* pyJsonFunc = NULL;
 
   *pyObj = NULL;
-  
+
   if (jsonStr.size() <= 0) {
     return true;
   }
-  
+
   if (!pyJsonFunc) {
     PyObject* pSource = Py_CompileString(FOREMANCC_PYTHON_PARSEJSON_METHOD_CODE, FOREMANCC_PYTHON_PARSEJSON_METHOD, Py_file_input);
     if (!pSource) {
@@ -176,7 +176,7 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
   Py_XDECREF(pArgs);
 
   *pyObj = pResults;
-  
+
   return true;
 }
 
@@ -184,32 +184,32 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
  * foreman_python_requestquery
  ****************************************/
 
-static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client &client, const char* query)
+static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client& client, const char* query)
 {
   Foreman::Error err;
-  
+
   // Query
-  
+
   std::string jsonRes;
   LOG_INFO("%s", query);
   if (!client.query(query, &jsonRes)) {
     Py_RETURN_NONE;
   }
   LOG_INFO("%s", jsonRes.c_str());
-  
+
   // Parse the JSON response
-  
+
   PyObject* resObj;
-  
+
   if (!foreman_python_string2jsonobject(jsonRes, &resObj, &err)) {
     foreman_python_getlasterror(&err);
     Py_RETURN_NONE;
   }
-  
+
   if (!resObj) {
     resObj = PyDict_New();
   }
-  
+
   return Py_BuildValue("O", resObj);
 }
 
@@ -249,7 +249,7 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
   Foreman::Client client;
   client.setHost(host);
   client.setPort(port);
-  
+
   return foreman_python_requestquery(self, client, query);
 }
 
