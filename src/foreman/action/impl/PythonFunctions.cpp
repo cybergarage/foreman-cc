@@ -210,6 +210,8 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client &cl
     resObj = PyDict_New();
   }
   
+  Py_INCREF(resObj);
+  
   return resObj;
 }
 
