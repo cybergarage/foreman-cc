@@ -150,7 +150,7 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
 
     auto moduleName = Foreman::Action::PythonEngine::SYSTEM_MODULE.c_str();
     pyJsonModule = PyImport_ExecCodeModule((char*)moduleName, pSource);
-    Py_DECREF(pSource);
+    Py_XDECREF(pSource);
     if (!pyJsonModule) {
       foreman_python_getlasterror(err);
       return false;
@@ -159,7 +159,7 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
     pyJsonFunc = PyObject_GetAttrString(pyJsonModule, FOREMANCC_PYTHON_PARSEJSON_METHOD);
     if (!pyJsonFunc || !PyCallable_Check(pyJsonFunc)) {
       foreman_python_getlasterror(err);
-      Py_DECREF(pyJsonModule);
+      Py_XDECREF(pyJsonModule);
       pyJsonModule = NULL;
       return false;
     }
@@ -173,7 +173,7 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
 
   PyTuple_SetItem(pArgs, 0, PyUnicode_FromString(jsonStr.c_str()));
   PyObject* pResults = PyObject_CallObject(pyJsonFunc, pArgs);
-  Py_DECREF(pArgs);
+  Py_XDECREF(pArgs);
 
   *pyObj = pResults;
   

@@ -161,7 +161,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   PyObject* pResults = PyObject_CallObject(pyScript->getFuncObject(), pArgs);
 
-  Py_DECREF(pArgs);
+  Py_XDECREF(pArgs);
 
   if (!pResults) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
@@ -174,20 +174,20 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
     PyObject* errMsg = PyObject_Repr(pResults);
     if (errMsg) {
       err->setDetailMessage(PyString_AsString(errMsg));
-      Py_DECREF(errMsg);
+      Py_XDECREF(errMsg);
     }
-    Py_DECREF(pResults);
+    Py_XDECREF(pResults);
     return false;
   }
 
   if (!pOutParams.get(results)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     getLastDetailError(err);
-    Py_DECREF(pResults);
+    Py_XDECREF(pResults);
     return false;
   }
 
-  Py_DECREF(pResults);
+  Py_XDECREF(pResults);
 
   return true;
 }
@@ -211,9 +211,9 @@ bool foreman_python_getlasterror(Foreman::Error* error)
       auto errStr = PyString_AsString(utfStr);
       if (errStr) {
         error->setDetailMessage(errStr);
-        Py_DECREF(errStr);
+        Py_XDECREF(errStr);
       }
-      Py_DECREF(utfStr);
+      Py_XDECREF(utfStr);
     }
   }
 
@@ -227,7 +227,7 @@ bool foreman_python_getlasterror(Foreman::Error* error)
 #endif
 
   if (ptype)
-    Py_DECREF(ptype);
+    Py_XDECREF(ptype);
   if (pvalue)
     Py_XDECREF(pvalue);
   if (ptraceback)
