@@ -11,6 +11,7 @@
 #ifndef _FOREMANCC_ERROR_H_
 #define _FOREMANCC_ERROR_H_
 
+#include <foreman/common/Errors.h>
 #include <string>
 
 namespace Foreman {
@@ -73,6 +74,13 @@ class Error {
   int getCode() const
   {
     return this->code;
+  }
+
+  bool isInternalError() const
+  {
+    if (this->code < ERROR_INTERNAL_ERROR)
+      return false;
+    return true;
   }
 
   const char* getMessage() const

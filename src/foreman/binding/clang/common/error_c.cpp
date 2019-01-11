@@ -201,3 +201,14 @@ bool foreman_error_getfuncname(ForemanError* e, const char** name)
   *name = ((Foreman::Error*)(e))->getFuncName();
   return true;
 }
+
+////////////////////////////////////////////////
+// foreman_error_isinternalerror
+////////////////////////////////////////////////
+
+bool foreman_error_isinternalerror(ForemanError* e)
+{
+  if (!e)
+    return true;
+  return ((Foreman::Error*)(e))->isInternalError();
+}
