@@ -55,6 +55,8 @@ bool foreman_error_getlineno(ForemanError* e, int* lineno);
 bool foreman_error_getfilename(ForemanError* e, const char** name);
 bool foreman_error_getfuncname(ForemanError* e, const char** name);
 
+bool foreman_error_isinternalerror(ForemanError* e);
+
 bool foreman_error_delete(ForemanError* e);
 
 #ifdef __cplusplus
