@@ -17,6 +17,7 @@
 // Constants
 ////////////////////////////////////////////////
 
+#define FOREMANCC_TEST_SCRIPT_ERROR_METHOD "error_method"
 #define FOREMANCC_TEST_SCRIPT_ECHO_METHOD "test_echo"
 #define FOREMANCC_TEST_SCRIPT_ECHO_PARAM_NAME "message"
 #define FOREMANCC_TEST_SCRIPT_ECHO_PARAM_VALUE "echo"

@@ -107,7 +107,12 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
     return false;
   }
 
-  return pyScript->compile(err);
+  if (!pyScript->compile(err)) {
+    getLastDetailError(err);
+    return false;
+  }
+
+  return true;
 }
 
 ////////////////////////////////////////////////
@@ -228,6 +233,8 @@ bool foreman_python_getlasterror(Foreman::Error* error)
     Py_XDECREF(pvalue);
   if (ptraceback)
     Py_XDECREF(ptraceback);
+
+  PyErr_Clear();
 
   return true;
 }
