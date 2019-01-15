@@ -82,25 +82,51 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
-  auto lang = method->getLanguage();
-  if (!hasEngine(lang)) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
-    return false;
-  }
-  
-  auto name = method->getName();
+  std::string name = method->getName();
   if (name.length() <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
   }
 
+  auto code = method->getCode();
+  auto codeLen = method->getCodeLength();
+  if (codeLen <= 0) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    return false;
+  }
+  
+  std::string lang = method->getLanguage();
+  if (!hasEngine(lang)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    return false;
+  }
+  
+  ScriptEngine* scriptEngine = this->engineMap.getEngine(lang);
+  if (!scriptEngine) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    return false;
+  }
+  
+  Method* newMethod = Method::CreateMethod(lang);
+  if (!newMethod) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    return false;
+  }
+  newMethod->setName(name);
+  newMethod->setCode(code, codeLen);
+  
+  if (!scriptEngine->compile(newMethod, err)) {
+    delete newMethod;
+    return false;
+  }
+  
   auto currentScript = this->methodMap.getMethod(name);
   if (currentScript) {
     delete currentScript;
   }
-
-  this->methodMap[name] = method;
-
+  
+  this->methodMap[name] = newMethod;
+  
   return true;
 }
 
@@ -124,44 +150,6 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
   }
 
   this->engineMap[engineLang] = std::unique_ptr<ScriptEngine>(engine);
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// addMethod
-////////////////////////////////////////////////
-
-bool ScriptManager::addMethod(const std::string& name, const std::string& lang, const std::string& code, Error* err)
-{
-  if (code.length() <= 0) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
-    return false;
-  }
-
-  ScriptEngine* scriptEngine = this->engineMap.getEngine(lang);
-  if (!scriptEngine) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    return false;
-  }
-
-  Method* method = Method::CreateMethod(lang);
-  if (!method) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    return false;
-  }
-  method->setName(name);
-  method->setCode(code);
-
-  if (!scriptEngine->compile(method, err)) {
-    delete method;
-    return false;
-  }
-
-  if (!addMethod(method, err)) {
-    delete method;
-    return false;
-  }
 
   return true;
 }
