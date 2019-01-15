@@ -74,9 +74,6 @@ public:
     bool execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* error);
 
 private:
-    bool addMethod(const std::string& method, const std::string& lang, const std::string& script, Error* error);
-
-private:
     MethodMap methodMap;
     ScriptEngineMap engineMap;
 

@@ -60,6 +60,7 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
   BOOST_CHECK(foreman_action_method_setname(method, TEST_METHOD_NAME));
   BOOST_CHECK(foreman_action_method_setstringcode(method, TEST_METHOD_CODE));
   BOOST_CHECK(foreman_action_manager_addmethod(mgr, method, err));
+  BOOST_CHECK(foreman_action_method_delete(method));
 
   // Check first method
 
