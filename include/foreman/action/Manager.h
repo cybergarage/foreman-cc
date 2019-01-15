@@ -26,6 +26,8 @@
 #include <foreman/action/Engine.h>
 #include <foreman/action/Method.h>
 
+#include <foreman/util/Mutex.h>
+
 namespace Foreman {
 namespace Action {
 
@@ -33,7 +35,7 @@ namespace Action {
   // ScriptManager
   ////////////////////////////////////////////////
 
-  class ScriptManager {
+  class ScriptManager : public Mutex {
 
 public:
     ScriptManager();
