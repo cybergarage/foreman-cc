@@ -103,12 +103,12 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
   auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    getLastDetailError(err);
+    getLastPythonError(err);
     return false;
   }
 
   if (!pyScript->compile(err)) {
-    getLastDetailError(err);
+    getLastPythonError(err);
     return false;
   }
 
@@ -130,13 +130,13 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   auto pyScript = dynamic_cast<PythonMethod*>(method);
   if (!pyScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    getLastDetailError(err);
+    getLastPythonError(err);
     return false;
   }
 
   if (!pyScript->isCompiled()) {
     if (!pyScript->compile(err)) {
-      getLastDetailError(err);
+      getLastPythonError(err);
       return false;
     }
   }
@@ -146,7 +146,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   PythonParameters pInParams;
   if (!pInParams.set(params)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    getLastDetailError(err);
+    getLastPythonError(err);
     return false;
   }
 
@@ -166,10 +166,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   if (!pResults) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
-    std::stringstream msg;
-    msg << method->getName() << " has no return object";
-    err->setMessage(msg.str());
-    getLastDetailError(err);
+    getLastPythonError(err);
     return false;
   }
 
@@ -186,7 +183,7 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 
   if (!pOutParams.get(results)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    getLastDetailError(err);
+    getLastPythonError(err);
     Py_XDECREF(pResults);
     return false;
   }
@@ -197,29 +194,52 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
 }
 
 ////////////////////////////////////////////////
-// getLastDetailError
+// getLastPythonError
 ////////////////////////////////////////////////
 
-bool Foreman::Action::PythonEngine::getLastDetailError(Error* err) const
+bool Foreman::Action::PythonEngine::getLastPythonError(Error* err) const
 {
   return foreman_python_getlasterror(err);
 }
 
 bool foreman_python_getlasterror(Foreman::Error* error)
 {
+  std::stringstream pyErrMsg;
+  
   PyObject *ptype, *pvalue, *ptraceback;
   PyErr_Fetch(&ptype, &pvalue, &ptraceback);
-  if (pvalue) {
-    PyObject* utfStr = PyUnicode_AsUTF8String(pvalue);
+
+  if (ptype) {
+    PyObject* utfStr = PyUnicode_AsUTF8String(ptype);
     if (utfStr) {
       auto errStr = PyString_AsString(utfStr);
       if (errStr) {
-        error->setDetailMessage(errStr);
+        pyErrMsg << errStr;
         Py_XDECREF(errStr);
       }
       Py_XDECREF(utfStr);
     }
   }
+  
+  if (pvalue) {
+    PyObject* utfStr = PyUnicode_AsUTF8String(pvalue);
+    if (utfStr) {
+      auto errStr = PyString_AsString(utfStr);
+      if (errStr) {
+        if (ptype) {
+          pyErrMsg << " (";
+        }
+        pyErrMsg << errStr;
+        Py_XDECREF(errStr);
+        if (ptype) {
+          pyErrMsg << ")";
+        }
+      }
+      Py_XDECREF(utfStr);
+    }
+  }
+
+  error->setMessage(pyErrMsg.str());
 
 #if defined(DEBUG)
   if (ptype)

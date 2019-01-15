@@ -138,7 +138,7 @@ public:
     bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
 private:
-    bool getLastDetailError(Error* error) const;
+    bool getLastPythonError(Error* error) const;
   };
 }
 }
