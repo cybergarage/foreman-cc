@@ -128,6 +128,7 @@ am_foremantest_OBJECTS = ../ClientTest.$(OBJEXT) \
 	..//binding/clang/metric/ClangMetricsTest.$(OBJEXT) \
 	..//common/ErrorTest.$(OBJEXT) \
 	..//action/PythonEngineTest.$(OBJEXT) \
+	..//action/UnknownEngineTest.$(OBJEXT) \
 	..//action/ParameterTest.$(OBJEXT) \
 	..//action/LuaEngineTest.$(OBJEXT) \
 	..//action/MethodTest.$(OBJEXT) \
@@ -172,6 +173,7 @@ am__depfiles_remade = ../$(DEPDIR)/ClientTest.Po \
 	../action/$(DEPDIR)/ParameterTest.Po \
 	../action/$(DEPDIR)/PythonEngineTest.Po \
 	../action/$(DEPDIR)/SystemEngineTest.Po \
+	../action/$(DEPDIR)/UnknownEngineTest.Po \
 	../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po \
 	../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po \
 	../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po \
@@ -565,6 +567,7 @@ foremantest_SOURCES = \
 	..//binding/clang/metric/ClangMetricsTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//action/PythonEngineTest.cpp \
+	..//action/UnknownEngineTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/LuaEngineTest.cpp \
 	..//action/MethodTest.cpp \
@@ -730,6 +733,8 @@ clean-noinstPROGRAMS:
 	@: > ../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/PythonEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
+..//action/UnknownEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
 	../action/$(DEPDIR)/$(am__dirstamp)
 ..//action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
@@ -823,6 +828,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/ParameterTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/PythonEngineTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/SystemEngineTest.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../action/$(DEPDIR)/UnknownEngineTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@ # am--include-marker
@@ -1201,6 +1207,7 @@ distclean: distclean-am
 	-rm -f ../action/$(DEPDIR)/ParameterTest.Po
 	-rm -f ../action/$(DEPDIR)/PythonEngineTest.Po
 	-rm -f ../action/$(DEPDIR)/SystemEngineTest.Po
+	-rm -f ../action/$(DEPDIR)/UnknownEngineTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po
@@ -1286,6 +1293,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ../action/$(DEPDIR)/ParameterTest.Po
 	-rm -f ../action/$(DEPDIR)/PythonEngineTest.Po
 	-rm -f ../action/$(DEPDIR)/SystemEngineTest.Po
+	-rm -f ../action/$(DEPDIR)/UnknownEngineTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangMethodTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po

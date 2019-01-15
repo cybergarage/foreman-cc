@@ -33,6 +33,7 @@ foremantest_SOURCES = \
 	..//binding/clang/metric/ClangMetricsTest.cpp \
 	..//common/ErrorTest.cpp \
 	..//action/PythonEngineTest.cpp \
+	..//action/UnknownEngineTest.cpp \
 	..//action/ParameterTest.cpp \
 	..//action/LuaEngineTest.cpp \
 	..//action/MethodTest.cpp \

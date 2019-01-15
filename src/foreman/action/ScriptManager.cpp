@@ -82,6 +82,12 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
+  auto lang = method->getLanguage();
+  if (!hasEngine(lang)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    return false;
+  }
+  
   auto name = method->getName();
   if (name.length() <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
