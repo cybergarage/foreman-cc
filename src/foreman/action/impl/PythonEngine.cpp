@@ -165,7 +165,10 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
   Py_XDECREF(pArgs);
 
   if (!pResults) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
+    std::stringstream msg;
+    msg << method->getName() << " has no return object";
+    err->setMessage(msg.str());
     getLastDetailError(err);
     return false;
   }
