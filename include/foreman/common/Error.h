@@ -16,6 +16,7 @@
 
 namespace Foreman {
 
+#ifdef DEBUG
 #define FOREMANCC_ERROR_SET_ERRORNO(err, errcode) \
   {                                               \
     err->setFileName(__FILE__);                   \
@@ -23,7 +24,13 @@ namespace Foreman {
     err->setFuncName(__PRETTY_FUNCTION__);        \
     err->setErrorNo(errcode);                     \
   }
-
+#else
+#define FOREMANCC_ERROR_SET_ERRORNO(err, errcode) \
+{                                                 \
+  err->setErrorNo(errcode);
+}
+#endif
+  
 class Error {
 
   public:
