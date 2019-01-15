@@ -116,12 +116,14 @@ bool ScriptManager::addMethod(Method* method, Error* err)
   newMethod->setCode(code, codeLen);
   
   if (!scriptEngine->compile(newMethod, err)) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     delete newMethod;
     return false;
   }
   
   auto currentScript = this->methodMap.getMethod(name);
   if (currentScript) {
+    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     delete currentScript;
   }
   
