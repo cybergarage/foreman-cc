@@ -94,19 +94,19 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
   }
-  
+
   std::string lang = method->getLanguage();
   if (!hasEngine(lang)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     return false;
   }
-  
+
   ScriptEngine* scriptEngine = this->engineMap.getEngine(lang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
-  
+
   Method* newMethod = Method::CreateMethod(lang);
   if (!newMethod) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
@@ -114,21 +114,21 @@ bool ScriptManager::addMethod(Method* method, Error* err)
   }
   newMethod->setName(name);
   newMethod->setCode(code, codeLen);
-  
+
   if (!scriptEngine->compile(newMethod, err)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     delete newMethod;
     return false;
   }
-  
+
   auto currentScript = this->methodMap.getMethod(name);
   if (currentScript) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     delete currentScript;
   }
-  
+
   this->methodMap[name] = newMethod;
-  
+
   return true;
 }
 
@@ -206,10 +206,10 @@ bool ScriptManager::execMethod(const std::string& name, const Parameters* params
   }
 
   lock();
-  
+
   bool execResult = scriptEngine->run(method, params, results, err);
-  
+
   unlock();
-  
+
   return execResult;
 }

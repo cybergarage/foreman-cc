@@ -76,6 +76,15 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   mgr.addEngine(new Foreman::Action::PythonEngine());
 
+  // error
+
+  static const char* PY_ERROR_CODE = "def def def def\n";
+
+  auto err_method = new Foreman::Action::PythonMethod();
+  BOOST_CHECK(err_method->setName(FOREMANCC_TEST_SCRIPT_ERROR_METHOD));
+  BOOST_CHECK(err_method->setCode(PY_ERROR_CODE));
+  BOOST_CHECK(!mgr.addMethod(err_method, &err));
+
   // echo
 
   static const char* PY_ECHO_CODE = "def " FOREMANCC_TEST_SCRIPT_ECHO_METHOD "(params,results):\n"
