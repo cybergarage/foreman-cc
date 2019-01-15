@@ -209,5 +209,11 @@ bool ScriptManager::execMethod(const std::string& name, const Parameters* params
     return false;
   }
 
-  return scriptEngine->run(method, params, results, err);
+  lock();
+  
+  bool execResult = scriptEngine->run(method, params, results, err);
+  
+  unlock();
+  
+  return execResult;
 }
