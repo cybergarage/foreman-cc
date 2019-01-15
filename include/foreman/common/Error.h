@@ -26,11 +26,11 @@ namespace Foreman {
   }
 #else
 #define FOREMANCC_ERROR_SET_ERRORNO(err, errcode) \
-{                                                 \
-  err->setErrorNo(errcode);
-}
+  {                                               \
+    err->setErrorNo(errcode);                     \
+  }
 #endif
-  
+
 class Error {
 
   public:
