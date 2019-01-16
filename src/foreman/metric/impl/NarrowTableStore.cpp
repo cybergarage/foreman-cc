@@ -297,15 +297,21 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   if (!q || !rs)
     return false;
 
-  if (q->until <= q->from)
+  if (q->until <= q->from) {
+    LOG_ERROR("%s (%s, %d, %d, %d) : until(%d) <= from(%d)", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, q->interval, (int)q->until, (int)q->from);
     return false;
+  }
 
-  if (q->interval == 0)
+  if (q->interval == 0) {
+    LOG_ERROR("%s (%s, %d, %d, %d) : interval == %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, q->interval, q->interval);
     return false;
+  }
 
   ssize_t valueCount = (q->until - q->from) / q->interval;
-  if (valueCount <= 0)
+  if (valueCount <= 0) {
+    LOG_ERROR("%s (%s, %d, %d, %d) : value count == %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, q->interval, 0);
     return false;
+  }
 
   double* values = CreateNanDataPointValueArray(valueCount);
   if (!values)
@@ -336,10 +342,10 @@ bool NarrowTableStore::querySingleData(Query* q, ResultSet* rs)
   auto rc = sqlite3_step(stmt);
 
   if (rc == SQLITE_ROW) {
-    LOG_INFO("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
+    LOG_INFO("%s (%s, %d, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, q->interval, rc);
   }
   else {
-    LOG_ERROR("%s (%s, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, rc);
+    LOG_ERROR("%s (%s, %d, %d, %d) : %d", FOREMANCC_METRIC_SQLITESTORE_RECORD_SELECT_BY_FACTOR_BETWEEN_TIMESTAMP, q->target.c_str(), (int)q->from, (int)q->until, q->interval, rc);
   }
 
   size_t rowCont = 1;
