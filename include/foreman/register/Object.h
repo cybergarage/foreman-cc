@@ -62,7 +62,7 @@ public:
     {
       this->version = ver;
     }
-    
+
     int getVersion()
     {
       return this->version;

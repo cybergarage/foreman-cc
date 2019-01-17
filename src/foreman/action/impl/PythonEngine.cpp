@@ -205,7 +205,7 @@ bool Foreman::Action::PythonEngine::getLastPythonError(Error* err) const
 bool foreman_python_getlasterror(Foreman::Error* error)
 {
   std::stringstream pyErrMsg;
-  
+
   PyObject *ptype, *pvalue, *ptraceback;
   PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 
@@ -220,7 +220,7 @@ bool foreman_python_getlasterror(Foreman::Error* error)
       Py_XDECREF(utfStr);
     }
   }
-  
+
   if (pvalue) {
     PyObject* utfStr = PyUnicode_AsUTF8String(pvalue);
     if (utfStr) {
