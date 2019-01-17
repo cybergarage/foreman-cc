@@ -32,20 +32,34 @@ void StoreTestContoller::run(Store* store)
 {
   BOOST_CHECK(store->open());
 
+  testRepeatInsert(store);
+  testRepeatInsert(store);
+
+  BOOST_CHECK(store->close());
+}
+
+////////////////////////////////////////////////
+// testInsert
+////////////////////////////////////////////////
+
+void StoreTestContoller::testInsert(Store* store)
+{
+  BOOST_CHECK(store->clear());
+
   Foreman::Error err;
 
   for (int n = 0; n < 100; n++) {
-    std::stringstream ss;
-    time_t ts;
-
     Object inObj;
+
+    std::stringstream key;
+    time_t ts;
     time(&ts);
-    ts += rand();
-    ss << ts;
-    std::string key = "key" + ss.str();
-    inObj.setKey(key);
-    std::string val = "val" + ss.str();
-    inObj.setData(val);
+    key << "key" << ts;
+    inObj.setKey(key.str());
+
+    std::stringstream val;
+    key << "val" << ts;
+    inObj.setData(val.str());
 
     BOOST_CHECK_EQUAL(store->size(), n);
     BOOST_CHECK_EQUAL(store->setObject(&inObj, &err), true);
@@ -53,9 +67,42 @@ void StoreTestContoller::run(Store* store)
 
     Object outObj;
 
-    BOOST_CHECK_EQUAL(store->getObject(key, &outObj, &err), true);
+    BOOST_CHECK_EQUAL(store->getObject(key.str(), &outObj, &err), true);
     BOOST_CHECK_EQUAL(inObj.equals(&outObj), true);
+    BOOST_CHECK_EQUAL(outObj.getVersion(), 1);
   }
+}
 
-  BOOST_CHECK(store->close());
+////////////////////////////////////////////////
+// testRepeatInsert
+////////////////////////////////////////////////
+
+void StoreTestContoller::testRepeatInsert(Store* store)
+{
+  BOOST_CHECK(store->clear());
+
+  Foreman::Error err;
+
+  for (int i = 0; i < 100; i++) {
+    for (int j = 0; j < 100; j++) {
+      Object inObj;
+
+      std::stringstream key;
+      key << "rkey" << i;
+      inObj.setKey(key.str());
+
+      std::stringstream val;
+      val << "rval" << i << j;
+      inObj.setData(val.str());
+
+      BOOST_CHECK_EQUAL(store->setObject(&inObj, &err), true);
+      BOOST_CHECK_EQUAL(store->size(), (i + 1));
+
+      Object outObj;
+
+      BOOST_CHECK_EQUAL(store->getObject(key.str(), &outObj, &err), true);
+      BOOST_CHECK_EQUAL(inObj.equals(&outObj), true);
+      BOOST_CHECK_EQUAL(outObj.getVersion(), (j + 1));
+    }
+  }
 }

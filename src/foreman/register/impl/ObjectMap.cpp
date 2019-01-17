@@ -32,6 +32,8 @@ bool ObjectMap::set(const Object* obj)
   auto key = obj->getKey();
   auto valueIt = find(key);
   if (valueIt != end()) {
+    auto currObj = *(valueIt->second);
+    newObj->setVersion(currObj.getVersion() + 1);
     valueIt->second = newObj;
     return true;
   }

@@ -26,6 +26,10 @@ public:
     virtual ~StoreTestContoller();
 
     void run(Store* store);
+
+private:
+    void testInsert(Store* store);
+    void testRepeatInsert(Store* store);
   };
 }
 }
