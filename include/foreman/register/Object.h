@@ -58,6 +58,11 @@ public:
       return (0 < this->data.length()) ? true : false;
     }
 
+    void setVersion(int ver)
+    {
+      this->version = ver;
+    }
+    
     int getVersion()
     {
       return this->version;
