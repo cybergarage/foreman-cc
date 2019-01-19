@@ -200,7 +200,6 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client& cl
   PyObject* resObj;
 
   if (!foreman_python_string2jsonobject(jsonRes, &resObj, &err)) {
-    foreman_python_getlasterror(&err);
     Py_RETURN_NONE;
   }
 
