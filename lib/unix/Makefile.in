@@ -166,6 +166,7 @@ am__objects_1 = ../../src/beringei/TimeSeriesStream.$(OBJEXT) \
 	../../src/foreman/binding/clang/registry/objects_c.$(OBJEXT) \
 	../../src/foreman/binding/clang/registry/store_c.$(OBJEXT) \
 	../../src/foreman/binding/clang/registry/object_c.$(OBJEXT) \
+	../../src/foreman/binding/clang/log/logger_c.$(OBJEXT) \
 	../../src/foreman/binding/clang/metric/query_c.$(OBJEXT) \
 	../../src/foreman/binding/clang/metric/metric_c.$(OBJEXT) \
 	../../src/foreman/binding/clang/metric/store_c_factory.$(OBJEXT) \
@@ -207,6 +208,11 @@ am__objects_1 = ../../src/beringei/TimeSeriesStream.$(OBJEXT) \
 	../../src/foreman/registry/Object.$(OBJEXT) \
 	../../src/foreman/registry/Properties.$(OBJEXT) \
 	../../src/foreman/registry/Store.$(OBJEXT) \
+	../../src/foreman/log/Outputter.$(OBJEXT) \
+	../../src/foreman/log/OutputterList.$(OBJEXT) \
+	../../src/foreman/log/Logger.$(OBJEXT) \
+	../../src/foreman/log/FileOutputter.$(OBJEXT) \
+	../../src/foreman/log/StdoutOutputter.$(OBJEXT) \
 	../../src/foreman/metric/MetricMap.$(OBJEXT) \
 	../../src/foreman/metric/impl/StaticArrayTimeSeries.$(OBJEXT) \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.$(OBJEXT) \
@@ -275,6 +281,7 @@ am__depfiles_remade = ../../src/beringei/$(DEPDIR)/BitUtil.Po \
 	../../src/foreman/binding/clang/action/$(DEPDIR)/parameter_c.Po \
 	../../src/foreman/binding/clang/action/$(DEPDIR)/parameters_c.Po \
 	../../src/foreman/binding/clang/common/$(DEPDIR)/error_c.Po \
+	../../src/foreman/binding/clang/log/$(DEPDIR)/logger_c.Po \
 	../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoint_c.Po \
 	../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoints_c.Po \
 	../../src/foreman/binding/clang/metric/$(DEPDIR)/metric_c.Po \
@@ -291,6 +298,11 @@ am__depfiles_remade = ../../src/beringei/$(DEPDIR)/BitUtil.Po \
 	../../src/foreman/binding/clang/registry/$(DEPDIR)/query_c.Po \
 	../../src/foreman/binding/clang/registry/$(DEPDIR)/store_c.Po \
 	../../src/foreman/common/$(DEPDIR)/Error.Po \
+	../../src/foreman/log/$(DEPDIR)/FileOutputter.Po \
+	../../src/foreman/log/$(DEPDIR)/Logger.Po \
+	../../src/foreman/log/$(DEPDIR)/Outputter.Po \
+	../../src/foreman/log/$(DEPDIR)/OutputterList.Po \
+	../../src/foreman/log/$(DEPDIR)/StdoutOutputter.Po \
 	../../src/foreman/metric/$(DEPDIR)/DataPoint.Po \
 	../../src/foreman/metric/$(DEPDIR)/Metric.Po \
 	../../src/foreman/metric/$(DEPDIR)/MetricMap.Po \
@@ -492,6 +504,7 @@ foremancc_sources = \
 	../../src/foreman/binding/clang/registry/objects_c.cpp \
 	../../src/foreman/binding/clang/registry/store_c.cpp \
 	../../src/foreman/binding/clang/registry/object_c.cpp \
+	../../src/foreman/binding/clang/log/logger_c.cpp \
 	../../src/foreman/binding/clang/metric/query_c.cpp \
 	../../src/foreman/binding/clang/metric/metric_c.cpp \
 	../../src/foreman/binding/clang/metric/store_c_factory.cpp \
@@ -533,6 +546,11 @@ foremancc_sources = \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Store.cpp \
+	../../src/foreman/log/Outputter.cpp \
+	../../src/foreman/log/OutputterList.cpp \
+	../../src/foreman/log/Logger.cpp \
+	../../src/foreman/log/FileOutputter.cpp \
+	../../src/foreman/log/StdoutOutputter.cpp \
 	../../src/foreman/metric/MetricMap.cpp \
 	../../src/foreman/metric/impl/StaticArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \
@@ -736,6 +754,15 @@ clean-libLIBRARIES:
 ../../src/foreman/binding/clang/registry/object_c.$(OBJEXT):  \
 	../../src/foreman/binding/clang/registry/$(am__dirstamp) \
 	../../src/foreman/binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/binding/clang/log/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/binding/clang/log
+	@: > ../../src/foreman/binding/clang/log/$(am__dirstamp)
+../../src/foreman/binding/clang/log/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/binding/clang/log/$(DEPDIR)
+	@: > ../../src/foreman/binding/clang/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/binding/clang/log/logger_c.$(OBJEXT):  \
+	../../src/foreman/binding/clang/log/$(am__dirstamp) \
+	../../src/foreman/binding/clang/log/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/binding/clang/metric/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/binding/clang/metric
 	@: > ../../src/foreman/binding/clang/metric/$(am__dirstamp)
@@ -907,6 +934,27 @@ clean-libLIBRARIES:
 ../../src/foreman/registry/Store.$(OBJEXT):  \
 	../../src/foreman/registry/$(am__dirstamp) \
 	../../src/foreman/registry/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/log
+	@: > ../../src/foreman/log/$(am__dirstamp)
+../../src/foreman/log/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../../src/foreman/log/$(DEPDIR)
+	@: > ../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/Outputter.$(OBJEXT):  \
+	../../src/foreman/log/$(am__dirstamp) \
+	../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/OutputterList.$(OBJEXT):  \
+	../../src/foreman/log/$(am__dirstamp) \
+	../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/Logger.$(OBJEXT):  \
+	../../src/foreman/log/$(am__dirstamp) \
+	../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/FileOutputter.$(OBJEXT):  \
+	../../src/foreman/log/$(am__dirstamp) \
+	../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+../../src/foreman/log/StdoutOutputter.$(OBJEXT):  \
+	../../src/foreman/log/$(am__dirstamp) \
+	../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
 ../../src/foreman/metric/$(am__dirstamp):
 	@$(MKDIR_P) ../../src/foreman/metric
 	@: > ../../src/foreman/metric/$(am__dirstamp)
@@ -999,10 +1047,12 @@ mostlyclean-compile:
 	-rm -f ../../src/foreman/action/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/action/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/common/*.$(OBJEXT)
+	-rm -f ../../src/foreman/binding/clang/log/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/register/*.$(OBJEXT)
 	-rm -f ../../src/foreman/binding/clang/registry/*.$(OBJEXT)
 	-rm -f ../../src/foreman/common/*.$(OBJEXT)
+	-rm -f ../../src/foreman/log/*.$(OBJEXT)
 	-rm -f ../../src/foreman/metric/*.$(OBJEXT)
 	-rm -f ../../src/foreman/metric/impl/*.$(OBJEXT)
 	-rm -f ../../src/foreman/net/*.$(OBJEXT)
@@ -1044,6 +1094,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/action/$(DEPDIR)/parameter_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/action/$(DEPDIR)/parameters_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/common/$(DEPDIR)/error_c.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/log/$(DEPDIR)/logger_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoint_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoints_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/metric/$(DEPDIR)/metric_c.Po@am__quote@ # am--include-marker
@@ -1060,6 +1111,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/registry/$(DEPDIR)/query_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/binding/clang/registry/$(DEPDIR)/store_c.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/common/$(DEPDIR)/Error.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/log/$(DEPDIR)/FileOutputter.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/log/$(DEPDIR)/Logger.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/log/$(DEPDIR)/Outputter.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/log/$(DEPDIR)/OutputterList.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/log/$(DEPDIR)/StdoutOutputter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/DataPoint.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/Metric.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../../src/foreman/metric/$(DEPDIR)/MetricMap.Po@am__quote@ # am--include-marker
@@ -1253,6 +1309,8 @@ distclean-generic:
 	-rm -f ../../src/foreman/binding/clang/action/$(am__dirstamp)
 	-rm -f ../../src/foreman/binding/clang/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/binding/clang/common/$(am__dirstamp)
+	-rm -f ../../src/foreman/binding/clang/log/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/binding/clang/log/$(am__dirstamp)
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/binding/clang/metric/$(am__dirstamp)
 	-rm -f ../../src/foreman/binding/clang/register/$(DEPDIR)/$(am__dirstamp)
@@ -1261,6 +1319,8 @@ distclean-generic:
 	-rm -f ../../src/foreman/binding/clang/registry/$(am__dirstamp)
 	-rm -f ../../src/foreman/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/common/$(am__dirstamp)
+	-rm -f ../../src/foreman/log/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../../src/foreman/log/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/$(am__dirstamp)
 	-rm -f ../../src/foreman/metric/impl/$(DEPDIR)/$(am__dirstamp)
@@ -1315,6 +1375,7 @@ distclean: distclean-am
 	-rm -f ../../src/foreman/binding/clang/action/$(DEPDIR)/parameter_c.Po
 	-rm -f ../../src/foreman/binding/clang/action/$(DEPDIR)/parameters_c.Po
 	-rm -f ../../src/foreman/binding/clang/common/$(DEPDIR)/error_c.Po
+	-rm -f ../../src/foreman/binding/clang/log/$(DEPDIR)/logger_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoint_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoints_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/metric_c.Po
@@ -1331,6 +1392,11 @@ distclean: distclean-am
 	-rm -f ../../src/foreman/binding/clang/registry/$(DEPDIR)/query_c.Po
 	-rm -f ../../src/foreman/binding/clang/registry/$(DEPDIR)/store_c.Po
 	-rm -f ../../src/foreman/common/$(DEPDIR)/Error.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/FileOutputter.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/Logger.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/Outputter.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/OutputterList.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/StdoutOutputter.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/DataPoint.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/Metric.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/MetricMap.Po
@@ -1445,6 +1511,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ../../src/foreman/binding/clang/action/$(DEPDIR)/parameter_c.Po
 	-rm -f ../../src/foreman/binding/clang/action/$(DEPDIR)/parameters_c.Po
 	-rm -f ../../src/foreman/binding/clang/common/$(DEPDIR)/error_c.Po
+	-rm -f ../../src/foreman/binding/clang/log/$(DEPDIR)/logger_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoint_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/datapoints_c.Po
 	-rm -f ../../src/foreman/binding/clang/metric/$(DEPDIR)/metric_c.Po
@@ -1461,6 +1528,11 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ../../src/foreman/binding/clang/registry/$(DEPDIR)/query_c.Po
 	-rm -f ../../src/foreman/binding/clang/registry/$(DEPDIR)/store_c.Po
 	-rm -f ../../src/foreman/common/$(DEPDIR)/Error.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/FileOutputter.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/Logger.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/Outputter.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/OutputterList.Po
+	-rm -f ../../src/foreman/log/$(DEPDIR)/StdoutOutputter.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/DataPoint.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/Metric.Po
 	-rm -f ../../src/foreman/metric/$(DEPDIR)/MetricMap.Po

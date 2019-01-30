@@ -1,6 +1,6 @@
 /******************************************************************
  *
- * Foreman for C
+ * Foreman for C++
  *
  * Copyright (C) 2017 Satoshi Konno. All rights reserved.
  *
@@ -8,13 +8,25 @@
  *
  ******************************************************************/
 
-#ifndef _FOREMANCC_FOREMANC_H_
-#define _FOREMANCC_FOREMANC_H_
+#ifndef _FOREMANCC_LOG_LEVEL_H_
+#define _FOREMANCC_LOG_LEVEL_H_
 
-#include <foreman/action/action-c.h>
-#include <foreman/log/logger-c.h>
-#include <foreman/metric/metric-c.h>
-#include <foreman/register/register-c.h>
-#include <foreman/registry/registry-c.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+namespace Foreman {
+namespace Log {
+
+  enum LogLevel {
+    DBG = 1,
+    TRACE,
+    INFO,
+    WARN,
+    ERROR,
+  };
+
+}
+}
 
 #endif

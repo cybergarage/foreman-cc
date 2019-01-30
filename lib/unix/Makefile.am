@@ -35,6 +35,7 @@ foremancc_sources = \
 	../../src/foreman/binding/clang/registry/objects_c.cpp \
 	../../src/foreman/binding/clang/registry/store_c.cpp \
 	../../src/foreman/binding/clang/registry/object_c.cpp \
+	../../src/foreman/binding/clang/log/logger_c.cpp \
 	../../src/foreman/binding/clang/metric/query_c.cpp \
 	../../src/foreman/binding/clang/metric/metric_c.cpp \
 	../../src/foreman/binding/clang/metric/store_c_factory.cpp \
@@ -76,6 +77,11 @@ foremancc_sources = \
 	../../src/foreman/registry/Object.cpp \
 	../../src/foreman/registry/Properties.cpp \
 	../../src/foreman/registry/Store.cpp \
+	../../src/foreman/log/Outputter.cpp \
+	../../src/foreman/log/OutputterList.cpp \
+	../../src/foreman/log/Logger.cpp \
+	../../src/foreman/log/FileOutputter.cpp \
+	../../src/foreman/log/StdoutOutputter.cpp \
 	../../src/foreman/metric/MetricMap.cpp \
 	../../src/foreman/metric/impl/StaticArrayTimeSeries.cpp \
 	../../src/foreman/metric/impl/TimeSeriesMapStore.cpp \

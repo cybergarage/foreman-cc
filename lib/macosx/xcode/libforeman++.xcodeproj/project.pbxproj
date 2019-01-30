@@ -11,6 +11,12 @@
 		2104FB68204E44D00026949E /* LuaFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2104FB67204E44D00026949E /* LuaFunctions.cpp */; };
 		210781031FB2005F00F9F288 /* Objects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210781021FB2005F00F9F288 /* Objects.cpp */; };
 		2108A5F4204EFA5F00A5A079 /* LuaTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2108A5F3204EFA5E00A5A079 /* LuaTable.cpp */; };
+		210BBB9C220419E6006A2E1B /* Outputter.h in Headers */ = {isa = PBXBuildFile; fileRef = 210BBB9B220419E6006A2E1B /* Outputter.h */; };
+		210BBB9E220419FF006A2E1B /* Outputter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210BBB9D220419FF006A2E1B /* Outputter.cpp */; };
+		210BBBA222041A45006A2E1B /* StdoutOutputter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210BBB9F22041A44006A2E1B /* StdoutOutputter.cpp */; };
+		210BBBA322041A45006A2E1B /* FileOutputter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210BBBA022041A44006A2E1B /* FileOutputter.cpp */; };
+		210BBBA622041CAC006A2E1B /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 210BBBA522041CAC006A2E1B /* Level.h */; };
+		210BBBA82204216C006A2E1B /* OutputterList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210BBBA72204216C006A2E1B /* OutputterList.cpp */; };
 		2113F191201FA02600F5C672 /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18C201FA02500F5C672 /* Engine.h */; };
 		2113F192201FA02600F5C672 /* action-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18D201FA02500F5C672 /* action-c.h */; };
 		2113F193201FA02600F5C672 /* Manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2113F18E201FA02500F5C672 /* Manager.h */; };
@@ -142,6 +148,10 @@
 		21BA4102201F47620083998C /* ObjectMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4101201F47620083998C /* ObjectMap.cpp */; };
 		21BA411E201F82D60083998C /* store_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA411C201F82D60083998C /* store_c.cpp */; };
 		21BA411F201F82D60083998C /* object_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA411D201F82D60083998C /* object_c.cpp */; };
+		21C028E222018FB200C6B968 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C028E122018FB200C6B968 /* Logger.h */; };
+		21C028E522018FCB00C6B968 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C028E422018FCB00C6B968 /* Logger.cpp */; };
+		21C028E82201907400C6B968 /* logger_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C028E72201907400C6B968 /* logger_c.cpp */; };
+		21C028EA2201BE4C00C6B968 /* logger-c.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C028E92201BE4C00C6B968 /* logger-c.h */; };
 		21C7700020208CA800653C56 /* manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C76FFF20208CA800653C56 /* manager_c.cpp */; };
 		21C770072020A0AF00653C56 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C770062020A0AE00653C56 /* StoreImpl.h */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
@@ -155,6 +165,12 @@
 		2104FB67204E44D00026949E /* LuaFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaFunctions.cpp; path = action/impl/LuaFunctions.cpp; sourceTree = "<group>"; };
 		210781021FB2005F00F9F288 /* Objects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Objects.cpp; path = registry/Objects.cpp; sourceTree = "<group>"; };
 		2108A5F3204EFA5E00A5A079 /* LuaTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LuaTable.cpp; path = action/impl/LuaTable.cpp; sourceTree = "<group>"; };
+		210BBB9B220419E6006A2E1B /* Outputter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Outputter.h; path = log/Outputter.h; sourceTree = "<group>"; };
+		210BBB9D220419FF006A2E1B /* Outputter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Outputter.cpp; path = log/Outputter.cpp; sourceTree = "<group>"; };
+		210BBB9F22041A44006A2E1B /* StdoutOutputter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StdoutOutputter.cpp; path = log/StdoutOutputter.cpp; sourceTree = "<group>"; };
+		210BBBA022041A44006A2E1B /* FileOutputter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileOutputter.cpp; path = log/FileOutputter.cpp; sourceTree = "<group>"; };
+		210BBBA522041CAC006A2E1B /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = log/Level.h; sourceTree = "<group>"; };
+		210BBBA72204216C006A2E1B /* OutputterList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OutputterList.cpp; path = log/OutputterList.cpp; sourceTree = "<group>"; };
 		2113F18C201FA02500F5C672 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Engine.h; path = action/Engine.h; sourceTree = "<group>"; };
 		2113F18D201FA02500F5C672 /* action-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "action-c.h"; path = "action/action-c.h"; sourceTree = "<group>"; };
 		2113F18E201FA02500F5C672 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = action/Manager.h; sourceTree = "<group>"; };
@@ -288,6 +304,10 @@
 		21BA4101201F47620083998C /* ObjectMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectMap.cpp; path = register/impl/ObjectMap.cpp; sourceTree = "<group>"; };
 		21BA411C201F82D60083998C /* store_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = store_c.cpp; path = binding/clang/register/store_c.cpp; sourceTree = "<group>"; };
 		21BA411D201F82D60083998C /* object_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = object_c.cpp; path = binding/clang/register/object_c.cpp; sourceTree = "<group>"; };
+		21C028E122018FB200C6B968 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = log/Logger.h; sourceTree = "<group>"; };
+		21C028E422018FCB00C6B968 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = log/Logger.cpp; sourceTree = "<group>"; };
+		21C028E72201907400C6B968 /* logger_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = logger_c.cpp; path = binding/clang/log/logger_c.cpp; sourceTree = "<group>"; };
+		21C028E92201BE4C00C6B968 /* logger-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "logger-c.h"; path = "log/logger-c.h"; sourceTree = "<group>"; };
 		21C76FFF20208CA800653C56 /* manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = manager_c.cpp; path = binding/clang/action/manager_c.cpp; sourceTree = "<group>"; };
 		21C770062020A0AE00653C56 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = register/impl/StoreImpl.h; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
@@ -543,6 +563,7 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21C028E022018F8600C6B968 /* log */,
 				2183486521CA499200B3E95F /* Client.h */,
 				2113F19E201FA04200F5C672 /* register */,
 				2113F18A201FA00100F5C672 /* action */,
@@ -573,6 +594,7 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
+				21C028E322018FBE00C6B968 /* log */,
 				21BA40F0201F42D10083998C /* register */,
 				21BA40C1201EEC580083998C /* binding */,
 				2187B6C31FC5AC9000E2234D /* action */,
@@ -660,6 +682,7 @@
 		21BA40C2201EEC5F0083998C /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				21C028E62201904C00C6B968 /* log */,
 				21BA411B201F82BC0083998C /* register */,
 				21BA40C6201EEC7F0083998C /* registry */,
 				21BA40C5201EEC740083998C /* metric */,
@@ -743,6 +766,37 @@
 			name = register;
 			sourceTree = "<group>";
 		};
+		21C028E022018F8600C6B968 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				210BBBA522041CAC006A2E1B /* Level.h */,
+				210BBB9B220419E6006A2E1B /* Outputter.h */,
+				21C028E92201BE4C00C6B968 /* logger-c.h */,
+				21C028E122018FB200C6B968 /* Logger.h */,
+			);
+			name = log;
+			sourceTree = "<group>";
+		};
+		21C028E322018FBE00C6B968 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				210BBBA72204216C006A2E1B /* OutputterList.cpp */,
+				210BBBA022041A44006A2E1B /* FileOutputter.cpp */,
+				210BBB9F22041A44006A2E1B /* StdoutOutputter.cpp */,
+				210BBB9D220419FF006A2E1B /* Outputter.cpp */,
+				21C028E422018FCB00C6B968 /* Logger.cpp */,
+			);
+			name = log;
+			sourceTree = "<group>";
+		};
+		21C028E62201904C00C6B968 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				21C028E72201907400C6B968 /* logger_c.cpp */,
+			);
+			name = log;
+			sourceTree = "<group>";
+		};
 		21C85F131F9C4BB000D59EAE /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +837,7 @@
 				2113F1A8201FA08000F5C672 /* Object.h in Headers */,
 				215DB2791FAAD6B20089A36B /* Error.h in Headers */,
 				218D47C91F503251002A3FA2 /* foreman-c.h in Headers */,
+				21C028EA2201BE4C00C6B968 /* logger-c.h in Headers */,
 				216FFDED208AE9DC006EB7A1 /* System.h in Headers */,
 				216DE7C01FD6994800475938 /* common-c.h in Headers */,
 				2129D1A31E96A64600FCA490 /* Graphite.h in Headers */,
@@ -805,6 +860,7 @@
 				216A5AED1F9C59830092272A /* Util.h in Headers */,
 				214FA51A2080A7EA0082CEED /* TimeSeriesStream-inl.h in Headers */,
 				216A5AE51F9C597B0092272A /* Metric.h in Headers */,
+				210BBBA622041CAC006A2E1B /* Level.h in Headers */,
 				21ABA0A21FB07ABD00982715 /* SQLiteStore.h in Headers */,
 				21ABA0A41FB07ABD00982715 /* TimeSeriesMapStore.h in Headers */,
 				2113F1A9201FA08000F5C672 /* Store.h in Headers */,
@@ -815,6 +871,8 @@
 				2175C2F71E52F444006C4425 /* Platform.h in Headers */,
 				21248009201FF882006D9187 /* GlobalObject.h in Headers */,
 				214FA51B2080A7EA0082CEED /* BitUtil.h in Headers */,
+				21C028E222018FB200C6B968 /* Logger.h in Headers */,
+				210BBB9C220419E6006A2E1B /* Outputter.h in Headers */,
 				216DE7C41FD69A5900475938 /* metric-c.h in Headers */,
 				2113F193201FA02600F5C672 /* Manager.h in Headers */,
 			);
@@ -900,8 +958,11 @@
 				21BA40F5201F42F50083998C /* Store.cpp in Sources */,
 				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
 				21BA40F4201F42F50083998C /* Object.cpp in Sources */,
+				210BBBA222041A45006A2E1B /* StdoutOutputter.cpp in Sources */,
+				21C028E522018FCB00C6B968 /* Logger.cpp in Sources */,
 				216A5B401F9C59990092272A /* MetricsMap.cpp in Sources */,
 				216A5B3C1F9C59990092272A /* DataPoint.cpp in Sources */,
+				210BBB9E220419FF006A2E1B /* Outputter.cpp in Sources */,
 				215EDC6F1FB04A22006DF3AE /* TSmapStore.cpp in Sources */,
 				217303BA1FC841DF000B0ECE /* PythonEngine.cpp in Sources */,
 				214FA50F2080A6B60082CEED /* TimeSeriesStream.cpp in Sources */,
@@ -912,6 +973,7 @@
 				21BA40DB201EECBD0083998C /* store_c.cpp in Sources */,
 				215EDC641FB04A22006DF3AE /* StaticArrayTimeSeries.cpp in Sources */,
 				2187B6CE1FC5ACA800E2234D /* Parameter.cpp in Sources */,
+				210BBBA82204216C006A2E1B /* OutputterList.cpp in Sources */,
 				216A5B4C1F9C59990092272A /* ResultSet.cpp in Sources */,
 				213E954B21B8D95C00A49748 /* Manager.cpp in Sources */,
 				2183486421CA492200B3E95F /* Client.cpp in Sources */,
@@ -924,6 +986,7 @@
 				216A5B3A1F9C59990092272A /* MetricMap.cpp in Sources */,
 				21C7700020208CA800653C56 /* manager_c.cpp in Sources */,
 				215EDC651FB04A22006DF3AE /* TimeSeriesMap.cpp in Sources */,
+				210BBBA322041A45006A2E1B /* FileOutputter.cpp in Sources */,
 				21BA40E8201EECDA0083998C /* parameter_c.cpp in Sources */,
 				21BA411F201F82D60083998C /* object_c.cpp in Sources */,
 				21247FFB201FF23A006D9187 /* PythonFunctions.cpp in Sources */,
@@ -954,6 +1017,7 @@
 				21841B871FD286A400CE59C8 /* PythonMethod.cpp in Sources */,
 				21BA40CF201EECA40083998C /* query_c.cpp in Sources */,
 				216A5B4A1F9C59990092272A /* Query.cpp in Sources */,
+				21C028E82201907400C6B968 /* logger_c.cpp in Sources */,
 				21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */,
 				21BA40EA201EECDA0083998C /* method_c.cpp in Sources */,
 				215EDC431FB0377E006DF3AE /* SQLStore.cpp in Sources */,

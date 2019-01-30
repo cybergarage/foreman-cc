@@ -43,6 +43,10 @@ foremancc_header = \
 	./foreman/registry/Object.h \
 	./foreman/registry/Property.h \
 	./foreman/registry/Store.h \
+	./foreman/log/logger-c.h \
+	./foreman/log/Level.h \
+	./foreman/log/Logger.h \
+	./foreman/log/Outputter.h \
 	./foreman/metric/impl/StoreImpl.h \
 	./foreman/metric/impl/SQLiteStore.h \
 	./foreman/metric/impl/RingMapStore.h \

@@ -27,6 +27,7 @@ foremantest_SOURCES = \
 	..//binding/clang/registry/ClangQueryTest.cpp \
 	..//binding/clang/registry/ClangObjectTest.cpp \
 	..//binding/clang/registry/ClangPropertyTest.cpp \
+	..//binding/clang/log/ClangLoggerTest.cpp \
 	..//binding/clang/metric/ClangMetricStoreTest.cpp \
 	..//binding/clang/metric/ClangQueryTest.cpp \
 	..//binding/clang/metric/ClangResultSetTest.cpp \
@@ -48,6 +49,7 @@ foremantest_SOURCES = \
 	..//registry/StoreTestController.cpp \
 	..//registry/StoreTest.cpp \
 	..//registry/QueryTest.cpp \
+	..//log/LoggerTest.cpp \
 	..//metric/MetricsTest.cpp \
 	..//metric/TimeSeriesTest.cpp \
 	..//metric/StoreTestController.cpp \
