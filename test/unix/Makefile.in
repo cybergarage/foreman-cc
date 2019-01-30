@@ -122,6 +122,7 @@ am_foremantest_OBJECTS = ../ClientTest.$(OBJEXT) \
 	..//binding/clang/registry/ClangQueryTest.$(OBJEXT) \
 	..//binding/clang/registry/ClangObjectTest.$(OBJEXT) \
 	..//binding/clang/registry/ClangPropertyTest.$(OBJEXT) \
+	..//binding/clang/log/ClangLoggerTest.$(OBJEXT) \
 	..//binding/clang/metric/ClangMetricStoreTest.$(OBJEXT) \
 	..//binding/clang/metric/ClangQueryTest.$(OBJEXT) \
 	..//binding/clang/metric/ClangResultSetTest.$(OBJEXT) \
@@ -141,7 +142,7 @@ am_foremantest_OBJECTS = ../ClientTest.$(OBJEXT) \
 	..//registry/PropertyTest.$(OBJEXT) \
 	..//registry/StoreTestController.$(OBJEXT) \
 	..//registry/StoreTest.$(OBJEXT) \
-	..//registry/QueryTest.$(OBJEXT) \
+	..//registry/QueryTest.$(OBJEXT) ..//log/LoggerTest.$(OBJEXT) \
 	..//metric/MetricsTest.$(OBJEXT) \
 	..//metric/TimeSeriesTest.$(OBJEXT) \
 	..//metric/StoreTestController.$(OBJEXT) \
@@ -178,6 +179,7 @@ am__depfiles_remade = ../$(DEPDIR)/ClientTest.Po \
 	../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po \
 	../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po \
 	../binding/clang/common/$(DEPDIR)/ClangErrorTest.Po \
+	../binding/clang/log/$(DEPDIR)/ClangLoggerTest.Po \
 	../binding/clang/metric/$(DEPDIR)/ClangMetricStoreTest.Po \
 	../binding/clang/metric/$(DEPDIR)/ClangMetricsTest.Po \
 	../binding/clang/metric/$(DEPDIR)/ClangQueryTest.Po \
@@ -189,6 +191,7 @@ am__depfiles_remade = ../$(DEPDIR)/ClientTest.Po \
 	../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po \
 	../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po \
 	../common/$(DEPDIR)/ErrorTest.Po \
+	../log/$(DEPDIR)/LoggerTest.Po \
 	../metric/$(DEPDIR)/DataPointTest.Po \
 	../metric/$(DEPDIR)/MetricTest.Po \
 	../metric/$(DEPDIR)/MetricsTest.Po \
@@ -561,6 +564,7 @@ foremantest_SOURCES = \
 	..//binding/clang/registry/ClangQueryTest.cpp \
 	..//binding/clang/registry/ClangObjectTest.cpp \
 	..//binding/clang/registry/ClangPropertyTest.cpp \
+	..//binding/clang/log/ClangLoggerTest.cpp \
 	..//binding/clang/metric/ClangMetricStoreTest.cpp \
 	..//binding/clang/metric/ClangQueryTest.cpp \
 	..//binding/clang/metric/ClangResultSetTest.cpp \
@@ -582,6 +586,7 @@ foremantest_SOURCES = \
 	..//registry/StoreTestController.cpp \
 	..//registry/StoreTest.cpp \
 	..//registry/QueryTest.cpp \
+	..//log/LoggerTest.cpp \
 	..//metric/MetricsTest.cpp \
 	..//metric/TimeSeriesTest.cpp \
 	..//metric/StoreTestController.cpp \
@@ -699,6 +704,15 @@ clean-noinstPROGRAMS:
 ..//binding/clang/registry/ClangPropertyTest.$(OBJEXT):  \
 	../binding/clang/registry/$(am__dirstamp) \
 	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/log/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/log
+	@: > ../binding/clang/log/$(am__dirstamp)
+../binding/clang/log/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//binding/clang/log/$(DEPDIR)
+	@: > ../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
+..//binding/clang/log/ClangLoggerTest.$(OBJEXT):  \
+	../binding/clang/log/$(am__dirstamp) \
+	../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/metric/$(am__dirstamp):
 	@$(MKDIR_P) ..//binding/clang/metric
 	@: > ../binding/clang/metric/$(am__dirstamp)
@@ -777,6 +791,14 @@ clean-noinstPROGRAMS:
 	../registry/$(DEPDIR)/$(am__dirstamp)
 ..//registry/QueryTest.$(OBJEXT): ../registry/$(am__dirstamp) \
 	../registry/$(DEPDIR)/$(am__dirstamp)
+../log/$(am__dirstamp):
+	@$(MKDIR_P) ..//log
+	@: > ../log/$(am__dirstamp)
+../log/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ..//log/$(DEPDIR)
+	@: > ../log/$(DEPDIR)/$(am__dirstamp)
+..//log/LoggerTest.$(OBJEXT): ../log/$(am__dirstamp) \
+	../log/$(DEPDIR)/$(am__dirstamp)
 ../metric/$(am__dirstamp):
 	@$(MKDIR_P) ..//metric
 	@: > ../metric/$(am__dirstamp)
@@ -808,10 +830,12 @@ mostlyclean-compile:
 	-rm -f ..//action/*.$(OBJEXT)
 	-rm -f ..//binding/clang/action/*.$(OBJEXT)
 	-rm -f ..//binding/clang/common/*.$(OBJEXT)
+	-rm -f ..//binding/clang/log/*.$(OBJEXT)
 	-rm -f ..//binding/clang/metric/*.$(OBJEXT)
 	-rm -f ..//binding/clang/register/*.$(OBJEXT)
 	-rm -f ..//binding/clang/registry/*.$(OBJEXT)
 	-rm -f ..//common/*.$(OBJEXT)
+	-rm -f ..//log/*.$(OBJEXT)
 	-rm -f ..//metric/*.$(OBJEXT)
 	-rm -f ..//register/*.$(OBJEXT)
 	-rm -f ..//registry/*.$(OBJEXT)
@@ -833,6 +857,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/common/$(DEPDIR)/ClangErrorTest.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/log/$(DEPDIR)/ClangLoggerTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangMetricStoreTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangMetricsTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/metric/$(DEPDIR)/ClangQueryTest.Po@am__quote@ # am--include-marker
@@ -844,6 +869,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../common/$(DEPDIR)/ErrorTest.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@../log/$(DEPDIR)/LoggerTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/DataPointTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricTest.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@../metric/$(DEPDIR)/MetricsTest.Po@am__quote@ # am--include-marker
@@ -1174,6 +1200,8 @@ distclean-generic:
 	-rm -f ../binding/clang/action/$(am__dirstamp)
 	-rm -f ../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../binding/clang/common/$(am__dirstamp)
+	-rm -f ../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../binding/clang/log/$(am__dirstamp)
 	-rm -f ../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../binding/clang/metric/$(am__dirstamp)
 	-rm -f ../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
@@ -1182,6 +1210,8 @@ distclean-generic:
 	-rm -f ../binding/clang/registry/$(am__dirstamp)
 	-rm -f ../common/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../common/$(am__dirstamp)
+	-rm -f ../log/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../log/$(am__dirstamp)
 	-rm -f ../metric/$(DEPDIR)/$(am__dirstamp)
 	-rm -f ../metric/$(am__dirstamp)
 	-rm -f ../register/$(DEPDIR)/$(am__dirstamp)
@@ -1212,6 +1242,7 @@ distclean: distclean-am
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po
 	-rm -f ../binding/clang/common/$(DEPDIR)/ClangErrorTest.Po
+	-rm -f ../binding/clang/log/$(DEPDIR)/ClangLoggerTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangMetricStoreTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangMetricsTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangQueryTest.Po
@@ -1223,6 +1254,7 @@ distclean: distclean-am
 	-rm -f ../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po
 	-rm -f ../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po
 	-rm -f ../common/$(DEPDIR)/ErrorTest.Po
+	-rm -f ../log/$(DEPDIR)/LoggerTest.Po
 	-rm -f ../metric/$(DEPDIR)/DataPointTest.Po
 	-rm -f ../metric/$(DEPDIR)/MetricTest.Po
 	-rm -f ../metric/$(DEPDIR)/MetricsTest.Po
@@ -1298,6 +1330,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangParameterTest.Po
 	-rm -f ../binding/clang/action/$(DEPDIR)/ClangScriptManagerTest.Po
 	-rm -f ../binding/clang/common/$(DEPDIR)/ClangErrorTest.Po
+	-rm -f ../binding/clang/log/$(DEPDIR)/ClangLoggerTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangMetricStoreTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangMetricsTest.Po
 	-rm -f ../binding/clang/metric/$(DEPDIR)/ClangQueryTest.Po
@@ -1309,6 +1342,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ../binding/clang/registry/$(DEPDIR)/ClangQueryTest.Po
 	-rm -f ../binding/clang/registry/$(DEPDIR)/ClangStoreTest.Po
 	-rm -f ../common/$(DEPDIR)/ErrorTest.Po
+	-rm -f ../log/$(DEPDIR)/LoggerTest.Po
 	-rm -f ../metric/$(DEPDIR)/DataPointTest.Po
 	-rm -f ../metric/$(DEPDIR)/MetricTest.Po
 	-rm -f ../metric/$(DEPDIR)/MetricsTest.Po

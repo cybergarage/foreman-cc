@@ -47,6 +47,8 @@
 		21BA4114201F7D1F0083998C /* StoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4112201F7D1F0083998C /* StoreTest.cpp */; };
 		21BA4115201F7D1F0083998C /* ObjectTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4113201F7D1F0083998C /* ObjectTest.cpp */; };
 		21BA4118201F7DBF0083998C /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4116201F7DBF0083998C /* StoreTestController.cpp */; };
+		21C028EE2201BFCD00C6B968 /* LoggerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C028ED2201BFCD00C6B968 /* LoggerTest.cpp */; };
+		21C028F12201C03700C6B968 /* ClangLoggerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C028F02201C03700C6B968 /* ClangLoggerTest.cpp */; };
 		21C730A11E52F6D6009EA138 /* libforeman++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2175C3191E52F53D006C4425 /* libforeman++.a */; };
 		21C77005202099F400653C56 /* ManagerTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C77004202099F400653C56 /* ManagerTestController.cpp */; };
 /* End PBXBuildFile section */
@@ -129,6 +131,8 @@
 		21BA4113201F7D1F0083998C /* ObjectTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectTest.cpp; path = ../../register/ObjectTest.cpp; sourceTree = "<group>"; };
 		21BA4116201F7DBF0083998C /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../register/StoreTestController.cpp; sourceTree = "<group>"; };
 		21BA4117201F7DBF0083998C /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../register/StoreTestController.h; sourceTree = "<group>"; };
+		21C028ED2201BFCD00C6B968 /* LoggerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerTest.cpp; path = ../../log/LoggerTest.cpp; sourceTree = "<group>"; };
+		21C028F02201C03700C6B968 /* ClangLoggerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClangLoggerTest.cpp; path = ../../binding/clang/log/ClangLoggerTest.cpp; sourceTree = "<group>"; };
 		21C77003202099F400653C56 /* ManagerTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerTestController.h; path = ../../action/ManagerTestController.h; sourceTree = "<group>"; };
 		21C77004202099F400653C56 /* ManagerTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ManagerTestController.cpp; path = ../../action/ManagerTestController.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,7 @@
 		2113F163201F983000F5C672 /* clang */ = {
 			isa = PBXGroup;
 			children = (
+				21C028EF2201C00300C6B968 /* log */,
 				2113F182201F98C000F5C672 /* common */,
 				2113F179201F98A400F5C672 /* registry */,
 				2113F174201F988D00F5C672 /* register */,
@@ -249,6 +254,7 @@
 		2175C3021E52F4ED006C4425 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				21C028EC2201BFB800C6B968 /* log */,
 				2183486121CA48BD00B3E95F /* ClientTest.cpp */,
 				2175C30F1E52F51E006C4425 /* ForemanTest.cpp */,
 				2175C30E1E52F51E006C4425 /* ForemanTest.h */,
@@ -335,6 +341,22 @@
 				21BA4109201F7D120083998C /* TimeSeriesTest.cpp */,
 			);
 			name = metric;
+			sourceTree = "<group>";
+		};
+		21C028EC2201BFB800C6B968 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				21C028ED2201BFCD00C6B968 /* LoggerTest.cpp */,
+			);
+			name = log;
+			sourceTree = "<group>";
+		};
+		21C028EF2201C00300C6B968 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				21C028F02201C03700C6B968 /* ClangLoggerTest.cpp */,
+			);
+			name = log;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +459,7 @@
 				2187B6DA1FC5AD0600E2234D /* ParameterTest.cpp in Sources */,
 				217303AE1FC84160000B0ECE /* PythonEngineTest.cpp in Sources */,
 				21BA410D201F7D120083998C /* StoreTestController.cpp in Sources */,
+				21C028F12201C03700C6B968 /* ClangLoggerTest.cpp in Sources */,
 				218A21A62047B48D0091E76F /* MetricsTest.cpp in Sources */,
 				2113F178201F98A000F5C672 /* ClangStoreTest.cpp in Sources */,
 				2113F170201F988900F5C672 /* ClangMetricsTest.cpp in Sources */,
@@ -444,6 +467,7 @@
 				2113F16A201F985E00F5C672 /* ClangScriptManagerTest.cpp in Sources */,
 				2113F177201F98A000F5C672 /* ClangObjectTest.cpp in Sources */,
 				2113F181201F98BA00F5C672 /* ClangPropertyTest.cpp in Sources */,
+				21C028EE2201BFCD00C6B968 /* LoggerTest.cpp in Sources */,
 				2113F184201F98D400F5C672 /* ClangErrorTest.cpp in Sources */,
 				215DB2B81FAB3B0E0089A36B /* ObjectTest.cpp in Sources */,
 				21BA4114201F7D1F0083998C /* StoreTest.cpp in Sources */,
