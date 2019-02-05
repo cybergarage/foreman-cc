@@ -21,8 +21,11 @@ BOOST_AUTO_TEST_SUITE(log)
 
 BOOST_AUTO_TEST_CASE(Log)
 {
-  auto obj = new Logger();
-  delete obj;
+  auto logger = new Logger();
+
+  logger->addOutputter(new StdoutOutputter());
+
+  delete logger;
 }
 
 BOOST_AUTO_TEST_SUITE_END()
