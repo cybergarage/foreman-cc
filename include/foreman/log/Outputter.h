@@ -18,8 +18,8 @@
 #include <memory>
 #include <vector>
 
-#include <foreman/util/Mutex.h>
 #include <foreman/log/Level.h>
+#include <foreman/util/Mutex.h>
 
 namespace Foreman {
 namespace Log {
@@ -32,7 +32,7 @@ namespace Log {
 
 public:
     Outputter();
-    ~Outputter();
+    virtual ~Outputter();
 
     virtual bool output(LogLevel level, const char* msg) = 0;
   };
