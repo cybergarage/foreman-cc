@@ -39,7 +39,30 @@ public:
     Logger();
     ~Logger();
 
+    void setLevel(LogLevel level)
+    {
+      this->level = level;
+    }
+
+    LogLevel getLevel()
+    {
+      return this->level;
+    }
+
+    size_t error(const char* format, ...);
+    size_t warn(const char* format, ...);
+    size_t info(const char* format, ...);
+    size_t trace(const char* format, ...);
+    size_t debug(const char* format, ...);
+    size_t fatal(const char* format, ...);
+
+    void clear();
+
+private:
     size_t message(LogLevel level, const char* format, ...);
+
+private:
+    LogLevel level;
   };
 }
 }

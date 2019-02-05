@@ -14,66 +14,188 @@
 using namespace Foreman::Log;
 
 ////////////////////////////////////////////////
-// foreman_log_info
+// foreman_logger_new
 ////////////////////////////////////////////////
 
-size_t foreman_log_info(const char* format, ...)
+ForemanLogger* foreman_logger_new()
 {
+  return new Logger();
+}
+
+////////////////////////////////////////////////
+// foreman_logger_delete
+////////////////////////////////////////////////
+
+bool foreman_logger_delete(ForemanLogger* logger)
+{
+  if (!logger)
+    return false;
+  delete (Logger*)logger;
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_setlevel
+////////////////////////////////////////////////
+
+bool foreman_logger_setlevel(ForemanLogger* logger, int level)
+{
+  if (!logger)
+    return false;
+
+  ((Logger*)logger)->setLevel(LogLevel(level));
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_addstdoutputter
+////////////////////////////////////////////////
+
+bool foreman_logger_addstdoutputter(ForemanLogger* logger)
+{
+  if (!logger)
+    return false;
+
+  ((Logger*)logger)->addOutputter(new StdoutOutputter());
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_addfileoutputter
+////////////////////////////////////////////////
+
+bool foreman_logger_addfileoutputter(ForemanLogger* logger, const char* filename)
+{
+  if (!logger)
+    return false;
+
+  ((Logger*)logger)->addOutputter(new FileOutputter(filename));
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_addnulloutputter
+////////////////////////////////////////////////
+
+bool foreman_logger_addnulloutputter(ForemanLogger* logger)
+{
+  if (!logger)
+    return false;
+
+  ((Logger*)logger)->addOutputter(new NullOutputter);
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_clear
+////////////////////////////////////////////////
+
+bool foreman_logger_clear(ForemanLogger* logger)
+{
+  if (!logger)
+    return false;
+
+  ((Logger*)logger)->clear();
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_info
+////////////////////////////////////////////////
+
+size_t foreman_logger_info(ForemanLogger* logger, const char* format, ...)
+{
+  if (!logger)
+    return 0;
+
   va_list list;
   va_start(list, format);
-  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, format, list);
+  size_t n = ((Logger*)logger)->info(format, list);
   va_end(list);
   return n;
 }
 
 ////////////////////////////////////////////////
-// foreman_log_info
+// foreman_logger_debug
 ////////////////////////////////////////////////
 
-size_t foreman_log_debug(const char* format, ...)
+size_t foreman_logger_debug(ForemanLogger* logger, const char* format, ...)
 {
+  if (!logger)
+    return 0;
+
   va_list list;
   va_start(list, format);
-  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::DBG, format, list);
+  size_t n = ((Logger*)logger)->debug(format, list);
   va_end(list);
   return n;
 }
 
 ////////////////////////////////////////////////
-// foreman_log_error
+// foreman_logger_trace
 ////////////////////////////////////////////////
 
-size_t foreman_log_error(const char* format, ...)
+size_t foreman_logger_trace(ForemanLogger* logger, const char* format, ...)
 {
+  if (!logger)
+    return 0;
+
   va_list list;
   va_start(list, format);
-  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::ERROR, format, list);
+  size_t n = ((Logger*)logger)->trace(format, list);
   va_end(list);
   return n;
 }
 
 ////////////////////////////////////////////////
-// foreman_log_warn
+// foreman_logger_warn
 ////////////////////////////////////////////////
 
-size_t foreman_log_warn(const char* format, ...)
+size_t foreman_logger_warn(ForemanLogger* logger, const char* format, ...)
 {
+  if (!logger)
+    return 0;
+
   va_list list;
   va_start(list, format);
-  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::WARN, format, list);
+  size_t n = ((Logger*)logger)->warn(format, list);
   va_end(list);
   return n;
 }
 
 ////////////////////////////////////////////////
-// foreman_log_trace
+// foreman_logger_error
 ////////////////////////////////////////////////
 
-size_t foreman_log_trace(const char* format, ...)
+size_t foreman_logger_error(ForemanLogger* logger, const char* format, ...)
 {
+  if (!logger)
+    return 0;
+
   va_list list;
   va_start(list, format);
-  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::TRACE, format, list);
+  size_t n = ((Logger*)logger)->error(format, list);
+  va_end(list);
+  return n;
+}
+
+////////////////////////////////////////////////
+// foreman_logger_fatal
+////////////////////////////////////////////////
+
+size_t foreman_logger_fatal(ForemanLogger* logger, const char* format, ...)
+{
+  if (!logger)
+    return 0;
+
+  va_list list;
+  va_start(list, format);
+  size_t n = ((Logger*)logger)->fatal(format, list);
   va_end(list);
   return n;
 }

@@ -37,6 +37,7 @@
 		2187B6E11FC5B33100E2234D /* MutexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2187B6E01FC5B33100E2234D /* MutexTest.cpp */; };
 		218A21A22047B4330091E76F /* MetricTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218A21A12047B4330091E76F /* MetricTest.cpp */; };
 		218A21A62047B48D0091E76F /* MetricsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218A21A52047B48D0091E76F /* MetricsTest.cpp */; };
+		219F6A5422099BF800FA0FD8 /* LoggerTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F6A5322099BF800FA0FD8 /* LoggerTestController.cpp */; };
 		21ABA0AE1FB0902D00982715 /* StoreTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */; };
 		21B767F521EDD40200BF33A3 /* UnknownEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B767F421EDD40200BF33A3 /* UnknownEngineTest.cpp */; };
 		21BA410C201F7D120083998C /* DataPointTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21BA4106201F7D120083998C /* DataPointTest.cpp */; };
@@ -116,6 +117,8 @@
 		218A21A12047B4330091E76F /* MetricTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricTest.cpp; path = ../../metric/MetricTest.cpp; sourceTree = "<group>"; };
 		218A21A52047B48D0091E76F /* MetricsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MetricsTest.cpp; path = ../../metric/MetricsTest.cpp; sourceTree = "<group>"; };
 		218DFCD61E52F28000224C70 /* foremantest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foremantest; sourceTree = BUILT_PRODUCTS_DIR; };
+		219F6A5222099BF800FA0FD8 /* LoggerTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerTestController.h; path = ../../log/LoggerTestController.h; sourceTree = "<group>"; };
+		219F6A5322099BF800FA0FD8 /* LoggerTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerTestController.cpp; path = ../../log/LoggerTestController.cpp; sourceTree = "<group>"; };
 		21ABA0AC1FB0902D00982715 /* StoreTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreTestController.h; path = ../../registry/StoreTestController.h; sourceTree = "<group>"; };
 		21ABA0AD1FB0902D00982715 /* StoreTestController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoreTestController.cpp; path = ../../registry/StoreTestController.cpp; sourceTree = "<group>"; };
 		21AD2E8821AA98D100AF077B /* ClangMetricStoreConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClangMetricStoreConfig.h; path = ../../binding/clang/metric/ClangMetricStoreConfig.h; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 		21C028EC2201BFB800C6B968 /* log */ = {
 			isa = PBXGroup;
 			children = (
+				219F6A5322099BF800FA0FD8 /* LoggerTestController.cpp */,
+				219F6A5222099BF800FA0FD8 /* LoggerTestController.h */,
 				21C028ED2201BFCD00C6B968 /* LoggerTest.cpp */,
 			);
 			name = log;
@@ -446,6 +451,7 @@
 				2113F171201F988900F5C672 /* ClangResultSetTest.cpp in Sources */,
 				2113F172201F988900F5C672 /* ClangQueryTest.cpp in Sources */,
 				21BA4111201F7D120083998C /* StoreTest.cpp in Sources */,
+				219F6A5422099BF800FA0FD8 /* LoggerTestController.cpp in Sources */,
 				215DB2B91FAB3B0E0089A36B /* StoreTest.cpp in Sources */,
 				218A21A22047B4330091E76F /* MetricTest.cpp in Sources */,
 				21BA4118201F7DBF0083998C /* StoreTestController.cpp in Sources */,
