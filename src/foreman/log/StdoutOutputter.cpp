@@ -32,10 +32,10 @@ StdoutOutputter::~StdoutOutputter()
 bool StdoutOutputter::output(LogLevel level, const char* msg)
 {
   lock();
-  
+
   std::cout << msg << std::endl;
- 
+
   unlock();
-  
+
   return true;
 }
