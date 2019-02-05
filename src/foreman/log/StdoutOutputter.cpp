@@ -8,6 +8,7 @@
  *
  ******************************************************************/
 
+#include <iostream>
 #include <foreman/log/Outputter.h>
 
 using namespace Foreman::Log;
@@ -30,5 +31,6 @@ StdoutOutputter::~StdoutOutputter()
 
 bool StdoutOutputter::output(LogLevel level, const char* msg)
 {
-  return false;
+  std::cout << msg << std::endl;
+  return true;
 }
