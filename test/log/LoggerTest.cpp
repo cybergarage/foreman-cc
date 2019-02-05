@@ -24,7 +24,8 @@ BOOST_AUTO_TEST_CASE(Log)
 {
   auto logger = Logger::GetSharedInstance();
   logger->addOutputter(new StdoutOutputter());
-  foreman_log_info("%s", "hello");
+  auto n = foreman_log_info("%s", "hello");
+  BOOST_CHECK(0 < n);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
