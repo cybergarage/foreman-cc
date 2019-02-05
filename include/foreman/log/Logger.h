@@ -39,7 +39,7 @@ public:
     Logger();
     ~Logger();
 
-    bool message(LogLevel level, const char* format, ...);
+    size_t message(LogLevel level, const char* format, ...);
   };
 }
 }

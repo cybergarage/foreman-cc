@@ -17,63 +17,63 @@ using namespace Foreman::Log;
 // foreman_log_info
 ////////////////////////////////////////////////
 
-bool foreman_log_info(const char* format, ...)
+size_t foreman_log_info(const char* format, ...)
 {
   va_list list;
   va_start(list, format);
-  bool ret = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, format, list);
+  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, format, list);
   va_end(list);
-  return ret;
+  return n;
 }
 
 ////////////////////////////////////////////////
 // foreman_log_info
 ////////////////////////////////////////////////
 
-bool foreman_log_debug(const char* format, ...)
+size_t foreman_log_debug(const char* format, ...)
 {
   va_list list;
   va_start(list, format);
-  bool ret = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::DBG, format, list);
+  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::DBG, format, list);
   va_end(list);
-  return ret;
+  return n;
 }
 
 ////////////////////////////////////////////////
 // foreman_log_error
 ////////////////////////////////////////////////
 
-bool foreman_log_error(const char* format, ...)
+size_t foreman_log_error(const char* format, ...)
 {
   va_list list;
   va_start(list, format);
-  bool ret = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::ERROR, format, list);
+  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::ERROR, format, list);
   va_end(list);
-  return ret;
+  return n;
 }
 
 ////////////////////////////////////////////////
 // foreman_log_warn
 ////////////////////////////////////////////////
 
-bool foreman_log_warn(const char* format, ...)
+size_t foreman_log_warn(const char* format, ...)
 {
   va_list list;
   va_start(list, format);
-  bool ret = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::WARN, format, list);
+  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::WARN, format, list);
   va_end(list);
-  return ret;
+  return n;
 }
 
 ////////////////////////////////////////////////
 // foreman_log_trace
 ////////////////////////////////////////////////
 
-bool foreman_log_trace(const char* format, ...)
+size_t foreman_log_trace(const char* format, ...)
 {
   va_list list;
   va_start(list, format);
-  bool ret = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::TRACE, format, list);
+  size_t n = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::TRACE, format, list);
   va_end(list);
-  return ret;
+  return n;
 }

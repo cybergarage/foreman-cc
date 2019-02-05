@@ -69,7 +69,7 @@ Logger::~Logger()
 
 #define MAX_LOG_BUF 2048
 
-bool Logger::message(LogLevel level, const char* format, ...)
+size_t Logger::message(LogLevel level, const char* format, ...)
 {
   char msg[MAX_LOG_BUF], tsPrefix[MAX_LOG_BUF];
 
@@ -87,9 +87,12 @@ bool Logger::message(LogLevel level, const char* format, ...)
   vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, list);
   va_end(list);
 
+  size_t nOutput = 0;
   for (auto& outputter : *this) {
-    outputter->output(level, msg);
+    if (outputter->output(level, msg)) {
+      nOutput++;
+    }
   }
 
-  return true;
+  return nOutput;
 }
