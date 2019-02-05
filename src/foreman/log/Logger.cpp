@@ -71,25 +71,23 @@ Logger::~Logger()
 
 bool Logger::message(LogLevel level, const char* format, ...)
 {
-  va_list list;
-
   char msg[MAX_LOG_BUF], tsPrefix[MAX_LOG_BUF];
+
   time_t ts;
   struct tm* localts;
-  size_t prefixLen = -1;
-
   ts = time(NULL);
   localts = localtime(&ts);
 
-  strftime(tsPrefix, MAX_LOG_BUF, "%c", localts);
+  strftime(tsPrefix, MAX_LOG_BUF, "%FT%T%z", localts);
 
-  prefixLen = snprintf(msg, MAX_LOG_BUF, "%s [%s] ", tsPrefix, gForemanLoggerGetLevelString(level));
+  size_t prefixLen = snprintf(msg, MAX_LOG_BUF, "%s %s : ", tsPrefix, gForemanLoggerGetLevelString(level));
 
+  va_list list;
   va_start(list, format);
   vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, list);
   va_end(list);
 
-  for (auto &outputter: *this) {
+  for (auto& outputter : *this) {
     outputter->output(level, msg);
   }
 
