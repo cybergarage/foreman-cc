@@ -23,11 +23,11 @@ extern "C" {
 
 #include <stdlib.h>
 
-bool foreman_log_info(const char* msg);
-bool foreman_log_debug(const char* msg);
-bool foreman_log_error(const char* msg);
-bool foreman_log_warn(const char* msg);
-bool foreman_log_trace(const char* msg);
+bool foreman_log_info(const char* format, ...);
+bool foreman_log_debug(const char* format, ...);
+bool foreman_log_error(const char* format, ...);
+bool foreman_log_warn(const char* format, ...);
+bool foreman_log_trace(const char* format, ...);
 
 #ifdef __cplusplus
 }

@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include <foreman/log/Logger.h>
+#include <foreman/log/logger-c.h>
 
 #include "../ForemanTest.h"
 
@@ -21,11 +22,9 @@ BOOST_AUTO_TEST_SUITE(log)
 
 BOOST_AUTO_TEST_CASE(Log)
 {
-  auto logger = new Logger();
-
+  auto logger = Logger::GetSharedInstance();
   logger->addOutputter(new StdoutOutputter());
-
-  delete logger;
+  foreman_log_info("%s", "hello");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

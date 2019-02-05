@@ -18,6 +18,8 @@
 #include <string>
 #include <time.h>
 
+#include <stdarg.h>
+
 #include <foreman/log/Level.h>
 #include <foreman/log/Outputter.h>
 
