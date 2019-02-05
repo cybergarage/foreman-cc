@@ -9,6 +9,7 @@
  ******************************************************************/
 
 #include <foreman/log/Outputter.h>
+#include <fstream>
 
 using namespace Foreman::Log;
 
@@ -16,8 +17,9 @@ using namespace Foreman::Log;
 // FileOutputter
 ////////////////////////////////////////////////
 
-FileOutputter::FileOutputter()
+FileOutputter::FileOutputter(std::string& filename)
 {
+  this->filename = filename;
 }
 
 FileOutputter::~FileOutputter()
@@ -30,5 +32,17 @@ FileOutputter::~FileOutputter()
 
 bool FileOutputter::output(LogLevel level, const char* msg)
 {
-  return false;
+  lock();
+
+  std::ofstream ofs(this->filename, std::ios::app);
+  if (!ofs) {
+    unlock();
+    return false;
+  }
+
+  ofs << msg << std::endl;
+
+  unlock();
+
+  return true;
 }
