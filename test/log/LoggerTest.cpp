@@ -9,23 +9,64 @@
  ******************************************************************/
 
 #include <boost/test/unit_test.hpp>
-#include <stdio.h>
+
+#include <cstdio>
+#include <fstream>
+#include <iostream>
 
 #include <foreman/log/Logger.h>
 #include <foreman/log/logger-c.h>
 
 #include "../ForemanTest.h"
+#include "LoggerTestController.h"
 
 using namespace Foreman::Log;
 
 BOOST_AUTO_TEST_SUITE(log)
 
-BOOST_AUTO_TEST_CASE(Log)
+BOOST_AUTO_TEST_CASE(NullOutputterTest)
 {
-  auto logger = Logger::GetSharedInstance();
+  LoggerTestController testController;
+
+  auto logger = new Logger();
+  logger->addOutputter(new NullOutputter());
+  testController.run(logger);
+  delete logger;
+}
+
+BOOST_AUTO_TEST_CASE(StdOutputterTest)
+{
+  LoggerTestController testController;
+
+  auto logger = new Logger();
   logger->addOutputter(new StdoutOutputter());
-  auto n = foreman_log_info("%s", "hello");
-  BOOST_CHECK(0 < n);
+  testController.run(logger);
+  delete logger;
+}
+
+BOOST_AUTO_TEST_CASE(FileOutputterTest)
+{
+  LoggerTestController testController;
+
+  std::string logFilename = std::tmpnam(nullptr);
+
+  auto logger = new Logger();
+  logger->addOutputter(new FileOutputter(logFilename));
+  testController.run(logger);
+  delete logger;
+
+  std::ifstream logFile(logFilename);
+  BOOST_CHECK(logFile.good());
+
+  if (logFile.good()) {
+    size_t totalLogFileLines = 0;
+    std::string line;
+    while (getline(logFile, line)) {
+      totalLogFileLines++;
+    }
+    BOOST_CHECK_EQUAL(testController.totalOutputMessages, totalLogFileLines);
+  }
+  BOOST_CHECK_EQUAL(std::remove(logFilename.c_str()), 0);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

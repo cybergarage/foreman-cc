@@ -15,6 +15,7 @@
 #include "config.h"
 #endif
 
+#include <foreman/Const.h>
 #include <foreman/common/common-c.h>
 
 #ifdef __cplusplus
@@ -23,11 +24,24 @@ extern "C" {
 
 #include <stdlib.h>
 
-size_t foreman_log_info(const char* format, ...);
-size_t foreman_log_debug(const char* format, ...);
-size_t foreman_log_error(const char* format, ...);
-size_t foreman_log_warn(const char* format, ...);
-size_t foreman_log_trace(const char* format, ...);
+typedef void ForemanLogger;
+
+ForemanLogger* foreman_logger_new();
+bool foreman_logger_delete(ForemanLogger* logger);
+
+bool foreman_logger_setlevel(ForemanLogger* logger, int level);
+bool foreman_logger_clear(ForemanLogger* logger);
+
+bool foreman_logger_addstdoutputter(ForemanLogger* logger);
+bool foreman_logger_addfileoutputter(ForemanLogger* logger, const char* filename);
+bool foreman_logger_addnulloutputter(ForemanLogger* logger);
+
+size_t foreman_logger_debug(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_trace(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_info(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_warn(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_error(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_fatal(ForemanLogger* obj, const char* format, ...);
 
 #ifdef __cplusplus
 }

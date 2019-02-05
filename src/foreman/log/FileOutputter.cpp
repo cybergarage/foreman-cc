@@ -17,7 +17,7 @@ using namespace Foreman::Log;
 // FileOutputter
 ////////////////////////////////////////////////
 
-FileOutputter::FileOutputter(std::string& filename)
+FileOutputter::FileOutputter(const std::string& filename)
 {
   this->filename = filename;
 }

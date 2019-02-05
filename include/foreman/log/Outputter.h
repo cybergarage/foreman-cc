@@ -16,6 +16,7 @@
 #endif
 
 #include <memory>
+#include <string>
 #include <vector>
 
 #include <foreman/log/Level.h>
@@ -51,7 +52,7 @@ public:
   };
 
   ////////////////////////////////////////////////
-  // Outputter
+  // StdoutOutputter
   ////////////////////////////////////////////////
 
   class StdoutOutputter : public Outputter {
@@ -64,16 +65,40 @@ public:
   };
 
   ////////////////////////////////////////////////
-  // Outputter
+  // FileOutputter
   ////////////////////////////////////////////////
 
   class FileOutputter : public Outputter {
 
 public:
-    FileOutputter();
+    FileOutputter(const std::string& filename);
     ~FileOutputter();
 
+    const char* getFilename()
+    {
+      return this->filename.c_str();
+    }
+
     bool output(LogLevel level, const char* msg);
+
+private:
+    std::string filename;
+  };
+
+  ////////////////////////////////////////////////
+  // NullOutputter
+  ////////////////////////////////////////////////
+
+  class NullOutputter : public Outputter {
+
+public:
+    NullOutputter() {}
+    ~NullOutputter() {}
+
+    bool output(LogLevel level, const char* msg)
+    {
+      return true;
+    }
   };
 }
 }

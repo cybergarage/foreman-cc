@@ -50,6 +50,7 @@ foremantest_SOURCES = \
 	..//registry/StoreTest.cpp \
 	..//registry/QueryTest.cpp \
 	..//log/LoggerTest.cpp \
+	..//log/LoggerTestController.cpp \
 	..//metric/MetricsTest.cpp \
 	..//metric/TimeSeriesTest.cpp \
 	..//metric/StoreTestController.cpp \

@@ -15,15 +15,20 @@
 #include "config.h"
 #endif
 
+#include <foreman/Const.h>
+
 namespace Foreman {
 namespace Log {
 
   enum LogLevel {
-    DBG = 1,
-    TRACE,
-    INFO,
-    WARN,
-    ERROR,
+    ALL = FOREMANCC_LOGGER_LEVEL_ALL,
+    DBG = FOREMANCC_LOGGER_LEVEL_DEBUG,
+    TRACE = FOREMANCC_LOGGER_LEVEL_TRACE,
+    INFO = FOREMANCC_LOGGER_LEVEL_INFO,
+    WARN = FOREMANCC_LOGGER_LEVEL_WARN,
+    ERROR = FOREMANCC_LOGGER_LEVEL_ERROR,
+    FATAL = FOREMANCC_LOGGER_LEVEL_FATAL,
+    NONE = FOREMANCC_LOGGER_LEVEL_NONE,
   };
 
 }

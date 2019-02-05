@@ -83,3 +83,15 @@ fql_operator_ge,">="
 fql_operator_lt,"<"
 fql_operator_le,"<="
 
+# ================================================================================
+# Logger
+# ================================================================================
+
+logger_level_all,0
+logger_level_debug,0
+logger_level_trace,1
+logger_level_info,2
+logger_level_warn,3
+logger_level_error,4
+logger_level_fatal,5
+logger_level_none,6
