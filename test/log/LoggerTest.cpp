@@ -98,4 +98,15 @@ BOOST_AUTO_TEST_CASE(FileOutputterTest)
   BOOST_CHECK_EQUAL(std::remove(logFilename.c_str()), 0);
 }
 
+BOOST_AUTO_TEST_CASE(MultipleOutputtersTest)
+{
+  LoggerTestController testController;
+  
+  auto logger = new Logger();
+  logger->addOutputter(new NullOutputter());
+  logger->addOutputter(new StdoutOutputter());
+  testController.run(logger);
+  delete logger;
+}
+
 BOOST_AUTO_TEST_SUITE_END()
