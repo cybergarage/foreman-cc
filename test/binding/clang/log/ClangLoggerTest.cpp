@@ -13,7 +13,7 @@
 #include <foreman/Const.h>
 #include <foreman/foreman-c.h>
 
-BOOST_AUTO_TEST_SUITE(log)
+BOOST_AUTO_TEST_SUITE(logger)
 
 BOOST_AUTO_TEST_CASE(LoggerFunc)
 {
