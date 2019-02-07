@@ -15,7 +15,6 @@
 #include "config.h"
 #endif
 
-#include <foreman/Const.h>
 #include <foreman/common/common-c.h>
 
 #ifdef __cplusplus
