@@ -29,7 +29,7 @@ LoggerTestController::~LoggerTestController() {}
 
 void LoggerTestController::run(Foreman::Log::Logger* logger)
 {
-  static const char* TEST_LOG_MSG_FORMAT = "%d";
+  static const char* TEST_LOG_MSG_FORMAT = "%s %d";
   static const char* TEST_LOG_MSG_PARAM1 = "hello";
 
   LogLevel logLevels[] = { DBG, TRACE, INFO, WARN, ERROR, FATAL };
