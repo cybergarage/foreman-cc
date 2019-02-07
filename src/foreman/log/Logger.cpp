@@ -29,11 +29,11 @@ Logger* Logger::GetSharedInstance()
 
 static std::string gFremanLogDebugMsg = "DEBUG";
 static std::string gFremanLogTraceMsg = "TRACE";
-static std::string gFremanLogInfoMsg = "INFO";
-static std::string gFremanLogWarnMsg = "WARN";
+static std::string gFremanLogInfoMsg = "INFO ";
+static std::string gFremanLogWarnMsg = "WARN ";
 static std::string gFremanLogErrorMsg = "ERROR";
 static std::string gFremanLogFatalMsg = "FATAL";
-static std::string gFremanLogUnkownMsg = "UNKNOWN";
+static std::string gFremanLogUnkownMsg = "     ";
 
 static const char* ForemanLoggerGetLevelString(LogLevel level)
 {
@@ -85,10 +85,10 @@ void Logger::clear()
 
 size_t Logger::debug(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::DBG, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::DBG, format, args);
+  va_end(args);
   return n;
 }
 
@@ -98,10 +98,10 @@ size_t Logger::debug(const char* format, ...)
 
 size_t Logger::trace(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::TRACE, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::TRACE, format, args);
+  va_end(args);
   return n;
 }
 
@@ -111,10 +111,10 @@ size_t Logger::trace(const char* format, ...)
 
 size_t Logger::info(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::INFO, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::INFO, format, args);
+  va_end(args);
   return n;
 }
 
@@ -124,10 +124,10 @@ size_t Logger::info(const char* format, ...)
 
 size_t Logger::warn(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::WARN, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::WARN, format, args);
+  va_end(args);
   return n;
 }
 
@@ -137,10 +137,10 @@ size_t Logger::warn(const char* format, ...)
 
 size_t Logger::error(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::ERROR, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::ERROR, format, args);
+  va_end(args);
   return n;
 }
 
@@ -150,10 +150,10 @@ size_t Logger::error(const char* format, ...)
 
 size_t Logger::fatal(const char* format, ...)
 {
-  va_list list;
-  va_start(list, format);
-  size_t n = message(Foreman::Log::FATAL, format, list);
-  va_end(list);
+  va_list args;
+  va_start(args, format);
+  size_t n = message(Foreman::Log::FATAL, format, args);
+  va_end(args);
   return n;
 }
 
@@ -163,7 +163,7 @@ size_t Logger::fatal(const char* format, ...)
 
 #define MAX_LOG_BUF 2048
 
-size_t Logger::message(LogLevel level, const char* format, ...)
+size_t Logger::message(LogLevel level, const char* format, va_list args)
 {
   if (level < this->level)
     return 0;
@@ -179,10 +179,7 @@ size_t Logger::message(LogLevel level, const char* format, ...)
 
   size_t prefixLen = snprintf(msg, MAX_LOG_BUF, "%s %s : ", tsPrefix, ForemanLoggerGetLevelString(level));
 
-  va_list list;
-  va_start(list, format);
-  vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, list);
-  va_end(list);
+  vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, args);
 
   size_t nOutput = 0;
   for (auto& outputter : *this) {

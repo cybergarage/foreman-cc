@@ -59,7 +59,7 @@ public:
     void clear();
 
 private:
-    size_t message(LogLevel level, const char* format, ...);
+    size_t message(LogLevel level, const char* format, va_list args);
 
 private:
     LogLevel level;
