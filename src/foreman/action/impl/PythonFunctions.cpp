@@ -17,7 +17,7 @@
 #include <foreman/action/impl/GlobalObject.h>
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Error.h>
-#include <foreman/util/Log.h>
+#include <foreman/log/Log.h>
 
 /****************************************
  * See: Python Documentation - Extending Python with C or C++
@@ -48,7 +48,7 @@ PyObject* foreman_python_setregister(PyObject* self, PyObject* args)
   Foreman::Error err;
   bool isSuccess = store->setObject(&obj, &err);
 
-  LOG_INFO("SET KEY : %s = %s (%d)", key, val, int(isSuccess));
+  FOREMAN_LOG_DEBUG("SET KEY : %s = %s (%d)", key, val, int(isSuccess));
 
   return Py_BuildValue("i", isSuccess);
 }
@@ -79,7 +79,7 @@ PyObject* foreman_python_getregister(PyObject* self, PyObject* args)
     regData = obj.getData();
   }
 
-  LOG_INFO("GET KEY : %s = %s (%d)", key, (regData ? regData : ""), int(isSuccess));
+  FOREMAN_LOG_DEBUG("GET KEY : %s = %s (%d)", key, (regData ? regData : ""), int(isSuccess));
 
   return Py_BuildValue("s", regData);
 }
@@ -104,7 +104,7 @@ PyObject* foreman_python_removeregister(PyObject* self, PyObject* args)
   Foreman::Error err;
   bool isSuccess = store->removeObject(key, &err);
 
-  LOG_INFO("REMOVE KEY : %s (%d)", key, int(isSuccess));
+  FOREMAN_LOG_DEBUG("REMOVE KEY : %s (%d)", key, int(isSuccess));
 
   return Py_BuildValue("i", isSuccess);
 }
@@ -189,11 +189,11 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client& cl
   // Query
 
   std::string jsonRes;
-  LOG_INFO("%s", query);
+  FOREMAN_LOG_DEBUG("%s", query);
   if (!client.query(query, &jsonRes)) {
     Py_RETURN_NONE;
   }
-  LOG_INFO("%s", jsonRes.c_str());
+  FOREMAN_LOG_DEBUG("%s", jsonRes.c_str());
 
   // Parse the JSON response
 
