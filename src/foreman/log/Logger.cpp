@@ -60,6 +60,7 @@ static const char* ForemanLoggerGetLevelString(LogLevel level)
 
 static LogLevel ForemanLoggerGetStringLevel(const std::string& levelString)
 {
+  /*
   if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_DEBUG) == 0)
     return DBG;
   if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_TRACE) == 0)
@@ -72,7 +73,7 @@ static LogLevel ForemanLoggerGetStringLevel(const std::string& levelString)
     return ERROR;
   if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_FATAL) == 0)
     return FATAL;
-
+   */
   return NONE;
 }
 
