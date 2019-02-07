@@ -13,14 +13,20 @@
 using namespace Foreman::Log;
 
 ////////////////////////////////////////////////
-// GetSharedInstance
+// SharedInstance
 ////////////////////////////////////////////////
 
-static Logger gForemanLogSharedLogger;
+static Logger gForemanLogDefaultLogger;
+static Logger* gForemanLogSharedLogger = &gForemanLogDefaultLogger;
+
+void Logger::SetSharedInstance(Logger* logger)
+{
+  gForemanLogSharedLogger = logger;
+}
 
 Logger* Logger::GetSharedInstance()
 {
-  return &gForemanLogSharedLogger;
+  return gForemanLogSharedLogger;
 }
 
 ////////////////////////////////////////////////

@@ -33,6 +33,7 @@ namespace Log {
   class Logger : public OutputterList {
 
 public:
+    static void SetSharedInstance(Logger* logger);
     static Logger* GetSharedInstance();
 
 public:
