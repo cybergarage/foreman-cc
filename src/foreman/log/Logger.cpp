@@ -27,33 +27,47 @@ Logger* Logger::GetSharedInstance()
 // ForemanLoggerGetLevelString
 ////////////////////////////////////////////////
 
-static std::string gFremanLogDebugMsg = "DEBUG";
-static std::string gFremanLogTraceMsg = "TRACE";
-static std::string gFremanLogInfoMsg = "INFO ";
-static std::string gFremanLogWarnMsg = "WARN ";
-static std::string gFremanLogErrorMsg = "ERROR";
-static std::string gFremanLogFatalMsg = "FATAL";
-static std::string gFremanLogUnkownMsg = "     ";
-
 static const char* ForemanLoggerGetLevelString(LogLevel level)
 {
   switch (level) {
   case DBG:
-    return gFremanLogDebugMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_DEBUG;
   case TRACE:
-    return gFremanLogTraceMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_TRACE;
   case INFO:
-    return gFremanLogInfoMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_INFO;
   case WARN:
-    return gFremanLogWarnMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_WARN;
   case ERROR:
-    return gFremanLogErrorMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_ERROR;
   case FATAL:
-    return gFremanLogFatalMsg.c_str();
+    return FOREMANCC_LOGGER_LEVEL_STRING_FATAL;
   case NONE:
-    return gFremanLogUnkownMsg.c_str();
+    return "";
   }
-  return gFremanLogUnkownMsg.c_str();
+  return "";
+}
+
+////////////////////////////////////////////////
+// ForemanLoggerGetStringLevel
+////////////////////////////////////////////////
+
+static LogLevel ForemanLoggerGetStringLevel(const std::string& levelString)
+{
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_DEBUG) == 0)
+    return DBG;
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_TRACE) == 0)
+    return TRACE;
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_INFO) == 0)
+    return INFO;
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_WARN) == 0)
+    return WARN;
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_ERROR) == 0)
+    return ERROR;
+  if (levelString.compare(FOREMANCC_LOGGER_LEVEL_STRING_FATAL) == 0)
+    return FATAL;
+
+  return NONE;
 }
 
 ////////////////////////////////////////////////
@@ -77,6 +91,28 @@ void Logger::clear()
 {
   setLevel(INFO);
   OutputterList::clear();
+}
+
+////////////////////////////////////////////////
+// debug
+////////////////////////////////////////////////
+
+bool Logger::setLevelString(const std::string& levelString)
+{
+  auto level = ForemanLoggerGetStringLevel(levelString);
+  if (level == NONE)
+    return false;
+  setLevel(level);
+  return true;
+}
+
+////////////////////////////////////////////////
+// debug
+////////////////////////////////////////////////
+
+const char* Logger::getLevelString()
+{
+  return ForemanLoggerGetLevelString(this->level);
 }
 
 ////////////////////////////////////////////////
@@ -177,7 +213,7 @@ size_t Logger::message(LogLevel level, const char* format, va_list args)
 
   strftime(tsPrefix, MAX_LOG_BUF, "%FT%T%z", localts);
 
-  size_t prefixLen = snprintf(msg, MAX_LOG_BUF, "%s %s : ", tsPrefix, ForemanLoggerGetLevelString(level));
+  size_t prefixLen = snprintf(msg, MAX_LOG_BUF, "%s %-5s : ", tsPrefix, ForemanLoggerGetLevelString(level));
 
   vsnprintf(msg + prefixLen, MAX_LOG_BUF - prefixLen, format, args);
 
