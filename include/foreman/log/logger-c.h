@@ -25,6 +25,9 @@ extern "C" {
 
 typedef void ForemanLogger;
 
+ForemanLogger* foreman_logger_getsharedinstance();
+void foreman_logger_setsharedinstance(ForemanLogger* logger);
+
 ForemanLogger* foreman_logger_new();
 bool foreman_logger_delete(ForemanLogger* logger);
 
