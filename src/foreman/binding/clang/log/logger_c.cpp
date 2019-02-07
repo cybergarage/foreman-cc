@@ -67,6 +67,18 @@ bool foreman_logger_setlevel(ForemanLogger* logger, int level)
 }
 
 ////////////////////////////////////////////////
+// foreman_logger_getlevel
+////////////////////////////////////////////////
+
+int foreman_logger_getlevel(ForemanLogger* logger)
+{
+  if (!logger)
+    return NONE;
+
+  return ((Logger*)logger)->getLevel();
+}
+
+////////////////////////////////////////////////
 // foreman_logger_setlevelstring
 ////////////////////////////////////////////////
 
