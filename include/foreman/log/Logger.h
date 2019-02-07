@@ -49,6 +49,9 @@ public:
       return this->level;
     }
 
+    bool setLevelString(const std::string& levelString);
+    const char* getLevelString();
+
     size_t error(const char* format, ...);
     size_t warn(const char* format, ...);
     size_t info(const char* format, ...);

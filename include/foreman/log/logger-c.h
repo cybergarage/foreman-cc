@@ -30,6 +30,7 @@ ForemanLogger* foreman_logger_new();
 bool foreman_logger_delete(ForemanLogger* logger);
 
 bool foreman_logger_setlevel(ForemanLogger* logger, int level);
+bool foreman_logger_setlevelstring(ForemanLogger* logger, const char* level);
 bool foreman_logger_clear(ForemanLogger* logger);
 
 bool foreman_logger_addstdoutputter(ForemanLogger* logger);

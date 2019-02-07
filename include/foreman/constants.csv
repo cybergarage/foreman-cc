@@ -95,3 +95,10 @@ logger_level_warn,3
 logger_level_error,4
 logger_level_fatal,5
 logger_level_none,6
+
+logger_level_string_debug,"DEBUG"
+logger_level_string_trace,"TRACE"
+logger_level_string_info,"INFO"
+logger_level_string_warn,"WARN"
+logger_level_string_error,"ERROR"
+logger_level_string_fatal,"FATAL"

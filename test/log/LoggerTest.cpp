@@ -24,6 +24,35 @@ using namespace Foreman::Log;
 
 BOOST_AUTO_TEST_SUITE(log)
 
+BOOST_AUTO_TEST_CASE(LevelStringsTest)
+{
+  Logger logger;
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_DEBUG));
+  BOOST_CHECK_EQUAL(logger.getLevel(), DBG);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_DEBUG);
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_TRACE));
+  BOOST_CHECK_EQUAL(logger.getLevel(), TRACE);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_TRACE);
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_INFO));
+  BOOST_CHECK_EQUAL(logger.getLevel(), INFO);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_INFO);
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_WARN));
+  BOOST_CHECK_EQUAL(logger.getLevel(), WARN);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_WARN);
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_ERROR));
+  BOOST_CHECK_EQUAL(logger.getLevel(), ERROR);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_ERROR);
+
+  BOOST_CHECK(logger.setLevelString(FOREMANCC_LOGGER_LEVEL_STRING_FATAL));
+  BOOST_CHECK_EQUAL(logger.getLevel(), FATAL);
+  BOOST_CHECK_EQUAL(logger.getLevelString(), FOREMANCC_LOGGER_LEVEL_STRING_FATAL);
+}
+
 BOOST_AUTO_TEST_CASE(NullOutputterTest)
 {
   LoggerTestController testController;

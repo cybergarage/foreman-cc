@@ -49,6 +49,18 @@ bool foreman_logger_setlevel(ForemanLogger* logger, int level)
 }
 
 ////////////////////////////////////////////////
+// foreman_logger_setlevelstring
+////////////////////////////////////////////////
+
+bool foreman_logger_setlevelstring(ForemanLogger* logger, const char* level)
+{
+  if (!logger)
+    return false;
+
+  return ((Logger*)logger)->setLevelString(level);
+}
+
+////////////////////////////////////////////////
 // foreman_logger_addstdoutputter
 ////////////////////////////////////////////////
 
