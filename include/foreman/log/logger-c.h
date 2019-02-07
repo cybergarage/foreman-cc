@@ -39,12 +39,12 @@ bool foreman_logger_addstdoutputter(ForemanLogger* logger);
 bool foreman_logger_addfileoutputter(ForemanLogger* logger, const char* filename);
 bool foreman_logger_addnulloutputter(ForemanLogger* logger);
 
-size_t foreman_logger_debug(ForemanLogger* obj, const char* format, ...);
-size_t foreman_logger_trace(ForemanLogger* obj, const char* format, ...);
-size_t foreman_logger_info(ForemanLogger* obj, const char* format, ...);
-size_t foreman_logger_warn(ForemanLogger* obj, const char* format, ...);
-size_t foreman_logger_error(ForemanLogger* obj, const char* format, ...);
-size_t foreman_logger_fatal(ForemanLogger* obj, const char* format, ...);
+size_t foreman_logger_debug(ForemanLogger* obj, const char* msg);
+size_t foreman_logger_trace(ForemanLogger* obj, const char* msg);
+size_t foreman_logger_info(ForemanLogger* obj, const char* msg);
+size_t foreman_logger_warn(ForemanLogger* obj, const char* msg);
+size_t foreman_logger_error(ForemanLogger* obj, const char* msg);
+size_t foreman_logger_fatal(ForemanLogger* obj, const char* msg);
 
 #ifdef __cplusplus
 }

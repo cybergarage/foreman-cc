@@ -11,6 +11,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include <foreman/foreman-c.h>
+#include <foreman/Const.h>
 
 BOOST_AUTO_TEST_SUITE(log)
 

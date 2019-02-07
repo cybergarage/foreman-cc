@@ -138,94 +138,70 @@ bool foreman_logger_clear(ForemanLogger* logger)
 // foreman_logger_info
 ////////////////////////////////////////////////
 
-size_t foreman_logger_info(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_info(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->info(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->info(msg);
 }
 
 ////////////////////////////////////////////////
 // foreman_logger_debug
 ////////////////////////////////////////////////
 
-size_t foreman_logger_debug(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_debug(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->debug(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->debug(msg);
 }
 
 ////////////////////////////////////////////////
 // foreman_logger_trace
 ////////////////////////////////////////////////
 
-size_t foreman_logger_trace(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_trace(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->trace(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->trace(msg);
 }
 
 ////////////////////////////////////////////////
 // foreman_logger_warn
 ////////////////////////////////////////////////
 
-size_t foreman_logger_warn(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_warn(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->warn(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->warn(msg);
 }
 
 ////////////////////////////////////////////////
 // foreman_logger_error
 ////////////////////////////////////////////////
 
-size_t foreman_logger_error(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_error(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->error(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->error(msg);
 }
 
 ////////////////////////////////////////////////
 // foreman_logger_fatal
 ////////////////////////////////////////////////
 
-size_t foreman_logger_fatal(ForemanLogger* logger, const char* format, ...)
+size_t foreman_logger_fatal(ForemanLogger* logger, const char* msg)
 {
   if (!logger)
     return 0;
 
-  va_list list;
-  va_start(list, format);
-  size_t n = ((Logger*)logger)->fatal(format, list);
-  va_end(list);
-  return n;
+  return ((Logger*)logger)->fatal(msg);
 }
