@@ -69,7 +69,8 @@ BOOST_AUTO_TEST_CASE(StdOutputterTest)
 
   auto logger = new Logger();
   logger->addOutputter(new StdoutOutputter());
-  testController.run(logger);
+  // Disable not to oup
+  //testController.run(logger);
   delete logger;
 }
 
@@ -102,11 +103,15 @@ BOOST_AUTO_TEST_CASE(MultipleOutputtersTest)
 {
   LoggerTestController testController;
 
+  std::string logFilename = std::tmpnam(nullptr);
+
   auto logger = new Logger();
   logger->addOutputter(new NullOutputter());
-  logger->addOutputter(new StdoutOutputter());
+  logger->addOutputter(new FileOutputter(logFilename));
   testController.run(logger);
   delete logger;
+
+  BOOST_CHECK_EQUAL(std::remove(logFilename.c_str()), 0);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -13,7 +13,7 @@
 #include <thread>
 
 #include <foreman/metric/impl/SQLiteStore.h>
-#include <foreman/util/Log.h>
+#include <foreman/log/Log.h>
 
 using namespace Foreman::Metric;
 
@@ -93,7 +93,7 @@ bool SQLiteStore::query(const std::string& query)
   auto rc = sqlite3_exec(db_, query.c_str(), NULL, NULL, &errMsg);
 
   if (rc != SQLITE_OK) {
-    LOG_ERROR("%s : %s (%d)", query.c_str(), errMsg, rc);
+    FOREMAN_LOG_ERROR("%s : %s (%d)", query.c_str(), errMsg, rc);
   }
 
   unlock();
@@ -115,7 +115,7 @@ bool SQLiteStore::prepare(const std::string& query, sqlite3_stmt** ppStmt)
   auto rc = sqlite3_prepare(db_, query.c_str(), (int)query.length(), ppStmt, NULL);
 
   if (rc != SQLITE_OK) {
-    LOG_ERROR("%s : (%d)", query.c_str(), rc);
+    FOREMAN_LOG_ERROR("%s : (%d)", query.c_str(), rc);
   }
 
   unlock();
@@ -132,7 +132,7 @@ bool SQLiteStore::bind(sqlite3_stmt* stmt, int n, const std::string& text)
   auto rc = sqlite3_bind_text(stmt, n, text.c_str(), (int)text.length(), SQLITE_TRANSIENT);
 
   if (rc != SQLITE_OK) {
-    LOG_ERROR("BIND( [%d] %s) : %d", n, text.c_str(), rc);
+    FOREMAN_LOG_ERROR("BIND( [%d] %s) : %d", n, text.c_str(), rc);
   }
 
   return (rc == SQLITE_OK) ? true : false;
@@ -143,7 +143,7 @@ bool SQLiteStore::bind(sqlite3_stmt* stmt, int n, int value)
   auto rc = sqlite3_bind_int(stmt, n, value);
 
   if (rc != SQLITE_OK) {
-    LOG_ERROR("BIND( [%d] %d) : %d", n, value, rc);
+    FOREMAN_LOG_ERROR("BIND( [%d] %d) : %d", n, value, rc);
   }
 
   return (rc == SQLITE_OK) ? true : false;
@@ -154,7 +154,7 @@ bool SQLiteStore::bind(sqlite3_stmt* stmt, int n, double value)
   auto rc = sqlite3_bind_double(stmt, n, value);
 
   if (rc != SQLITE_OK) {
-    LOG_ERROR("BIND( [%d] %d) : %d", n, value, rc);
+    FOREMAN_LOG_ERROR("BIND( [%d] %d) : %d", n, value, rc);
   }
 
   return (rc == SQLITE_OK) ? true : false;
