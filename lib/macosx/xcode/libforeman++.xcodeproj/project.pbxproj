@@ -49,6 +49,7 @@
 		214FA51C2080A7EA0082CEED /* TimeSeriesStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 214FA5182080A7EA0082CEED /* TimeSeriesStream.h */; };
 		215573C21EA1DBE90083A51C /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 215573C11EA1DBE90083A51C /* HttpClient.h */; };
 		215573C41EA1DC0A0083A51C /* HttpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215573C31EA1DC0A0083A51C /* HttpClient.cpp */; };
+		215CB042220D0BF7007314B0 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 215CB041220D0BF7007314B0 /* Log.h */; };
 		215DB2791FAAD6B20089A36B /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 215DB2781FAAD6B20089A36B /* Error.h */; };
 		215DB2971FAB31000089A36B /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2961FAB31000089A36B /* Error.cpp */; };
 		215DB2A61FAB3A8C0089A36B /* Property.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215DB2A21FAB3A8B0089A36B /* Property.cpp */; };
@@ -155,8 +156,6 @@
 		21C7700020208CA800653C56 /* manager_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C76FFF20208CA800653C56 /* manager_c.cpp */; };
 		21C770072020A0AF00653C56 /* StoreImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21C770062020A0AE00653C56 /* StoreImpl.h */; };
 		21C85F151F9C4BBC00D59EAE /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C85F141F9C4BBC00D59EAE /* Util.cpp */; };
-		21E7F18621C47DFA00B16A4F /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21E7F18421C47DFA00B16A4F /* Log.cpp */; };
-		21E7F18721C47DFA00B16A4F /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E7F18521C47DFA00B16A4F /* Log.h */; };
 		21ED98311E61B3DD00CDEAD5 /* Foreman.h in Headers */ = {isa = PBXBuildFile; fileRef = 21ED98301E61B3DD00CDEAD5 /* Foreman.h */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +203,7 @@
 		214FA5182080A7EA0082CEED /* TimeSeriesStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeSeriesStream.h; path = ../../../include/beringei/TimeSeriesStream.h; sourceTree = "<group>"; };
 		215573C11EA1DBE90083A51C /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		215573C31EA1DC0A0083A51C /* HttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpClient.cpp; sourceTree = "<group>"; };
+		215CB041220D0BF7007314B0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = log/Log.h; sourceTree = "<group>"; };
 		215DB2781FAAD6B20089A36B /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Error.h; path = common/Error.h; sourceTree = "<group>"; };
 		215DB2961FAB31000089A36B /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Error.cpp; path = common/Error.cpp; sourceTree = "<group>"; };
 		215DB2A21FAB3A8B0089A36B /* Property.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Property.cpp; path = registry/Property.cpp; sourceTree = "<group>"; };
@@ -311,8 +311,6 @@
 		21C76FFF20208CA800653C56 /* manager_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = manager_c.cpp; path = binding/clang/action/manager_c.cpp; sourceTree = "<group>"; };
 		21C770062020A0AE00653C56 /* StoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreImpl.h; path = register/impl/StoreImpl.h; sourceTree = "<group>"; };
 		21C85F141F9C4BBC00D59EAE /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = util/Util.cpp; sourceTree = "<group>"; };
-		21E7F18421C47DFA00B16A4F /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = util/Log.cpp; sourceTree = "<group>"; };
-		21E7F18521C47DFA00B16A4F /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = util/Log.h; sourceTree = "<group>"; };
 		21ED98301E61B3DD00CDEAD5 /* Foreman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foreman.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -769,6 +767,7 @@
 		21C028E022018F8600C6B968 /* log */ = {
 			isa = PBXGroup;
 			children = (
+				215CB041220D0BF7007314B0 /* Log.h */,
 				210BBBA522041CAC006A2E1B /* Level.h */,
 				210BBB9B220419E6006A2E1B /* Outputter.h */,
 				21C028E92201BE4C00C6B968 /* logger-c.h */,
@@ -800,8 +799,6 @@
 		21C85F131F9C4BB000D59EAE /* util */ = {
 			isa = PBXGroup;
 			children = (
-				21E7F18421C47DFA00B16A4F /* Log.cpp */,
-				21E7F18521C47DFA00B16A4F /* Log.h */,
 				2117C4ED1FB3158300F7ACF9 /* UUID.cpp */,
 				21C85F141F9C4BBC00D59EAE /* Util.cpp */,
 			);
@@ -815,6 +812,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215CB042220D0BF7007314B0 /* Log.h in Headers */,
 				2187B6DD1FC5B28B00E2234D /* Mutex.h in Headers */,
 				216A5AE71F9C597B0092272A /* ResultSet.h in Headers */,
 				21B60DBD1E5D47D3009D663B /* Const.h in Headers */,
@@ -826,7 +824,6 @@
 				2113F194201FA02600F5C672 /* Method.h in Headers */,
 				2188DBE71FB00AEE00940208 /* Object.h in Headers */,
 				2113F1A4201FA07300F5C672 /* MemStore.h in Headers */,
-				21E7F18721C47DFA00B16A4F /* Log.h in Headers */,
 				216A5AE61F9C597B0092272A /* Query.h in Headers */,
 				21ABA0A51FB07ABD00982715 /* StoreImpl.h in Headers */,
 				21ABA0A01FB07ABD00982715 /* BeringeiStore.h in Headers */,
@@ -953,7 +950,6 @@
 				210781031FB2005F00F9F288 /* Objects.cpp in Sources */,
 				215EDC6A1FB04A22006DF3AE /* ArrayTimeSeries.cpp in Sources */,
 				216A5B381F9C59990092272A /* Metric.cpp in Sources */,
-				21E7F18621C47DFA00B16A4F /* Log.cpp in Sources */,
 				21BA40F7201F430A0083998C /* MemStore.cpp in Sources */,
 				21BA40F5201F42F50083998C /* Store.cpp in Sources */,
 				215DB2A91FAB3A8C0089A36B /* Object.cpp in Sources */,
