@@ -40,7 +40,7 @@ bool foreman_error_delete(ForemanError* e)
 
 bool foreman_error_setmessage(ForemanError* e, const char* msg)
 {
-  if (!e && !msg)
+  if (!e || !msg)
     return false;
   ((Foreman::Error*)(e))->setMessage(msg);
   return true;
@@ -64,7 +64,7 @@ bool foreman_error_setcode(ForemanError* e, int code)
 
 bool foreman_error_setdetailmessage(ForemanError* e, const char* msg)
 {
-  if (!e && !msg)
+  if (!e || !msg)
     return false;
   ((Foreman::Error*)(e))->setDetailMessage(msg);
   return true;
@@ -100,7 +100,7 @@ bool foreman_error_setlineno(ForemanError* e, int lineno)
 
 bool foreman_error_setfilename(ForemanError* e, const char* name)
 {
-  if (!e && !name)
+  if (!e || !name)
     return false;
   ((Foreman::Error*)(e))->setFileName(name);
   return true;
@@ -112,7 +112,7 @@ bool foreman_error_setfilename(ForemanError* e, const char* name)
 
 bool foreman_error_setfuncname(ForemanError* e, const char* name)
 {
-  if (!e && !name)
+  if (!e || !name)
     return false;
   ((Foreman::Error*)(e))->setFuncName(name);
   return true;
@@ -124,7 +124,7 @@ bool foreman_error_setfuncname(ForemanError* e, const char* name)
 
 bool foreman_error_getmessage(ForemanError* e, const char** msg)
 {
-  if (!e && !msg)
+  if (!e || !msg)
     return false;
   *msg = ((Foreman::Error*)(e))->getMessage();
   return true;
@@ -136,7 +136,7 @@ bool foreman_error_getmessage(ForemanError* e, const char** msg)
 
 bool foreman_error_getcode(ForemanError* e, int* code)
 {
-  if (!e && !code)
+  if (!e || !code)
     return false;
   *code = ((Foreman::Error*)(e))->getCode();
   return true;
@@ -148,7 +148,7 @@ bool foreman_error_getcode(ForemanError* e, int* code)
 
 bool foreman_error_getdetailmessage(ForemanError* e, const char** msg)
 {
-  if (!e && !msg)
+  if (!e || !msg)
     return false;
   *msg = ((Foreman::Error*)(e))->getDetailMessage();
   return true;
@@ -160,7 +160,7 @@ bool foreman_error_getdetailmessage(ForemanError* e, const char** msg)
 
 bool foreman_error_getdetailcode(ForemanError* e, int* code)
 {
-  if (!e && !code)
+  if (!e || !code)
     return false;
   *code = ((Foreman::Error*)(e))->getDetailCode();
   return true;
@@ -184,7 +184,7 @@ bool foreman_error_getlineno(ForemanError* e, int* lineno)
 
 bool foreman_error_getfilename(ForemanError* e, const char** name)
 {
-  if (!e && !name)
+  if (!e || !name)
     return false;
   *name = ((Foreman::Error*)(e))->getFileName();
   return true;
@@ -196,7 +196,7 @@ bool foreman_error_getfilename(ForemanError* e, const char** name)
 
 bool foreman_error_getfuncname(ForemanError* e, const char** name)
 {
-  if (!e && !name)
+  if (!e || !name)
     return false;
   *name = ((Foreman::Error*)(e))->getFuncName();
   return true;
