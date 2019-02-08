@@ -12,8 +12,8 @@
 #include <sqlite3.h>
 #include <thread>
 
-#include <foreman/metric/impl/SQLiteStore.h>
 #include <foreman/log/Log.h>
+#include <foreman/metric/impl/SQLiteStore.h>
 
 using namespace Foreman::Metric;
 
