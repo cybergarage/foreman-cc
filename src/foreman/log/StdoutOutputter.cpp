@@ -33,7 +33,11 @@ bool StdoutOutputter::output(LogLevel level, const char* msg)
 {
   lock();
 
+#if defined(FOREMANCC_LOG_USESTDCXX)
   std::cout << msg << std::endl;
+#else
+  printf("%s\n", msg);
+#endif
 
   unlock();
 
