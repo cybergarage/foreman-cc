@@ -46,6 +46,8 @@ bool HttpClient::encode(const std::string& str, std::string& encordedStr)
     curl_free(ret);
   }
 
+  curl_easy_cleanup(curl);
+  
   return (ret != NULL) ? true : false;
 }
 
