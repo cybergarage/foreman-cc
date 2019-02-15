@@ -69,7 +69,7 @@ bool Foreman::Action::PythonEngineFinalize()
   // Some extensions may not work properly if their initialization routine is called
   // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
 
-  //Py_Finalize();
+  Py_Finalize();
 
   return true;
 }
