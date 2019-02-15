@@ -9,7 +9,12 @@
  ******************************************************************/
 
 #include <foreman/log/Outputter.h>
+
+#if defined(FOREMANCC_LOG_USESTDCXX)
 #include <iostream>
+#else
+#include <stdio.h>
+#endif
 
 using namespace Foreman::Log;
 
