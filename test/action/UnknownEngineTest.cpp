@@ -27,6 +27,7 @@ BOOST_AUTO_TEST_CASE(UnkownEngine)
   BOOST_CHECK(echo->setName(FOREMANCC_TEST_SCRIPT_ECHO_METHOD));
   BOOST_CHECK(echo->setCode(ECHO_CODE));
   BOOST_CHECK(!mgr.addMethod(echo, &err));
+  delete echo; // Must delete an invalid method instance when it is not added
 }
 
 BOOST_AUTO_TEST_SUITE_END()
