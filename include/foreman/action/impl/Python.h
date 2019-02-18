@@ -137,6 +137,9 @@ public:
     bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
 private:
+    static ssize_t InstanceCount;
+    void Initialize();
+    void Finalize();
     bool getLastPythonError(Error* error) const;
   };
 }

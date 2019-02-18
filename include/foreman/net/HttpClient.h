@@ -32,6 +32,8 @@ class HttpClient : public Mutex {
 
   private:
   static ssize_t InstanceCount;
+  void initialize();
+  void finalize();
 };
 }
 
