@@ -15,8 +15,8 @@
 #include "config.h"
 #endif
 
-#include <string>
 #include <foreman/util/Mutex.h>
+#include <string>
 
 namespace Foreman {
 
@@ -32,7 +32,6 @@ class HttpClient : public Mutex {
 
   private:
   static ssize_t InstanceCount;
-
 };
 }
 

@@ -64,7 +64,7 @@ bool HttpClient::encode(const std::string& str, std::string& encordedStr)
   }
 
   curl_easy_cleanup(curl);
-  
+
   return (ret != NULL) ? true : false;
 }
 
@@ -84,7 +84,6 @@ size_t HttpClient::curl_response_reader(void* ptr, size_t size, size_t nmemb, st
 
 bool HttpClient::get(const std::string& uri, std::string& content)
 {
-  curl_global_init(CURL_GLOBAL_ALL);
   CURL* curl = curl_easy_init();
   if (!curl)
     return false;
