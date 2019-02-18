@@ -127,7 +127,7 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     delete currentScript;
   }
 
-  this->methodMap[name] = std::move(std::unique_ptr<Method>(newMethod));
+  this->methodMap[name] = std::unique_ptr<Method>(newMethod);
 
   return true;
 }
@@ -151,7 +151,7 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
     delete currentEngine;
   }
 
-  this->engineMap[engineLang] = std::move(std::unique_ptr<ScriptEngine>(engine));
+  this->engineMap[engineLang] = std::unique_ptr<ScriptEngine>(engine);
 
   return true;
 }
