@@ -16,10 +16,11 @@
 #endif
 
 #include <string>
+#include <foreman/util/Mutex.h>
 
 namespace Foreman {
 
-class HttpClient {
+class HttpClient : public Mutex {
   static size_t curl_response_reader(void* ptr, size_t size, size_t nmemb, std::string* s);
 
   public:
@@ -28,6 +29,10 @@ class HttpClient {
 
   bool encode(const std::string& str, std::string& encordedStr);
   bool get(const std::string& uri, std::string& content);
+
+  private:
+  static ssize_t InstanceCount;
+
 };
 }
 
