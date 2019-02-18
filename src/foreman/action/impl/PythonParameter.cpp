@@ -186,6 +186,8 @@ bool PythonParameter::set(const Parameter* param)
     return false;
   }
 
+  Py_XDECREF(pyObj);
+  
   return true;
 }
 
