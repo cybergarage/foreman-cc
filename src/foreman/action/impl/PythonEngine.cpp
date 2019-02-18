@@ -20,6 +20,8 @@
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
 
+static ssize_t gForemanPythonEngineInstanceCount = 0;
+
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
 const std::string Foreman::Action::PythonEngine::USER_MODULE = FOREMANCC_PRODUCT_NAME "_user";
@@ -31,27 +33,19 @@ const std::string Foreman::Action::PythonEngine::SYSTEM_MODULE = FOREMANCC_PRODU
 
 bool Foreman::Action::PythonEngineInitialize()
 {
-  if (Py_IsInitialized())
-    return true;
-
-  Py_Initialize();
+  if (gForemanPythonEngineInstanceCount <= 0) {
+    Py_Initialize();
 
 #if PY_MAJOR_VERSION >= 3
-  PyModule_Create(GetPythonSystemModule());
+    PyModule_Create(GetPythonSystemModule());
 #else
-  Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
+    Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
 #endif
+  }
+
+  gForemanPythonEngineInstanceCount++;
 
   return true;
-}
-
-////////////////////////////////////////////////
-// PythonEngineIsInitialized
-////////////////////////////////////////////////
-
-bool Foreman::Action::PythonEngineIsInitialized()
-{
-  return Py_IsInitialized() ? true : false;
 }
 
 ////////////////////////////////////////////////
@@ -60,16 +54,17 @@ bool Foreman::Action::PythonEngineIsInitialized()
 
 bool Foreman::Action::PythonEngineFinalize()
 {
-  if (!Py_IsInitialized())
-    return true;
+  gForemanPythonEngineInstanceCount--;
 
-  // See :
-  // Python/C API Reference Manual » Initializing and finalizing the interpreter
-  // https://docs.python.org/2.7/c-api/init.html
-  // Some extensions may not work properly if their initialization routine is called
-  // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
+  if (gForemanPythonEngineInstanceCount <= 0) {
+    // See :
+   // Python/C API Reference Manual » Initializing and finalizing the interpreter
+   // https://docs.python.org/2.7/c-api/init.html
+   // Some extensions may not work properly if their initialization routine is called
+   // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
 
-  Py_Finalize();
+    Py_Finalize();
+  }
 
   return true;
 }
@@ -81,8 +76,7 @@ bool Foreman::Action::PythonEngineFinalize()
 Foreman::Action::PythonEngine::PythonEngine()
     : ScriptEngine(LANGUAGE)
 {
-  if (PythonEngineInitialize())
-    return;
+  PythonEngineInitialize();
 }
 
 ////////////////////////////////////////////////
