@@ -207,7 +207,9 @@ static PyObject* foreman_python_requestquery(PyObject* self, Foreman::Client& cl
     resObj = PyDict_New();
   }
 
-  return Py_BuildValue("O", resObj);
+  PyObject *retObj = Py_BuildValue("O", resObj);
+  Py_XDECREF(resObj);
+  return retObj;
 }
 
 /****************************************
