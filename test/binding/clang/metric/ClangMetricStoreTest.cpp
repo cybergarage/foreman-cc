@@ -89,7 +89,8 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
 
     BOOST_CHECK(foreman_metric_resultset_delete(rs));
   }
-
+  foreman_metric_query_delete(q);
+  
   // Query metric values
 
   q = foreman_metric_query_new();
@@ -125,7 +126,10 @@ static void TestClangStore(ForemanMetricStore* store, ClangMetricsStoreTestConfi
     }
     BOOST_CHECK(foreman_metric_resultset_delete(rs));
   }
+  foreman_metric_query_delete(q);
 
+  // Clean
+  
   for (n = 0; n < config->metricsCount; n++) {
     BOOST_CHECK(foreman_metric_delete(m[n]));
   }
