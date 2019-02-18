@@ -20,57 +20,12 @@
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
 
-static ssize_t gForemanPythonEngineInstanceCount = 0;
-static PyObject *gForemanPythonModule = NULL;
+ssize_t Foreman::Action::PythonEngine::instanceCount_ = 0;
 
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
 const std::string Foreman::Action::PythonEngine::USER_MODULE = FOREMANCC_PRODUCT_NAME "_user";
 const std::string Foreman::Action::PythonEngine::SYSTEM_MODULE = FOREMANCC_PRODUCT_NAME "_system";
-
-////////////////////////////////////////////////
-// PythonEngineInitialize
-////////////////////////////////////////////////
-
-bool Foreman::Action::PythonEngineInitialize()
-{
-  if (gForemanPythonEngineInstanceCount <= 0) {
-    Py_InitializeEx(0);
-
-    PyObject *module;
-#if PY_MAJOR_VERSION >= 3
-    gForemanPythonModule = PyModule_Create(GetPythonSystemModule());
-#else
-    gForemanPythonModule = Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
-#endif
-  }
-
-  gForemanPythonEngineInstanceCount++;
-
-  return true;
-}
-
-////////////////////////////////////////////////
-// PythonEngineFinalize
-////////////////////////////////////////////////
-
-bool Foreman::Action::PythonEngineFinalize()
-{
-  gForemanPythonEngineInstanceCount--;
-
-  if (gForemanPythonEngineInstanceCount <= 0) {
-    // See :
-    // Python/C API Reference Manual » Initializing and finalizing the interpreter
-    // https://docs.python.org/2.7/c-api/init.html
-    // Some extensions may not work properly if their initialization routine is called
-    // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
-
-    Py_DECREF(gForemanPythonModule);
-    Py_Finalize();
-  }
-
-  return true;
-}
 
 ////////////////////////////////////////////////
 // Constructor
@@ -79,7 +34,22 @@ bool Foreman::Action::PythonEngineFinalize()
 Foreman::Action::PythonEngine::PythonEngine()
     : ScriptEngine(LANGUAGE)
 {
-  PythonEngineInitialize();
+  initialize();
+}
+
+void Foreman::Action::PythonEngine::initialize()
+{
+  if (instanceCount_ <= 0) {
+    Py_InitializeEx(0);
+
+#if PY_MAJOR_VERSION >= 3
+    embedded_module_ = PyModule_Create(GetPythonSystemModule());
+#else
+    embedded_module_ = Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
+#endif
+  }
+
+  instanceCount_++;
 }
 
 ////////////////////////////////////////////////
@@ -88,7 +58,23 @@ Foreman::Action::PythonEngine::PythonEngine()
 
 Foreman::Action::PythonEngine::~PythonEngine()
 {
-  PythonEngineFinalize();
+  finalize();
+}
+
+void Foreman::Action::PythonEngine::finalize()
+{
+  instanceCount_--;
+
+  if (instanceCount_ <= 0) {
+    // See :
+    // Python/C API Reference Manual » Initializing and finalizing the interpreter
+    // https://docs.python.org/2.7/c-api/init.html
+    // Some extensions may not work properly if their initialization routine is called
+    // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
+
+    Py_DECREF(embedded_module_);
+    Py_Finalize();
+  }
 }
 
 ////////////////////////////////////////////////

@@ -137,9 +137,10 @@ public:
     bool run(Method* method, const Parameters* params, Parameters* results, Error* error);
 
 private:
-    static ssize_t InstanceCount;
-    void Initialize();
-    void Finalize();
+    static ssize_t instanceCount_;
+    PyObject* embedded_module_;
+    void initialize();
+    void finalize();
     bool getLastPythonError(Error* error) const;
   };
 }
