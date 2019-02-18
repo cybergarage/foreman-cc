@@ -88,7 +88,6 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
-  auto code = method->getCode();
   auto codeLen = method->getCodeLength();
   if (codeLen <= 0) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
@@ -107,27 +106,12 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
-  Method* newMethod = Method::CreateMethod(lang);
-  if (!newMethod) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    return false;
-  }
-  newMethod->setName(name);
-  newMethod->setCode(code, codeLen);
-
-  if (!scriptEngine->compile(newMethod, err)) {
+  if (!scriptEngine->compile(method, err)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
-    delete newMethod;
     return false;
   }
 
-  auto currentScript = this->methodMap.getMethod(name);
-  if (currentScript) {
-    FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
-    delete currentScript;
-  }
-
-  this->methodMap[name] = std::unique_ptr<Method>(newMethod);
+  this->methodMap[name] = std::unique_ptr<Method>(method);
 
   return true;
 }
