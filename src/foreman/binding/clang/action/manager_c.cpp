@@ -157,7 +157,7 @@ ForemanActionMethod* foreman_action_manager_getfirstmethod(ForemanActionManager*
   if (firstMethod == methodMap->end()) {
     return NULL;
   }
-  return (ForemanActionMethod*)firstMethod->second;
+  return (ForemanActionMethod*)firstMethod->second.get();
 }
 
 ////////////////////////////////////////////////
@@ -174,7 +174,7 @@ ForemanActionMethod* foreman_action_manager_nextmethod(ForemanActionManager* mgr
       if (nextMethod == methodMap->end()) {
         return NULL;
       }
-      return (ForemanActionMethod*)nextMethod->second;
+      return (ForemanActionMethod*)nextMethod->second.get();
     }
   }
 

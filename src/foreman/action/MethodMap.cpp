@@ -41,20 +41,5 @@ Foreman::Action::Method* Foreman::Action::MethodMap::getMethod(const std::string
   auto methodIt = find(name);
   if (methodIt == end())
     return NULL;
-  return methodIt->second;
-}
-
-////////////////////////////////////////////////
-// clear
-////////////////////////////////////////////////
-
-void Foreman::Action::MethodMap::clear()
-{
-  for (auto methodIt = begin(); methodIt != end(); methodIt++) {
-    Method* script = methodIt->second;
-    if (script) {
-      delete script;
-    }
-  }
-  std::map<std::string, Method*>::clear();
+  return methodIt->second.get();
 }
