@@ -34,7 +34,7 @@ const std::string Foreman::Action::PythonEngine::SYSTEM_MODULE = FOREMANCC_PRODU
 bool Foreman::Action::PythonEngineInitialize()
 {
   if (gForemanPythonEngineInstanceCount <= 0) {
-    Py_Initialize();
+    Py_InitializeEx(0);
 
 #if PY_MAJOR_VERSION >= 3
     PyModule_Create(GetPythonSystemModule());
