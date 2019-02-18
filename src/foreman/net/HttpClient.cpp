@@ -21,6 +21,11 @@ ssize_t Foreman::HttpClient::InstanceCount = 0;
 
 HttpClient::HttpClient()
 {
+  initialize();
+}
+
+void HttpClient::initialize()
+{
   lock();
 
   if (InstanceCount <= 0) {
@@ -36,6 +41,11 @@ HttpClient::HttpClient()
 ////////////////////////////////////////////////
 
 HttpClient::~HttpClient()
+{
+  finalize();
+}
+
+void HttpClient::finalize()
 {
   lock();
 
