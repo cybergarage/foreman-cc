@@ -127,7 +127,7 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     delete currentScript;
   }
 
-  this->methodMap[name] = newMethod;
+  this->methodMap[name] = std::unique_ptr<Method>(newMethod);
 
   return true;
 }

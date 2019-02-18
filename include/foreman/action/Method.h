@@ -12,6 +12,7 @@
 #define _FOREMANCC_ACTION_METHOD_H_
 
 #include <map>
+#include <memory>
 #include <string>
 
 #include <foreman/Platform.h>
@@ -112,7 +113,7 @@ private:
   // MethodMap
   ////////////////////////////////////////////////
 
-  class MethodMap : public std::map<std::string, Method*> {
+  class MethodMap : public std::map<std::string, std::unique_ptr<Method>> {
 
 public:
     MethodMap();
@@ -120,8 +121,6 @@ public:
 
     bool hasMethod(const std::string& name) const;
     Method* getMethod(const std::string& name);
-
-    void clear();
   };
 
   enum MethodEngineStatus {
