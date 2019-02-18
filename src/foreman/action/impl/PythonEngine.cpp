@@ -21,6 +21,7 @@
 #include <foreman/common/Errors.h>
 
 static ssize_t gForemanPythonEngineInstanceCount = 0;
+static PyObject *gForemanPythonModule = NULL;
 
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
@@ -36,10 +37,11 @@ bool Foreman::Action::PythonEngineInitialize()
   if (gForemanPythonEngineInstanceCount <= 0) {
     Py_InitializeEx(0);
 
+    PyObject *module;
 #if PY_MAJOR_VERSION >= 3
-    PyModule_Create(GetPythonSystemModule());
+    gForemanPythonModule = PyModule_Create(GetPythonSystemModule());
 #else
-    Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
+    gForemanPythonModule = Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
 #endif
   }
 
@@ -63,6 +65,7 @@ bool Foreman::Action::PythonEngineFinalize()
     // Some extensions may not work properly if their initialization routine is called
     // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
 
+    Py_DECREF(gForemanPythonModule);
     Py_Finalize();
   }
 
