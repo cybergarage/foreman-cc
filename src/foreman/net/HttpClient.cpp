@@ -13,13 +13,22 @@
 
 using namespace Foreman;
 
+ssize_t Foreman::HttpClient::InstanceCount = 0;
+
 ////////////////////////////////////////////////
 //  HttpClient
 ////////////////////////////////////////////////
 
 HttpClient::HttpClient()
 {
-  curl_global_init(CURL_GLOBAL_ALL);
+  lock();
+
+  if (InstanceCount <= 0) {
+    curl_global_init(CURL_GLOBAL_ALL);
+  }
+  InstanceCount++;
+
+  unlock();
 }
 
 ////////////////////////////////////////////////
@@ -28,6 +37,14 @@ HttpClient::HttpClient()
 
 HttpClient::~HttpClient()
 {
+  lock();
+
+  InstanceCount--;
+  if (InstanceCount <= 0) {
+    curl_global_cleanup();
+  }
+
+  unlock();
 }
 
 ////////////////////////////////////////////////
