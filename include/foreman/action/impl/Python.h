@@ -30,7 +30,6 @@ namespace Foreman {
 namespace Action {
 
   bool PythonEngineInitialize();
-  bool PythonEngineIsInitialized();
   bool PythonEngineFinalize();
 
   PyMethodDef* GetPythonSystemMethods();

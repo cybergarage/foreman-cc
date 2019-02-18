@@ -22,9 +22,7 @@ BOOST_AUTO_TEST_SUITE(clang)
 BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 {
 #if defined(FOREMAN_SUPPORT_PYTHON)
-  // FIXME : See PythonEngine::~PythonEngine()
-  if (Foreman::Action::PythonEngineIsInitialized())
-    return;
+  Foreman::Action::PythonEngineInitialize();
 #endif
 
   auto TEST_METHOD_LANG = "python";
@@ -88,6 +86,10 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
   BOOST_CHECK(foreman_action_parameters_delete(outParams));
 
   foreman_error_delete(err);
+
+#if defined(FOREMAN_SUPPORT_PYTHON)
+  Foreman::Action::PythonEngineFinalize();
+#endif
 }
 
 BOOST_AUTO_TEST_SUITE_END()
