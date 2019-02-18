@@ -140,7 +140,9 @@ BOOST_AUTO_TEST_CASE(ClangSQLiteStore)
   config.retentionInterval = 60 * 5;
   config.insertInterval = 60;
 
-  TestClangStore(foreman_metric_store_sqlite_create(), &config);
+  auto store = foreman_metric_store_sqlite_create();
+  TestClangStore(store, &config);
+  foreman_metric_store_delete(store);
 }
 
 BOOST_AUTO_TEST_CASE(ClangSQLiteStoreWithTimestampJitter)
@@ -151,7 +153,9 @@ BOOST_AUTO_TEST_CASE(ClangSQLiteStoreWithTimestampJitter)
   config.insertInterval = 60;
   config.enableTimestampJitter = true;
 
-  TestClangStore(foreman_metric_store_sqlite_create(), &config);
+  auto store = foreman_metric_store_sqlite_create();
+  TestClangStore(store, &config);
+  foreman_metric_store_delete(store);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
