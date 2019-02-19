@@ -20,10 +20,14 @@ using namespace Foreman::Action;
 
 ScriptManager::ScriptManager()
 {
+  this->methodMap = new MethodMap();
+  this->engineMap = new ScriptEngineMap();
 }
 
 ScriptManager::~ScriptManager()
 {
+  delete this->methodMap;
+  delete this->engineMap;
 }
 
 ////////////////////////////////////////////////
@@ -100,7 +104,7 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
-  ScriptEngine* scriptEngine = this->engineMap.getEngine(lang);
+  ScriptEngine* scriptEngine = this->engineMap->getEngine(lang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
@@ -111,7 +115,7 @@ bool ScriptManager::addMethod(Method* method, Error* err)
     return false;
   }
 
-  this->methodMap[name] = std::unique_ptr<Method>(method);
+  (*this->methodMap)[name] = std::unique_ptr<Method>(method);
 
   return true;
 }
@@ -130,7 +134,7 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
     return false;
   }
 
-  this->engineMap[engineLang] = std::unique_ptr<ScriptEngine>(engine);
+  (*this->engineMap)[engineLang] = std::unique_ptr<ScriptEngine>(engine);
 
   return true;
 }
@@ -141,13 +145,13 @@ bool ScriptManager::addEngine(ScriptEngine* engine)
 
 bool ScriptManager::removeMethod(const std::string& name, Error* err)
 {
-  auto method = this->methodMap.getMethod(name);
+  auto method = this->methodMap->getMethod(name);
   if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
   }
 
-  return (this->methodMap.erase(name) == 1) ? true : false;
+  return (this->methodMap->erase(name) == 1) ? true : false;
 }
 
 ////////////////////////////////////////////////
@@ -156,7 +160,7 @@ bool ScriptManager::removeMethod(const std::string& name, Error* err)
 
 bool ScriptManager::removeAllMethods(Error* error)
 {
-  this->methodMap.clear();
+  this->methodMap->clear();
   return true;
 }
 
@@ -166,7 +170,7 @@ bool ScriptManager::removeAllMethods(Error* error)
 
 bool ScriptManager::execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* err)
 {
-  auto method = this->methodMap.getMethod(name);
+  auto method = this->methodMap->getMethod(name);
   if (!method) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;
@@ -178,7 +182,7 @@ bool ScriptManager::execMethod(const std::string& name, const Parameters* params
     return false;
   }
 
-  auto scriptEngine = this->engineMap.getEngine(scriptLang);
+  auto scriptEngine = this->engineMap->getEngine(scriptLang);
   if (!scriptEngine) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INTERNAL_ERROR);
     return false;

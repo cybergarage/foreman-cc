@@ -53,12 +53,12 @@ public:
 
     bool hasMethod(const std::string& name) const
     {
-      return this->methodMap.hasMethod(name);
+      return this->methodMap->hasMethod(name);
     }
 
     Method* getMethod(const std::string& name)
     {
-      return this->methodMap.getMethod(name);
+      return this->methodMap->getMethod(name);
     }
 
     bool removeMethod(const std::string& method, Error* error);
@@ -68,25 +68,24 @@ public:
 
     bool hasEngine(const std::string& lang) const
     {
-      return this->engineMap.hasEngine(lang);
+      return this->engineMap->hasEngine(lang);
     }
 
     bool execMethod(const std::string& name, const Parameters* params, Parameters* results, Error* error);
 
-private:
-    MethodMap methodMap;
-    ScriptEngineMap engineMap;
-
-public:
     const MethodMap* getMethodMap()
     {
-      return &methodMap;
+      return this->methodMap;
     }
 
     const ScriptEngineMap* getEngineMap()
     {
-      return &engineMap;
+      return this->engineMap;
     }
+
+private:
+    MethodMap *methodMap;
+    ScriptEngineMap *engineMap;
   };
 
   ////////////////////////////////////////////////
