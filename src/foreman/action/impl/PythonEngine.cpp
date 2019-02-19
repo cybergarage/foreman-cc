@@ -72,7 +72,6 @@ void Foreman::Action::PythonEngine::finalize()
     // Some extensions may not work properly if their initialization routine is called
     // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
 
-    Py_DECREF(embedded_module_);
     Py_Finalize();
   }
 }
