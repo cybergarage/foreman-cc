@@ -247,12 +247,15 @@ bool foreman_python_getlasterror(Foreman::Error* error)
   error->setMessage(pyErrMsg.str());
 
 #if defined(DEBUG)
-  if (ptype)
+  if (ptype) {
     PyObject_Print(ptype, stdout, 0);
-  if (pvalue)
+  }
+  if (pvalue) {
     PyObject_Print(pvalue, stdout, 0);
-  if (ptraceback)
+  }
+  if (ptraceback) {
     PyObject_Print(ptraceback, stdout, 0);
+  }
 #endif
 
   if (ptype) {
