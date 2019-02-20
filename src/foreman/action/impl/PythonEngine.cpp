@@ -156,7 +156,11 @@ bool Foreman::Action::PythonEngine::run(Method* method, const Parameters* params
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
     PyObject* errMsg = PyObject_Repr(pResults);
     if (errMsg) {
+#if PY_MAJOR_VERSION >= 3
+      err->setDetailMessage(PyBytes_AsString(errMsg));
+#else
       err->setDetailMessage(PyString_AsString(errMsg));
+#endif
       Py_XDECREF(errMsg);
     }
     Py_XDECREF(pResults);
@@ -194,7 +198,11 @@ bool foreman_python_getlasterror(Foreman::Error* error)
   if (ptype) {
     PyObject* utfStr = PyUnicode_AsUTF8String(ptype);
     if (utfStr) {
+#if PY_MAJOR_VERSION >= 3
+      auto errStr = PyBytes_AsString(utfStr);
+#else
       auto errStr = PyString_AsString(utfStr);
+#endif
       if (errStr) {
         pyErrMsg << errStr;
         Py_XDECREF(errStr);
@@ -206,7 +214,11 @@ bool foreman_python_getlasterror(Foreman::Error* error)
   if (pvalue) {
     PyObject* utfStr = PyUnicode_AsUTF8String(pvalue);
     if (utfStr) {
+#if PY_MAJOR_VERSION >= 3
+      auto errStr = PyBytes_AsString(utfStr);
+#else
       auto errStr = PyString_AsString(utfStr);
+#endif
       if (errStr) {
         if (ptype) {
           pyErrMsg << " (";
