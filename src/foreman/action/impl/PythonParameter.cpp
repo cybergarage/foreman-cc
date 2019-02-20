@@ -71,10 +71,19 @@ bool PythonParameter::setName(PyObject* pyObj)
   if (!pyObj)
     return false;
 
-  if (!PyString_Check(pyObj))
+#if PY_MAJOR_VERSION >= 3
+  if (!PyBytes_Check(pyObj)) {
+#else
+  if (!PyString_Check(pyObj)) {
+#endif
     return false;
+  }
 
+#if PY_MAJOR_VERSION >= 3
+  setName(PyBytes_AsString(pyObj));
+#else
   setName(PyString_AsString(pyObj));
+#endif
 
   return true;
 }
@@ -95,7 +104,7 @@ bool PythonParameter::setValue(PyObject* pyObj)
     return true;
   }
 
-  if (PyInt_Check(pyObj)) {
+  if (PyLong_Check(pyObj)) {
     this->obj_ = pyObj;
     Py_XINCREF(this->obj_);
     setType(IntegerType);
@@ -109,7 +118,11 @@ bool PythonParameter::setValue(PyObject* pyObj)
     return true;
   }
 
+#if PY_MAJOR_VERSION >= 3
+  if (PyBytes_Check(pyObj)) {
+#else
   if (PyString_Check(pyObj)) {
+#endif
     this->obj_ = pyObj;
     Py_XINCREF(this->obj_);
     setType(StringType);
@@ -153,7 +166,7 @@ bool PythonParameter::set(const Parameter* param)
     auto iparam = dynamic_cast<const Integer*>(param);
     if (!iparam)
       return false;
-    pyObj = PyInt_FromLong(iparam->getValue());
+    pyObj = PyLong_FromLong(iparam->getValue());
 
   } break;
   case RealType: {
@@ -173,7 +186,11 @@ bool PythonParameter::set(const Parameter* param)
     auto sparam = dynamic_cast<const String*>(param);
     if (!sparam)
       return false;
+#if PY_MAJOR_VERSION >= 3
+    pyObj = PyBytes_FromString(sparam->getValue().c_str());
+#else
     pyObj = PyString_FromString(sparam->getValue().c_str());
+#endif
   } break;
   default:
     return false;
@@ -204,7 +221,7 @@ bool PythonParameter::get(Parameter** param)
     auto iparam = new Integer();
     if (!iparam)
       return false;
-    iparam->setValue(PyInt_AsLong(this->obj_));
+    iparam->setValue(PyLong_AsLong(this->obj_));
     *param = iparam;
   } break;
   case RealType: {
@@ -226,7 +243,11 @@ bool PythonParameter::get(Parameter** param)
     auto sparam = new String();
     if (!sparam)
       return false;
+#if PY_MAJOR_VERSION >= 3
+    sparam->setValue(PyBytes_AsString(this->obj_));
+#else
     sparam->setValue(PyString_AsString(this->obj_));
+#endif
     *param = sparam;
   } break;
     // FIXME : Not implemented yet
@@ -269,7 +290,7 @@ bool PythonParameter::equals(const Parameter* param)
     auto iparam = dynamic_cast<const Integer*>(param);
     if (!iparam)
       return false;
-    if (PyInt_AsLong(this->obj_) != iparam->getValue())
+    if (PyLong_AsLong(this->obj_) != iparam->getValue())
       return false;
     return true;
   } break;
@@ -294,7 +315,11 @@ bool PythonParameter::equals(const Parameter* param)
     auto sparam = dynamic_cast<const String*>(param);
     if (!sparam)
       return false;
-    const char* pyValue = PyString_AsString(this->obj_);
+#if PY_MAJOR_VERSION >= 3
+    auto pyValue = PyBytes_AsString(this->obj_);
+#else
+    auto pyValue = PyString_AsString(this->obj_);
+#endif
     if (!pyValue)
       return false;
     auto value = sparam->getValue();
