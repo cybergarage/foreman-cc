@@ -43,9 +43,9 @@ void Foreman::Action::PythonEngine::initialize()
     Py_InitializeEx(0);
 
 #if PY_MAJOR_VERSION >= 3
-    embedded_module_ = PyModule_Create(GetPythonSystemModule());
+    PyModule_Create(GetPythonSystemModule());
 #else
-    embedded_module_ = Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
+    Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
 #endif
   }
 
