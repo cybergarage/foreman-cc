@@ -202,41 +202,45 @@ bool foreman_python_getlasterror(Foreman::Error* error)
   PyObject *ptype, *pvalue, *ptraceback;
   PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 
+#if defined(FOREMANCC_PYTHONENGINE_ENABLE_TYPE_ERROR_OUTPUT)
   if (ptype) {
-    PyObject* utfStr = PyUnicode_AsUTF8String(ptype);
-    if (utfStr) {
+    auto errObj = PyObject_Str(ptype);
+    if (errObj) {
 #if PY_MAJOR_VERSION >= 3
-      auto errStr = PyBytes_AsString(utfStr);
+      auto errStr = PyUnicode_AsUTF8(errObj);
 #else
-      auto errStr = PyString_AsString(utfStr);
+      auto errStr = PyString_AsString(errObj);
 #endif
       if (errStr) {
         pyErrMsg << errStr;
-        Py_XDECREF(errStr);
       }
-      Py_XDECREF(utfStr);
+      Py_XDECREF(errObj);
     }
   }
+#endif
 
   if (pvalue) {
-    PyObject* utfStr = PyUnicode_AsUTF8String(pvalue);
-    if (utfStr) {
+    auto errObj = PyObject_Str(pvalue);
+    if (errObj) {
 #if PY_MAJOR_VERSION >= 3
-      auto errStr = PyBytes_AsString(utfStr);
+      auto errStr = PyUnicode_AsUTF8(errObj);
 #else
-      auto errStr = PyString_AsString(utfStr);
+      auto errStr = PyString_AsString(errObj);
 #endif
       if (errStr) {
+#if defined(FOREMANCC_PYTHONENGINE_ENABLE_TYPE_ERROR_OUTPUT)
         if (ptype) {
           pyErrMsg << " (";
         }
+#endif
         pyErrMsg << errStr;
-        Py_XDECREF(errStr);
+#if defined(FOREMANCC_PYTHONENGINE_ENABLE_TYPE_ERROR_OUTPUT)
         if (ptype) {
           pyErrMsg << ")";
         }
+#endif
       }
-      Py_XDECREF(utfStr);
+      Py_XDECREF(errObj);
     }
   }
 
@@ -251,12 +255,15 @@ bool foreman_python_getlasterror(Foreman::Error* error)
     PyObject_Print(ptraceback, stdout, 0);
 #endif
 
-  if (ptype)
+  if (ptype) {
     Py_XDECREF(ptype);
-  if (pvalue)
+  }
+  if (pvalue) {
     Py_XDECREF(pvalue);
-  if (ptraceback)
+  }
+  if (ptraceback) {
     Py_XDECREF(ptraceback);
+  }
 
   PyErr_Clear();
 
