@@ -99,12 +99,6 @@
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
-/* Define to 1 if you have the <Python.h> header file. */
-#undef HAVE_PYTHON_H
-
-/* Define to 1 if you have the <Python/Python.h> header file. */
-#undef HAVE_PYTHON_PYTHON_H
-
 /* Define to 1 if you have the <sqlite3.h> header file. */
 #undef HAVE_SQLITE3_H
 

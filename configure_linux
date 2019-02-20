@@ -1,7 +1,12 @@
 #!/bin/bash
-if [ `which python-config` ]; then
-    export CFLAGS="$CFLAGS `python-config --includes`"
-    export LDFLAGS="$LDFLAGS `python-config --libs`"
+if [ `which python3-config` ]; then
+    export CFLAGS="$CFLAGS `python3-config --includes`"
+    export LDFLAGS="$LDFLAGS `python3-config --libs`"
+else
+    if [ `which python-config` ]; then
+        export CFLAGS="$CFLAGS `python-config --includes`"
+        export LDFLAGS="$LDFLAGS `python-config --libs`"
+    fi
 fi
 export CXXFLAGS="$CFLAGS $CXXFLAGS -Wall -O0 -g3"
 ./configure --enable-script-python --enable-alglib "$@"
