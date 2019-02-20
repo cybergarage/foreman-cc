@@ -20,12 +20,19 @@
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Errors.h>
 
+const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 ssize_t Foreman::Action::PythonEngine::instanceCount_ = 0;
 
-const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
-const std::string Foreman::Action::PythonEngine::MODULE = FOREMANCC_PRODUCT_NAME;
-const std::string Foreman::Action::PythonEngine::USER_MODULE = FOREMANCC_PRODUCT_NAME "_user";
-const std::string Foreman::Action::PythonEngine::SYSTEM_MODULE = FOREMANCC_PRODUCT_NAME "_system";
+////////////////////////////////////////////////
+// PythonEngineGetUserModuleName
+////////////////////////////////////////////////
+
+std::string Foreman::Action::PythonEngineGetUserModuleName(const std::string &method)
+{
+  std::stringstream moduleName;
+  moduleName << FOREMANCC_PRODUCT_NAME << "_user_" << method;
+  return moduleName.str();
+}
 
 ////////////////////////////////////////////////
 // Constructor

@@ -31,6 +31,7 @@ namespace Action {
 
   bool PythonEngineInitialize();
   bool PythonEngineFinalize();
+  std::string PythonEngineGetUserModuleName(const std::string &method);
 
   PyMethodDef* GetPythonSystemMethods();
 
@@ -125,9 +126,6 @@ private:
 
 public:
     static const std::string LANGUAGE;
-    static const std::string MODULE;
-    static const std::string USER_MODULE;
-    static const std::string SYSTEM_MODULE;
 
 public:
     PythonEngine();

@@ -148,8 +148,8 @@ static bool foreman_python_string2jsonobject(const std::string& jsonStr, PyObjec
       return false;
     }
 
-    auto moduleName = Foreman::Action::PythonEngine::SYSTEM_MODULE.c_str();
-    pyJsonModule = PyImport_ExecCodeModule((char*)moduleName, pSource);
+    auto moduleName = Foreman::Action::PythonEngineGetUserModuleName("foreman_python_string2jsonobject");
+    pyJsonModule = PyImport_ExecCodeModule((char*)moduleName.c_str(), pSource);
     Py_XDECREF(pSource);
     if (!pyJsonModule) {
       foreman_python_getlasterror(err);
