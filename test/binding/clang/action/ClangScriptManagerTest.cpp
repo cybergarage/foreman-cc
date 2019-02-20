@@ -59,6 +59,9 @@ BOOST_AUTO_TEST_CASE(NewActionScriptManager)
 
   method = foreman_action_manager_getfirstmethod(mgr);
   BOOST_CHECK(method);
+  if (!method) {
+    return;
+  }
 
   method = foreman_action_manager_nextmethod(mgr, method);
   BOOST_CHECK(!method);
