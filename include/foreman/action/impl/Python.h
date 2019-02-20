@@ -29,12 +29,9 @@
 namespace Foreman {
 namespace Action {
 
-  bool PythonEngineInitialize();
-  bool PythonEngineFinalize();
   std::string PythonEngineGetUserModuleName(const std::string &method);
 
   PyMethodDef* GetPythonSystemMethods();
-
 #if PY_MAJOR_VERSION >= 3
   PyModuleDef* GetPythonSystemModule();
 #endif
@@ -136,7 +133,6 @@ public:
 
 private:
     static ssize_t instanceCount_;
-    PyObject* embedded_module_;
     void initialize();
     void finalize();
     bool getLastPythonError(Error* error) const;
