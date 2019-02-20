@@ -86,8 +86,8 @@ bool Foreman::Action::PythonMethod::compile(Error* err)
     return false;
   }
 
-  auto moduleName = PythonEngine::USER_MODULE.c_str();
-  this->module_ = PyImport_ExecCodeModule((char*)moduleName, pSource);
+  auto moduleName = PythonEngineGetUserModuleName(methodName);
+  this->module_ = PyImport_ExecCodeModule((char*)moduleName.c_str(), pSource);
   Py_XDECREF(pSource);
   if (!(this->module_)) {
     FOREMANCC_ERROR_SET_ERRORNO(err, ERROR_INVALID_REQUEST);
