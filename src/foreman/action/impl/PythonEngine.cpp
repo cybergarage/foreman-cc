@@ -96,6 +96,9 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
     return false;
   }
 
+  if (pyScript->isCompiled())
+    return true;
+    
   if (!pyScript->compile(err)) {
     getLastPythonError(err);
     return false;
