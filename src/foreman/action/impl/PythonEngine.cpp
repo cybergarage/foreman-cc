@@ -23,6 +23,12 @@
 const std::string Foreman::Action::PythonEngine::LANGUAGE = FOREMANCC_ACTION_SCRIPT_ENGINE_PYTHON;
 ssize_t Foreman::Action::PythonEngine::instanceCount_ = 0;
 
+#if PY_MAJOR_VERSION >= 3
+extern "C" {
+PyMODINIT_FUNC PyInit_foreman(void);
+}
+#endif
+
 ////////////////////////////////////////////////
 // PythonEngineGetUserModuleName
 ////////////////////////////////////////////////
@@ -47,17 +53,26 @@ Foreman::Action::PythonEngine::PythonEngine()
 void Foreman::Action::PythonEngine::initialize()
 {
   if (instanceCount_ <= 0) {
-    Py_InitializeEx(0);
-
 #if PY_MAJOR_VERSION >= 3
-    PyModule_Create(GetPythonSystemModule());
-#else
+    PyImport_AppendInittab(FOREMANCC_PRODUCT_NAME, PyInit_foreman);
+#endif
+    Py_Initialize();
+
+#if PY_MAJOR_VERSION < 3
     Py_InitModule(FOREMANCC_PRODUCT_NAME, GetPythonSystemMethods());
 #endif
   }
 
   instanceCount_++;
 }
+
+#if PY_MAJOR_VERSION >= 3
+PyMODINIT_FUNC
+PyInit_foreman(void)
+{
+    return PyModule_Create(Foreman::Action::GetPythonSystemModule());
+}
+#endif
 
 ////////////////////////////////////////////////
 // Destructor
