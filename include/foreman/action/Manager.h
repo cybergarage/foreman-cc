@@ -84,8 +84,8 @@ public:
     }
 
 private:
-    MethodMap *methodMap;
-    ScriptEngineMap *engineMap;
+    MethodMap* methodMap;
+    ScriptEngineMap* engineMap;
   };
 
   ////////////////////////////////////////////////
