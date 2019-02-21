@@ -33,7 +33,7 @@ PyMODINIT_FUNC PyInit_foreman(void);
 // PythonEngineGetUserModuleName
 ////////////////////////////////////////////////
 
-std::string Foreman::Action::PythonEngineGetUserModuleName(const std::string &method)
+std::string Foreman::Action::PythonEngineGetUserModuleName(const std::string& method)
 {
   std::stringstream moduleName;
   moduleName << FOREMANCC_PRODUCT_NAME << "_user_" << method;
@@ -113,7 +113,7 @@ bool Foreman::Action::PythonEngine::compile(Method* method, Error* err)
 
   if (pyScript->isCompiled())
     return true;
-    
+
   if (!pyScript->compile(err)) {
     getLastPythonError(err);
     return false;

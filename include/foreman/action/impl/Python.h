@@ -29,7 +29,7 @@
 namespace Foreman {
 namespace Action {
 
-  std::string PythonEngineGetUserModuleName(const std::string &method);
+  std::string PythonEngineGetUserModuleName(const std::string& method);
 
   PyMethodDef* GetPythonSystemMethods();
 #if PY_MAJOR_VERSION >= 3
