@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   // echo
 
   static const char* PY_ECHO_CODE = "def " FOREMANCC_TEST_SCRIPT_ECHO_METHOD "(params,results):\n"
-                                    "  for key, value in params.iteritems():\n"
+                                    "  for key, value in params.items():\n"
                                     "    results[key] = value\n"
                                     "  return True\n";
 
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   static const char* PY_SET_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                             "def " FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD "(params,results):\n"
-                                            "  for key, value in params.iteritems():\n"
+                                            "  for key, value in params.items():\n"
                                             "    " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_SETREGISTER "(key, value)\n"
                                             "  return True\n";
 
@@ -105,7 +105,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   static const char* PY_GET_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                             "def " FOREMANCC_TEST_SCRIPT_GET_REGISTER_METHOD "(params,results):\n"
-                                            "  for reg_key, value in params.iteritems():\n"
+                                            "  for reg_key, value in params.items():\n"
                                             "    reg_value = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_GETREGISTER "(reg_key)\n"
                                             "    results[reg_key] = reg_value\n"
                                             "  return True\n";
@@ -119,7 +119,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   static const char* PY_REMOVE_REGISTRY_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                                "def " FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD "(params,results):\n"
-                                               "  for key, value in params.iteritems():\n"
+                                               "  for key, value in params.items():\n"
                                                "    if " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER "(key) == False:\n"
                                                "      return False\n"
                                                "  return True\n";
@@ -136,7 +136,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
                                              "  jsonRes = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY "(params[\"" FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "\"])\n"
                                              "  if jsonRes is None:\n"
                                              "    return False\n"
-                                             "  for key, value in jsonRes.iteritems():\n"
+                                             "  for key, value in jsonRes.items():\n"
                                              "    results[key] = value\n"
                                              "  return True\n";
 
@@ -154,7 +154,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
                                           "  jsonRes = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_POSTQUERY "(host, port, params[\"" FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD_PARAM_NAME "\"])\n"
                                           "  if jsonRes is None:\n"
                                           "    return False\n"
-                                          "  for key, value in jsonRes.iteritems():\n"
+                                          "  for key, value in jsonRes.items():\n"
                                           "    results[key] = value\n"
                                           "  return True\n";
 
