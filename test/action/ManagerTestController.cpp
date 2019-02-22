@@ -40,11 +40,14 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
-    testEcho(mgr);
-    testRegister(mgr);
+    bool isSuccess = true;
+    isSuccess &= testEcho(mgr);
+    isSuccess &= testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    testQuery(mgr);
+    isSuccess &= testQuery(mgr);
 #endif
+    if (!isSuccess)
+      break;
   }
 
   BOOST_CHECK(regStore.close());
@@ -54,7 +57,7 @@ void ManagerTestController::run(Manager* mgr)
 // testEcho
 ////////////////////////////////////////////////
 
-void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
+bool ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
 {
   Parameters params;
   auto param = new String();
@@ -67,27 +70,29 @@ void ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
   auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_ECHO_METHOD, &params, &results, &err);
   BOOST_CHECK(isExecuted);
   if (!isExecuted)
-    return;
+    return false;
 
   if (!checkResultParameters)
-    return;
+    return false;
 
   auto echoMsg = results.getParameter(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_NAME);
   BOOST_CHECK(echoMsg);
   if (!echoMsg)
-    return;
+    return false;
 
   BOOST_CHECK(echoMsg->isString());
   auto echoStr = dynamic_cast<const String*>(echoMsg);
   BOOST_CHECK(echoStr);
   BOOST_CHECK_EQUAL(FOREMANCC_TEST_SCRIPT_ECHO_PARAM_VALUE, echoStr->getValue());
+
+  return true;
 }
 
 ////////////////////////////////////////////////
 // testRegister
 ////////////////////////////////////////////////
 
-void ManagerTestController::testRegister(Manager* mgr)
+bool ManagerTestController::testRegister(Manager* mgr)
 {
   Parameters params;
   Parameters results;
@@ -107,7 +112,7 @@ void ManagerTestController::testRegister(Manager* mgr)
   isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
   if (!isSuccess)
-    return;
+    return false;
 
   // Get registry
 
@@ -120,7 +125,7 @@ void ManagerTestController::testRegister(Manager* mgr)
   isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_GET_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
   if (!isSuccess)
-    return;
+    return false;
 
   auto retParam = results.getParameter(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD_PARAM_NAME);
   BOOST_CHECK(retParam);
@@ -142,19 +147,23 @@ void ManagerTestController::testRegister(Manager* mgr)
   results.clear();
   isSuccess = mgr->execMethod(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD, &params, &results, &err);
   BOOST_CHECK(isSuccess);
+  if (!isSuccess)
+    return false;
+
+  return true;
 }
 
 ////////////////////////////////////////////////
 // testQuery
 ////////////////////////////////////////////////
 
-void ManagerTestController::testQuery(Manager* mgr)
+bool ManagerTestController::testQuery(Manager* mgr)
 {
   Foreman::Client client;
 
   // Check whether foremand is runnging
   if (!client.ping())
-    return;
+    return true;
 
   std::vector<std::string> queries;
   queries.push_back("EXPORT FROM CONFIG");
@@ -179,4 +188,6 @@ void ManagerTestController::testQuery(Manager* mgr)
 
     BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
   }
+
+  return true;
 }

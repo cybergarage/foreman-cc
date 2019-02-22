@@ -55,9 +55,9 @@ public:
 
     void run(Manager* scriptMgr);
 
-    void testEcho(Manager* mgr, bool checkResultParameters = true);
-    void testRegister(Manager* mgr);
-    void testQuery(Manager* mgr);
+    bool testEcho(Manager* mgr, bool checkResultParameters = true);
+    bool testRegister(Manager* mgr);
+    bool testQuery(Manager* mgr);
   };
 }
 }
