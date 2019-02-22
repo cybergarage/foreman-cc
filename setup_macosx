@@ -8,3 +8,5 @@ brew install ossp-uuid
 brew install alglib
 brew install lua
 brew install folly zstd jemalloc
+
+brew install boost
