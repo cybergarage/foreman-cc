@@ -166,8 +166,8 @@ if [ test $FOREMAN_SUPPORT_PYTHON = yes ]; then
       AC_MSG_ERROR(FOREMAN for C needs Python $PYTHON_VERSION later)
     fi
   fi
-  #AC_CHECK_HEADERS([Python/Python.h])
-  #AC_CHECK_HEADERS([Python.h])
+  AC_CHECK_HEADERS([Python/Python.h])
+  AC_CHECK_HEADERS([Python.h])
   AC_DEFINE([FOREMAN_SUPPORT_PYTHON],1,[Python])
 fi
 
