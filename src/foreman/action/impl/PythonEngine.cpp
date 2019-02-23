@@ -54,7 +54,7 @@ void Foreman::Action::PythonEngine::initialize()
 {
   // See : Porting Extension Modules to Python 3¶
   // https://docs.python.org/2.7/howto/cporting.html
-  
+
   if (instanceCount_ <= 0) {
 #if PY_MAJOR_VERSION >= 3
     PyImport_AppendInittab(FOREMANCC_PRODUCT_NAME, PyInit_foreman);
@@ -73,7 +73,7 @@ void Foreman::Action::PythonEngine::initialize()
 PyMODINIT_FUNC
 PyInit_foreman(void)
 {
-    return PyModule_Create(Foreman::Action::GetPythonSystemModule());
+  return PyModule_Create(Foreman::Action::GetPythonSystemModule());
 }
 #endif
 
