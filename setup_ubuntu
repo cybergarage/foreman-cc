@@ -1,13 +1,12 @@
 #!/bin/bash
 
+sudo apt-get install -y g++ automake libboost-all-dev make pkg-config
 sudo apt-get install -y libsqlite3-dev libcurl3-dev uuid-dev libalglib-dev
 sudo apt-get install -y valgrind
 
 # For facebook-folly
 sudo apt-get -y install \
-    g++ \
     cmake \
-    libboost-all-dev \
     libevent-dev \
     libdouble-conversion-dev \
     libgoogle-glog-dev \
@@ -16,9 +15,7 @@ sudo apt-get -y install \
     liblz4-dev \
     liblzma-dev \
     libsnappy-dev \
-    make \
     zlib1g-dev \
     binutils-dev \
     libjemalloc-dev \
-    libssl-dev \
-    pkg-config
+    libssl-dev
