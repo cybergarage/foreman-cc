@@ -72,7 +72,7 @@ bool PythonParameter::setName(PyObject* pyObj)
     return false;
 
 #if PY_MAJOR_VERSION >= 3
-  if (!PyBytes_Check(pyObj)) {
+  if (!PyUnicode_Check(pyObj)) {
 #else
   if (!PyString_Check(pyObj)) {
 #endif
@@ -80,7 +80,7 @@ bool PythonParameter::setName(PyObject* pyObj)
   }
 
 #if PY_MAJOR_VERSION >= 3
-  setName(PyBytes_AsString(pyObj));
+  setName(PyUnicode_AsUTF8(pyObj));
 #else
   setName(PyString_AsString(pyObj));
 #endif
@@ -119,7 +119,7 @@ bool PythonParameter::setValue(PyObject* pyObj)
   }
 
 #if PY_MAJOR_VERSION >= 3
-  if (PyBytes_Check(pyObj)) {
+  if (PyUnicode_Check(pyObj)) {
 #else
   if (PyString_Check(pyObj)) {
 #endif
@@ -187,7 +187,7 @@ bool PythonParameter::set(const Parameter* param)
     if (!sparam)
       return false;
 #if PY_MAJOR_VERSION >= 3
-    pyObj = PyBytes_FromString(sparam->getValue().c_str());
+    pyObj = PyUnicode_FromString(sparam->getValue().c_str());
 #else
     pyObj = PyString_FromString(sparam->getValue().c_str());
 #endif
@@ -244,7 +244,7 @@ bool PythonParameter::get(Parameter** param)
     if (!sparam)
       return false;
 #if PY_MAJOR_VERSION >= 3
-    sparam->setValue(PyBytes_AsString(this->obj_));
+    sparam->setValue(PyUnicode_AsUTF8(this->obj_));
 #else
     sparam->setValue(PyString_AsString(this->obj_));
 #endif
@@ -316,7 +316,7 @@ bool PythonParameter::equals(const Parameter* param)
     if (!sparam)
       return false;
 #if PY_MAJOR_VERSION >= 3
-    auto pyValue = PyBytes_AsString(this->obj_);
+    auto pyValue = PyUnicode_AsUTF8(this->obj_);
 #else
     auto pyValue = PyString_AsString(this->obj_);
 #endif
