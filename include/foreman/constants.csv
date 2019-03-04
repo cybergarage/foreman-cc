@@ -65,6 +65,7 @@ system_function_getregister,"get_register"
 system_function_removeregister,"remove_register"
 system_function_executequery,"execute_query"
 system_function_postquery,"post_query"
+system_function_log,"log"
 
 # ================================================================================
 # FQL
