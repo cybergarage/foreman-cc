@@ -66,6 +66,12 @@ system_function_removeregister,"remove_register"
 system_function_executequery,"execute_query"
 system_function_postquery,"post_query"
 system_function_log,"log"
+system_function_log_fatal,"log_fatal"
+system_function_log_error,"log_error"
+system_function_log_warn,"log_warn"
+system_function_log_info,"log_info"
+system_function_log_debug,"log_debug"
+system_function_log_trace,"log_trace"
 
 # ================================================================================
 # FQL

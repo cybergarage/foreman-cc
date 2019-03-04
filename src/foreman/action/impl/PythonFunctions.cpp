@@ -257,31 +257,112 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
  * foreman_python_log
  ****************************************/
 
+PyObject* foreman_python_log_core(PyObject* self, const char* log_message, const char* log_level)
+{
+  size_t outputters;
+  if (strcmp(log_level, "fatal") == 0) {
+    outputters = FOREMAN_LOG_FATAL("%s", log_message);
+  } else if (strcmp(log_level, "error") == 0) {
+    outputters = FOREMAN_LOG_ERROR("%s", log_message);
+  } else if (strcmp(log_level, "warn") == 0) {
+    outputters = FOREMAN_LOG_WARN("%s", log_message);
+  } else if (strcmp(log_level, "debug") == 0) {
+    outputters = FOREMAN_LOG_DEBUG("%s", log_message);
+  } else if (strcmp(log_level, "trace") == 0) {
+    outputters = FOREMAN_LOG_TRACE("%s", log_message);
+  } else {
+    outputters = FOREMAN_LOG_INFO("%s", log_message);
+  }
+
+  return Py_BuildValue("i", (int)outputters);
+}
+
 PyObject* foreman_python_log(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
   const char* log_message;
-  const char* log_level;
-  if (!PyArg_ParseTuple(args, "ss", &log_message, &log_level)) {
+  const char* log_level = NULL;
+  if (!PyArg_ParseTuple(args, "s|s", &log_message, &log_level)) {
+    Py_RETURN_NONE;
+  }
+  if (log_level == NULL) {
+    log_level = "info";
+  }
+
+  return foreman_python_log_core(self, log_message, log_level);
+}
+
+PyObject* foreman_python_log_fatal(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
 
-  if (strcmp(log_level, "fatal") == 0) {
-    FOREMAN_LOG_FATAL("%s", log_message);
-  } else if (strcmp(log_level, "error") == 0) {
-    FOREMAN_LOG_ERROR("%s", log_message);
-  } else if (strcmp(log_level, "warn") == 0) {
-    FOREMAN_LOG_WARN("%s", log_message);
-  } else if (strcmp(log_level, "debug") == 0) {
-    FOREMAN_LOG_DEBUG("%s", log_message);
-  } else if (strcmp(log_level, "trace") == 0) {
-    FOREMAN_LOG_TRACE("%s", log_message);
-  } else {
-    FOREMAN_LOG_INFO("%s", log_message);
+  return foreman_python_log_core(self, log_message, "fatal");
+}
+
+PyObject* foreman_python_log_error(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
+    Py_RETURN_NONE;
   }
 
-  return Py_BuildValue("i", 0);
+  return foreman_python_log_core(self, log_message, "error");
+}
+
+PyObject* foreman_python_log_warn(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
+    Py_RETURN_NONE;
+  }
+
+  return foreman_python_log_core(self, log_message, "warn");
+}
+
+PyObject* foreman_python_log_info(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
+    Py_RETURN_NONE;
+  }
+
+  return foreman_python_log_core(self, log_message, "info");
+}
+
+PyObject* foreman_python_log_debug(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
+    Py_RETURN_NONE;
+  }
+
+  return foreman_python_log_core(self, log_message, "debug");
+}
+
+PyObject* foreman_python_log_trace(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  if (!PyArg_ParseTuple(args, "s", &log_message)) {
+    Py_RETURN_NONE;
+  }
+
+  return foreman_python_log_core(self, log_message, "trace");
 }
 
 /****************************************
@@ -295,6 +376,12 @@ static PyMethodDef gForemanPythonMethods[] = {
   { FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY, foreman_python_executequery, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_POSTQUERY, foreman_python_postquery, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_LOG, foreman_python_log, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_FATAL, foreman_python_log_fatal, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_ERROR, foreman_python_log_error, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_WARN, foreman_python_log_warn, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_INFO, foreman_python_log_info, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_DEBUG, foreman_python_log_debug, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG_TRACE, foreman_python_log_trace, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 

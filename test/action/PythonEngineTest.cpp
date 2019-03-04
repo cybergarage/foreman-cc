@@ -166,10 +166,10 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   // log_message
 
   static const char* PY_LOG_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
-                                          "def " FOREMANCC_TEST_SCRIPT_LOG_METHOD "(params,results):\n"
+                                          "def " FOREMANCC_TEST_SCRIPT_LOG_METHOD "(params, results):\n"
                                           "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
                                           "  log_level = \"" FOREMANCC_TEST_SCRIPT_LOG_LEVEL "\"\n"
-                                          "  " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_LOG "(log_message, log_level)\n"
+                                          "  results['outputters'] = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_LOG "(log_message, log_level)\n"
                                           "  return True\n";
 
   auto foremanLogger = new Foreman::Action::PythonMethod();
