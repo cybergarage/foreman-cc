@@ -268,17 +268,17 @@ PyObject* foreman_python_log(PyObject* self, PyObject* args)
   }
 
   if (strcmp(log_level, "fatal") == 0) {
-    FOREMAN_LOG_FATAL(log_message);
+    FOREMAN_LOG_FATAL("%s", log_message);
   } else if (strcmp(log_level, "error") == 0) {
-    FOREMAN_LOG_ERROR(log_message);
+    FOREMAN_LOG_ERROR("%s", log_message);
   } else if (strcmp(log_level, "warn") == 0) {
-    FOREMAN_LOG_WARN(log_message);
+    FOREMAN_LOG_WARN("%s", log_message);
   } else if (strcmp(log_level, "debug") == 0) {
-    FOREMAN_LOG_DEBUG(log_message);
+    FOREMAN_LOG_DEBUG("%s", log_message);
   } else if (strcmp(log_level, "trace") == 0) {
-    FOREMAN_LOG_TRACE(log_message);
+    FOREMAN_LOG_TRACE("%s", log_message);
   } else {
-    FOREMAN_LOG_INFO(log_message);
+    FOREMAN_LOG_INFO("%s", log_message);
   }
 
   return Py_BuildValue("i", 0);
