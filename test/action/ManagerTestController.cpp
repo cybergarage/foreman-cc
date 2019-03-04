@@ -12,6 +12,7 @@
 
 #include <foreman/Client.h>
 #include <foreman/Const.h>
+#include <foreman/log/Log.h>
 #include <foreman/register/impl/StoreImpl.h>
 
 #include "../ForemanTest.h"
@@ -199,7 +200,7 @@ bool ManagerTestController::testQuery(Manager* mgr)
 // testLog
 ////////////////////////////////////////////////
 
-bool ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
+bool ManagerTestController::testLog(Manager* mgr, bool checkResultParameters)
 {
   Parameters params;
   Parameters results;
