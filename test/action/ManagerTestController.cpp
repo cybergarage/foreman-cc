@@ -40,8 +40,11 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
-  auto logger = Foreman::Log::Logger::GetSharedLogger();
-  logger->addOutputter(new NullOutputter());
+  auto logger = Foreman::Log::Logger::GetSharedInstance();
+  BOOST_CHECK(logger);
+  Foreman::Log::Outputter* nullOutputter = new Foreman::Log::NullOutputter();
+  BOOST_CHECK(nullOutputter);
+  logger->addOutputter(nullOutputter);
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
     bool isSuccess = true;
@@ -49,6 +52,7 @@ void ManagerTestController::run(Manager* mgr)
     isSuccess &= testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
     isSuccess &= testQuery(mgr);
+    isSuccess &= testLog(mgr);
 #endif
     if (!isSuccess)
       break;
@@ -200,21 +204,20 @@ bool ManagerTestController::testQuery(Manager* mgr)
 // testLog
 ////////////////////////////////////////////////
 
-bool ManagerTestController::testLog(Manager* mgr, bool checkResultParameters)
+bool ManagerTestController::testLog(Manager* mgr)
 {
   Parameters params;
   Parameters results;
   Error err;
-  auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err);
-  BOOST_CHECK(isExecuted);
-  if (!isExecuted)
-    return false;
 
-  if (!checkResultParameters)
-    return false;
+  params.clear();
+  results.clear();
+  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err));
 
   auto outputters = results.getParameter("outputters");
-  BOOST_CHECK(outputters == 1);
+  BOOST_CHECK(outputters->isInteger());
+  auto n_outputters = dynamic_cast<Integer*>(outputters);
+  BOOST_CHECK(n_outputters->getValue() == 1);
 
   return true;
 }

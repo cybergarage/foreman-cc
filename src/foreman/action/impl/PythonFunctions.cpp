@@ -257,7 +257,7 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
  * foreman_python_log
  ****************************************/
 
-PyObject* foreman_python_log_core(PyObject* self, const char* log_message, const char* log_level)
+PyObject* foreman_python_log_core(PyObject* self, char* log_message, char* log_level)
 {
   size_t outputters;
   if (strcmp(log_level, "fatal") == 0) {
@@ -281,8 +281,8 @@ PyObject* foreman_python_log(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
-  const char* log_level = NULL;
+  char* log_message;
+  char* log_level = NULL;
   if (!PyArg_ParseTuple(args, "s|s", &log_message, &log_level)) {
     Py_RETURN_NONE;
   }
@@ -297,7 +297,7 @@ PyObject* foreman_python_log_fatal(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -309,7 +309,7 @@ PyObject* foreman_python_log_error(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -321,7 +321,7 @@ PyObject* foreman_python_log_warn(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -333,7 +333,7 @@ PyObject* foreman_python_log_info(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -345,7 +345,7 @@ PyObject* foreman_python_log_debug(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -357,7 +357,7 @@ PyObject* foreman_python_log_trace(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  const char* log_message;
+  char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }

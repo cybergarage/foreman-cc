@@ -62,6 +62,7 @@ public:
     bool testEcho(Manager* mgr, bool checkResultParameters = true);
     bool testRegister(Manager* mgr);
     bool testQuery(Manager* mgr);
+    bool testLog(Manager* mgr);
   };
 }
 }
