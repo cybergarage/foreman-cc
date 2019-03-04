@@ -18,6 +18,7 @@
 #include <foreman/action/impl/Python.h>
 #include <foreman/common/Error.h>
 #include <foreman/log/Log.h>
+#include <string.h>
 
 /****************************************
  * See: Python Documentation - Extending Python with C or C++
@@ -253,6 +254,37 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
 }
 
 /****************************************
+ * foreman_python_log
+ ****************************************/
+
+PyObject* foreman_python_log(PyObject* self, PyObject* args)
+{
+  Foreman::Error err;
+
+  const char* log_message;
+  const char* log_level;
+  if (!PyArg_ParseTuple(args, "ss", &log_message, &log_level)) {
+    Py_RETURN_NONE;
+  }
+
+  if (strcmp(log_level, "fatal") == 0) {
+    FOREMAN_LOG_FATAL(log_message);
+  } else if (strcmp(log_level, "error") == 0) {
+    FOREMAN_LOG_ERROR(log_message);
+  } else if (strcmp(log_level, "warn") == 0) {
+    FOREMAN_LOG_WARN(log_message);
+  } else if (strcmp(log_level, "debug") == 0) {
+    FOREMAN_LOG_DEBUG(log_message);
+  } else if (strcmp(log_level, "trace") == 0) {
+    FOREMAN_LOG_TRACE(log_message);
+  } else {
+    FOREMAN_LOG_INFO(log_message);
+  }
+
+  return true;
+}
+
+/****************************************
  * Python Modules
  ****************************************/
 
@@ -262,6 +294,7 @@ static PyMethodDef gForemanPythonMethods[] = {
   { FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER, foreman_python_removeregister, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY, foreman_python_executequery, METH_VARARGS, "" },
   { FOREMANCC_SYSTEM_FUNCTION_POSTQUERY, foreman_python_postquery, METH_VARARGS, "" },
+  { FOREMANCC_SYSTEM_FUNCTION_LOG, foreman_python_log, METH_VARARGS, "" },
   { NULL, NULL, 0, NULL }
 };
 

@@ -37,6 +37,7 @@ namespace Foreman {
 #define FOREMANCC_SYSTEM_FUNCTION_REMOVEREGISTER "remove_register"
 #define FOREMANCC_SYSTEM_FUNCTION_EXECUTEQUERY "execute_query"
 #define FOREMANCC_SYSTEM_FUNCTION_POSTQUERY "post_query"
+#define FOREMANCC_SYSTEM_FUNCTION_LOG "log"
 #define FOREMANCC_FQL_UPDATE "update"
 #define FOREMANCC_FQL_SELECT "select"
 #define FOREMANCC_FQL_ANALYZE "analyze"

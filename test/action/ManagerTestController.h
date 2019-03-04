@@ -41,6 +41,10 @@
 #define FOREMANCC_TEST_SCRIPT_POST_QUERY_HOST "localhost"
 #define FOREMANCC_TEST_SCRIPT_POST_QUERY_PORT "8188"
 
+#define FOREMANCC_TEST_SCRIPT_LOG_METHOD "test_log"
+#define FOREMANCC_TEST_SCRIPT_LOG_LEVEL "debug"
+#define FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "test_message"
+
 ////////////////////////////////////////////////
 // ManagerTestController.h
 ////////////////////////////////////////////////
