@@ -39,6 +39,9 @@ void ManagerTestController::run(Manager* mgr)
   BOOST_CHECK(regStore.open());
   BOOST_CHECK(mgr->setRegisterStore(&regStore));
 
+  auto logger = Foreman::Log::Logger::GetSharedLogger();
+  logger->addOutputter(new NullOutputter());
+
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
     bool isSuccess = true;
     isSuccess &= testEcho(mgr);
@@ -49,7 +52,7 @@ void ManagerTestController::run(Manager* mgr)
     if (!isSuccess)
       break;
   }
-
+  logger->clear();
   BOOST_CHECK(regStore.close());
 }
 
@@ -188,6 +191,29 @@ bool ManagerTestController::testQuery(Manager* mgr)
 
     BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
   }
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// testLog
+////////////////////////////////////////////////
+
+bool ManagerTestController::testEcho(Manager* mgr, bool checkResultParameters)
+{
+  Parameters params;
+  Parameters results;
+  Error err;
+  auto isExecuted = mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err);
+  BOOST_CHECK(isExecuted);
+  if (!isExecuted)
+    return false;
+
+  if (!checkResultParameters)
+    return false;
+
+  auto outputters = results.getParameter("outputters");
+  BOOST_CHECK(outputters == 1);
 
   return true;
 }
