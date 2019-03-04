@@ -281,7 +281,7 @@ PyObject* foreman_python_log(PyObject* self, PyObject* args)
     FOREMAN_LOG_INFO(log_message);
   }
 
-  return true;
+  return Py_BuildValue("i", 0);
 }
 
 /****************************************
