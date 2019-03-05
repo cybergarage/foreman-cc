@@ -12,6 +12,7 @@
 
 #include "ManagerTestController.h"
 #include <foreman/action/impl/Python.h>
+#include <boost/format.hpp>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -163,8 +164,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(postQuery->setCode(PY_POST_QUERY_CODE));
   BOOST_CHECK(mgr.addMethod(postQuery, &err));
 
-  // log_message
-
+  // log
   static const char* PY_LOG_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
                                           "def " FOREMANCC_TEST_SCRIPT_LOG_METHOD "(params, results):\n"
                                           "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
@@ -176,6 +176,55 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(foremanLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_METHOD));
   BOOST_CHECK(foremanLogger->setCode(PY_LOG_CODE));
   BOOST_CHECK(mgr.addMethod(foremanLogger, &err));
+
+  // log_*
+  static auto PY_LOG_CODE_TEMPLATE = "import " FOREMANCC_PRODUCT_NAME "\n"
+                                          "def %s(params, results):\n"
+                                          "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
+                                          "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME ".%s(log_message)\n"
+                                          "  return True\n";
+
+  auto foremanFatalLogger = new Foreman::Action::PythonMethod();
+  auto testLogFatal = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_FATAL)).str().c_str();
+  BOOST_CHECK(testLogFatal);
+  BOOST_CHECK(foremanFatalLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD));
+  BOOST_CHECK(foremanFatalLogger->setCode(testLogFatal));
+  BOOST_CHECK(mgr.addMethod(foremanFatalLogger, &err));
+
+  auto foremanErrorLogger = new Foreman::Action::PythonMethod();
+  auto testLogError = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_ERROR)).str().c_str();
+  BOOST_CHECK(testLogError);
+  BOOST_CHECK(foremanErrorLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD));
+  BOOST_CHECK(foremanErrorLogger->setCode(testLogError));
+  BOOST_CHECK(mgr.addMethod(foremanErrorLogger, &err));
+
+  auto foremanWarnLogger = new Foreman::Action::PythonMethod();
+  auto testLogWarn = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_WARN)).str().c_str();
+  BOOST_CHECK(testLogWarn);
+  BOOST_CHECK(foremanWarnLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD));
+  BOOST_CHECK(foremanWarnLogger->setCode(testLogWarn));
+  BOOST_CHECK(mgr.addMethod(foremanWarnLogger, &err));
+
+  auto foremanInfoLogger = new Foreman::Action::PythonMethod();
+  auto testLogInfo = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_INFO)).str().c_str();
+  BOOST_CHECK(testLogInfo);
+  BOOST_CHECK(foremanInfoLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD));
+  BOOST_CHECK(foremanInfoLogger->setCode(testLogInfo));
+  BOOST_CHECK(mgr.addMethod(foremanInfoLogger, &err));
+
+  auto foremanDebugLogger = new Foreman::Action::PythonMethod();
+  auto testLogDebug = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_DEBUG)).str().c_str();
+  BOOST_CHECK(testLogDebug);
+  BOOST_CHECK(foremanDebugLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD));
+  BOOST_CHECK(foremanDebugLogger->setCode(testLogDebug));
+  BOOST_CHECK(mgr.addMethod(foremanDebugLogger, &err));
+
+  auto foremanTraceLogger = new Foreman::Action::PythonMethod();
+  auto testLogTrace = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_TRACE)).str().c_str();
+  BOOST_CHECK(testLogTrace);
+  BOOST_CHECK(foremanTraceLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD));
+  BOOST_CHECK(foremanTraceLogger->setCode(testLogTrace));
+  BOOST_CHECK(mgr.addMethod(foremanTraceLogger, &err));
 
   // run all tests
 

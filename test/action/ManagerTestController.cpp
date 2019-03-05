@@ -9,6 +9,8 @@
  ******************************************************************/
 
 #include <boost/test/unit_test.hpp>
+#include <array>
+#include <string>
 
 #include <foreman/Client.h>
 #include <foreman/Const.h>
@@ -42,17 +44,19 @@ void ManagerTestController::run(Manager* mgr)
 
   auto logger = Foreman::Log::Logger::GetSharedInstance();
   BOOST_CHECK(logger);
+  logger->setLevel(Foreman::Log::LogLevel::ALL);
   Foreman::Log::Outputter* nullOutputter = new Foreman::Log::NullOutputter();
   BOOST_CHECK(nullOutputter);
   logger->addOutputter(nullOutputter);
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
     bool isSuccess = true;
-    isSuccess &= testEcho(mgr);
-    isSuccess &= testRegister(mgr);
+    //isSuccess &= testEcho(mgr);
+    //isSuccess &= testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    isSuccess &= testQuery(mgr);
-    isSuccess &= testLog(mgr);
+    //isSuccess &= testQuery(mgr);
+    //isSuccess &= testLog(mgr);
+    isSuccess &= testLogX(mgr);
 #endif
     if (!isSuccess)
       break;
@@ -217,11 +221,47 @@ bool ManagerTestController::testLog(Manager* mgr)
   auto outputters = results.getParameter("outputters");
   if (outputters) {
     BOOST_CHECK(outputters->isInteger());
-    auto n_outputters = dynamic_cast<Integer*>(outputters);
-    BOOST_CHECK(n_outputters->getValue() == 1);
+    auto n_outputters = dynamic_cast<Integer*>(outputters)->getValue();
+    BOOST_CHECK(n_outputters == 1);
   } else {
     return false;
   }
+
+  return true;
+}
+
+////////////////////////////////////////////////
+// testLog_*
+////////////////////////////////////////////////
+
+bool ManagerTestController::testLogX(Manager* mgr)
+{
+  std::array<std::string, 6> levels{
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD),
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD),
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD),
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD),
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD),
+    std::string(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD)
+  };
+  for (auto itr=levels.cbegin(); itr!=levels.cend(); itr++) {
+    Parameters params;
+    Parameters results;
+    Error err;
+
+    params.clear();
+    results.clear();
+    BOOST_CHECK(mgr->execMethod(*itr, &params, &results, &err));
+    auto outputters = results.getParameter("outputters");
+    if (outputters) {
+      BOOST_CHECK(outputters->isInteger());
+      auto n_outputters = dynamic_cast<Integer*>(outputters)->getValue();
+      BOOST_CHECK(n_outputters == 1);
+    } else {
+      return false;
+    } 
+  }
+  
 
   return true;
 }
