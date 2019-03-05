@@ -274,7 +274,7 @@ PyObject* foreman_python_log_core(PyObject* self, const char* log_message, const
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, "%s", log_message);
   }
 
-  return Py_BuildValue("k", outputters);
+  return Py_BuildValue("l", outputters);
 }
 
 PyObject* foreman_python_log(PyObject* self, PyObject* args)
