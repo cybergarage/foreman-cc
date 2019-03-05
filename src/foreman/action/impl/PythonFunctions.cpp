@@ -257,7 +257,7 @@ PyObject* foreman_python_postquery(PyObject* self, PyObject* args)
  * foreman_python_log
  ****************************************/
 
-PyObject* foreman_python_log_core(PyObject* self, char* log_message, char* log_level)
+PyObject* foreman_python_log_core(PyObject* self, const char* log_message, const char* log_level)
 {
   size_t outputters;
   if (strcmp(log_level, "fatal") == 0) {
@@ -274,20 +274,17 @@ PyObject* foreman_python_log_core(PyObject* self, char* log_message, char* log_l
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, "%s", log_message);
   }
 
-  return Py_BuildValue("i", (int)outputters);
+  return Py_BuildValue("k", outputters);
 }
 
 PyObject* foreman_python_log(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
-  char* log_level = NULL;
-  if (!PyArg_ParseTuple(args, "s|s", &log_message, &log_level)) {
+  const char* log_message;
+  const char* log_level;
+  if (!PyArg_ParseTuple(args, "ss", &log_message, &log_level)) {
     Py_RETURN_NONE;
-  }
-  if (log_level == NULL) {
-    log_level = "info";
   }
 
   return foreman_python_log_core(self, log_message, log_level);
@@ -297,7 +294,7 @@ PyObject* foreman_python_log_fatal(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -309,7 +306,7 @@ PyObject* foreman_python_log_error(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -321,7 +318,7 @@ PyObject* foreman_python_log_warn(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -333,7 +330,7 @@ PyObject* foreman_python_log_info(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -345,7 +342,7 @@ PyObject* foreman_python_log_debug(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
@@ -357,7 +354,7 @@ PyObject* foreman_python_log_trace(PyObject* self, PyObject* args)
 {
   Foreman::Error err;
 
-  char* log_message;
+  const char* log_message;
   if (!PyArg_ParseTuple(args, "s", &log_message)) {
     Py_RETURN_NONE;
   }
