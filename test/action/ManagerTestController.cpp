@@ -215,9 +215,13 @@ bool ManagerTestController::testLog(Manager* mgr)
   BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err));
 
   auto outputters = results.getParameter("outputters");
-  BOOST_CHECK(outputters->isInteger());
-  auto n_outputters = dynamic_cast<Integer*>(outputters);
-  BOOST_CHECK(n_outputters->getValue() == 1);
+  if (outputters) {
+    BOOST_CHECK(outputters->isInteger());
+    auto n_outputters = dynamic_cast<Integer*>(outputters);
+    BOOST_CHECK(n_outputters->getValue() == 1);
+  } else {
+    return false;
+  }
 
   return true;
 }
