@@ -51,11 +51,11 @@ void ManagerTestController::run(Manager* mgr)
 
   for (int n = 0; n < FOREMANCC_TEST_SCRIPT_REPETITION_COUNT; n++) {
     bool isSuccess = true;
-    //isSuccess &= testEcho(mgr);
-    //isSuccess &= testRegister(mgr);
+    isSuccess &= testEcho(mgr);
+    isSuccess &= testRegister(mgr);
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    //isSuccess &= testQuery(mgr);
-    //isSuccess &= testLog(mgr);
+    isSuccess &= testQuery(mgr);
+    isSuccess &= testLog(mgr);
     isSuccess &= testLogX(mgr);
 #endif
     if (!isSuccess)
