@@ -111,6 +111,13 @@ bool PythonParameter::setValue(PyObject* pyObj)
     return true;
   }
 
+  if (PyInt_Check(pyObj)) {
+    this->obj_ = pyObj;
+    Py_XINCREF(this->obj_);
+    setType(IntegerType);
+    return true;
+  }
+
   if (PyFloat_Check(pyObj)) {
     this->obj_ = pyObj;
     Py_XINCREF(this->obj_);
