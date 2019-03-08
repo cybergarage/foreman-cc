@@ -41,6 +41,16 @@
 #define FOREMANCC_TEST_SCRIPT_POST_QUERY_HOST "localhost"
 #define FOREMANCC_TEST_SCRIPT_POST_QUERY_PORT "8188"
 
+#define FOREMANCC_TEST_SCRIPT_LOG_METHOD "test_log"
+#define FOREMANCC_TEST_SCRIPT_LOG_LEVEL "error"
+#define FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "test_message"
+#define FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD "test_log_fatal"
+#define FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD "test_log_error"
+#define FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD "test_log_warn"
+#define FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD "test_log_info"
+#define FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD "test_log_debug"
+#define FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD "test_log_trace"
+
 ////////////////////////////////////////////////
 // ManagerTestController.h
 ////////////////////////////////////////////////
@@ -58,6 +68,8 @@ public:
     bool testEcho(Manager* mgr, bool checkResultParameters = true);
     bool testRegister(Manager* mgr);
     bool testQuery(Manager* mgr);
+    bool testLog(Manager* mgr);
+    bool testLogX(Manager* mgr);
   };
 }
 }
