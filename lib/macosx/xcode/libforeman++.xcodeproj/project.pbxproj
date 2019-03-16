@@ -561,19 +561,19 @@
 		2175C2F31E52F444006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				21C028E022018F8600C6B968 /* log */,
 				2183486521CA499200B3E95F /* Client.h */,
-				2113F19E201FA04200F5C672 /* register */,
-				2113F18A201FA00100F5C672 /* action */,
-				2188DBDF1FB00ADF00940208 /* registry */,
-				215DB2771FAAD69B0089A36B /* common */,
-				216A5AEB1F9C59830092272A /* util */,
-				216A5ADA1F9C597B0092272A /* metric */,
 				21B60DBC1E5D47D3009D663B /* Const.h */,
 				218D47C81F503251002A3FA2 /* foreman-c.h */,
 				21ED98301E61B3DD00CDEAD5 /* Foreman.h */,
 				2175C2F51E52F444006C4425 /* Platform.h */,
+				2113F18A201FA00100F5C672 /* action */,
+				215DB2771FAAD69B0089A36B /* common */,
+				21C028E022018F8600C6B968 /* log */,
+				216A5ADA1F9C597B0092272A /* metric */,
 				2129D19A1E9693E700FCA490 /* net */,
+				2113F19E201FA04200F5C672 /* register */,
+				2188DBDF1FB00ADF00940208 /* registry */,
+				216A5AEB1F9C59830092272A /* util */,
 			);
 			name = foreman;
 			path = ../../../include/foreman;
@@ -592,15 +592,15 @@
 		2175C2F91E52F470006C4425 /* foreman */ = {
 			isa = PBXGroup;
 			children = (
-				21C028E322018FBE00C6B968 /* log */,
-				21BA40F0201F42D10083998C /* register */,
-				21BA40C1201EEC580083998C /* binding */,
 				2187B6C31FC5AC9000E2234D /* action */,
-				215DB2A11FAB3A730089A36B /* registry */,
+				21BA40C1201EEC580083998C /* binding */,
 				215DB27B1FAAD6CE0089A36B /* common */,
+				21C028E322018FBE00C6B968 /* log */,
 				216A5AEE1F9C59990092272A /* metric */,
-				21C85F131F9C4BB000D59EAE /* util */,
 				2129D19F1E96940500FCA490 /* net */,
+				21BA40F0201F42D10083998C /* register */,
+				215DB2A11FAB3A730089A36B /* registry */,
+				21C85F131F9C4BB000D59EAE /* util */,
 			);
 			name = foreman;
 			path = ../../../src/foreman;
