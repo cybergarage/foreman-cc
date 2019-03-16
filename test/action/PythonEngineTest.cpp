@@ -75,6 +75,8 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(err_method->setName(FOREMANCC_TEST_SCRIPT_ERROR_METHOD));
   BOOST_CHECK(err_method->setCode(PY_ERROR_CODE));
   BOOST_CHECK(!mgr.addMethod(err_method, &err));
+  BOOST_CHECK(err.hasMessage());
+  BOOST_CHECK(err.hasDetailMessage());
   delete err_method; // Must delete an invalid method instance when it is not added
 
   // echo

@@ -95,6 +95,11 @@ class Error {
     return this->message.c_str();
   }
 
+  bool hasMessage() const
+  {
+    return (0 < this->message.length()) ? true : false;
+  }
+
   int getDetailCode() const
   {
     return this->detailCode;
@@ -103,6 +108,11 @@ class Error {
   const char* getDetailMessage() const
   {
     return this->detailMessage.c_str();
+  }
+
+  bool hasDetailMessage() const
+  {
+    return (0 < this->detailMessage.length()) ? true : false;
   }
 
   int getLineNo() const
