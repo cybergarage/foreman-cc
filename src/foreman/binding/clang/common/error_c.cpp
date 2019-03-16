@@ -119,6 +119,50 @@ bool foreman_error_setfuncname(ForemanError* e, const char* name)
 }
 
 ////////////////////////////////////////////////
+// foreman_error_hasmessage
+////////////////////////////////////////////////
+
+bool foreman_error_hasmessage(ForemanError* e)
+{
+  if (!e)
+    return false;
+  return ((Foreman::Error*)(e))->hasMessage();
+}
+
+////////////////////////////////////////////////
+// foreman_error_hascode
+////////////////////////////////////////////////
+
+bool foreman_error_hascode(ForemanError* e)
+{
+  if (!e)
+    return false;
+  return ((Foreman::Error*)(e))->hasCode();
+}
+
+////////////////////////////////////////////////
+// foreman_error_hasdetailmessage
+////////////////////////////////////////////////
+
+bool foreman_error_hasdetailmessage(ForemanError* e)
+{
+  if (!e)
+    return false;
+  return ((Foreman::Error*)(e))->hasDetailMessage();
+}
+
+////////////////////////////////////////////////
+// foreman_error_hasdetailcode
+////////////////////////////////////////////////
+
+bool foreman_error_hasdetailcode(ForemanError* e)
+{
+  if (!e)
+    return false;
+  return ((Foreman::Error*)(e))->hasDetailCode();
+}
+
+////////////////////////////////////////////////
 // foreman_error_getmessage
 ////////////////////////////////////////////////
 
