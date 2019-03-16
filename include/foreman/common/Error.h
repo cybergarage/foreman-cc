@@ -83,6 +83,11 @@ class Error {
     return this->code;
   }
 
+  bool hasCode() const
+  {
+    return (0 < this->code) ? true : false;
+  }
+
   bool isInternalError() const
   {
     if (this->code < ERROR_INTERNAL_ERROR)
@@ -103,6 +108,11 @@ class Error {
   int getDetailCode() const
   {
     return this->detailCode;
+  }
+
+  bool hasDetailCode() const
+  {
+    return (0 < this->detailCode) ? true : false;
   }
 
   const char* getDetailMessage() const

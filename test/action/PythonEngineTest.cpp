@@ -11,8 +11,8 @@
 #include <boost/test/unit_test.hpp>
 
 #include "ManagerTestController.h"
-#include <foreman/action/impl/Python.h>
 #include <boost/format.hpp>
+#include <foreman/action/impl/Python.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -168,11 +168,11 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   // log
   static const char* PY_LOG_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
-                                          "def " FOREMANCC_TEST_SCRIPT_LOG_METHOD "(params, results):\n"
-                                          "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
-                                          "  log_level = \"" FOREMANCC_TEST_SCRIPT_LOG_LEVEL "\"\n"
-                                          "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_LOG "(log_message, log_level)\n"
-                                          "  return True\n";
+                                   "def " FOREMANCC_TEST_SCRIPT_LOG_METHOD "(params, results):\n"
+                                   "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
+                                   "  log_level = \"" FOREMANCC_TEST_SCRIPT_LOG_LEVEL "\"\n"
+                                   "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME "." FOREMANCC_SYSTEM_FUNCTION_LOG "(log_message, log_level)\n"
+                                   "  return True\n";
 
   auto foremanLogger = new Foreman::Action::PythonMethod();
   BOOST_CHECK(foremanLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_METHOD));
@@ -181,10 +181,10 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
 
   // log_*
   static auto PY_LOG_CODE_TEMPLATE = "import " FOREMANCC_PRODUCT_NAME "\n"
-                                          "def %s(params, results):\n"
-                                          "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
-                                          "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME ".%s(log_message)\n"
-                                          "  return True\n";
+                                     "def %s(params, results):\n"
+                                     "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
+                                     "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME ".%s(log_message)\n"
+                                     "  return True\n";
 
   auto foremanFatalLogger = new Foreman::Action::PythonMethod();
   auto testLogFatal = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_FATAL)).str().c_str();
