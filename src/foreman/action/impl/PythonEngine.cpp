@@ -265,7 +265,7 @@ bool foreman_python_getlasterror(Foreman::Error* error)
     }
   }
 
-  error->setMessage(pyErrMsg.str());
+  error->setDetailMessage(pyErrMsg.str());
 
 #if defined(DEBUG)
   if (ptype) {
