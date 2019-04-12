@@ -52,6 +52,13 @@ public:
       return timestamp_;
     }
 
+    bool isValid() {
+      if (isinf(value_) || isnan(value_)) {
+        return false;
+      }
+      return true;
+    }
+
 private:
     double value_;
     time_t timestamp_;
