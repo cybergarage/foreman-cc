@@ -219,9 +219,6 @@ void StoreTestContoller::testAll(Foreman::Metric::Store* store)
           continue;
         auto corr = m->getDataPoint(0);
         BOOST_CHECK(0 <= corr->getValue());
-        auto maxDp = m->getDataPoint(1);
-        BOOST_CHECK(0 <= maxDp->getValue());
-        BOOST_CHECK(0 <= maxDp->getTimestamp());
       }
 
       // NOTE : Check only first metrics to save the testing time.

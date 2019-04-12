@@ -161,6 +161,9 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs, Error* err)
         rm->addDataPoint(dp);
       }
     }
+    else {
+      rm->addDataPoint(new DataPoint());
+    }
 
     // [2] : Min Value
     auto minIndex = otherFirstMetrics->getMinValueIndex();
@@ -172,6 +175,9 @@ bool Store::analyzeData(Query* q, ResultSet* analyzeRs, Error* err)
         dp->setTimestamp(maxDp->getTimestamp());
         rm->addDataPoint(dp);
       }
+    }
+    else {
+      rm->addDataPoint(new DataPoint());
     }
 
     resultMs.addMetrics(rm);
