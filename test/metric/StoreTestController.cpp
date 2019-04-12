@@ -180,7 +180,7 @@ void StoreTestContoller::testAll(Foreman::Metric::Store* store)
 
       Foreman::Metric::ResultSet rs;
 
-      BOOST_CHECK(!store->analyzeData(&q, &rs, &err));
+      BOOST_CHECK(store->analyzeData(&q, &rs, &err));
 
       // NOTE : Check only first metrics to save the testing time.
       if (m)
