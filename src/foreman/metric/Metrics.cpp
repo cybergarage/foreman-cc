@@ -151,7 +151,12 @@ bool Metrics::getMetricsValues(alglib::real_1d_array& realArray)
   realArray.setlength(metricsCount);
   for (size_t n = 0; n < metricsCount; n++) {
     auto dp = getDataPoint(n);
-    realArray[n] = dp->getValue();
+    auto dpValue = dp->getValue();
+    if (isinf(dpValue) || isnan(dpValue)) {
+      realArray[n] = 0.0;
+      continue;
+    }
+    realArray[n] = dpValue;
   }
 
   return true;
