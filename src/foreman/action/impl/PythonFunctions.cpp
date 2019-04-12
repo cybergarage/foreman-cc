@@ -262,15 +262,20 @@ PyObject* foreman_python_log_core(PyObject* self, const char* log_message, const
   size_t outputters;
   if (strcmp(log_level, "fatal") == 0) {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::FATAL, "%s", log_message);
-  } else if (strcmp(log_level, "error") == 0) {
+  }
+  else if (strcmp(log_level, "error") == 0) {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::ERROR, "%s", log_message);
-  } else if (strcmp(log_level, "warn") == 0) {
+  }
+  else if (strcmp(log_level, "warn") == 0) {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::WARN, "%s", log_message);
-  } else if (strcmp(log_level, "debug") == 0) {
+  }
+  else if (strcmp(log_level, "debug") == 0) {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::DBG, "%s", log_message);
-  } else if (strcmp(log_level, "trace") == 0) {
+  }
+  else if (strcmp(log_level, "trace") == 0) {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::TRACE, "%s", log_message);
-  } else {
+  }
+  else {
     outputters = Foreman::Log::Logger::GetSharedInstance()->message(Foreman::Log::INFO, "%s", log_message);
   }
 
