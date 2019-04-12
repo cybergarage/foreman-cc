@@ -18,6 +18,8 @@ using namespace Foreman::Metric;
 
 DataPoint::DataPoint()
 {
+//  value_ = NAN;
+//  timestamp_ = 0;
 }
 
 DataPoint::~DataPoint() {}
