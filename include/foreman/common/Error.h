@@ -83,6 +83,11 @@ class Error {
     return this->code;
   }
 
+  bool hasCode() const
+  {
+    return (0 < this->code) ? true : false;
+  }
+
   bool isInternalError() const
   {
     if (this->code < ERROR_INTERNAL_ERROR)
@@ -95,14 +100,29 @@ class Error {
     return this->message.c_str();
   }
 
+  bool hasMessage() const
+  {
+    return (0 < this->message.length()) ? true : false;
+  }
+
   int getDetailCode() const
   {
     return this->detailCode;
   }
 
+  bool hasDetailCode() const
+  {
+    return (0 < this->detailCode) ? true : false;
+  }
+
   const char* getDetailMessage() const
   {
     return this->detailMessage.c_str();
+  }
+
+  bool hasDetailMessage() const
+  {
+    return (0 < this->detailMessage.length()) ? true : false;
   }
 
   int getLineNo() const
