@@ -99,15 +99,15 @@ ssize_t Metrics::getMaxValueIndex()
 {
   double lastMaxValue = NAN;
   size_t lastMaxValueIndex = -1;
+
   size_t n = 0;
   for (auto dp : *this) {
-    if (n == 0) {
-      lastMaxValueIndex = 0;
-      lastMaxValue = dp->getValue();
-    }
-    else if (lastMaxValue <= dp->getValue()) {
-      lastMaxValueIndex = n;
-      lastMaxValue = dp->getValue();
+    if (dp->isValid()) {
+      auto dpValue = dp->getValue();
+      if ((lastMaxValue == NAN) || (lastMaxValue <= dpValue)) {
+        lastMaxValueIndex = n;
+        lastMaxValue = dpValue;
+      }
     }
     n++;
   }
@@ -123,15 +123,15 @@ ssize_t Metrics::getMinValueIndex()
 {
   double lastMinValue = NAN;
   size_t lastMinValueIndex = -1;
+
   size_t n = 0;
   for (auto dp : *this) {
-    if (n == 0) {
-      lastMinValueIndex = 0;
-      lastMinValue = dp->getValue();
-    }
-    else if (dp->getValue() < lastMinValue) {
-      lastMinValueIndex = n;
-      lastMinValue = dp->getValue();
+    if (dp->isValid()) {
+      auto dpValue = dp->getValue();
+      if ((lastMinValue == NAN) || (dpValue < lastMinValue)) {
+        lastMinValueIndex = n;
+        lastMinValue = dpValue;
+      }
     }
     n++;
   }
