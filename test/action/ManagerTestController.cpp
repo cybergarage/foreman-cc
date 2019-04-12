@@ -8,8 +8,8 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
 #include <array>
+#include <boost/test/unit_test.hpp>
 #include <string>
 
 #include <foreman/Client.h>
@@ -223,7 +223,8 @@ bool ManagerTestController::testLog(Manager* mgr)
     BOOST_CHECK(outputters->isInteger());
     auto n_outputters = dynamic_cast<Integer*>(outputters)->getValue();
     BOOST_CHECK(n_outputters == 1);
-  } else {
+  }
+  else {
     return false;
   }
 
@@ -236,7 +237,7 @@ bool ManagerTestController::testLog(Manager* mgr)
 
 bool ManagerTestController::testLogX(Manager* mgr)
 {
-  std::array<std::string, 6> levels{
+  std::array<std::string, 6> levels {
     std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD),
     std::string(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD),
     std::string(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD),
@@ -244,7 +245,7 @@ bool ManagerTestController::testLogX(Manager* mgr)
     std::string(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD),
     std::string(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD)
   };
-  for (auto itr=levels.cbegin(); itr!=levels.cend(); itr++) {
+  for (auto itr = levels.cbegin(); itr != levels.cend(); itr++) {
     Parameters params;
     Parameters results;
     Error err;
@@ -257,11 +258,11 @@ bool ManagerTestController::testLogX(Manager* mgr)
       BOOST_CHECK(outputters->isInteger());
       auto n_outputters = dynamic_cast<Integer*>(outputters)->getValue();
       BOOST_CHECK(n_outputters == 1);
-    } else {
+    }
+    else {
       return false;
-    } 
+    }
   }
-  
 
   return true;
 }
