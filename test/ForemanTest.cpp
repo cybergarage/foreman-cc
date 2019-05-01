@@ -12,9 +12,8 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MAIN
 
-#include <boost/random.hpp>
 #include <boost/test/unit_test.hpp>
-#include <boost/thread.hpp>
+#include <boost/random.hpp>
 
 #include "ForemanTest.h"
 
