@@ -14,7 +14,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
 	../BenchmarkController.h
 
 foremanbench_SOURCES = \
-	../BenchmarkController.cpp \
-	../foremanbench.cpp
+	../foremanbench.cpp \
+	../BenchmarkController.cpp
 
 foremanbench_LDADD = ../../../lib/unix/libforeman++.a
