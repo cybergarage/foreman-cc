@@ -3,13 +3,13 @@ export CFLAGS="$CFLAGS -I/usr/local/include"
 export LDFLAGS="$LDFLAGS -L/usr/local/lib"
 
 # Python
-if [ `which python-config` ]; then
-    export CFLAGS="$CFLAGS `python-config --includes`"
-    export LDFLAGS="$LDFLAGS `python-config --libs`"
+if [ `which python3-config` ]; then
+    export CFLAGS="$CFLAGS `python3-config --includes`"
+    export LDFLAGS="$LDFLAGS `python3-config --libs`"
 else
-    if [ `which python3-config` ]; then
-        export CFLAGS="$CFLAGS `python3-config --includes`"
-        export LDFLAGS="$LDFLAGS `python3-config --libs`"
+    if [ `which python-config` ]; then
+        export CFLAGS="$CFLAGS `python-config --includes`"
+        export LDFLAGS="$LDFLAGS `python-config --libs`"
     fi
 fi
 
