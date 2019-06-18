@@ -74,7 +74,7 @@ bool Foreman::Error::equals(const Error& other) const
   return true;
 }
 
-std::ostream& Foreman::operator<<(std::ostream &os, const Foreman::Error &err)
+std::ostream& Foreman::operator<<(std::ostream &os, const Error &err)
 {
   if (0 < err.getCode())
     os << "[" << err.getCode() << "] ";
