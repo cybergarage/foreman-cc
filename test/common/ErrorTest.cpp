@@ -32,14 +32,14 @@ BOOST_AUTO_TEST_CASE(ErroSetterTest02)
 {
   Error err01(2, "error");
   BOOST_CHECK_EQUAL(err01.getCode(), 2);
-  BOOST_CHECK_EQUAL(strcmp("error", err01.getMessage()), 0);
+  BOOST_CHECK_EQUAL(strcmp("error", err01.getMessage().c_str()), 0);
 
   Error err02;
   BOOST_CHECK_EQUAL(err02.getCode(), 0);
   err02.setCode(2);
   err02.setMessage("error");
   BOOST_CHECK_EQUAL(err02.getCode(), 2);
-  BOOST_CHECK_EQUAL(strcmp("error", err02.getMessage()), 0);
+  BOOST_CHECK_EQUAL(strcmp("error", err02.getMessage().c_str()), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ErroDetailSetterTest)
@@ -54,8 +54,8 @@ BOOST_AUTO_TEST_CASE(ErroDetailSetterTest)
 
   err.setMessage("error");
   err.setDetailMessage("detail error");
-  BOOST_CHECK(strcmp("detail error", err.getDetailMessage()) == 0);
-  BOOST_CHECK(strcmp(err.getMessage(), err.getDetailMessage()) != 0);
+  BOOST_CHECK(strcmp("detail error", err.getDetailMessage().c_str()) == 0);
+  BOOST_CHECK(strcmp(err.getMessage().c_str(), err.getDetailMessage().c_str()) != 0);
 }
 
 BOOST_AUTO_TEST_CASE(ErroCopyTest)

@@ -11,8 +11,10 @@
 #ifndef _FOREMANCC_ERROR_H_
 #define _FOREMANCC_ERROR_H_
 
-#include <foreman/common/Errors.h>
 #include <string>
+#include <iostream>
+
+#include <foreman/common/Errors.h>
 
 namespace Foreman {
 
@@ -95,9 +97,9 @@ class Error {
     return true;
   }
 
-  const char* getMessage() const
+  const std::string &getMessage() const
   {
-    return this->message.c_str();
+    return this->message;
   }
 
   bool hasMessage() const
@@ -115,9 +117,9 @@ class Error {
     return (0 < this->detailCode) ? true : false;
   }
 
-  const char* getDetailMessage() const
+  const std::string &getDetailMessage() const
   {
-    return this->detailMessage.c_str();
+    return this->detailMessage;
   }
 
   bool hasDetailMessage() const
@@ -144,6 +146,8 @@ class Error {
 
   void setErrorNo(int errorno);
 
+  friend std::ostream& operator<<(std::ostream&, const Error&);
+  
   private:
   void initialize();
 
