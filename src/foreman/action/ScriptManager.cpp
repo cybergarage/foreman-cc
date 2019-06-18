@@ -192,13 +192,13 @@ bool ScriptManager::execMethod(const std::string& name, const Parameters* params
   // NOTE : Disable to be able to execute query function in method
   lock();
 #endif
-  
+
   bool execResult = scriptEngine->run(method, params, results, err);
 
 #if FOREMANCC_ENABLE_RECURSIVE_EXECUTION
   // NOTE : Disable to be able to execute query function in method
   unlock();
 #endif
-  
+
   return execResult;
 }

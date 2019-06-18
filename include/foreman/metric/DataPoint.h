@@ -53,7 +53,8 @@ public:
       return timestamp_;
     }
 
-    bool isValid() {
+    bool isValid()
+    {
       if (isinf(value_) || isnan(value_)) {
         return false;
       }
