@@ -8,11 +8,11 @@
  *
  ******************************************************************/
 
-#include <boost/test/unit_test.hpp>
 #include <boost/format.hpp>
+#include <boost/test/unit_test.hpp>
 
-#include <foreman/action/impl/Python.h>
 #include "ManagerTestController.h"
+#include <foreman/action/impl/Python.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -185,6 +185,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
                                      "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
                                      "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME ".%s(log_message)\n"
                                      "  return True\n";
+
   auto foremanFatalLogger = new Foreman::Action::PythonMethod();
   auto testLogFatal = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_FATAL)).str().c_str();
   BOOST_CHECK(testLogFatal);
@@ -227,7 +228,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(foremanTraceLogger->setCode(testLogTrace));
   BOOST_CHECK_MESSAGE(mgr.addMethod(foremanTraceLogger, &err), err);
 
- // run all tests
+  // run all tests
 
   testController.run(&mgr);
 }

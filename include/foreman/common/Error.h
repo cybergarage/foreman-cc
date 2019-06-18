@@ -11,8 +11,8 @@
 #ifndef _FOREMANCC_ERROR_H_
 #define _FOREMANCC_ERROR_H_
 
-#include <string>
 #include <iostream>
+#include <string>
 
 #include <foreman/common/Errors.h>
 
@@ -97,7 +97,7 @@ class Error {
     return true;
   }
 
-  const std::string &getMessage() const
+  const std::string& getMessage() const
   {
     return this->message;
   }
@@ -117,7 +117,7 @@ class Error {
     return (0 < this->detailCode) ? true : false;
   }
 
-  const std::string &getDetailMessage() const
+  const std::string& getDetailMessage() const
   {
     return this->detailMessage;
   }
@@ -147,7 +147,7 @@ class Error {
   void setErrorNo(int errorno);
 
   friend std::ostream& operator<<(std::ostream&, const Error&);
-  
+
   private:
   void initialize();
 
@@ -161,7 +161,6 @@ class Error {
   std::string fileName;
   std::string funcName;
 };
-
 
 std::ostream& operator<<(std::ostream&, const Error&);
 
