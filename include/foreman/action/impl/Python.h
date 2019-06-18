@@ -12,7 +12,6 @@
 #define _FOREMANCC_ACTION_PYTHON_H_
 
 #include <foreman/Platform.h>
-#include <foreman/action/Engine.h>
 
 #if defined(FOREMAN_SUPPORT_PYTHON)
 
@@ -25,6 +24,8 @@
 #else
 #include <Python.h>
 #endif
+
+#include <foreman/action/Engine.h>
 
 namespace Foreman {
 namespace Action {
