@@ -89,7 +89,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto echo = new Foreman::Action::PythonMethod();
   BOOST_CHECK(echo->setName(FOREMANCC_TEST_SCRIPT_ECHO_METHOD));
   BOOST_CHECK(echo->setCode(PY_ECHO_CODE));
-  BOOST_CHECK(mgr.addMethod(echo, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(echo, &err), err);
 
   // set_registry
 
@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto setreg = new Foreman::Action::PythonMethod();
   BOOST_CHECK(setreg->setName(FOREMANCC_TEST_SCRIPT_SET_REGISTER_METHOD));
   BOOST_CHECK(setreg->setCode(PY_SET_REGISTRY_CODE));
-  BOOST_CHECK(mgr.addMethod(setreg, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(setreg, &err), err);
 
   // get_registry
 
@@ -116,7 +116,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto getreg = new Foreman::Action::PythonMethod();
   BOOST_CHECK(getreg->setName(FOREMANCC_TEST_SCRIPT_GET_REGISTER_METHOD));
   BOOST_CHECK(getreg->setCode(PY_GET_REGISTRY_CODE));
-  BOOST_CHECK(mgr.addMethod(getreg, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(getreg, &err), err);
 
   // remove_registry
 
@@ -130,7 +130,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto rmreg = new Foreman::Action::PythonMethod();
   BOOST_CHECK(rmreg->setName(FOREMANCC_TEST_SCRIPT_REMOVE_REGISTER_METHOD));
   BOOST_CHECK(rmreg->setCode(PY_REMOVE_REGISTRY_CODE));
-  BOOST_CHECK(mgr.addMethod(rmreg, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(rmreg, &err), err);
 
   // execute_query
 
@@ -146,7 +146,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto exQuery = new Foreman::Action::PythonMethod();
   BOOST_CHECK(exQuery->setName(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD));
   BOOST_CHECK(exQuery->setCode(PY_EXECUTE_QUERY_CODE));
-  BOOST_CHECK(mgr.addMethod(exQuery, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(exQuery, &err), err);
 
   // post_query
 
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto postQuery = new Foreman::Action::PythonMethod();
   BOOST_CHECK(postQuery->setName(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD));
   BOOST_CHECK(postQuery->setCode(PY_POST_QUERY_CODE));
-  BOOST_CHECK(mgr.addMethod(postQuery, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(postQuery, &err), err);
 
   // log
   static const char* PY_LOG_CODE = "import " FOREMANCC_PRODUCT_NAME "\n"
@@ -177,7 +177,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   auto foremanLogger = new Foreman::Action::PythonMethod();
   BOOST_CHECK(foremanLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_METHOD));
   BOOST_CHECK(foremanLogger->setCode(PY_LOG_CODE));
-  BOOST_CHECK(mgr.addMethod(foremanLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanLogger, &err), err);
 
   // log_*
   static auto PY_LOG_CODE_TEMPLATE = "import " FOREMANCC_PRODUCT_NAME "\n"
@@ -190,42 +190,42 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
   BOOST_CHECK(testLogFatal);
   BOOST_CHECK(foremanFatalLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD));
   BOOST_CHECK(foremanFatalLogger->setCode(testLogFatal));
-  BOOST_CHECK(mgr.addMethod(foremanFatalLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanFatalLogger, &err), err);
 
   auto foremanErrorLogger = new Foreman::Action::PythonMethod();
   auto testLogError = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_ERROR)).str().c_str();
   BOOST_CHECK(testLogError);
   BOOST_CHECK(foremanErrorLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_ERROR_METHOD));
   BOOST_CHECK(foremanErrorLogger->setCode(testLogError));
-  BOOST_CHECK(mgr.addMethod(foremanErrorLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanErrorLogger, &err), err);
 
   auto foremanWarnLogger = new Foreman::Action::PythonMethod();
   auto testLogWarn = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_WARN)).str().c_str();
   BOOST_CHECK(testLogWarn);
   BOOST_CHECK(foremanWarnLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_WARN_METHOD));
   BOOST_CHECK(foremanWarnLogger->setCode(testLogWarn));
-  BOOST_CHECK(mgr.addMethod(foremanWarnLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanWarnLogger, &err), err);
 
   auto foremanInfoLogger = new Foreman::Action::PythonMethod();
   auto testLogInfo = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_INFO)).str().c_str();
   BOOST_CHECK(testLogInfo);
   BOOST_CHECK(foremanInfoLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_INFO_METHOD));
   BOOST_CHECK(foremanInfoLogger->setCode(testLogInfo));
-  BOOST_CHECK(mgr.addMethod(foremanInfoLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanInfoLogger, &err), err);
 
   auto foremanDebugLogger = new Foreman::Action::PythonMethod();
   auto testLogDebug = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_DEBUG)).str().c_str();
   BOOST_CHECK(testLogDebug);
   BOOST_CHECK(foremanDebugLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_DEBUG_METHOD));
   BOOST_CHECK(foremanDebugLogger->setCode(testLogDebug));
-  BOOST_CHECK(mgr.addMethod(foremanDebugLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanDebugLogger, &err), err);
 
   auto foremanTraceLogger = new Foreman::Action::PythonMethod();
   auto testLogTrace = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_TRACE)).str().c_str();
   BOOST_CHECK(testLogTrace);
   BOOST_CHECK(foremanTraceLogger->setName(FOREMANCC_TEST_SCRIPT_LOG_TRACE_METHOD));
   BOOST_CHECK(foremanTraceLogger->setCode(testLogTrace));
-  BOOST_CHECK(mgr.addMethod(foremanTraceLogger, &err));
+  BOOST_CHECK_MESSAGE(mgr.addMethod(foremanTraceLogger, &err), err);
 
  // run all tests
 

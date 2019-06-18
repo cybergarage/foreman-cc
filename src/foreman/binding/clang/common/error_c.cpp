@@ -170,7 +170,7 @@ bool foreman_error_getmessage(ForemanError* e, const char** msg)
 {
   if (!e || !msg)
     return false;
-  *msg = ((Foreman::Error*)(e))->getMessage();
+  *msg = ((Foreman::Error*)(e))->getMessage().c_str();
   return true;
 }
 
@@ -194,7 +194,7 @@ bool foreman_error_getdetailmessage(ForemanError* e, const char** msg)
 {
   if (!e || !msg)
     return false;
-  *msg = ((Foreman::Error*)(e))->getDetailMessage();
+  *msg = ((Foreman::Error*)(e))->getDetailMessage().c_str();
   return true;
 }
 
