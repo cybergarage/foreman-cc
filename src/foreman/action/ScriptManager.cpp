@@ -188,11 +188,13 @@ bool ScriptManager::execMethod(const std::string& name, const Parameters* params
     return false;
   }
 
-  lock();
+  // NOTE : Disable to be able to execute query function in method
+  // lock();
 
   bool execResult = scriptEngine->run(method, params, results, err);
 
-  unlock();
+  // NOTE : Disable to be able to execute query function in method
+  //unlock();
 
   return execResult;
 }
