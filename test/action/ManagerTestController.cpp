@@ -194,11 +194,11 @@ bool ManagerTestController::testQuery(Manager* mgr)
 
     // Execute Query
 
-    BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err));
+    BOOST_CHECK_MESSAGE(mgr->execMethod(FOREMANCC_TEST_SCRIPT_EXECUTE_QUERY_METHOD, &params, &results, &err), err);
 
     // Post Query
 
-    BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err));
+    BOOST_CHECK_MESSAGE(mgr->execMethod(FOREMANCC_TEST_SCRIPT_POST_QUERY_METHOD, &params, &results, &err), err);
   }
 
   return true;
@@ -216,7 +216,7 @@ bool ManagerTestController::testLog(Manager* mgr)
 
   params.clear();
   results.clear();
-  BOOST_CHECK(mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err));
+  BOOST_CHECK_MESSAGE(mgr->execMethod(FOREMANCC_TEST_SCRIPT_LOG_METHOD, &params, &results, &err), err);
 
   auto outputters = results.getParameter("outputters");
   if (outputters) {
@@ -252,7 +252,7 @@ bool ManagerTestController::testLogX(Manager* mgr)
 
     params.clear();
     results.clear();
-    BOOST_CHECK(mgr->execMethod(*itr, &params, &results, &err));
+    BOOST_CHECK_MESSAGE(mgr->execMethod(*itr, &params, &results, &err), err);
     auto outputters = results.getParameter("outputters");
     if (outputters) {
       BOOST_CHECK(outputters->isInteger());
