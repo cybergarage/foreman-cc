@@ -79,10 +79,10 @@ std::ostream& Foreman::operator<<(std::ostream &os, const Error &err)
   if (0 < err.getCode())
     os << "[" << err.getCode() << "] ";
   if (0 < err.getMessage().length())
-    os << "[" << err.getMessage() << " ";
+    os << err.getMessage() << " ";
   if (0 < err.getDetailCode())
     os << "[" << err.getDetailCode() << "] ";
   if (0 < err.getDetailMessage().length())
-    os << "[" << err.getDetailMessage() << " ";
+    os << err.getDetailMessage() << " ";
   return os;
 }
