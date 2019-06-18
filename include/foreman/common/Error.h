@@ -161,6 +161,10 @@ class Error {
   std::string fileName;
   std::string funcName;
 };
+
+
+std::ostream& operator<<(std::ostream&, const Error&);
+
 }
 
 #endif
