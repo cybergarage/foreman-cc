@@ -161,12 +161,12 @@ if [ test $FOREMAN_SUPPORT_PYTHON = yes ]; then
   AC_CHECK_PROG(FOUND_PYTHON_CONFIG, python-config, yes, no)
   if [ test $FOUND_PYTHON_CONFIG = yes ]; then
     CFLAGS+="`python-config --includes`"
-    LIBS+="`python-config --libs`"
+    LIBS+="`python-config --ldflags`"
   else
     AC_CHECK_PROG(FOUND_PYTHON3_CONFIG, python3-config, yes, no)
     if [ test $FOUND_PYTHON3_CONFIG = yes ]; then
       CFLAGS+="`python3-config --includes`"
-      LIBS+="`python3-config --libs`"
+      LIBS+="`python3-config --ldflags --embed`"
 	else
       AC_MSG_ERROR(FOREMAN for C needs Python $PYTHON_VERSION later)
     fi

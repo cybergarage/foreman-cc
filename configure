@@ -5876,7 +5876,7 @@ fi
 
   if  test $FOUND_PYTHON_CONFIG = yes ; then
     CFLAGS+="`python-config --includes`"
-    LIBS+="`python-config --libs`"
+    LIBS+="`python-config --ldflags`"
   else
     # Extract the first word of "python3-config", so it can be a program name with args.
 set dummy python3-config; ac_word=$2
@@ -5923,7 +5923,7 @@ fi
 
     if  test $FOUND_PYTHON3_CONFIG = yes ; then
       CFLAGS+="`python3-config --includes`"
-      LIBS+="`python3-config --libs`"
+      LIBS+="`python3-config --ldflags --embed`"
 	else
       as_fn_error $? "FOREMAN for C needs Python $PYTHON_VERSION later" "$LINENO" 5
     fi
