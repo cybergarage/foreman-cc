@@ -18,7 +18,10 @@ sudo apt-get -y install \
     zlib1g-dev \
     binutils-dev \
     libjemalloc-dev \
-    libssl-dev
+    libssl-dev \
+    libpython3-all-dev
+
+sudo apt autoremove -y
 
 # For Python3 with valgrind
 export PYTHONMALLOC=malloc_debug
