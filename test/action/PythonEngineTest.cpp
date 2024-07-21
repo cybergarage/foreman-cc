@@ -186,7 +186,7 @@ BOOST_AUTO_TEST_CASE(PythonEngine)
                                      "def %s(params, results):\n"
                                      "  log_message = \"" FOREMANCC_TEST_SCRIPT_LOG_MESSAGE "\"\n"
                                      "  results[\"outputters\"] = " FOREMANCC_PRODUCT_NAME ".%s(log_message)\n"
-                                     "  return True\n";
+                                     "  return True";
 
   auto foremanFatalLogger = new Foreman::Action::PythonMethod();
   auto testLogFatal = (boost::format(PY_LOG_CODE_TEMPLATE) % std::string(FOREMANCC_TEST_SCRIPT_LOG_FATAL_METHOD) % std::string(FOREMANCC_SYSTEM_FUNCTION_LOG_FATAL)).str().c_str();
