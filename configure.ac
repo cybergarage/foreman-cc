@@ -11,7 +11,7 @@
 AC_CONFIG_AUX_DIR(config)
 AM_CONFIG_HEADER(config.h)
 
-AC_INIT([Foreman], [0.1])
+AC_INIT([Foreman],[0.1])
 AC_CONFIG_SRCDIR([include/foreman/Platform.h])
 AM_INIT_AUTOMAKE([subdir-objects])
 
@@ -76,7 +76,7 @@ AC_CHECK_LIB([curl],[main],,[AC_MSG_ERROR(Foreman needs libcur $CURL_VERSION  la
 
 AC_ARG_ENABLE(
   [alglib],
-  AC_HELP_STRING([--enable-alglib], [ enable ALGLIB (default = no) ]),
+  AS_HELP_STRING([--enable-alglib],[ enable ALGLIB (default = no) ]),
   [case "${enableval}" in
     yes | no ) enable_alglib="${enableval}" ;;
   esac],
@@ -89,7 +89,8 @@ if [ test "$enable_alglib" = yes ]; then
   AC_LANG_PUSH([C++])
   AC_CHECK_HEADERS([libalglib/statistics.h alglib/statistics.h], break)
   AC_LANG_POP([C++])
-  AC_HAVE_LIBRARY([alglib],,[AC_MSG_ERROR([Please install ALGLIB $ALGLIB_VERSION later])])
+  AC_CHECK_LIB([alglib],[main],[],[AC_MSG_ERROR([Please install ALGLIB $ALGLIB_VERSION later])],[])ac_cv_lib_alglib=ac_cv_lib_alglib_main
+
 fi
 
 ##################################################################
@@ -98,7 +99,7 @@ fi
 
 AC_ARG_ENABLE(
  	[beringei],
-	AC_HELP_STRING([--enable-beringei], [ enable beringei (default = no) ]),
+	AS_HELP_STRING([--enable-beringei],[ enable beringei (default = no) ]),
 	[case "${enableval}" in
     	yes | no ) enable_beringei="${enableval}" ;;
 	esac],
@@ -108,10 +109,14 @@ AC_ARG_ENABLE(
 AM_CONDITIONAL(FOREMAN_ENABLE_BERINGEI,test "$enable_beringei" = yes)
 if [ test "$enable_beringei" = yes ]; then
 	AC_DEFINE([FOREMAN_ENABLE_BERINGEI],1,[--enable-beringei])
-	AC_HAVE_LIBRARY([folly],,[AC_MSG_ERROR([Please install facebook-folly library])])
-	AC_HAVE_LIBRARY([gflags],,[AC_MSG_ERROR([Please install google-gflags library])])
-	AC_HAVE_LIBRARY([glog],,[AC_MSG_ERROR([Please install google-glog library])])
-	AC_HAVE_LIBRARY([jemalloc],,[AC_MSG_ERROR([Please install jemalloc library])])
+	AC_CHECK_LIB([folly],[main],[],[AC_MSG_ERROR([Please install facebook-folly library])],[])ac_cv_lib_folly=ac_cv_lib_folly_main
+
+	AC_CHECK_LIB([gflags],[main],[],[AC_MSG_ERROR([Please install google-gflags library])],[])ac_cv_lib_gflags=ac_cv_lib_gflags_main
+
+	AC_CHECK_LIB([glog],[main],[],[AC_MSG_ERROR([Please install google-glog library])],[])ac_cv_lib_glog=ac_cv_lib_glog_main
+
+	AC_CHECK_LIB([jemalloc],[main],[],[AC_MSG_ERROR([Please install jemalloc library])],[])ac_cv_lib_jemalloc=ac_cv_lib_jemalloc_main
+
 fi
 
 ##################################################################
@@ -120,7 +125,7 @@ fi
 
 AC_ARG_ENABLE(
  	[graphite],
-	AC_HELP_STRING([--enable-graphite], [ enable graphite (default = no) ]),
+	AS_HELP_STRING([--enable-graphite],[ enable graphite (default = no) ]),
 	[case "${enableval}" in
     	yes | no ) enable_graphite="${enableval}" ;;
 	esac],
@@ -213,7 +218,7 @@ fi
 
 AC_ARG_ENABLE(
  	[benchmark],
-	AC_HELP_STRING([--enable-benchmark], [ build benchmark (default = no) ]),
+	AS_HELP_STRING([--enable-benchmark],[ build benchmark (default = no) ]),
 	[case "${enableval}" in
     	yes | no ) build_benchmark="${enableval}" ;;
 	esac],
@@ -232,7 +237,7 @@ fi
 
 AC_ARG_ENABLE(
  	[debug],
-	AC_HELP_STRING([--enable-debug], [enable debugging (default = no)]),
+	AS_HELP_STRING([--enable-debug],[enable debugging (default = no)]),
 	[case "${enableval}" in
     	yes | no ) enable_debug ="${enableval}" ;;
 	esac],
@@ -249,7 +254,7 @@ fi
 
 AC_ARG_ENABLE(
  	[test],
-	AC_HELP_STRING([--enable-test], [ build tests (default = no) ]),
+	AS_HELP_STRING([--enable-test],[ build tests (default = no) ]),
 	[case "${enableval}" in
     	yes | no ) build_test="${enableval}" ;;
 	esac],
@@ -275,7 +280,7 @@ fi
 # Makefiles
 ##################################################################
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 include/Makefile
 lib/Makefile
@@ -288,4 +293,5 @@ bin/foremanusage/unix/Makefile
 test/Makefile
 test/unix/Makefile
 ])
+AC_OUTPUT
 
