@@ -1,23 +1,29 @@
 #!/bin/bash
-export CFLAGS="$CFLAGS -I/usr/local/include"
-export LDFLAGS="$LDFLAGS -L/usr/local/lib"
+CFLAGS="$CFLAGS -I/usr/local/include"
+LDFLAGS="$LDFLAGS -L/usr/local/lib"
 
 # Python
-if [ `which python-config` ]; then
-    export CFLAGS="$CFLAGS `python-config --includes`"
-    export LDFLAGS="$LDFLAGS `python-config --ldflags`"
+if [ `which python3-config` ]; then
+    CFLAGS="$CFLAGS `python3-config --includes`"
+    LDFLAGS="$LDFLAGS `python3-config --ldflags`"
 else
-    if [ `which python3-config` ]; then
-        export CFLAGS="$CFLAGS `python3-config --includes`"
-        export LDFLAGS="$LDFLAGS `python3-config --ldflags`"
+    if [ `which python-config` ]; then
+        CFLAGS="$CFLAGS `python-config --includes`"
+        LDFLAGS="$LDFLAGS `python-config --ldflags --embed`"
     fi
 fi
 
-# LUA
-#export CFLAGS="$CFLAGS `pkg-config --cflags lua`"
-#export LDFLAGS="$LDFLAGS `pkg-config --libs lua`"
+# Libuuid
+if [ `which uuid-config` ]; then
+    CFLAGS="$CFLAGS `uuid-config --cflags`"
+    LDFLAGS="$LDFLAGS `uuid-config --libs`"
+fi
 
-export CXXFLAGS="$CFLAGS $CXXFLAGS -O0 -std=c++14"
+# LUA
+#CFLAGS="$CFLAGS `pkg-config --cflags lua`"
+#LDFLAGS="$LDFLAGS `pkg-config --libs lua`"
+
+CXXFLAGS="$CFLAGS $CXXFLAGS -O0 -std=c++14"
 
 #./configure --enable-beringei --enable-script-lua --enable-script-python --enable-alglib MKDIR_P='mkdir -p' $@
 ./configure --enable-alglib --enable-script-python MKDIR_P='mkdir -p' $@
