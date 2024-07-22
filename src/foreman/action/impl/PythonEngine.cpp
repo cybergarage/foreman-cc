@@ -91,13 +91,14 @@ void Foreman::Action::PythonEngine::finalize()
   instanceCount_--;
 
   if (instanceCount_ <= 0) {
+#if PY_MAJOR_VERSION < 3
     // See :
     // Python/C API Reference Manual » Initializing and finalizing the interpreter
     // https://docs.python.org/2.7/c-api/init.html
     // Some extensions may not work properly if their initialization routine is called
     // more than once; this can happen if an application calls Py_Initialize() and Py_Finalize() more than once.
-
     Py_Finalize();
+#endif
   }
 }
 
