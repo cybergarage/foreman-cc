@@ -11,7 +11,7 @@
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_HEADERS(config.h)
 
-AC_INIT([Foreman],[0.1])
+AC_INIT([Foreman],[1.0.0])
 AC_CONFIG_SRCDIR([include/foreman/Platform.h])
 AM_INIT_AUTOMAKE([subdir-objects])
 
