@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Python
 if [ `which python3-config` ]; then
     export CFLAGS="$CFLAGS `python3-config --includes`"
     export LDFLAGS="$LDFLAGS `python3-config --ldflags`"
@@ -8,5 +10,12 @@ else
         export LDFLAGS="$LDFLAGS `python-config --ldflags --embed`"
     fi
 fi
+
+# Libuuid
+if [ `which uuid-config` ]; then
+    export CFLAGS="$CFLAGS `uuid-config --cflags`"
+    export LDFLAGS="$LDFLAGS `uuid-config --libs`"
+fi
+
 export CXXFLAGS="$CFLAGS $CXXFLAGS -Wall -O0 -g3"
 ./configure --enable-script-python --enable-alglib --enable-test "$@"
