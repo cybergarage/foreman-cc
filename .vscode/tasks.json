@@ -14,6 +14,20 @@
                 "isDefault": true
             },
             "problemMatcher": []
+        },
+        {
+            "label": "install",
+            "type": "shell",
+            "command": "sudo",
+            "args": [ 
+                "make",
+                "install"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
     ]
 }
