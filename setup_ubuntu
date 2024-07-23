@@ -20,6 +20,7 @@ sudo apt-get -y install \
     binutils-dev \
     libjemalloc-dev \
     libssl-dev \
+    libossp-uuid-dev \
     libpython3-all-dev
 
 sudo apt autoremove -y
