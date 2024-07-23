@@ -1,5 +1,8 @@
 #!/bin/bash
 
+CFLAGS="$CFLAGS -I/usr/local/include"
+LDFLAGS="$LDFLAGS -L/usr/local/lib"
+
 # Python
 if [ `which python3-config` ]; then
     export CFLAGS="$CFLAGS `python3-config --includes`"
