@@ -30,67 +30,67 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
-/* Define to 1 if you have the 'alglib' library (-lalglib). */
+/* Define to 1 if you have the `alglib' library (-lalglib). */
 #undef HAVE_LIBALGLIB
 
 /* Define to 1 if you have the <libalglib/statistics.h> header file. */
 #undef HAVE_LIBALGLIB_STATISTICS_H
 
-/* Define to 1 if you have the 'benchmark' library (-lbenchmark). */
+/* Define to 1 if you have the `benchmark' library (-lbenchmark). */
 #undef HAVE_LIBBENCHMARK
 
-/* Define to 1 if you have the 'boost_filesystem' library
+/* Define to 1 if you have the `boost_filesystem' library
    (-lboost_filesystem). */
 #undef HAVE_LIBBOOST_FILESYSTEM
 
-/* Define to 1 if you have the 'boost_filesystem-mt' library
+/* Define to 1 if you have the `boost_filesystem-mt' library
    (-lboost_filesystem-mt). */
 #undef HAVE_LIBBOOST_FILESYSTEM_MT
 
-/* Define to 1 if you have the 'boost_system' library (-lboost_system). */
+/* Define to 1 if you have the `boost_system' library (-lboost_system). */
 #undef HAVE_LIBBOOST_SYSTEM
 
-/* Define to 1 if you have the 'boost_system-mt' library (-lboost_system-mt).
+/* Define to 1 if you have the `boost_system-mt' library (-lboost_system-mt).
    */
 #undef HAVE_LIBBOOST_SYSTEM_MT
 
-/* Define to 1 if you have the 'boost_thread' library (-lboost_thread). */
+/* Define to 1 if you have the `boost_thread' library (-lboost_thread). */
 #undef HAVE_LIBBOOST_THREAD
 
-/* Define to 1 if you have the 'boost_thread-mt' library (-lboost_thread-mt).
+/* Define to 1 if you have the `boost_thread-mt' library (-lboost_thread-mt).
    */
 #undef HAVE_LIBBOOST_THREAD_MT
 
-/* Define to 1 if you have the 'boost_unit_test_framework' library
+/* Define to 1 if you have the `boost_unit_test_framework' library
    (-lboost_unit_test_framework). */
 #undef HAVE_LIBBOOST_UNIT_TEST_FRAMEWORK
 
-/* Define to 1 if you have the 'boost_unit_test_framework-mt' library
+/* Define to 1 if you have the `boost_unit_test_framework-mt' library
    (-lboost_unit_test_framework-mt). */
 #undef HAVE_LIBBOOST_UNIT_TEST_FRAMEWORK_MT
 
-/* Define to 1 if you have the 'curl' library (-lcurl). */
+/* Define to 1 if you have the `curl' library (-lcurl). */
 #undef HAVE_LIBCURL
 
-/* Define to 1 if you have the 'folly' library (-lfolly). */
+/* Define to 1 if you have the `folly' library (-lfolly). */
 #undef HAVE_LIBFOLLY
 
-/* Define to 1 if you have the 'gflags' library (-lgflags). */
+/* Define to 1 if you have the `gflags' library (-lgflags). */
 #undef HAVE_LIBGFLAGS
 
-/* Define to 1 if you have the 'glog' library (-lglog). */
+/* Define to 1 if you have the `glog' library (-lglog). */
 #undef HAVE_LIBGLOG
 
-/* Define to 1 if you have the 'jemalloc' library (-ljemalloc). */
+/* Define to 1 if you have the `jemalloc' library (-ljemalloc). */
 #undef HAVE_LIBJEMALLOC
 
-/* Define to 1 if you have the 'pthread' library (-lpthread). */
+/* Define to 1 if you have the `pthread' library (-lpthread). */
 #undef HAVE_LIBPTHREAD
 
-/* Define to 1 if you have the 'sqlite3' library (-lsqlite3). */
+/* Define to 1 if you have the `sqlite3' library (-lsqlite3). */
 #undef HAVE_LIBSQLITE3
 
-/* Define to 1 if you have the 'uuid' library (-luuid). */
+/* Define to 1 if you have the `uuid' library (-luuid). */
 #undef HAVE_LIBUUID
 
 /* Define to 1 if you have the <lua.h> header file. */
@@ -156,7 +156,7 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
-/* Define to 1 if all of the C89 standard headers exist (not just the ones
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for
    backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
