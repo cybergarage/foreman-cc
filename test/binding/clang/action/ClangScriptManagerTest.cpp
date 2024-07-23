@@ -68,11 +68,11 @@ BOOST_AUTO_TEST_CASE(ScriptManagerPythonActions)
   for (size_t n = 0; n < TEST_METHOD_NAMES.size(); n++) {
       auto inParams = foreman_action_parameters_new();
 #if defined(FOREMAN_SUPPORT_PYTHON)
-    for (auto n = 0; n < 1; n++) {
+    for (auto loop = 0; loop < 10; loop++) {
       auto err = foreman_error_new();
       auto outParams = foreman_action_parameters_new();
       BOOST_CHECK(foreman_action_manager_execmethod(mgr, TEST_METHOD_NAMES[n].c_str(), inParams, outParams, err));
-      foreman_error_delete(err);
+      BOOST_CHECK(foreman_error_delete(err));
       BOOST_CHECK(foreman_action_parameters_delete(outParams));
     }
 #endif
