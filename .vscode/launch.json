@@ -26,7 +26,8 @@
             },
             "osx": {
                 "MIMode": "lldb"
-            }             
+            },
+            "preLaunchTask": "make"
         }
     ]
 }
