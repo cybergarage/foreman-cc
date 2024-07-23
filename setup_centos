@@ -11,4 +11,5 @@ sudo yum install -y \
     glog-devel \
     gflags-devel \
     libevent-devel \
-    openssl-devel
+    openssl-devel \
+    uuid-devel
