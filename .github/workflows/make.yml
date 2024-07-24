@@ -28,5 +28,5 @@ jobs:
     - name: valgrind
       run: |
         pushd test/unix/
-        valgrind ./foremantest
+        valgrind ./foremantest || more foremantest-valgrind.log
         popd
