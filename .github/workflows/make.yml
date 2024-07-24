@@ -17,7 +17,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt-get install -y g++ automake libboost-all-dev make pkg-config
-        sudo apt-get install -y libsqlite3-dev libcurl3-dev libalglib-dev libossp-uuid-dev libpython3-all-dev
+        sudo apt-get install -y libsqlite3-dev libcurl3-dev libalglib-dev uuid-dev libpython3-all-dev
         sudo apt-get install -y valgrind
     - name: configure
       run: ./configure_ubuntu
