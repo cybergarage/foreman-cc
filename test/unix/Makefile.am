@@ -14,49 +14,49 @@ noinst_PROGRAMS = foremantest
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 
 foremantest_SOURCES = \
-	../log/LoggerTestController.cpp \
-	../log/LoggerTest.cpp \
-	../binding/clang/log/ClangLoggerTest.cpp \
-	../binding/clang/common/ClangErrorTest.cpp \
-	../binding/clang/action/ClangParameterTest.cpp \
-	../binding/clang/action/ClangMethodTest.cpp \
-	../binding/clang/action/ClangScriptManagerTest.cpp \
-	../binding/clang/registry/ClangQueryTest.cpp \
-	../binding/clang/registry/ClangPropertyTest.cpp \
-	../binding/clang/registry/ClangObjectTest.cpp \
-	../binding/clang/registry/ClangStoreTest.cpp \
-	../binding/clang/register/ClangObjectTest.cpp \
-	../binding/clang/register/ClangStoreTest.cpp \
-	../binding/clang/metric/ClangQueryTest.cpp \
-	../binding/clang/metric/ClangMetricStoreTest.cpp \
-	../binding/clang/metric/ClangResultSetTest.cpp \
-	../binding/clang/metric/ClangMetricsTest.cpp \
-	../common/ErrorTest.cpp \
+	../register/StoreTest.cpp \
+	../register/ObjectTest.cpp \
+	../register/StoreTestController.cpp \
 	../action/MethodTest.cpp \
-	../action/SystemEngineTest.cpp \
-	../action/UnknownEngineTest.cpp \
-	../action/LuaEngineTest.cpp \
-	../action/ParameterTest.cpp \
 	../action/ManagerTestController.cpp \
+	../action/ParameterTest.cpp \
+	../action/UnknownEngineTest.cpp \
+	../action/SystemEngineTest.cpp \
 	../action/PythonEngineTest.cpp \
+	../action/LuaEngineTest.cpp \
 	../registry/PropertyTest.cpp \
+	../registry/StoreTest.cpp \
+	../registry/ObjectTest.cpp \
 	../registry/QueryTest.cpp \
 	../registry/StoreTestController.cpp \
-	../registry/ObjectTest.cpp \
-	../registry/StoreTest.cpp \
 	../ClientTest.cpp \
+	../log/LoggerTest.cpp \
+	../log/LoggerTestController.cpp \
+	../binding/clang/register/ClangStoreTest.cpp \
+	../binding/clang/register/ClangObjectTest.cpp \
+	../binding/clang/action/ClangMethodTest.cpp \
+	../binding/clang/action/ClangParameterTest.cpp \
+	../binding/clang/action/ClangScriptManagerTest.cpp \
+	../binding/clang/registry/ClangPropertyTest.cpp \
+	../binding/clang/registry/ClangStoreTest.cpp \
+	../binding/clang/registry/ClangObjectTest.cpp \
+	../binding/clang/registry/ClangQueryTest.cpp \
+	../binding/clang/log/ClangLoggerTest.cpp \
+	../binding/clang/metric/ClangMetricsTest.cpp \
+	../binding/clang/metric/ClangMetricStoreTest.cpp \
+	../binding/clang/metric/ClangResultSetTest.cpp \
+	../binding/clang/metric/ClangQueryTest.cpp \
+	../binding/clang/common/ClangErrorTest.cpp \
+	../metric/DataPointTest.cpp \
+	../metric/MetricsTest.cpp \
+	../metric/TimeSeriesTest.cpp \
+	../metric/StoreTest.cpp \
+	../metric/MetricTest.cpp \
+	../metric/QueryTest.cpp \
+	../metric/StoreTestController.cpp \
 	../util/UUIDTest.cpp \
 	../util/MutexTest.cpp \
 	../ForemanTest.cpp \
-	../register/StoreTestController.cpp \
-	../register/ObjectTest.cpp \
-	../register/StoreTest.cpp \
-	../metric/DataPointTest.cpp \
-	../metric/QueryTest.cpp \
-	../metric/TimeSeriesTest.cpp \
-	../metric/MetricsTest.cpp \
-	../metric/MetricTest.cpp \
-	../metric/StoreTestController.cpp \
-	../metric/StoreTest.cpp
+	../common/ErrorTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a

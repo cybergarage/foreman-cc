@@ -110,8 +110,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremanbench_OBJECTS = ../foremanbench.$(OBJEXT) \
-	../BenchmarkController.$(OBJEXT)
+am_foremanbench_OBJECTS = ../BenchmarkController.$(OBJEXT) \
+	../foremanbench.$(OBJEXT)
 foremanbench_OBJECTS = $(am_foremanbench_OBJECTS)
 foremanbench_DEPENDENCIES = ../../../lib/unix/libforeman++.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -268,8 +268,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src -I../
 foremanbench_SOURCES = \
-	../foremanbench.cpp \
-	../BenchmarkController.cpp
+	../BenchmarkController.cpp \
+	../foremanbench.cpp
 
 foremanbench_LDADD = ../../../lib/unix/libforeman++.a
 all: all-am
@@ -353,9 +353,9 @@ clean-binPROGRAMS:
 ../$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../$(DEPDIR)
 	@: > ../$(DEPDIR)/$(am__dirstamp)
-../foremanbench.$(OBJEXT): ../$(am__dirstamp) \
-	../$(DEPDIR)/$(am__dirstamp)
 ../BenchmarkController.$(OBJEXT): ../$(am__dirstamp) \
+	../$(DEPDIR)/$(am__dirstamp)
+../foremanbench.$(OBJEXT): ../$(am__dirstamp) \
 	../$(DEPDIR)/$(am__dirstamp)
 
 foremanbench$(EXEEXT): $(foremanbench_OBJECTS) $(foremanbench_DEPENDENCIES) $(EXTRA_foremanbench_DEPENDENCIES) 

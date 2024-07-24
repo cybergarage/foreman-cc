@@ -110,46 +110,46 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_foremantest_OBJECTS = ../log/LoggerTestController.$(OBJEXT) \
-	../log/LoggerTest.$(OBJEXT) \
-	../binding/clang/log/ClangLoggerTest.$(OBJEXT) \
-	../binding/clang/common/ClangErrorTest.$(OBJEXT) \
-	../binding/clang/action/ClangParameterTest.$(OBJEXT) \
-	../binding/clang/action/ClangMethodTest.$(OBJEXT) \
-	../binding/clang/action/ClangScriptManagerTest.$(OBJEXT) \
-	../binding/clang/registry/ClangQueryTest.$(OBJEXT) \
-	../binding/clang/registry/ClangPropertyTest.$(OBJEXT) \
-	../binding/clang/registry/ClangObjectTest.$(OBJEXT) \
-	../binding/clang/registry/ClangStoreTest.$(OBJEXT) \
-	../binding/clang/register/ClangObjectTest.$(OBJEXT) \
-	../binding/clang/register/ClangStoreTest.$(OBJEXT) \
-	../binding/clang/metric/ClangQueryTest.$(OBJEXT) \
-	../binding/clang/metric/ClangMetricStoreTest.$(OBJEXT) \
-	../binding/clang/metric/ClangResultSetTest.$(OBJEXT) \
-	../binding/clang/metric/ClangMetricsTest.$(OBJEXT) \
-	../common/ErrorTest.$(OBJEXT) ../action/MethodTest.$(OBJEXT) \
-	../action/SystemEngineTest.$(OBJEXT) \
-	../action/UnknownEngineTest.$(OBJEXT) \
-	../action/LuaEngineTest.$(OBJEXT) \
-	../action/ParameterTest.$(OBJEXT) \
+am_foremantest_OBJECTS = ../register/StoreTest.$(OBJEXT) \
+	../register/ObjectTest.$(OBJEXT) \
+	../register/StoreTestController.$(OBJEXT) \
+	../action/MethodTest.$(OBJEXT) \
 	../action/ManagerTestController.$(OBJEXT) \
+	../action/ParameterTest.$(OBJEXT) \
+	../action/UnknownEngineTest.$(OBJEXT) \
+	../action/SystemEngineTest.$(OBJEXT) \
 	../action/PythonEngineTest.$(OBJEXT) \
+	../action/LuaEngineTest.$(OBJEXT) \
 	../registry/PropertyTest.$(OBJEXT) \
+	../registry/StoreTest.$(OBJEXT) \
+	../registry/ObjectTest.$(OBJEXT) \
 	../registry/QueryTest.$(OBJEXT) \
 	../registry/StoreTestController.$(OBJEXT) \
-	../registry/ObjectTest.$(OBJEXT) \
-	../registry/StoreTest.$(OBJEXT) ../ClientTest.$(OBJEXT) \
-	../util/UUIDTest.$(OBJEXT) ../util/MutexTest.$(OBJEXT) \
-	../ForemanTest.$(OBJEXT) \
-	../register/StoreTestController.$(OBJEXT) \
-	../register/ObjectTest.$(OBJEXT) \
-	../register/StoreTest.$(OBJEXT) \
+	../ClientTest.$(OBJEXT) ../log/LoggerTest.$(OBJEXT) \
+	../log/LoggerTestController.$(OBJEXT) \
+	../binding/clang/register/ClangStoreTest.$(OBJEXT) \
+	../binding/clang/register/ClangObjectTest.$(OBJEXT) \
+	../binding/clang/action/ClangMethodTest.$(OBJEXT) \
+	../binding/clang/action/ClangParameterTest.$(OBJEXT) \
+	../binding/clang/action/ClangScriptManagerTest.$(OBJEXT) \
+	../binding/clang/registry/ClangPropertyTest.$(OBJEXT) \
+	../binding/clang/registry/ClangStoreTest.$(OBJEXT) \
+	../binding/clang/registry/ClangObjectTest.$(OBJEXT) \
+	../binding/clang/registry/ClangQueryTest.$(OBJEXT) \
+	../binding/clang/log/ClangLoggerTest.$(OBJEXT) \
+	../binding/clang/metric/ClangMetricsTest.$(OBJEXT) \
+	../binding/clang/metric/ClangMetricStoreTest.$(OBJEXT) \
+	../binding/clang/metric/ClangResultSetTest.$(OBJEXT) \
+	../binding/clang/metric/ClangQueryTest.$(OBJEXT) \
+	../binding/clang/common/ClangErrorTest.$(OBJEXT) \
 	../metric/DataPointTest.$(OBJEXT) \
-	../metric/QueryTest.$(OBJEXT) \
+	../metric/MetricsTest.$(OBJEXT) \
 	../metric/TimeSeriesTest.$(OBJEXT) \
-	../metric/MetricsTest.$(OBJEXT) ../metric/MetricTest.$(OBJEXT) \
+	../metric/StoreTest.$(OBJEXT) ../metric/MetricTest.$(OBJEXT) \
+	../metric/QueryTest.$(OBJEXT) \
 	../metric/StoreTestController.$(OBJEXT) \
-	../metric/StoreTest.$(OBJEXT)
+	../util/UUIDTest.$(OBJEXT) ../util/MutexTest.$(OBJEXT) \
+	../ForemanTest.$(OBJEXT) ../common/ErrorTest.$(OBJEXT)
 foremantest_OBJECTS = $(am_foremantest_OBJECTS)
 foremantest_DEPENDENCIES = ../../lib/unix/libforeman++.a
 AM_V_P = $(am__v_P_@AM_V@)
@@ -553,50 +553,50 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include -I../
 foremantest_SOURCES = \
-	../log/LoggerTestController.cpp \
-	../log/LoggerTest.cpp \
-	../binding/clang/log/ClangLoggerTest.cpp \
-	../binding/clang/common/ClangErrorTest.cpp \
-	../binding/clang/action/ClangParameterTest.cpp \
-	../binding/clang/action/ClangMethodTest.cpp \
-	../binding/clang/action/ClangScriptManagerTest.cpp \
-	../binding/clang/registry/ClangQueryTest.cpp \
-	../binding/clang/registry/ClangPropertyTest.cpp \
-	../binding/clang/registry/ClangObjectTest.cpp \
-	../binding/clang/registry/ClangStoreTest.cpp \
-	../binding/clang/register/ClangObjectTest.cpp \
-	../binding/clang/register/ClangStoreTest.cpp \
-	../binding/clang/metric/ClangQueryTest.cpp \
-	../binding/clang/metric/ClangMetricStoreTest.cpp \
-	../binding/clang/metric/ClangResultSetTest.cpp \
-	../binding/clang/metric/ClangMetricsTest.cpp \
-	../common/ErrorTest.cpp \
+	../register/StoreTest.cpp \
+	../register/ObjectTest.cpp \
+	../register/StoreTestController.cpp \
 	../action/MethodTest.cpp \
-	../action/SystemEngineTest.cpp \
-	../action/UnknownEngineTest.cpp \
-	../action/LuaEngineTest.cpp \
-	../action/ParameterTest.cpp \
 	../action/ManagerTestController.cpp \
+	../action/ParameterTest.cpp \
+	../action/UnknownEngineTest.cpp \
+	../action/SystemEngineTest.cpp \
 	../action/PythonEngineTest.cpp \
+	../action/LuaEngineTest.cpp \
 	../registry/PropertyTest.cpp \
+	../registry/StoreTest.cpp \
+	../registry/ObjectTest.cpp \
 	../registry/QueryTest.cpp \
 	../registry/StoreTestController.cpp \
-	../registry/ObjectTest.cpp \
-	../registry/StoreTest.cpp \
 	../ClientTest.cpp \
+	../log/LoggerTest.cpp \
+	../log/LoggerTestController.cpp \
+	../binding/clang/register/ClangStoreTest.cpp \
+	../binding/clang/register/ClangObjectTest.cpp \
+	../binding/clang/action/ClangMethodTest.cpp \
+	../binding/clang/action/ClangParameterTest.cpp \
+	../binding/clang/action/ClangScriptManagerTest.cpp \
+	../binding/clang/registry/ClangPropertyTest.cpp \
+	../binding/clang/registry/ClangStoreTest.cpp \
+	../binding/clang/registry/ClangObjectTest.cpp \
+	../binding/clang/registry/ClangQueryTest.cpp \
+	../binding/clang/log/ClangLoggerTest.cpp \
+	../binding/clang/metric/ClangMetricsTest.cpp \
+	../binding/clang/metric/ClangMetricStoreTest.cpp \
+	../binding/clang/metric/ClangResultSetTest.cpp \
+	../binding/clang/metric/ClangQueryTest.cpp \
+	../binding/clang/common/ClangErrorTest.cpp \
+	../metric/DataPointTest.cpp \
+	../metric/MetricsTest.cpp \
+	../metric/TimeSeriesTest.cpp \
+	../metric/StoreTest.cpp \
+	../metric/MetricTest.cpp \
+	../metric/QueryTest.cpp \
+	../metric/StoreTestController.cpp \
 	../util/UUIDTest.cpp \
 	../util/MutexTest.cpp \
 	../ForemanTest.cpp \
-	../register/StoreTestController.cpp \
-	../register/ObjectTest.cpp \
-	../register/StoreTest.cpp \
-	../metric/DataPointTest.cpp \
-	../metric/QueryTest.cpp \
-	../metric/TimeSeriesTest.cpp \
-	../metric/MetricsTest.cpp \
-	../metric/MetricTest.cpp \
-	../metric/StoreTestController.cpp \
-	../metric/StoreTest.cpp
+	../common/ErrorTest.cpp
 
 foremantest_LDADD = ../../lib/unix/libforeman++.a
 all: all-am
@@ -635,44 +635,96 @@ $(am__aclocal_m4_deps):
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+../register/$(am__dirstamp):
+	@$(MKDIR_P) ../register
+	@: > ../register/$(am__dirstamp)
+../register/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../register/$(DEPDIR)
+	@: > ../register/$(DEPDIR)/$(am__dirstamp)
+../register/StoreTest.$(OBJEXT): ../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+../register/ObjectTest.$(OBJEXT): ../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+../register/StoreTestController.$(OBJEXT):  \
+	../register/$(am__dirstamp) \
+	../register/$(DEPDIR)/$(am__dirstamp)
+../action/$(am__dirstamp):
+	@$(MKDIR_P) ../action
+	@: > ../action/$(am__dirstamp)
+../action/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../action/$(DEPDIR)
+	@: > ../action/$(DEPDIR)/$(am__dirstamp)
+../action/MethodTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/ManagerTestController.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/UnknownEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/SystemEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/PythonEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
+	../action/$(DEPDIR)/$(am__dirstamp)
+../registry/$(am__dirstamp):
+	@$(MKDIR_P) ../registry
+	@: > ../registry/$(am__dirstamp)
+../registry/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../registry/$(DEPDIR)
+	@: > ../registry/$(DEPDIR)/$(am__dirstamp)
+../registry/PropertyTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+../registry/StoreTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+../registry/ObjectTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+../registry/QueryTest.$(OBJEXT): ../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+../registry/StoreTestController.$(OBJEXT):  \
+	../registry/$(am__dirstamp) \
+	../registry/$(DEPDIR)/$(am__dirstamp)
+../$(am__dirstamp):
+	@$(MKDIR_P) ..
+	@: > ../$(am__dirstamp)
+../$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../$(DEPDIR)
+	@: > ../$(DEPDIR)/$(am__dirstamp)
+../ClientTest.$(OBJEXT): ../$(am__dirstamp) \
+	../$(DEPDIR)/$(am__dirstamp)
 ../log/$(am__dirstamp):
 	@$(MKDIR_P) ../log
 	@: > ../log/$(am__dirstamp)
 ../log/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../log/$(DEPDIR)
 	@: > ../log/$(DEPDIR)/$(am__dirstamp)
-../log/LoggerTestController.$(OBJEXT): ../log/$(am__dirstamp) \
-	../log/$(DEPDIR)/$(am__dirstamp)
 ../log/LoggerTest.$(OBJEXT): ../log/$(am__dirstamp) \
 	../log/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/log/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/log
-	@: > ../binding/clang/log/$(am__dirstamp)
-../binding/clang/log/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/log/$(DEPDIR)
-	@: > ../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/log/ClangLoggerTest.$(OBJEXT):  \
-	../binding/clang/log/$(am__dirstamp) \
-	../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/common/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/common
-	@: > ../binding/clang/common/$(am__dirstamp)
-../binding/clang/common/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/common/$(DEPDIR)
-	@: > ../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/common/ClangErrorTest.$(OBJEXT):  \
-	../binding/clang/common/$(am__dirstamp) \
-	../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+../log/LoggerTestController.$(OBJEXT): ../log/$(am__dirstamp) \
+	../log/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/register/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/register
+	@: > ../binding/clang/register/$(am__dirstamp)
+../binding/clang/register/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/register/$(DEPDIR)
+	@: > ../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/register/ClangStoreTest.$(OBJEXT):  \
+	../binding/clang/register/$(am__dirstamp) \
+	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/register/ClangObjectTest.$(OBJEXT):  \
+	../binding/clang/register/$(am__dirstamp) \
+	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/action/$(am__dirstamp):
 	@$(MKDIR_P) ../binding/clang/action
 	@: > ../binding/clang/action/$(am__dirstamp)
 ../binding/clang/action/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../binding/clang/action/$(DEPDIR)
 	@: > ../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/action/ClangParameterTest.$(OBJEXT):  \
+../binding/clang/action/ClangMethodTest.$(OBJEXT):  \
 	../binding/clang/action/$(am__dirstamp) \
 	../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/action/ClangMethodTest.$(OBJEXT):  \
+../binding/clang/action/ClangParameterTest.$(OBJEXT):  \
 	../binding/clang/action/$(am__dirstamp) \
 	../binding/clang/action/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/action/ClangScriptManagerTest.$(OBJEXT):  \
@@ -684,37 +736,34 @@ clean-noinstPROGRAMS:
 ../binding/clang/registry/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../binding/clang/registry/$(DEPDIR)
 	@: > ../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/registry/ClangQueryTest.$(OBJEXT):  \
-	../binding/clang/registry/$(am__dirstamp) \
-	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/registry/ClangPropertyTest.$(OBJEXT):  \
-	../binding/clang/registry/$(am__dirstamp) \
-	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/registry/ClangObjectTest.$(OBJEXT):  \
 	../binding/clang/registry/$(am__dirstamp) \
 	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/registry/ClangStoreTest.$(OBJEXT):  \
 	../binding/clang/registry/$(am__dirstamp) \
 	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/register/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/register
-	@: > ../binding/clang/register/$(am__dirstamp)
-../binding/clang/register/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../binding/clang/register/$(DEPDIR)
-	@: > ../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/register/ClangObjectTest.$(OBJEXT):  \
-	../binding/clang/register/$(am__dirstamp) \
-	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/register/ClangStoreTest.$(OBJEXT):  \
-	../binding/clang/register/$(am__dirstamp) \
-	../binding/clang/register/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/registry/ClangObjectTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/registry/ClangQueryTest.$(OBJEXT):  \
+	../binding/clang/registry/$(am__dirstamp) \
+	../binding/clang/registry/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/log/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/log
+	@: > ../binding/clang/log/$(am__dirstamp)
+../binding/clang/log/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/log/$(DEPDIR)
+	@: > ../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/log/ClangLoggerTest.$(OBJEXT):  \
+	../binding/clang/log/$(am__dirstamp) \
+	../binding/clang/log/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/metric/$(am__dirstamp):
 	@$(MKDIR_P) ../binding/clang/metric
 	@: > ../binding/clang/metric/$(am__dirstamp)
 ../binding/clang/metric/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../binding/clang/metric/$(DEPDIR)
 	@: > ../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/metric/ClangQueryTest.$(OBJEXT):  \
+../binding/clang/metric/ClangMetricsTest.$(OBJEXT):  \
 	../binding/clang/metric/$(am__dirstamp) \
 	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
 ../binding/clang/metric/ClangMetricStoreTest.$(OBJEXT):  \
@@ -723,62 +772,38 @@ clean-noinstPROGRAMS:
 ../binding/clang/metric/ClangResultSetTest.$(OBJEXT):  \
 	../binding/clang/metric/$(am__dirstamp) \
 	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
-../binding/clang/metric/ClangMetricsTest.$(OBJEXT):  \
+../binding/clang/metric/ClangQueryTest.$(OBJEXT):  \
 	../binding/clang/metric/$(am__dirstamp) \
 	../binding/clang/metric/$(DEPDIR)/$(am__dirstamp)
-../common/$(am__dirstamp):
-	@$(MKDIR_P) ../common
-	@: > ../common/$(am__dirstamp)
-../common/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../common/$(DEPDIR)
-	@: > ../common/$(DEPDIR)/$(am__dirstamp)
-../common/ErrorTest.$(OBJEXT): ../common/$(am__dirstamp) \
-	../common/$(DEPDIR)/$(am__dirstamp)
-../action/$(am__dirstamp):
-	@$(MKDIR_P) ../action
-	@: > ../action/$(am__dirstamp)
-../action/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../action/$(DEPDIR)
-	@: > ../action/$(DEPDIR)/$(am__dirstamp)
-../action/MethodTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/SystemEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/UnknownEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/LuaEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/ParameterTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/ManagerTestController.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../action/PythonEngineTest.$(OBJEXT): ../action/$(am__dirstamp) \
-	../action/$(DEPDIR)/$(am__dirstamp)
-../registry/$(am__dirstamp):
-	@$(MKDIR_P) ../registry
-	@: > ../registry/$(am__dirstamp)
-../registry/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../registry/$(DEPDIR)
-	@: > ../registry/$(DEPDIR)/$(am__dirstamp)
-../registry/PropertyTest.$(OBJEXT): ../registry/$(am__dirstamp) \
-	../registry/$(DEPDIR)/$(am__dirstamp)
-../registry/QueryTest.$(OBJEXT): ../registry/$(am__dirstamp) \
-	../registry/$(DEPDIR)/$(am__dirstamp)
-../registry/StoreTestController.$(OBJEXT):  \
-	../registry/$(am__dirstamp) \
-	../registry/$(DEPDIR)/$(am__dirstamp)
-../registry/ObjectTest.$(OBJEXT): ../registry/$(am__dirstamp) \
-	../registry/$(DEPDIR)/$(am__dirstamp)
-../registry/StoreTest.$(OBJEXT): ../registry/$(am__dirstamp) \
-	../registry/$(DEPDIR)/$(am__dirstamp)
-../$(am__dirstamp):
-	@$(MKDIR_P) ..
-	@: > ../$(am__dirstamp)
-../$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../$(DEPDIR)
-	@: > ../$(DEPDIR)/$(am__dirstamp)
-../ClientTest.$(OBJEXT): ../$(am__dirstamp) \
-	../$(DEPDIR)/$(am__dirstamp)
+../binding/clang/common/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/common
+	@: > ../binding/clang/common/$(am__dirstamp)
+../binding/clang/common/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../binding/clang/common/$(DEPDIR)
+	@: > ../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+../binding/clang/common/ClangErrorTest.$(OBJEXT):  \
+	../binding/clang/common/$(am__dirstamp) \
+	../binding/clang/common/$(DEPDIR)/$(am__dirstamp)
+../metric/$(am__dirstamp):
+	@$(MKDIR_P) ../metric
+	@: > ../metric/$(am__dirstamp)
+../metric/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../metric/$(DEPDIR)
+	@: > ../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/DataPointTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/MetricsTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/TimeSeriesTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/StoreTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/MetricTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/QueryTest.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
+../metric/StoreTestController.$(OBJEXT): ../metric/$(am__dirstamp) \
+	../metric/$(DEPDIR)/$(am__dirstamp)
 ../util/$(am__dirstamp):
 	@$(MKDIR_P) ../util
 	@: > ../util/$(am__dirstamp)
@@ -791,39 +816,14 @@ clean-noinstPROGRAMS:
 	../util/$(DEPDIR)/$(am__dirstamp)
 ../ForemanTest.$(OBJEXT): ../$(am__dirstamp) \
 	../$(DEPDIR)/$(am__dirstamp)
-../register/$(am__dirstamp):
-	@$(MKDIR_P) ../register
-	@: > ../register/$(am__dirstamp)
-../register/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../register/$(DEPDIR)
-	@: > ../register/$(DEPDIR)/$(am__dirstamp)
-../register/StoreTestController.$(OBJEXT):  \
-	../register/$(am__dirstamp) \
-	../register/$(DEPDIR)/$(am__dirstamp)
-../register/ObjectTest.$(OBJEXT): ../register/$(am__dirstamp) \
-	../register/$(DEPDIR)/$(am__dirstamp)
-../register/StoreTest.$(OBJEXT): ../register/$(am__dirstamp) \
-	../register/$(DEPDIR)/$(am__dirstamp)
-../metric/$(am__dirstamp):
-	@$(MKDIR_P) ../metric
-	@: > ../metric/$(am__dirstamp)
-../metric/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) ../metric/$(DEPDIR)
-	@: > ../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/DataPointTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/QueryTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/TimeSeriesTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/MetricsTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/MetricTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/StoreTestController.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
-../metric/StoreTest.$(OBJEXT): ../metric/$(am__dirstamp) \
-	../metric/$(DEPDIR)/$(am__dirstamp)
+../common/$(am__dirstamp):
+	@$(MKDIR_P) ../common
+	@: > ../common/$(am__dirstamp)
+../common/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../common/$(DEPDIR)
+	@: > ../common/$(DEPDIR)/$(am__dirstamp)
+../common/ErrorTest.$(OBJEXT): ../common/$(am__dirstamp) \
+	../common/$(DEPDIR)/$(am__dirstamp)
 
 foremantest$(EXEEXT): $(foremantest_OBJECTS) $(foremantest_DEPENDENCIES) $(EXTRA_foremantest_DEPENDENCIES) 
 	@rm -f foremantest$(EXEEXT)
