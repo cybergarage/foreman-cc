@@ -95,7 +95,7 @@ const char* foreman_register_store_getversion(ForemanRegisterStore* store)
 
 bool foreman_register_store_setobject(ForemanRegisterStore* store, ForemanRegisterObject* obj, ForemanError* err)
 {
-  if (!store)
+  if (!store || !obj)
     return false;
   return ((Foreman::Register::Store*)(store))->setObject((Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
 }
@@ -106,7 +106,7 @@ bool foreman_register_store_setobject(ForemanRegisterStore* store, ForemanRegist
 
 bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* key, ForemanRegisterObject* obj, ForemanError* err)
 {
-  if (!store)
+  if (!store || !key || !obj)
     return false;
   return ((Foreman::Register::Store*)(store))->getObject(key, (Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
 }
@@ -117,7 +117,7 @@ bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* k
 
 bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char* key, ForemanError* err)
 {
-  if (!store)
+  if (!store || !key)
     return false;
   return ((Foreman::Register::Store*)(store))->removeObject(key, (Foreman::Error*)(err));
 }
