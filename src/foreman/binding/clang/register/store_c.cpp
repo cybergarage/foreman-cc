@@ -108,7 +108,8 @@ bool foreman_register_store_getobject(ForemanRegisterStore* store, const char* k
 {
   if (!store || !key || !obj)
     return false;
-  return ((Foreman::Register::Store*)(store))->getObject(key, (Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
+  std::string keyStr = key;
+  return ((Foreman::Register::Store*)(store))->getObject(keyStr, (Foreman::Register::Object*)(obj), (Foreman::Error*)(err));
 }
 
 ////////////////////////////////////////////////
@@ -119,7 +120,8 @@ bool foreman_register_store_removeobject(ForemanRegisterStore* store, const char
 {
   if (!store || !key)
     return false;
-  return ((Foreman::Register::Store*)(store))->removeObject(key, (Foreman::Error*)(err));
+  std::string keyStr = key;
+  return ((Foreman::Register::Store*)(store))->removeObject(keyStr, (Foreman::Error*)(err));
 }
 
 ////////////////////////////////////////////////
