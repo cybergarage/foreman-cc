@@ -5,21 +5,21 @@ sudo apt-get install -y libsqlite3-dev libcurl3-dev uuid-dev libalglib-dev libos
 sudo apt-get install -y valgrind
 
 # For facebook-folly
-sudo apt-get -y install \
-    cmake \
-    antlr4 \
-    libevent-dev \
-    libdouble-conversion-dev \
-    libgoogle-glog-dev \
-    libgflags-dev \
-    libiberty-dev \
-    liblz4-dev \
-    liblzma-dev \
-    libsnappy-dev \
-    zlib1g-dev \
-    binutils-dev \
-    libjemalloc-dev \
-    libssl-dev
+# sudo apt-get -y install \
+#     cmake \
+#     antlr4 \
+#     libevent-dev \
+#     libdouble-conversion-dev \
+#     libgoogle-glog-dev \
+#     libgflags-dev \
+#     libiberty-dev \
+#     liblz4-dev \
+#     liblzma-dev \
+#     libsnappy-dev \
+#     zlib1g-dev \
+#     binutils-dev \
+#     libjemalloc-dev \
+#     libssl-dev
 
 sudo apt autoremove -y
 
