@@ -94,7 +94,9 @@ void Foreman::Action::PythonEngine::finalize()
 #if PY_MAJOR_VERSION >= 3
     // Python/C API Reference Manual » Initialization, Finalization, and Threads
     // https://docs.python.org/3/c-api/init.html
-    // Py_FinalizeEx();
+# if PY_MINOR_VERSION >= 12 // For Ubuntu 24.04
+    Py_FinalizeEx();
+#endif
 #else
     // Python/C API Reference Manual » Initializing and finalizing the interpreter
     // https://docs.python.org/2.7/c-api/init.html
